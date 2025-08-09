@@ -1,0 +1,2 @@
+Plan visual assets for lessons. Never generate regulatory sign artwork.
+Use official SVGs for signs and, if needed, generate scene BACKGROUNDS only. Output JSON list of scenes.

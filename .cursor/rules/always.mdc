@@ -1,0 +1,6 @@
+# Always
+- Keep diffs focused and reversible.
+- Before pushing: run `bash ops/checks/smoke.sh` and ensure it exits 0.
+- Update or add tests when changing logic.
+- Never commit secrets or .env files.
+- Use small, frequent PRs (1–2 hours of work) with meaningful titles.

@@ -1,0 +1,5 @@
+# Safety
+- Treat this repo as public: no PII, keys, or secrets.
+- Changes to auth, payments, or certificate issuance must include a rollback plan.
+- Migrations must be additive; avoid destructive DDL unless reviewed.
+- Respect RLS. Do not bypass RLS from the client; use service role only in Edge Functions/n8n.

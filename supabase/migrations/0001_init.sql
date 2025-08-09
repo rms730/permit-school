@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS public.courses (
     title text NOT NULL,
     price_cents int NOT NULL DEFAULT 999,
     hours_required_minutes int, -- e.g., CA equivalency 30*50=1500
-    active boolean DEFAULT true,
+    active boolean DEFAULT TRUE,
     UNIQUE (jurisdiction_id, code)
 );
 
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS public.question_bank (
     answer text NOT NULL,
     explanation text NOT NULL,
     source_sections text[] NOT NULL,
-    is_generated boolean DEFAULT false,
+    is_generated boolean DEFAULT FALSE,
     created_at timestamptz DEFAULT now()
 );
 ALTER TABLE public.question_bank ENABLE ROW LEVEL SECURITY;
@@ -156,7 +156,7 @@ END $plpgsql$;
 CREATE TABLE IF NOT EXISTS public.certificate_serials (
     jurisdiction_id int NOT NULL REFERENCES public.jurisdictions(id) ON DELETE CASCADE,
     serial text NOT NULL,
-    used boolean DEFAULT false,
+    used boolean DEFAULT FALSE,
     assigned_to uuid REFERENCES auth.users(id),
     assigned_at timestamptz,
     PRIMARY KEY (jurisdiction_id, serial)
@@ -361,7 +361,7 @@ DO $plpgsql$ BEGIN
     CREATE POLICY "qb_public_read"
         ON public.question_bank
         FOR SELECT
-        USING (true);
+        USING (TRUE);
 EXCEPTION
     WHEN duplicate_object THEN NULL;
 END $plpgsql$;
@@ -380,7 +380,7 @@ DO $plpgsql$ BEGIN
     CREATE POLICY "chunks_public_read"
         ON public.content_chunks
         FOR SELECT
-        USING (true);
+        USING (TRUE);
 EXCEPTION
     WHEN duplicate_object THEN NULL;
 END $plpgsql$;

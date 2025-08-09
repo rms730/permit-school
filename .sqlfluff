@@ -1,7 +1,9 @@
-[core]
+[sqlfluff]
 dialect = postgres
-# Global ignores: formatting flexibility and allow hyphen in extension name.
-ignore = L003,L016,L031,L034,RF05
+# Silence rules that are noisy for this project.
+exclude_rules = RF05,LT01,LT02,LT12
+# Global max line length
+max_line_length = 120
 
-[rules.LT05]
+[sqlfluff:rules:LT05]
 max_line_length = 120

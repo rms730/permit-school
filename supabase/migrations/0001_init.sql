@@ -1,247 +1,399 @@
 -- 0001_init.sql
 -- Schema bootstrap for multi-state driver-ed platform (CA first, TX next)
 
-create extension if not exists "uuid-ossp";
-create extension if not exists "pgcrypto";
-create extension if not exists "vector"; -- pgvector for embeddings
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+CREATE EXTENSION IF NOT EXISTS vector;
 
 -- Profiles (auth.users is managed by Supabase Auth)
-create table if not exists public.profiles (
-  id uuid primary key references auth.users(id) on delete cascade,
-  role text not null check (role in ('student','guardian','admin')),
-  full_name text,
-  locale text default 'en',
-  created_at timestamptz default now()
+CREATE TABLE IF NOT EXISTS public.profiles (
+    id uuid PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+    role text NOT NULL CHECK (role IN ('student', 'guardian', 'admin')),
+    full_name text,
+    locale text DEFAULT 'en',
+    created_at timestamptz DEFAULT now()
 );
-alter table public.profiles enable row level security;
+ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 
 -- Jurisdictions (e.g., CA, TX)
-create table if not exists public.jurisdictions (
-  id serial primary key,
-  code text unique not null check (char_length(code)=2), -- 'CA', 'TX'
-  name text not null,
-  certificate_type text,        -- e.g., 'DL-400C' (CA), others for TX
-  metadata jsonb default '{}'::jsonb
+CREATE TABLE IF NOT EXISTS public.jurisdictions (
+    id serial PRIMARY KEY,
+    code text UNIQUE NOT NULL CHECK (char_length(code) = 2), -- 'CA', 'TX'
+    name text NOT NULL,
+    certificate_type text,        -- e.g., 'DL-400C' (CA), others for TX
+    metadata jsonb DEFAULT '{}'::jsonb
 );
 
-insert into public.jurisdictions (code, name, certificate_type)
-  values ('CA','California','DL-400C')
-on conflict (code) do nothing;
+INSERT INTO public.jurisdictions (code, name, certificate_type)
+VALUES ('CA', 'California', 'DL-400C')
+ON CONFLICT (code) DO NOTHING;
 
-insert into public.jurisdictions (code, name, certificate_type)
-  values ('TX','Texas',null)
-on conflict (code) do nothing;
+INSERT INTO public.jurisdictions (code, name, certificate_type)
+VALUES ('TX', 'Texas', NULL)
+ON CONFLICT (code) DO NOTHING;
 
 -- Courses (per jurisdiction)
-create table if not exists public.courses (
-  id uuid primary key default gen_random_uuid(),
-  jurisdiction_id int not null references public.jurisdictions(id) on delete restrict,
-  code text not null,         -- e.g., 'DE-ONLINE'
-  title text not null,
-  price_cents int not null default 999,
-  hours_required_minutes int, -- e.g., CA equivalency 30*50=1500
-  active boolean default true,
-  unique (jurisdiction_id, code)
+CREATE TABLE IF NOT EXISTS public.courses (
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    jurisdiction_id int NOT NULL REFERENCES public.jurisdictions(id) ON DELETE RESTRICT,
+    code text NOT NULL,         -- e.g., 'DE-ONLINE'
+    title text NOT NULL,
+    price_cents int NOT NULL DEFAULT 999,
+    hours_required_minutes int, -- e.g., CA equivalency 30*50=1500
+    active boolean DEFAULT true,
+    UNIQUE (jurisdiction_id, code)
 );
 
 -- Link default course for CA
-insert into public.courses (jurisdiction_id, code, title, price_cents, hours_required_minutes)
-select j.id, 'DE-ONLINE', 'Online Driver Education', 999, 1500
-from public.jurisdictions j where j.code='CA'
-on conflict do nothing;
+INSERT INTO public.courses (jurisdiction_id, code, title, price_cents, hours_required_minutes)
+SELECT j.id, 'DE-ONLINE', 'Online Driver Education', 999, 1500
+FROM public.jurisdictions AS j
+WHERE j.code = 'CA'
+ON CONFLICT DO NOTHING;
 
 -- Guardian links (many-to-many)
-create table if not exists public.guardian_links (
-  guardian_id uuid not null references auth.users(id) on delete cascade,
-  student_id uuid not null references auth.users(id) on delete cascade,
-  created_at timestamptz default now(),
-  primary key (guardian_id, student_id)
+CREATE TABLE IF NOT EXISTS public.guardian_links (
+    guardian_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    student_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    created_at timestamptz DEFAULT now(),
+    PRIMARY KEY (guardian_id, student_id)
 );
-alter table public.guardian_links enable row level security;
+ALTER TABLE public.guardian_links ENABLE ROW LEVEL SECURITY;
 
 -- Unit progress + seat time
-create table if not exists public.unit_progress (
-  student_id uuid not null references auth.users(id) on delete cascade,
-  course_id uuid not null references public.courses(id) on delete restrict,
-  unit_id int not null,
-  started_at timestamptz,
-  completed_at timestamptz,
-  time_ms bigint default 0 check (time_ms >= 0),
-  mastery numeric default 0 check (mastery between 0 and 1),
-  primary key (student_id, course_id, unit_id)
+CREATE TABLE IF NOT EXISTS public.unit_progress (
+    student_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE RESTRICT,
+    unit_id int NOT NULL,
+    started_at timestamptz,
+    completed_at timestamptz,
+    time_ms bigint DEFAULT 0 CHECK (time_ms >= 0),
+    mastery numeric DEFAULT 0 CHECK (mastery BETWEEN 0 AND 1),
+    PRIMARY KEY (student_id, course_id, unit_id)
 );
-alter table public.unit_progress enable row level security;
+ALTER TABLE public.unit_progress ENABLE ROW LEVEL SECURITY;
 
 -- Attempts (quiz/mock/final) + items
-do $$ begin
-  create type attempt_mode as enum ('quiz','mock','final');
-exception when duplicate_object then null; end $$;
+DO $plpgsql$ BEGIN
+    CREATE TYPE attempt_mode AS ENUM ('quiz', 'mock', 'final');
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
 
-create table if not exists public.attempts (
-  id uuid primary key default gen_random_uuid(),
-  student_id uuid not null references auth.users(id) on delete cascade,
-  course_id uuid not null references public.courses(id) on delete restrict,
-  mode attempt_mode not null,
-  score numeric,
-  started_at timestamptz default now(),
-  completed_at timestamptz
+CREATE TABLE IF NOT EXISTS public.attempts (
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    student_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE RESTRICT,
+    mode attempt_mode NOT NULL,
+    score numeric,
+    started_at timestamptz DEFAULT now(),
+    completed_at timestamptz
 );
-alter table public.attempts enable row level security;
+ALTER TABLE public.attempts ENABLE ROW LEVEL SECURITY;
 
-create table if not exists public.attempt_items (
-  attempt_id uuid not null references public.attempts(id) on delete cascade,
-  item_no smallint not null,
-  skill text not null,
-  stem text not null,
-  choices jsonb not null,              -- {A:...,B:...,C:...,D:...}
-  answer text not null,                -- "A".."D"
-  explanation text,
-  correct boolean,
-  source_sections text[] default '{}',
-  primary key (attempt_id, item_no)
+CREATE TABLE IF NOT EXISTS public.attempt_items (
+    attempt_id uuid NOT NULL REFERENCES public.attempts(id) ON DELETE CASCADE,
+    item_no smallint NOT NULL,
+    skill text NOT NULL,
+    stem text NOT NULL,
+    choices jsonb NOT NULL,              -- {A:...,B:...,C:...,D:...}
+    answer text NOT NULL,                -- "A".."D"
+    explanation text,
+    correct boolean,
+    source_sections text[] DEFAULT '{}'::text[],
+    PRIMARY KEY (attempt_id, item_no)
 );
-alter table public.attempt_items enable row level security;
+ALTER TABLE public.attempt_items ENABLE ROW LEVEL SECURITY;
 
 -- Mastery (EWMA)
-create table if not exists public.skill_mastery (
-  student_id uuid not null references auth.users(id) on delete cascade,
-  course_id uuid not null references public.courses(id) on delete restrict,
-  skill text not null,
-  mastery numeric not null check (mastery between 0 and 1),
-  updated_at timestamptz default now(),
-  primary key (student_id, course_id, skill)
+CREATE TABLE IF NOT EXISTS public.skill_mastery (
+    student_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE RESTRICT,
+    skill text NOT NULL,
+    mastery numeric NOT NULL CHECK (mastery BETWEEN 0 AND 1),
+    updated_at timestamptz DEFAULT now(),
+    PRIMARY KEY (student_id, course_id, skill)
 );
-alter table public.skill_mastery enable row level security;
+ALTER TABLE public.skill_mastery ENABLE ROW LEVEL SECURITY;
 
 -- Question bank
-create table if not exists public.question_bank (
-  id uuid primary key default gen_random_uuid(),
-  course_id uuid not null references public.courses(id) on delete cascade,
-  skill text not null,
-  difficulty smallint not null check (difficulty between 1 and 5),
-  stem text not null,
-  choices jsonb not null,
-  answer text not null,
-  explanation text not null,
-  source_sections text[] not null,
-  is_generated boolean default false,
-  created_at timestamptz default now()
+CREATE TABLE IF NOT EXISTS public.question_bank (
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE CASCADE,
+    skill text NOT NULL,
+    difficulty smallint NOT NULL CHECK (difficulty BETWEEN 1 AND 5),
+    stem text NOT NULL,
+    choices jsonb NOT NULL,
+    answer text NOT NULL,
+    explanation text NOT NULL,
+    source_sections text[] NOT NULL,
+    is_generated boolean DEFAULT false,
+    created_at timestamptz DEFAULT now()
 );
-alter table public.question_bank enable row level security;
+ALTER TABLE public.question_bank ENABLE ROW LEVEL SECURITY;
 
 -- RAG corpus
-create table if not exists public.content_chunks (
-  id bigserial primary key,
-  jurisdiction_id int not null references public.jurisdictions(id) on delete cascade,
-  section_ref text,
-  lang text not null check (lang in ('en','es')),
-  source_url text,
-  chunk text not null,
-  embedding vector(3072)  -- text-embedding-3-large
+CREATE TABLE IF NOT EXISTS public.content_chunks (
+    id bigserial PRIMARY KEY,
+    jurisdiction_id int NOT NULL REFERENCES public.jurisdictions(id) ON DELETE CASCADE,
+    section_ref text,
+    lang text NOT NULL CHECK (lang IN ('en', 'es')),
+    source_url text,
+    chunk text NOT NULL,
+    embedding vector(3072)  -- text-embedding-3-large
 );
-create index if not exists content_chunks_embedding_idx
-  on public.content_chunks using ivfflat (embedding vector_cosine_ops);
+CREATE INDEX IF NOT EXISTS content_chunks_embedding_idx
+    ON public.content_chunks
+    USING ivfflat (embedding vector_cosine_ops);
 
 -- Certificates + serials
-do $$ begin
-  create type cert_status as enum ('ready','queued','mailed','void');
-exception when duplicate_object then null; end $$;
+DO $plpgsql$ BEGIN
+    CREATE TYPE cert_status AS ENUM ('ready', 'queued', 'mailed', 'void');
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
 
-create table if not exists public.certificate_serials (
-  jurisdiction_id int not null references public.jurisdictions(id) on delete cascade,
-  serial text not null,
-  used boolean default false,
-  assigned_to uuid references auth.users(id),
-  assigned_at timestamptz,
-  primary key (jurisdiction_id, serial)
+CREATE TABLE IF NOT EXISTS public.certificate_serials (
+    jurisdiction_id int NOT NULL REFERENCES public.jurisdictions(id) ON DELETE CASCADE,
+    serial text NOT NULL,
+    used boolean DEFAULT false,
+    assigned_to uuid REFERENCES auth.users(id),
+    assigned_at timestamptz,
+    PRIMARY KEY (jurisdiction_id, serial)
 );
-alter table public.certificate_serials enable row level security;
+ALTER TABLE public.certificate_serials ENABLE ROW LEVEL SECURITY;
 
-create table if not exists public.certificates (
-  id uuid primary key default gen_random_uuid(),
-  student_id uuid not null references auth.users(id) on delete cascade,
-  course_id uuid not null references public.courses(id) on delete restrict,
-  jurisdiction_id int not null references public.jurisdictions(id) on delete restrict,
-  dl_serial text references public.certificate_serials(serial),
-  status cert_status not null default 'ready',
-  ship_to jsonb not null,              -- {name,address1,city,state,zip}
-  passed_at timestamptz not null,
-  created_at timestamptz default now()
+CREATE TABLE IF NOT EXISTS public.certificates (
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    student_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE RESTRICT,
+    jurisdiction_id int NOT NULL REFERENCES public.jurisdictions(id) ON DELETE RESTRICT,
+    dl_serial text REFERENCES public.certificate_serials(serial),
+    status cert_status NOT NULL DEFAULT 'ready',
+    ship_to jsonb NOT NULL,              -- {name,address1,city,state,zip}
+    passed_at timestamptz NOT NULL,
+    created_at timestamptz DEFAULT now()
 );
-alter table public.certificates enable row level security;
+ALTER TABLE public.certificates ENABLE ROW LEVEL SECURITY;
 
 -- RLS: profiles
-create policy if not exists "profiles_self_read" on public.profiles
-  for select using (id = auth.uid());
-create policy if not exists "profiles_self_update" on public.profiles
-  for update using (id = auth.uid()) with check (id = auth.uid());
-create policy if not exists "profiles_admin_all" on public.profiles
-  for all using ((auth.jwt()->'app_metadata'->>'role') = 'admin')
-  with check ((auth.jwt()->'app_metadata'->>'role') = 'admin');
+DO $plpgsql$ BEGIN
+    CREATE POLICY "profiles_self_read"
+        ON public.profiles
+        FOR SELECT
+        USING (id = auth.uid());
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
+
+DO $plpgsql$ BEGIN
+    CREATE POLICY "profiles_self_update"
+        ON public.profiles
+        FOR UPDATE
+        USING (id = auth.uid())
+        WITH CHECK (id = auth.uid());
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
+
+DO $plpgsql$ BEGIN
+    CREATE POLICY "profiles_admin_all"
+        ON public.profiles
+        FOR ALL
+        USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin')
+        WITH CHECK ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
 
 -- RLS: guardian links
-create policy if not exists "gl_read" on public.guardian_links
-  for select using (
-    guardian_id = auth.uid()
-    or student_id = auth.uid()
-    or (auth.jwt()->'app_metadata'->>'role') = 'admin'
-  );
-create policy if not exists "gl_write_guardian" on public.guardian_links
-  for insert with check (guardian_id = auth.uid());
+DO $plpgsql$ BEGIN
+    CREATE POLICY "gl_read"
+        ON public.guardian_links
+        FOR SELECT
+        USING (
+            guardian_id = auth.uid()
+            OR student_id = auth.uid()
+            OR (auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
+        );
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
+
+DO $plpgsql$ BEGIN
+    CREATE POLICY "gl_write_guardian"
+        ON public.guardian_links
+        FOR INSERT
+        WITH CHECK (guardian_id = auth.uid());
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
 
 -- RLS: student-owned tables
-create policy if not exists "unit_progress_read" on public.unit_progress
-  for select using (
-    student_id = auth.uid()
-    or exists (select 1 from public.guardian_links gl
-               where gl.guardian_id = auth.uid() and gl.student_id = unit_progress.student_id)
-    or (auth.jwt()->'app_metadata'->>'role') = 'admin'
-  );
-create policy if not exists "unit_progress_write" on public.unit_progress
-  for insert with check (student_id = auth.uid());
-create policy if not exists "unit_progress_update" on public.unit_progress
-  for update using (student_id = auth.uid()) with check (student_id = auth.uid());
+DO $plpgsql$ BEGIN
+    CREATE POLICY "unit_progress_read"
+        ON public.unit_progress
+        FOR SELECT
+        USING (
+            student_id = auth.uid()
+            OR EXISTS (
+                SELECT 1
+                FROM public.guardian_links gl
+                WHERE gl.guardian_id = auth.uid()
+                  AND gl.student_id = unit_progress.student_id
+            )
+            OR (auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
+        );
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
 
-create policy if not exists "attempts_read" on public.attempts
-  for select using (
-    student_id = auth.uid()
-    or exists (select 1 from public.guardian_links gl
-               where gl.guardian_id = auth.uid() and gl.student_id = attempts.student_id)
-    or (auth.jwt()->'app_metadata'->>'role') = 'admin'
-  );
-create policy if not exists "attempts_write" on public.attempts
-  for insert with check (student_id = auth.uid());
+DO $plpgsql$ BEGIN
+    CREATE POLICY "unit_progress_write"
+        ON public.unit_progress
+        FOR INSERT
+        WITH CHECK (student_id = auth.uid());
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
 
-create policy if not exists "attempt_items_read" on public.attempt_items
-  for select using (
-    exists (select 1 from public.attempts a where a.id = attempt_items.attempt_id and
-            (a.student_id = auth.uid()
-             or (auth.jwt()->'app_metadata'->>'role') = 'admin'
-             or exists (select 1 from public.guardian_links gl
-                        where gl.guardian_id = auth.uid() and gl.student_id = a.student_id)))
-  );
+DO $plpgsql$ BEGIN
+    CREATE POLICY "unit_progress_update"
+        ON public.unit_progress
+        FOR UPDATE
+        USING (student_id = auth.uid())
+        WITH CHECK (student_id = auth.uid());
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
 
-create policy if not exists "skill_mastery_read" on public.skill_mastery
-  for select using (
-    student_id = auth.uid()
-    or exists (select 1 from public.guardian_links gl
-               where gl.guardian_id = auth.uid() and gl.student_id = skill_mastery.student_id)
-    or (auth.jwt()->'app_metadata'->>'role') = 'admin'
-  );
-create policy if not exists "skill_mastery_write" on public.skill_mastery
-  for insert with check (student_id = auth.uid());
-create policy if not exists "skill_mastery_update" on public.skill_mastery
-  for update using (student_id = auth.uid()) with check (student_id = auth.uid());
+DO $plpgsql$ BEGIN
+    CREATE POLICY "attempts_read"
+        ON public.attempts
+        FOR SELECT
+        USING (
+            student_id = auth.uid()
+            OR EXISTS (
+                SELECT 1
+                FROM public.guardian_links gl
+                WHERE gl.guardian_id = auth.uid()
+                  AND gl.student_id = attempts.student_id
+            )
+            OR (auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
+        );
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
+
+DO $plpgsql$ BEGIN
+    CREATE POLICY "attempts_write"
+        ON public.attempts
+        FOR INSERT
+        WITH CHECK (student_id = auth.uid());
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
+
+DO $plpgsql$ BEGIN
+    CREATE POLICY "attempt_items_read"
+        ON public.attempt_items
+        FOR SELECT
+        USING (
+            EXISTS (
+                SELECT 1
+                FROM public.attempts a
+                WHERE a.id = attempt_items.attempt_id
+                  AND (
+                    a.student_id = auth.uid()
+                    OR (auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
+                    OR EXISTS (
+                        SELECT 1
+                        FROM public.guardian_links gl
+                        WHERE gl.guardian_id = auth.uid()
+                          AND gl.student_id = a.student_id
+                    )
+                  )
+            )
+        );
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
+
+DO $plpgsql$ BEGIN
+    CREATE POLICY "skill_mastery_read"
+        ON public.skill_mastery
+        FOR SELECT
+        USING (
+            student_id = auth.uid()
+            OR EXISTS (
+                SELECT 1
+                FROM public.guardian_links gl
+                WHERE gl.guardian_id = auth.uid()
+                  AND gl.student_id = skill_mastery.student_id
+            )
+            OR (auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
+        );
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
+
+DO $plpgsql$ BEGIN
+    CREATE POLICY "skill_mastery_write"
+        ON public.skill_mastery
+        FOR INSERT
+        WITH CHECK (student_id = auth.uid());
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
+
+DO $plpgsql$ BEGIN
+    CREATE POLICY "skill_mastery_update"
+        ON public.skill_mastery
+        FOR UPDATE
+        USING (student_id = auth.uid())
+        WITH CHECK (student_id = auth.uid());
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
 
 -- Public read tables (question bank, content)
-create policy if not exists "qb_public_read" on public.question_bank for select using (true);
-create policy if not exists "qb_admin_write" on public.question_bank for all
-  using ((auth.jwt()->'app_metadata'->>'role') = 'admin')
-  with check ((auth.jwt()->'app_metadata'->>'role') = 'admin');
+DO $plpgsql$ BEGIN
+    CREATE POLICY "qb_public_read"
+        ON public.question_bank
+        FOR SELECT
+        USING (true);
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
 
-create policy if not exists "chunks_public_read" on public.content_chunks for select using (true);
+DO $plpgsql$ BEGIN
+    CREATE POLICY "qb_admin_write"
+        ON public.question_bank
+        FOR ALL
+        USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin')
+        WITH CHECK ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
+
+DO $plpgsql$ BEGIN
+    CREATE POLICY "chunks_public_read"
+        ON public.content_chunks
+        FOR SELECT
+        USING (true);
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;
 
 -- Certificates: student/admin read; writes via service role only
-create policy if not exists "cert_student_read" on public.certificates
-  for select using (student_id = auth.uid() or (auth.jwt()->'app_metadata'->>'role') = 'admin');
--- No insert/update/delete policies to force server-side writes
+DO $plpgsql$ BEGIN
+    CREATE POLICY "cert_student_read"
+        ON public.certificates
+        FOR SELECT
+        USING (
+            student_id = auth.uid()
+            OR (auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
+        );
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $plpgsql$;

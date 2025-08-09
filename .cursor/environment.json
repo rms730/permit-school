@@ -1,7 +1,5 @@
 {
   "installCommands": ["echo 'nothing to install yet'"],
   "testCommands": ["bash ops/checks/smoke.sh"],
-  "terminals": [
-    { "name": "dev", "command": "bash -lc 'echo Ready; sleep 1'" }
-  ]
+  "terminals": [{ "name": "dev", "command": "bash -lc 'echo Ready; sleep 1'" }]
 }

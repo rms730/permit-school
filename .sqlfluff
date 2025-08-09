@@ -1,0 +1,5 @@
+[core]
+dialect = postgres
+# We can relax rules later as SQL evolves.
+ignore = L003,L016,L031,L034
+exclude_rules = templating

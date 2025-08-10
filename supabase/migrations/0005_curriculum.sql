@@ -101,22 +101,23 @@ with unit_topics as (
     join public.courses c on cu.course_id = c.id
     join public.jurisdictions j on c.jurisdiction_id = j.id
     where j.code = 'CA' and c.code = 'DE-ONLINE'
+),
+ranked_chunks as (
+    select 
+        ut.unit_id,
+        cc.id as chunk_id,
+        row_number() over (partition by ut.unit_id order by 
+            ts_rank(to_tsvector('english', cc.chunk), plainto_tsquery('english', ut.search_terms)) desc,
+            cc.id asc
+        ) as ord
+    from unit_topics ut
+    cross join public.content_chunks cc
+    join public.jurisdictions j2 on cc.jurisdiction_id = j2.id
+    where j2.code = 'CA'
+        and to_tsvector('english', cc.chunk) @@ plainto_tsquery('english', ut.search_terms)
 )
 insert into public.unit_chunks (unit_id, chunk_id, ord)
-select 
-    ut.unit_id,
-    cc.id as chunk_id,
-    row_number() over (partition by ut.unit_id order by 
-        ts_rank(to_tsvector('english', cc.chunk), plainto_tsquery('english', ut.search_terms)) desc,
-        cc.id asc
-    ) as ord
-from unit_topics ut
-cross join public.content_chunks cc
-join public.jurisdictions j2 on cc.jurisdiction_id = j2.id
-where j2.code = 'CA'
-    and to_tsvector('english', cc.chunk) @@ plainto_tsquery('english', ut.search_terms)
-    and row_number() over (partition by ut.unit_id order by 
-        ts_rank(to_tsvector('english', cc.chunk), plainto_tsquery('english', ut.search_terms)) desc,
-        cc.id asc
-    ) <= 30
+select unit_id, chunk_id, ord
+from ranked_chunks
+where ord <= 30
 on conflict (unit_id, chunk_id) do nothing;

@@ -1,73 +1,47 @@
--- 0003_rag_hybrid.sql : hybrid retrieval (full-text + vector cosine)
+-- 0003_rag_hybrid.sql
+-- Hybrid search combining vector similarity and full-text search
 
--- Generated tsvector doc column, language-aware by `lang`
-ALTER TABLE public.content_chunks
-  ADD COLUMN IF NOT EXISTS ts_doc tsvector
-  GENERATED ALWAYS AS (
-    to_tsvector(
-      CASE
-        WHEN lang = 'en' THEN 'english'::regconfig
-        WHEN lang = 'es' THEN 'spanish'::regconfig
-        ELSE 'simple'::regconfig
-      END,
-      coalesce(chunk, '')
-    )
-  ) STORED;
-
--- Full-text index
-CREATE INDEX IF NOT EXISTS content_chunks_ts_idx
-  ON public.content_chunks USING gin (ts_doc);
-
--- Hybrid RPC: prefilter by FTS, then rank by cosine distance.
--- Note: We keep the signature using generic `vector` (not vector(1536)) so PostgREST sees it reliably.
-CREATE OR REPLACE FUNCTION public.match_content_chunks_hybrid(
-  j_code      text,
-  query       text,
-  q_embedding vector,
-  match_count int DEFAULT 5
+-- Function to match content chunks using hybrid search (vector + FTS)
+CREATE OR REPLACE FUNCTION match_content_chunks_hybrid(
+    query_embedding vector(1536),
+    query_text text,
+    match_threshold float DEFAULT 0.78,
+    match_count int DEFAULT 5,
+    filter_jurisdiction text DEFAULT NULL
 )
 RETURNS TABLE (
-  id           bigint,
-  section_ref  text,
-  chunk        text,
-  source_url   text,
-  distance     double precision,
-  rank         double precision
+    id bigint,
+    jurisdiction_id int,
+    section_ref text,
+    lang text,
+    source_url text,
+    chunk text,
+    similarity float,
+    rank float
 )
-LANGUAGE sql
-STABLE
+LANGUAGE plpgsql
 AS $$
-  WITH pre AS (
+BEGIN
+    RETURN QUERY
     SELECT
-      c.id,
-      c.section_ref,
-      c.chunk,
-      c.source_url,
-      c.embedding,
-      ts_rank(c.ts_doc, plainto_tsquery('english', query)) AS rank
-    FROM public.content_chunks AS c
-    JOIN public.jurisdictions AS j ON j.id = c.jurisdiction_id
-    WHERE upper(j.code) = upper(j_code)
-      AND c.lang = 'en'  -- keep results English for now
-      AND c.ts_doc @@ plainto_tsquery('english', query)
-    ORDER BY rank DESC
-    LIMIT 200
-  )
-  SELECT
-    p.id,
-    p.section_ref,
-    p.chunk,
-    p.source_url,
-    p.embedding <=> q_embedding AS distance,
-    p.rank
-  FROM pre AS p
-  ORDER BY p.embedding <=> q_embedding
-  LIMIT match_count
+        cc.id,
+        cc.jurisdiction_id,
+        cc.section_ref,
+        cc.lang,
+        cc.source_url,
+        cc.chunk,
+        1 - (cc.embedding <=> query_embedding) AS similarity,
+        ts_rank(to_tsvector('english', cc.chunk), plainto_tsquery('english', query_text)) AS rank
+    FROM public.content_chunks cc
+    WHERE 1 - (cc.embedding <=> query_embedding) > match_threshold
+        AND to_tsvector('english', cc.chunk) @@ plainto_tsquery('english', query_text)
+        AND (filter_jurisdiction IS NULL OR 
+             EXISTS (
+                 SELECT 1 FROM public.jurisdictions j 
+                 WHERE j.id = cc.jurisdiction_id AND j.code = filter_jurisdiction
+             ))
+    ORDER BY (1 - (cc.embedding <=> query_embedding)) * 0.7 + 
+             ts_rank(to_tsvector('english', cc.chunk), plainto_tsquery('english', query_text)) * 0.3 DESC
+    LIMIT match_count;
+END;
 $$;
-
-REVOKE ALL ON FUNCTION public.match_content_chunks_hybrid(text, text, vector, int) FROM public;
-GRANT EXECUTE ON FUNCTION public.match_content_chunks_hybrid(text, text, vector, int)
-  TO anon, authenticated, service_role;
-
--- Ask PostgREST to refresh its schema cache
-NOTIFY pgrst, 'reload schema';

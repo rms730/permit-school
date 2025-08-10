@@ -2,122 +2,121 @@
 -- Curriculum tables and seat time tracking
 
 -- Course units (lessons)
-create table if not exists public.course_units (
-    id uuid primary key default gen_random_uuid(),
-    course_id uuid not null references public.courses(id) on delete cascade,
-    unit_no int not null check (unit_no > 0),
-    title text not null,
-    minutes_required int not null check (minutes_required between 5 and 240),
-    unique(course_id, unit_no)
+CREATE TABLE IF NOT EXISTS public.course_units (
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE CASCADE,
+    unit_no int NOT NULL CHECK (unit_no > 0),
+    title text NOT NULL,
+    minutes_required int NOT NULL CHECK (minutes_required BETWEEN 5 AND 240),
+    UNIQUE(course_id, unit_no)
 );
 
 -- Unit content chunks (mapped to handbook content)
-create table if not exists public.unit_chunks (
-    unit_id uuid references public.course_units(id) on delete cascade,
-    chunk_id bigint references public.content_chunks(id) on delete cascade,
-    ord smallint not null check (ord > 0),
-    primary key (unit_id, ord),
-    unique (unit_id, chunk_id)
+CREATE TABLE IF NOT EXISTS public.unit_chunks (
+    unit_id uuid REFERENCES public.course_units(id) ON DELETE CASCADE,
+    chunk_id bigint REFERENCES public.content_chunks(id) ON DELETE CASCADE,
+    ord smallint NOT NULL CHECK (ord > 0),
+    PRIMARY KEY (unit_id, ord)
 );
 
 -- Seat time tracking events
-create table if not exists public.seat_time_events (
-    id bigserial primary key,
-    student_id uuid not null references auth.users(id) on delete cascade,
-    course_id uuid not null references public.courses(id) on delete cascade,
-    unit_id uuid not null references public.course_units(id) on delete cascade,
-    ms_delta int not null check (ms_delta between 1000 and 300000), -- 1s..5min
-    created_at timestamptz default now()
+CREATE TABLE IF NOT EXISTS public.seat_time_events (
+    id bigserial PRIMARY KEY,
+    student_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE CASCADE,
+    unit_id uuid NOT NULL REFERENCES public.course_units(id) ON DELETE CASCADE,
+    ms_delta int NOT NULL CHECK (ms_delta BETWEEN 1000 AND 300000), -- 1s..5min
+    created_at timestamptz DEFAULT now()
 );
 
 -- Index for seat time queries
-create index if not exists seat_time_events_student_unit_idx 
-    on public.seat_time_events (student_id, unit_id, created_at);
+CREATE INDEX IF NOT EXISTS seat_time_events_student_unit_idx 
+    ON public.seat_time_events (student_id, unit_id, created_at);
 
 -- Enable RLS
-alter table public.course_units enable row level security;
-alter table public.unit_chunks enable row level security;
-alter table public.seat_time_events enable row level security;
+ALTER TABLE public.course_units ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.unit_chunks ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.seat_time_events ENABLE ROW LEVEL SECURITY;
 
 -- RLS Policies
 
 -- Course units: public read, admin write
-create policy "course_units_public_read" on public.course_units
-    for select using (true);
+CREATE POLICY "course_units_public_read" ON public.course_units
+    FOR SELECT USING (true);
 
-create policy "course_units_admin_write" on public.course_units
-    for all using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+CREATE POLICY "course_units_admin_write" ON public.course_units
+    FOR ALL USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
 
 -- Unit chunks: public read, admin write
-create policy "unit_chunks_public_read" on public.unit_chunks
-    for select using (true);
+CREATE POLICY "unit_chunks_public_read" ON public.unit_chunks
+    FOR SELECT USING (true);
 
-create policy "unit_chunks_admin_write" on public.unit_chunks
-    for all using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+CREATE POLICY "unit_chunks_admin_write" ON public.unit_chunks
+    FOR ALL USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
 
 -- Seat time events: insert by student, read by owner or admin
-create policy "seat_time_events_insert_own" on public.seat_time_events
-    for insert with check (auth.uid() = student_id);
+CREATE POLICY "seat_time_events_insert_own" ON public.seat_time_events
+    FOR INSERT WITH CHECK (auth.uid() = student_id);
 
-create policy "seat_time_events_select_own_or_admin" on public.seat_time_events
-    for select using (
-        auth.uid() = student_id or 
+CREATE POLICY "seat_time_events_select_own_or_admin" ON public.seat_time_events
+    FOR SELECT USING (
+        auth.uid() = student_id OR 
         (auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
     );
 
 -- Seed CA DE-ONLINE course units
-insert into public.course_units (course_id, unit_no, title, minutes_required)
-select 
-    c.id as course_id,
+INSERT INTO public.course_units (course_id, unit_no, title, minutes_required)
+SELECT 
+    c.id AS course_id,
     unit_data.unit_no,
     unit_data.title,
     unit_data.minutes_required
-from public.courses c
-join public.jurisdictions j on c.jurisdiction_id = j.id
-cross join (values
+FROM public.courses c
+JOIN public.jurisdictions j ON c.jurisdiction_id = j.id
+CROSS JOIN (VALUES
     (1, 'Traffic Basics', 30),
     (2, 'Signs & Signals', 30),
     (3, 'Right of Way & Turns', 30),
     (4, 'Parking & Freeway', 30),
     (5, 'Safety & Sharing the Road', 30)
-) as unit_data(unit_no, title, minutes_required)
-where j.code = 'CA' and c.code = 'DE-ONLINE'
-on conflict (course_id, unit_no) do nothing;
+) AS unit_data(unit_no, title, minutes_required)
+WHERE j.code = 'CA' AND c.code = 'DE-ONLINE'
+ON CONFLICT (course_id, unit_no) DO NOTHING;
 
 -- Seed unit chunks using FTS search
-with unit_topics as (
-    select 
-        cu.id as unit_id,
-        cu.title as unit_title,
-        case cu.unit_no
-            when 1 then 'traffic basics rules laws'
-            when 2 then 'signs signals traffic control'
-            when 3 then 'right way turns intersections'
-            when 4 then 'parking freeway highway'
-            when 5 then 'safety sharing road pedestrians'
-            else 'default search terms'
-        end as search_terms
-    from public.course_units cu
-    join public.courses c on cu.course_id = c.id
-    join public.jurisdictions j on c.jurisdiction_id = j.id
-    where j.code = 'CA' and c.code = 'DE-ONLINE'
+WITH unit_topics AS (
+    SELECT 
+        cu.id AS unit_id,
+        cu.title AS unit_title,
+        CASE cu.unit_no
+            WHEN 1 THEN 'traffic basics rules laws'
+            WHEN 2 THEN 'signs signals traffic control'
+            WHEN 3 THEN 'right way turns intersections'
+            WHEN 4 THEN 'parking freeway highway'
+            WHEN 5 THEN 'safety sharing road pedestrians'
+            ELSE 'default search terms'
+        END AS search_terms
+    FROM public.course_units cu
+    JOIN public.courses c ON cu.course_id = c.id
+    JOIN public.jurisdictions j ON c.jurisdiction_id = j.id
+    WHERE j.code = 'CA' AND c.code = 'DE-ONLINE'
 ),
-ranked_chunks as (
-    select 
+ranked_chunks AS (
+    SELECT 
         ut.unit_id,
-        cc.id as chunk_id,
-        row_number() over (partition by ut.unit_id order by 
-            ts_rank(to_tsvector('english', cc.chunk), plainto_tsquery('english', ut.search_terms)) desc,
-            cc.id asc
-        ) as ord
-    from unit_topics ut
-    cross join public.content_chunks cc
-    join public.jurisdictions j2 on cc.jurisdiction_id = j2.id
-    where j2.code = 'CA'
-        and to_tsvector('english', cc.chunk) @@ plainto_tsquery('english', ut.search_terms)
+        cc.id AS chunk_id,
+        ROW_NUMBER() OVER (PARTITION BY ut.unit_id ORDER BY 
+            ts_rank(to_tsvector('english', cc.chunk), plainto_tsquery('english', ut.search_terms)) DESC,
+            cc.id ASC
+        ) AS ord
+    FROM unit_topics ut
+    CROSS JOIN public.content_chunks cc
+    JOIN public.jurisdictions j2 ON cc.jurisdiction_id = j2.id
+    WHERE j2.code = 'CA'
+        AND to_tsvector('english', cc.chunk) @@ plainto_tsquery('english', ut.search_terms)
 )
-insert into public.unit_chunks (unit_id, chunk_id, ord)
-select unit_id, chunk_id, ord
-from ranked_chunks
-where ord <= 30
-on conflict (unit_id, chunk_id) do nothing;
+INSERT INTO public.unit_chunks (unit_id, chunk_id, ord)
+SELECT unit_id, chunk_id, ord
+FROM ranked_chunks
+WHERE ord <= 30
+ON CONFLICT (unit_id, ord) DO NOTHING;

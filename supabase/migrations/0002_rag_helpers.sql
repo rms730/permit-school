@@ -1,34 +1,42 @@
--- 0002_rag_helpers.sql : RPCs for retrieval-augmented tutoring
+-- 0002_rag_helpers.sql
+-- RAG helper functions for content search
 
--- Match content chunks by ANN search. Lower distance = closer.
-CREATE OR REPLACE FUNCTION public.match_content_chunks(
-  j_code        text,
-  q_embedding   vector(1536),
-  match_count   int DEFAULT 5
+-- Function to match content chunks using vector similarity
+CREATE OR REPLACE FUNCTION match_content_chunks(
+    query_embedding vector(1536),
+    match_threshold float DEFAULT 0.78,
+    match_count int DEFAULT 5,
+    filter_jurisdiction text DEFAULT NULL
 )
 RETURNS TABLE (
-  id           bigint,
-  section_ref  text,
-  chunk        text,
-  source_url   text,
-  distance     double precision
+    id bigint,
+    jurisdiction_id int,
+    section_ref text,
+    lang text,
+    source_url text,
+    chunk text,
+    similarity float
 )
-LANGUAGE sql
-STABLE
+LANGUAGE plpgsql
 AS $$
-  SELECT
-    c.id,
-    c.section_ref,
-    c.chunk,
-    c.source_url,
-    c.embedding <-> q_embedding AS distance
-  FROM public.content_chunks AS c
-  JOIN public.jurisdictions AS j ON j.id = c.jurisdiction_id
-  WHERE upper(j.code) = upper(j_code)
-  ORDER BY c.embedding <-> q_embedding
-  LIMIT match_count
+BEGIN
+    RETURN QUERY
+    SELECT
+        cc.id,
+        cc.jurisdiction_id,
+        cc.section_ref,
+        cc.lang,
+        cc.source_url,
+        cc.chunk,
+        1 - (cc.embedding <=> query_embedding) AS similarity
+    FROM public.content_chunks cc
+    WHERE 1 - (cc.embedding <=> query_embedding) > match_threshold
+        AND (filter_jurisdiction IS NULL OR 
+             EXISTS (
+                 SELECT 1 FROM public.jurisdictions j 
+                 WHERE j.id = cc.jurisdiction_id AND j.code = filter_jurisdiction
+             ))
+    ORDER BY cc.embedding <=> query_embedding
+    LIMIT match_count;
+END;
 $$;
-
--- Let normal clients call the RPC (RLS still applies to SELECTs)
-REVOKE ALL ON FUNCTION public.match_content_chunks(text, vector(1536), int) FROM public;
-GRANT EXECUTE ON FUNCTION public.match_content_chunks(text, vector(1536), int) TO anon, authenticated, service_role;

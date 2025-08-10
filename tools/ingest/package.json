@@ -1,0 +1,15 @@
+{
+  "name": "permit-school-ingest",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "ingest:ca:en": "node tools/ingest/ingest_handbook.mjs --url '<CA_HANDBOOK_PDF_URL>' --jurisdiction CA --lang en --source '<SOURCE_URL>'",
+    "test:search": "node tools/ingest/test_search.mjs \"When can I turn right on red in CA?\""
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "dotenv": "^16.4.0",
+    "openai": "^4.56.0",
+    "pdf-parse": "^1.1.1"
+  }
+}

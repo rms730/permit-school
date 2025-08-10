@@ -94,7 +94,8 @@ with unit_topics as (
             when 2 then 'signs signals traffic control'
             when 3 then 'right way turns intersections'
             when 4 then 'parking freeway highway'
-            when 5 else 'safety sharing road pedestrians'
+            when 5 then 'safety sharing road pedestrians'
+            else 'default search terms'
         end as search_terms
     from public.course_units cu
     join public.courses c on cu.course_id = c.id

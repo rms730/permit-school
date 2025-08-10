@@ -138,18 +138,14 @@ CREATE TABLE IF NOT EXISTS public.question_bank (
 ALTER TABLE public.question_bank ENABLE ROW LEVEL SECURITY;
 
 -- RAG corpus
--- If this migration previously partially applied with vector(3072), normalize the column to 1536 dims.
+-- If a previous attempt partially created the table with vector(3072), normalize to 1536.
 DO $plpgsql$ BEGIN
     BEGIN
         ALTER TABLE public.content_chunks
             ALTER COLUMN embedding TYPE vector(1536);
     EXCEPTION
-        WHEN undefined_table THEN
-            -- Table doesn't exist yet; fine for first-time runs.
-            NULL;
-        WHEN undefined_column THEN
-            -- Column doesn't exist yet; also fine—CREATE TABLE below will define it correctly.
-            NULL;
+        WHEN undefined_table THEN NULL;
+        WHEN undefined_column THEN NULL;
     END;
 END $plpgsql$;
 
@@ -163,7 +159,7 @@ CREATE TABLE IF NOT EXISTS public.content_chunks (
     embedding vector(1536)  -- text-embedding-3-small (indexable with IVFFlat/HNSW)
 );
 
--- Rebuild the ANN index safely (no-op if it doesn't exist yet)
+-- Rebuild the ANN index safely (no-op if absent)
 DROP INDEX IF EXISTS content_chunks_embedding_idx;
 
 CREATE INDEX IF NOT EXISTS content_chunks_embedding_idx

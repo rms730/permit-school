@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
 
 function getFunctionsBase() {
   const explicit = process.env.SUPABASE_FUNCTIONS_URL;
@@ -10,10 +11,18 @@ function getFunctionsBase() {
 }
 
 export async function POST(req: Request) {
-  try {
-    const { query, j_code = 'CA', top_k = 5 } = await req.json();
+  const started = Date.now();
+  let j_code = 'CA';
+  let query = '';
+  let top_k = 5;
 
-    if (!query || typeof query !== 'string') {
+  try {
+    const body = await req.json();
+    query = typeof body?.query === 'string' ? body.query : '';
+    j_code = typeof body?.j_code === 'string' ? body.j_code : 'CA';
+    top_k = Number.isFinite(body?.top_k) ? Math.max(1, Math.min(50, body.top_k)) : 5;
+
+    if (!query) {
       return NextResponse.json({ error: 'Missing query' }, { status: 400 });
     }
 
@@ -28,8 +37,44 @@ export async function POST(req: Request) {
     });
 
     const data = await res.json();
+    const latency = Date.now() - started;
+
+    // Best-effort log (non-blocking failure)
+    try {
+      const supabaseAdmin = getSupabaseAdmin();
+      await supabaseAdmin.from('tutor_logs').insert([
+        {
+          user_id: null, // TODO: populate after auth lands
+          j_code,
+          query,
+          top_k,
+          latency_ms: latency,
+          model: data?.model ?? 'unknown',
+          error: res.ok ? null : (data?.error ?? `HTTP ${res.status}`)
+        }
+      ]);
+    } catch {
+      // swallow logging errors
+    }
+
     return NextResponse.json(data, { status: res.ok ? 200 : res.status });
   } catch (err: any) {
+    const latency = Date.now() - started;
+    try {
+      const supabaseAdmin = getSupabaseAdmin();
+      await supabaseAdmin.from('tutor_logs').insert([
+        {
+          user_id: null,
+          j_code,
+          query,
+          top_k,
+          latency_ms: latency,
+          model: 'unknown',
+          error: String(err?.message ?? err)
+        }
+      ]);
+    } catch {}
+
     return NextResponse.json(
       { error: 'Tutor proxy failed', detail: String(err?.message ?? err) },
       { status: 500 }

@@ -68,6 +68,7 @@ export default function HomePage() {
           <Typography variant="h6">Permit School — Tutor</Typography>
           <Stack direction="row" spacing={2}>
             <Link href="/" underline="hover" color="inherit">Home</Link>
+            <Link href="/course/CA/DE-ONLINE" underline="hover" color="inherit">Course</Link>
             <Link href="/admin/logs" underline="hover" color="inherit">Admin Logs</Link>
             <Link href="/signin" underline="hover" color="inherit">Sign In</Link>
           </Stack>

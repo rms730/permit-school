@@ -91,3 +91,32 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - `node web/scripts/make_admin.mjs you@example.com`
 5. Visit `/admin/logs` (must be signed in as admin).
 6. Ask a question on `/`; check `tutor_logs.user_id` is populated.
+
+### Sprint 4: Curriculum & Learning Experience
+
+1. Apply the curriculum migration:
+   ```bash
+   # If using Supabase CLI
+   supabase db push
+   
+   # Or run the migration manually in your Supabase dashboard
+   # Copy contents of supabase/migrations/0005_curriculum.sql
+   ```
+
+2. Verify the migration:
+   - Check that 5 units are created for CA DE-ONLINE course
+   - Verify `unit_chunks` are populated with relevant content
+
+3. Test the learning flow:
+   - Visit `/course/CA/DE-ONLINE` to see the course outline
+   - Click "Start" on a unit to begin learning at `/learn/[unitId]`
+   - Study the content (seat-time tracking active when tab visible)
+   - Take the quiz when enough time is accrued
+   - Complete the quiz and see your score
+
+4. Key features:
+   - **Seat-time tracking**: Only counts when tab is visible and user is active
+   - **Progress persistence**: Time is saved and capped at required minutes
+   - **Quiz gating**: Must complete required study time before taking quiz
+   - **Score tracking**: Quiz results update skill mastery
+   - **RLS security**: All data access respects user permissions

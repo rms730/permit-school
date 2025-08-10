@@ -46,7 +46,12 @@ CREATE TABLE IF NOT EXISTS public.courses (
 
 -- Link default course for CA
 INSERT INTO public.courses (jurisdiction_id, code, title, price_cents, hours_required_minutes)
-SELECT j.id, 'DE-ONLINE', 'Online Driver Education', 999, 1500
+SELECT
+    j.id AS jurisdiction_id,
+    'DE-ONLINE' AS code,
+    'Online Driver Education' AS title,
+    999 AS price_cents,
+    1500 AS hours_required_minutes
 FROM public.jurisdictions AS j
 WHERE j.code = 'CA'
 ON CONFLICT DO NOTHING;

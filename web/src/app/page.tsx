@@ -64,8 +64,13 @@ export default function HomePage() {
   return (
     <>
       <AppBar position="static" elevation={0}>
-        <Toolbar>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography variant="h6">Permit School — Tutor</Typography>
+          <Stack direction="row" spacing={2}>
+            <Link href="/" underline="hover" color="inherit">Home</Link>
+            <Link href="/admin/logs" underline="hover" color="inherit">Admin Logs</Link>
+            <Link href="/signin" underline="hover" color="inherit">Sign In</Link>
+          </Stack>
         </Toolbar>
       </AppBar>
 

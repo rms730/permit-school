@@ -1,0 +1,2 @@
+Given a question JSON and retrieved handbook snippets, verify correctness and grounding.
+Output: {"valid":true|false,"reasons":[],"fix":{...}|null}. Reject items not traceable to the handbook.

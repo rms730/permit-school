@@ -1,0 +1,3 @@
+Generate multiple-choice questions strictly grounded in the CA or TX Driver Handbook.
+Output JSON per item: {id, stem, choices{A..D}, answer, explanation, skill, difficulty(1-5), sourceSections[]}.
+Avoid trick questions; use realistic scenarios.

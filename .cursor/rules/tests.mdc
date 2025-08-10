@@ -1,0 +1,4 @@
+# Tests
+- Provide unit or script-level checks for any non-trivial changes.
+- For now, `bash ops/checks/smoke.sh` is the minimum gate.
+- If you create a Node project, add `npm test` and wire it into CI.

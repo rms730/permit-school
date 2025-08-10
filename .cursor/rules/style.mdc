@@ -1,0 +1,4 @@
+# Style
+- JavaScript/TypeScript: prefer TypeScript for new code.
+- React + MUI: use MUI components; avoid custom CSS when possible.
+- SQL: snake_case for table/column names; one migration per change.

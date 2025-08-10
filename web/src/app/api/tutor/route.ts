@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
+import { getRouteClient } from '@/lib/supabaseRoute';
 
 function getFunctionsBase() {
   const explicit = process.env.SUPABASE_FUNCTIONS_URL;
@@ -15,6 +16,11 @@ export async function POST(req: Request) {
   let j_code = 'CA';
   let query = '';
   let top_k = 5;
+
+  // read user from cookies/session (if present)
+  const supaRoute = getRouteClient();
+  const { data: userData } = await supaRoute.auth.getUser();
+  const userId = userData?.user?.id ?? null;
 
   try {
     const body = await req.json();
@@ -44,7 +50,7 @@ export async function POST(req: Request) {
       const supabaseAdmin = getSupabaseAdmin();
       await supabaseAdmin.from('tutor_logs').insert([
         {
-          user_id: null, // TODO: populate after auth lands
+          user_id: userId,
           j_code,
           query,
           top_k,
@@ -64,7 +70,7 @@ export async function POST(req: Request) {
       const supabaseAdmin = getSupabaseAdmin();
       await supabaseAdmin.from('tutor_logs').insert([
         {
-          user_id: null,
+          user_id: userId,
           j_code,
           query,
           top_k,

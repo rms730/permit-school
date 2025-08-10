@@ -3,7 +3,8 @@
 import * as React from 'react';
 import {
   AppBar, Toolbar, Typography, Container, Paper, Stack,
-  TextField, Button, List, ListItem, ListItemText, Divider, Chip, Link
+  TextField, Button, List, ListItem, ListItemText, Divider, Chip, Link,
+  FormControl, InputLabel, Select, MenuItem
 } from '@mui/material';
 
 type Citation = {
@@ -22,12 +23,18 @@ type TutorResponse = {
   detail?: string;
 };
 
+const STATES = [
+  { code: 'CA', label: 'California' },
+  { code: 'TX', label: 'Texas' }
+];
+
 export default function HomePage() {
   const [input, setInput] = React.useState('');
   const [busy, setBusy] = React.useState(false);
   const [answer, setAnswer] = React.useState('');
   const [cites, setCites] = React.useState<Citation[]>([]);
   const [err, setErr] = React.useState('');
+  const [jCode, setJCode] = React.useState('CA');
 
   async function ask() {
     setBusy(true);
@@ -38,7 +45,7 @@ export default function HomePage() {
       const res = await fetch('/api/tutor', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: input, j_code: 'CA', top_k: 5 })
+        body: JSON.stringify({ query: input, j_code: jCode, top_k: 5 })
       });
       const data: TutorResponse = await res.json();
       if (!res.ok) {
@@ -65,10 +72,23 @@ export default function HomePage() {
       <Container maxWidth="md" sx={{ mt: 4, mb: 8 }}>
         <Paper variant="outlined" sx={{ p: 2 }}>
           <Stack spacing={2}>
-            <Typography variant="subtitle1">
-              Ask anything from the CA Driver Handbook:
-            </Typography>
+            <Typography variant="subtitle1">Ask the Driver Handbook:</Typography>
+
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+              <FormControl sx={{ minWidth: 160 }}>
+                <InputLabel id="state-label">State</InputLabel>
+                <Select
+                  labelId="state-label"
+                  label="State"
+                  value={jCode}
+                  onChange={(e) => setJCode(e.target.value)}
+                >
+                  {STATES.map((s) => (
+                    <MenuItem key={s.code} value={s.code}>{s.label}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+
               <TextField
                 fullWidth
                 label="Your question"

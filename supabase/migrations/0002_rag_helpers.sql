@@ -24,11 +24,11 @@ AS $$
     c.embedding <-> q_embedding AS distance
   FROM public.content_chunks AS c
   JOIN public.jurisdictions AS j ON j.id = c.jurisdiction_id
-  WHERE UPPER(j.code) = UPPER(j_code)
+  WHERE upper(j.code) = upper(j_code)
   ORDER BY c.embedding <-> q_embedding
   LIMIT match_count
 $$;
 
 -- Let normal clients call the RPC (RLS still applies to SELECTs)
-REVOKE ALL ON FUNCTION public.match_content_chunks(text, vector(1536), int) FROM PUBLIC;
+REVOKE ALL ON FUNCTION public.match_content_chunks(text, vector(1536), int) FROM public;
 GRANT EXECUTE ON FUNCTION public.match_content_chunks(text, vector(1536), int) TO anon, authenticated, service_role;

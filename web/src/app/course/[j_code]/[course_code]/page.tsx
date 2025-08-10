@@ -1,10 +1,19 @@
-import * as React from 'react';
+import * as React from "react";
 import {
-  Container, Paper, Typography, List, ListItem, ListItemText,
-  Button, Stack, Chip, Box, LinearProgress
-} from '@mui/material';
-import { getServerClient } from '@/lib/supabaseServer';
-import Link from 'next/link';
+  Container,
+  Paper,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  Button,
+  Stack,
+  Chip,
+  Box,
+  LinearProgress,
+} from "@mui/material";
+import { getServerClient } from "@/lib/supabaseServer";
+import Link from "next/link";
 
 interface Unit {
   id: string;
@@ -25,14 +34,16 @@ interface PageProps {
   };
 }
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export default async function CourseOutlinePage({ params }: PageProps) {
   const supabase = getServerClient();
   const { j_code, course_code } = params;
 
   // Get user from session
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) {
     return (
       <Container maxWidth="md" sx={{ mt: 4 }}>
@@ -45,10 +56,10 @@ export default async function CourseOutlinePage({ params }: PageProps) {
 
   // Get course
   const { data: course, error: courseError } = await supabase
-    .from('courses')
-    .select('id, title')
-    .eq('j_code', j_code)
-    .eq('code', course_code)
+    .from("courses")
+    .select("id, title")
+    .eq("j_code", j_code)
+    .eq("code", course_code)
     .single();
 
   if (courseError || !course) {
@@ -63,10 +74,10 @@ export default async function CourseOutlinePage({ params }: PageProps) {
 
   // Get units
   const { data: units, error: unitsError } = await supabase
-    .from('course_units')
-    .select('id, unit_no, title, minutes_required')
-    .eq('course_id', course.id)
-    .order('unit_no');
+    .from("course_units")
+    .select("id, unit_no, title, minutes_required")
+    .eq("course_id", course.id)
+    .order("unit_no");
 
   if (unitsError || !units) {
     return (
@@ -80,71 +91,81 @@ export default async function CourseOutlinePage({ params }: PageProps) {
 
   // Get user progress
   const { data: progress, error: progressError } = await supabase
-    .from('unit_progress')
-    .select('unit_no, time_ms')
-    .eq('student_id', user.id)
-    .eq('course_id', course.id);
+    .from("unit_progress")
+    .select("unit_no, time_ms")
+    .eq("student_id", user.id)
+    .eq("course_id", course.id);
 
   if (progressError) {
-    console.error('Progress query error:', progressError);
+    console.error("Progress query error:", progressError);
   }
 
   const progressMap = new Map<number, number>();
-  (progress || []).forEach(p => {
+  (progress || []).forEach((p) => {
     progressMap.set(p.unit_no, p.time_ms);
   });
 
   // Get completed attempts
   const { data: attempts, error: attemptsError } = await supabase
-    .from('attempts')
-    .select('unit_no, score')
-    .eq('student_id', user.id)
-    .eq('course_id', course.id)
-    .not('completed_at', 'is', null);
+    .from("attempts")
+    .select("unit_no, score")
+    .eq("student_id", user.id)
+    .eq("course_id", course.id)
+    .not("completed_at", "is", null);
 
   if (attemptsError) {
-    console.error('Attempts query error:', attemptsError);
+    console.error("Attempts query error:", attemptsError);
   }
 
   const completedUnits = new Set<number>();
-  (attempts || []).forEach(a => {
+  (attempts || []).forEach((a) => {
     if (a.unit_no && a.score !== null) {
       completedUnits.add(a.unit_no);
     }
   });
 
-  function getUnitStatus(unit: Unit): 'not_started' | 'in_progress' | 'ready' | 'completed' {
+  function getUnitStatus(
+    unit: Unit,
+  ): "not_started" | "in_progress" | "ready" | "completed" {
     if (completedUnits.has(unit.unit_no)) {
-      return 'completed';
+      return "completed";
     }
 
     const timeMs = progressMap.get(unit.unit_no) || 0;
     const requiredMs = unit.minutes_required * 60000;
 
     if (timeMs === 0) {
-      return 'not_started';
+      return "not_started";
     } else if (timeMs >= requiredMs) {
-      return 'ready';
+      return "ready";
     } else {
-      return 'in_progress';
+      return "in_progress";
     }
   }
 
   function getStatusColor(status: string) {
     switch (status) {
-      case 'completed': return 'success';
-      case 'ready': return 'primary';
-      case 'in_progress': return 'warning';
-      default: return 'default';
+      case "completed":
+        return "success";
+      case "ready":
+        return "primary";
+      case "in_progress":
+        return "warning";
+      default:
+        return "default";
     }
   }
 
   function getStatusText(status: string) {
     switch (status) {
-      case 'completed': return 'Completed';
-      case 'ready': return 'Ready for Quiz';
-      case 'in_progress': return 'In Progress';
-      default: return 'Not Started';
+      case "completed":
+        return "Completed";
+      case "ready":
+        return "Ready for Quiz";
+      case "in_progress":
+        return "In Progress";
+      default:
+        return "Not Started";
     }
   }
 
@@ -170,44 +191,54 @@ export default async function CourseOutlinePage({ params }: PageProps) {
                 key={unit.id}
                 sx={{
                   border: 1,
-                  borderColor: 'divider',
+                  borderColor: "divider",
                   borderRadius: 1,
                   mb: 2,
-                  flexDirection: 'column',
-                  alignItems: 'stretch'
+                  flexDirection: "column",
+                  alignItems: "stretch",
                 }}
               >
-                <Box sx={{ width: '100%' }}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 1 }}>
+                <Box sx={{ width: "100%" }}>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    sx={{ mb: 1 }}
+                  >
                     <Typography variant="h6">
                       Unit {unit.unit_no}: {unit.title}
                     </Typography>
-                    <Chip 
-                      label={getStatusText(status)} 
+                    <Chip
+                      label={getStatusText(status)}
                       color={getStatusColor(status) as any}
                       size="small"
                     />
                   </Stack>
 
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ mb: 1 }}
+                  >
                     {unit.minutes_required} minutes required
                   </Typography>
 
-                  {status === 'in_progress' && (
+                  {status === "in_progress" && (
                     <Box sx={{ mb: 2 }}>
-                      <LinearProgress 
-                        variant="determinate" 
-                        value={progressPercent} 
+                      <LinearProgress
+                        variant="determinate"
+                        value={progressPercent}
                         sx={{ mb: 1 }}
                       />
                       <Typography variant="caption">
-                        {Math.floor(timeMs / 60000)} / {unit.minutes_required} minutes
+                        {Math.floor(timeMs / 60000)} / {unit.minutes_required}{" "}
+                        minutes
                       </Typography>
                     </Box>
                   )}
 
                   <Stack direction="row" spacing={2}>
-                    {status === 'not_started' && (
+                    {status === "not_started" && (
                       <Button
                         component={Link}
                         href={`/learn/${unit.id}`}
@@ -218,7 +249,7 @@ export default async function CourseOutlinePage({ params }: PageProps) {
                       </Button>
                     )}
 
-                    {status === 'in_progress' && (
+                    {status === "in_progress" && (
                       <Button
                         component={Link}
                         href={`/learn/${unit.id}`}
@@ -229,7 +260,7 @@ export default async function CourseOutlinePage({ params }: PageProps) {
                       </Button>
                     )}
 
-                    {status === 'ready' && (
+                    {status === "ready" && (
                       <>
                         <Button
                           component={Link}
@@ -250,7 +281,7 @@ export default async function CourseOutlinePage({ params }: PageProps) {
                       </>
                     )}
 
-                    {status === 'completed' && (
+                    {status === "completed" && (
                       <Button
                         component={Link}
                         href={`/learn/${unit.id}`}

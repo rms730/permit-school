@@ -1,13 +1,25 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import * as React from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import {
-  Container, Paper, Typography, Button, Stack, Alert, CircularProgress,
-  Card, CardContent, RadioGroup, FormControlLabel, Radio, Box, Chip
-} from '@mui/material';
-import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs';
+  Container,
+  Paper,
+  Typography,
+  Button,
+  Stack,
+  Alert,
+  CircularProgress,
+  Card,
+  CardContent,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  Box,
+  Chip,
+} from "@mui/material";
+import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 
 interface QuizItem {
   id: string;
@@ -30,7 +42,7 @@ export default function QuizPage({ params }: PageProps) {
   const router = useRouter();
   const [items, setItems] = useState<QuizItem[]>([]);
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState<string>('');
+  const [selectedAnswer, setSelectedAnswer] = useState<string>("");
   const [submitting, setSubmitting] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -43,20 +55,20 @@ export default function QuizPage({ params }: PageProps) {
     async function loadQuiz() {
       try {
         const { data, error } = await supabase
-          .from('attempt_items')
-          .select('id, item_no, stem, choices, answer, explanation, correct')
-          .eq('attempt_id', attemptId)
-          .order('item_no');
+          .from("attempt_items")
+          .select("id, item_no, stem, choices, answer, explanation, correct")
+          .eq("attempt_id", attemptId)
+          .order("item_no");
 
         if (error || !data) {
-          setError('Failed to load quiz');
+          setError("Failed to load quiz");
           return;
         }
 
         setItems(data);
       } catch (err) {
-        console.error('Quiz load error:', err);
-        setError('Failed to load quiz');
+        console.error("Quiz load error:", err);
+        setError("Failed to load quiz");
       } finally {
         setLoading(false);
       }
@@ -73,41 +85,43 @@ export default function QuizPage({ params }: PageProps) {
     setSubmitting(true);
 
     try {
-      const response = await fetch('/api/attempts/answer', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/attempts/answer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           attemptId,
           itemNo: currentItem.item_no,
-          answer: selectedAnswer
-        })
+          answer: selectedAnswer,
+        }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error || 'Failed to submit answer');
+        setError(data.error || "Failed to submit answer");
         return;
       }
 
       // Update the item with the result
-      setItems(prev => prev.map(item => 
-        item.id === currentItem.id 
-          ? { ...item, correct: data.correct }
-          : item
-      ));
+      setItems((prev) =>
+        prev.map((item) =>
+          item.id === currentItem.id
+            ? { ...item, correct: data.correct }
+            : item,
+        ),
+      );
 
       // Move to next question or finish
       if (currentItemIndex < items.length - 1) {
-        setCurrentItemIndex(prev => prev + 1);
-        setSelectedAnswer('');
+        setCurrentItemIndex((prev) => prev + 1);
+        setSelectedAnswer("");
       } else {
         // Quiz complete
         await completeQuiz();
       }
     } catch (err) {
-      console.error('Answer submission error:', err);
-      setError('Failed to submit answer');
+      console.error("Answer submission error:", err);
+      setError("Failed to submit answer");
     } finally {
       setSubmitting(false);
     }
@@ -115,43 +129,43 @@ export default function QuizPage({ params }: PageProps) {
 
   const completeQuiz = async () => {
     try {
-      const response = await fetch('/api/attempts/complete', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ attemptId })
+      const response = await fetch("/api/attempts/complete", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ attemptId }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error || 'Failed to complete quiz');
+        setError(data.error || "Failed to complete quiz");
         return;
       }
 
       setScore(data.score);
       setShowResults(true);
     } catch (err) {
-      console.error('Quiz completion error:', err);
-      setError('Failed to complete quiz');
+      console.error("Quiz completion error:", err);
+      setError("Failed to complete quiz");
     }
   };
 
   const getScoreColor = (score: number) => {
-    if (score >= 0.8) return 'success';
-    if (score >= 0.6) return 'warning';
-    return 'error';
+    if (score >= 0.8) return "success";
+    if (score >= 0.6) return "warning";
+    return "error";
   };
 
   const getScoreText = (score: number) => {
-    if (score >= 0.8) return 'Excellent!';
-    if (score >= 0.6) return 'Good job!';
-    return 'Keep studying!';
+    if (score >= 0.8) return "Excellent!";
+    if (score >= 0.6) return "Good job!";
+    return "Keep studying!";
   };
 
   if (loading) {
     return (
       <Container maxWidth="md" sx={{ mt: 4 }}>
-        <Paper variant="outlined" sx={{ p: 4, textAlign: 'center' }}>
+        <Paper variant="outlined" sx={{ p: 4, textAlign: "center" }}>
           <CircularProgress />
           <Typography sx={{ mt: 2 }}>Loading quiz...</Typography>
         </Paper>
@@ -164,9 +178,9 @@ export default function QuizPage({ params }: PageProps) {
       <Container maxWidth="md" sx={{ mt: 4 }}>
         <Paper variant="outlined" sx={{ p: 4 }}>
           <Alert severity="error">{error}</Alert>
-          <Button 
-            variant="contained" 
-            onClick={() => router.push('/')}
+          <Button
+            variant="contained"
+            onClick={() => router.push("/")}
             sx={{ mt: 2 }}
           >
             Go Home
@@ -185,30 +199,28 @@ export default function QuizPage({ params }: PageProps) {
               Quiz Complete!
             </Typography>
 
-                          <Chip
-                label={`${Math.round(score * 100)}%`}
-                color={getScoreColor(score) as any}
-                sx={{ fontSize: '1.5rem', p: 2 }}
-              />
+            <Chip
+              label={`${Math.round(score * 100)}%`}
+              color={getScoreColor(score) as any}
+              sx={{ fontSize: "1.5rem", p: 2 }}
+            />
 
             <Typography variant="h6" color={getScoreColor(score)}>
               {getScoreText(score)}
             </Typography>
 
             <Typography variant="body1" textAlign="center">
-              You answered {Math.round(score * items.length)} out of {items.length} questions correctly.
+              You answered {Math.round(score * items.length)} out of{" "}
+              {items.length} questions correctly.
             </Typography>
 
             <Stack direction="row" spacing={2}>
-              <Button
-                variant="outlined"
-                onClick={() => router.push('/')}
-              >
+              <Button variant="outlined" onClick={() => router.push("/")}>
                 Go Home
               </Button>
               <Button
                 variant="contained"
-                onClick={() => router.push('/course/CA/DE-ONLINE')}
+                onClick={() => router.push("/course/CA/DE-ONLINE")}
               >
                 View Course
               </Button>
@@ -223,11 +235,16 @@ export default function QuizPage({ params }: PageProps) {
     <Container maxWidth="md" sx={{ mt: 4, mb: 8 }}>
       <Paper variant="outlined" sx={{ p: 3 }}>
         {/* Progress header */}
-        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 3 }}>
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+          sx={{ mb: 3 }}
+        >
           <Typography variant="h5">
             Question {currentItemIndex + 1} of {items.length}
           </Typography>
-          <Chip 
+          <Chip
             label={`${Math.round(((currentItemIndex + 1) / items.length) * 100)}%`}
             color="primary"
           />
@@ -257,11 +274,16 @@ export default function QuizPage({ params }: PageProps) {
 
               {/* Show result if answered */}
               {currentItem.correct !== null && (
-                <Box sx={{ mt: 2, p: 2, bgcolor: 'grey.50', borderRadius: 1 }}>
-                  <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
+                <Box sx={{ mt: 2, p: 2, bgcolor: "grey.50", borderRadius: 1 }}>
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    spacing={1}
+                    sx={{ mb: 1 }}
+                  >
                     <Chip
-                      label={currentItem.correct ? 'Correct!' : 'Incorrect'}
-                      color={currentItem.correct ? 'success' : 'error'}
+                      label={currentItem.correct ? "Correct!" : "Incorrect"}
+                      color={currentItem.correct ? "success" : "error"}
                       size="small"
                     />
                   </Stack>
@@ -280,8 +302,8 @@ export default function QuizPage({ params }: PageProps) {
             variant="outlined"
             disabled={currentItemIndex === 0}
             onClick={() => {
-              setCurrentItemIndex(prev => prev - 1);
-              setSelectedAnswer('');
+              setCurrentItemIndex((prev) => prev - 1);
+              setSelectedAnswer("");
             }}
           >
             Previous
@@ -293,8 +315,11 @@ export default function QuizPage({ params }: PageProps) {
             onClick={submitAnswer}
             startIcon={submitting ? <CircularProgress size={20} /> : null}
           >
-            {submitting ? 'Submitting...' : 
-             currentItemIndex === items.length - 1 ? 'Finish Quiz' : 'Next Question'}
+            {submitting
+              ? "Submitting..."
+              : currentItemIndex === items.length - 1
+                ? "Finish Quiz"
+                : "Next Question"}
           </Button>
         </Stack>
       </Paper>

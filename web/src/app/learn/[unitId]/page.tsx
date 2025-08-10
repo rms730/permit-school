@@ -1,13 +1,24 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import * as React from "react";
+import { useState, useEffect } from "react";
 import {
-  Container, Paper, Typography, List, ListItem, ListItemText,
-  Button, Stack, Box, Chip, LinearProgress, Card, CardContent
-} from '@mui/material';
-import { useSeatTime } from '../useSeatTime';
-import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs';
+  Container,
+  Paper,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  Button,
+  Stack,
+  Box,
+  Chip,
+  LinearProgress,
+  Card,
+  CardContent,
+} from "@mui/material";
+import { useSeatTime } from "../useSeatTime";
+import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 
 interface Chunk {
   id: number;
@@ -44,7 +55,7 @@ export default function LessonPlayerPage({ params }: PageProps) {
     unitId,
     onTimeUpdate: (time) => {
       // Optional: Update UI when time changes
-    }
+    },
   });
 
   useEffect(() => {
@@ -52,13 +63,13 @@ export default function LessonPlayerPage({ params }: PageProps) {
       try {
         // Get unit details
         const { data: unitData, error: unitError } = await supabase
-          .from('course_units')
-          .select('id, title, minutes_required')
-          .eq('id', unitId)
+          .from("course_units")
+          .select("id, title, minutes_required")
+          .eq("id", unitId)
           .single();
 
         if (unitError || !unitData) {
-          setError('Unit not found');
+          setError("Unit not found");
           return;
         }
 
@@ -66,8 +77,9 @@ export default function LessonPlayerPage({ params }: PageProps) {
 
         // Get unit chunks
         const { data: chunksData, error: chunksError } = await supabase
-          .from('unit_chunks')
-          .select(`
+          .from("unit_chunks")
+          .select(
+            `
             ord,
             content_chunks (
               id,
@@ -75,27 +87,28 @@ export default function LessonPlayerPage({ params }: PageProps) {
               section_ref,
               source_url
             )
-          `)
-          .eq('unit_id', unitId)
-          .order('ord');
+          `,
+          )
+          .eq("unit_id", unitId)
+          .order("ord");
 
         if (chunksError || !chunksData) {
-          setError('Failed to load unit content');
+          setError("Failed to load unit content");
           return;
         }
 
-        const formattedChunks: Chunk[] = chunksData.map(item => ({
+        const formattedChunks: Chunk[] = chunksData.map((item) => ({
           id: (item.content_chunks as any).id,
           ord: item.ord,
           chunk: (item.content_chunks as any).chunk,
           section_ref: (item.content_chunks as any).section_ref,
-          source_url: (item.content_chunks as any).source_url
+          source_url: (item.content_chunks as any).source_url,
         }));
 
         setChunks(formattedChunks);
       } catch (err) {
-        console.error('Error loading unit:', err);
-        setError('Failed to load unit');
+        console.error("Error loading unit:", err);
+        setError("Failed to load unit");
       } finally {
         setLoading(false);
       }
@@ -105,7 +118,9 @@ export default function LessonPlayerPage({ params }: PageProps) {
   }, [unitId, supabase]);
 
   const currentChunk = chunks[currentChunkIndex];
-  const progressPercent = unit ? Math.min((timeMs / (unit.minutes_required * 60000)) * 100, 100) : 0;
+  const progressPercent = unit
+    ? Math.min((timeMs / (unit.minutes_required * 60000)) * 100, 100)
+    : 0;
   const timeMinutes = Math.floor(timeMs / 60000);
   const requiredMinutes = unit?.minutes_required || 0;
 
@@ -123,7 +138,7 @@ export default function LessonPlayerPage({ params }: PageProps) {
     return (
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         <Paper variant="outlined" sx={{ p: 3 }}>
-          <Typography color="error">{error || 'Unit not found'}</Typography>
+          <Typography color="error">{error || "Unit not found"}</Typography>
         </Paper>
       </Container>
     );
@@ -133,12 +148,16 @@ export default function LessonPlayerPage({ params }: PageProps) {
     <Container maxWidth="lg" sx={{ mt: 4, mb: 8 }}>
       {/* Header with title and seat time */}
       <Paper variant="outlined" sx={{ p: 2, mb: 2 }}>
-        <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+        >
           <Typography variant="h5">{unit.title}</Typography>
           <Stack direction="row" spacing={2} alignItems="center">
-            <Chip 
-              label={isTracking ? 'Active' : 'Inactive'} 
-              color={isTracking ? 'success' : 'default'}
+            <Chip
+              label={isTracking ? "Active" : "Inactive"}
+              color={isTracking ? "success" : "default"}
               size="small"
             />
             <Typography variant="body2">
@@ -146,16 +165,16 @@ export default function LessonPlayerPage({ params }: PageProps) {
             </Typography>
           </Stack>
         </Stack>
-        <LinearProgress 
-          variant="determinate" 
-          value={progressPercent} 
+        <LinearProgress
+          variant="determinate"
+          value={progressPercent}
           sx={{ mt: 1 }}
         />
       </Paper>
 
-      <Stack direction="row" spacing={2} sx={{ height: '70vh' }}>
+      <Stack direction="row" spacing={2} sx={{ height: "70vh" }}>
         {/* Left sidebar - chunk navigation */}
-        <Paper variant="outlined" sx={{ width: 300, p: 2, overflow: 'auto' }}>
+        <Paper variant="outlined" sx={{ width: 300, p: 2, overflow: "auto" }}>
           <Typography variant="h6" gutterBottom>
             Content Sections
           </Typography>
@@ -168,16 +187,22 @@ export default function LessonPlayerPage({ params }: PageProps) {
                   p: 1,
                   borderRadius: 1,
                   mb: 0.5,
-                  cursor: 'pointer',
-                  bgcolor: index === currentChunkIndex ? 'primary.light' : 'transparent',
-                  '&:hover': { bgcolor: 'action.hover' }
+                  cursor: "pointer",
+                  bgcolor:
+                    index === currentChunkIndex
+                      ? "primary.light"
+                      : "transparent",
+                  "&:hover": { bgcolor: "action.hover" },
                 }}
               >
-                <Typography variant="body2" fontWeight={index === currentChunkIndex ? 'bold' : 'normal'}>
+                <Typography
+                  variant="body2"
+                  fontWeight={index === currentChunkIndex ? "bold" : "normal"}
+                >
                   Section {chunk.ord}
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
-                  {chunk.section_ref || 'No section reference'}
+                  {chunk.section_ref || "No section reference"}
                 </Typography>
               </Box>
             ))}
@@ -185,11 +210,16 @@ export default function LessonPlayerPage({ params }: PageProps) {
         </Paper>
 
         {/* Main content area */}
-        <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-          <Paper variant="outlined" sx={{ flex: 1, p: 3, overflow: 'auto' }}>
+        <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
+          <Paper variant="outlined" sx={{ flex: 1, p: 3, overflow: "auto" }}>
             {currentChunk ? (
               <Box>
-                <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  sx={{ mb: 2 }}
+                >
                   <Typography variant="h6">
                     Section {currentChunk.ord}
                   </Typography>
@@ -200,12 +230,12 @@ export default function LessonPlayerPage({ params }: PageProps) {
 
                 <Card variant="outlined" sx={{ mb: 2 }}>
                   <CardContent>
-                    <Typography 
-                      variant="body1" 
-                      sx={{ 
-                        whiteSpace: 'pre-wrap',
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        whiteSpace: "pre-wrap",
                         lineHeight: 1.6,
-                        fontSize: '1rem'
+                        fontSize: "1rem",
                       }}
                     >
                       {currentChunk.chunk}
@@ -226,11 +256,17 @@ export default function LessonPlayerPage({ params }: PageProps) {
 
           {/* Navigation buttons */}
           <Paper variant="outlined" sx={{ p: 2, mt: 2 }}>
-            <Stack direction="row" justifyContent="space-between" alignItems="center">
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+            >
               <Button
                 variant="outlined"
                 disabled={currentChunkIndex === 0}
-                onClick={() => setCurrentChunkIndex(prev => Math.max(0, prev - 1))}
+                onClick={() =>
+                  setCurrentChunkIndex((prev) => Math.max(0, prev - 1))
+                }
               >
                 Previous
               </Button>
@@ -242,7 +278,11 @@ export default function LessonPlayerPage({ params }: PageProps) {
               <Button
                 variant="outlined"
                 disabled={currentChunkIndex === chunks.length - 1}
-                onClick={() => setCurrentChunkIndex(prev => Math.min(chunks.length - 1, prev + 1))}
+                onClick={() =>
+                  setCurrentChunkIndex((prev) =>
+                    Math.min(chunks.length - 1, prev + 1),
+                  )
+                }
               >
                 Next
               </Button>

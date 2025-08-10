@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from "react";
 
 interface UseSeatTimeProps {
   unitId: string;
@@ -13,7 +13,10 @@ interface UseSeatTimeReturn {
   resetTime: () => void;
 }
 
-export function useSeatTime({ unitId, onTimeUpdate }: UseSeatTimeProps): UseSeatTimeReturn {
+export function useSeatTime({
+  unitId,
+  onTimeUpdate,
+}: UseSeatTimeProps): UseSeatTimeReturn {
   const [timeMs, setTimeMs] = useState(0);
   const [isTracking, setIsTracking] = useState(false);
   const lastActivityRef = useRef<number>(Date.now());
@@ -22,7 +25,7 @@ export function useSeatTime({ unitId, onTimeUpdate }: UseSeatTimeProps): UseSeat
 
   // Check if user is active (visible tab and recent interaction)
   const isUserActive = useCallback(() => {
-    if (document.visibilityState !== 'visible') return false;
+    if (document.visibilityState !== "visible") return false;
     const now = Date.now();
     const timeSinceLastActivity = now - lastActivityRef.current;
     return timeSinceLastActivity < 60000; // 60 seconds
@@ -34,26 +37,29 @@ export function useSeatTime({ unitId, onTimeUpdate }: UseSeatTimeProps): UseSeat
   }, []);
 
   // Post seat time to server
-  const postSeatTime = useCallback(async (msDelta: number) => {
-    if (inFlightRef.current) {
-      await inFlightRef.current; // Wait for previous request
-    }
-
-    const promise = fetch('/api/progress/seat-time', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ unitId, msDelta })
-    }).then(async (res) => {
-      if (!res.ok) {
-        const error = await res.json();
-        console.error('Seat time post failed:', error);
+  const postSeatTime = useCallback(
+    async (msDelta: number) => {
+      if (inFlightRef.current) {
+        await inFlightRef.current; // Wait for previous request
       }
-    });
 
-    inFlightRef.current = promise;
-    await promise;
-    inFlightRef.current = null;
-  }, [unitId]);
+      const promise = fetch("/api/progress/seat-time", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ unitId, msDelta }),
+      }).then(async (res) => {
+        if (!res.ok) {
+          const error = await res.json();
+          console.error("Seat time post failed:", error);
+        }
+      });
+
+      inFlightRef.current = promise;
+      await promise;
+      inFlightRef.current = null;
+    },
+    [unitId],
+  );
 
   // Start tracking
   const startTracking = useCallback(() => {
@@ -65,19 +71,26 @@ export function useSeatTime({ unitId, onTimeUpdate }: UseSeatTimeProps): UseSeat
     intervalRef.current = setInterval(() => {
       if (isUserActive()) {
         const delta = 30000; // 30 seconds
-        setTimeMs(prev => {
+        setTimeMs((prev) => {
           const newTime = prev + delta;
           onTimeUpdate?.(newTime);
           return newTime;
         });
-        
+
         // Post to server every 60 seconds
         if (timeMs % 60000 < 30000) {
           postSeatTime(60000).catch(console.error);
         }
       }
     }, 30000); // Check every 30 seconds
-  }, [isTracking, isUserActive, recordActivity, onTimeUpdate, postSeatTime, timeMs]);
+  }, [
+    isTracking,
+    isUserActive,
+    recordActivity,
+    onTimeUpdate,
+    postSeatTime,
+    timeMs,
+  ]);
 
   // Stop tracking
   const stopTracking = useCallback(() => {
@@ -96,8 +109,15 @@ export function useSeatTime({ unitId, onTimeUpdate }: UseSeatTimeProps): UseSeat
 
   // Set up event listeners
   useEffect(() => {
-    const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
-    
+    const events = [
+      "mousedown",
+      "mousemove",
+      "keypress",
+      "scroll",
+      "touchstart",
+      "click",
+    ];
+
     const handleActivity = () => {
       recordActivity();
       if (!isTracking && isUserActive()) {
@@ -105,7 +125,7 @@ export function useSeatTime({ unitId, onTimeUpdate }: UseSeatTimeProps): UseSeat
       }
     };
 
-    events.forEach(event => {
+    events.forEach((event) => {
       document.addEventListener(event, handleActivity, { passive: true });
     });
 
@@ -116,33 +136,41 @@ export function useSeatTime({ unitId, onTimeUpdate }: UseSeatTimeProps): UseSeat
 
     // Handle visibility change
     const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible' && isUserActive()) {
+      if (document.visibilityState === "visible" && isUserActive()) {
         startTracking();
       } else {
         stopTracking();
       }
     };
 
-    document.addEventListener('visibilitychange', handleVisibilityChange);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     // Cleanup
     return () => {
-      events.forEach(event => {
+      events.forEach((event) => {
         document.removeEventListener(event, handleActivity);
       });
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       stopTracking();
-      
+
       // Post final time on unmount
       if (timeMs > 0) {
         postSeatTime(timeMs).catch(console.error);
       }
     };
-  }, [isTracking, isUserActive, recordActivity, startTracking, stopTracking, postSeatTime, timeMs]);
+  }, [
+    isTracking,
+    isUserActive,
+    recordActivity,
+    startTracking,
+    stopTracking,
+    postSeatTime,
+    timeMs,
+  ]);
 
   return {
     timeMs,
     isTracking,
-    resetTime
+    resetTime,
   };
 }

@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import { useEffect } from 'react';
-import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs';
+import * as React from "react";
+import { useEffect } from "react";
+import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export default function SignOutPage() {
   useEffect(() => {
     const supabase = createPagesBrowserClient();
     supabase.auth.signOut().finally(() => {
-      window.location.href = '/';
+      window.location.href = "/";
     });
   }, []);
   return null;

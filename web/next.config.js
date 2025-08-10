@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: { forceSwcTransforms: true },
-  output: 'standalone'
+  output: "standalone",
 };
 
 module.exports = nextConfig;

@@ -95,10 +95,11 @@ curl -s -X POST http://localhost:3000/api/tutor \
 ### Sprint 4: Curriculum & Learning Experience
 
 1. Apply the curriculum migration:
+
    ```bash
    # If using Supabase CLI
    supabase db push
-   
+
    # Or run the migration manually in your Supabase dashboard
    # Copy contents of supabase/migrations/0005_curriculum.sql
    ```

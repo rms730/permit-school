@@ -1,11 +1,17 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import * as React from "react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
-  Container, Paper, Typography, Button, Stack, Alert, CircularProgress
-} from '@mui/material';
+  Container,
+  Paper,
+  Typography,
+  Button,
+  Stack,
+  Alert,
+  CircularProgress,
+} from "@mui/material";
 
 interface PageProps {
   params: {
@@ -24,19 +30,21 @@ export default function QuizStartPage({ params }: PageProps) {
     setError(null);
 
     try {
-      const response = await fetch('/api/attempts/start', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ unitId })
+      const response = await fetch("/api/attempts/start", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ unitId }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        if (data.code === 'NOT_ENOUGH_TIME') {
-          setError(`You need ${data.required} minutes of study time. You have ${data.accrued} minutes. Please continue studying the lesson.`);
+        if (data.code === "NOT_ENOUGH_TIME") {
+          setError(
+            `You need ${data.required} minutes of study time. You have ${data.accrued} minutes. Please continue studying the lesson.`,
+          );
         } else {
-          setError(data.error || 'Failed to start quiz');
+          setError(data.error || "Failed to start quiz");
         }
         return;
       }
@@ -44,8 +52,8 @@ export default function QuizStartPage({ params }: PageProps) {
       // Redirect to quiz
       router.push(`/quiz/${data.attemptId}`);
     } catch (err) {
-      console.error('Quiz start error:', err);
-      setError('Failed to start quiz');
+      console.error("Quiz start error:", err);
+      setError("Failed to start quiz");
     } finally {
       setLoading(false);
     }
@@ -60,12 +68,12 @@ export default function QuizStartPage({ params }: PageProps) {
           </Typography>
 
           <Typography variant="body1" textAlign="center">
-            This quiz will test your knowledge of the lesson material. 
-            Make sure you have completed the required study time before starting.
+            This quiz will test your knowledge of the lesson material. Make sure
+            you have completed the required study time before starting.
           </Typography>
 
           {error && (
-            <Alert severity="error" sx={{ width: '100%' }}>
+            <Alert severity="error" sx={{ width: "100%" }}>
               {error}
             </Alert>
           )}
@@ -84,7 +92,7 @@ export default function QuizStartPage({ params }: PageProps) {
               disabled={loading}
               startIcon={loading ? <CircularProgress size={20} /> : null}
             >
-              {loading ? 'Starting...' : 'Start Quiz'}
+              {loading ? "Starting..." : "Start Quiz"}
             </Button>
           </Stack>
         </Stack>

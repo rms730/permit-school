@@ -138,6 +138,21 @@ CREATE TABLE IF NOT EXISTS public.question_bank (
 ALTER TABLE public.question_bank ENABLE ROW LEVEL SECURITY;
 
 -- RAG corpus
+-- If this migration previously partially applied with vector(3072), normalize the column to 1536 dims.
+DO $plpgsql$ BEGIN
+    BEGIN
+        ALTER TABLE public.content_chunks
+            ALTER COLUMN embedding TYPE vector(1536);
+    EXCEPTION
+        WHEN undefined_table THEN
+            -- Table doesn't exist yet; fine for first-time runs.
+            NULL;
+        WHEN undefined_column THEN
+            -- Column doesn't exist yet; also fine—CREATE TABLE below will define it correctly.
+            NULL;
+    END;
+END $plpgsql$;
+
 CREATE TABLE IF NOT EXISTS public.content_chunks (
     id bigserial PRIMARY KEY,
     jurisdiction_id int NOT NULL REFERENCES public.jurisdictions(id) ON DELETE CASCADE,
@@ -145,8 +160,12 @@ CREATE TABLE IF NOT EXISTS public.content_chunks (
     lang text NOT NULL CHECK (lang IN ('en', 'es')),
     source_url text,
     chunk text NOT NULL,
-    embedding vector(3072)  -- text-embedding-3-large
+    embedding vector(1536)  -- text-embedding-3-small (indexable with IVFFlat/HNSW)
 );
+
+-- Rebuild the ANN index safely (no-op if it doesn't exist yet)
+DROP INDEX IF EXISTS content_chunks_embedding_idx;
+
 CREATE INDEX IF NOT EXISTS content_chunks_embedding_idx
     ON public.content_chunks
     USING ivfflat (embedding vector_cosine_ops);

@@ -73,6 +73,7 @@ select
     unit_data.title,
     unit_data.minutes_required
 from public.courses c
+join public.jurisdictions j on c.jurisdiction_id = j.id
 cross join (values
     (1, 'Traffic Basics', 30),
     (2, 'Signs & Signals', 30),
@@ -80,7 +81,7 @@ cross join (values
     (4, 'Parking & Freeway', 30),
     (5, 'Safety & Sharing the Road', 30)
 ) as unit_data(unit_no, title, minutes_required)
-where c.j_code = 'CA' and c.code = 'DE-ONLINE'
+where j.code = 'CA' and c.code = 'DE-ONLINE'
 on conflict (course_id, unit_no) do nothing;
 
 -- Seed unit chunks using FTS search
@@ -97,7 +98,8 @@ with unit_topics as (
         end as search_terms
     from public.course_units cu
     join public.courses c on cu.course_id = c.id
-    where c.j_code = 'CA' and c.code = 'DE-ONLINE'
+    join public.jurisdictions j on c.jurisdiction_id = j.id
+    where j.code = 'CA' and c.code = 'DE-ONLINE'
 )
 insert into public.unit_chunks (unit_id, chunk_id, ord)
 select 
@@ -109,7 +111,8 @@ select
     ) as ord
 from unit_topics ut
 cross join public.content_chunks cc
-where cc.j_code = 'CA'
+join public.jurisdictions j2 on cc.jurisdiction_id = j2.id
+where j2.code = 'CA'
     and to_tsvector('english', cc.chunk) @@ plainto_tsquery('english', ut.search_terms)
     and row_number() over (partition by ut.unit_id order by 
         ts_rank(to_tsvector('english', cc.chunk), plainto_tsquery('english', ut.search_terms)) desc,

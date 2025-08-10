@@ -188,13 +188,36 @@ CREATE TABLE IF NOT EXISTS public.certificates (
     student_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
     course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE RESTRICT,
     jurisdiction_id int NOT NULL REFERENCES public.jurisdictions(id) ON DELETE RESTRICT,
-    dl_serial text REFERENCES public.certificate_serials(serial),
+    dl_serial text,                          -- referenced via composite FK below
     status cert_status NOT NULL DEFAULT 'ready',
-    ship_to jsonb NOT NULL,              -- {name,address1,city,state,zip}
+    ship_to jsonb NOT NULL,                  -- {name,address1,city,state,zip}
     passed_at timestamptz NOT NULL,
     created_at timestamptz DEFAULT now()
 );
 ALTER TABLE public.certificates ENABLE ROW LEVEL SECURITY;
+
+-- Ensure composite FK exists (and remove any legacy single-column FK)
+DO $plpgsql$ BEGIN
+    BEGIN
+        ALTER TABLE public.certificates
+            DROP CONSTRAINT IF EXISTS certificates_dl_serial_fkey;
+    EXCEPTION
+        WHEN undefined_table THEN NULL;
+    END;
+
+    BEGIN
+        ALTER TABLE public.certificates
+            ADD CONSTRAINT certificates_serial_fk
+            FOREIGN KEY (jurisdiction_id, dl_serial)
+            REFERENCES public.certificate_serials (jurisdiction_id, serial)
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION
+            DEFERRABLE INITIALLY IMMEDIATE;
+    EXCEPTION
+        WHEN duplicate_object THEN NULL;
+        WHEN undefined_table THEN NULL;
+    END;
+END $plpgsql$;
 
 -- RLS: profiles
 DO $plpgsql$ BEGIN

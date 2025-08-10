@@ -4,11 +4,12 @@
   "type": "module",
   "scripts": {
     "ingest:ca:en": "node ingest_handbook.mjs --jurisdiction CA --lang en",
-    "test:search": "node test_search.mjs"
+    "test:search": "node test_search.mjs",
+    "test:search:hybrid": "node test_search_hybrid.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",
-    "dotenv": "^16.4.0",
+    "dotenv": "^16.4.5",
     "openai": "^4.56.0",
     "pdf-parse": "^1.1.1"
   }

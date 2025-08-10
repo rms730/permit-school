@@ -77,3 +77,17 @@ curl -s -X POST http://localhost:3000/api/tutor \
 - Run web:
   - `npm --prefix web i && npm --prefix web run dev`
 - Try a query on `/` and then view logs at `/admin/logs`.
+
+### Sprint 3: Auth & RBAC
+
+1. In Supabase → Auth:
+   - (Dev) Disable email confirmation for quick testing, or configure SMTP.
+2. Copy env:
+   - `cp web/.env.example web/.env.local`
+   - Fill `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`.
+3. Run locally:
+   - `npm --prefix web i && npm --prefix web run dev`
+4. Create a user at `/signin`, then promote to admin:
+   - `node web/scripts/make_admin.mjs you@example.com`
+5. Visit `/admin/logs` (must be signed in as admin).
+6. Ask a question on `/`; check `tutor_logs.user_id` is populated.

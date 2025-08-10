@@ -64,3 +64,16 @@ curl -s -X POST http://localhost:3000/api/tutor \
 ```
 
 > **Security**: The service role key lives only in `web/.env.local` and never on the client.
+
+### Sprint 2: Logs & State Picker
+
+- Apply migration `0004_tutor_logs.sql` in Supabase (SQL Editor or CLI).
+- In `web/.env.local`, set:
+  - NEXT_PUBLIC_SUPABASE_URL
+  - NEXT_PUBLIC_SUPABASE_ANON_KEY
+  - SUPABASE_URL
+  - SUPABASE_SERVICE_ROLE_KEY
+  - (optional) SUPABASE_FUNCTIONS_URL
+- Run web:
+  - `npm --prefix web i && npm --prefix web run dev`
+- Try a query on `/` and then view logs at `/admin/logs`.

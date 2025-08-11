@@ -277,6 +277,7 @@ curl -s -X POST http://localhost:3000/api/tutor \
    # 7) Test void functionality
    ```
 
+<<<<<<< HEAD
 ### Sprint 8: Launch Hardening & Operational Readiness
 
 1. **Transactional Email Setup**:
@@ -431,19 +432,73 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - **Safe Reordering**: Database function prevents constraint violations
    - **AI-Powered Suggestions**: Hybrid RAG search for content mapping
    - **Compliance Ready**: PDF and CSV exports for regulatory requirements
+```
+
+### Sprint 10: Platformize for Multi‑State (CA First)
+
+1. **Database Migration**:
+   - Apply the jurisdiction configuration migration: `supabase db push`
+   - Creates `jurisdiction_configs` table for runtime configuration
+   - Creates `billing_prices` table for course-specific pricing
+   - Seeds CA configuration with current values (30 questions, 0.8 pass, 150 minutes, CA prefix)
+
+2. **Configuration Lookup Order**:
+   - **Primary**: Database (`jurisdiction_configs` table)
+   - **Fallback**: Environment variables (existing `FINAL_EXAM_*` vars)
+   - **Certificate numbering**: Uses `make_certificate_number()` function with DB prefix
+
+3. **Admin Configuration**:
+   - `/admin/jurisdictions`: View and edit jurisdiction configurations
+   - **CA Configuration**: Edit exam questions, pass percentage, seat time, certificate prefix
+   - **Validation**: Pass percentage (0,1], seat time > 0, required fields
+   - **Fallback**: Environment variables remain as backup
+
+4. **Pricing Management**:
+   - `/admin/pricing`: Manage course-specific Stripe pricing
+   - **Add Prices**: Enter Stripe price IDs for courses
+   - **Toggle Active**: Activate/deactivate price configurations
+   - **Fallback**: Environment variable `STRIPE_PRICE_ID` if no DB price
+
+5. **Public Course Catalog**:
+   - `/courses`: Public course listing with pricing status
+   - **Course Display**: Shows jurisdiction, code, title, availability
+   - **Pricing Integration**: "Upgrade" CTA only when `has_price=true`
+   - **API**: `/api/public/catalog` returns course data with short cache
+
+6. **Updated Exam System**:
+   - **Eligibility**: Uses DB config for seat time requirements
+   - **Final Exam**: Uses DB config for question count and pass threshold
+   - **Backward Compatibility**: CA flows work exactly as before with default config
+
+7. **Billing Integration**:
+   - **Checkout**: Accepts `{ course_id }` or `{ j_code, course_code }`
+   - **Price Lookup**: Uses `billing_prices` table with active=true
+   - **Fallback**: Environment variable if no DB price configured
+
+8. **Key Features**:
+   - **DB-backed configuration**: All state-specific rules in database
+   - **Environment fallback**: Maintains backward compatibility
+   - **Admin UI**: No-code configuration management
+   - **Multi-state ready**: Abstracted for easy state addition
+   - **Pricing flexibility**: Course-specific Stripe integration
+
+9. **Environment Variables** (fallback only):
+   - `FINAL_EXAM_NUM_QUESTIONS`: Fallback question count (default: 30)
+   - `FINAL_EXAM_PASS_PCT`: Fallback pass threshold (default: 0.8)
+   - `FINAL_EXAM_MINUTES_REQUIRED`: Fallback seat time (default: 150)
+   - `STRIPE_PRICE_ID`: Fallback price ID for checkout
 
 10. **Manual Test Flow**:
     ```bash
     # 1) Apply migration
     supabase db push
     
-    # 2) Visit /admin/curriculum
-    # 3) Select a course to manage units
-    # 4) Test unit editing (title, minutes, objectives)
-    # 5) Test unit reordering (move up/down)
-    # 6) Test content mapping (get suggestions, save mappings)
-    # 7) Visit /admin/reports
-    # 8) Generate syllabus PDF for a course
-    # 9) Generate evidence CSV with date range
-    # 10) Verify downloads work correctly
+    # 2) Visit /admin/jurisdictions
+    # 3) Edit CA configuration (e.g., change seat time to 120 minutes)
+    # 4) Test exam eligibility reflects new seat time requirement
+    # 5) Visit /admin/pricing
+    # 6) Add a Stripe price ID for CA course
+    # 7) Test checkout uses new price; remove price → env fallback
+    # 8) Visit /courses to see public catalog
+    # 9) Verify CA appears and pricing status is correct
     ```

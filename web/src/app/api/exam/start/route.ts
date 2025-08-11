@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getRouteClient } from "@/lib/supabaseRoute";
 import { rateLimit, getRateLimitHeaders, getRateLimitKey } from '@/lib/ratelimit';
+import { getJurisdictionConfig } from "@/lib/jurisdictionConfig";
 
 export async function POST(req: Request) {
   // Rate limiting
@@ -85,15 +86,15 @@ export async function POST(req: Request) {
       );
     }
 
-    // Get number of questions from env
-    const numQuestions = parseInt(process.env.FINAL_EXAM_NUM_QUESTIONS || '30');
+    // Get jurisdiction config
+    const config = await getJurisdictionConfig('CA');
 
     // Select questions from question_bank across all units
     const { data: questions, error: questionsError } = await supabase
       .from("question_bank")
       .select("id, skill, stem, choices, answer, explanation")
       .eq("course_id", course.id)
-      .limit(numQuestions);
+      .limit(config.final_exam_questions);
 
     if (questionsError || !questions || questions.length === 0) {
       console.error("Questions query error:", questionsError);

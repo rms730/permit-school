@@ -48,22 +48,36 @@ This file is consumed by Planner/Coder/Reviewer agents.
 - **API**: Full CRUD for curriculum management with admin auth
 - **Compliance**: Exportable evidence for regulatory requirements
 
+### Sprint 10: Platformize for Multi‑State (CA First) ✅
+- **Database**: Jurisdiction configuration and pricing tables
+- **DB-backed config**: Environment variable fallback system
+- **Admin UI**: Jurisdiction config and pricing management
+- **Public catalog**: Course listing with pricing integration
+- **Exam system**: Updated to use DB configuration
+- **Multi-state ready**: No code changes for new states
+
 ## Future Work
 
-8. **Enhanced Content Management**
-   - Bulk unit operations (copy/paste between courses)
-   - Content versioning and rollback capabilities
-   - Advanced search and filtering for content mapping
-   - Content quality scoring and recommendations
+### Enhanced Content Management
+- Advanced content mapping with confidence scores
+- Bulk content operations and batch processing
+- Content versioning and rollback capabilities
+- Automated content quality checks
 
-9. **Advanced Reporting**
-   - Interactive dashboards with charts and analytics
-   - Automated compliance reporting schedules
-   - Custom report templates and branding
-   - Data export in multiple formats (Excel, JSON, etc.)
+### Advanced Reporting
+- Real-time analytics dashboard
+- Custom report builder
+- Export to additional formats (Excel, JSON)
+- Scheduled report generation
 
-10. **Multi-state Expansion**
-    - Texas curriculum and content ingestion
-    - State-specific compliance requirements
-    - Jurisdiction-specific certificate templates
-    - Multi-language support for all states
+### Multi-state Expansion
+- Texas content ingestion and configuration
+- Additional jurisdiction templates
+- Jurisdiction-specific UI customization
+- Multi-language support for new states
+
+### Platform Enhancements
+- Advanced user management and roles
+- API rate limiting and usage tracking
+- Enhanced security and audit logging
+- Performance optimization and caching

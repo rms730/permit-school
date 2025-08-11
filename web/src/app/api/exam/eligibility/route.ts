@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRouteClient } from '@/lib/supabaseRoute';
+import { getJurisdictionConfig } from '@/lib/jurisdictionConfig';
 
 export async function GET(request: NextRequest) {
   try {
@@ -41,15 +42,16 @@ export async function GET(request: NextRequest) {
       .eq('course_id', course.id)
       .single();
 
-    const minutesRequired = parseInt(process.env.FINAL_EXAM_MINUTES_REQUIRED || '150');
+    // Get jurisdiction config
+    const config = await getJurisdictionConfig('CA');
     const minutesTotal = seatTime?.minutes_total || 0;
 
-    if (seatTimeError || minutesTotal < minutesRequired) {
+    if (seatTimeError || minutesTotal < config.seat_time_required_minutes) {
       return NextResponse.json({
         eligible: false,
         reason: 'seat-time',
         minutesTotal,
-        minutesRequired
+        minutesRequired: config.seat_time_required_minutes
       });
     }
 

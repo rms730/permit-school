@@ -58,6 +58,9 @@ jobs:
           # Avoid failing on missing optional env at build time
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon-placeholder' }}
+          # Build metadata
+          NEXT_PUBLIC_COMMIT_SHA: ${{ github.sha }}
+          NEXT_PUBLIC_BUILD_AT: ${{ github.run_started_at }}
           # Suppress Sentry warnings in CI
           SENTRY_SUPPRESS_GLOBAL_ERROR_HANDLER_FILE_WARNING: 1
         run: npm run build

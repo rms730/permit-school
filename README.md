@@ -279,3 +279,96 @@ curl -s -X POST http://localhost:3000/api/tutor \
    # 6) Test verification page: /verify/[number]
    # 7) Test void functionality
    ```
+
+### Sprint 8: Launch Hardening & Operational Readiness
+
+1. **Transactional Email Setup**:
+   - Sign up for [Resend](https://resend.com) and get API key
+   - Configure email settings in `web/.env.local`:
+     ```bash
+     RESEND_API_KEY=re_xxx
+     FROM_EMAIL="Permit School <no-reply@yourdomain.com>"
+     SUPPORT_EMAIL=support@yourdomain.com
+     APP_BASE_URL=http://localhost:3000
+     ```
+
+2. **Email Features**:
+   - **Welcome emails**: Sent when users sign up
+   - **Subscription active**: Sent when subscription is activated
+   - **Certificate issued**: Sent with PDF and verification links
+   - **Certificate voided**: Sent with reason for voiding
+   - **Graceful fallback**: Endpoints work without email keys
+
+3. **Monitoring & Observability**:
+   - **Sentry integration**: Error tracking and performance monitoring
+   - **Health checks**: `/api/health` endpoint for system status
+   - **Admin monitoring**: `/admin/system` for operational dashboard
+   - **Billing events**: Track all payment and subscription events
+
+4. **Legal & Compliance**:
+   - **Terms of Service**: `/terms` page with MUI components
+   - **Privacy Policy**: `/privacy` page with comprehensive policy
+   - **Navigation**: Legal links added to AppBar
+   - **Contact information**: Support email integration
+
+5. **Rate Limiting**:
+   - **In-memory rate limiting**: Basic protection for API endpoints
+   - **Configurable limits**: Set via environment variables
+   - **Stripe webhook bypass**: Rate limiting skipped for Stripe signatures
+   - **Proper headers**: Rate limit information in response headers
+
+6. **Key Features**:
+   - **Production-ready emails**: Professional templates with branding
+   - **System monitoring**: Health checks and operational dashboard
+   - **Legal compliance**: Terms and privacy policy pages
+   - **API protection**: Rate limiting on hot endpoints
+   - **Graceful degradation**: Services work without optional keys
+
+7. **Environment Variables**:
+   ```bash
+   # Email Configuration (Resend)
+   RESEND_API_KEY=
+   FROM_EMAIL="Permit School <no-reply@yourdomain.com>"
+   SUPPORT_EMAIL=support@yourdomain.com
+   APP_BASE_URL=http://localhost:3000
+   
+   # Monitoring (Sentry)
+   SENTRY_DSN=
+   
+   # Rate Limiting
+   RATE_LIMIT_ON=true
+   RATE_LIMIT_WINDOW_MS=60000
+   RATE_LIMIT_MAX=60
+   ```
+
+8. **Manual Test Flow**:
+   ```bash
+   # 1) Set up Resend and Sentry (optional)
+   # 2) Configure environment variables
+   # 3) Test email sending:
+   #    - Subscribe to activate subscription email
+   #    - Issue certificate to trigger certificate email
+   #    - Void certificate to trigger voided email
+   # 4) Test monitoring:
+   #    - Visit /api/health
+   #    - Visit /admin/system
+   # 5) Test legal pages:
+   #    - Visit /terms and /privacy
+   # 6) Test rate limiting:
+   #    - Make rapid requests to /api/tutor
+   #    - Verify rate limit headers and 429 responses
+   ```
+
+9. **Observability**:
+   - **Health checks**: Monitor system status and response times
+   - **Error tracking**: Sentry captures errors and performance issues
+   - **Billing monitoring**: Track subscription and payment events
+   - **Rate limiting**: Monitor API usage and abuse prevention
+   - **Email delivery**: Track email sending success/failure rates
+
+10. **Production Considerations**:
+    - **Email deliverability**: Use verified domain with Resend
+    - **Rate limiting**: Consider Redis for multi-instance deployments
+    - **Monitoring**: Set up Sentry alerts for critical errors
+    - **Legal review**: Have actual terms and privacy policy reviewed
+    - **Support system**: Implement proper support ticket system

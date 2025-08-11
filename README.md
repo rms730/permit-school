@@ -170,6 +170,10 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - **RLS policies**: Secure access to billing data
    - **Event logging**: All billing events stored for admin review
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
 ### Sprint 6: Final Exam, Compliance Gating & Draft Certificate
 
 1. **Final Exam Setup**:

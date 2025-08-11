@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'next/navigation';
 import {
   Box,
@@ -58,13 +58,7 @@ export default function GuardianSigningPage() {
   const [relation, setRelation] = useState('');
   const [agree, setAgree] = useState(false);
 
-  useEffect(() => {
-    if (token) {
-      fetchGuardianData();
-    }
-  }, [token]);
-
-  const fetchGuardianData = async () => {
+  const fetchGuardianData = useCallback(async () => {
     try {
       const response = await fetch(`/api/guardian/verify/${token}`);
       if (!response.ok) {
@@ -85,7 +79,13 @@ export default function GuardianSigningPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [token]);
+
+  useEffect(() => {
+    if (token) {
+      fetchGuardianData();
+    }
+  }, [token, fetchGuardianData]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

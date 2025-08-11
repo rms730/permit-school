@@ -52,11 +52,9 @@ export async function createSignedUploadUrl(
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );
 
-    const { data, error } = await supabase.storage
-      .from(bucket)
-      .createSignedUploadUrl(path, {
-        expiresIn
-      });
+          const { data, error } = await supabase.storage
+        .from(bucket)
+        .createSignedUploadUrl(path);
 
     if (error) {
       console.error('Error creating signed upload URL:', error);

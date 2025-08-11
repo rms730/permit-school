@@ -147,7 +147,7 @@ function GuardianStep() {
       </Typography>
       
       <Typography color="text.secondary" sx={{ mb: 3 }}>
-        We need your guardian's consent to proceed with the course. Please provide their information below.
+        We need your guardian&apos;s consent to proceed with the course. Please provide their information below.
       </Typography>
 
       {guardianStatus && (
@@ -293,7 +293,8 @@ export default function OnboardingPage() {
 
       if (!profileResponse.ok) {
         const errorData = await profileResponse.json();
-        throw new Error(errorData.error || "Failed to save profile");
+        setError((errorData as any).error || "Failed to save profile");
+        return;
       }
 
       // Record consents
@@ -330,7 +331,7 @@ export default function OnboardingPage() {
 
       router.push("/dashboard");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "An error occurred");
+      setError((err as any) instanceof Error ? (err as any).message : "An error occurred");
     } finally {
       setLoading(false);
     }

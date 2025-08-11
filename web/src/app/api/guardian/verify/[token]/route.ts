@@ -3,7 +3,7 @@ import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { hashToken } from '@/lib/tokens';
 
-export async function get(
+export async function GET(
   request: NextRequest,
   { params }: { params: { token: string } }
 ) {

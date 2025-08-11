@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import {
   Box,
   Typography,
@@ -89,11 +89,7 @@ export default function AdminGuardiansPage() {
   const [cancelingId, setCancelingId] = useState<string | null>(null);
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchRequests();
-  }, [pagination.page, pagination.limit, statusFilter, studentIdFilter]);
-
-  const fetchRequests = async () => {
+    const fetchRequests = useCallback(async () => {
     setLoading(true);
     try {
       const params = new URLSearchParams({
@@ -118,7 +114,11 @@ export default function AdminGuardiansPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [pagination.page, pagination.limit, statusFilter, studentIdFilter]);
+
+  useEffect(() => {
+    fetchRequests();
+  }, [fetchRequests]);
 
   const handleResend = async (requestId: string) => {
     setResendingId(requestId);

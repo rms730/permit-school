@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import { generateToken, hashToken } from '@/lib/tokens';
 import { sendGuardianRequestEmail } from '@/lib/email';
 
-export async function post(request: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
     const supabase = createRouteHandlerClient({ cookies });
     

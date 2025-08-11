@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import { generateToken, hashToken } from '@/lib/tokens';
 import { sendGuardianRequestEmail } from '@/lib/email';
 
-export async function post(request: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
     const supabase = createRouteHandlerClient({ cookies });
     
@@ -14,7 +14,7 @@ export async function post(request: NextRequest) {
       return NextResponse.json({ code: 'unauthorized', message: 'Authentication required' }, { status: 401 });
     }
 
-    const body = await request.json();
+    const body: any = await request.json();
     const { course_id, j_code, course_code, guardian_name, guardian_email } = body;
 
     // Validate required fields
@@ -28,7 +28,7 @@ export async function post(request: NextRequest) {
       return NextResponse.json({ code: 'validation_error', message: 'Invalid email format' }, { status: 400 });
     }
 
-    let resolvedCourseId = course_id;
+    let resolvedCourseId: string | undefined = course_id;
 
     // If course_id not provided, resolve from j_code and course_code
     if (!resolvedCourseId && j_code && course_code) {
@@ -67,7 +67,7 @@ export async function post(request: NextRequest) {
     const tokenHash = hashToken(rawToken);
 
     // Create guardian request
-    const { data: request, error: insertError } = await supabase
+    const { data: guardianRequest, error: insertError } = await supabase
       .from('guardian_requests')
       .insert({
         student_id: user.id,
@@ -116,7 +116,7 @@ export async function post(request: NextRequest) {
       help_email: process.env.SUPPORT_EMAIL || 'support@permitschool.com'
     });
 
-    return NextResponse.json({ request_id: request.id });
+    return NextResponse.json({ request_id: guardianRequest.id });
   } catch (error) {
     console.error('Guardian request error:', error);
     return NextResponse.json({ code: 'server_error', message: 'Internal server error' }, { status: 500 });

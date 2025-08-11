@@ -6,7 +6,7 @@ import { renderGuardianConsentPDF } from '@/lib/consentPdf';
 import { createSignedUrl } from '@/lib/storageSignedUrl';
 import { sendGuardianReceiptEmail } from '@/lib/email';
 
-export async function post(request: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
     const supabase = createRouteHandlerClient({ cookies });
     const body = await request.json();

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 import { getRouteClient } from "@/lib/supabaseRoute";
+import { rateLimit, getRateLimitHeaders, getRateLimitKey } from '@/lib/ratelimit';
 
 function getFunctionsBase() {
   const explicit = process.env.SUPABASE_FUNCTIONS_URL;
@@ -12,6 +13,24 @@ function getFunctionsBase() {
 }
 
 export async function POST(req: Request) {
+  // Rate limiting
+  const rateLimitEnabled = process.env.RATE_LIMIT_ON === 'true';
+  if (rateLimitEnabled) {
+    const key = getRateLimitKey(req);
+    const windowMs = parseInt(process.env.RATE_LIMIT_WINDOW_MS || '60000');
+    const max = parseInt(process.env.RATE_LIMIT_MAX || '60');
+    
+    const result = rateLimit(key, windowMs, max);
+    const headers = getRateLimitHeaders(result);
+    
+    if (!result.ok) {
+      return NextResponse.json(
+        { error: 'Rate limit exceeded' },
+        { status: 429, headers }
+      );
+    }
+  }
+
   const started = Date.now();
   let j_code = "CA";
   let query = "";

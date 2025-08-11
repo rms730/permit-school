@@ -72,6 +72,12 @@ export default function AppBar({ title = "Permit School — Tutor" }: AppBarProp
           <Link href="/signin" underline="hover" color="inherit">
             Sign In
           </Link>
+          <Link href="/privacy" underline="hover" color="inherit">
+            Privacy
+          </Link>
+          <Link href="/terms" underline="hover" color="inherit">
+            Terms
+          </Link>
         </Stack>
       </Toolbar>
     </MuiAppBar>

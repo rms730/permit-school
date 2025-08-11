@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getRouteClient } from '@/lib/supabaseRoute';
 import { renderCertificatePDF } from '@/lib/certPdf';
 import { uploadCertificatePdf } from '@/lib/certStorage';
+import { sendCertificateIssuedEmail } from '@/lib/email';
 
 export async function POST(request: NextRequest) {
   try {
@@ -127,6 +128,22 @@ export async function POST(request: NextRequest) {
     const { data: { publicUrl } } = supabase.storage
       .from('certificates')
       .getPublicUrl(pdfPath);
+
+    // Send certificate issued email
+    try {
+      const { data: user } = await supabase.auth.admin.getUserById(certificate.student_id);
+      if (user?.user?.email) {
+        await sendCertificateIssuedEmail({
+          to: user.user.email,
+          name: (certificate.profiles as any)?.full_name,
+          certNumber: numberResult,
+          verifyUrl: `${process.env.APP_ORIGIN || 'http://localhost:3000'}/verify/${numberResult}`,
+          pdfUrl: publicUrl,
+        });
+      }
+    } catch (emailError) {
+      console.error('Failed to send certificate email:', emailError);
+    }
 
     return NextResponse.json({
       number: numberResult,

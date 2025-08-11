@@ -23,7 +23,7 @@ import {
   ArrowForward,
 } from '@mui/icons-material';
 import { useRouter } from "next/navigation";
-import AppBarV2 from '@/components/AppBarV2';
+import AppShell from '@/components/layout/AppShell';
 
 interface ProfileData {
   first_name: string;
@@ -135,20 +135,18 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <>
-        <AppBarV2 />
+      <AppShell>
         <Container maxWidth="lg" sx={{ py: 4 }}>
           <Box display="flex" justifyContent="center" alignItems="center" minHeight="400px">
             <CircularProgress />
           </Box>
         </Container>
-      </>
+      </AppShell>
     );
   }
 
   return (
-    <>
-      <AppBarV2 />
+    <AppShell>
       <Container maxWidth="lg" sx={{ py: 4 }}>
         <Box sx={{ mb: 4 }}>
           <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 700 }}>
@@ -321,6 +319,6 @@ export default function DashboardPage() {
         </Grid>
       </Grid>
     </Container>
-    </>
+    </AppShell>
   );
 }

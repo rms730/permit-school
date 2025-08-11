@@ -1,9 +1,9 @@
 import { getRouteClient } from '@/lib/supabaseRoute';
 import { redirect } from 'next/navigation';
 import AppShell from '@/components/layout/AppShell';
-import PrivacySettings from './PrivacySettings';
+import AuthSettings from './AuthSettings';
 
-export default async function PrivacyPage() {
+export default async function AuthPage() {
   const supabase = getRouteClient();
   
   const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -19,7 +19,7 @@ export default async function PrivacyPage() {
 
   return (
     <AppShell user={profile}>
-      <PrivacySettings user={user} profile={profile} />
+      <AuthSettings user={user} profile={profile} />
     </AppShell>
   );
 }

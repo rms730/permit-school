@@ -1,7 +1,4 @@
-"use client";
-
 import * as React from "react";
-import { useState, useEffect } from "react";
 import {
   Container,
   Paper,
@@ -16,9 +13,13 @@ import {
   LinearProgress,
   Card,
   CardContent,
+  Alert,
 } from "@mui/material";
-import { useSeatTime } from "../useSeatTime";
-import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
+import { getServerClient } from "@/lib/supabaseServer";
+import { getEntitlementForUser } from "@/lib/entitlements";
+import { redirect } from "next/navigation";
+import Link from "next/link";
+import AppBar from "@/components/AppBar";
 
 interface Chunk {
   id: number;
@@ -31,6 +32,7 @@ interface Chunk {
 interface Unit {
   id: string;
   title: string;
+  unit_no: number;
   minutes_required: number;
 }
 
@@ -40,113 +42,91 @@ interface PageProps {
   };
 }
 
-export default function LessonPlayerPage({ params }: PageProps) {
+export default async function LessonPlayerPage({ params }: PageProps) {
   const { unitId } = params;
-  const [unit, setUnit] = useState<Unit | null>(null);
-  const [chunks, setChunks] = useState<Chunk[]>([]);
-  const [currentChunkIndex, setCurrentChunkIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const supabase = getServerClient();
 
-  const supabase = createPagesBrowserClient();
+  // Get unit details including unit_no
+  const { data: unit, error: unitError } = await supabase
+    .from("course_units")
+    .select("id, title, unit_no, minutes_required")
+    .eq("id", unitId)
+    .single();
 
-  // Seat time tracking
-  const { timeMs, isTracking } = useSeatTime({
-    unitId,
-    onTimeUpdate: (time) => {
-      // Optional: Update UI when time changes
-    },
-  });
+  if (unitError || !unit) {
+    return (
+      <Container maxWidth="lg" sx={{ mt: 4 }}>
+        <Paper variant="outlined" sx={{ p: 3 }}>
+          <Typography color="error">Unit not found</Typography>
+        </Paper>
+      </Container>
+    );
+  }
 
-  useEffect(() => {
-    async function loadUnit() {
-      try {
-        // Get unit details
-        const { data: unitData, error: unitError } = await supabase
-          .from("course_units")
-          .select("id, title, minutes_required")
-          .eq("id", unitId)
-          .single();
-
-        if (unitError || !unitData) {
-          setError("Unit not found");
-          return;
-        }
-
-        setUnit(unitData);
-
-        // Get unit chunks
-        const { data: chunksData, error: chunksError } = await supabase
-          .from("unit_chunks")
-          .select(
-            `
-            ord,
-            content_chunks (
-              id,
-              chunk,
-              section_ref,
-              source_url
-            )
-          `,
-          )
-          .eq("unit_id", unitId)
-          .order("ord");
-
-        if (chunksError || !chunksData) {
-          setError("Failed to load unit content");
-          return;
-        }
-
-        const formattedChunks: Chunk[] = chunksData.map((item) => ({
-          id: (item.content_chunks as any).id,
-          ord: item.ord,
-          chunk: (item.content_chunks as any).chunk,
-          section_ref: (item.content_chunks as any).section_ref,
-          source_url: (item.content_chunks as any).source_url,
-        }));
-
-        setChunks(formattedChunks);
-      } catch (err) {
-        console.error("Error loading unit:", err);
-        setError("Failed to load unit");
-      } finally {
-        setLoading(false);
-      }
+  // Check entitlement for units beyond Unit 1
+  if (unit.unit_no !== 1) {
+    const { active: isEntitled } = await getEntitlementForUser('CA');
+    
+    if (!isEntitled) {
+      return (
+        <Container maxWidth="lg" sx={{ mt: 4 }}>
+          <Paper variant="outlined" sx={{ p: 3 }}>
+            <Alert 
+              severity="info" 
+              action={
+                <Button color="inherit" size="small" component={Link} href="/billing">
+                  Upgrade
+                </Button>
+              }
+            >
+              This unit requires a subscription. Please upgrade to access all course content.
+            </Alert>
+          </Paper>
+        </Container>
+      );
     }
+  }
 
-    loadUnit();
-  }, [unitId, supabase]);
+  // Get unit chunks
+  const { data: chunksData, error: chunksError } = await supabase
+    .from("unit_chunks")
+    .select(
+      `
+      ord,
+      content_chunks (
+        id,
+        chunk,
+        section_ref,
+        source_url
+      )
+    `,
+    )
+    .eq("unit_id", unitId)
+    .order("ord");
 
-  const currentChunk = chunks[currentChunkIndex];
-  const progressPercent = unit
-    ? Math.min((timeMs / (unit.minutes_required * 60000)) * 100, 100)
-    : 0;
-  const timeMinutes = Math.floor(timeMs / 60000);
-  const requiredMinutes = unit?.minutes_required || 0;
-
-  if (loading) {
+  if (chunksError || !chunksData) {
     return (
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         <Paper variant="outlined" sx={{ p: 3 }}>
-          <Typography>Loading lesson...</Typography>
+          <Typography color="error">Failed to load unit content</Typography>
         </Paper>
       </Container>
     );
   }
 
-  if (error || !unit) {
-    return (
-      <Container maxWidth="lg" sx={{ mt: 4 }}>
-        <Paper variant="outlined" sx={{ p: 3 }}>
-          <Typography color="error">{error || "Unit not found"}</Typography>
-        </Paper>
-      </Container>
-    );
-  }
+  const chunks: Chunk[] = chunksData.map((item) => ({
+    id: (item.content_chunks as any).id,
+    ord: item.ord,
+    chunk: (item.content_chunks as any).chunk,
+    section_ref: (item.content_chunks as any).section_ref,
+    source_url: (item.content_chunks as any).source_url,
+  }));
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 4, mb: 8 }}>
-      {/* Header with title and seat time */}
+    <>
+      <AppBar title={`${unit.title} - Learning`} />
+      <Container maxWidth="lg" sx={{ mt: 4, mb: 8 }}>
+      {/* Header with title */}
       <Paper variant="outlined" sx={{ p: 2, mb: 2 }}>
         <Stack
           direction="row"
@@ -155,21 +135,12 @@ export default function LessonPlayerPage({ params }: PageProps) {
         >
           <Typography variant="h5">{unit.title}</Typography>
           <Stack direction="row" spacing={2} alignItems="center">
-            <Chip
-              label={isTracking ? "Active" : "Inactive"}
-              color={isTracking ? "success" : "default"}
-              size="small"
-            />
+            <Chip label={`Unit ${unit.unit_no}`} size="small" />
             <Typography variant="body2">
-              {timeMinutes} / {requiredMinutes} minutes
+              {unit.minutes_required} minutes required
             </Typography>
           </Stack>
         </Stack>
-        <LinearProgress
-          variant="determinate"
-          value={progressPercent}
-          sx={{ mt: 1 }}
-        />
       </Paper>
 
       <Stack direction="row" spacing={2} sx={{ height: "70vh" }}>
@@ -182,23 +153,14 @@ export default function LessonPlayerPage({ params }: PageProps) {
             {chunks.map((chunk, index) => (
               <Box
                 key={chunk.id}
-                onClick={() => setCurrentChunkIndex(index)}
                 sx={{
                   p: 1,
                   borderRadius: 1,
                   mb: 0.5,
-                  cursor: "pointer",
-                  bgcolor:
-                    index === currentChunkIndex
-                      ? "primary.light"
-                      : "transparent",
-                  "&:hover": { bgcolor: "action.hover" },
+                  bgcolor: "transparent",
                 }}
               >
-                <Typography
-                  variant="body2"
-                  fontWeight={index === currentChunkIndex ? "bold" : "normal"}
-                >
+                <Typography variant="body2">
                   Section {chunk.ord}
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
@@ -212,7 +174,7 @@ export default function LessonPlayerPage({ params }: PageProps) {
         {/* Main content area */}
         <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
           <Paper variant="outlined" sx={{ flex: 1, p: 3, overflow: "auto" }}>
-            {currentChunk ? (
+            {chunks.length > 0 ? (
               <Box>
                 <Stack
                   direction="row"
@@ -221,10 +183,10 @@ export default function LessonPlayerPage({ params }: PageProps) {
                   sx={{ mb: 2 }}
                 >
                   <Typography variant="h6">
-                    Section {currentChunk.ord}
+                    Section {chunks[0].ord}
                   </Typography>
-                  {currentChunk.section_ref && (
-                    <Chip label={currentChunk.section_ref} size="small" />
+                  {chunks[0].section_ref && (
+                    <Chip label={chunks[0].section_ref} size="small" />
                   )}
                 </Stack>
 
@@ -238,14 +200,14 @@ export default function LessonPlayerPage({ params }: PageProps) {
                         fontSize: "1rem",
                       }}
                     >
-                      {currentChunk.chunk}
+                      {chunks[0].chunk}
                     </Typography>
                   </CardContent>
                 </Card>
 
-                {currentChunk.source_url && (
+                {chunks[0].source_url && (
                   <Typography variant="caption" color="text.secondary">
-                    Source: {currentChunk.source_url}
+                    Source: {chunks[0].source_url}
                   </Typography>
                 )}
               </Box>
@@ -254,42 +216,21 @@ export default function LessonPlayerPage({ params }: PageProps) {
             )}
           </Paper>
 
-          {/* Navigation buttons */}
+          {/* Navigation info */}
           <Paper variant="outlined" sx={{ p: 2, mt: 2 }}>
             <Stack
               direction="row"
               justifyContent="space-between"
               alignItems="center"
             >
-              <Button
-                variant="outlined"
-                disabled={currentChunkIndex === 0}
-                onClick={() =>
-                  setCurrentChunkIndex((prev) => Math.max(0, prev - 1))
-                }
-              >
-                Previous
-              </Button>
-
               <Typography variant="body2">
-                {currentChunkIndex + 1} of {chunks.length}
+                {chunks.length} sections available
               </Typography>
-
-              <Button
-                variant="outlined"
-                disabled={currentChunkIndex === chunks.length - 1}
-                onClick={() =>
-                  setCurrentChunkIndex((prev) =>
-                    Math.min(chunks.length - 1, prev + 1),
-                  )
-                }
-              >
-                Next
-              </Button>
             </Stack>
           </Paper>
         </Box>
       </Stack>
     </Container>
+    </>
   );
 }

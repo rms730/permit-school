@@ -2,9 +2,6 @@
 
 import * as React from "react";
 import {
-  AppBar,
-  Toolbar,
-  Typography,
   Container,
   Paper,
   Stack,
@@ -20,7 +17,9 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Typography,
 } from "@mui/material";
+import AppBar from "@/components/AppBar";
 
 type Citation = {
   idx: number;
@@ -78,25 +77,7 @@ export default function HomePage() {
 
   return (
     <>
-      <AppBar position="static" elevation={0}>
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography variant="h6">Permit School — Tutor</Typography>
-          <Stack direction="row" spacing={2}>
-            <Link href="/" underline="hover" color="inherit">
-              Home
-            </Link>
-            <Link href="/course/CA/DE-ONLINE" underline="hover" color="inherit">
-              Course
-            </Link>
-            <Link href="/admin/logs" underline="hover" color="inherit">
-              Admin Logs
-            </Link>
-            <Link href="/signin" underline="hover" color="inherit">
-              Sign In
-            </Link>
-          </Stack>
-        </Toolbar>
-      </AppBar>
+      <AppBar />
 
       <Container maxWidth="md" sx={{ mt: 4, mb: 8 }}>
         <Paper variant="outlined" sx={{ p: 2 }}>

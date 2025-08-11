@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { getServerClient } from "@/lib/supabaseServer";
 import Link from "next/link";
+import AppBar from "@/components/AppBar";
 
 interface Unit {
   id: string;
@@ -170,7 +171,9 @@ export default async function CourseOutlinePage({ params }: PageProps) {
   }
 
   return (
-    <Container maxWidth="md" sx={{ mt: 4, mb: 8 }}>
+    <>
+      <AppBar title={`${course.title} - Course`} />
+      <Container maxWidth="md" sx={{ mt: 4, mb: 8 }}>
       <Paper variant="outlined" sx={{ p: 3 }}>
         <Typography variant="h4" gutterBottom>
           {course.title}
@@ -299,5 +302,6 @@ export default async function CourseOutlinePage({ params }: PageProps) {
         </List>
       </Paper>
     </Container>
+    </>
   );
 }

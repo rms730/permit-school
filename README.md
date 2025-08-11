@@ -725,3 +725,384 @@ curl -s -X POST http://localhost:3000/api/tutor \
     - **Age Thresholds**: Configurable per jurisdiction
     - **Content Localization**: State-specific consent language
     - **No Code Changes**: Additional states via database config
+
+### Sprint 14: Question Bank Authoring, Exam Blueprinting & Item Analytics
+
+This sprint introduces a comprehensive question bank management system with exam blueprinting and analytics capabilities.
+
+#### Database Objects
+
+**Question Bank Extensions:**
+- `question_bank` table extended with:
+  - `status` (draft/approved/archived)
+  - `tags` (array for categorization)
+  - `version` (tracking changes)
+  - `published_at` (when approved)
+  - `author_id` and `reviewer_id` (workflow tracking)
+  - `source_ref` (external reference)
+  - `review_notes` (reviewer feedback)
+
+**Exam Blueprints:**
+- `exam_blueprints` table for exam configuration
+- `exam_blueprint_rules` table for detailed question selection rules
+- Unique constraint ensures one active blueprint per course
+
+**Analytics:**
+- `v_item_stats` view provides p_correct, attempts, and usage metrics
+- Computed from `attempt_items` and `attempts` tables (last 180 days)
+
+#### Admin UI Usage
+
+**Question Bank Management (`/admin/questions`):**
+- Course selector and search/filter capabilities
+- Status-based filtering (draft/approved/archived)
+- Tag-based filtering and autocomplete
+- Question editor with live preview
+- Import/export functionality (CSV/JSON)
+- Item analytics with p_correct visualization
+
+**Blueprint Management (`/admin/blueprints`):**
+- Create/edit blueprints with rule-based question selection
+- Rule configuration: skill, count, difficulty range, tag inclusion/exclusion
+- Validation ensures rule counts sum to total questions
+- Coverage analysis shows available questions per rule
+- Activate/deactivate blueprints with confirmation
+
+#### Import/Export Formats
+
+**CSV Import Headers:**
+```
+course_id,skill,difficulty,stem,choices,answer,explanation,tags,source_sections,source_ref,status
+```
+
+**JSON Import Format:**
+```json
+{
+  "questions": [
+    {
+      "course_id": "uuid",
+      "skill": "Traffic Laws",
+      "difficulty": 3,
+      "stem": "Question text...",
+      "choices": ["A", "B", "C", "D"],
+      "answer": "A",
+      "explanation": "Explanation...",
+      "tags": ["highway", "speed"],
+      "source_sections": ["section1", "section2"],
+      "source_ref": "DMV_2024_001"
+    }
+  ]
+}
+```
+
+#### Blueprint Rule Semantics
+
+**Rule Configuration:**
+- `skill`: Must match question bank skill exactly
+- `count`: Number of questions to select
+- `min_difficulty`/`max_difficulty`: Difficulty range (1-5)
+- `include_tags`: Questions must have ALL specified tags
+- `exclude_tags`: Questions must have NONE of specified tags
+
+**Validation:**
+- Sum of all rule counts must equal blueprint total_questions
+- Each rule must have sufficient approved questions available
+- Difficulty ranges must be valid (min ≤ max)
+
+#### Exam Fallback Logic
+
+**Blueprint Selection:**
+1. Check for active blueprint for course
+2. If active blueprint exists:
+   - Apply rules sequentially
+   - Select questions matching criteria randomly
+   - Return 409 if insufficient questions for any rule
+3. If no active blueprint:
+   - Fall back to existing behavior (random selection)
+   - Use jurisdiction config for question count
+
+**Backward Compatibility:**
+- Existing exams continue to work without blueprints
+- No code changes required for current functionality
+- Blueprints are opt-in per course
+
+#### Item Analytics
+
+**Metrics Available:**
+- `p_correct`: Proportion of correct answers (0-1)
+- `attempts`: Total number of attempts
+- `correct_count`: Number of correct answers
+- `avg_attempt_score`: Average score on attempts
+- `last_seen_at`: Most recent usage
+
+**Visualization:**
+- Color-coded chips: <30% (hard), 30-70% (ok), >70% (easy)
+- Trend analysis for last 30/90 days
+- Export capabilities with analytics data
+
+#### Manual Test Flow
+
+```bash
+# 1) Apply migration
+supabase db push
+
+# 2) Visit /admin/questions
+# 3) Create 10+ questions with different skills and difficulties
+# 4) Approve questions by changing status to "approved"
+# 5) Visit /admin/blueprints
+# 6) Create blueprint with 3 rules totaling N questions
+# 7) Activate blueprint
+# 8) Start an exam - should use blueprint rules
+# 9) View item stats and export CSV
+# 10) Test fallback by deactivating blueprint
+```
+
+### Sprint 15 — Accessibility (WCAG 2.2 AA), PWA, and SEO/Performance Hardening
+
+**Goal**: Ship an accessible, installable, and fast app. Achieve WCAG 2.2 AA across core flows, add a careful PWA (offline for static assets only; no offline seat‑time), and raise Lighthouse (Perf/Acc/Best/SEO) across key pages.
+
+#### A) Accessibility (WCAG 2.2 AA)
+
+**Global a11y improvements:**
+- ✅ Skip to content link rendered as first focusable element
+- ✅ All interactive components keyboard reachable with visible focus
+- ✅ Proper ARIA attributes and semantic landmarks
+- ✅ Alt text for images/icons; decorative icons marked aria-hidden
+- ✅ Form controls associated with visible labels
+- ✅ Accessibility statement page at `/accessibility`
+
+**MUI theme & focus:**
+- ✅ Color contrast ≥ 4.5:1 across theme palette
+- ✅ Consistent focus outline using MUI theme overrides
+- ✅ No custom CSS files (MUI only)
+
+**Automated a11y checks:**
+- ✅ eslint-plugin-jsx-a11y with recommended rules
+- ✅ @axe-core/cli for automated testing
+- ✅ CI integration with accessibility thresholds
+
+#### B) PWA (Installable app; careful offline)
+
+**Requirements:**
+- ✅ Do NOT cache authenticated pages or compliance routes
+- ✅ Seat‑time MUST NOT accrue while offline
+- ✅ Offline fallback page explains connectivity requirements
+
+**Implementation:**
+- ✅ Web app manifest with proper icons and shortcuts
+- ✅ Service worker with next-pwa (app dir compatible)
+- ✅ Runtime caching strategy:
+  - Cache First: static assets (_next/static, fonts, icons)
+  - Stale While Revalidate: public pages (/, /courses, /privacy, /terms, /verify/*)
+  - Network Only: private/compliance routes (api/**, learn/**, quiz/**, exam/**, etc.)
+- ✅ Offline page at `/offline` with EN/ES messaging
+
+#### C) SEO & Performance
+
+**SEO improvements:**
+- ✅ robots.txt and sitemap.xml routes
+- ✅ Canonical URLs via metadata in root layout
+- ✅ OpenGraph & Twitter meta on key pages
+- ✅ JSON‑LD Course schema on /courses
+
+**Performance optimizations:**
+- ✅ next/font for Roboto/roboto‑mono (no external font blocking)
+- ✅ HTTP caching headers for public pages
+- ✅ Tree‑shake large libs; lazy‑load admin pages
+- ✅ No blocking console.warn/errors in production
+
+**CI gates:**
+- ✅ Lighthouse CI with thresholds:
+  - Performance ≥ 90
+  - Accessibility ≥ 95
+  - Best Practices ≥ 95
+  - SEO ≥ 90
+- ✅ @axe-core/cli CI step scanning key pages
+
+#### D) Manual Testing Checklist
+
+**Accessibility:**
+- [ ] Keyboard-only navigation through signup → learn unit → quiz start
+- [ ] Screen reader spot check (NVDA/VoiceOver) on /, /courses, signin
+- [ ] Focus indicators visible on all interactive elements
+- [ ] Color contrast meets WCAG 2.2 AA standards
+
+**PWA:**
+- [ ] Install prompt works on supported browsers
+- [ ] /offline renders when disconnected
+- [ ] Exam/learn never load offline (Network Only strategy)
+- [ ] Static assets cached for offline viewing
+
+**Performance:**
+- [ ] Lighthouse scores meet thresholds on key pages
+- [ ] No console errors in production build
+- [ ] Images optimized with next/Image
+- [ ] Fonts load without blocking
+
+#### E) Environment Variables
+
+```bash
+# PWA & SEO
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_SUPPORT_EMAIL=support@your-domain.com
+NEXT_PUBLIC_SUPPORT_PHONE=1-800-PERMIT
+
+# CI Testing
+# No additional variables required for accessibility/PWA testing
+```
+
+#### F) Running Tests Locally
+
+```bash
+# Install dependencies
+cd web && npm install
+
+# Run accessibility linting
+npm run lint
+
+# Run axe-core tests (requires server running)
+npm run start-ci &
+sleep 30
+npm run axe:ci
+
+# Run Lighthouse CI locally
+npx lhci autorun
+
+# Build and test production build
+npm run build
+npm run start
+```
+
+#### G) CI Integration
+
+The GitHub Actions workflow (`.github/workflows/accessibility-ci.yml`) runs:
+- Lighthouse CI with performance/accessibility/SEO thresholds
+- axe-core accessibility testing
+- ESLint with jsx-a11y rules
+- TypeScript type checking
+
+All checks must pass before merge to main/develop branches.
+
+### Sprint 16 — E2E Test Harness, QA Fixtures, and CI Release Gates
+
+**Goal**: Create a deterministic end‑to‑end (E2E) test suite and non‑production "testkit" APIs so we can automatically verify the most important student/guardian/admin flows for California.
+
+#### A) Non‑production Testkit
+
+**Purpose**: Deterministically seed/modify state for E2E without breaking RLS or requiring real providers.
+
+**Security**: Routes under `/api/testkit/**` are only available when `TESTKIT_ON=true` and with correct bearer token. In production, the whole folder returns 404 (dead code via env guard).
+
+**Available endpoints**:
+- `POST /api/testkit/reset` — Truncate test data
+- `POST /api/testkit/user` — Create user (profile + entitlement opt‑in)
+- `POST /api/testkit/enroll` — Enroll user in course
+- `POST /api/testkit/seat-time` — Add seat time events
+- `POST /api/testkit/entitlement` — Set entitlement active/inactive
+- `POST /api/testkit/guardian/request` — Create guardian request for minor
+- `POST /api/testkit/exam/blueprint` — Ensure active blueprint exists
+- `POST /api/testkit/cert/draft-to-issued` — Issue draft certificate
+
+#### B) Playwright E2E Tests
+
+**Coverage**:
+1. **Auth & Onboarding (Adult)** — Sign up, complete onboarding, enroll in course
+2. **Guardian e‑sign (Minor)** — Create minor, send guardian request, complete consent
+3. **Learn → Seat‑time Gating → Unit Quiz** — Visit unit, confirm quiz gating, complete quiz
+4. **Final Exam → Draft Certificate** — Ensure eligibility, start exam, confirm draft certificate
+5. **Issue Certificate (Admin)** — Login as admin, issue draft, verify certificate
+6. **Public Catalog & i18n** — Visit catalog, toggle language, verify content updates
+7. **Accessibility smoke** — Run axe-core on key pages, assert no serious violations
+
+**Test stability**: Uses role-based selectors first, data-testid only if roles are ambiguous.
+
+**Artifacts**: Playwright trace, screenshots on failure, and HTML report uploaded as CI artifacts.
+
+#### C) Running Tests Locally
+
+```bash
+# Install dependencies
+cd web && npm install
+
+# Install Playwright browsers
+npm run test:e2e:install
+
+# Set up environment variables
+export TESTKIT_ON=true
+export TESTKIT_TOKEN=your-testkit-token
+export NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+# Run E2E tests
+npm run test:e2e
+
+# Run with UI (for debugging)
+npm run test:e2e:ui
+
+# Run specific test file
+npx playwright test auth-onboarding.spec.ts
+```
+
+#### D) CI Integration
+
+The GitHub Actions workflow includes an E2E job that:
+- Installs Playwright browsers
+- Builds the application with testkit enabled
+- Runs all E2E tests in headless mode
+- Uploads artifacts (reports, traces, screenshots) on every run
+
+**Required secrets**:
+- `TESTKIT_TOKEN` — Bearer token for testkit API access
+
+#### E) Security Guardrails
+
+- **Never enable testkit in production** — Environment guard + token required
+- **No service role on client** — All testkit logic stays server-only
+- **Rate limit bypass for testkit only** — Runs in CI environment
+- **No real Stripe or email dependencies** — All external services mocked
+
+#### F) Adding New Tests
+
+1. **Create test file** in `web/tests/e2e/`
+2. **Use testkit utilities** for deterministic test data
+3. **Follow naming convention** — `feature-name.spec.ts`
+4. **Use role-based selectors** — Prefer `getByRole()` over `getByTestId()`
+5. **Add data-testid** only when roles are ambiguous
+6. **Clean up between tests** — Global setup/teardown handles this
+
+#### G) Test Data Management
+
+- **Global setup** creates test users (admin, student, minor)
+- **Global teardown** resets all test data
+- **Testkit APIs** provide deterministic state manipulation
+- **No real external dependencies** — Stripe, email, etc. are mocked
+
+#### H) Environment Variables
+
+```bash
+# Required for E2E testing
+TESTKIT_ON=true
+TESTKIT_TOKEN=your-secure-token
+BASE_URL=http://localhost:3000
+
+# Optional for debugging
+DEBUG=pw:api  # Playwright API debugging
+```
+
+#### I) Manual Testing Checklist
+
+**Testkit Security**:
+- [ ] Testkit endpoints return 404 when `TESTKIT_ON=false`
+- [ ] Testkit endpoints return 401 with invalid token
+- [ ] Testkit endpoints work with valid token
+
+**E2E Test Coverage**:
+- [ ] All 7 test suites run green locally
+- [ ] Tests complete in < 8 minutes on CI
+- [ ] No dependencies on real Stripe or email
+- [ ] Artifacts uploaded on failure
+
+**Test Stability**:
+- [ ] Role-based selectors used where possible
+- [ ] data-testid attributes added for ambiguous elements
+- [ ] Tests clean up after themselves
+- [ ] No flaky tests or race conditions

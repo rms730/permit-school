@@ -87,7 +87,26 @@ If you have jurisdiction-specific content:
 - Content chunks are mapped to units via `unit_chunks` table
 - Questions reference the `course_id`
 
-### 6. Test the Implementation
+### 6. Configure Question Bank & Blueprints (Optional)
+
+**Question Bank Management:**
+- Visit `/admin/questions` to manage jurisdiction-specific questions
+- Questions are course-scoped and can be tagged for organization
+- Use status workflow: draft → approved → archived
+- Import/export questions via CSV or JSON formats
+
+**Exam Blueprints:**
+- Visit `/admin/blueprints` to create exam blueprints
+- Blueprints are per-course and require approved questions
+- Configure rules for skill distribution, difficulty ranges, and tag inclusion/exclusion
+- Only one active blueprint per course (others are automatically deactivated)
+
+**Skills and Tags:**
+- Skills are course-scoped and should match your jurisdiction's requirements
+- Tags help organize questions by topic, source, or difficulty
+- Both skills and tags are used in blueprint rule configuration
+
+### 7. Test the Implementation
 
 Verify everything works correctly:
 
@@ -96,6 +115,9 @@ Verify everything works correctly:
 3. **Tutor**: Test jurisdiction-specific questions via the tutor
 4. **Exam System**: Verify exam eligibility and final exam work with new config
 5. **Billing**: Test checkout flow with configured pricing
+6. **Question Bank**: Test question creation and approval workflow
+7. **Blueprints**: Test blueprint creation and activation
+8. **Analytics**: Verify item analytics are computed correctly
 
 ### 7. Gate Features (Optional)
 
@@ -182,6 +204,8 @@ Before going live with a new state:
 - [ ] Course(s) created and linked to jurisdiction
 - [ ] Pricing configured (if applicable)
 - [ ] Content ingested (if applicable)
+- [ ] Question bank populated with jurisdiction-specific questions (if applicable)
+- [ ] Exam blueprints configured (if applicable)
 - [ ] Public catalog shows the jurisdiction
 - [ ] Course pages are accessible
 - [ ] Tutor responds to jurisdiction-specific queries
@@ -189,6 +213,7 @@ Before going live with a new state:
 - [ ] Final exam uses correct question count and pass threshold
 - [ ] Certificate numbering uses correct prefix
 - [ ] Billing checkout works (if pricing configured)
+- [ ] Question analytics are computed correctly
 
 ## Troubleshooting
 

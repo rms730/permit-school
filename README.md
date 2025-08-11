@@ -100,6 +100,96 @@ curl -X POST http://localhost:3000/api/admin/jobs/weekly-digest \
 - Uses `jurisdiction_configs` for state-specific configuration
 - Ready for expansion to Texas and other states
 
+## Sprint 20 — Regulatory Reporting & DMV Submission Toolkit
+
+**Intent**: Deliver a complete, admin-only regulatory reporting pipeline that produces tamper-evident ZIP packages containing CSVs, PDFs, and signed manifests for DMV submission.
+
+### Features
+
+#### Regulatory Reporting System
+- **Admin Dashboard** (`/admin/compliance`) - Generate reports with dry-run preview
+- **Report Generation** - CSV exports for roster, exams, certificates, and seat time
+- **Cover Sheet PDF** - Professional summary with counts and metadata
+- **Signed Manifest** - JSON with artifact list and HMAC signature for tamper detection
+- **ZIP Packages** - Complete bundles ready for DMV submission
+
+#### File Formats
+- **roster.csv** - Student enrollment data (name, DOB, address, course info)
+- **exams.csv** - Final exam attempts with scores and pass/fail results
+- **certs.csv** - Certificate issuance records with official numbers
+- **seat_time.csv** - Aggregated seat time tracking by student/course
+- **cover.pdf** - Professional cover sheet with summary counts
+- **manifest.json** - Signed metadata with SHA256 hashes and HMAC signature
+
+#### Security & Compliance
+- **RLS Everywhere** - All regulatory tables require admin role
+- **Private Storage** - Files stored in `dmv_reports` bucket (not public)
+- **HMAC Signing** - Manifest signed with `REGULATORY_SIGNING_SECRET`
+- **Rate Limiting** - API endpoints protected against abuse
+- **Content Minimization** - Only necessary data included in reports
+
+#### Multi-State Ready
+- **Jurisdiction-Agnostic** - Works with any state via `jurisdiction_configs`
+- **CA-First** - Default configuration for California DMV requirements
+- **Scalable Storage** - Namespaced paths by jurisdiction and period
+- **Configurable** - State-specific requirements via database configuration
+
+### Database Schema
+
+The migration `0017_regulatory_reporting.sql` adds:
+- `regulatory_runs` - Track report generation with status and metadata
+- `regulatory_artifacts` - Store file metadata with SHA256 hashes
+- `v_reg_roster` - View for student enrollment data
+- `v_reg_exams` - View for final exam attempts
+- `v_reg_certs` - View for certificate issuance
+- `v_reg_seat_time_rollup` - View for aggregated seat time
+- `dmv_reports` storage bucket (private)
+
+### API Endpoints
+
+#### Report Generation
+- `POST /api/admin/regulatory/run` - Generate report (with dry-run support)
+- `GET /api/admin/regulatory/runs` - List report runs with pagination
+- `GET /api/admin/regulatory/runs/[runId]/download` - Download ZIP package
+- `GET /api/admin/regulatory/runs/[runId]/artifacts` - Get artifact metadata
+
+#### Automated Jobs
+- `POST /api/admin/jobs/regulatory-monthly` - Generate monthly reports (HMAC protected)
+
+### Usage
+
+#### On-Demand Reports
+1. Navigate to `/admin/compliance`
+2. Select jurisdiction (default: CA), course, and period
+3. Click "Dry Run" to preview counts
+4. Click "Generate & Download" for full package
+
+#### Monthly Automation
+```bash
+# Enable monthly job
+REGULATORY_MONTHLY_ENABLED=true
+ADMIN_JOB_TOKEN=your-secure-token
+REGULATORY_SIGNING_SECRET=your-signing-key
+
+# Trigger manually (for testing)
+curl -X POST http://localhost:3000/api/admin/jobs/regulatory-monthly \
+  -H "Authorization: Bearer your-secure-token"
+```
+
+### Documentation
+
+- **DMV_REPORTING.md** - Complete documentation of file formats, signing method, and operational procedures
+- **Operational Runbook** - Troubleshooting, monitoring, and maintenance procedures
+- **Compliance Notes** - California DMV requirements and multi-state considerations
+
+### Privacy & Security
+
+- **Admin Only** - All regulatory functions require admin role
+- **Secure Storage** - Files stored in private bucket with access controls
+- **Audit Trail** - Complete record of all report generation
+- **Data Minimization** - Only necessary data included in reports
+- **7-Year Retention** - Regulatory requirement for all records
+
 ## Sprint 19 — Launch Cutover
 
 **Intent**: Implement production-ready release machinery for safe CA deployment while maintaining scale-readiness for multi-state expansion.

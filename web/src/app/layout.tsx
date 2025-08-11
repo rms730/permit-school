@@ -2,6 +2,10 @@ import * as React from "react";
 import type { Metadata } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { CssBaseline } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import theme from "@/theme";
 
 export const metadata: Metadata = {
   title: "Permit School — Tutor",
@@ -17,8 +21,12 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <CssBaseline />
-          {children}
+          <ThemeProvider theme={theme}>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <CssBaseline />
+              {children}
+            </LocalizationProvider>
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

@@ -982,3 +982,127 @@ The GitHub Actions workflow (`.github/workflows/accessibility-ci.yml`) runs:
 - TypeScript type checking
 
 All checks must pass before merge to main/develop branches.
+
+### Sprint 16 — E2E Test Harness, QA Fixtures, and CI Release Gates
+
+**Goal**: Create a deterministic end‑to‑end (E2E) test suite and non‑production "testkit" APIs so we can automatically verify the most important student/guardian/admin flows for California.
+
+#### A) Non‑production Testkit
+
+**Purpose**: Deterministically seed/modify state for E2E without breaking RLS or requiring real providers.
+
+**Security**: Routes under `/api/testkit/**` are only available when `TESTKIT_ON=true` and with correct bearer token. In production, the whole folder returns 404 (dead code via env guard).
+
+**Available endpoints**:
+- `POST /api/testkit/reset` — Truncate test data
+- `POST /api/testkit/user` — Create user (profile + entitlement opt‑in)
+- `POST /api/testkit/enroll` — Enroll user in course
+- `POST /api/testkit/seat-time` — Add seat time events
+- `POST /api/testkit/entitlement` — Set entitlement active/inactive
+- `POST /api/testkit/guardian/request` — Create guardian request for minor
+- `POST /api/testkit/exam/blueprint` — Ensure active blueprint exists
+- `POST /api/testkit/cert/draft-to-issued` — Issue draft certificate
+
+#### B) Playwright E2E Tests
+
+**Coverage**:
+1. **Auth & Onboarding (Adult)** — Sign up, complete onboarding, enroll in course
+2. **Guardian e‑sign (Minor)** — Create minor, send guardian request, complete consent
+3. **Learn → Seat‑time Gating → Unit Quiz** — Visit unit, confirm quiz gating, complete quiz
+4. **Final Exam → Draft Certificate** — Ensure eligibility, start exam, confirm draft certificate
+5. **Issue Certificate (Admin)** — Login as admin, issue draft, verify certificate
+6. **Public Catalog & i18n** — Visit catalog, toggle language, verify content updates
+7. **Accessibility smoke** — Run axe-core on key pages, assert no serious violations
+
+**Test stability**: Uses role-based selectors first, data-testid only if roles are ambiguous.
+
+**Artifacts**: Playwright trace, screenshots on failure, and HTML report uploaded as CI artifacts.
+
+#### C) Running Tests Locally
+
+```bash
+# Install dependencies
+cd web && npm install
+
+# Install Playwright browsers
+npm run test:e2e:install
+
+# Set up environment variables
+export TESTKIT_ON=true
+export TESTKIT_TOKEN=your-testkit-token
+export NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+# Run E2E tests
+npm run test:e2e
+
+# Run with UI (for debugging)
+npm run test:e2e:ui
+
+# Run specific test file
+npx playwright test auth-onboarding.spec.ts
+```
+
+#### D) CI Integration
+
+The GitHub Actions workflow includes an E2E job that:
+- Installs Playwright browsers
+- Builds the application with testkit enabled
+- Runs all E2E tests in headless mode
+- Uploads artifacts (reports, traces, screenshots) on every run
+
+**Required secrets**:
+- `TESTKIT_TOKEN` — Bearer token for testkit API access
+
+#### E) Security Guardrails
+
+- **Never enable testkit in production** — Environment guard + token required
+- **No service role on client** — All testkit logic stays server-only
+- **Rate limit bypass for testkit only** — Runs in CI environment
+- **No real Stripe or email dependencies** — All external services mocked
+
+#### F) Adding New Tests
+
+1. **Create test file** in `web/tests/e2e/`
+2. **Use testkit utilities** for deterministic test data
+3. **Follow naming convention** — `feature-name.spec.ts`
+4. **Use role-based selectors** — Prefer `getByRole()` over `getByTestId()`
+5. **Add data-testid** only when roles are ambiguous
+6. **Clean up between tests** — Global setup/teardown handles this
+
+#### G) Test Data Management
+
+- **Global setup** creates test users (admin, student, minor)
+- **Global teardown** resets all test data
+- **Testkit APIs** provide deterministic state manipulation
+- **No real external dependencies** — Stripe, email, etc. are mocked
+
+#### H) Environment Variables
+
+```bash
+# Required for E2E testing
+TESTKIT_ON=true
+TESTKIT_TOKEN=your-secure-token
+BASE_URL=http://localhost:3000
+
+# Optional for debugging
+DEBUG=pw:api  # Playwright API debugging
+```
+
+#### I) Manual Testing Checklist
+
+**Testkit Security**:
+- [ ] Testkit endpoints return 404 when `TESTKIT_ON=false`
+- [ ] Testkit endpoints return 401 with invalid token
+- [ ] Testkit endpoints work with valid token
+
+**E2E Test Coverage**:
+- [ ] All 7 test suites run green locally
+- [ ] Tests complete in < 8 minutes on CI
+- [ ] No dependencies on real Stripe or email
+- [ ] Artifacts uploaded on failure
+
+**Test Stability**:
+- [ ] Role-based selectors used where possible
+- [ ] data-testid attributes added for ambiguous elements
+- [ ] Tests clean up after themselves
+- [ ] No flaky tests or race conditions

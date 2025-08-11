@@ -8,7 +8,11 @@
     "start-ci": "next start -p 3000",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "axe:ci": "axe http://localhost:3000/ http://localhost:3000/courses http://localhost:3000/signin --exit 1 || true"
+    "axe:ci": "axe http://localhost:3000/ http://localhost:3000/courses http://localhost:3000/signin --exit 1 || true",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:debug": "playwright test --debug",
+    "test:e2e:install": "playwright install"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -35,6 +39,7 @@
   },
   "devDependencies": {
     "@axe-core/cli": "^4.8.4",
+    "@playwright/test": "^1.42.1",
     "@types/node": "^20.14.12",
     "@types/qrcode": "^1.5.5",
     "@types/react": "^18.3.3",

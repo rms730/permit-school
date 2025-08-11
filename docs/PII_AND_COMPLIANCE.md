@@ -24,6 +24,18 @@ E-signature events are recorded with context:
 - **Timestamp**: `signed_at`
 - **Context**: `ip`, `user_agent`, `payload` (JSON for additional data)
 
+### Guardian Consent System: `guardian_requests` Table
+
+Guardian consent requests and verification:
+
+- **Student ID**: Links to the student
+- **Course ID**: Links to the specific course
+- **Guardian Info**: `guardian_name`, `guardian_email` (stored in request)
+- **Token Security**: `token_hash` (SHA-256 hash, never raw token)
+- **Status Tracking**: `pending`, `verified`, `expired`, `canceled`
+- **Verification Context**: `verified_at`, `verified_ip`, `verified_user_agent`
+- **Consent Link**: `consent_id` links to final consent record
+
 ### Enrollment Data: `enrollments` Table
 
 Course enrollment information (minimal PII):
@@ -32,6 +44,47 @@ Course enrollment information (minimal PII):
 - **Course ID**: Links to courses
 - **Status**: `active`, `canceled`, `completed`
 - **Timestamps**: `started_at`, `completed_at`
+
+## Guardian E-Signature Data Flows
+
+### Guardian Consent Request Flow
+
+1. **Request Creation** (Student → Guardian):
+   - Student provides guardian name and email during onboarding
+   - System generates cryptographically secure random token (32+ bytes)
+   - Token is hashed using SHA-256 and stored in database
+   - Raw token is included in email link (never stored)
+   - Email sent to guardian with secure consent link
+
+2. **Consent Verification** (Guardian → System):
+   - Guardian clicks email link (contains raw token)
+   - System hashes token and looks up request in database
+   - If valid and not expired, shows consent form
+   - Guardian provides digital signature (typed name + relationship)
+   - System records consent with IP address and user agent
+
+3. **Consent Recording** (System → Audit Trail):
+   - Consent details stored in `consents` table with type 'guardian'
+   - PDF receipt generated and stored in private `consents` bucket
+   - Guardian request status updated to 'verified'
+   - Receipt emails sent to both guardian and student
+   - Student can now proceed with course/exam
+
+### Data Retention and Access
+
+- **Guardian Requests**: Retained for 7 years for compliance audit
+- **Consent Records**: Permanent retention for legal compliance
+- **PDF Receipts**: Stored indefinitely in private bucket
+- **Token Hashes**: Retained until request expires or is verified
+- **Raw Tokens**: Never stored, only transmitted via email
+
+### Privacy Protection
+
+- **Student Masking**: Public pages show only student initials
+- **Guardian Privacy**: Full guardian name only in signed consent
+- **Token Security**: Raw tokens never logged or stored
+- **PII Scrubbing**: Sentry automatically redacts guardian fields
+- **Access Control**: Only student and admins can access guardian data
 
 ## Row-Level Security (RLS) Policies
 
@@ -72,6 +125,24 @@ CREATE POLICY consents_insert_own
 -- Admins can read all consents for audit
 CREATE POLICY consents_admin_read
   ON public.consents FOR SELECT
+  USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+```
+
+### guardian_requests Table
+
+```sql
+-- Students can only access their own guardian requests
+CREATE POLICY guardian_requests_select_own
+  ON public.guardian_requests FOR SELECT
+  USING (auth.uid() = student_id);
+
+CREATE POLICY guardian_requests_insert_own
+  ON public.guardian_requests FOR INSERT
+  WITH CHECK (auth.uid() = student_id);
+
+-- Admins have full access for management
+CREATE POLICY guardian_requests_admin_all
+  ON public.guardian_requests FOR ALL
   USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
 ```
 

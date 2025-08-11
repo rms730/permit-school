@@ -58,8 +58,8 @@ export async function GET(request: NextRequest) {
     const formattedInvoices = (invoices || []).map(invoice => ({
       id: invoice.id,
       user_id: invoice.user_id,
-      email: invoice.profiles.email,
-      full_name: invoice.profiles.full_name,
+      email: invoice.profiles[0]?.email || 'Unknown',
+      full_name: invoice.profiles[0]?.full_name || 'Unknown',
       stripe_invoice_id: invoice.stripe_invoice_id,
       status: invoice.status,
       amount_due_cents: invoice.amount_due_cents,

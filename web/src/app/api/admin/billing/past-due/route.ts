@@ -54,12 +54,12 @@ export async function GET(request: NextRequest) {
       
       return {
         user_id: user.user_id,
-        email: user.profiles.email,
-        full_name: user.profiles.full_name,
+        email: user.profiles[0]?.email || 'Unknown',
+        full_name: user.profiles[0]?.full_name || 'Unknown',
         subscription_status: user.status,
-        last_failed_at: user.billing_dunning.last_failed_at,
-        dunning_state: user.billing_dunning.state,
-        fail_count: user.billing_dunning.fail_count,
+        last_failed_at: user.billing_dunning[0]?.last_failed_at,
+        dunning_state: user.billing_dunning[0]?.state,
+        fail_count: user.billing_dunning[0]?.fail_count,
         days_overdue: Math.max(0, daysOverdue),
       };
     });

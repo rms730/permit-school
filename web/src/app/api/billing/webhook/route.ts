@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
       case 'invoice.payment_failed': {
         const invoice = event.data.object as Stripe.Invoice;
         const customerId = invoice.customer as string;
-        const subscriptionId = invoice.subscription as string;
+        const subscriptionId = (invoice as any).subscription as string | null;
 
         // Get customer details
         const customer = await stripe.customers.retrieve(customerId);
@@ -130,11 +130,15 @@ export async function POST(request: NextRequest) {
         }
 
         // Get subscription details
-        const { data: subscription } = await adminSupabase
-          .from('subscriptions')
-          .select('id')
-          .eq('stripe_subscription_id', subscriptionId)
-          .single();
+        let subscription = null;
+        if (subscriptionId) {
+          const { data: subData } = await adminSupabase
+            .from('subscriptions')
+            .select('id')
+            .eq('stripe_subscription_id', subscriptionId)
+            .single();
+          subscription = subData;
+        }
 
         // Upsert invoice
         await adminSupabase
@@ -233,7 +237,7 @@ export async function POST(request: NextRequest) {
       case 'invoice.payment_succeeded': {
         const invoice = event.data.object as Stripe.Invoice;
         const customerId = invoice.customer as string;
-        const subscriptionId = invoice.subscription as string;
+        const subscriptionId = (invoice as any).subscription as string | null;
 
         // Get customer details
         const customer = await stripe.customers.retrieve(customerId);
@@ -251,11 +255,15 @@ export async function POST(request: NextRequest) {
         }
 
         // Get subscription details
-        const { data: subscription } = await adminSupabase
-          .from('subscriptions')
-          .select('id')
-          .eq('stripe_subscription_id', subscriptionId)
-          .single();
+        let subscription = null;
+        if (subscriptionId) {
+          const { data: subData } = await adminSupabase
+            .from('subscriptions')
+            .select('id')
+            .eq('stripe_subscription_id', subscriptionId)
+            .single();
+          subscription = subData;
+        }
 
         // Upsert invoice as paid
         await adminSupabase

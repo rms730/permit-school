@@ -166,7 +166,7 @@ export default function DeletionConfirmationPage() {
             </Card>
           )}
 
-          {status === 'loading' && token && (
+          {status !== 'invalid' && status !== 'error' && status !== 'success' && (
             <Card>
               <CardContent>
                 <Stack spacing={3} alignItems="center">

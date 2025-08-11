@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Container,
   Paper,
@@ -43,7 +43,7 @@ import {
   MoreVert, 
   PlayArrow, 
   CheckCircle, 
-  Error, 
+  Error as ErrorIcon, 
   Schedule,
   Cancel
 } from "@mui/icons-material";
@@ -146,12 +146,6 @@ export default function AdminCompliancePage() {
   const [selectedRun, setSelectedRun] = useState<RegulatoryRun | null>(null);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  useEffect(() => {
-    fetchJurisdictions();
-    fetchCourses();
-    fetchRuns();
-  }, [filters]);
-
   const fetchJurisdictions = async () => {
     try {
       const response = await fetch('/api/admin/jurisdictions');
@@ -176,7 +170,7 @@ export default function AdminCompliancePage() {
     }
   };
 
-  const fetchRuns = async () => {
+  const fetchRuns = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -198,7 +192,13 @@ export default function AdminCompliancePage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters.jCode, filters.courseId]);
+
+  useEffect(() => {
+    fetchJurisdictions();
+    fetchCourses();
+    fetchRuns();
+  }, [fetchRuns]);
 
   const handleDryRun = async () => {
     try {
@@ -322,7 +322,7 @@ export default function AdminCompliancePage() {
       case 'succeeded':
         return <CheckCircle />;
       case 'failed':
-        return <Error />;
+        return <ErrorIcon />;
       case 'running':
         return <CircularProgress size={16} />;
       case 'pending':

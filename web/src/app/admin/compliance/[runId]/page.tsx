@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Container,
   Paper,
@@ -29,7 +29,7 @@ import {
   Download, 
   ArrowBack,
   CheckCircle, 
-  Error, 
+  Error as ErrorIcon, 
   Schedule,
   Cancel,
   FileDownload
@@ -79,11 +79,7 @@ export default function AdminComplianceRunDetailsPage({
   const [error, setError] = useState<string | null>(null);
   const [downloading, setDownloading] = useState(false);
 
-  useEffect(() => {
-    fetchRunDetails();
-  }, [params.runId]);
-
-  const fetchRunDetails = async () => {
+  const fetchRunDetails = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -115,7 +111,11 @@ export default function AdminComplianceRunDetailsPage({
     } finally {
       setLoading(false);
     }
-  };
+  }, [params.runId]);
+
+  useEffect(() => {
+    fetchRunDetails();
+  }, [fetchRunDetails]);
 
   const handleDownload = async () => {
     try {
@@ -163,7 +163,7 @@ export default function AdminComplianceRunDetailsPage({
       case 'succeeded':
         return <CheckCircle />;
       case 'failed':
-        return <Error />;
+        return <ErrorIcon />;
       case 'running':
         return <CircularProgress size={16} />;
       case 'pending':

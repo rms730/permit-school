@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
         console.info(`Processing regulatory report for course ${course.code} (${periodStart} to ${periodEnd})`);
 
         const result = await generateReport({
-          jCode: course.jurisdictions.code,
+          jCode: course.jurisdictions[0].code,
           courseId: course.id,
           periodStart,
           periodEnd,

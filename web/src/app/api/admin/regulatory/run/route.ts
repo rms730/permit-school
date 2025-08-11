@@ -1,16 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRouteClient } from '@/lib/supabaseRoute';
 import { generateReport } from '@/lib/regulatory/generateReport';
-import { rateLimit } from '@/lib/ratelimit';
+import { rateLimit, getRateLimitKey, getRateLimitHeaders } from '@/lib/ratelimit';
 
 export async function POST(request: NextRequest) {
   try {
     const supabase = getRouteClient();
     
     // Rate limiting
-    const rateLimitResult = await rateLimit(request, 'regulatory_run', 10, 3600); // 10 requests per hour
-    if (!rateLimitResult.success) {
-      return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429 });
+    const rateLimitEnabled = process.env.RATE_LIMIT_ON === 'true';
+    if (rateLimitEnabled) {
+      const key = getRateLimitKey(request);
+      const windowMs = 3600000; // 1 hour
+      const max = 10; // 10 requests per hour
+      
+      const result = rateLimit(key, windowMs, max);
+      const headers = getRateLimitHeaders(result);
+      
+      if (!result.ok) {
+        return NextResponse.json(
+          { error: 'Rate limit exceeded' },
+          { status: 429, headers }
+        );
+      }
     }
 
     const { data: { user }, error: authError } = await supabase.auth.getUser();

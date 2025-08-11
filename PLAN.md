@@ -38,3 +38,32 @@ This file is consumed by Planner/Coder/Reviewer agents.
    - Stripe Checkout for $9.99.
    - Admin dashboard for attempts, mastery, certificates queue.
    - Shipping integration for certificates.
+
+## Completed Sprints
+
+### Sprint 9: Curriculum CMS + Syllabus & Evidence Reports ✅
+- **Database**: Unit metadata, progress view, reorder function
+- **Admin UI**: Curriculum management, unit editing, content mapping
+- **Reports**: Syllabus PDF generation, evidence CSV export
+- **API**: Full CRUD for curriculum management with admin auth
+- **Compliance**: Exportable evidence for regulatory requirements
+
+## Future Work
+
+8. **Enhanced Content Management**
+   - Bulk unit operations (copy/paste between courses)
+   - Content versioning and rollback capabilities
+   - Advanced search and filtering for content mapping
+   - Content quality scoring and recommendations
+
+9. **Advanced Reporting**
+   - Interactive dashboards with charts and analytics
+   - Automated compliance reporting schedules
+   - Custom report templates and branding
+   - Data export in multiple formats (Excel, JSON, etc.)
+
+10. **Multi-state Expansion**
+    - Texas curriculum and content ingestion
+    - State-specific compliance requirements
+    - Jurisdiction-specific certificate templates
+    - Multi-language support for all states

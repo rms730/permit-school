@@ -279,3 +279,81 @@ curl -s -X POST http://localhost:3000/api/tutor \
    # 6) Test verification page: /verify/[number]
    # 7) Test void functionality
    ```
+
+### Sprint 9: Curriculum CMS + Syllabus & Evidence Reports
+
+1. **Curriculum Management**:
+   - Apply the curriculum admin migration: `supabase db push`
+   - Access curriculum management at `/admin/curriculum`
+   - View courses with unit counts and manage individual course units
+
+2. **Unit Management Features**:
+   - **List Units**: View all units for a course with metadata
+   - **Edit Units**: Update title, minutes required, learning objectives, and published status
+   - **Reorder Units**: Move units up/down using the reorder function
+   - **Content Mapping**: Map handbook content chunks to units using AI suggestions
+
+3. **Content Mapping**:
+   - **Current Mappings**: View existing content chunks mapped to each unit
+   - **AI Suggestions**: Get content suggestions using hybrid RAG search
+   - **Replace/Append**: Choose to replace all mappings or append new ones
+   - **Manual Management**: Remove individual mappings as needed
+
+4. **Reports Generation**:
+   - Access reports at `/admin/reports`
+   - **Syllabus PDF**: Generate course syllabus with unit details and objectives
+   - **Evidence CSV**: Export student progress data for compliance reporting
+
+5. **Syllabus PDF Features**:
+   - **Course Information**: Title, jurisdiction, total required hours
+   - **Unit Details**: Number, title, minutes required, learning objectives
+   - **Professional Layout**: Clean formatting with page numbers
+   - **Download**: Automatic PDF download with course code in filename
+
+6. **Evidence CSV Features**:
+   - **Student Data**: User ID, email, full name, role
+   - **Progress Metrics**: Seat time minutes, quiz attempts and averages
+   - **Exam Results**: Final exam scores and pass status
+   - **Certificate Status**: Certificate numbers and issue dates
+   - **Date Filtering**: Optional date range filtering for compliance periods
+
+7. **Admin API Endpoints**:
+   - `GET /api/admin/curriculum/courses` - List all courses
+   - `GET /api/admin/curriculum/units?course_id=...` - List units for a course
+   - `POST /api/admin/curriculum/units/update` - Update unit details
+   - `POST /api/admin/curriculum/units/reorder` - Reorder units
+   - `GET /api/admin/curriculum/units/[unitId]/mappings` - Get current mappings
+   - `POST /api/admin/curriculum/units/[unitId]/suggest` - Get content suggestions
+   - `POST /api/admin/curriculum/units/[unitId]/save-mappings` - Save mappings
+   - `GET /api/admin/reports/syllabus?course_id=...` - Generate syllabus PDF
+   - `GET /api/admin/reports/evidence?course_id=...&from=...&to=...` - Generate evidence CSV
+
+8. **Database Changes**:
+   - **Unit Metadata**: Added `objectives`, `is_published`, `updated_at` to `course_units`
+   - **Progress View**: New `v_student_course_progress` view for reporting
+   - **Reorder Function**: `reorder_course_units()` function for safe unit reordering
+   - **Indexes**: Added index on `(course_id, unit_no)` for efficient queries
+
+9. **Key Features**:
+   - **MUI-Only UI**: All components use Material-UI with no custom CSS
+   - **Admin-Only Access**: All endpoints enforce admin role checks
+   - **RLS Compliance**: Views and functions respect existing row-level security
+   - **Safe Reordering**: Database function prevents constraint violations
+   - **AI-Powered Suggestions**: Hybrid RAG search for content mapping
+   - **Compliance Ready**: PDF and CSV exports for regulatory requirements
+
+10. **Manual Test Flow**:
+    ```bash
+    # 1) Apply migration
+    supabase db push
+    
+    # 2) Visit /admin/curriculum
+    # 3) Select a course to manage units
+    # 4) Test unit editing (title, minutes, objectives)
+    # 5) Test unit reordering (move up/down)
+    # 6) Test content mapping (get suggestions, save mappings)
+    # 7) Visit /admin/reports
+    # 8) Generate syllabus PDF for a course
+    # 9) Generate evidence CSV with date range
+    # 10) Verify downloads work correctly
+    ```

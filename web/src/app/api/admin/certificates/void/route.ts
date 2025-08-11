@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRouteClient } from '@/lib/supabaseRoute';
+import { sendCertificateVoidedEmail } from '@/lib/email';
 
 export async function POST(request: NextRequest) {
   try {
@@ -40,7 +41,7 @@ export async function POST(request: NextRequest) {
     // Load certificate
     const { data: certificate, error: certError } = await supabase
       .from('certificates')
-      .select('id, status, number')
+      .select('id, status, number, student_id')
       .eq('id', certificate_id)
       .single();
 
@@ -74,6 +75,21 @@ export async function POST(request: NextRequest) {
         { error: 'Failed to void certificate', code: 'DATABASE_ERROR' },
         { status: 500 }
       );
+    }
+
+    // Send certificate voided email
+    try {
+      const { data: user } = await supabase.auth.admin.getUserById(certificate.student_id);
+      if (user?.user?.email) {
+        await sendCertificateVoidedEmail({
+          to: user.user.email,
+          name: user.user.user_metadata?.full_name,
+          certNumber: certificate.number || '',
+          reason: reason,
+        });
+      }
+    } catch (emailError) {
+      console.error('Failed to send certificate voided email:', emailError);
     }
 
     return NextResponse.json({

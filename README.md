@@ -725,3 +725,134 @@ curl -s -X POST http://localhost:3000/api/tutor \
     - **Age Thresholds**: Configurable per jurisdiction
     - **Content Localization**: State-specific consent language
     - **No Code Changes**: Additional states via database config
+
+### Sprint 14: Question Bank Authoring, Exam Blueprinting & Item Analytics
+
+This sprint introduces a comprehensive question bank management system with exam blueprinting and analytics capabilities.
+
+#### Database Objects
+
+**Question Bank Extensions:**
+- `question_bank` table extended with:
+  - `status` (draft/approved/archived)
+  - `tags` (array for categorization)
+  - `version` (tracking changes)
+  - `published_at` (when approved)
+  - `author_id` and `reviewer_id` (workflow tracking)
+  - `source_ref` (external reference)
+  - `review_notes` (reviewer feedback)
+
+**Exam Blueprints:**
+- `exam_blueprints` table for exam configuration
+- `exam_blueprint_rules` table for detailed question selection rules
+- Unique constraint ensures one active blueprint per course
+
+**Analytics:**
+- `v_item_stats` view provides p_correct, attempts, and usage metrics
+- Computed from `attempt_items` and `attempts` tables (last 180 days)
+
+#### Admin UI Usage
+
+**Question Bank Management (`/admin/questions`):**
+- Course selector and search/filter capabilities
+- Status-based filtering (draft/approved/archived)
+- Tag-based filtering and autocomplete
+- Question editor with live preview
+- Import/export functionality (CSV/JSON)
+- Item analytics with p_correct visualization
+
+**Blueprint Management (`/admin/blueprints`):**
+- Create/edit blueprints with rule-based question selection
+- Rule configuration: skill, count, difficulty range, tag inclusion/exclusion
+- Validation ensures rule counts sum to total questions
+- Coverage analysis shows available questions per rule
+- Activate/deactivate blueprints with confirmation
+
+#### Import/Export Formats
+
+**CSV Import Headers:**
+```
+course_id,skill,difficulty,stem,choices,answer,explanation,tags,source_sections,source_ref,status
+```
+
+**JSON Import Format:**
+```json
+{
+  "questions": [
+    {
+      "course_id": "uuid",
+      "skill": "Traffic Laws",
+      "difficulty": 3,
+      "stem": "Question text...",
+      "choices": ["A", "B", "C", "D"],
+      "answer": "A",
+      "explanation": "Explanation...",
+      "tags": ["highway", "speed"],
+      "source_sections": ["section1", "section2"],
+      "source_ref": "DMV_2024_001"
+    }
+  ]
+}
+```
+
+#### Blueprint Rule Semantics
+
+**Rule Configuration:**
+- `skill`: Must match question bank skill exactly
+- `count`: Number of questions to select
+- `min_difficulty`/`max_difficulty`: Difficulty range (1-5)
+- `include_tags`: Questions must have ALL specified tags
+- `exclude_tags`: Questions must have NONE of specified tags
+
+**Validation:**
+- Sum of all rule counts must equal blueprint total_questions
+- Each rule must have sufficient approved questions available
+- Difficulty ranges must be valid (min ≤ max)
+
+#### Exam Fallback Logic
+
+**Blueprint Selection:**
+1. Check for active blueprint for course
+2. If active blueprint exists:
+   - Apply rules sequentially
+   - Select questions matching criteria randomly
+   - Return 409 if insufficient questions for any rule
+3. If no active blueprint:
+   - Fall back to existing behavior (random selection)
+   - Use jurisdiction config for question count
+
+**Backward Compatibility:**
+- Existing exams continue to work without blueprints
+- No code changes required for current functionality
+- Blueprints are opt-in per course
+
+#### Item Analytics
+
+**Metrics Available:**
+- `p_correct`: Proportion of correct answers (0-1)
+- `attempts`: Total number of attempts
+- `correct_count`: Number of correct answers
+- `avg_attempt_score`: Average score on attempts
+- `last_seen_at`: Most recent usage
+
+**Visualization:**
+- Color-coded chips: <30% (hard), 30-70% (ok), >70% (easy)
+- Trend analysis for last 30/90 days
+- Export capabilities with analytics data
+
+#### Manual Test Flow
+
+```bash
+# 1) Apply migration
+supabase db push
+
+# 2) Visit /admin/questions
+# 3) Create 10+ questions with different skills and difficulties
+# 4) Approve questions by changing status to "approved"
+# 5) Visit /admin/blueprints
+# 6) Create blueprint with 3 rules totaling N questions
+# 7) Activate blueprint
+# 8) Start an exam - should use blueprint rules
+# 9) View item stats and export CSV
+# 10) Test fallback by deactivating blueprint
+```

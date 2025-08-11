@@ -93,20 +93,112 @@ export async function POST(req: Request) {
     // Get user's locale
     const locale = await getLocaleFromRequest();
 
-    // Select questions from question_bank across all units
-    const { data: questions, error: questionsError } = await supabase
-      .from("question_bank")
-      .select("id, skill, stem, choices, answer, explanation")
+    // Check if there's an active blueprint for this course
+    const { data: activeBlueprint, error: blueprintError } = await supabase
+      .from("exam_blueprints")
+      .select(`
+        id,
+        total_questions,
+        exam_blueprint_rules(
+          rule_no,
+          skill,
+          count,
+          min_difficulty,
+          max_difficulty,
+          include_tags,
+          exclude_tags
+        )
+      `)
       .eq("course_id", course.id)
-      .limit(config.final_exam_questions);
+      .eq("is_active", true)
+      .single();
 
-    if (questionsError || !questions || questions.length === 0) {
-      console.error("Questions query error:", questionsError);
-      return NextResponse.json(
-        { error: "No questions available", code: "NO_QUESTIONS" },
-        { status: 500 },
-      );
+    let questions: any[] = [];
+
+    if (activeBlueprint && !blueprintError) {
+      // Use blueprint to select questions
+      const rules = activeBlueprint.exam_blueprint_rules || [];
+      const selectedQuestions: any[] = [];
+
+      for (const rule of rules) {
+        // Build query for this rule
+        let ruleQuery = supabase
+          .from("question_bank")
+          .select("id, skill, stem, choices, answer, explanation")
+          .eq("course_id", course.id)
+          .eq("status", "approved")
+          .eq("skill", rule.skill);
+
+        // Apply difficulty filters
+        if (rule.min_difficulty) {
+          ruleQuery = ruleQuery.gte("difficulty", rule.min_difficulty);
+        }
+        if (rule.max_difficulty) {
+          ruleQuery = ruleQuery.lte("difficulty", rule.max_difficulty);
+        }
+
+        // Apply tag filters
+        if (rule.include_tags && rule.include_tags.length > 0) {
+          ruleQuery = ruleQuery.overlaps("tags", rule.include_tags);
+        }
+        if (rule.exclude_tags && rule.exclude_tags.length > 0) {
+          ruleQuery = ruleQuery.not("tags", "overlaps", rule.exclude_tags);
+        }
+
+        // Get questions for this rule
+        const { data: ruleQuestions, error: ruleError } = await ruleQuery;
+
+        if (ruleError) {
+          console.error("Error fetching questions for rule:", ruleError);
+          return NextResponse.json(
+            { error: "Failed to fetch questions for blueprint rule", code: "BLUEPRINT_ERROR" },
+            { status: 500 },
+          );
+        }
+
+        // Randomly select the required number of questions
+        const shuffled = ruleQuestions?.sort(() => 0.5 - Math.random()) || [];
+        const selected = shuffled.slice(0, rule.count);
+
+        if (selected.length < rule.count) {
+          return NextResponse.json(
+            { 
+              error: "Insufficient questions available for blueprint rule", 
+              code: "INSUFFICIENT_QUESTIONS",
+              missing: [{
+                rule_no: rule.rule_no,
+                needed: rule.count,
+                available: selected.length
+              }]
+            },
+            { status: 409 },
+          );
+        }
+
+        selectedQuestions.push(...selected);
+      }
+
+      questions = selectedQuestions;
+    } else {
+      // Fallback to existing behavior
+      const { data: fallbackQuestions, error: questionsError } = await supabase
+        .from("question_bank")
+        .select("id, skill, stem, choices, answer, explanation")
+        .eq("course_id", course.id)
+        .limit(config.final_exam_questions);
+
+      if (questionsError || !fallbackQuestions || fallbackQuestions.length === 0) {
+        console.error("Questions query error:", questionsError);
+        return NextResponse.json(
+          { error: "No questions available", code: "NO_QUESTIONS" },
+          { status: 500 },
+        );
+      }
+
+      questions = fallbackQuestions;
     }
+
+
 
     // Get translations for questions
     const questionIds = questions.map(q => q.id);

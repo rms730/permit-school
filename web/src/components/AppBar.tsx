@@ -13,6 +13,7 @@ import {
 import { getEntitlementForUserClient } from "@/lib/entitlementsClient";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
+import NotificationBell from "./NotificationBell";
 
 interface AppBarProps {
   title?: string;
@@ -22,12 +23,20 @@ export default function AppBar({ title = "Permit School — Tutor" }: AppBarProp
   const { dict } = useI18n();
   const [isEntitled, setIsEntitled] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(true);
+  const [userRole, setUserRole] = useState<string | null>(null);
 
   useEffect(() => {
     async function checkEntitlement() {
       try {
         const { active } = await getEntitlementForUserClient('CA');
         setIsEntitled(active);
+        
+        // Get user role
+        const response = await fetch('/api/profile');
+        if (response.ok) {
+          const data = await response.json();
+          setUserRole(data.role);
+        }
       } catch (err) {
         console.error('Error checking entitlement:', err);
         setIsEntitled(false);
@@ -53,6 +62,11 @@ export default function AppBar({ title = "Permit School — Tutor" }: AppBarProp
           <Link href="/admin/logs" underline="hover" color="inherit">
             {dict.nav.admin}
           </Link>
+          {userRole === 'guardian' && (
+            <Link href="/guardian" underline="hover" color="inherit">
+              {dict.nav.guardian}
+            </Link>
+          )}
           {!loading && (
             <>
               {!isEntitled ? (
@@ -72,6 +86,7 @@ export default function AppBar({ title = "Permit School — Tutor" }: AppBarProp
               )}
             </>
           )}
+          <NotificationBell />
           <Link href="/signin" underline="hover" color="inherit">
             {dict.nav.signIn}
           </Link>

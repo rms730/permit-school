@@ -26,6 +26,80 @@ PLAN.md – initial backlog (agent-readable)
 - `courses` link to a jurisdiction with requirements (e.g., CA 30×50‑minute periods).
 - Content, questions, and certificates reference a `jurisdiction_id`.
 
+## Sprint 18 — Guardian Portal & In-App Notifications
+
+**Intent**: Give guardians a clear, read-only dashboard of their student's progress and add a privacy-preserving in-app notifications system for both students and guardians.
+
+### Features
+
+#### Guardian Portal
+- **My Students** (`/guardian`) - List of linked students with basic info
+- **Student Overview** (`/guardian/[studentId]`) - Detailed progress view showing:
+  - Student name and age
+  - Course progress table with minutes studied, final exam scores, certificate status
+  - All data is read-only and respects existing RLS policies
+
+#### Notifications System
+- **In-app notifications** with unread badges in the AppBar
+- **Notification types**: seat time milestones, quiz completions, final exam results, certificate issuances, guardian consent verification, weekly digests
+- **Privacy-preserving**: Only minimal, appropriate data in notifications
+- **Fan-out**: Notifications sent to both students and their linked guardians
+
+#### Notification Triggers
+- **Seat time milestones**: Every 30 minutes of study time (configurable)
+- **Final exam completion**: When student passes final exam
+- **Certificate issuance**: When admin issues certificate
+- **Guardian consent**: When guardian verifies consent for minor student
+- **Weekly digest**: Automated job for guardians (environment-gated)
+
+### Database Schema
+
+The migration `0016_guardian_portal.sql` adds:
+- `notifications` table with RLS policies
+- `v_guardian_children` view for guardian-student relationships
+- `v_guardian_student_course` view for progress summaries
+
+### API Endpoints
+
+#### Guardian Portal
+- `GET /api/guardian/children` - List linked students (guardian/admin only)
+- `GET /api/guardian/children/[studentId]/courses` - Student course progress
+
+#### Notifications
+- `GET /api/notifications` - User's notifications (paginated)
+- `POST /api/notifications/read` - Mark notifications as read
+
+#### Jobs
+- `POST /api/admin/jobs/weekly-digest` - Generate weekly digest (HMAC protected)
+
+### Privacy & Security
+
+- **RLS on all tables**: Notifications respect user ownership
+- **Minimal data**: Notifications contain only necessary context
+- **Guardian links**: Access controlled via existing `guardian_links` table
+- **No service role on client**: All operations use authenticated user context
+
+### Weekly Digest Job
+
+The weekly digest job aggregates student progress and sends notifications to guardians:
+
+```bash
+# Enable the job (set in environment)
+WEEKLY_DIGEST_ENABLED=true
+ADMIN_JOB_TOKEN=your-secure-token
+
+# Trigger manually (for testing)
+curl -X POST http://localhost:3000/api/admin/jobs/weekly-digest \
+  -H "Authorization: Bearer your-secure-token"
+```
+
+### Multi-state Readiness
+
+- All views include jurisdiction codes (`j_code`, `course_code`)
+- No CA-specific logic in code
+- Uses `jurisdiction_configs` for state-specific configuration
+- Ready for expansion to Texas and other states
+
 ## Certificates
 
 Issuing California **DL‑400C** requires a DMV‑licensed school with physical stock. This app queues issuance; the licensed operator fulfills.
@@ -1106,3 +1180,139 @@ DEBUG=pw:api  # Playwright API debugging
 - [ ] data-testid attributes added for ambiguous elements
 - [ ] Tests clean up after themselves
 - [ ] No flaky tests or race conditions
+
+## Security, Privacy & Compliance
+
+### Multi-Factor Authentication (MFA)
+
+**Setup for Admins**:
+1. Navigate to `/admin/security`
+2. Click "Setup MFA" to generate QR code and backup codes
+3. Scan QR code with authenticator app (Google Authenticator, Authy, etc.)
+4. Enter verification code to complete setup
+5. Save backup codes securely - they won't be shown again
+
+**Session Management**:
+- Admin sessions are considered "recent" if authenticated within 5 minutes
+- Sensitive admin actions require recent authentication
+- Use "Re-authenticate" button if session is stale
+
+### Data Subject Access Rights (DSAR)
+
+**Data Export**:
+- Users can request data export at `/account/privacy`
+- Exports include: profile, enrollments, seat time, attempts, certificates
+- Certificate PDFs provided via signed URLs (1-hour expiry)
+- Exports expire after 7 days
+
+**Account Deletion**:
+- Users can request account deletion at `/account/privacy`
+- 7-day grace period with email confirmation required
+- Certificate numbers retained for compliance
+- All personal data permanently deleted after grace period
+
+**Manual Processing**:
+- See `PRIVACY_RUNBOOK.md` for manual DSAR procedures
+- Background workers process requests automatically
+- Manual intervention available if automated processing fails
+
+### Audit Logs
+
+**Tamper-Evident Logging**:
+- All sensitive operations logged with HMAC signatures
+- Audit logs include: actor, action, object, before/after data, IP, user agent
+- Signatures verified automatically in admin audit UI
+- Invalid signatures indicate potential tampering
+
+**Admin Audit Interface**:
+- View audit logs at `/admin/audit`
+- Filter by date, action, object table, actor
+- View JSON diffs for before/after data
+- Verify signature integrity
+
+**Audit Key Management**:
+- Audit key stored in database GUC setting `app.audit_key`
+- Key rotation invalidates all existing signatures
+- Emergency rotation procedures in `PRIVACY_RUNBOOK.md`
+
+### Bot Protection
+
+**Cloudflare Turnstile Integration**:
+- Protects public forms from bot abuse
+- Environment variables: `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`
+- Graceful degradation when keys not configured
+- Applied to: guardian consent, public contact forms
+
+**Configuration**:
+```bash
+# Required for production
+TURNSTILE_SITE_KEY=your-site-key
+TURNSTILE_SECRET_KEY=your-secret-key
+
+# Optional - bypass in development
+TURNSTILE_BYPASS=true
+```
+
+### Background Workers
+
+**Export Processing**:
+- Processes pending data export requests
+- Creates ZIP bundles with user data and certificate URLs
+- Uploads to Supabase storage bucket "exports"
+- Updates export status to "ready"
+
+**Deletion Processing**:
+- Processes confirmed deletion requests after grace period
+- Executes user deletion via database function
+- Voids certificates (doesn't delete numbers)
+- Removes user from Supabase Auth
+
+**Worker Security**:
+- Protected by `BACKGROUND_WORKER_TOKEN` environment variable
+- Workers called via GitHub Actions or Supabase scheduled functions
+- No service role keys exposed to client
+
+### Environment Variables
+
+**Security & Privacy**:
+```bash
+# MFA (optional - uses Supabase Auth TOTP)
+MFA_SECRET=your-mfa-secret
+
+# Bot Protection
+TURNSTILE_SITE_KEY=your-site-key
+TURNSTILE_SECRET_KEY=your-secret-key
+
+# Background Workers
+BACKGROUND_WORKER_TOKEN=your-worker-token
+
+# Audit Key (set in Supabase)
+# See PRIVACY_RUNBOOK.md for setup
+```
+
+### Compliance Monitoring
+
+**Regular Checks**:
+- Monitor stuck export/deletion requests
+- Verify audit log signatures
+- Check background worker health
+- Review admin access patterns
+
+**Incident Response**:
+- See `INCIDENT_RESPONSE.md` for detailed procedures
+- Contact tree and escalation paths defined
+- SLOs: 15min response for critical, 1hr for high severity
+
+### Security Best Practices
+
+**RLS Guarantees**:
+- All tables have Row Level Security enabled
+- Policies enforce user ownership and admin access
+- No service role keys exposed to client
+- Audit logs capture all sensitive operations
+
+**Certificate Security**:
+- Certificate numbers never deleted (compliance)
+- Certificate PDFs deleted on account deletion
+- Voided certificates marked as "void" status
+- Audit trail maintained for all certificate operations

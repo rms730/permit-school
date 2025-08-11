@@ -3,6 +3,7 @@ import { getRouteClient } from '@/lib/supabaseRoute';
 import { renderCertificatePDF } from '@/lib/certPdf';
 import { uploadCertificatePdf } from '@/lib/certStorage';
 import { sendCertificateIssuedEmail } from '@/lib/email';
+import { notifyStudentAndGuardians } from '@/lib/notify';
 
 export async function POST(request: NextRequest) {
   try {
@@ -223,6 +224,16 @@ export async function POST(request: NextRequest) {
       }
     } catch (emailError) {
       console.error('Failed to send certificate email:', emailError);
+    }
+
+    // Send notifications (best effort, don't block response)
+    try {
+      await notifyStudentAndGuardians(certificate.student_id, 'certificate_issued', {
+        course_id: certificate.course_id,
+        certificate_number: numberResult
+      });
+    } catch (notificationError) {
+      console.error('Certificate notification error:', notificationError);
     }
 
     return NextResponse.json({

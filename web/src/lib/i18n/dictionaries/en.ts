@@ -7,7 +7,9 @@ export const en = {
     signOut: "Sign out",
     admin: "Admin",
     privacy: "Privacy",
-    terms: "Terms"
+    terms: "Terms",
+    guardian: "Guardian",
+    notifications: "Notifications"
   },
   actions: {
     start: "Start",
@@ -78,5 +80,32 @@ export const en = {
     no: "No",
     required: "Required",
     optional: "Optional"
+  },
+  guardian: {
+    title: "My Students",
+    studentOverview: "Student Overview",
+    courseProgress: "Course Progress",
+    recentActivity: "Recent Activity",
+    minutesStudied: "Minutes Studied",
+    finalExamScore: "Final Exam Score",
+    certificateStatus: "Certificate Status",
+    hasCertificate: "Has Certificate",
+    noCertificate: "No Certificate",
+    age: "Age",
+    yearsOld: "years old"
+  },
+  notifications: {
+    title: "Notifications",
+    markAllRead: "Mark all as read",
+    markRead: "Mark as read",
+    unreadCount: "unread",
+    noNotifications: "No notifications",
+    seatTimeMilestone: "Study milestone reached: {minutes} minutes",
+    quizCompleted: "Quiz completed",
+    finalPassed: "Final exam passed!",
+    certificateIssued: "Certificate issued",
+    guardianConsentVerified: "Guardian consent verified",
+    weeklyDigest: "Weekly progress summary",
+    subscriptionActivated: "Subscription activated"
   }
 };

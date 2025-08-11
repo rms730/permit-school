@@ -58,37 +58,6 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // Check if minor and guardian consent required
-    const dob = new Date(profile.dob);
-    const today = new Date();
-    const age = today.getFullYear() - dob.getFullYear();
-    const monthDiff = today.getMonth() - dob.getMonth();
-    const isMinor = age < 18 || (age === 18 && monthDiff < 0) || (age === 18 && monthDiff === 0 && today.getDate() < dob.getDate());
-
-    if (isMinor) {
-      // Check for recent guardian consent (within last year)
-      const oneYearAgo = new Date();
-      oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
-      
-      const { data: guardianConsent } = await supabase
-        .from('consents')
-        .select('signed_at')
-        .eq('student_id', user.id)
-        .eq('consent_type', 'guardian')
-        .gte('signed_at', oneYearAgo.toISOString())
-        .order('signed_at', { ascending: false })
-        .limit(1)
-        .single();
-
-      if (!guardianConsent) {
-        return NextResponse.json({ 
-          eligible: false, 
-          reason: 'guardian_consent_required',
-          is_minor: true
-        });
-      }
-    }
-
     // Get course ID for DE-ONLINE
     const { data: course, error: courseError } = await supabase
       .from('courses')
@@ -98,6 +67,32 @@ export async function GET(request: NextRequest) {
 
     if (courseError || !course) {
       return NextResponse.json({ eligible: false, reason: 'course_not_found' });
+    }
+
+    // Check if minor and guardian consent required
+    const dob = new Date(profile.dob);
+    const today = new Date();
+    const age = today.getFullYear() - dob.getFullYear();
+    const monthDiff = today.getMonth() - dob.getMonth();
+    const isMinor = age < 18 || (age === 18 && monthDiff < 0) || (age === 18 && monthDiff === 0 && today.getDate() < dob.getDate());
+
+    if (isMinor) {
+      // Check for verified guardian consent for the course
+      const { data: guardianStatus } = await supabase
+        .from('v_guardian_latest')
+        .select('status')
+        .eq('student_id', user.id)
+        .eq('course_id', course.id)
+        .single();
+
+      if (!guardianStatus || guardianStatus.status !== 'verified') {
+        return NextResponse.json({ 
+          eligible: false, 
+          reason: 'guardian_consent_required',
+          is_minor: true,
+          missing: ['guardian_consent']
+        });
+      }
     }
 
     // Check seat time

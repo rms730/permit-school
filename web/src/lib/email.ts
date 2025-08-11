@@ -107,3 +107,81 @@ export async function sendCertificateVoidedEmail({
   
   return safeSend(html, `Certificate Voided - ${certNumber}`, to);
 }
+
+export async function sendGuardianRequestEmail({ 
+  to, 
+  guardian_name, 
+  student_display, 
+  course_title, 
+  verify_url, 
+  help_email 
+}: { 
+  to: string; 
+  guardian_name: string; 
+  student_display: string; 
+  course_title: string; 
+  verify_url: string; 
+  help_email: string; 
+}) {
+  const html = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+      <h2 style="color: #333;">Guardian Consent Request</h2>
+      <p>Dear ${guardian_name},</p>
+      <p>${student_display} has requested your consent to participate in the <strong>${course_title}</strong> course at Permit School.</p>
+      <p>As a legal guardian, your consent is required for students under 18 years of age to proceed with this educational course.</p>
+      <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
+        <p style="margin: 0;"><strong>What you need to do:</strong></p>
+        <ol style="margin: 10px 0;">
+          <li>Click the secure link below to access the consent form</li>
+          <li>Review the course information and jurisdiction requirements</li>
+          <li>Provide your digital signature and consent</li>
+        </ol>
+      </div>
+      <p><strong>Secure Consent Link:</strong> <a href="${verify_url}" style="color: #1976d2; text-decoration: none;">Provide Consent</a></p>
+      <p style="color: #666; font-size: 14px;">This link will expire in 14 days for security purposes.</p>
+      <p>If you have any questions or need assistance, please contact us at <a href="mailto:${help_email}">${help_email}</a>.</p>
+      <p>Thank you for your time and cooperation.</p>
+      <p>Best regards,<br>The Permit School Team</p>
+    </div>`;
+  
+  return safeSend(html, `Guardian Consent Request - ${course_title}`, to);
+}
+
+export async function sendGuardianReceiptEmail({ 
+  to, 
+  guardian_name, 
+  student_display, 
+  course_title, 
+  pdf_url, 
+  verify_url 
+}: { 
+  to: string; 
+  guardian_name: string; 
+  student_display: string; 
+  course_title: string; 
+  pdf_url: string; 
+  verify_url: string; 
+}) {
+  const html = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+      <h2 style="color: #4caf50;">Guardian Consent Confirmed</h2>
+      <p>Dear ${guardian_name},</p>
+      <p>Thank you for providing your consent for ${student_display} to participate in the <strong>${course_title}</strong> course.</p>
+      <p>Your consent has been successfully recorded and ${student_display} can now proceed with their course.</p>
+      <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
+        <p style="margin: 0;"><strong>Important Information:</strong></p>
+        <ul style="margin: 10px 0;">
+          <li>A receipt of your consent has been generated</li>
+          <li>You can download the receipt using the link below</li>
+          <li>The consent can be verified online at any time</li>
+        </ul>
+      </div>
+      <p><strong>Download Receipt:</strong> <a href="${pdf_url}" style="color: #1976d2; text-decoration: none;">Download PDF Receipt</a></p>
+      <p><strong>Verify Consent:</strong> <a href="${verify_url}" style="color: #1976d2; text-decoration: none;">Verify Online</a></p>
+      <p style="color: #666; font-size: 14px;">Please keep this receipt for your records.</p>
+      <p>If you have any questions, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
+      <p>Best regards,<br>The Permit School Team</p>
+    </div>`;
+  
+  return safeSend(html, `Guardian Consent Receipt - ${course_title}`, to);
+}

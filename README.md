@@ -619,3 +619,109 @@ curl -s -X POST http://localhost:3000/api/tutor \
     - **Age Thresholds**: Guardian requirements configurable per jurisdiction
     - **Required Fields**: Profile completeness rules can be customized
     - **Consent Types**: Additional consent types can be added via database
+
+### Sprint 12: Guardian e‑Signature, Consent PDFs & Audit Trail
+
+**Intent**: Complete the minor/guardian compliance story end‑to‑end with email‑verified guardian consent, public signing pages, PDF receipts, and immutable audit records.
+
+1. **Database Schema** (`0012_guardian_esign.sql`):
+   - **guardian_requests**: Stores hashed tokens, never raw tokens
+   - **guardian_status enum**: pending, verified, expired, canceled
+   - **RLS Policies**: Students see own requests, admins see all
+   - **v_guardian_latest**: View for latest status per student/course
+   - **consents bucket**: Private storage for signed PDFs
+
+2. **Token Security**:
+   - **generateToken()**: 32+ byte random → base64url
+   - **hashToken()**: SHA-256 → hex digest
+   - **Single-use**: Tokens invalidated after consent or expiry
+   - **14-day expiry**: Automatic expiration for security
+
+3. **Public Guardian Signing** (`/guardian/[token]`):
+   - **No Login Required**: Public page for guardian consent
+   - **Masked Student Info**: Shows initials only for privacy
+   - **Jurisdiction Disclaimers**: Pulled from `jurisdiction_configs`
+   - **Digital Signature**: Typed name + relationship + checkbox
+   - **Error Handling**: Expired/invalid/canceled token states
+
+4. **API Endpoints**:
+   - `POST /api/guardian/request` - Create consent request (auth required)
+   - `GET /api/guardian/status` - Check latest status (auth required)
+   - `POST /api/guardian/cancel` - Cancel pending request (auth required)
+   - `GET /api/guardian/verify/[token]` - Validate token (public)
+   - `POST /api/guardian/consent` - Submit consent (public)
+   - `GET /api/admin/guardian/requests` - List requests (admin)
+   - `POST /api/admin/guardian/requests/resend` - Resend request (admin)
+
+5. **Onboarding Integration**:
+   - **Guardian Step**: Shows current status (pending/verified/expired)
+   - **Request Form**: Guardian name and email input
+   - **Status Display**: Color-coded chips with appropriate actions
+   - **Re-send Capability**: Can resend expired/canceled requests
+
+6. **Admin Tools** (`/admin/guardians`):
+   - **Request Management**: Filter by status, student, course
+   - **Bulk Actions**: Resend, cancel, download PDFs
+   - **Pagination**: Handles large numbers of requests
+   - **Status Tracking**: Real-time status updates
+
+7. **PDF Generation**:
+   - **Consent Receipts**: Professional PDF with QR code verification
+   - **Privacy Protection**: Student initials only, full guardian name
+   - **Audit Trail**: IP address, user agent, timestamp
+   - **Jurisdiction Content**: Disclaimers and required text
+   - **Storage**: Private bucket with signed URLs for access
+
+8. **Email Notifications**:
+   - **Request Emails**: Secure links to consent form
+   - **Receipt Emails**: PDF download links and verification URLs
+   - **Branded Templates**: MUI-compatible HTML design
+   - **Support Contact**: Help email for assistance
+
+9. **Exam Integration**:
+   - **Minor Detection**: Age calculation from profile DOB
+   - **Guardian Check**: Requires verified consent for minors
+   - **412 Status**: Returns missing requirements with details
+   - **Automatic Updates**: Status checked on eligibility requests
+
+10. **Security & Privacy**:
+    - **PII Scrubbing**: Sentry redacts guardian fields and signatures
+    - **Token Hashing**: Raw tokens never stored in database
+    - **Rate Limiting**: Public endpoints protected against abuse
+    - **Audit Records**: Complete trail of all consent events
+
+11. **Environment Variables**:
+    ```bash
+    APP_BASE_URL=https://your-domain.com  # Required for email links
+    SUPPORT_EMAIL=support@your-domain.com  # Help contact in emails
+    ```
+
+12. **Manual Test Flow**:
+    ```bash
+    # 1) Apply migration
+    supabase db push
+    
+    # 2) Create minor user account (under 18)
+    # 3) Start onboarding - guardian step should appear
+    # 4) Enter guardian info and send request
+    # 5) Check email for consent link
+    # 6) Open link and complete consent form
+    # 7) Verify PDF receipt is generated
+    # 8) Check student dashboard shows verified status
+    # 9) Test exam eligibility allows minor to proceed
+    # 10) Admin: Visit /admin/guardians to manage requests
+    # 11) Test expired token returns 410
+    # 12) Test admin resend functionality
+    ```
+
+13. **Schema Overview**:
+    - **guardian_requests**: Request tracking with hashed tokens
+    - **v_guardian_latest**: Latest status per student/course
+    - **consents**: Guardian consent records with full audit trail
+    - **storage.consents**: Private bucket for PDF receipts
+
+14. **Multi-state Ready**:
+    - **Jurisdiction Config**: Guardian disclaimers from `jurisdiction_configs`
+    - **Age Thresholds**: Configurable per jurisdiction
+    - **Content Localization**: State-specific consent language
+    - **No Code Changes**: Additional states via database config

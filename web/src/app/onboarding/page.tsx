@@ -12,9 +12,14 @@ import {
   Button,
   Alert,
   CircularProgress,
+  TextField,
+  Chip,
+  Card,
+  CardContent,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useRouter } from "next/navigation";
+import { CheckCircle, Error, Send } from "@mui/icons-material";
 
 interface ProfileData {
   first_name: string;
@@ -40,6 +45,180 @@ const steps = [
   "Review",
 ];
 
+// Guardian Step Component
+function GuardianStep() {
+  const [guardianName, setGuardianName] = useState("");
+  const [guardianEmail, setGuardianEmail] = useState("");
+  const [guardianStatus, setGuardianStatus] = useState<any>(null);
+  const [sendingRequest, setSendingRequest] = useState(false);
+  const [guardianError, setGuardianError] = useState<string | null>(null);
+
+  // Get course ID for DE-ONLINE
+  const [courseId, setCourseId] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Get course ID
+    fetch('/api/public/catalog')
+      .then(res => res.json())
+      .then(data => {
+        const course = data.courses?.find((c: any) => c.course_code === 'DE-ONLINE');
+        if (course) {
+          setCourseId(course.id);
+          // Check existing guardian status
+          checkGuardianStatus(course.id);
+        }
+      })
+      .catch(err => console.error('Error fetching course:', err));
+  }, []);
+
+  const checkGuardianStatus = async (courseId: string) => {
+    try {
+      const response = await fetch(`/api/guardian/status?course_id=${courseId}`);
+      if (response.ok) {
+        const data = await response.json();
+        setGuardianStatus(data.status);
+      }
+    } catch (err) {
+      console.error('Error checking guardian status:', err);
+    }
+  };
+
+  const sendGuardianRequest = async () => {
+    if (!guardianName.trim() || !guardianEmail.trim() || !courseId) {
+      setGuardianError('Please fill in all fields');
+      return;
+    }
+
+    setSendingRequest(true);
+    setGuardianError(null);
+
+    try {
+      const response = await fetch('/api/guardian/request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          course_id: courseId,
+          guardian_name: guardianName.trim(),
+          guardian_email: guardianEmail.trim()
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        setGuardianError(errorData.message || 'Failed to send request');
+        return;
+      }
+
+      // Check status after sending
+      await checkGuardianStatus(courseId);
+    } catch (err) {
+      setGuardianError('Failed to send request. Please try again.');
+    } finally {
+      setSendingRequest(false);
+    }
+  };
+
+  const resendRequest = async () => {
+    if (!courseId) return;
+    await sendGuardianRequest();
+  };
+
+  const getStatusChip = () => {
+    if (!guardianStatus) return null;
+    
+    switch (guardianStatus.status) {
+      case 'verified':
+        return <Chip icon={<CheckCircle />} label="Consent Verified" color="success" />;
+      case 'pending':
+        return <Chip icon={<Send />} label="Request Pending" color="warning" />;
+      case 'expired':
+        return <Chip icon={<Error />} label="Request Expired" color="error" />;
+      case 'canceled':
+        return <Chip icon={<Error />} label="Request Canceled" color="error" />;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <Box sx={{ p: 3 }}>
+      <Typography variant="h6" gutterBottom>
+        Guardian Consent (Required for students under 18)
+      </Typography>
+      
+      <Typography color="text.secondary" sx={{ mb: 3 }}>
+        We need your guardian&apos;s consent to proceed with the course. Please provide their information below.
+      </Typography>
+
+      {guardianStatus && (
+        <Card sx={{ mb: 3 }}>
+          <CardContent>
+            <Box display="flex" alignItems="center" gap={2} mb={2}>
+              <Typography variant="subtitle1">Current Status:</Typography>
+              {getStatusChip()}
+            </Box>
+            {guardianStatus.status === 'pending' && (
+              <Typography variant="body2" color="text.secondary">
+                Request sent to {guardianStatus.guardian_email}. They will receive an email with a link to provide consent.
+              </Typography>
+            )}
+            {guardianStatus.status === 'verified' && (
+              <Typography variant="body2" color="success.main">
+                Guardian consent has been verified. You can proceed to the next step.
+              </Typography>
+            )}
+            {guardianStatus.status === 'expired' && (
+              <Typography variant="body2" color="error">
+                The consent request has expired. Please send a new request.
+              </Typography>
+            )}
+          </CardContent>
+        </Card>
+      )}
+
+      {guardianError && (
+        <Alert severity="error" sx={{ mb: 2 }}>
+          {guardianError}
+        </Alert>
+      )}
+
+      {(!guardianStatus || guardianStatus.status !== 'verified') && (
+        <Box>
+          <TextField
+            fullWidth
+            label="Guardian Name"
+            value={guardianName}
+            onChange={(e) => setGuardianName(e.target.value)}
+            margin="normal"
+            required
+          />
+          <TextField
+            fullWidth
+            label="Guardian Email"
+            type="email"
+            value={guardianEmail}
+            onChange={(e) => setGuardianEmail(e.target.value)}
+            margin="normal"
+            required
+            helperText="We'll send a secure consent link to this email address"
+          />
+          
+          <Box sx={{ mt: 2 }}>
+            <Button
+              variant="contained"
+              onClick={guardianStatus ? resendRequest : sendGuardianRequest}
+              disabled={sendingRequest || !guardianName.trim() || !guardianEmail.trim()}
+              startIcon={sendingRequest ? <CircularProgress size={20} /> : <Send />}
+            >
+              {sendingRequest ? 'Sending...' : (guardianStatus ? 'Resend Request' : 'Send Consent Request')}
+            </Button>
+          </Box>
+        </Box>
+      )}
+    </Box>
+  );
+}
+
 export default function OnboardingPage() {
   const [activeStep, setActiveStep] = useState(0);
   const [profileData, setProfileData] = useState<ProfileData>({
@@ -62,6 +241,14 @@ export default function OnboardingPage() {
   const [isMinor, setIsMinor] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  
+  // Guardian consent state
+  const [guardianName, setGuardianName] = useState("");
+  const [guardianEmail, setGuardianEmail] = useState("");
+  const [guardianStatus, setGuardianStatus] = useState<any>(null);
+  const [sendingRequest, setSendingRequest] = useState(false);
+  const [guardianError, setGuardianError] = useState<string | null>(null);
+  
   const router = useRouter();
 
   useEffect(() => {
@@ -106,7 +293,8 @@ export default function OnboardingPage() {
 
       if (!profileResponse.ok) {
         const errorData = await profileResponse.json();
-        throw new Error(errorData.error || "Failed to save profile");
+        setError((errorData as any).error || "Failed to save profile");
+        return;
       }
 
       // Record consents
@@ -143,7 +331,7 @@ export default function OnboardingPage() {
 
       router.push("/dashboard");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "An error occurred");
+      setError((err as any) instanceof Error ? (err as any).message : "An error occurred");
     } finally {
       setLoading(false);
     }
@@ -260,34 +448,7 @@ export default function OnboardingPage() {
             </Box>
           );
         }
-        return (
-          <Box sx={{ p: 3 }}>
-            <Typography variant="h6" gutterBottom>
-              Guardian Information (Required for students under 18)
-            </Typography>
-            <input
-              type="text"
-              placeholder="Guardian Name *"
-              value={profileData.guardian_name}
-              onChange={(e) => setProfileData({ ...profileData, guardian_name: e.target.value })}
-              style={{ width: "100%", padding: "12px", border: "1px solid #ccc", borderRadius: "4px", marginBottom: "16px" }}
-            />
-            <input
-              type="email"
-              placeholder="Guardian Email *"
-              value={profileData.guardian_email}
-              onChange={(e) => setProfileData({ ...profileData, guardian_email: e.target.value })}
-              style={{ width: "100%", padding: "12px", border: "1px solid #ccc", borderRadius: "4px", marginBottom: "16px" }}
-            />
-            <input
-              type="tel"
-              placeholder="Guardian Phone *"
-              value={profileData.guardian_phone}
-              onChange={(e) => setProfileData({ ...profileData, guardian_phone: e.target.value })}
-              style={{ width: "100%", padding: "12px", border: "1px solid #ccc", borderRadius: "4px" }}
-            />
-          </Box>
-        );
+        return <GuardianStep />;
 
       case 3:
         return (
@@ -377,7 +538,10 @@ export default function OnboardingPage() {
       case 1:
         return profileData.address_line1 && profileData.city && profileData.state && profileData.postal_code;
       case 2:
-        return !isMinor || (profileData.guardian_name && profileData.guardian_email && profileData.guardian_phone);
+        // For minors, we need to check if guardian consent is verified
+        if (!isMinor) return true;
+        // This will be handled by the GuardianStep component
+        return true;
       case 3:
         return termsAccepted && privacyAccepted;
       case 4:

@@ -315,10 +315,10 @@ export default function AdminSecurityPage() {
               </Typography>
               <Typography variant="body2" color="text.secondary" paragraph>
                 Multi-factor authentication adds an extra layer of security to your account. 
-                When enabled, you'll need to enter a code from your authenticator app in addition to your password.
+                When enabled, you&apos;ll need to enter a code from your authenticator app in addition to your password.
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Your session is considered recent if you've authenticated within the last 5 minutes. 
+                Your session is considered recent if you&apos;ve authenticated within the last 5 minutes. 
                 Some sensitive admin actions may require re-authentication if your session is older.
               </Typography>
             </CardContent>
@@ -366,7 +366,7 @@ export default function AdminSecurityPage() {
                 </Box>
                 
                 <Typography variant="body2" color="warning.main">
-                  ⚠️ Save these codes now - they won't be shown again!
+                  ⚠️ Save these codes now - they won&apos;t be shown again!
                 </Typography>
               </Stack>
             )}

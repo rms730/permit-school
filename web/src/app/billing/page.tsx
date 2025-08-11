@@ -15,6 +15,14 @@ import {
   CircularProgress,
   Box,
   Chip,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Divider,
+  Link,
 } from "@mui/material";
 import { getEntitlementForUserClient } from "@/lib/entitlementsClient";
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
@@ -26,12 +34,42 @@ interface Subscription {
   cancel_at_period_end: boolean;
 }
 
+interface BillingSummary {
+  subscription_status: string;
+  current_period_end: string;
+  cancel_at_period_end: boolean;
+  latest_invoice_status: string;
+  latest_invoice_amount: number;
+  latest_invoice_date: string;
+  dunning_state: string;
+  next_action_at: string;
+  fail_count: number;
+}
+
+interface Invoice {
+  id: string;
+  stripe_invoice_id: string;
+  status: string;
+  amount_due_cents: number;
+  amount_paid_cents: number;
+  currency: string;
+  hosted_invoice_url: string;
+  pdf_url: string;
+  created_at: string;
+  period_start: string;
+  period_end: string;
+}
+
 export default function BillingPage() {
   const [isEntitled, setIsEntitled] = useState<boolean | null>(null);
   const [subscription, setSubscription] = useState<Subscription | null>(null);
+  const [billingSummary, setBillingSummary] = useState<BillingSummary | null>(null);
+  const [invoices, setInvoices] = useState<Invoice[]>([]);
   const [loading, setLoading] = useState(true);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
   const [portalLoading, setPortalLoading] = useState(false);
+  const [cancelLoading, setCancelLoading] = useState(false);
+  const [resumeLoading, setResumeLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const supabase = createPagesBrowserClient();
@@ -44,15 +82,23 @@ export default function BillingPage() {
         setIsEntitled(active);
 
         if (active) {
-          // Get subscription details
-          const { data: subData, error: subError } = await supabase
-            .from('subscriptions')
-            .select('status, current_period_end, cancel_at_period_end')
-            .eq('user_id', (await supabase.auth.getUser()).data.user?.id)
-            .single();
+          // Get billing summary
+          const summaryResponse = await fetch('/api/billing/summary');
+          if (summaryResponse.ok) {
+            const summaryData = await summaryResponse.json();
+            setBillingSummary(summaryData);
+            setSubscription({
+              status: summaryData.subscription_status,
+              current_period_end: summaryData.current_period_end,
+              cancel_at_period_end: summaryData.cancel_at_period_end,
+            });
+          }
 
-          if (!subError && subData) {
-            setSubscription(subData);
+          // Get invoices
+          const invoicesResponse = await fetch('/api/billing/invoices');
+          if (invoicesResponse.ok) {
+            const invoicesData = await invoicesResponse.json();
+            setInvoices(invoicesData.invoices || []);
           }
         }
       } catch (err) {
@@ -117,6 +163,60 @@ export default function BillingPage() {
       setError('Failed to open billing portal');
     } finally {
       setPortalLoading(false);
+    }
+  };
+
+  const handleCancelSubscription = async () => {
+    setCancelLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch('/api/billing/cancel', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || 'Failed to cancel subscription');
+        return;
+      }
+
+      // Reload billing data
+      window.location.reload();
+    } catch (err) {
+      console.error('Cancel error:', err);
+      setError('Failed to cancel subscription');
+    } finally {
+      setCancelLoading(false);
+    }
+  };
+
+  const handleResumeSubscription = async () => {
+    setResumeLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch('/api/billing/resume', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || 'Failed to resume subscription');
+        return;
+      }
+
+      // Reload billing data
+      window.location.reload();
+    } catch (err) {
+      console.error('Resume error:', err);
+      setError('Failed to resume subscription');
+    } finally {
+      setResumeLoading(false);
     }
   };
 
@@ -253,8 +353,19 @@ export default function BillingPage() {
                         </Typography>
                       )}
                       
-                      {subscription.cancel_at_period_end && (
+                      {billingSummary && billingSummary.dunning_state !== 'none' && (
                         <Alert severity="warning">
+                          Payment issue detected. Please update your payment method to avoid service interruption.
+                          {billingSummary.fail_count > 0 && (
+                            <Typography variant="body2" sx={{ mt: 1 }}>
+                              Failed payment attempts: {billingSummary.fail_count}
+                            </Typography>
+                          )}
+                        </Alert>
+                      )}
+                      
+                      {subscription.cancel_at_period_end && (
+                        <Alert severity="info">
                           Your subscription will be canceled at the end of the current billing period.
                         </Alert>
                       )}
@@ -263,21 +374,109 @@ export default function BillingPage() {
                 </Stack>
               </CardContent>
               <CardActions>
-                <Button
-                  variant="outlined"
-                  onClick={handleManageBilling}
-                  disabled={portalLoading}
-                  startIcon={portalLoading ? <CircularProgress size={20} /> : null}
-                  fullWidth
-                >
-                  {portalLoading ? 'Loading...' : 'Manage Billing'}
-                </Button>
+                <Stack direction="row" spacing={2} sx={{ width: '100%' }}>
+                  <Button
+                    variant="outlined"
+                    onClick={handleManageBilling}
+                    disabled={portalLoading}
+                    startIcon={portalLoading ? <CircularProgress size={20} /> : null}
+                    sx={{ flex: 1 }}
+                  >
+                    {portalLoading ? 'Loading...' : 'Manage Billing'}
+                  </Button>
+                  
+                  {subscription?.cancel_at_period_end ? (
+                    <Button
+                      variant="contained"
+                      onClick={handleResumeSubscription}
+                      disabled={resumeLoading}
+                      startIcon={resumeLoading ? <CircularProgress size={20} /> : null}
+                      sx={{ flex: 1 }}
+                    >
+                      {resumeLoading ? 'Processing...' : 'Resume Subscription'}
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="outlined"
+                      color="error"
+                      onClick={handleCancelSubscription}
+                      disabled={cancelLoading}
+                      startIcon={cancelLoading ? <CircularProgress size={20} /> : null}
+                      sx={{ flex: 1 }}
+                    >
+                      {cancelLoading ? 'Processing...' : 'Cancel Subscription'}
+                    </Button>
+                  )}
+                </Stack>
               </CardActions>
-            </Card>
-          )}
-        </Stack>
-      </Paper>
-    </Container>
+                          </Card>
+            )}
+
+            {/* Invoices Section */}
+            {isEntitled && invoices.length > 0 && (
+              <>
+                <Divider sx={{ my: 3 }} />
+                <Typography variant="h5" gutterBottom>
+                  Invoice History
+                </Typography>
+                <TableContainer component={Paper} variant="outlined">
+                  <Table>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Date</TableCell>
+                        <TableCell>Amount</TableCell>
+                        <TableCell>Status</TableCell>
+                        <TableCell>Actions</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {invoices.map((invoice) => (
+                        <TableRow key={invoice.id || invoice.stripe_invoice_id}>
+                          <TableCell>
+                            {new Date(invoice.created_at).toLocaleDateString()}
+                          </TableCell>
+                          <TableCell>
+                            ${(invoice.amount_due_cents / 100).toFixed(2)}
+                          </TableCell>
+                          <TableCell>
+                            <Chip
+                              label={invoice.status}
+                              color={
+                                invoice.status === 'paid' ? 'success' :
+                                invoice.status === 'open' ? 'warning' :
+                                invoice.status === 'uncollectible' ? 'error' : 'default'
+                              }
+                              size="small"
+                            />
+                          </TableCell>
+                          <TableCell>
+                            <Stack direction="row" spacing={1}>
+                              {invoice.hosted_invoice_url && (
+                                <Link href={invoice.hosted_invoice_url} target="_blank" rel="noopener">
+                                  <Button size="small" variant="outlined">
+                                    View
+                                  </Button>
+                                </Link>
+                              )}
+                              {invoice.pdf_url && (
+                                <Link href={invoice.pdf_url} target="_blank" rel="noopener">
+                                  <Button size="small" variant="outlined">
+                                    PDF
+                                  </Button>
+                                </Link>
+                              )}
+                            </Stack>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </>
+            )}
+          </Stack>
+        </Paper>
+      </Container>
     </>
   );
 }

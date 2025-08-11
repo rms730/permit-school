@@ -190,6 +190,123 @@ curl -X POST http://localhost:3000/api/admin/jobs/regulatory-monthly \
 - **Data Minimization** - Only necessary data included in reports
 - **7-Year Retention** - Regulatory requirement for all records
 
+## Sprint 21 — Billing Lifecycle, Dunning & Self-Serve Management
+
+**Intent**: Harden revenue operations end-to-end with robust Stripe lifecycle handling, automated dunning, and self-serve management capabilities.
+
+### Features
+
+#### Billing Lifecycle Management
+- **Invoice Tracking**: Complete invoice history with Stripe sync
+- **Dunning System**: Automated payment failure handling with state machine
+- **Subscription Management**: Cancel/resume with period-end handling
+- **Entitlement Control**: Automatic access revocation based on payment status
+
+#### Dunning Workflow
+- **State Machine**: `none → email_1 → email_2 → email_3 → canceled`
+- **Email Sequence**: Progressive urgency with 3-day and 7-day intervals
+- **Automatic Actions**: Subscription cancellation after final notice
+- **Admin Override**: Manual dunning email sending and subscription management
+
+#### Self-Serve Features
+- **Billing Summary**: Real-time subscription status and payment history
+- **Invoice Access**: View and download invoices with Stripe portal integration
+- **Cancel/Resume**: Self-service subscription management
+- **Payment Updates**: Direct links to Stripe portal for payment method updates
+
+#### Admin Dashboard
+- **KPIs**: Active subscriptions, past due count, MRR, churn rates
+- **Past Due Management**: User list with dunning states and manual actions
+- **Invoice Overview**: Recent invoices with user context and download links
+- **Real-time Monitoring**: Live data with refresh capabilities
+
+### Database Schema
+
+The migration `0018_billing_lifecycle.sql` adds:
+- `billing_invoices` - Invoice tracking with Stripe sync
+- `billing_dunning` - Dunning state machine and scheduling
+- `v_billing_summary_my` - User billing summary view
+- RLS policies for secure access control
+
+### API Endpoints
+
+#### User Self-Serve
+- `GET /api/billing/summary` - User billing summary
+- `GET /api/billing/invoices` - User invoice history
+- `POST /api/billing/cancel` - Cancel subscription at period end
+- `POST /api/billing/resume` - Resume canceled subscription
+
+#### Admin Management
+- `GET /api/admin/billing/kpis` - Billing KPIs and metrics
+- `GET /api/admin/billing/past-due` - Past due users with dunning info
+- `GET /api/admin/billing/invoices` - Recent invoices with user context
+
+#### Automated Jobs
+- `POST /api/admin/jobs/dunning-daily` - Daily dunning processing (HMAC protected)
+- `POST /api/admin/jobs/trial-reminders` - Trial end reminders (HMAC protected)
+
+#### Email Templates
+
+##### Payment Failure Sequence
+- **Email 1**: Immediate notification with payment method update instructions
+- **Email 2**: 3-day follow-up with increased urgency
+- **Email 3**: 7-day final notice with cancellation warning
+
+##### Other Templates
+- **Payment Success**: Confirmation of successful payment
+- **Trial Reminders**: 3-day and 1-day pre-trial end notifications
+- **Cancellation Confirmation**: Subscription cancellation confirmation
+
+#### Environment Configuration
+
+```bash
+# Dunning Configuration
+DUNNING_EMAIL_DAY_1=now
+DUNNING_EMAIL_DAY_2=3
+DUNNING_EMAIL_DAY_3=7
+
+# Admin Jobs
+DUNNING_DAILY_ENABLED=true
+TRIAL_REMINDERS_ENABLED=true
+ADMIN_JOB_TOKEN=your-secure-token
+
+# Stripe Portal
+STRIPE_PORTAL_RETURN_URL=http://localhost:3000/billing
+```
+
+#### Usage
+
+##### User Experience
+1. Visit `/billing` to view subscription status and payment history
+2. Use "Manage Billing" to access Stripe portal for payment updates
+3. Cancel/resume subscription with immediate feedback
+4. View invoice history with download links
+
+##### Admin Operations
+1. Access `/admin/billing` for comprehensive billing overview
+2. Monitor past due subscriptions with dunning state visibility
+3. Send manual dunning emails or cancel subscriptions
+4. Review recent invoices with user context
+
+##### Automated Processing
+```bash
+# Daily dunning job (cron recommended)
+curl -X POST http://localhost:3000/api/admin/jobs/dunning-daily \
+  -H "Authorization: Bearer your-secure-token"
+
+# Trial reminders (daily cron)
+curl -X POST http://localhost:3000/api/admin/jobs/trial-reminders \
+  -H "Authorization: Bearer your-secure-token"
+```
+
+#### Privacy & Security
+
+- **RLS Everywhere**: All billing data protected by Row Level Security
+- **Admin-Only Access**: Dunning data restricted to admin users
+- **HMAC Protection**: Admin jobs secured with token authentication
+- **No Service Role in Browser**: All Stripe operations server-side only
+- **Audit Trail**: Complete billing event logging for compliance
+
 ## Sprint 19 — Launch Cutover
 
 **Intent**: Implement production-ready release machinery for safe CA deployment while maintaining scale-readiness for multi-state expansion.
@@ -339,6 +456,17 @@ curl -s -X POST http://localhost:3000/api/tutor \
    # Billing URLs
    BILLING_SUCCESS_URL=http://localhost:3000/billing?status=success
    BILLING_CANCEL_URL=http://localhost:3000/billing?status=cancel
+   STRIPE_PORTAL_RETURN_URL=http://localhost:3000/billing
+   
+   # Dunning Configuration
+   DUNNING_EMAIL_DAY_1=now
+   DUNNING_EMAIL_DAY_2=3
+   DUNNING_EMAIL_DAY_3=7
+   
+   # Admin Jobs
+   DUNNING_DAILY_ENABLED=true
+   TRIAL_REMINDERS_ENABLED=true
+   ADMIN_JOB_TOKEN=your-secure-token
    ```
 
 3. **Database Migration**:

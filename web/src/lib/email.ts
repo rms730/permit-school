@@ -96,6 +96,101 @@ const emailTemplates = {
         <p>If you have any questions, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
         <p>Best regards,<br>The Permit School Team</p>
       `
+    },
+    payment_failed_1: {
+      subject: 'Payment Failed - Action Required',
+      title: 'Payment Failed',
+      body: (name?: string, amount?: string, invoiceUrl?: string) => `
+        <p>${name ? `Hi ${name},` : 'Hi,'}</p>
+        <p>We were unable to process your payment of ${amount || '$0.00'} for your Permit School subscription.</p>
+        <p><strong>What you need to do:</strong></p>
+        <ul>
+          <li>Update your payment method in your billing portal</li>
+          <li>Ensure your card has sufficient funds</li>
+          <li>Check that your card hasn't expired</li>
+        </ul>
+        <p><strong>Update Payment Method:</strong> <a href="${process.env.APP_BASE_URL}/billing">Manage Billing</a></p>
+        <p>If you need assistance, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Best regards,<br>The Permit School Team</p>
+      `
+    },
+    payment_failed_2: {
+      subject: 'Payment Still Pending - Urgent Action Required',
+      title: 'Payment Still Pending',
+      body: (name?: string, amount?: string) => `
+        <p>${name ? `Hi ${name},` : 'Hi,'}</p>
+        <p>Your payment of ${amount || '$0.00'} for your Permit School subscription is still pending.</p>
+        <p><strong>Important:</strong> If we don't receive payment soon, your subscription may be paused and you'll lose access to your course materials.</p>
+        <p><strong>Please update your payment method immediately:</strong> <a href="${process.env.APP_BASE_URL}/billing">Manage Billing</a></p>
+        <p>If you need assistance, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Best regards,<br>The Permit School Team</p>
+      `
+    },
+    payment_failed_3: {
+      subject: 'Final Payment Notice - Subscription at Risk',
+      title: 'Final Payment Notice',
+      body: (name?: string, amount?: string) => `
+        <p>${name ? `Hi ${name},` : 'Hi,'}</p>
+        <p>This is your final notice regarding your unpaid Permit School subscription payment of ${amount || '$0.00'}.</p>
+        <p><strong>Urgent Action Required:</strong> If payment is not received within 24 hours, your subscription will be canceled and you'll lose access to all course materials.</p>
+        <p><strong>Update Payment Method Now:</strong> <a href="${process.env.APP_BASE_URL}/billing">Manage Billing</a></p>
+        <p>If you need assistance, please contact us immediately at ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Best regards,<br>The Permit School Team</p>
+      `
+    },
+    payment_succeeded: {
+      subject: 'Payment Successful - Subscription Active',
+      title: 'Payment Successful',
+      body: (name?: string) => `
+        <p>${name ? `Hi ${name},` : 'Hi,'}</p>
+        <p>Great news! Your payment has been processed successfully and your Permit School subscription is now active. 🎉</p>
+        <p>You have full access to all course materials and can continue your learning journey.</p>
+        <p><strong>Continue Learning:</strong> <a href="${process.env.APP_BASE_URL}/course/CA/DE-ONLINE">Access Your Course</a></p>
+        <p>If you have any questions, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Best regards,<br>The Permit School Team</p>
+      `
+    },
+    trial_3day: {
+      subject: 'Trial Ending Soon - 3 Days Left',
+      title: 'Trial Ending Soon',
+      body: (name?: string) => `
+        <p>${name ? `Hi ${name},` : 'Hi,'}</p>
+        <p>Your Permit School trial will end in 3 days. To continue your learning journey, you'll need to subscribe.</p>
+        <p><strong>What happens when your trial ends:</strong></p>
+        <ul>
+          <li>You'll lose access to course materials</li>
+          <li>Your progress will be saved</li>
+          <li>You can resume anytime by subscribing</li>
+        </ul>
+        <p><strong>Subscribe Now:</strong> <a href="${process.env.APP_BASE_URL}/billing">Choose Your Plan</a></p>
+        <p>If you have any questions, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Best regards,<br>The Permit School Team</p>
+      `
+    },
+    trial_1day: {
+      subject: 'Trial Ending Tomorrow - Last Chance',
+      title: 'Trial Ending Tomorrow',
+      body: (name?: string) => `
+        <p>${name ? `Hi ${name},` : 'Hi,'}</p>
+        <p>Your Permit School trial ends tomorrow! This is your last chance to subscribe and continue your learning journey.</p>
+        <p><strong>Don't lose your progress:</strong> Subscribe now to maintain access to all course materials.</p>
+        <p><strong>Subscribe Now:</strong> <a href="${process.env.APP_BASE_URL}/billing">Choose Your Plan</a></p>
+        <p>If you have any questions, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Best regards,<br>The Permit School Team</p>
+      `
+    },
+    cancel_confirm: {
+      subject: 'Subscription Cancellation Confirmed',
+      title: 'Subscription Cancellation Confirmed',
+      body: (name?: string, endDate?: string) => `
+        <p>${name ? `Hi ${name},` : 'Hi,'}</p>
+        <p>Your Permit School subscription cancellation has been confirmed.</p>
+        <p><strong>Access until:</strong> ${endDate || 'end of current period'}</p>
+        <p>You can resume your subscription anytime before this date by visiting your billing portal.</p>
+        <p><strong>Resume Subscription:</strong> <a href="${process.env.APP_BASE_URL}/billing">Manage Billing</a></p>
+        <p>If you have any questions, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Best regards,<br>The Permit School Team</p>
+      `
     }
   },
   es: {
@@ -146,6 +241,101 @@ const emailTemplates = {
           <li><a href="${verifyUrl}">Verificar tu certificado en línea</a></li>
         </ul>
         <p>Tu certificado ahora es públicamente verificable y puede ser compartido con empleadores o autoridades según sea necesario.</p>
+        <p>Si tienes alguna pregunta, contáctanos en ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Saludos cordiales,<br>El Equipo de Permit School</p>
+      `
+    },
+    payment_failed_1: {
+      subject: 'Pago Fallido - Acción Requerida',
+      title: 'Pago Fallido',
+      body: (name?: string, amount?: string, invoiceUrl?: string) => `
+        <p>${name ? `Hola ${name},` : 'Hola,'}</p>
+        <p>No pudimos procesar tu pago de ${amount || '$0.00'} para tu suscripción de Permit School.</p>
+        <p><strong>Lo que necesitas hacer:</strong></p>
+        <ul>
+          <li>Actualiza tu método de pago en tu portal de facturación</li>
+          <li>Asegúrate de que tu tarjeta tenga fondos suficientes</li>
+          <li>Verifica que tu tarjeta no haya expirado</li>
+        </ul>
+        <p><strong>Actualizar Método de Pago:</strong> <a href="${process.env.APP_BASE_URL}/billing">Gestionar Facturación</a></p>
+        <p>Si necesitas ayuda, contáctanos en ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Saludos cordiales,<br>El Equipo de Permit School</p>
+      `
+    },
+    payment_failed_2: {
+      subject: 'Pago Aún Pendiente - Acción Urgente Requerida',
+      title: 'Pago Aún Pendiente',
+      body: (name?: string, amount?: string) => `
+        <p>${name ? `Hola ${name},` : 'Hola,'}</p>
+        <p>Tu pago de ${amount || '$0.00'} para tu suscripción de Permit School aún está pendiente.</p>
+        <p><strong>Importante:</strong> Si no recibimos el pago pronto, tu suscripción puede ser pausada y perderás acceso a los materiales del curso.</p>
+        <p><strong>Por favor actualiza tu método de pago inmediatamente:</strong> <a href="${process.env.APP_BASE_URL}/billing">Gestionar Facturación</a></p>
+        <p>Si necesitas ayuda, contáctanos en ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Saludos cordiales,<br>El Equipo de Permit School</p>
+      `
+    },
+    payment_failed_3: {
+      subject: 'Aviso Final de Pago - Suscripción en Riesgo',
+      title: 'Aviso Final de Pago',
+      body: (name?: string, amount?: string) => `
+        <p>${name ? `Hola ${name},` : 'Hola,'}</p>
+        <p>Este es tu aviso final sobre tu pago impago de ${amount || '$0.00'} para tu suscripción de Permit School.</p>
+        <p><strong>Acción Urgente Requerida:</strong> Si el pago no se recibe dentro de 24 horas, tu suscripción será cancelada y perderás acceso a todos los materiales del curso.</p>
+        <p><strong>Actualizar Método de Pago Ahora:</strong> <a href="${process.env.APP_BASE_URL}/billing">Gestionar Facturación</a></p>
+        <p>Si necesitas ayuda, contáctanos inmediatamente en ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Saludos cordiales,<br>El Equipo de Permit School</p>
+      `
+    },
+    payment_succeeded: {
+      subject: 'Pago Exitoso - Suscripción Activa',
+      title: 'Pago Exitoso',
+      body: (name?: string) => `
+        <p>${name ? `Hola ${name},` : 'Hola,'}</p>
+        <p>¡Excelentes noticias! Tu pago ha sido procesado exitosamente y tu suscripción de Permit School está ahora activa. 🎉</p>
+        <p>Tienes acceso completo a todos los materiales del curso y puedes continuar tu viaje de aprendizaje.</p>
+        <p><strong>Continuar Aprendiendo:</strong> <a href="${process.env.APP_BASE_URL}/course/CA/DE-ONLINE">Acceder a Tu Curso</a></p>
+        <p>Si tienes alguna pregunta, contáctanos en ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Saludos cordiales,<br>El Equipo de Permit School</p>
+      `
+    },
+    trial_3day: {
+      subject: 'Prueba Terminando Pronto - 3 Días Restantes',
+      title: 'Prueba Terminando Pronto',
+      body: (name?: string) => `
+        <p>${name ? `Hola ${name},` : 'Hola,'}</p>
+        <p>Tu prueba de Permit School terminará en 3 días. Para continuar tu viaje de aprendizaje, necesitarás suscribirte.</p>
+        <p><strong>Qué pasa cuando termina tu prueba:</strong></p>
+        <ul>
+          <li>Perderás acceso a los materiales del curso</li>
+          <li>Tu progreso será guardado</li>
+          <li>Puedes reanudar en cualquier momento suscribiéndote</li>
+        </ul>
+        <p><strong>Suscribirse Ahora:</strong> <a href="${process.env.APP_BASE_URL}/billing">Elegir Tu Plan</a></p>
+        <p>Si tienes alguna pregunta, contáctanos en ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Saludos cordiales,<br>El Equipo de Permit School</p>
+      `
+    },
+    trial_1day: {
+      subject: 'Prueba Terminando Mañana - Última Oportunidad',
+      title: 'Prueba Terminando Mañana',
+      body: (name?: string) => `
+        <p>${name ? `Hola ${name},` : 'Hola,'}</p>
+        <p>¡Tu prueba de Permit School termina mañana! Esta es tu última oportunidad de suscribirte y continuar tu viaje de aprendizaje.</p>
+        <p><strong>No pierdas tu progreso:</strong> Suscríbete ahora para mantener acceso a todos los materiales del curso.</p>
+        <p><strong>Suscribirse Ahora:</strong> <a href="${process.env.APP_BASE_URL}/billing">Elegir Tu Plan</a></p>
+        <p>Si tienes alguna pregunta, contáctanos en ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Saludos cordiales,<br>El Equipo de Permit School</p>
+      `
+    },
+    cancel_confirm: {
+      subject: 'Cancelación de Suscripción Confirmada',
+      title: 'Cancelación de Suscripción Confirmada',
+      body: (name?: string, endDate?: string) => `
+        <p>${name ? `Hola ${name},` : 'Hola,'}</p>
+        <p>Tu cancelación de suscripción de Permit School ha sido confirmada.</p>
+        <p><strong>Acceso hasta:</strong> ${endDate || 'fin del período actual'}</p>
+        <p>Puedes reanudar tu suscripción en cualquier momento antes de esta fecha visitando tu portal de facturación.</p>
+        <p><strong>Reanudar Suscripción:</strong> <a href="${process.env.APP_BASE_URL}/billing">Gestionar Facturación</a></p>
         <p>Si tienes alguna pregunta, contáctanos en ${process.env.SUPPORT_EMAIL}.</p>
         <p>Saludos cordiales,<br>El Equipo de Permit School</p>
       `
@@ -326,4 +516,89 @@ export async function sendGuardianReceiptEmail({
     </div>`;
   
   return safeSend(html, `Guardian Consent Receipt - ${course_title}`, to);
+}
+
+// Billing lifecycle email functions
+export async function sendPaymentFailedEmail({ 
+  to, 
+  name, 
+  amount, 
+  step = 1,
+  locale = 'en' 
+}: { 
+  to: string; 
+  name?: string; 
+  amount?: string; 
+  step?: 1 | 2 | 3;
+  locale?: SupportedLocale; 
+}) {
+  const template = emailTemplates[locale]?.[`payment_failed_${step}`] || emailTemplates.en[`payment_failed_${step}`];
+  const html = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+      <h2 style="color: #333;">${template.title}</h2>
+      ${template.body(name, amount)}
+    </div>`;
+  
+  return safeSend(html, template.subject, to);
+}
+
+export async function sendPaymentSucceededEmail({ 
+  to, 
+  name, 
+  locale = 'en' 
+}: { 
+  to: string; 
+  name?: string; 
+  locale?: SupportedLocale; 
+}) {
+  const template = emailTemplates[locale]?.payment_succeeded || emailTemplates.en.payment_succeeded;
+  const html = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+      <h2 style="color: #333;">${template.title}</h2>
+      ${template.body(name)}
+    </div>`;
+  
+  return safeSend(html, template.subject, to);
+}
+
+export async function sendTrialReminderEmail({ 
+  to, 
+  name, 
+  daysLeft, 
+  locale = 'en' 
+}: { 
+  to: string; 
+  name?: string; 
+  daysLeft: 1 | 3;
+  locale?: SupportedLocale; 
+}) {
+  const template = emailTemplates[locale]?.[`trial_${daysLeft}day`] || emailTemplates.en[`trial_${daysLeft}day`];
+  const html = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+      <h2 style="color: #333;">${template.title}</h2>
+      ${template.body(name)}
+    </div>`;
+  
+  return safeSend(html, template.subject, to);
+}
+
+export async function sendCancelConfirmationEmail({ 
+  to, 
+  name, 
+  endDate, 
+  locale = 'en' 
+}: { 
+  to: string; 
+  name?: string; 
+  endDate?: string; 
+  locale?: SupportedLocale; 
+}) {
+  const template = emailTemplates[locale]?.cancel_confirm || emailTemplates.en.cancel_confirm;
+  const html = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+      <h2 style="color: #333;">${template.title}</h2>
+      ${template.body(name, endDate)}
+    </div>`;
+  
+  return safeSend(html, template.subject, to);
 }

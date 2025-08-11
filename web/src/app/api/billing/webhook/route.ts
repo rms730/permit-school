@@ -1,8 +1,37 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
+import { rateLimit, getRateLimitHeaders, getRateLimitKey } from '@/lib/ratelimit';
+import { sendSubscriptionActiveEmail } from '@/lib/email';
 
 export async function POST(request: NextRequest) {
+  // Rate limiting (skip for Stripe webhooks)
+  const stripeSignature = request.headers.get('stripe-signature');
+  if (!stripeSignature) {
+    const rateLimitEnabled = process.env.RATE_LIMIT_ON === 'true';
+    if (rateLimitEnabled) {
+      const key = getRateLimitKey(request);
+      const windowMs = parseInt(process.env.RATE_LIMIT_WINDOW_MS || '60000');
+      const max = parseInt(process.env.RATE_LIMIT_MAX || '60');
+      
+      const result = rateLimit(key, windowMs, max);
+      const headers = getRateLimitHeaders(result);
+      
+      if (!result.ok) {
+        return NextResponse.json(
+          { error: 'Rate limit exceeded' },
+          { status: 429, headers }
+        );
+      }
+      
+      // Add rate limit headers to successful response
+      const response = NextResponse.next();
+      Object.entries(headers).forEach(([key, value]) => {
+        response.headers.set(key, value);
+      });
+    }
+  }
+
   const body = await request.text();
   const signature = request.headers.get('stripe-signature');
 
@@ -118,6 +147,22 @@ export async function POST(request: NextRequest) {
             expires_at: isActive ? new Date((subscription as any).current_period_end * 1000) : null,
             updated_at: new Date(),
           });
+
+        // Send subscription active email for new subscriptions
+        if (event.type === 'customer.subscription.created' && isActive) {
+          try {
+            // Get user email
+            const { data: user } = await adminSupabase.auth.admin.getUserById(userId);
+            if (user?.user?.email) {
+              await sendSubscriptionActiveEmail({
+                to: user.user.email,
+                name: user.user.user_metadata?.full_name,
+              });
+            }
+          } catch (emailError) {
+            console.error('Failed to send subscription email:', emailError);
+          }
+        }
 
         // Log event
         await adminSupabase

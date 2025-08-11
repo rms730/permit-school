@@ -23,6 +23,72 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ eligible: false, reason: 'entitlement' });
     }
 
+    // Check profile completeness
+    const { data: profile, error: profileError } = await supabase
+      .from('student_profiles')
+      .select('*')
+      .eq('user_id', user.id)
+      .single();
+
+    if (profileError || !profile) {
+      return NextResponse.json({ eligible: false, reason: 'profile_incomplete' });
+    }
+
+    // Check required profile fields
+    const requiredFields = ['first_name', 'last_name', 'dob', 'address_line1', 'city', 'state', 'postal_code'];
+    const missingFields = requiredFields.filter(field => !profile[field]);
+    
+    if (missingFields.length > 0) {
+      return NextResponse.json({ 
+        eligible: false, 
+        reason: 'profile_incomplete',
+        missing_fields: missingFields
+      });
+    }
+
+    // Check terms and privacy acceptance
+    if (!profile.terms_accepted_at || !profile.privacy_accepted_at) {
+      return NextResponse.json({ 
+        eligible: false, 
+        reason: 'profile_incomplete',
+        missing_fields: [
+          ...(!profile.terms_accepted_at ? ['terms_accepted'] : []),
+          ...(!profile.privacy_accepted_at ? ['privacy_accepted'] : [])
+        ]
+      });
+    }
+
+    // Check if minor and guardian consent required
+    const dob = new Date(profile.dob);
+    const today = new Date();
+    const age = today.getFullYear() - dob.getFullYear();
+    const monthDiff = today.getMonth() - dob.getMonth();
+    const isMinor = age < 18 || (age === 18 && monthDiff < 0) || (age === 18 && monthDiff === 0 && today.getDate() < dob.getDate());
+
+    if (isMinor) {
+      // Check for recent guardian consent (within last year)
+      const oneYearAgo = new Date();
+      oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+      
+      const { data: guardianConsent } = await supabase
+        .from('consents')
+        .select('signed_at')
+        .eq('student_id', user.id)
+        .eq('consent_type', 'guardian')
+        .gte('signed_at', oneYearAgo.toISOString())
+        .order('signed_at', { ascending: false })
+        .limit(1)
+        .single();
+
+      if (!guardianConsent) {
+        return NextResponse.json({ 
+          eligible: false, 
+          reason: 'guardian_consent_required',
+          is_minor: true
+        });
+      }
+    }
+
     // Get course ID for DE-ONLINE
     const { data: course, error: courseError } = await supabase
       .from('courses')

@@ -30,7 +30,7 @@ jobs:
           cache-dependency-path: web/package-lock.json
 
       - name: Install deps
-        run: npm ci
+        run: npm ci --no-audit --no-fund
 
       - name: Lint
         run: npm run lint --if-present
@@ -39,4 +39,8 @@ jobs:
         run: npm run typecheck --if-present
 
       - name: Build
+        env:
+          # Avoid failing on missing optional env at build time
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon-placeholder' }}
         run: npm run build

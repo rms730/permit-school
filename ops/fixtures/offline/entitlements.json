@@ -1,0 +1,51 @@
+{
+  "entitlements": [
+    {
+      "user_email": "student@offline.local",
+      "type": "course_access",
+      "resource": "CA_DL_BASIC",
+      "jurisdiction": "CA",
+      "expires_at": "2024-12-31T23:59:59Z",
+      "metadata": {
+        "exam_attempts_remaining": 3,
+        "certificate_generation": true
+      }
+    },
+    {
+      "user_email": "student@offline.local",
+      "type": "course_access",
+      "resource": "CA_DL_ADVANCED",
+      "jurisdiction": "CA",
+      "expires_at": "2024-12-31T23:59:59Z",
+      "metadata": {
+        "exam_attempts_remaining": 2,
+        "certificate_generation": true
+      }
+    },
+    {
+      "user_email": "minor@offline.local",
+      "type": "course_access",
+      "resource": "CA_DL_BASIC",
+      "jurisdiction": "CA",
+      "expires_at": "2024-12-31T23:59:59Z",
+      "metadata": {
+        "exam_attempts_remaining": 3,
+        "certificate_generation": true,
+        "guardian_required": true
+      }
+    },
+    {
+      "user_email": "admin@offline.local",
+      "type": "admin_access",
+      "resource": "all",
+      "jurisdiction": "all",
+      "expires_at": null,
+      "metadata": {
+        "can_manage_users": true,
+        "can_manage_courses": true,
+        "can_issue_certificates": true,
+        "can_view_reports": true
+      }
+    }
+  ]
+}

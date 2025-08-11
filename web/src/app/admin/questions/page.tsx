@@ -40,7 +40,7 @@ import {
   Upload as UploadIcon,
 } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
-import AppBar from "@/components/AppBar";
+import AppShell from "@/components/layout/AppShell";
 
 interface Question {
   id: string;
@@ -209,20 +209,18 @@ export default function AdminQuestionsPage() {
 
   if (courses.length === 0) {
     return (
-      <>
-        <AppBar title="Admin - Questions" />
+      <AppShell>
         <Container maxWidth="lg" sx={{ mt: 4 }}>
           <Paper variant="outlined" sx={{ p: 3 }}>
             <Typography>Loading courses...</Typography>
           </Paper>
         </Container>
-      </>
+      </AppShell>
     );
   }
 
   return (
-    <>
-      <AppBar title="Admin - Questions" />
+    <AppShell>
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         {error && (
           <Alert severity="error" sx={{ mb: 2 }} onClose={() => setError("")}>
@@ -432,6 +430,6 @@ export default function AdminQuestionsPage() {
           </Typography>
         </Paper>
       </Container>
-    </>
+    </AppShell>
   );
 }

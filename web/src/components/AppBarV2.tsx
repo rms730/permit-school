@@ -35,6 +35,7 @@ import {
 import { useRouter } from 'next/navigation';
 import { signInWithGoogle } from '@/lib/auth';
 import { supabase } from '@/lib/supabaseClient';
+import { getOfflineBadgeText, isFeatureDisabled } from '@/lib/offline';
 
 interface AppBarV2Props {
   user?: any;
@@ -63,6 +64,12 @@ export default function AppBarV2({ user, onSignOut }: AppBarV2Props) {
   };
 
   const handleSignInWithGoogle = async () => {
+    // Disable Google sign-in in offline mode
+    if (isFeatureDisabled('googleOneTap')) {
+      console.log('Google sign-in disabled in offline mode');
+      return;
+    }
+    
     try {
       const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL || 'http://localhost:3000';
       await signInWithGoogle(`${baseUrl}/auth/callback`);
@@ -245,21 +252,35 @@ export default function AppBarV2({ user, onSignOut }: AppBarV2Props) {
               </IconButton>
             )}
             
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ 
-                fontWeight: 700,
-                background: 'linear-gradient(135deg, #00BCD4 0%, #7C4DFF 100%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                cursor: 'pointer',
-              }}
-              onClick={() => router.push('/')}
-            >
-              Permit School
-            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{ 
+                  fontWeight: 700,
+                  background: 'linear-gradient(135deg, #00BCD4 0%, #7C4DFF 100%)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  cursor: 'pointer',
+                }}
+                onClick={() => router.push('/')}
+              >
+                Permit School
+              </Typography>
+              {getOfflineBadgeText() && (
+                <Chip
+                  label={getOfflineBadgeText()}
+                  size="small"
+                  color="warning"
+                  sx={{ 
+                    fontSize: '0.7rem',
+                    height: 20,
+                    '& .MuiChip-label': { px: 1 }
+                  }}
+                />
+              )}
+            </Box>
           </Box>
 
           {/* Desktop Navigation */}
@@ -312,13 +333,15 @@ export default function AppBarV2({ user, onSignOut }: AppBarV2Props) {
                   >
                     Sign In
                   </Button>
-                  <Button
-                    variant="contained"
-                    onClick={handleSignInWithGoogle}
-                    sx={{ fontWeight: 600 }}
-                  >
-                    Continue with Google
-                  </Button>
+                  {!isFeatureDisabled('googleOneTap') && (
+                    <Button
+                      variant="contained"
+                      onClick={handleSignInWithGoogle}
+                      sx={{ fontWeight: 600 }}
+                    >
+                      Continue with Google
+                    </Button>
+                  )}
                 </>
               )}
             </Box>
@@ -329,7 +352,7 @@ export default function AppBarV2({ user, onSignOut }: AppBarV2Props) {
             <Button
               variant="contained"
               size="small"
-              onClick={handleSignInWithGoogle}
+              onClick={() => router.push('/signin')}
               sx={{ fontWeight: 600 }}
             >
               Sign In

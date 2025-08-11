@@ -1,0 +1,41 @@
+{
+  "enrollments": [
+    {
+      "student_email": "student@offline.local",
+      "course_code": "CA_DL_BASIC",
+      "jurisdiction_code": "CA",
+      "status": "active",
+      "enrolled_at": "2024-01-15T10:00:00Z",
+      "progress": {
+        "units_completed": 2,
+        "total_units": 5,
+        "last_activity": "2024-01-20T14:30:00Z"
+      }
+    },
+    {
+      "student_email": "student@offline.local",
+      "course_code": "CA_DL_ADVANCED",
+      "jurisdiction_code": "CA",
+      "status": "enrolled",
+      "enrolled_at": "2024-01-18T09:00:00Z",
+      "progress": {
+        "units_completed": 0,
+        "total_units": 3,
+        "last_activity": null
+      }
+    },
+    {
+      "student_email": "minor@offline.local",
+      "course_code": "CA_DL_BASIC",
+      "jurisdiction_code": "CA",
+      "status": "active",
+      "enrolled_at": "2024-01-10T11:00:00Z",
+      "guardian_consent": true,
+      "progress": {
+        "units_completed": 1,
+        "total_units": 5,
+        "last_activity": "2024-01-19T16:45:00Z"
+      }
+    }
+  ]
+}

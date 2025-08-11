@@ -50,7 +50,7 @@ import {
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import AppBar from "@/components/AppBar";
+import AppShell from "@/components/layout/AppShell";
 import Link from "next/link";
 
 interface Jurisdiction {
@@ -333,9 +333,9 @@ export default function AdminCompliancePage() {
   };
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <AppBar />
-      <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
+    <AppShell>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
         <Typography variant="h4" gutterBottom>
           Regulatory Compliance
         </Typography>
@@ -620,7 +620,8 @@ export default function AdminCompliancePage() {
             <ListItemText>View Details</ListItemText>
           </MenuItem>
         </Menu>
-      </Container>
-    </LocalizationProvider>
+        </Container>
+      </LocalizationProvider>
+    </AppShell>
   );
 }

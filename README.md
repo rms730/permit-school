@@ -194,8 +194,9 @@ GOOGLE_OAUTH_ON=true
 ### Forward Plan (Later Sprints)
 
 - **Sprint 23**: Learner surfaces polish (Learn, Quiz, Exam players)
-- **Sprint 24**: Admin & Reports polish (responsive tables, modern UI)
-- **Sprint 25**: Gamification v1 (streaks, badges, progress rewards)
+- **Sprint 24**: Modern App Shell, Account & Settings, Avatars, Google One-Tap (opt-in)
+- **Sprint 25**: Offline Review Kit + AppShell V2 Roll-Out (CA-first) - [Offline Review Guide](docs/OFFLINE_REVIEW.md)
+- **Sprint 26**: Gamification v1 (streaks, badges, progress rewards)
 
 ### Usage
 

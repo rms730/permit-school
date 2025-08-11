@@ -24,7 +24,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { Refresh as RefreshIcon } from "@mui/icons-material";
-import AppBar from "@/components/AppBar";
+import AppShell from "@/components/layout/AppShell";
 
 interface BillingKPI {
   active_subscriptions: number;
@@ -181,8 +181,7 @@ export default function AdminBillingPage() {
   }
 
   return (
-    <>
-      <AppBar title="Billing Dashboard" />
+    <AppShell>
       <Container maxWidth="xl" sx={{ mt: 4 }}>
         <Stack spacing={3}>
           {/* Header */}
@@ -431,6 +430,6 @@ export default function AdminBillingPage() {
           </Paper>
         </Stack>
       </Container>
-    </>
+    </AppShell>
   );
 }

@@ -41,7 +41,7 @@ import {
   CheckCircle as ActiveIcon,
 } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
-import AppBar from "@/components/AppBar";
+import AppShell from "@/components/layout/AppShell";
 
 interface BlueprintRule {
   rule_no: number;
@@ -222,20 +222,18 @@ export default function AdminBlueprintsPage() {
 
   if (courses.length === 0) {
     return (
-      <>
-        <AppBar title="Admin - Blueprints" />
+      <AppShell>
         <Container maxWidth="lg" sx={{ mt: 4 }}>
           <Paper variant="outlined" sx={{ p: 3 }}>
             <Typography>Loading courses...</Typography>
           </Paper>
         </Container>
-      </>
+      </AppShell>
     );
   }
 
   return (
-    <>
-      <AppBar title="Admin - Blueprints" />
+    <AppShell>
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         {error && (
           <Alert severity="error" sx={{ mb: 2 }} onClose={() => setError("")}>
@@ -434,6 +432,6 @@ export default function AdminBlueprintsPage() {
           </DialogActions>
         </Dialog>
       </Container>
-    </>
+    </AppShell>
   );
 }

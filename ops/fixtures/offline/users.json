@@ -1,0 +1,48 @@
+{
+  "admin": {
+    "email": "admin@offline.local",
+    "password": "admin123",
+    "role": "admin",
+    "profile": {
+      "preferred_name": "Admin User",
+      "locale": "en",
+      "theme_pref": "system",
+      "marketing_opt_in": false
+    }
+  },
+  "student_adult": {
+    "email": "student@offline.local",
+    "password": "student123",
+    "role": "student",
+    "age": 18,
+    "profile": {
+      "preferred_name": "Test Student",
+      "locale": "en",
+      "theme_pref": "light",
+      "marketing_opt_in": true
+    }
+  },
+  "student_minor": {
+    "email": "minor@offline.local",
+    "password": "minor123",
+    "role": "student",
+    "age": 16,
+    "profile": {
+      "preferred_name": "Minor Student",
+      "locale": "es",
+      "theme_pref": "dark",
+      "marketing_opt_in": false
+    }
+  },
+  "guardian": {
+    "email": "guardian@offline.local",
+    "password": "guardian123",
+    "role": "guardian",
+    "profile": {
+      "preferred_name": "Test Guardian",
+      "locale": "en",
+      "theme_pref": "system",
+      "marketing_opt_in": true
+    }
+  }
+}

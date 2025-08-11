@@ -23,6 +23,7 @@ import {
 import { Person as PersonIcon, ArrowBack as ArrowBackIcon } from "@mui/icons-material";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { useRouter, useParams } from "next/navigation";
+import AppShell from "@/components/layout/AppShell";
 
 interface GuardianChild {
   guardian_id: string;
@@ -124,22 +125,27 @@ export default function GuardianStudentPage() {
 
   if (loading) {
     return (
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Typography>{dict.common.loading}</Typography>
-      </Container>
+      <AppShell>
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Typography>{dict.common.loading}</Typography>
+        </Container>
+      </AppShell>
     );
   }
 
   if (error || !student) {
     return (
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Typography color="error">{error || 'Student not found'}</Typography>
-      </Container>
+      <AppShell>
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Typography color="error">{error || 'Student not found'}</Typography>
+        </Container>
+      </AppShell>
     );
   }
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
+    <AppShell>
+      <Container maxWidth="lg" sx={{ py: 4 }}>
       {/* Back button */}
       <Box sx={{ mb: 3 }}>
         <Chip
@@ -232,6 +238,7 @@ export default function GuardianStudentPage() {
           </Table>
         </TableContainer>
       )}
-    </Container>
+      </Container>
+    </AppShell>
   );
 }

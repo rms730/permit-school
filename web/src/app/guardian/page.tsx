@@ -16,6 +16,7 @@ import {
 import { Person as PersonIcon } from "@mui/icons-material";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { useRouter } from "next/navigation";
+import AppShell from "@/components/layout/AppShell";
 
 interface GuardianChild {
   guardian_id: string;
@@ -73,31 +74,36 @@ export default function GuardianPage() {
 
   if (loading) {
     return (
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          {dict.guardian.title}
-        </Typography>
-        <Typography>{dict.common.loading}</Typography>
-      </Container>
+      <AppShell>
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            {dict.guardian.title}
+          </Typography>
+          <Typography>{dict.common.loading}</Typography>
+        </Container>
+      </AppShell>
     );
   }
 
   if (error) {
     return (
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          {dict.guardian.title}
-        </Typography>
-        <Typography color="error">{error}</Typography>
-      </Container>
+      <AppShell>
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            {dict.guardian.title}
+          </Typography>
+          <Typography color="error">{error}</Typography>
+        </Container>
+      </AppShell>
     );
   }
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Typography variant="h4" component="h1" gutterBottom>
-        {dict.guardian.title}
-      </Typography>
+    <AppShell>
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          {dict.guardian.title}
+        </Typography>
       
       {children.length === 0 ? (
         <Card>
@@ -152,6 +158,7 @@ export default function GuardianPage() {
           ))}
         </Grid>
       )}
-    </Container>
+      </Container>
+    </AppShell>
   );
 }

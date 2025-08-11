@@ -1,0 +1,92 @@
+{
+  "seat_time_records": [
+    {
+      "user_email": "student@offline.local",
+      "course_code": "CA_DL_BASIC",
+      "unit_id": "unit_1",
+      "session_start": "2024-01-15T10:00:00Z",
+      "session_end": "2024-01-15T11:30:00Z",
+      "duration_minutes": 90,
+      "activity_type": "reading",
+      "progress_percentage": 100
+    },
+    {
+      "user_email": "student@offline.local",
+      "course_code": "CA_DL_BASIC",
+      "unit_id": "unit_2",
+      "session_start": "2024-01-16T14:00:00Z",
+      "session_end": "2024-01-16T15:45:00Z",
+      "duration_minutes": 105,
+      "activity_type": "quiz",
+      "progress_percentage": 85
+    },
+    {
+      "user_email": "student@offline.local",
+      "course_code": "CA_DL_BASIC",
+      "unit_id": "unit_2",
+      "session_start": "2024-01-17T09:00:00Z",
+      "session_end": "2024-01-17T10:15:00Z",
+      "duration_minutes": 75,
+      "activity_type": "reading",
+      "progress_percentage": 100
+    },
+    {
+      "user_email": "minor@offline.local",
+      "course_code": "CA_DL_BASIC",
+      "unit_id": "unit_1",
+      "session_start": "2024-01-10T11:00:00Z",
+      "session_end": "2024-01-10T12:30:00Z",
+      "duration_minutes": 90,
+      "activity_type": "reading",
+      "progress_percentage": 100
+    },
+    {
+      "user_email": "minor@offline.local",
+      "course_code": "CA_DL_BASIC",
+      "unit_id": "unit_2",
+      "session_start": "2024-01-19T16:00:00Z",
+      "session_end": "2024-01-19T16:45:00Z",
+      "duration_minutes": 45,
+      "activity_type": "reading",
+      "progress_percentage": 60
+    }
+  ],
+  "quiz_attempts": [
+    {
+      "user_email": "student@offline.local",
+      "course_code": "CA_DL_BASIC",
+      "unit_id": "unit_1",
+      "attempt_number": 1,
+      "started_at": "2024-01-15T11:30:00Z",
+      "completed_at": "2024-01-15T11:45:00Z",
+      "score": 85,
+      "passed": true,
+      "questions_answered": 10,
+      "total_questions": 10
+    },
+    {
+      "user_email": "student@offline.local",
+      "course_code": "CA_DL_BASIC",
+      "unit_id": "unit_2",
+      "attempt_number": 1,
+      "started_at": "2024-01-16T15:45:00Z",
+      "completed_at": "2024-01-16T16:00:00Z",
+      "score": 90,
+      "passed": true,
+      "questions_answered": 8,
+      "total_questions": 8
+    },
+    {
+      "user_email": "minor@offline.local",
+      "course_code": "CA_DL_BASIC",
+      "unit_id": "unit_1",
+      "attempt_number": 1,
+      "started_at": "2024-01-10T12:30:00Z",
+      "completed_at": "2024-01-10T12:45:00Z",
+      "score": 80,
+      "passed": true,
+      "questions_answered": 10,
+      "total_questions": 10
+    }
+  ]
+}

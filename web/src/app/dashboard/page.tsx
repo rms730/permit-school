@@ -13,8 +13,17 @@ import {
   Alert,
   CircularProgress,
   Grid,
+  Stack,
 } from "@mui/material";
+import {
+  School,
+  TrendingUp,
+  Receipt,
+  Person,
+  ArrowForward,
+} from '@mui/icons-material';
 import { useRouter } from "next/navigation";
+import AppBarV2 from '@/components/AppBarV2';
 
 interface ProfileData {
   first_name: string;
@@ -126,19 +135,29 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Box display="flex" justifyContent="center" alignItems="center" minHeight="400px">
-          <CircularProgress />
-        </Box>
-      </Container>
+      <>
+        <AppBarV2 />
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Box display="flex" justifyContent="center" alignItems="center" minHeight="400px">
+            <CircularProgress />
+          </Box>
+        </Container>
+      </>
     );
   }
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Typography variant="h4" gutterBottom>
-        Welcome back{profile?.first_name ? `, ${profile.first_name}` : ""}!
-      </Typography>
+    <>
+      <AppBarV2 />
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 700 }}>
+            Welcome back{profile?.first_name ? `, ${profile.first_name}` : ""}! 👋
+          </Typography>
+          <Typography variant="h6" color="text.secondary">
+            Ready to continue your learning journey?
+          </Typography>
+        </Box>
 
       {error && (
         <Alert severity="error" sx={{ mb: 3 }}>
@@ -164,70 +183,82 @@ export default function DashboardPage() {
       <Grid container spacing={3}>
         {/* Progress Summary */}
         <Grid item xs={12} md={6}>
-          <Card>
+          <Card sx={{ height: '100%' }}>
             <CardContent>
-              <Typography variant="h6" gutterBottom>
-                Your Progress
-              </Typography>
-              <Box sx={{ mb: 2 }}>
-                <Typography variant="body2" color="text.secondary">
-                  Active Enrollments
-                </Typography>
-                <Typography variant="h4">
-                  {enrollments.filter(e => e.status === "active").length}
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                <TrendingUp sx={{ fontSize: 32, color: 'primary.main', mr: 2 }} />
+                <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                  Your Progress
                 </Typography>
               </Box>
-              <Box sx={{ mb: 2 }}>
-                <Typography variant="body2" color="text.secondary">
-                  Total Seat Time
-                </Typography>
-                <Typography variant="h4">
-                  {seatTime ? Math.round(seatTime.minutes_total) : 0} min
-                </Typography>
-              </Box>
-              <Button 
-                variant="contained" 
-                onClick={() => router.push("/courses")}
-                sx={{ mt: 2 }}
-              >
-                Continue Learning
-              </Button>
+              <Stack spacing={3}>
+                <Box>
+                  <Typography variant="body2" color="text.secondary" gutterBottom>
+                    Active Enrollments
+                  </Typography>
+                  <Typography variant="h3" sx={{ fontWeight: 700, color: 'primary.main' }}>
+                    {enrollments.filter(e => e.status === "active").length}
+                  </Typography>
+                </Box>
+                <Box>
+                  <Typography variant="body2" color="text.secondary" gutterBottom>
+                    Total Seat Time
+                  </Typography>
+                  <Typography variant="h3" sx={{ fontWeight: 700, color: 'primary.main' }}>
+                    {seatTime ? Math.round(seatTime.minutes_total) : 0} min
+                  </Typography>
+                </Box>
+                <Button 
+                  variant="contained" 
+                  onClick={() => router.push("/courses")}
+                  endIcon={<ArrowForward />}
+                  sx={{ mt: 2, py: 1.5 }}
+                >
+                  Continue Learning
+                </Button>
+              </Stack>
             </CardContent>
           </Card>
         </Grid>
 
         {/* Exam Eligibility */}
         <Grid item xs={12} md={6}>
-          <Card>
+          <Card sx={{ height: '100%' }}>
             <CardContent>
-              <Typography variant="h6" gutterBottom>
-                Exam Eligibility
-              </Typography>
-              <Box sx={{ mb: 2 }}>
-                <Chip 
-                  label={getEligibilityStatus().text}
-                  color={getEligibilityColor(getEligibilityStatus().status) as any}
-                  sx={{ mb: 1 }}
-                />
-                {eligibility?.reason === "seat-time" && (
-                  <Typography variant="body2" color="text.secondary">
-                    {eligibility.minutesTotal} / {eligibility.minutesRequired} minutes required
-                  </Typography>
-                )}
-                {eligibility?.reason === "profile_incomplete" && eligibility.missing_fields && (
-                  <Typography variant="body2" color="text.secondary">
-                    Missing: {eligibility.missing_fields.join(", ")}
-                  </Typography>
-                )}
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                <School sx={{ fontSize: 32, color: 'primary.main', mr: 2 }} />
+                <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                  Exam Eligibility
+                </Typography>
               </Box>
-              <Button 
-                variant="outlined" 
-                onClick={() => router.push("/exam")}
-                disabled={!eligibility?.eligible}
-                sx={{ mt: 2 }}
-              >
-                Take Exam
-              </Button>
+              <Stack spacing={3}>
+                <Box>
+                  <Chip 
+                    label={getEligibilityStatus().text}
+                    color={getEligibilityColor(getEligibilityStatus().status) as any}
+                    sx={{ mb: 2, fontSize: '1rem', py: 1 }}
+                  />
+                  {eligibility?.reason === "seat-time" && (
+                    <Typography variant="body2" color="text.secondary">
+                      {eligibility.minutesTotal} / {eligibility.minutesRequired} minutes required
+                    </Typography>
+                  )}
+                  {eligibility?.reason === "profile_incomplete" && eligibility.missing_fields && (
+                    <Typography variant="body2" color="text.secondary">
+                      Missing: {eligibility.missing_fields.join(", ")}
+                    </Typography>
+                  )}
+                </Box>
+                <Button 
+                  variant="outlined" 
+                  onClick={() => router.push("/exam")}
+                  disabled={!eligibility?.eligible}
+                  endIcon={<ArrowForward />}
+                  sx={{ mt: 2, py: 1.5 }}
+                >
+                  Take Exam
+                </Button>
+              </Stack>
             </CardContent>
           </Card>
         </Grid>
@@ -236,33 +267,60 @@ export default function DashboardPage() {
         <Grid item xs={12}>
           <Card>
             <CardContent>
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, mb: 3 }}>
                 Quick Actions
               </Typography>
-              <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
-                <Button 
-                  variant="contained" 
-                  onClick={() => router.push("/courses")}
-                >
-                  Browse Courses
-                </Button>
-                <Button 
-                  variant="outlined" 
-                  onClick={() => router.push("/profile")}
-                >
-                  Edit Profile
-                </Button>
-                <Button 
-                  variant="outlined" 
-                  onClick={() => router.push("/billing")}
-                >
-                  Manage Subscription
-                </Button>
-              </Box>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6} md={3}>
+                  <Button 
+                    variant="contained" 
+                    fullWidth
+                    onClick={() => router.push("/courses")}
+                    startIcon={<School />}
+                    sx={{ py: 2 }}
+                  >
+                    Browse Courses
+                  </Button>
+                </Grid>
+                <Grid item xs={12} sm={6} md={3}>
+                  <Button 
+                    variant="outlined" 
+                    fullWidth
+                    onClick={() => router.push("/profile")}
+                    startIcon={<Person />}
+                    sx={{ py: 2 }}
+                  >
+                    Edit Profile
+                  </Button>
+                </Grid>
+                <Grid item xs={12} sm={6} md={3}>
+                  <Button 
+                    variant="outlined" 
+                    fullWidth
+                    onClick={() => router.push("/billing")}
+                    startIcon={<Receipt />}
+                    sx={{ py: 2 }}
+                  >
+                    Manage Billing
+                  </Button>
+                </Grid>
+                <Grid item xs={12} sm={6} md={3}>
+                  <Button 
+                    variant="outlined" 
+                    fullWidth
+                    onClick={() => router.push("/exam")}
+                    startIcon={<School />}
+                    sx={{ py: 2 }}
+                  >
+                    Take Exam
+                  </Button>
+                </Grid>
+              </Grid>
             </CardContent>
           </Card>
         </Grid>
       </Grid>
     </Container>
+    </>
   );
 }

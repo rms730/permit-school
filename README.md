@@ -98,6 +98,122 @@ curl -X POST http://localhost:3000/api/admin/jobs/weekly-digest \
 - All views include jurisdiction codes (`j_code`, `course_code`)
 - No CA-specific logic in code
 - Uses `jurisdiction_configs` for state-specific configuration
+
+## Sprint 22 — Google Sign‑In + Teen‑Friendly UX Refresh (Phase 1) + Mobile‑First
+
+**Intent**: Ship a safe, incremental refresh that feels inviting to 15‑year‑olds, keeps CA‑first compliance intact, and lays groundwork for full redesign in later sprints.
+
+### Features
+
+#### Google Sign-In (Supabase OAuth)
+- **One-click Google login/signup** with profile upsert and avatar
+- **Fully SSR-compatible** OAuth flow
+- **Profile upsert on first login** with Google data (display name, avatar, locale)
+- **Edge case handling** for existing email accounts
+- **Admin MFA requirements preserved**
+
+#### UX Refresh (Phase 1 — Foundations)
+- **Modern theme system** with teen-friendly colors (teal/cyan primary, violet secondary)
+- **Google Fonts integration** (Rubik for headings, Inter for body)
+- **Mobile-first responsive design** with touch-friendly targets (≥44px)
+- **New AppBar v2** with user avatar, mobile navigation drawer
+- **Hero section** with gradient backgrounds and engaging copy
+
+#### Mobile-First Polish
+- **Responsive layouts** that work on xs/sm breakpoints
+- **Touch-friendly interactions** with increased hit areas
+- **Mobile navigation drawer** with large targets
+- **Cards that stack cleanly** on mobile devices
+
+### Database Schema
+
+The migration `0019_auth_ui_foundation.sql` adds:
+- `avatar_url` - Google OAuth avatar URL
+- `preferred_name` - User preferred display name
+- `last_login_at` - Timestamp for analytics
+- `ui_variant` - Theme preference ('classic' or 'modern')
+
+### API Endpoints
+
+#### Authentication
+- `POST /api/auth/profile/upsert` - Server-side profile upsert (Google OAuth data)
+- `/auth/callback` - OAuth callback handler
+
+#### Theme Management
+- `POST /api/admin/users/[id]/ui-variant` - Admin toggle for UI variant (HMAC protected)
+
+### Environment Variables
+
+Add to your environment configuration:
+
+```bash
+# Google OAuth
+NEXT_PUBLIC_APP_BASE_URL=http://localhost:3000
+GOOGLE_OAUTH_ON=true
+
+# Supabase OAuth Configuration
+# Configure in Supabase Dashboard → Authentication → Providers → Google
+# OAuth redirect: ${NEXT_PUBLIC_APP_BASE_URL}/auth/callback
+```
+
+### Google OAuth Setup
+
+1. **Supabase Dashboard**: Go to Authentication → Providers → Google
+2. **Enable Google provider** and configure OAuth credentials
+3. **Set redirect URL**: `${NEXT_PUBLIC_APP_BASE_URL}/auth/callback`
+4. **Environment variables**: Set `GOOGLE_OAUTH_ON=true` to enable
+
+### UI Implementation
+
+#### New Components
+- `AppBarV2.tsx` - Modern navigation with mobile drawer
+- `modernTheme.ts` - Teen-friendly design tokens
+- `/login` & `/signup` pages with Google CTA first
+- `/home` page with hero section and benefits
+
+#### Theme System
+- **Classic theme**: Existing design (default)
+- **Modern theme**: New teen-friendly design
+- **Feature flag**: `ui_variant` profile field + cookie override
+- **Google Fonts**: Rubik (headings) + Inter (body) loaded via `next/font`
+
+### Mobile-First Design
+
+- **Touch targets**: Minimum 44px for all interactive elements
+- **Responsive breakpoints**: xs (0px), sm (600px), md (900px), lg (1200px)
+- **Mobile navigation**: Collapsible drawer with large menu items
+- **Card layouts**: Stack cleanly on mobile with proper spacing
+
+### Accessibility
+
+- **WCAG 2.2 AA compliance**: Contrast ratios ≥4.5:1
+- **Focus management**: Clear focus outlines and keyboard navigation
+- **ARIA labels**: Proper labeling for screen readers
+- **Color independence**: No information conveyed by color alone
+
+### Forward Plan (Later Sprints)
+
+- **Sprint 23**: Learner surfaces polish (Learn, Quiz, Exam players)
+- **Sprint 24**: Admin & Reports polish (responsive tables, modern UI)
+- **Sprint 25**: Gamification v1 (streaks, badges, progress rewards)
+
+### Usage
+
+#### For Users
+1. **Sign up**: Visit `/signup` and click "Continue with Google"
+2. **Sign in**: Visit `/login` and use Google OAuth
+3. **Profile**: Avatar and name automatically populated from Google
+
+#### For Admins
+1. **Toggle UI variant**: Use admin API to switch users between classic/modern themes
+2. **Monitor OAuth**: Check Supabase Auth logs for OAuth activity
+
+### Privacy & Security
+
+- **No service role in browser**: All privileged operations server-side
+- **RLS maintained**: All existing security policies preserved
+- **OAuth data handling**: Only necessary profile data stored
+- **Edge case protection**: Existing email accounts not automatically linked
 - Ready for expansion to Texas and other states
 
 ## Sprint 20 — Regulatory Reporting & DMV Submission Toolkit

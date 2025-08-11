@@ -169,3 +169,49 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - **Subscription management**: Users can manage billing via Stripe Portal
    - **RLS policies**: Secure access to billing data
    - **Event logging**: All billing events stored for admin review
+
+### Sprint 6: Final Exam, Compliance Gating & Draft Certificate
+
+1. **Final Exam Setup**:
+   - Apply the exam migration: `supabase db push`
+   - Configure exam thresholds in `web/.env.local`:
+     ```bash
+     FINAL_EXAM_NUM_QUESTIONS=30
+     FINAL_EXAM_PASS_PCT=0.8
+     FINAL_EXAM_MINUTES_REQUIRED=150
+     ```
+
+2. **Eligibility Requirements**:
+   - **Entitlement**: Must have active subscription
+   - **Seat Time**: Must complete 150 minutes of study time across all units
+   - **Course Progress**: All units should be accessible
+
+3. **Exam Flow**:
+   - Visit `/exam` to check eligibility
+   - If eligible: Start final exam → Answer questions → Submit
+   - On pass (≥80%): Draft certificate automatically issued
+   - On fail: Can retry after reviewing course material
+
+4. **Admin Features**:
+   - `/admin/exams`: View final exam attempts with scores and status
+   - `/admin/certificates`: View certificate drafts with CSV export
+   - All admin pages enforce existing RLS policies
+
+5. **Key Features**:
+   - **Compliance gating**: Entitlement + seat-time requirements
+   - **Final exam**: 30 questions across all course material
+   - **Draft certificates**: Automatically issued on pass
+   - **Admin oversight**: Review attempts and certificate status
+   - **Reused infrastructure**: Leverages existing attempts/quiz system
+
+6. **Environment Variables**:
+   - `FINAL_EXAM_NUM_QUESTIONS`: Number of exam questions (default: 30)
+   - `FINAL_EXAM_PASS_PCT`: Pass threshold as decimal (default: 0.8 = 80%)
+   - `FINAL_EXAM_MINUTES_REQUIRED`: Minimum seat time in minutes (default: 150)
+
+7. **Certificate Status**:
+   - **Draft**: Automatically issued when exam is passed
+   - **Ready**: Approved by admin for mailing
+   - **Queued**: In mailing queue
+   - **Mailed**: Certificate has been sent
+   - **Void**: Certificate invalidated

@@ -6,6 +6,7 @@ This document provides operational procedures for handling Data Subject Access R
 
 ### Data Export Requests
 
+<<<<<<< HEAD
 ### Notifications Privacy
 
 The notification system is designed to be privacy-preserving and compliant with data protection regulations:
@@ -39,6 +40,7 @@ The notification system is designed to be privacy-preserving and compliant with 
 - **COPPA**: Guardian notifications for minors include only consented information
 - **FERPA**: Educational records remain protected by existing access controls
 - **Audit trail**: All notifications logged for compliance verification
+
 
 #### Manual Export Execution
 If the automated export system fails, follow these steps:

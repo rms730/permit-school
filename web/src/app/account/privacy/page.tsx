@@ -371,7 +371,7 @@ export default function AccountPrivacyPage() {
                   <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 2 }}>
                     <Info color="primary" />
                     <Typography variant="h6">
-                      What&apos;s Included in Your Export
+                      What's Included in Your Export
                     </Typography>
                   </Stack>
                   

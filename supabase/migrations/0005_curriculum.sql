@@ -1,4 +1,3 @@
--- sqlfluff:disable:AM05,PRS
 -- 0005_curriculum.sql
 -- Curriculum tables and seat time tracking
 
@@ -46,14 +45,18 @@ CREATE POLICY "course_units_public_read" ON public.course_units
     FOR SELECT USING (true);
 
 CREATE POLICY "course_units_admin_write" ON public.course_units
-    FOR ALL USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+    FOR ALL USING (
+        (auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
+    );
 
 -- Unit chunks: public read, admin write
 CREATE POLICY "unit_chunks_public_read" ON public.unit_chunks
     FOR SELECT USING (true);
 
 CREATE POLICY "unit_chunks_admin_write" ON public.unit_chunks
-    FOR ALL USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+    FOR ALL USING (
+        (auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
+    );
 
 -- Seat time events: insert by student, read by owner or admin
 CREATE POLICY "seat_time_events_insert_own" ON public.seat_time_events
@@ -87,7 +90,8 @@ WHERE j.code = 'CA'
 ON CONFLICT (course_id, unit_no) DO NOTHING;
 
 -- Seed unit chunks using FTS search
--- sqlfluff:disable:AM05
+-- (Disable AM05 just in case the CROSS JOIN pattern confuses the rule)
+-- sqlfluff: disable=AM05
 WITH unit_topics AS (
     SELECT
         cu.id AS unit_id,
@@ -108,7 +112,6 @@ WITH unit_topics AS (
     WHERE j.code = 'CA'
         AND c.code = 'DE-ONLINE'
 ),
-
 scored_chunks AS (
     SELECT
         ut.unit_id,
@@ -122,9 +125,9 @@ scored_chunks AS (
     JOIN public.jurisdictions AS j2
         ON cc.jurisdiction_id = j2.id
     WHERE j2.code = 'CA'
-        AND to_tsvector('english', coalesce(cc.chunk, '')) @@ plainto_tsquery('english', ut.search_terms)
+        AND to_tsvector('english', coalesce(cc.chunk, ''))
+            @@ plainto_tsquery('english', ut.search_terms)
 ),
-
 ranked_chunks AS (
     SELECT
         unit_id,
@@ -135,7 +138,8 @@ ranked_chunks AS (
         ) AS ord
     FROM scored_chunks
 )
--- sqlfluff:enable:AM05
+
+-- sqlfluff: enable=AM05
 
 INSERT INTO public.unit_chunks (unit_id, chunk_id, ord)
 SELECT

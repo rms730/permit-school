@@ -183,7 +183,7 @@ export default function OnboardingPage() {
             <DatePicker
               label="Date of Birth *"
               value={profileData.dob}
-              onChange={(date) => setProfileData({ ...profileData, dob: date })}
+              onChange={(date: Date | null) => setProfileData({ ...profileData, dob: date })}
               slotProps={{
                 textField: {
                   fullWidth: true,

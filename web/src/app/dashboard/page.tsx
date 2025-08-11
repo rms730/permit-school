@@ -94,7 +94,7 @@ export default function DashboardPage() {
   };
 
   const getEligibilityStatus = () => {
-    if (!eligibility) return "Loading...";
+    if (!eligibility) return { status: "info", text: "Loading..." };
     
     if (eligibility.eligible) {
       return { status: "success", text: "Eligible for Exam" };

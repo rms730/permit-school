@@ -187,7 +187,7 @@ export default function ProfilePage() {
             <DatePicker
               label="Date of Birth *"
               value={profile.dob ? new Date(profile.dob) : null}
-              onChange={(date) => handleInputChange("dob", date ? date.toISOString().split("T")[0] : "")}
+              onChange={(date: Date | null) => handleInputChange("dob", date ? date.toISOString().split("T")[0] : "")}
               slotProps={{
                 textField: {
                   fullWidth: true,

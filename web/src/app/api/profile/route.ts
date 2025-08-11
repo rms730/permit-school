@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getRouteClient } from "@/lib/supabaseRoute";
 
-export async function get() {
+export async function GET() {
   try {
     const supabase = getRouteClient();
     
@@ -27,7 +27,7 @@ export async function get() {
   }
 }
 
-export async function put(request: NextRequest) {
+export async function PUT(request: NextRequest) {
   try {
     const supabase = getRouteClient();
     

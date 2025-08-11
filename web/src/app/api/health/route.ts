@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
+import { BUILD } from '@/lib/version';
 
 export async function GET() {
   const startTime = Date.now();
@@ -21,6 +22,7 @@ export async function GET() {
       time: new Date().toISOString(),
       responseTime: `${responseTime}ms`,
       supabase: supabaseStatus,
+      build: BUILD,
       services: {
         database: supabaseStatus,
         email: process.env.RESEND_API_KEY ? 'configured' : 'disabled',
@@ -33,6 +35,7 @@ export async function GET() {
       time: new Date().toISOString(),
       responseTime: `${Date.now() - startTime}ms`,
       supabase: 'error',
+      build: BUILD,
       error: error instanceof Error ? error.message : 'Unknown error'
     }, { status: 500 });
   }

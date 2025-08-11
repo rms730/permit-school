@@ -100,6 +100,40 @@ curl -X POST http://localhost:3000/api/admin/jobs/weekly-digest \
 - Uses `jurisdiction_configs` for state-specific configuration
 - Ready for expansion to Texas and other states
 
+## Sprint 19 — Launch Cutover
+
+**Intent**: Implement production-ready release machinery for safe CA deployment while maintaining scale-readiness for multi-state expansion.
+
+### Release Workflows
+
+- **Staging Gate**: Automated deployment to staging with lint→build→migrate→RLS audit→E2E tests
+- **Production Promotion**: Manual approval required, then migrate→audit→smoke tests
+- **Required Secrets**: Supabase access tokens, database URLs, test tokens for both environments
+
+### Security & Compliance
+
+- **RLS Audit**: Automated check ensures all public tables have RLS enabled with ≥1 policy
+- **No Client Secrets**: Database URLs and service role keys never exposed to client code
+- **Fail-Fast Pipelines**: Misconfigurations cause immediate pipeline failure
+
+### Health & Telemetry
+
+- **Build Metadata**: `/api/health` endpoint includes environment, commit SHA, and build timestamp
+- **Version Tracking**: All deployments tagged with exact commit and build time
+- **No Runtime Dependencies**: Health endpoint works without additional environment variables
+
+### Backup & Recovery
+
+- **Automated Backups**: Database snapshots created before each staging deployment
+- **Artifact Storage**: Backups stored as GitHub Actions artifacts for disaster recovery
+- **Local Development**: Helper scripts for local backup/restore operations
+
+### Documentation
+
+- **Runbooks**: Complete procedures for release, backup/restore, and secret rotation
+- **Disaster Recovery**: Quarterly drill procedures to validate backup integrity
+- **Secret Rotation**: Step-by-step guides for all service integrations
+
 ## Certificates
 
 Issuing California **DL‑400C** requires a DMV‑licensed school with physical stock. This app queues issuance; the licensed operator fulfills.
@@ -351,7 +385,6 @@ curl -s -X POST http://localhost:3000/api/tutor \
    # 7) Test void functionality
    ```
 
-<<<<<<< HEAD
 ### Sprint 8: Launch Hardening & Operational Readiness
 
 1. **Transactional Email Setup**:

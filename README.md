@@ -121,3 +121,51 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - **Quiz gating**: Must complete required study time before taking quiz
    - **Score tracking**: Quiz results update skill mastery
    - **RLS security**: All data access respects user permissions
+
+### Sprint 5: Payments & Entitlements (Stripe)
+
+1. **Stripe Setup**:
+   - Create a Stripe account and get your API keys
+   - Create a product and price in Stripe Dashboard (recurring monthly subscription)
+   - Note the `price_id` for your subscription
+
+2. **Environment Variables**:
+   Add these to `web/.env.local`:
+   ```bash
+   # Stripe
+   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_xxx
+   STRIPE_SECRET_KEY=sk_test_xxx
+   STRIPE_PRICE_ID=price_xxx
+   STRIPE_WEBHOOK_SECRET=whsec_xxx
+   
+   # Billing URLs
+   BILLING_SUCCESS_URL=http://localhost:3000/billing?status=success
+   BILLING_CANCEL_URL=http://localhost:3000/billing?status=cancel
+   ```
+
+3. **Database Migration**:
+   ```bash
+   # Apply the billing migration
+   supabase db push
+   # Or manually run supabase/migrations/0006_billing.sql
+   ```
+
+4. **Webhook Setup**:
+   ```bash
+   # Install Stripe CLI and forward webhooks locally
+   stripe listen --forward-to http://localhost:3000/api/billing/webhook
+   ```
+
+5. **Test the Flow**:
+   - Visit `/billing` to see subscription options
+   - Click "Subscribe Now" to go through Stripe Checkout
+   - Use test card `4242 4242 4242 4242` with any future expiry
+   - Verify entitlement is activated and Unit 2+ unlocks
+   - Test webhook by canceling subscription in Stripe Dashboard
+
+6. **Key Features**:
+   - **Entitlement gating**: Unit 1 free, Units 2+ require subscription
+   - **Stripe integration**: Checkout, Portal, and webhook handling
+   - **Subscription management**: Users can manage billing via Stripe Portal
+   - **RLS policies**: Secure access to billing data
+   - **Event logging**: All billing events stored for admin review

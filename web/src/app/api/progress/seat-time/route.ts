@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getRouteClient } from "@/lib/supabaseRoute";
+import { checkSeatTimeMilestones } from "@/lib/notify";
 
 export async function POST(req: Request) {
   try {
@@ -101,6 +102,13 @@ export async function POST(req: Request) {
         { error: "Failed to update progress", code: "DATABASE_ERROR" },
         { status: 500 },
       );
+    }
+
+    // Check for seat time milestones (best effort, don't block response)
+    try {
+      await checkSeatTimeMilestones(user.id, unit.course_id, Math.floor(msDelta / 60000));
+    } catch (milestoneError) {
+      console.error("Seat time milestone check error:", milestoneError);
     }
 
     return NextResponse.json({ ok: true, capped });

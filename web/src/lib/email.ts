@@ -4,6 +4,45 @@ import { type SupportedLocale } from './i18n/locales';
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 const FROM = process.env.FROM_EMAIL ?? 'no-reply@example.com';
 
+// Generic email sending function
+export async function sendEmail({
+  to,
+  subject,
+  template,
+  data
+}: {
+  to: string;
+  subject: string;
+  template: string;
+  data: any;
+}) {
+  if (!resend) {
+    console.warn('Resend not configured, skipping email');
+    return;
+  }
+
+  let html = '';
+  
+  // Handle different templates
+  switch (template) {
+    case 'deletion-confirmation':
+      html = `
+        <p>Hi,</p>
+        <p>You have requested to delete your account. Please click the link below to confirm this action:</p>
+        <p><a href="${data.confirmation_url}">Confirm Account Deletion</a></p>
+        <p>This link will expire on ${new Date(data.expires_at).toLocaleString()}.</p>
+        <p>If you did not request this deletion, please ignore this email.</p>
+        <p>Reason provided: ${data.reason}</p>
+        <p>Best regards,<br>The Permit School Team</p>
+      `;
+      break;
+    default:
+      html = `<p>${subject}</p>`;
+  }
+
+  return safeSend(html, subject, to);
+}
+
 // Email templates for different locales
 const emailTemplates = {
   en: {

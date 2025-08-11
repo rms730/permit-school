@@ -6,6 +6,40 @@ This document provides operational procedures for handling Data Subject Access R
 
 ### Data Export Requests
 
+### Notifications Privacy
+
+The notification system is designed to be privacy-preserving and compliant with data protection regulations:
+
+#### Data Minimization
+- **Notifications contain only minimal context**: course IDs, milestone numbers, completion status
+- **No sensitive PII**: No raw answers, personal details, or sensitive information
+- **Contextual data**: Only what's necessary to understand the notification
+
+#### Notification Types & Data
+- **Seat time milestones**: `{ course_id, minutes }` - Only course and milestone threshold
+- **Quiz completions**: `{ course_id, unit_id }` - Course and unit context only
+- **Final exam results**: `{ course_id, score }` - Course and pass/fail status
+- **Certificate issuance**: `{ course_id, certificate_number }` - Course and certificate number
+- **Guardian consent**: `{ course_id, guardian_name }` - Course and guardian name (already consented)
+- **Weekly digest**: `{ students, courses, week_ending }` - Aggregated progress summary
+
+#### Guardian Access Control
+- **Linked guardians only**: Notifications only sent to guardians with active links
+- **Student context**: Guardian notifications include `student_id` for context
+- **Read-only access**: Guardians can only view notifications, not modify data
+- **RLS enforcement**: All access controlled via existing Row Level Security policies
+
+#### Data Retention
+- **Notifications retained**: Indefinitely for audit and user experience
+- **Read status**: Tracked for user experience (read/unread badges)
+- **No sensitive data**: No raw answers or PII beyond existing policy
+
+#### Compliance Notes
+- **GDPR Article 25**: Privacy by design - minimal data collection
+- **COPPA**: Guardian notifications for minors include only consented information
+- **FERPA**: Educational records remain protected by existing access controls
+- **Audit trail**: All notifications logged for compliance verification
+
 #### Manual Export Execution
 If the automated export system fails, follow these steps:
 

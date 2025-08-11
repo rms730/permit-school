@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getRouteClient } from "@/lib/supabaseRoute";
+import { notifyStudentAndGuardians } from "@/lib/notify";
 
 export async function POST(req: Request) {
   try {
@@ -126,6 +127,19 @@ export async function POST(req: Request) {
           // Continue even if certificate creation fails
         }
       }
+    }
+
+    // Send notifications (best effort, don't block response)
+    try {
+      if (passed) {
+        await notifyStudentAndGuardians(user.id, 'final_passed', {
+          course_id: attempt.course_id,
+          attempt_id: attemptId,
+          score: score
+        });
+      }
+    } catch (notificationError) {
+      console.error("Final exam notification error:", notificationError);
     }
 
     return NextResponse.json({ 

@@ -371,7 +371,7 @@ export default function AccountPrivacyPage() {
                   <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 2 }}>
                     <Info color="primary" />
                     <Typography variant="h6">
-                      What's Included in Your Export
+                      What&apos;s Included in Your Export
                     </Typography>
                   </Stack>
                   
@@ -385,7 +385,7 @@ export default function AccountPrivacyPage() {
                       <ListItemText primary="Course enrollments and progress" />
                     </ListItem>
                     <ListItem>
-                      <ListItemIcon><CheckCircle fontSize="small" /></ListItemText>
+                      <ListItemIcon><CheckCircle fontSize="small" /></ListItemIcon>
                       <ListItemText primary="Quiz attempts and scores" />
                     </ListItem>
                     <ListItem>

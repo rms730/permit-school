@@ -5,6 +5,7 @@ import { hashToken } from '@/lib/tokens';
 import { renderGuardianConsentPDF } from '@/lib/consentPdf';
 import { createSignedUrl } from '@/lib/storageSignedUrl';
 import { sendGuardianReceiptEmail } from '@/lib/email';
+import { notifyStudentAndGuardians } from '@/lib/notify';
 
 export async function POST(request: NextRequest) {
   try {
@@ -160,6 +161,16 @@ export async function POST(request: NextRequest) {
         pdf_url: pdfUrl,
         verify_url: verifyUrl
       });
+    }
+
+    // Send notifications (best effort, don't block response)
+    try {
+      await notifyStudentAndGuardians(guardianRequest.student_id, 'guardian_consent_verified', {
+        course_id: guardianRequest.course_id,
+        guardian_name: typed_name
+      });
+    } catch (notificationError) {
+      console.error('Guardian consent notification error:', notificationError);
     }
 
     return NextResponse.json({ ok: true });

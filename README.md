@@ -26,6 +26,80 @@ PLAN.md – initial backlog (agent-readable)
 - `courses` link to a jurisdiction with requirements (e.g., CA 30×50‑minute periods).
 - Content, questions, and certificates reference a `jurisdiction_id`.
 
+## Sprint 18 — Guardian Portal & In-App Notifications
+
+**Intent**: Give guardians a clear, read-only dashboard of their student's progress and add a privacy-preserving in-app notifications system for both students and guardians.
+
+### Features
+
+#### Guardian Portal
+- **My Students** (`/guardian`) - List of linked students with basic info
+- **Student Overview** (`/guardian/[studentId]`) - Detailed progress view showing:
+  - Student name and age
+  - Course progress table with minutes studied, final exam scores, certificate status
+  - All data is read-only and respects existing RLS policies
+
+#### Notifications System
+- **In-app notifications** with unread badges in the AppBar
+- **Notification types**: seat time milestones, quiz completions, final exam results, certificate issuances, guardian consent verification, weekly digests
+- **Privacy-preserving**: Only minimal, appropriate data in notifications
+- **Fan-out**: Notifications sent to both students and their linked guardians
+
+#### Notification Triggers
+- **Seat time milestones**: Every 30 minutes of study time (configurable)
+- **Final exam completion**: When student passes final exam
+- **Certificate issuance**: When admin issues certificate
+- **Guardian consent**: When guardian verifies consent for minor student
+- **Weekly digest**: Automated job for guardians (environment-gated)
+
+### Database Schema
+
+The migration `0016_guardian_portal.sql` adds:
+- `notifications` table with RLS policies
+- `v_guardian_children` view for guardian-student relationships
+- `v_guardian_student_course` view for progress summaries
+
+### API Endpoints
+
+#### Guardian Portal
+- `GET /api/guardian/children` - List linked students (guardian/admin only)
+- `GET /api/guardian/children/[studentId]/courses` - Student course progress
+
+#### Notifications
+- `GET /api/notifications` - User's notifications (paginated)
+- `POST /api/notifications/read` - Mark notifications as read
+
+#### Jobs
+- `POST /api/admin/jobs/weekly-digest` - Generate weekly digest (HMAC protected)
+
+### Privacy & Security
+
+- **RLS on all tables**: Notifications respect user ownership
+- **Minimal data**: Notifications contain only necessary context
+- **Guardian links**: Access controlled via existing `guardian_links` table
+- **No service role on client**: All operations use authenticated user context
+
+### Weekly Digest Job
+
+The weekly digest job aggregates student progress and sends notifications to guardians:
+
+```bash
+# Enable the job (set in environment)
+WEEKLY_DIGEST_ENABLED=true
+ADMIN_JOB_TOKEN=your-secure-token
+
+# Trigger manually (for testing)
+curl -X POST http://localhost:3000/api/admin/jobs/weekly-digest \
+  -H "Authorization: Bearer your-secure-token"
+```
+
+### Multi-state Readiness
+
+- All views include jurisdiction codes (`j_code`, `course_code`)
+- No CA-specific logic in code
+- Uses `jurisdiction_configs` for state-specific configuration
+- Ready for expansion to Texas and other states
+
 ## Certificates
 
 Issuing California **DL‑400C** requires a DMV‑licensed school with physical stock. This app queues issuance; the licensed operator fulfills.

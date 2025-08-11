@@ -27,13 +27,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user is admin
-    const { data: profile, error: profileError } = await supabase
+    const { data: profile, error: adminProfileError } = await supabase
       .from('profiles')
       .select('role')
       .eq('id', user.id)
       .single();
 
-    if (profileError || !profile || profile.role !== 'admin') {
+    if (adminProfileError || !profile || profile.role !== 'admin') {
       return NextResponse.json(
         { error: 'Admin access required', code: 'FORBIDDEN' },
         { status: 403 }
@@ -72,13 +72,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Check profile completeness for the student
-    const { data: studentProfile, error: profileError } = await supabase
+    const { data: studentProfile, error: studentProfileError } = await supabase
       .from('student_profiles')
       .select('*')
       .eq('user_id', certificate.student_id)
       .single();
 
-    if (profileError || !studentProfile) {
+    if (studentProfileError || !studentProfile) {
       return NextResponse.json(
         { error: 'Student profile not found', code: 'PROFILE_MISSING' },
         { status: 412 }

@@ -27,13 +27,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user is admin
-    const { data: profile, error: profileError } = await supabase
+    const { data: profile, error: adminProfileError } = await supabase
       .from('profiles')
       .select('role')
       .eq('id', user.id)
       .single();
 
-    if (profileError || !profile || profile.role !== 'admin') {
+    if (adminProfileError || !profile || profile.role !== 'admin') {
       return NextResponse.json(
         { error: 'Admin access required', code: 'FORBIDDEN' },
         { status: 403 }
@@ -69,6 +69,86 @@ export async function POST(request: NextRequest) {
         { error: 'Certificate is not in draft status', code: 'INVALID_STATUS' },
         { status: 400 }
       );
+    }
+
+    // Check profile completeness for the student
+    const { data: studentProfile, error: studentProfileError } = await supabase
+      .from('student_profiles')
+      .select('*')
+      .eq('user_id', certificate.student_id)
+      .single();
+
+    if (studentProfileError || !studentProfile) {
+      return NextResponse.json(
+        { error: 'Student profile not found', code: 'PROFILE_MISSING' },
+        { status: 412 }
+      );
+    }
+
+    // Check required profile fields
+    const requiredFields = ['first_name', 'last_name', 'dob', 'address_line1', 'city', 'state', 'postal_code'];
+    const missingFields = requiredFields.filter(field => !studentProfile[field]);
+    
+    if (missingFields.length > 0) {
+      return NextResponse.json(
+        { 
+          error: 'Student profile incomplete', 
+          code: 'PROFILE_INCOMPLETE',
+          missing_fields: missingFields
+        },
+        { status: 412 }
+      );
+    }
+
+    // Check terms and privacy acceptance
+    if (!studentProfile.terms_accepted_at || !studentProfile.privacy_accepted_at) {
+      const missingConsents = [
+        ...(!studentProfile.terms_accepted_at ? ['terms_accepted'] : []),
+        ...(!studentProfile.privacy_accepted_at ? ['privacy_accepted'] : [])
+      ];
+      
+      return NextResponse.json(
+        { 
+          error: 'Student has not accepted required agreements', 
+          code: 'CONSENT_MISSING',
+          missing_fields: missingConsents
+        },
+        { status: 412 }
+      );
+    }
+
+    // Check if minor and guardian consent required
+    const dob = new Date(studentProfile.dob);
+    const today = new Date();
+    const age = today.getFullYear() - dob.getFullYear();
+    const monthDiff = today.getMonth() - dob.getMonth();
+    const isMinor = age < 18 || (age === 18 && monthDiff < 0) || (age === 18 && monthDiff === 0 && today.getDate() < dob.getDate());
+
+    if (isMinor) {
+      // Check for recent guardian consent (within last year)
+      const oneYearAgo = new Date();
+      oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+      
+      const { data: guardianConsent } = await supabase
+        .from('consents')
+        .select('signed_at')
+        .eq('student_id', certificate.student_id)
+        .eq('consent_type', 'guardian')
+        .gte('signed_at', oneYearAgo.toISOString())
+        .order('signed_at', { ascending: false })
+        .limit(1)
+        .single();
+
+      if (!guardianConsent) {
+        return NextResponse.json(
+          { 
+            error: 'Guardian consent required for minor student', 
+            code: 'GUARDIAN_CONSENT_MISSING',
+            is_minor: true
+          },
+          { status: 412 }
+        );
+      }
     }
 
     // Generate certificate number

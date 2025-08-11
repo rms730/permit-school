@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import { getServerClient } from "@/lib/supabaseServer";
 import AppBar from "@/components/AppBar";
+import CertificateActions from "@/components/CertificateActions";
 
 export default async function AdminCertificatesPage() {
   const supabase = getServerClient();
@@ -45,7 +46,9 @@ export default async function AdminCertificatesPage() {
       student_id,
       course_id,
       status,
+      number,
       passed_at,
+      issued_at,
       created_at,
       courses(title, code),
       jurisdictions(name, code)
@@ -79,9 +82,7 @@ export default async function AdminCertificatesPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'draft': return 'warning';
-      case 'ready': return 'success';
-      case 'queued': return 'info';
-      case 'mailed': return 'success';
+      case 'issued': return 'success';
       case 'void': return 'error';
       default: return 'default';
     }
@@ -113,9 +114,11 @@ export default async function AdminCertificatesPage() {
                   <TableCell>Student</TableCell>
                   <TableCell>Course</TableCell>
                   <TableCell>Jurisdiction</TableCell>
+                  <TableCell>Number</TableCell>
                   <TableCell>Status</TableCell>
                   <TableCell>Passed</TableCell>
-                  <TableCell>Issued</TableCell>
+                  <TableCell>Issued At</TableCell>
+                  <TableCell>Actions</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -131,6 +134,9 @@ export default async function AdminCertificatesPage() {
                       {(cert.jurisdictions as any)?.name || (cert.jurisdictions as any)?.code || 'N/A'}
                     </TableCell>
                     <TableCell>
+                      {cert.number || 'N/A'}
+                    </TableCell>
+                    <TableCell>
                       <Chip 
                         label={cert.status}
                         color={getStatusColor(cert.status) as any}
@@ -144,7 +150,17 @@ export default async function AdminCertificatesPage() {
                       }
                     </TableCell>
                     <TableCell>
-                      {new Date(cert.created_at).toLocaleDateString()}
+                      {cert.issued_at 
+                        ? new Date(cert.issued_at).toLocaleDateString()
+                        : 'N/A'
+                      }
+                    </TableCell>
+                    <TableCell>
+                      <CertificateActions 
+                        certificateId={cert.id}
+                        status={cert.status}
+                        number={cert.number}
+                      />
                     </TableCell>
                   </TableRow>
                 ))}

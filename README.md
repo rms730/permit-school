@@ -170,7 +170,10 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - **RLS policies**: Secure access to billing data
    - **Event logging**: All billing events stored for admin review
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/main
 ### Sprint 6: Final Exam, Compliance Gating & Draft Certificate
 
 1. **Final Exam Setup**:
@@ -212,7 +215,67 @@ curl -s -X POST http://localhost:3000/api/tutor \
 
 7. **Certificate Status**:
    - **Draft**: Automatically issued when exam is passed
-   - **Ready**: Approved by admin for mailing
-   - **Queued**: In mailing queue
-   - **Mailed**: Certificate has been sent
+   - **Issued**: Finalized with PDF and unique number
    - **Void**: Certificate invalidated
+
+### Sprint 7: Certificate Issuance & Verification
+
+1. **Certificate Setup**:
+   - Apply the certificate migration: `supabase db push`
+   - Configure certificate settings in `web/.env.local`:
+     ```bash
+     APP_ORIGIN=http://localhost:3000
+     CERT_ISSUER_NAME=Acme Driving Academy
+     CERT_ISSUER_LICENSE=CA-INS-000123
+     CERT_NUMBER_PREFIX=CA
+     ```
+
+2. **Storage Bucket**:
+   - The migration creates a `certificates` bucket in Supabase Storage
+   - PDFs are stored with public read access
+   - Admin-only write access via service role
+
+3. **Certificate Workflow**:
+   - **Draft**: Created when student passes final exam
+   - **Issue**: Admin clicks "Issue PDF" to finalize certificate
+   - **PDF Generation**: Creates tamper-evident PDF with QR code
+   - **Verification**: Public verification page at `/verify/[number]`
+
+4. **Admin Features**:
+   - `/admin/certificates`: List all certificates with action buttons
+   - **Issue PDF**: Convert draft to issued certificate
+   - **Void**: Invalidate issued certificates with reason
+   - **PDF Download**: Direct link to certificate PDF
+   - **Verification Link**: Preview verification page
+
+5. **Public Verification**:
+   - `/verify/[number]`: Public verification page
+   - Shows certificate validity and details
+   - Student name is masked for privacy
+   - QR code on PDF links to this page
+
+6. **Key Features**:
+   - **Unique numbering**: Format `CA-2025-000123`
+   - **PDF generation**: Professional certificates with QR codes
+   - **Storage integration**: Supabase Storage for PDFs
+   - **Public verification**: Tamper-evident verification system
+   - **Admin controls**: Issue/void with audit trail
+
+7. **Environment Variables**:
+   - `APP_ORIGIN`: Base URL for verification links
+   - `CERT_ISSUER_NAME`: Name of issuing organization
+   - `CERT_ISSUER_LICENSE`: License number of issuer
+   - `CERT_NUMBER_PREFIX`: Prefix for certificate numbers
+
+8. **Manual Test Flow**:
+   ```bash
+   # 1) Apply migration
+   supabase db push
+   
+   # 2) Pass final exam to create draft certificate
+   # 3) Visit /admin/certificates
+   # 4) Click "Issue PDF" on draft certificate
+   # 5) Verify PDF is generated and stored
+   # 6) Test verification page: /verify/[number]
+   # 7) Test void functionality
+   ```

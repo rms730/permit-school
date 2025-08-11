@@ -1,1 +1,13 @@
-web/.next/
+# dependencies & builds
+node_modules
+**/node_modules
+**/dist
+**/build
+**/.cache
+**/.tsbuildinfo
+# Next.js
+web/.next
+# Supabase local cache
+supabase/.temp
+# misc
+.DS_Store

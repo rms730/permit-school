@@ -502,3 +502,120 @@ curl -s -X POST http://localhost:3000/api/tutor \
     # 8) Visit /courses to see public catalog
     # 9) Verify CA appears and pricing status is correct
     ```
+
+### Sprint 11: Student Onboarding, Profiles & Enrollment (CA-first, multi‑state ready)
+
+1. **Database Migration**:
+   - Apply the profiles and enrollment migration: `supabase db push`
+   - Creates `student_profiles`, `enrollments`, and `consents` tables with RLS
+   - Creates `v_profile_eligibility` view for completeness checks
+   - All tables have proper RLS policies for user data protection
+
+2. **Student Profiles**:
+   - **PII Storage**: Names, DOB, address, phone, guardian info (for minors)
+   - **RLS Protection**: Users can only access their own profile data
+   - **Admin Access**: Admins can read profiles for compliance reporting
+   - **Age Calculation**: Automatic minor detection for guardian consent requirements
+
+3. **Enrollment System**:
+   - **Course Enrollment**: One active enrollment per course per student
+   - **Status Tracking**: Active, canceled, completed enrollment states
+   - **Entitlement Validation**: Requires active subscription or Unit 1 free access
+   - **RLS Policies**: Students can only manage their own enrollments
+
+4. **Consent Tracking**:
+   - **E-sign Audit**: Terms, privacy, and guardian consent records
+   - **IP & User Agent**: Captures consent context for compliance
+   - **Automatic Updates**: Terms/privacy consents update profile timestamps
+   - **Guardian Consent**: Required for students under 18 with annual renewal
+
+5. **Onboarding Wizard** (`/onboarding`):
+   - **Multi-step Flow**: About you → Address → Guardian (if minor) → Agreements → Review
+   - **MUI Components**: All UI uses Material-UI with no custom CSS
+   - **Validation**: Real-time field validation and step progression
+   - **Guardian Step**: Conditionally shown for students under 18
+   - **Consent Recording**: Automatically records all consent events
+
+6. **Dashboard** (`/dashboard`):
+   - **Welcome Card**: Personalized greeting with student name
+   - **Progress Summary**: Active enrollments and total seat time
+   - **Exam Eligibility**: Status chip with detailed requirements
+   - **Profile Banner**: Prominent warning if profile incomplete
+   - **Quick Actions**: Continue learning, edit profile, manage subscription
+
+7. **Profile Management** (`/profile`):
+   - **Editable Form**: All profile fields can be updated
+   - **Guardian Section**: Conditionally shown for minors
+   - **Validation**: Required field validation and error handling
+   - **Save/Cancel**: Proper form state management
+
+8. **API Endpoints**:
+   - `GET /api/profile` - Get current user's profile
+   - `PUT /api/profile` - Update profile with validation
+   - `POST /api/consent` - Record consent events
+   - `POST /api/enroll` - Enroll in course with entitlement check
+   - `GET /api/enrollments` - Get user's enrollments
+
+9. **Exam & Certificate Gates**:
+   - **Profile Completeness**: Required fields + terms/privacy acceptance
+   - **Minor Protection**: Guardian consent required for students under 18
+   - **412 Status**: Certificate issuance fails with detailed missing fields
+   - **Backward Compatibility**: Existing flows continue to work
+
+10. **Security & Compliance**:
+    - **PII Scrubbing**: Sentry configuration redacts all PII fields
+    - **RLS Policies**: All user data protected by row-level security
+    - **No Service Role**: Client-side never uses service role keys
+    - **Consent Audit**: Complete audit trail of all consent events
+
+11. **Multi-state Ready**:
+    - **Config-driven**: Uses `jurisdiction_configs` for state-specific rules
+    - **No Code Changes**: Additional states can be added via database config
+    - **Guardian Policies**: Age thresholds and consent requirements configurable
+    - **Address Validation**: State-specific address requirements
+
+12. **Environment Variables**:
+    ```bash
+    # No new environment variables required
+    # All configuration uses existing jurisdiction_configs table
+    ```
+
+13. **Manual Test Flow**:
+    ```bash
+    # 1) Apply migration
+    supabase db push
+    
+    # 2) Create new user account
+    # 3) Visit /dashboard - should show profile completion banner
+    # 4) Click "Complete Profile" to start onboarding
+    # 5) Complete onboarding wizard:
+    #    - Fill personal information
+    #    - Enter address details
+    #    - Guardian info (if under 18)
+    #    - Accept terms and privacy
+    #    - Review and finish
+    # 6) Verify dashboard shows complete profile
+    # 7) Test exam eligibility reflects profile completeness
+    # 8) Test certificate issuance requires complete profile
+    # 9) Edit profile at /profile
+    # 10) Test minor user flow with guardian consent
+    ```
+
+14. **Schema Overview**:
+    - **student_profiles**: One row per user with PII (names, DOB, address, guardian)
+    - **enrollments**: User ↔ course relationships with status tracking
+    - **consents**: Audit trail of e-sign events (terms, privacy, guardian)
+    - **v_profile_eligibility**: View for completeness checks across enrollments
+
+15. **Minor/Guardian Handling**:
+    - **Age Detection**: Automatic calculation from DOB
+    - **Guardian Required**: Students under 18 must provide guardian information
+    - **Consent Renewal**: Guardian consent expires after 1 year
+    - **Exam Blocking**: Minors cannot take exam without valid guardian consent
+    - **Certificate Blocking**: Certificate issuance blocked for minors without consent
+
+16. **Configuration Integration**:
+    - **Disclaimer Text**: Uses `jurisdiction_configs.disclaimer` for agreements
+    - **Age Thresholds**: Guardian requirements configurable per jurisdiction
+    - **Required Fields**: Profile completeness rules can be customized
+    - **Consent Types**: Additional consent types can be added via database

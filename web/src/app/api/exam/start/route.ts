@@ -198,8 +198,6 @@ export async function POST(req: Request) {
       questions = fallbackQuestions;
     }
 
-
-
     // Get translations for questions
     const questionIds = questions.map(q => q.id);
     const { data: translations } = await supabase

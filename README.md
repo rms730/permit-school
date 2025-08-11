@@ -856,3 +856,129 @@ supabase db push
 # 9) View item stats and export CSV
 # 10) Test fallback by deactivating blueprint
 ```
+
+### Sprint 15 — Accessibility (WCAG 2.2 AA), PWA, and SEO/Performance Hardening
+
+**Goal**: Ship an accessible, installable, and fast app. Achieve WCAG 2.2 AA across core flows, add a careful PWA (offline for static assets only; no offline seat‑time), and raise Lighthouse (Perf/Acc/Best/SEO) across key pages.
+
+#### A) Accessibility (WCAG 2.2 AA)
+
+**Global a11y improvements:**
+- ✅ Skip to content link rendered as first focusable element
+- ✅ All interactive components keyboard reachable with visible focus
+- ✅ Proper ARIA attributes and semantic landmarks
+- ✅ Alt text for images/icons; decorative icons marked aria-hidden
+- ✅ Form controls associated with visible labels
+- ✅ Accessibility statement page at `/accessibility`
+
+**MUI theme & focus:**
+- ✅ Color contrast ≥ 4.5:1 across theme palette
+- ✅ Consistent focus outline using MUI theme overrides
+- ✅ No custom CSS files (MUI only)
+
+**Automated a11y checks:**
+- ✅ eslint-plugin-jsx-a11y with recommended rules
+- ✅ @axe-core/cli for automated testing
+- ✅ CI integration with accessibility thresholds
+
+#### B) PWA (Installable app; careful offline)
+
+**Requirements:**
+- ✅ Do NOT cache authenticated pages or compliance routes
+- ✅ Seat‑time MUST NOT accrue while offline
+- ✅ Offline fallback page explains connectivity requirements
+
+**Implementation:**
+- ✅ Web app manifest with proper icons and shortcuts
+- ✅ Service worker with next-pwa (app dir compatible)
+- ✅ Runtime caching strategy:
+  - Cache First: static assets (_next/static, fonts, icons)
+  - Stale While Revalidate: public pages (/, /courses, /privacy, /terms, /verify/*)
+  - Network Only: private/compliance routes (api/**, learn/**, quiz/**, exam/**, etc.)
+- ✅ Offline page at `/offline` with EN/ES messaging
+
+#### C) SEO & Performance
+
+**SEO improvements:**
+- ✅ robots.txt and sitemap.xml routes
+- ✅ Canonical URLs via metadata in root layout
+- ✅ OpenGraph & Twitter meta on key pages
+- ✅ JSON‑LD Course schema on /courses
+
+**Performance optimizations:**
+- ✅ next/font for Roboto/roboto‑mono (no external font blocking)
+- ✅ HTTP caching headers for public pages
+- ✅ Tree‑shake large libs; lazy‑load admin pages
+- ✅ No blocking console.warn/errors in production
+
+**CI gates:**
+- ✅ Lighthouse CI with thresholds:
+  - Performance ≥ 90
+  - Accessibility ≥ 95
+  - Best Practices ≥ 95
+  - SEO ≥ 90
+- ✅ @axe-core/cli CI step scanning key pages
+
+#### D) Manual Testing Checklist
+
+**Accessibility:**
+- [ ] Keyboard-only navigation through signup → learn unit → quiz start
+- [ ] Screen reader spot check (NVDA/VoiceOver) on /, /courses, signin
+- [ ] Focus indicators visible on all interactive elements
+- [ ] Color contrast meets WCAG 2.2 AA standards
+
+**PWA:**
+- [ ] Install prompt works on supported browsers
+- [ ] /offline renders when disconnected
+- [ ] Exam/learn never load offline (Network Only strategy)
+- [ ] Static assets cached for offline viewing
+
+**Performance:**
+- [ ] Lighthouse scores meet thresholds on key pages
+- [ ] No console errors in production build
+- [ ] Images optimized with next/Image
+- [ ] Fonts load without blocking
+
+#### E) Environment Variables
+
+```bash
+# PWA & SEO
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_SUPPORT_EMAIL=support@your-domain.com
+NEXT_PUBLIC_SUPPORT_PHONE=1-800-PERMIT
+
+# CI Testing
+# No additional variables required for accessibility/PWA testing
+```
+
+#### F) Running Tests Locally
+
+```bash
+# Install dependencies
+cd web && npm install
+
+# Run accessibility linting
+npm run lint
+
+# Run axe-core tests (requires server running)
+npm run start-ci &
+sleep 30
+npm run axe:ci
+
+# Run Lighthouse CI locally
+npx lhci autorun
+
+# Build and test production build
+npm run build
+npm run start
+```
+
+#### G) CI Integration
+
+The GitHub Actions workflow (`.github/workflows/accessibility-ci.yml`) runs:
+- Lighthouse CI with performance/accessibility/SEO thresholds
+- axe-core accessibility testing
+- ESLint with jsx-a11y rules
+- TypeScript type checking
+
+All checks must pass before merge to main/develop branches.

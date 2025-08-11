@@ -17,6 +17,7 @@ import {
 import { getServerClient } from "@/lib/supabaseServer";
 import AppBar from "@/components/AppBar";
 import Link from "next/link";
+import Script from "next/script";
 
 export default async function CoursesPage() {
   const supabase = getServerClient();
@@ -40,8 +41,42 @@ export default async function CoursesPage() {
     );
   }
 
+  // Create JSON-LD schema for courses
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Driver Education Courses",
+    "description": "Comprehensive driver education courses for California permit test",
+    "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://permit-school.com'}/courses`,
+    "numberOfItems": catalog?.length || 0,
+    "itemListElement": catalog?.map((course, index) => ({
+      "@type": "Course",
+      "position": index + 1,
+      "name": course.course_title,
+      "description": `Driver education course for ${course.j_code} jurisdiction`,
+      "provider": {
+        "@type": "Organization",
+        "name": "Permit School",
+        "url": process.env.NEXT_PUBLIC_SITE_URL || 'https://permit-school.com'
+      },
+      "educationalLevel": "Beginner",
+      "inLanguage": "en-US",
+      "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://permit-school.com'}/course/${course.j_code}/${course.course_code}`,
+      "courseCode": course.course_code,
+      "coursePrerequisites": "Must be at least 15.5 years old",
+      "educationalCredentialAwarded": "Driver Education Certificate"
+    })) || []
+  };
+
   return (
     <>
+      <Script
+        id="course-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(courseSchema),
+        }}
+      />
       <AppBar title="Available Courses" />
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         <Paper variant="outlined" sx={{ p: 3 }}>

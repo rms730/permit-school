@@ -126,7 +126,6 @@ export default function CertificateActions({ certificateId, status, number }: Ce
         <DialogTitle>Void Certificate</DialogTitle>
         <DialogContent>
           <TextField
-            autoFocus
             margin="dense"
             label="Reason for voiding"
             fullWidth

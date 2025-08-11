@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS public.course_units (
     unit_no int NOT NULL CHECK (unit_no > 0),
     title text NOT NULL,
     minutes_required int NOT NULL CHECK (minutes_required BETWEEN 5 AND 240),
-    UNIQUE(course_id, unit_no)
+    UNIQUE (course_id, unit_no)
 );
 
 -- Unit content chunks (mapped to handbook content)
@@ -45,57 +45,125 @@ CREATE POLICY "course_units_public_read" ON public.course_units
     FOR SELECT USING (true);
 
 CREATE POLICY "course_units_admin_write" ON public.course_units
-    FOR ALL USING (
-        (auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
-    );
+    FOR ALL USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
 
 -- Unit chunks: public read, admin write
 CREATE POLICY "unit_chunks_public_read" ON public.unit_chunks
     FOR SELECT USING (true);
 
 CREATE POLICY "unit_chunks_admin_write" ON public.unit_chunks
-    FOR ALL USING (
-        (auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
-    );
+    FOR ALL USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
 
 -- Seat time events: insert by student, read by owner or admin
 CREATE POLICY "seat_time_events_insert_own" ON public.seat_time_events
-    FOR INSERT WITH CHECK (auth.uid() = student_id);
+    FOR INSERT
+    WITH CHECK (auth.uid() = student_id);
 
 CREATE POLICY "seat_time_events_select_own_or_admin" ON public.seat_time_events
-    FOR SELECT USING (
+    FOR SELECT
+    USING (
         auth.uid() = student_id
         OR (auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
     );
 
--- Seed CA DE-ONLINE course units
+/* ------------------------------------------------------------------ */
+/* Seed CA DE-ONLINE course units (no JOINs; no AM05/ST09; alias literals) */
+/* ------------------------------------------------------------------ */
+
 INSERT INTO public.course_units (course_id, unit_no, title, minutes_required)
 SELECT
     c.id AS course_id,
-    unit_data.unit_no,
-    unit_data.title,
-    unit_data.minutes_required
+    1 AS unit_no,
+    'Traffic Basics' AS title,
+    30 AS minutes_required
 FROM public.courses AS c
-JOIN public.jurisdictions AS j
-    ON c.jurisdiction_id = j.id
-CROSS JOIN (VALUES
-    (1, 'Traffic Basics', 30),
-    (2, 'Signs & Signals', 30),
-    (3, 'Right of Way & Turns', 30),
-    (4, 'Parking & Freeway', 30),
-    (5, 'Safety & Sharing the Road', 30)
-) AS unit_data(unit_no, title, minutes_required)
-WHERE j.code = 'CA'
-    AND c.code = 'DE-ONLINE'
+WHERE
+    c.code = 'DE-ONLINE'
+    AND EXISTS (
+        SELECT 1
+        FROM public.jurisdictions AS j
+        WHERE j.id = c.jurisdiction_id
+          AND j.code = 'CA'
+    )
 ON CONFLICT (course_id, unit_no) DO NOTHING;
 
--- Seed unit chunks using FTS search
--- (Disable AM05 just in case the CROSS JOIN pattern confuses the rule)
--- sqlfluff: disable=AM05
-WITH unit_topics AS (
+INSERT INTO public.course_units (course_id, unit_no, title, minutes_required)
+SELECT
+    c.id AS course_id,
+    2 AS unit_no,
+    'Signs & Signals' AS title,
+    30 AS minutes_required
+FROM public.courses AS c
+WHERE
+    c.code = 'DE-ONLINE'
+    AND EXISTS (
+        SELECT 1
+        FROM public.jurisdictions AS j
+        WHERE j.id = c.jurisdiction_id
+          AND j.code = 'CA'
+    )
+ON CONFLICT (course_id, unit_no) DO NOTHING;
+
+INSERT INTO public.course_units (course_id, unit_no, title, minutes_required)
+SELECT
+    c.id AS course_id,
+    3 AS unit_no,
+    'Right of Way & Turns' AS title,
+    30 AS minutes_required
+FROM public.courses AS c
+WHERE
+    c.code = 'DE-ONLINE'
+    AND EXISTS (
+        SELECT 1
+        FROM public.jurisdictions AS j
+        WHERE j.id = c.jurisdiction_id
+          AND j.code = 'CA'
+    )
+ON CONFLICT (course_id, unit_no) DO NOTHING;
+
+INSERT INTO public.course_units (course_id, unit_no, title, minutes_required)
+SELECT
+    c.id AS course_id,
+    4 AS unit_no,
+    'Parking & Freeway' AS title,
+    30 AS minutes_required
+FROM public.courses AS c
+WHERE
+    c.code = 'DE-ONLINE'
+    AND EXISTS (
+        SELECT 1
+        FROM public.jurisdictions AS j
+        WHERE j.id = c.jurisdiction_id
+          AND j.code = 'CA'
+    )
+ON CONFLICT (course_id, unit_no) DO NOTHING;
+
+INSERT INTO public.course_units (course_id, unit_no, title, minutes_required)
+SELECT
+    c.id AS course_id,
+    5 AS unit_no,
+    'Safety & Sharing the Road' AS title,
+    30 AS minutes_required
+FROM public.courses AS c
+WHERE
+    c.code = 'DE-ONLINE'
+    AND EXISTS (
+        SELECT 1
+        FROM public.jurisdictions AS j
+        WHERE j.id = c.jurisdiction_id
+          AND j.code = 'CA'
+    )
+ON CONFLICT (course_id, unit_no) DO NOTHING;
+
+/* ------------------------------------------------------------------ */
+/* Seed unit_chunks using FTS (sqlfluff‑clean)                        */
+/* ------------------------------------------------------------------ */
+
+INSERT INTO public.unit_chunks (unit_id, chunk_id, ord)
+WITH topics AS (
     SELECT
         cu.id AS unit_id,
-        cu.title AS unit_title,
+        c.jurisdiction_id,
         CASE cu.unit_no
             WHEN 1 THEN 'traffic basics rules laws'
             WHEN 2 THEN 'signs signals traffic control'
@@ -105,30 +173,40 @@ WITH unit_topics AS (
             ELSE 'default search terms'
         END AS search_terms
     FROM public.course_units AS cu
-    JOIN public.courses AS c
+    INNER JOIN public.courses AS c
         ON cu.course_id = c.id
-    JOIN public.jurisdictions AS j
+    INNER JOIN public.jurisdictions AS j
         ON c.jurisdiction_id = j.id
     WHERE j.code = 'CA'
-        AND c.code = 'DE-ONLINE'
+      AND c.code = 'DE-ONLINE'
 ),
-scored_chunks AS (
+
+cc_ca AS (
     SELECT
-        ut.unit_id,
         cc.id AS chunk_id,
-        ts_rank_cd(
-            to_tsvector('english', coalesce(cc.chunk, '')),
-            plainto_tsquery('english', ut.search_terms)
-        ) AS fts_score
-    FROM unit_topics AS ut
-    CROSS JOIN public.content_chunks AS cc
-    JOIN public.jurisdictions AS j2
+        cc.jurisdiction_id,
+        cc.chunk
+    FROM public.content_chunks AS cc
+    INNER JOIN public.jurisdictions AS j2
         ON cc.jurisdiction_id = j2.id
     WHERE j2.code = 'CA'
-        AND to_tsvector('english', coalesce(cc.chunk, ''))
-            @@ plainto_tsquery('english', ut.search_terms)
+      AND coalesce(cc.chunk, '') <> ''
 ),
-ranked_chunks AS (
+
+scored AS (
+    SELECT
+        t.unit_id,
+        ccc.chunk_id,
+        ts_rank_cd(
+            to_tsvector('english'::regconfig, coalesce(ccc.chunk, '')),
+            plainto_tsquery('english'::regconfig, t.search_terms)
+        ) AS fts_score
+    FROM topics AS t
+    INNER JOIN cc_ca AS ccc
+        ON t.jurisdiction_id = ccc.jurisdiction_id
+),
+
+ranked AS (
     SELECT
         unit_id,
         chunk_id,
@@ -136,16 +214,14 @@ ranked_chunks AS (
             PARTITION BY unit_id
             ORDER BY fts_score DESC, chunk_id ASC
         ) AS ord
-    FROM scored_chunks
+    FROM scored
+    WHERE fts_score > 0
 )
 
--- sqlfluff: enable=AM05
-
-INSERT INTO public.unit_chunks (unit_id, chunk_id, ord)
 SELECT
     unit_id,
     chunk_id,
     ord
-FROM ranked_chunks
+FROM ranked
 WHERE ord <= 30
 ON CONFLICT (unit_id, ord) DO NOTHING;

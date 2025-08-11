@@ -1106,3 +1106,139 @@ DEBUG=pw:api  # Playwright API debugging
 - [ ] data-testid attributes added for ambiguous elements
 - [ ] Tests clean up after themselves
 - [ ] No flaky tests or race conditions
+
+## Security, Privacy & Compliance
+
+### Multi-Factor Authentication (MFA)
+
+**Setup for Admins**:
+1. Navigate to `/admin/security`
+2. Click "Setup MFA" to generate QR code and backup codes
+3. Scan QR code with authenticator app (Google Authenticator, Authy, etc.)
+4. Enter verification code to complete setup
+5. Save backup codes securely - they won't be shown again
+
+**Session Management**:
+- Admin sessions are considered "recent" if authenticated within 5 minutes
+- Sensitive admin actions require recent authentication
+- Use "Re-authenticate" button if session is stale
+
+### Data Subject Access Rights (DSAR)
+
+**Data Export**:
+- Users can request data export at `/account/privacy`
+- Exports include: profile, enrollments, seat time, attempts, certificates
+- Certificate PDFs provided via signed URLs (1-hour expiry)
+- Exports expire after 7 days
+
+**Account Deletion**:
+- Users can request account deletion at `/account/privacy`
+- 7-day grace period with email confirmation required
+- Certificate numbers retained for compliance
+- All personal data permanently deleted after grace period
+
+**Manual Processing**:
+- See `PRIVACY_RUNBOOK.md` for manual DSAR procedures
+- Background workers process requests automatically
+- Manual intervention available if automated processing fails
+
+### Audit Logs
+
+**Tamper-Evident Logging**:
+- All sensitive operations logged with HMAC signatures
+- Audit logs include: actor, action, object, before/after data, IP, user agent
+- Signatures verified automatically in admin audit UI
+- Invalid signatures indicate potential tampering
+
+**Admin Audit Interface**:
+- View audit logs at `/admin/audit`
+- Filter by date, action, object table, actor
+- View JSON diffs for before/after data
+- Verify signature integrity
+
+**Audit Key Management**:
+- Audit key stored in database GUC setting `app.audit_key`
+- Key rotation invalidates all existing signatures
+- Emergency rotation procedures in `PRIVACY_RUNBOOK.md`
+
+### Bot Protection
+
+**Cloudflare Turnstile Integration**:
+- Protects public forms from bot abuse
+- Environment variables: `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`
+- Graceful degradation when keys not configured
+- Applied to: guardian consent, public contact forms
+
+**Configuration**:
+```bash
+# Required for production
+TURNSTILE_SITE_KEY=your-site-key
+TURNSTILE_SECRET_KEY=your-secret-key
+
+# Optional - bypass in development
+TURNSTILE_BYPASS=true
+```
+
+### Background Workers
+
+**Export Processing**:
+- Processes pending data export requests
+- Creates ZIP bundles with user data and certificate URLs
+- Uploads to Supabase storage bucket "exports"
+- Updates export status to "ready"
+
+**Deletion Processing**:
+- Processes confirmed deletion requests after grace period
+- Executes user deletion via database function
+- Voids certificates (doesn't delete numbers)
+- Removes user from Supabase Auth
+
+**Worker Security**:
+- Protected by `BACKGROUND_WORKER_TOKEN` environment variable
+- Workers called via GitHub Actions or Supabase scheduled functions
+- No service role keys exposed to client
+
+### Environment Variables
+
+**Security & Privacy**:
+```bash
+# MFA (optional - uses Supabase Auth TOTP)
+MFA_SECRET=your-mfa-secret
+
+# Bot Protection
+TURNSTILE_SITE_KEY=your-site-key
+TURNSTILE_SECRET_KEY=your-secret-key
+
+# Background Workers
+BACKGROUND_WORKER_TOKEN=your-worker-token
+
+# Audit Key (set in Supabase)
+# See PRIVACY_RUNBOOK.md for setup
+```
+
+### Compliance Monitoring
+
+**Regular Checks**:
+- Monitor stuck export/deletion requests
+- Verify audit log signatures
+- Check background worker health
+- Review admin access patterns
+
+**Incident Response**:
+- See `INCIDENT_RESPONSE.md` for detailed procedures
+- Contact tree and escalation paths defined
+- SLOs: 15min response for critical, 1hr for high severity
+
+### Security Best Practices
+
+**RLS Guarantees**:
+- All tables have Row Level Security enabled
+- Policies enforce user ownership and admin access
+- No service role keys exposed to client
+- Audit logs capture all sensitive operations
+
+**Certificate Security**:
+- Certificate numbers never deleted (compliance)
+- Certificate PDFs deleted on account deletion
+- Voided certificates marked as "void" status
+- Audit trail maintained for all certificate operations

@@ -1,0 +1,108 @@
+name: Background Workers
+
+on:
+  schedule:
+    # Run every 10 minutes
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+    # Allow manual triggering
+
+jobs:
+  export-worker:
+    name: Process Data Exports
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd web
+          npm ci
+
+      - name: Process exports
+        env:
+          BACKGROUND_WORKER_TOKEN: ${{ secrets.BACKGROUND_WORKER_TOKEN }}
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+        run: |
+          cd web
+          curl -X POST \
+            -H "Authorization: Bearer $BACKGROUND_WORKER_TOKEN" \
+            -H "Content-Type: application/json" \
+            "$NEXT_PUBLIC_SITE_URL/api/admin/jobs/export"
+
+  deletion-worker:
+    name: Process Account Deletions
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd web
+          npm ci
+
+      - name: Process deletions
+        env:
+          BACKGROUND_WORKER_TOKEN: ${{ secrets.BACKGROUND_WORKER_TOKEN }}
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+        run: |
+          cd web
+          curl -X POST \
+            -H "Authorization: Bearer $BACKGROUND_WORKER_TOKEN" \
+            -H "Content-Type: application/json" \
+            "$NEXT_PUBLIC_SITE_URL/api/admin/jobs/deletions"
+
+  cleanup-worker:
+    name: Cleanup Expired Data
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    
+    # Run daily at 2 AM UTC
+    if: github.event_name == 'schedule' && github.event.schedule == '0 2 * * *'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd web
+          npm ci
+
+      - name: Cleanup expired exports
+        env:
+          BACKGROUND_WORKER_TOKEN: ${{ secrets.BACKGROUND_WORKER_TOKEN }}
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+        run: |
+          cd web
+          # This would be a separate cleanup endpoint
+          # For now, we'll just log that cleanup should be implemented
+          echo "Cleanup of expired exports and deletion requests should be implemented"
+          echo "This should remove exports older than 7 days and executed deletions older than 30 days"

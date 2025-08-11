@@ -6,12 +6,27 @@ import { ThemeProvider } from "@mui/material/styles";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { esES } from "@mui/material/locale";
+import { Inter, Rubik } from 'next/font/google';
 import theme from "@/theme";
+import { modernTheme } from "@/theme/modernTheme";
 import { getLocaleFromRequest } from "@/lib/i18n/server";
 import { getDictionary } from "@/lib/i18n";
 import { I18nProvider } from "@/lib/i18n/I18nProvider";
 import { SkipLink } from "@/components/SkipLink";
 import AppBar from "@/components/AppBar";
+
+// Load Google Fonts
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const rubik = Rubik({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-rubik',
+});
 
 export const metadata: Metadata = {
   title: "Permit School — Learn to Drive in California",
@@ -76,13 +91,13 @@ export default async function RootLayout({
   const locale = await getLocaleFromRequest();
   const dict = getDictionary(locale);
   
-  // Create theme with locale-specific settings
+  // For now, use classic theme - theme switching will be implemented in later sprints
   const localeTheme = locale === 'es' 
     ? { ...theme, components: { ...theme.components } }
     : theme;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={`${inter.variable} ${rubik.variable}`}>
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={localeTheme}>

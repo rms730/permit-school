@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createAuthClient } from '@/lib/auth';
 import { Box, CircularProgress, Typography } from '@mui/material';
@@ -65,6 +65,14 @@ export default function AuthCallbackPage() {
     handleAuthCallback();
   }, [router]);
 
+  // Handle error redirect
+  React.useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => router.push('/signin'), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [error, router]);
+
   if (error) {
     return (
       <Box
@@ -81,7 +89,6 @@ export default function AuthCallbackPage() {
         <Typography variant="body2" color="text.secondary">
           Redirecting to sign in...
         </Typography>
-        {setTimeout(() => router.push('/signin'), 3000)}
       </Box>
     );
   }

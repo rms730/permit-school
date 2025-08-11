@@ -238,7 +238,7 @@ export default function LoginPage() {
 
               <Box sx={{ textAlign: 'center', mt: 4 }}>
                 <Typography variant="body2" color="text.secondary">
-                  Don't have an account?{' '}
+                  Don&apos;t have an account?{' '}
                   <Button
                     variant="text"
                     onClick={() => router.push('/signup')}

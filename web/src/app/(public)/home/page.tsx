@@ -100,7 +100,7 @@ export default function HomePage() {
                     }}
                   >
                     Interactive, engaging, and designed for success. 
-                    Join thousands of students who've passed their permit test with confidence.
+                    Join thousands of students who&apos;ve passed their permit test with confidence.
                   </Typography>
                 </Box>
 
@@ -213,7 +213,7 @@ export default function HomePage() {
             color="text.secondary"
             sx={{ maxWidth: 600, mx: 'auto' }}
           >
-            We've designed the perfect learning experience for modern students
+            We&apos;ve designed the perfect learning experience for modern students
           </Typography>
         </Box>
 

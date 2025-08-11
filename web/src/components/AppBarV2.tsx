@@ -176,26 +176,26 @@ export default function AppBarV2({ user, onSignOut }: AppBarV2Props) {
               </Box>
             </ListItem>
             <Divider />
-            <ListItem button onClick={() => { router.push('/dashboard'); handleMobileDrawerToggle(); }}>
+            <ListItem onClick={() => { router.push('/dashboard'); handleMobileDrawerToggle(); }}>
               <ListItemIcon>
                 <Dashboard />
               </ListItemIcon>
               <ListItemText primary="Dashboard" />
             </ListItem>
-            <ListItem button onClick={() => { router.push('/courses'); handleMobileDrawerToggle(); }}>
+            <ListItem onClick={() => { router.push('/courses'); handleMobileDrawerToggle(); }}>
               <ListItemIcon>
                 <School />
               </ListItemIcon>
               <ListItemText primary="My Courses" />
             </ListItem>
-            <ListItem button onClick={() => { router.push('/billing'); handleMobileDrawerToggle(); }}>
+            <ListItem onClick={() => { router.push('/billing'); handleMobileDrawerToggle(); }}>
               <ListItemIcon>
                 <Receipt />
               </ListItemIcon>
               <ListItemText primary="Billing" />
             </ListItem>
             <Divider />
-            <ListItem button onClick={handleSignOut}>
+            <ListItem onClick={handleSignOut}>
               <ListItemIcon>
                 <ExitToApp />
               </ListItemIcon>

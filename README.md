@@ -105,10 +105,12 @@ curl -s -X POST http://localhost:3000/api/tutor \
    ```
 
 2. Verify the migration:
+
    - Check that 5 units are created for CA DE-ONLINE course
    - Verify `unit_chunks` are populated with relevant content
 
 3. Test the learning flow:
+
    - Visit `/course/CA/DE-ONLINE` to see the course outline
    - Click "Start" on a unit to begin learning at `/learn/[unitId]`
    - Study the content (seat-time tracking active when tab visible)

@@ -7,7 +7,11 @@ export type NotificationType =
   | 'subscription_activated'
   | 'certificate_issued'
   | 'guardian_consent_verified'
-  | 'weekly_digest';
+  | 'weekly_digest'
+  | 'payment_failed'
+  | 'payment_succeeded'
+  | 'trial_ending'
+  | 'subscription_canceled';
 
 export interface NotificationData {
   course_id?: string;

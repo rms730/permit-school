@@ -98,6 +98,7 @@ curl -X POST http://localhost:3000/api/admin/jobs/weekly-digest \
 - All views include jurisdiction codes (`j_code`, `course_code`)
 - No CA-specific logic in code
 - Uses `jurisdiction_configs` for state-specific configuration
+- Ready for expansion to Texas and other states
 
 ## Sprint 19 — Launch Cutover
 
@@ -132,7 +133,6 @@ curl -X POST http://localhost:3000/api/admin/jobs/weekly-digest \
 - **Runbooks**: Complete procedures for release, backup/restore, and secret rotation
 - **Disaster Recovery**: Quarterly drill procedures to validate backup integrity
 - **Secret Rotation**: Step-by-step guides for all service integrations
-- Ready for expansion to Texas and other states
 
 ## Certificates
 
@@ -385,7 +385,6 @@ curl -s -X POST http://localhost:3000/api/tutor \
    # 7) Test void functionality
    ```
 
-<<<<<<< HEAD
 ### Sprint 8: Launch Hardening & Operational Readiness
 
 1. **Transactional Email Setup**:

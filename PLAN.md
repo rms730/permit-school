@@ -38,3 +38,45 @@ This file is consumed by Planner/Coder/Reviewer agents.
    - Stripe Checkout for $9.99.
    - Admin dashboard for attempts, mastery, certificates queue.
    - Shipping integration for certificates.
+
+## Completed Sprints
+
+### Sprint 9: Curriculum CMS + Syllabus & Evidence Reports ✅
+- Database migration with unit metadata and progress view
+- Admin CMS for managing course units and content mapping
+- Syllabus PDF generation and Evidence of Study CSV export
+- AI-powered content suggestions using hybrid RAG
+
+### Sprint 10: Platformize for Multi‑State (CA First) ✅
+- Database migration with jurisdiction configuration and pricing tables
+- DB-backed configuration with environment variable fallback
+- Admin UI for jurisdiction config and pricing management
+- Public course catalog with pricing integration
+- Updated exam system to use DB configuration
+- Multi-state ready architecture (no code changes for new states)
+
+## Future Work
+
+### Enhanced Content Management
+- Advanced content mapping with confidence scores
+- Bulk content operations and batch processing
+- Content versioning and rollback capabilities
+- Automated content quality checks
+
+### Advanced Reporting
+- Real-time analytics dashboard
+- Custom report builder
+- Export to additional formats (Excel, JSON)
+- Scheduled report generation
+
+### Multi-state Expansion
+- Texas content ingestion and configuration
+- Additional jurisdiction templates
+- Jurisdiction-specific UI customization
+- Multi-language support for new states
+
+### Platform Enhancements
+- Advanced user management and roles
+- API rate limiting and usage tracking
+- Enhanced security and audit logging
+- Performance optimization and caching

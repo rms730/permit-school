@@ -20,6 +20,7 @@ import { getEntitlementForUser } from "@/lib/entitlements";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import AppBar from "@/components/AppBar";
+import { getLocaleFromRequest } from "@/lib/i18n/server";
 
 interface Chunk {
   id: number;
@@ -27,6 +28,7 @@ interface Chunk {
   chunk: string;
   section_ref?: string;
   source_url?: string;
+  lang?: string;
 }
 
 interface Unit {
@@ -45,6 +47,7 @@ interface PageProps {
 export default async function LessonPlayerPage({ params }: PageProps) {
   const { unitId } = params;
   const supabase = getServerClient();
+  const locale = await getLocaleFromRequest();
 
   // Get unit details including unit_no
   const { data: unit, error: unitError } = await supabase
@@ -87,7 +90,7 @@ export default async function LessonPlayerPage({ params }: PageProps) {
     }
   }
 
-  // Get unit chunks
+  // Get unit chunks with locale-aware content
   const { data: chunksData, error: chunksError } = await supabase
     .from("unit_chunks")
     .select(
@@ -97,7 +100,8 @@ export default async function LessonPlayerPage({ params }: PageProps) {
         id,
         chunk,
         section_ref,
-        source_url
+        source_url,
+        lang
       )
     `,
     )
@@ -114,13 +118,33 @@ export default async function LessonPlayerPage({ params }: PageProps) {
     );
   }
 
-  const chunks: Chunk[] = chunksData.map((item) => ({
-    id: (item.content_chunks as any).id,
-    ord: item.ord,
-    chunk: (item.content_chunks as any).chunk,
-    section_ref: (item.content_chunks as any).section_ref,
-    source_url: (item.content_chunks as any).source_url,
-  }));
+  // Filter chunks by locale, fallback to English
+  const chunks: Chunk[] = chunksData
+    .map((item) => ({
+      id: (item.content_chunks as any).id,
+      ord: item.ord,
+      chunk: (item.content_chunks as any).chunk,
+      section_ref: (item.content_chunks as any).section_ref,
+      source_url: (item.content_chunks as any).source_url,
+      lang: (item.content_chunks as any).lang,
+    }))
+    .filter((item) => item.lang === locale || item.lang === 'en')
+    .reduce((acc, item) => {
+      // If we already have a chunk for this ord with the preferred locale, skip
+      const existing = acc.find(c => c.ord === item.ord);
+      if (existing && existing.lang === locale) {
+        return acc;
+      }
+      if (existing && item.lang === 'en') {
+        // Replace English with preferred locale if available
+        const filtered = acc.filter(c => c.ord !== item.ord);
+        return [...filtered, item];
+      }
+      if (!existing) {
+        return [...acc, item];
+      }
+      return acc;
+    }, [] as any[]);
 
   return (
     <>

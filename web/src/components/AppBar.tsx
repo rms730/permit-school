@@ -11,12 +11,15 @@ import {
   Button,
 } from "@mui/material";
 import { getEntitlementForUserClient } from "@/lib/entitlementsClient";
+import { useI18n } from "@/lib/i18n/I18nProvider";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 interface AppBarProps {
   title?: string;
 }
 
 export default function AppBar({ title = "Permit School — Tutor" }: AppBarProps) {
+  const { dict } = useI18n();
   const [isEntitled, setIsEntitled] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -40,15 +43,15 @@ export default function AppBar({ title = "Permit School — Tutor" }: AppBarProp
     <MuiAppBar position="static" elevation={0}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Typography variant="h6">{title}</Typography>
-        <Stack direction="row" spacing={2}>
+        <Stack direction="row" spacing={2} alignItems="center">
           <Link href="/" underline="hover" color="inherit">
-            Home
+            {dict.nav.home}
           </Link>
           <Link href="/course/CA/DE-ONLINE" underline="hover" color="inherit">
-            Course
+            {dict.nav.courses}
           </Link>
           <Link href="/admin/logs" underline="hover" color="inherit">
-            Admin Logs
+            {dict.nav.admin}
           </Link>
           {!loading && (
             <>
@@ -60,24 +63,25 @@ export default function AppBar({ title = "Permit School — Tutor" }: AppBarProp
                   size="small"
                   sx={{ color: 'white' }}
                 >
-                  Upgrade
+                  {dict.actions.upgrade}
                 </Button>
               ) : (
                 <Link href="/billing" underline="hover" color="inherit">
-                  Billing
+                  {dict.nav.billing}
                 </Link>
               )}
             </>
           )}
           <Link href="/signin" underline="hover" color="inherit">
-            Sign In
+            {dict.nav.signIn}
           </Link>
           <Link href="/privacy" underline="hover" color="inherit">
-            Privacy
+            {dict.nav.privacy}
           </Link>
           <Link href="/terms" underline="hover" color="inherit">
-            Terms
+            {dict.nav.terms}
           </Link>
+          <LanguageSwitcher />
         </Stack>
       </Toolbar>
     </MuiAppBar>

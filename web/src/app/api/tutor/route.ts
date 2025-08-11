@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 import { getRouteClient } from "@/lib/supabaseRoute";
 import { rateLimit, getRateLimitHeaders, getRateLimitKey } from '@/lib/ratelimit';
+import { getLocaleFromRequest } from '@/lib/i18n/server';
 
 function getFunctionsBase() {
   const explicit = process.env.SUPABASE_FUNCTIONS_URL;
@@ -35,6 +36,7 @@ export async function POST(req: Request) {
   let j_code = "CA";
   let query = "";
   let top_k = 5;
+  let lang = "en";
 
   // read user from cookies/session (if present)
   const supaRoute = getRouteClient();
@@ -48,6 +50,7 @@ export async function POST(req: Request) {
     top_k = Number.isFinite(body?.top_k)
       ? Math.max(1, Math.min(50, body.top_k))
       : 5;
+    lang = typeof body?.lang === "string" ? body.lang : await getLocaleFromRequest();
 
     if (!query) {
       return NextResponse.json({ error: "Missing query" }, { status: 400 });
@@ -60,7 +63,7 @@ export async function POST(req: Request) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`,
       },
-      body: JSON.stringify({ query, j_code, top_k }),
+      body: JSON.stringify({ query, j_code, top_k, lang }),
     });
 
     const data = await res.json();
@@ -75,6 +78,7 @@ export async function POST(req: Request) {
           j_code,
           query,
           top_k,
+          lang,
           latency_ms: latency,
           model: data?.model ?? "unknown",
           error: res.ok ? null : (data?.error ?? `HTTP ${res.status}`),
@@ -95,6 +99,7 @@ export async function POST(req: Request) {
           j_code,
           query,
           top_k,
+          lang,
           latency_ms: latency,
           model: "unknown",
           error: String(err?.message ?? err),

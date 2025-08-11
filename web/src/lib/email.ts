@@ -1,7 +1,118 @@
 import { Resend } from 'resend';
+import { type SupportedLocale } from './i18n/locales';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 const FROM = process.env.FROM_EMAIL ?? 'no-reply@example.com';
+
+// Email templates for different locales
+const emailTemplates = {
+  en: {
+    welcome: {
+      subject: 'Welcome to Permit School',
+      title: 'Welcome to Permit School!',
+      greeting: (name?: string) => name ? `Hi ${name},` : 'Hi,',
+      body: (name?: string) => `
+        <p>${name ? `Hi ${name},` : 'Hi,'}</p>
+        <p>Welcome to Permit School! Your account has been created successfully.</p>
+        <p>You can now start your learning journey:</p>
+        <ul>
+          <li>Visit your course: <a href="${process.env.APP_BASE_URL}/course/CA/DE-ONLINE">Start Learning</a></li>
+          <li>Complete units and take quizzes</li>
+          <li>Track your progress</li>
+        </ul>
+        <p>If you have any questions, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Best regards,<br>The Permit School Team</p>
+      `
+    },
+    subscription: {
+      subject: 'Your subscription is active',
+      title: 'Subscription Active',
+      body: (name?: string) => `
+        <p>${name ? `Hi ${name},` : 'Hi,'}</p>
+        <p>Your Permit School subscription is now active! 🎉</p>
+        <p>You now have access to:</p>
+        <ul>
+          <li>All course units and content</li>
+          <li>Final exam eligibility</li>
+          <li>Certificate issuance upon completion</li>
+        </ul>
+        <p><strong>Start learning now:</strong> <a href="${process.env.APP_BASE_URL}/course/CA/DE-ONLINE">Continue Your Course</a></p>
+        <p>If you have any questions, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Best regards,<br>The Permit School Team</p>
+      `
+    },
+    certificate: {
+      subject: (certNumber: string) => `Certificate Issued - ${certNumber}`,
+      title: 'Certificate Issued',
+      body: (name?: string, certNumber?: string, pdfUrl?: string, verifyUrl?: string) => `
+        <p>${name ? `Hi ${name},` : 'Hi,'}</p>
+        <p>Congratulations! Your certificate has been issued successfully. 🎓</p>
+        <p><strong>Certificate Number:</strong> ${certNumber}</p>
+        <p>You can:</p>
+        <ul>
+          <li><a href="${pdfUrl}">Download your certificate (PDF)</a></li>
+          <li><a href="${verifyUrl}">Verify your certificate online</a></li>
+        </ul>
+        <p>Your certificate is now publicly verifiable and can be shared with employers or authorities as needed.</p>
+        <p>If you have any questions, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Best regards,<br>The Permit School Team</p>
+      `
+    }
+  },
+  es: {
+    welcome: {
+      subject: 'Bienvenido a Permit School',
+      title: '¡Bienvenido a Permit School!',
+      greeting: (name?: string) => name ? `Hola ${name},` : 'Hola,',
+      body: (name?: string) => `
+        <p>${name ? `Hola ${name},` : 'Hola,'}</p>
+        <p>¡Bienvenido a Permit School! Tu cuenta ha sido creada exitosamente.</p>
+        <p>Ahora puedes comenzar tu viaje de aprendizaje:</p>
+        <ul>
+          <li>Visita tu curso: <a href="${process.env.APP_BASE_URL}/course/CA/DE-ONLINE">Comenzar a Aprender</a></li>
+          <li>Completa unidades y toma cuestionarios</li>
+          <li>Rastrea tu progreso</li>
+        </ul>
+        <p>Si tienes alguna pregunta, contáctanos en ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Saludos cordiales,<br>El Equipo de Permit School</p>
+      `
+    },
+    subscription: {
+      subject: 'Tu suscripción está activa',
+      title: 'Suscripción Activa',
+      body: (name?: string) => `
+        <p>${name ? `Hola ${name},` : 'Hola,'}</p>
+        <p>¡Tu suscripción a Permit School está ahora activa! 🎉</p>
+        <p>Ahora tienes acceso a:</p>
+        <ul>
+          <li>Todas las unidades del curso y contenido</li>
+          <li>Elegibilidad para el examen final</li>
+          <li>Emisión de certificado al completar</li>
+        </ul>
+        <p><strong>Comenzar a aprender ahora:</strong> <a href="${process.env.APP_BASE_URL}/course/CA/DE-ONLINE">Continuar Tu Curso</a></p>
+        <p>Si tienes alguna pregunta, contáctanos en ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Saludos cordiales,<br>El Equipo de Permit School</p>
+      `
+    },
+    certificate: {
+      subject: (certNumber: string) => `Certificado Emitido - ${certNumber}`,
+      title: 'Certificado Emitido',
+      body: (name?: string, certNumber?: string, pdfUrl?: string, verifyUrl?: string) => `
+        <p>${name ? `Hola ${name},` : 'Hola,'}</p>
+        <p>¡Felicitaciones! Tu certificado ha sido emitido exitosamente. 🎓</p>
+        <p><strong>Número de Certificado:</strong> ${certNumber}</p>
+        <p>Puedes:</p>
+        <ul>
+          <li><a href="${pdfUrl}">Descargar tu certificado (PDF)</a></li>
+          <li><a href="${verifyUrl}">Verificar tu certificado en línea</a></li>
+        </ul>
+        <p>Tu certificado ahora es públicamente verificable y puede ser compartido con empleadores o autoridades según sea necesario.</p>
+        <p>Si tienes alguna pregunta, contáctanos en ${process.env.SUPPORT_EMAIL}.</p>
+        <p>Saludos cordiales,<br>El Equipo de Permit School</p>
+      `
+    }
+  }
+};
 
 function safeSend(html: string, subject: string, to: string) {
   if (!resend) {
@@ -11,43 +122,42 @@ function safeSend(html: string, subject: string, to: string) {
   return resend.emails.send({ from: FROM, to, subject, html });
 }
 
-export async function sendWelcomeEmail({ to, name }: { to: string; name?: string }) {
+export async function sendWelcomeEmail({ 
+  to, 
+  name, 
+  locale = 'en' 
+}: { 
+  to: string; 
+  name?: string; 
+  locale?: SupportedLocale; 
+}) {
+  const template = emailTemplates[locale]?.welcome || emailTemplates.en.welcome;
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-      <h2 style="color: #333;">Welcome to Permit School!</h2>
-      <p>${name ? `Hi ${name},` : 'Hi,'}</p>
-      <p>Welcome to Permit School! Your account has been created successfully.</p>
-      <p>You can now start your learning journey:</p>
-      <ul>
-        <li>Visit your course: <a href="${process.env.APP_BASE_URL}/course/CA/DE-ONLINE">Start Learning</a></li>
-        <li>Complete units and take quizzes</li>
-        <li>Track your progress</li>
-      </ul>
-      <p>If you have any questions, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
-      <p>Best regards,<br>The Permit School Team</p>
+      <h2 style="color: #333;">${template.title}</h2>
+      ${template.body(name)}
     </div>`;
   
-  return safeSend(html, 'Welcome to Permit School', to);
+  return safeSend(html, template.subject, to);
 }
 
-export async function sendSubscriptionActiveEmail({ to, name }: { to: string; name?: string }) {
+export async function sendSubscriptionActiveEmail({ 
+  to, 
+  name, 
+  locale = 'en' 
+}: { 
+  to: string; 
+  name?: string; 
+  locale?: SupportedLocale; 
+}) {
+  const template = emailTemplates[locale]?.subscription || emailTemplates.en.subscription;
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-      <h2 style="color: #333;">Subscription Active</h2>
-      <p>${name ? `Hi ${name},` : 'Hi,'}</p>
-      <p>Your Permit School subscription is now active! 🎉</p>
-      <p>You now have access to:</p>
-      <ul>
-        <li>All course units and content</li>
-        <li>Final exam eligibility</li>
-        <li>Certificate issuance upon completion</li>
-      </ul>
-      <p><strong>Start learning now:</strong> <a href="${process.env.APP_BASE_URL}/course/CA/DE-ONLINE">Continue Your Course</a></p>
-      <p>If you have any questions, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
-      <p>Best regards,<br>The Permit School Team</p>
+      <h2 style="color: #333;">${template.title}</h2>
+      ${template.body(name)}
     </div>`;
   
-  return safeSend(html, 'Your subscription is active', to);
+  return safeSend(html, template.subject, to);
 }
 
 export async function sendCertificateIssuedEmail({ 
@@ -55,31 +165,24 @@ export async function sendCertificateIssuedEmail({
   name, 
   certNumber, 
   verifyUrl, 
-  pdfUrl 
+  pdfUrl,
+  locale = 'en'
 }: { 
   to: string; 
   name?: string; 
   certNumber: string; 
   verifyUrl: string; 
   pdfUrl: string; 
+  locale?: SupportedLocale;
 }) {
+  const template = emailTemplates[locale]?.certificate || emailTemplates.en.certificate;
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-      <h2 style="color: #333;">Certificate Issued</h2>
-      <p>${name ? `Hi ${name},` : 'Hi,'}</p>
-      <p>Congratulations! Your certificate has been issued successfully. 🎓</p>
-      <p><strong>Certificate Number:</strong> ${certNumber}</p>
-      <p>You can:</p>
-      <ul>
-        <li><a href="${pdfUrl}">Download your certificate (PDF)</a></li>
-        <li><a href="${verifyUrl}">Verify your certificate online</a></li>
-      </ul>
-      <p>Your certificate is now publicly verifiable and can be shared with employers or authorities as needed.</p>
-      <p>If you have any questions, please contact us at ${process.env.SUPPORT_EMAIL}.</p>
-      <p>Best regards,<br>The Permit School Team</p>
+      <h2 style="color: #333;">${template.title}</h2>
+      ${template.body(name, certNumber, pdfUrl, verifyUrl)}
     </div>`;
   
-  return safeSend(html, `Certificate Issued - ${certNumber}`, to);
+  return safeSend(html, template.subject(certNumber), to);
 }
 
 export async function sendCertificateVoidedEmail({ 

@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import {
   PlayArrow as PlayIcon,
-  BookOpen as BookIcon,
+  MenuBook as BookIcon,
   Timer as TimerIcon,
   TrendingUp as ProgressIcon,
 } from '@mui/icons-material';

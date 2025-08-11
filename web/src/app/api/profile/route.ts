@@ -1,5 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getRouteClient } from "@/lib/supabaseRoute";
+import { NextRequest, NextResponse } from 'next/server';
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
+import { isValidLocale } from '@/lib/i18n/locales';
+import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function GET() {
   try {
@@ -93,5 +96,45 @@ export async function PUT(request: NextRequest) {
   } catch (error) {
     console.error("Profile PUT error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+  }
+}
+
+export async function PATCH(request: NextRequest) {
+  try {
+    const supabase = getRouteClient();
+    
+    // Check authentication
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    if (authError || !user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const body = await request.json();
+    const { locale, ...otherFields } = body;
+
+    // Validate locale if provided
+    if (locale && !isValidLocale(locale)) {
+      return NextResponse.json({ error: 'Invalid locale' }, { status: 400 });
+    }
+
+    // Update student profile
+    const { error: updateError } = await supabase
+      .from('student_profiles')
+      .upsert({
+        user_id: user.id,
+        ...(locale && { locale }),
+        ...otherFields,
+        updated_at: new Date().toISOString()
+      });
+
+    if (updateError) {
+      console.error('Profile update error:', updateError);
+      return NextResponse.json({ error: 'Failed to update profile' }, { status: 500 });
+    }
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error('Profile update error:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

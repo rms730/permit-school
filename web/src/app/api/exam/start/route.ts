@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getRouteClient } from "@/lib/supabaseRoute";
 import { rateLimit, getRateLimitHeaders, getRateLimitKey } from '@/lib/ratelimit';
 import { getJurisdictionConfig } from "@/lib/jurisdictionConfig";
+import { getLocaleFromRequest } from '@/lib/i18n/server';
 
 export async function POST(req: Request) {
   // Rate limiting
@@ -89,6 +90,9 @@ export async function POST(req: Request) {
     // Get jurisdiction config
     const config = await getJurisdictionConfig('CA');
 
+    // Get user's locale
+    const locale = await getLocaleFromRequest();
+
     // Select questions from question_bank across all units
     const { data: questions, error: questionsError } = await supabase
       .from("question_bank")
@@ -104,17 +108,34 @@ export async function POST(req: Request) {
       );
     }
 
-    // Insert attempt_items
-    const attemptItems = questions.map((q, index) => ({
-      attempt_id: attempt.id,
-      item_no: index + 1,
-      skill: q.skill,
-      stem: q.stem,
-      choices: q.choices,
-      answer: q.answer,
-      explanation: q.explanation,
-      correct: null,
-    }));
+    // Get translations for questions
+    const questionIds = questions.map(q => q.id);
+    const { data: translations } = await supabase
+      .from("question_translations")
+      .select("question_id, stem, choices, explanation")
+      .in("question_id", questionIds)
+      .eq("lang", locale);
+
+    // Create translation lookup
+    const translationMap = new Map();
+    translations?.forEach(t => {
+      translationMap.set(t.question_id, t);
+    });
+
+    // Insert attempt_items with translations
+    const attemptItems = questions.map((q, index) => {
+      const translation = translationMap.get(q.id);
+      return {
+        attempt_id: attempt.id,
+        item_no: index + 1,
+        skill: q.skill,
+        stem: translation?.stem || q.stem,
+        choices: translation?.choices || q.choices,
+        answer: q.answer, // Answer key remains the same
+        explanation: translation?.explanation || q.explanation,
+        correct: null,
+      };
+    });
 
     const { error: itemsError } = await supabase
       .from("attempt_items")

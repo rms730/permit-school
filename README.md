@@ -2,7 +2,7 @@
 
 Agentic, multi‑state permit‑prep platform — **California first**, **Texas next**.
 
-**Stack**: Supabase (Postgres + RLS + pgvector), React + MUI (coming soon), OpenAI (GPT‑5 family for planning/review/tutor), n8n (orchestration), Cursor (agent coder).
+**Stack**: Supabase (Postgres + RLS + pgvector), Next.js + MUI, OpenAI (GPT‑5 family for planning/review/tutor), n8n (orchestration), Cursor (agent coder).
 
 > This repo starts minimal so the agentic loop can iterate.  
 > Secrets (OpenAI, Supabase service role) belong in n8n/Edge Functions, **not** in the repo.
@@ -10,10 +10,12 @@ Agentic, multi‑state permit‑prep platform — **California first**, **Texas 
 ## Structure (initial)
 
 /supabase/migrations/ – schema & RLS
+/web/ – Next.js + MUI Tutor MVP
 /.cursor/ – rules for Cursor agents
 /ops/prompts/ – system prompts (planner/reviewer/tutor/etc.)
 /ops/config/budgets.json – token/image budgets + kill switch
 /.github/workflows/ci.yml – basic CI checks (lint/test/build)
+/.github/workflows/web.yml – web app CI (lint/typecheck/build)
 /states/ca/ – CA-specific docs/assets (seed)
 /states/tx/ – TX placeholder
 PLAN.md – initial backlog (agent-readable)
@@ -33,3 +35,89 @@ Issuing California **DL‑400C** requires a DMV‑licensed school with physical 
 1. Apply the migration in **Supabase** (SQL editor).
 2. In n8n, add credentials for OpenAI, GitHub, and Supabase; import the planner/coder/reviewer/visuals workflows (next PR).
 3. Enable repo rules so CI checks (`lint`, `test`, `build`) are required before merge.
+
+## Web App (Tutor MVP)
+
+**Prerequisites**: Node 20+, Supabase project with `tutor` function deployed.
+
+### Setup
+
+```bash
+cp web/.env.example web/.env.local
+# fill values (do NOT commit real secrets)
+```
+
+### Run
+
+```bash
+npm --prefix web i
+npm --prefix web run dev
+# open http://localhost:3000
+```
+
+### Smoke test
+
+```bash
+curl -s -X POST http://localhost:3000/api/tutor \
+  -H 'Content-Type: application/json' \
+  -d '{"query":"When can I turn right on red in California?","j_code":"CA"}' | jq
+```
+
+> **Security**: The service role key lives only in `web/.env.local` and never on the client.
+
+### Sprint 2: Logs & State Picker
+
+- Apply migration `0004_tutor_logs.sql` in Supabase (SQL Editor or CLI).
+- In `web/.env.local`, set:
+  - NEXT_PUBLIC_SUPABASE_URL
+  - NEXT_PUBLIC_SUPABASE_ANON_KEY
+  - SUPABASE_URL
+  - SUPABASE_SERVICE_ROLE_KEY
+  - (optional) SUPABASE_FUNCTIONS_URL
+- Run web:
+  - `npm --prefix web i && npm --prefix web run dev`
+- Try a query on `/` and then view logs at `/admin/logs`.
+
+### Sprint 3: Auth & RBAC
+
+1. In Supabase → Auth:
+   - (Dev) Disable email confirmation for quick testing, or configure SMTP.
+2. Copy env:
+   - `cp web/.env.example web/.env.local`
+   - Fill `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`.
+3. Run locally:
+   - `npm --prefix web i && npm --prefix web run dev`
+4. Create a user at `/signin`, then promote to admin:
+   - `node web/scripts/make_admin.mjs you@example.com`
+5. Visit `/admin/logs` (must be signed in as admin).
+6. Ask a question on `/`; check `tutor_logs.user_id` is populated.
+
+### Sprint 4: Curriculum & Learning Experience
+
+1. Apply the curriculum migration:
+
+   ```bash
+   # If using Supabase CLI
+   supabase db push
+
+   # Or run the migration manually in your Supabase dashboard
+   # Copy contents of supabase/migrations/0005_curriculum.sql
+   ```
+
+2. Verify the migration:
+   - Check that 5 units are created for CA DE-ONLINE course
+   - Verify `unit_chunks` are populated with relevant content
+
+3. Test the learning flow:
+   - Visit `/course/CA/DE-ONLINE` to see the course outline
+   - Click "Start" on a unit to begin learning at `/learn/[unitId]`
+   - Study the content (seat-time tracking active when tab visible)
+   - Take the quiz when enough time is accrued
+   - Complete the quiz and see your score
+
+4. Key features:
+   - **Seat-time tracking**: Only counts when tab is visible and user is active
+   - **Progress persistence**: Time is saved and capped at required minutes
+   - **Quiz gating**: Must complete required study time before taking quiz
+   - **Score tracking**: Quiz results update skill mastery
+   - **RLS security**: All data access respects user permissions

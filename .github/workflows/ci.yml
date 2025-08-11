@@ -11,8 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Prettier (md/json/yml)
-        run: npx --yes prettier@3.3.3 --check "**/*.{md,json,yml,yaml}"
+      - name: Prettier check (md/yaml/json)
+        run: |
+          FILES=$(git ls-files '**/*.md' '**/*.mdx' '**/*.yml' '**/*.yaml' '**/*.json')
+          if [ -n "$FILES" ]; then
+            npx --yes prettier@3.3.3 -c $FILES
+          else
+            echo "No files to check."
+          fi
       - name: ShellCheck scripts
         run: |
           sudo apt-get update

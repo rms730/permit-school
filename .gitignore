@@ -18,4 +18,4 @@ yarn.lock
 
 # Logs
 logs/
-*.log
+*.log/web/.next/

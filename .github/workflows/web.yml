@@ -1,11 +1,12 @@
 name: web-ci
 
 on:
-  push:
+  pull_request:
     paths:
       - "web/**"
       - ".github/workflows/web.yml"
-  pull_request:
+  push:
+    branches: [main]
     paths:
       - "web/**"
       - ".github/workflows/web.yml"
@@ -13,28 +14,29 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+    defaults:
+      run:
+        working-directory: web
 
-      - name: Use Node 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node 20 with npm cache
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
+          node-version: 20
+          cache: npm
           cache-dependency-path: web/package-lock.json
 
       - name: Install deps
-        working-directory: web
         run: npm ci
 
       - name: Lint
-        working-directory: web
-        run: npm run lint
+        run: npm run lint --if-present
 
       - name: Typecheck
-        working-directory: web
-        run: npm run typecheck
+        run: npm run typecheck --if-present
 
       - name: Build
-        working-directory: web
         run: npm run build

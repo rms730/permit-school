@@ -15,7 +15,7 @@ import {
   Box,
 } from "@mui/material";
 import { getServerClient } from "@/lib/supabaseServer";
-import AppBar from "@/components/AppBar";
+import AppShell from "@/components/layout/AppShell";
 import Link from "next/link";
 import Script from "next/script";
 
@@ -30,14 +30,13 @@ export default async function CoursesPage() {
 
   if (catalogError) {
     return (
-      <>
-        <AppBar title="Available Courses" />
+      <AppShell>
         <Container maxWidth="lg" sx={{ mt: 4 }}>
           <Paper variant="outlined" sx={{ p: 3 }}>
             <Typography color="error">Failed to load courses.</Typography>
           </Paper>
         </Container>
-      </>
+      </AppShell>
     );
   }
 
@@ -69,7 +68,7 @@ export default async function CoursesPage() {
   };
 
   return (
-    <>
+    <AppShell>
       <Script
         id="course-schema"
         type="application/ld+json"
@@ -77,7 +76,6 @@ export default async function CoursesPage() {
           __html: JSON.stringify(courseSchema),
         }}
       />
-      <AppBar title="Available Courses" />
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         <Paper variant="outlined" sx={{ p: 3 }}>
           <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 3 }}>
@@ -176,6 +174,6 @@ export default async function CoursesPage() {
           )}
         </Paper>
       </Container>
-    </>
+    </AppShell>
   );
 }

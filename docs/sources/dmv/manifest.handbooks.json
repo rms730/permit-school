@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "id": "dl-600-en-2025",
+      "lang": "en",
+      "title": "California Driver's Handbook",
+      "edition": "DL 600",
+      "revision": "R6/2025",
+      "filename": "DL-600-EN-2025.pdf",
+      "relPath": "docs/sources/dmv/handbooks/en/DL-600-EN-2025.pdf",
+      "sourceUrl": "https://dmv.ca.gov",
+      "license": "CC BY-NC 4.0",
+      "pages": 92
+    },
+    {
+      "id": "dl-600-es-2024",
+      "lang": "es",
+      "title": "Manual del Conductor de California",
+      "edition": "DL 600",
+      "revision": "R1/2024",
+      "filename": "DL-600-ES-2024.pdf",
+      "relPath": "docs/sources/dmv/handbooks/es/DL-600-ES-2024.pdf",
+      "sourceUrl": "https://dmv.ca.gov",
+      "license": "CC BY-NC 4.0 (confirm in PDF)",
+      "pages": 92
+    }
+  ]
+}

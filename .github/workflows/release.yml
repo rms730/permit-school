@@ -77,6 +77,13 @@ jobs:
           TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}
         run: npm run test:e2e
 
+      - name: Seed handbooks (STAGING)
+        working-directory: web
+        env:
+          SUPABASE_URL: ${{ secrets.STAGING_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.STAGING_SUPABASE_SERVICE_ROLE_KEY }}
+        run: npm run seed:handbooks
+
   prod_promote:
     name: Prod • manual approve → migrate + smoke
     needs: [stage_migrate_test]

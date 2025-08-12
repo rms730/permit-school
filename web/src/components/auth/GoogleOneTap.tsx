@@ -87,11 +87,7 @@ export default function GoogleOneTap({ onSuccess, onError }: GoogleOneTapProps) 
   }
 
   return (
-<<<<<<< HEAD
     <div
-=======
-    <div 
->>>>>>> dbf55ffd1826bd82581879b0a2d86caa0a101bf0
       ref={oneTapRef}
       id="google-one-tap-container"
       style={{

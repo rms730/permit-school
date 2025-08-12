@@ -1839,3 +1839,19 @@ BACKGROUND_WORKER_TOKEN=your-worker-token
 - Certificate PDFs deleted on account deletion
 - Voided certificates marked as "void" status
 - Audit trail maintained for all certificate operations
+
+### DMV Handbooks (offline)
+
+- PDFs live under `docs/sources/dmv/…` and are seeded to the private `handbooks` bucket.
+- To seed locally while offline, start Supabase locally and run:
+
+```bash
+# terminal 1
+supabase start   # local stack
+# terminal 2
+export SUPABASE_URL=http://localhost:54321
+export SUPABASE_SERVICE_ROLE_KEY=$(grep service_role_key supabase/.env | cut -d= -f2)
+npm run seed:handbooks
+```
+
+The app uses server-generated signed URLs to display PDFs when online. For fully offline review, open the PDFs directly from `docs/sources/dmv/handbooks/**.pdf`.

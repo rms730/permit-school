@@ -216,6 +216,161 @@ GOOGLE_OAUTH_ON=true
 - **Edge case protection**: Existing email accounts not automatically linked
 - Ready for expansion to Texas and other states
 
+## Sprint 23 — Learner Surfaces Polish (Modern UI Phase 2) + Quiz/Exam Player v2 + Seat‑Time Integrity
+
+**Intent**: Modernize learning, quiz, and exam experiences to be modern, fast, and friendly on mobile while ensuring CA seat-time compliance. Adopt the `modernTheme` everywhere students study or test, strengthen seat-time integrity (idle & tab-blur pause), and improve accessibility.
+
+### Features
+
+#### Engagement Tracking & Seat-Time Integrity
+- **IdleTracker** - Client-side engagement tracking with configurable timeouts
+- **Heartbeat API** - Server-side engagement logging and analytics
+- **Tab/Window Monitoring** - Pause tracking when user switches tabs or windows
+- **CA Compliance** - Ensures accurate seat-time tracking for regulatory requirements
+
+#### Modern Learn v2 Components
+- **UnitHeader** - Sticky header with progress bar and navigation
+- **StickyActions** - Fixed bottom navigation with Previous/Next controls
+- **ReadingProgress** - Visual progress indicator with section navigation
+- **Mobile-First** - Responsive design optimized for touch interactions
+
+#### QuizPlayer v2
+- **Accessibility** - Full keyboard navigation and screen reader support
+- **Modern UI** - Progress tracking, immediate feedback, celebration animations
+- **Mobile Optimized** - Touch-friendly interface with gesture support
+- **Keyboard Shortcuts** - Arrow keys for navigation, Enter for submission
+
+#### ExamPlayer v2
+- **Advanced Features** - Time management, question flagging, review system
+- **Pause/Resume** - Exam pause functionality with overlay
+- **Progress Tracking** - Detailed progress with answered/flagged counts
+- **Accessibility** - WCAG 2.2 AA compliance with keyboard shortcuts
+
+#### Resume Helper & AppBar Integration
+- **Smart Resume** - Shows last accessed unit/quiz with progress
+- **AppBar CTA** - Resume button in navigation for quick access
+- **Progress Summary** - Overall progress and time spent tracking
+- **Contextual** - Relevant information based on user state
+
+#### Confetti Celebrations
+- **Lightweight** - Canvas-based animations with performance optimization
+- **Accessible** - Respects `prefers-reduced-motion` user preference
+- **Customizable** - Configurable colors, shapes, and effects
+- **Performance** - Optimized for smooth animations
+
+### Database Schema
+
+The migration `0019_learner_ux_polish.sql` adds:
+- `last_seen_tip` - Track when user last saw a tip
+- `last_seen_celebration_at` - Track celebration timestamps
+- `allow_confetti` - User preference for confetti animations
+
+### API Endpoints
+
+#### Engagement Tracking
+- `POST /api/progress/heartbeat` - Update user engagement status
+
+### Component Architecture
+
+#### IdleTracker
+```typescript
+const { startTracking, stopTracking, getState } = useIdleTracker({
+  idleTimeoutMs: 300000, // 5 minutes
+  heartbeatIntervalMs: 30000, // 30 seconds
+  onIdle: () => handleIdle(),
+  onActive: () => handleActive(),
+  onHeartbeat: () => sendHeartbeat(),
+});
+```
+
+#### Confetti
+```typescript
+const { fire, stop } = useConfetti();
+
+// Fire confetti on correct answer
+fire({
+  particleCount: 30,
+  spread: 60,
+  origin: { x: 0.5, y: 0.3 },
+});
+```
+
+### Accessibility Features
+
+#### WCAG 2.2 AA Compliance
+- **Keyboard Navigation** - Full keyboard accessibility
+- **Screen Reader Support** - Proper ARIA labels and live regions
+- **Focus Management** - Visible focus indicators
+- **Color Contrast** - Meets AA standards
+- **Reduced Motion** - Respects user preferences
+
+#### Keyboard Shortcuts
+- **Quiz Navigation**: Arrow keys for choices, Enter for submission
+- **Exam Navigation**: Arrow keys, Space for pause, F for flag, R for review
+
+### Mobile Experience
+
+#### Responsive Design
+- **Mobile-First** - Designed for mobile devices first
+- **Touch-Friendly** - Minimum 44px touch targets
+- **Gesture Support** - Swipe navigation where appropriate
+- **Performance** - Optimized for mobile performance
+
+### Internationalization
+
+#### Supported Languages
+- **English (EN)** - Primary language
+- **Spanish (ES)** - Secondary language
+
+#### Key Translation Categories
+- **Navigation** - Previous, Next, Submit, etc.
+- **Feedback** - Correct, Incorrect, Loading, etc.
+- **Accessibility** - Keyboard shortcuts, ARIA labels
+- **Progress** - Time tracking, completion status
+- **Celebrations** - Success messages and animations
+
+### Testing
+
+#### Unit Tests
+- **IdleTracker** - Engagement tracking functionality
+- **Confetti** - Animation and accessibility features
+- **Components** - Individual component behavior
+
+#### E2E Tests
+- **Learner Flow** - Complete learning experience
+- **Quiz Experience** - Quiz interaction and feedback
+- **Exam Experience** - Exam functionality and features
+- **Accessibility** - Keyboard navigation and screen reader support
+- **Mobile** - Responsive design and touch interactions
+
+### Performance Considerations
+
+#### Optimization
+- **Lazy Loading** - Components loaded on demand
+- **Memoization** - React.memo for expensive components
+- **Debouncing** - User input debouncing
+- **Virtual Scrolling** - For large lists (future)
+
+### Configuration
+
+#### Environment Variables
+```bash
+# Engagement tracking
+NEXT_PUBLIC_IDLE_TIMEOUT_MS=300000
+NEXT_PUBLIC_HEARTBEAT_INTERVAL_MS=30000
+
+# Accessibility
+NEXT_PUBLIC_ENABLE_CONFETTI=true
+NEXT_PUBLIC_REDUCED_MOTION=false
+```
+
+### Documentation
+
+- **LEARNER_EXPERIENCE.md** - Complete documentation of learner experience features
+- **Component API** - Detailed component documentation
+- **Accessibility Guide** - Accessibility implementation guide
+- **Performance Guide** - Performance optimization guide
+
 ## Sprint 20 — Regulatory Reporting & DMV Submission Toolkit
 
 **Intent**: Deliver a complete, admin-only regulatory reporting pipeline that produces tamper-evident ZIP packages containing CSVs, PDFs, and signed manifests for DMV submission.

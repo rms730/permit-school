@@ -60,11 +60,11 @@ export default function AppShell({ children, user, onSignOut }: AppShellProps) {
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* Top AppBar */}
       <AppBarV2 user={user} onSignOut={onSignOut} />
-
+      
       {/* Main Content */}
-      <Box
-        component="main"
-        sx={{
+      <Box 
+        component="main" 
+        sx={{ 
           flex: 1,
           pb: isMobile ? 7 : 0, // Add bottom padding on mobile for BottomNavigation
         }}
@@ -74,17 +74,17 @@ export default function AppShell({ children, user, onSignOut }: AppShellProps) {
 
       {/* Bottom Navigation (Mobile Only) */}
       {isMobile && (
-        <Paper
-          sx={{
-            position: 'fixed',
-            bottom: 0,
-            left: 0,
-            right: 0,
+        <Paper 
+          sx={{ 
+            position: 'fixed', 
+            bottom: 0, 
+            left: 0, 
+            right: 0, 
             zIndex: theme.zIndex.appBar,
             borderRadius: '16px 16px 0 0',
             borderTop: '1px solid',
             borderColor: 'divider',
-          }}
+          }} 
           elevation={8}
         >
           <BottomNavigation
@@ -107,7 +107,7 @@ export default function AppShell({ children, user, onSignOut }: AppShellProps) {
             <BottomNavigationAction
               label="Home"
               icon={<HomeIcon />}
-              sx={{
+              sx={{ 
                 '& .MuiBottomNavigationAction-label': {
                   fontSize: '0.75rem',
                 },
@@ -116,7 +116,7 @@ export default function AppShell({ children, user, onSignOut }: AppShellProps) {
             <BottomNavigationAction
               label="Learn"
               icon={<LearnIcon />}
-              sx={{
+              sx={{ 
                 '& .MuiBottomNavigationAction-label': {
                   fontSize: '0.75rem',
                 },
@@ -125,7 +125,7 @@ export default function AppShell({ children, user, onSignOut }: AppShellProps) {
             <BottomNavigationAction
               label="Notifications"
               icon={<NotificationsIcon />}
-              sx={{
+              sx={{ 
                 '& .MuiBottomNavigationAction-label': {
                   fontSize: '0.75rem',
                 },
@@ -134,7 +134,7 @@ export default function AppShell({ children, user, onSignOut }: AppShellProps) {
             <BottomNavigationAction
               label="Profile"
               icon={<ProfileIcon />}
-              sx={{
+              sx={{ 
                 '& .MuiBottomNavigationAction-label': {
                   fontSize: '0.75rem',
                 },

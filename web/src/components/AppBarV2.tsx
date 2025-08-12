@@ -40,9 +40,24 @@ import { getOfflineBadgeText, isFeatureDisabled } from '@/lib/offline';
 interface AppBarV2Props {
   user?: any;
   onSignOut?: () => void;
+  resumeData?: {
+    lastUnit?: {
+      id: string;
+      title: string;
+      unit_no: number;
+      progress: number;
+    };
+    lastQuiz?: {
+      id: string;
+      title: string;
+      score?: number;
+      completed: boolean;
+    };
+    totalProgress?: number;
+  };
 }
 
-export default function AppBarV2({ user, onSignOut }: AppBarV2Props) {
+export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const router = useRouter();
@@ -288,15 +303,33 @@ export default function AppBarV2({ user, onSignOut }: AppBarV2Props) {
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               {user ? (
                 <>
-                  <Chip
-                    label="Continue Learning"
-                    color="primary"
-                    onClick={() => router.push('/dashboard')}
-                    sx={{ 
-                      cursor: 'pointer',
-                      fontWeight: 600,
-                    }}
-                  />
+                  {resumeData?.lastUnit ? (
+                    <Chip
+                      label={`Resume: ${resumeData.lastUnit.title}`}
+                      color="primary"
+                      onClick={() => router.push(`/learn/${resumeData.lastUnit!.id}`)}
+                      sx={{ 
+                        cursor: 'pointer',
+                        fontWeight: 600,
+                        maxWidth: 200,
+                        '& .MuiChip-label': {
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                          whiteSpace: 'nowrap',
+                        },
+                      }}
+                    />
+                  ) : (
+                    <Chip
+                      label="Continue Learning"
+                      color="primary"
+                      onClick={() => router.push('/dashboard')}
+                      sx={{ 
+                        cursor: 'pointer',
+                        fontWeight: 600,
+                      }}
+                    />
+                  )}
                   
                   <IconButton
                     size="large"

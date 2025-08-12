@@ -24,6 +24,7 @@ import {
 } from "@mui/material";
 import { Check as CheckIcon } from "@mui/icons-material";
 import { useI18n } from "@/lib/i18n/I18nProvider";
+import AppShell from "@/components/layout/AppShell";
 
 interface Notification {
   id: string;
@@ -137,28 +138,33 @@ export default function NotificationsPage() {
 
   if (loading) {
     return (
-      <Container maxWidth="md" sx={{ py: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          {dict.notifications.title}
-        </Typography>
-        <Typography>{dict.common.loading}</Typography>
-      </Container>
+      <AppShell>
+        <Container maxWidth="md" sx={{ py: 4 }}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            {dict.notifications.title}
+          </Typography>
+          <Typography>{dict.common.loading}</Typography>
+        </Container>
+      </AppShell>
     );
   }
 
   if (error) {
     return (
-      <Container maxWidth="md" sx={{ py: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          {dict.notifications.title}
-        </Typography>
-        <Typography color="error">{error}</Typography>
-      </Container>
+      <AppShell>
+        <Container maxWidth="md" sx={{ py: 4 }}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            {dict.notifications.title}
+          </Typography>
+          <Typography color="error">{error}</Typography>
+        </Container>
+      </AppShell>
     );
   }
 
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
+    <AppShell>
+      <Container maxWidth="md" sx={{ py: 4 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Typography variant="h4" component="h1">
           {dict.notifications.title}
@@ -254,5 +260,6 @@ export default function NotificationsPage() {
         </List>
       )}
     </Container>
+    </AppShell>
   );
 }

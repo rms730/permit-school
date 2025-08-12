@@ -1,9 +1,10 @@
+import { Suspense } from 'react';
 import { getRouteClient } from '@/lib/supabaseRoute';
 import { redirect } from 'next/navigation';
 import AppShell from '@/components/layout/AppShell';
-import PrivacySettings from './PrivacySettings';
+import ProfileEditForm from './ProfileEditForm';
 
-export default async function PrivacyPage() {
+export default async function ProfileEditPage() {
   const supabase = getRouteClient();
   
   const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -19,7 +20,9 @@ export default async function PrivacyPage() {
 
   return (
     <AppShell user={profile}>
-      <PrivacySettings user={user} profile={profile} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ProfileEditForm user={user} profile={profile} />
+      </Suspense>
     </AppShell>
   );
 }

@@ -1,8 +1,6 @@
 import * as React from "react";
 import type { Metadata } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { esES } from "@mui/material/locale";
 import { Inter, Rubik } from 'next/font/google';
 import MuiProvider from "./providers/MuiProvider";
@@ -94,8 +92,7 @@ export default async function RootLayout({
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <MuiProvider>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <I18nProvider locale={locale} dict={dict}>
+            <I18nProvider locale={locale} dict={dict}>
                 <SkipLink />
                 <OfflineModeIndicator />
                 <header>
@@ -113,7 +110,6 @@ export default async function RootLayout({
                   </nav>
                 </footer>
               </I18nProvider>
-            </LocalizationProvider>
           </MuiProvider>
         </AppRouterCacheProvider>
       </body>

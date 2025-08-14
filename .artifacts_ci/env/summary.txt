@@ -1,0 +1,11 @@
+## Env summary
+shell: /bin/zsh
+node: v22.12.0
+npm:  10.9.0
+pnpm: yarn: 4.5.1
+npx:  10.9.0
+python: Python 3.9.6
+chrome: Google Chrome 139.0.7258.67 
+playwright: Version 1.54.2
+git: git version 2.39.5 (Apple Git-154)
+branch: feat/db-baseline-20250813-102008

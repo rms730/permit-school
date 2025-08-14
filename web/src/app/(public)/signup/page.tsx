@@ -27,7 +27,7 @@ import AppBarV2 from '@/components/AppBarV2';
 
 export default function SignupPage() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery('(max-width:600px)');
   const router = useRouter();
   
   const [email, setEmail] = React.useState('');

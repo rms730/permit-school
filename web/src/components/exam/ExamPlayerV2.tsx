@@ -112,7 +112,7 @@ export default function ExamPlayerV2({
   onJumpToQuestion,
 }: ExamPlayerV2Props) {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery('(max-width:900px)');
   const { fire: fireConfetti } = useConfetti();
   const [showReviewDialog, setShowReviewDialog] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);

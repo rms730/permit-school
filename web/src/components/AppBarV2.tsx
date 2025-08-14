@@ -36,6 +36,7 @@ import { useRouter } from 'next/navigation';
 import { signInWithGoogle } from '@/lib/auth';
 import { supabase } from '@/lib/supabaseClient';
 import { getOfflineBadgeText, isFeatureDisabled } from '@/lib/offline';
+import { useState } from 'react';
 
 interface AppBarV2Props {
   user?: any;
@@ -59,12 +60,12 @@ interface AppBarV2Props {
 
 export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props) {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery('(max-width:900px)');
   const router = useRouter();
   
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [notificationsAnchor, setNotificationsAnchor] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [notificationsAnchor, setNotificationsAnchor] = useState<null | HTMLElement>(null);
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);

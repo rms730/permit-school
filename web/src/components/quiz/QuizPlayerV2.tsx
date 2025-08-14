@@ -82,7 +82,7 @@ export default function QuizPlayerV2({
   onRetry,
 }: QuizPlayerV2Props) {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery('(max-width:900px)');
   const { fire: fireConfetti } = useConfetti();
   const [isMuted, setIsMuted] = useState(false);
   const [showAccessibilityMenu, setShowAccessibilityMenu] = useState(false);

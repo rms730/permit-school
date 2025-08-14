@@ -1,0 +1,1 @@
+RUN: npx lhci autorun --upload.target=temporary-public-storage || true

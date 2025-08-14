@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Typography,
@@ -39,7 +39,8 @@ export default function UnitHeader({
   onBack,
 }: UnitHeaderProps) {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery('(max-width:900px)');
+  const [showProgress, setShowProgress] = useState(false);
   const router = useRouter();
 
   const handleBack = () => {

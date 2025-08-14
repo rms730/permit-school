@@ -1,0 +1,8 @@
+../.github/workflows/release.yml:11:    name: Stage • migrate + audit + e2e
+../.github/workflows/release.yml:78:        run: npm run test:e2e
+../.github/workflows/accessibility-ci.yml:10:  lighthouse-ci:
+../.github/workflows/accessibility-ci.yml:44:        uses: treosh/lighthouse-ci-action@v10
+../.github/workflows/accessibility-ci.yml:46:          configPath: './.lighthouserc.json'
+../.github/workflows/accessibility-ci.yml:57:  lint-a11y:
+../.github/workflows/accessibility-ci.yml:85:  e2e:
+../.github/workflows/accessibility-ci.yml:120:          npm run test:e2e

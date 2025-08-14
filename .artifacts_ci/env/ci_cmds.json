@@ -1,0 +1,6 @@
+{
+  "LINT_CMD": "next lint",
+  "A11Y_CMD": "next lint",
+  "LHCI_CMD": "lhci autorun",
+  "E2E_CMD": "playwright test"
+}

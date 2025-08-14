@@ -1,0 +1,42 @@
+  ▲ Next.js 14.2.7
+  - Local:        http://localhost:3005
+
+ ✓ Starting...
+ ⚠ "next start" does not work with "output: standalone" configuration. Use "node .next/standalone/server.js" instead.
+ ✓ Ready in 811ms
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+(node:77277) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Error: Functions cannot be passed directly to Client Components unless you explicitly expose it by marking it with "use server". Or maybe you meant to call this function rather than return it.
+  {keys: ..., values: ..., up: function d, down: ..., between: ..., only: ..., not: ..., unit: ...}
+                               ^^^^^^^^^^
+    at ek (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:140606)
+    at Object.toJSON (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135626)
+    at stringify (<anonymous>)
+    at eR (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142090)
+    at eE (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142569)
+    at Timeout._onTimeout (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135346)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7) {
+  digest: '2298670260'
+}
+Error: Functions cannot be passed directly to Client Components unless you explicitly expose it by marking it with "use server". Or maybe you meant to call this function rather than return it.
+  {keys: ..., values: ..., up: function d, down: ..., between: ..., only: ..., not: ..., unit: ...}
+                               ^^^^^^^^^^
+    at ek (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:140606)
+    at Object.toJSON (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135626)
+    at stringify (<anonymous>)
+    at eR (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142090)
+    at eE (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142569)
+    at Timeout._onTimeout (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135346)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7) {
+  digest: '2298670260'
+}
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport

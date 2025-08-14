@@ -1,0 +1,1 @@
+RUN: npm run lint -- --format json --output-file ../.artifacts_ci/lint/a11y.json

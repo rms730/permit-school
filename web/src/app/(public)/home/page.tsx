@@ -27,7 +27,7 @@ import AppBarV2 from '@/components/AppBarV2';
 
 export default function HomePage() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery('(max-width:900px)');
   const router = useRouter();
 
   const benefits = [

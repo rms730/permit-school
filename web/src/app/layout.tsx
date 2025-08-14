@@ -1,14 +1,11 @@
 import * as React from "react";
 import type { Metadata } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-import { CssBaseline } from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { esES } from "@mui/material/locale";
 import { Inter, Rubik } from 'next/font/google';
-import theme from "@/theme";
-import { modernTheme } from "@/theme/modernTheme";
+import MuiProvider from "./providers/MuiProvider";
 import { getLocaleFromRequest } from "@/lib/i18n/server";
 import { getDictionary } from "@/lib/i18n";
 import { I18nProvider } from "@/lib/i18n/I18nProvider";
@@ -91,20 +88,14 @@ export default async function RootLayout({
 }) {
   const locale = await getLocaleFromRequest();
   const dict = getDictionary(locale);
-  
-  // For now, use classic theme - theme switching will be implemented in later sprints
-  const localeTheme = locale === 'es' 
-    ? { ...theme, components: { ...theme.components } }
-    : theme;
 
   return (
     <html lang={locale} className={`${inter.variable} ${rubik.variable}`}>
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <ThemeProvider theme={localeTheme}>
+          <MuiProvider>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <I18nProvider locale={locale} dict={dict}>
-                <CssBaseline />
                 <SkipLink />
                 <OfflineModeIndicator />
                 <header>
@@ -123,7 +114,7 @@ export default async function RootLayout({
                 </footer>
               </I18nProvider>
             </LocalizationProvider>
-          </ThemeProvider>
+          </MuiProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

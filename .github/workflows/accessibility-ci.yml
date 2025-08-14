@@ -16,34 +16,39 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 20
           cache: 'npm'
           cache-dependency-path: web/package-lock.json
 
       - name: Install dependencies
-        run: |
-          cd web
-          npm ci
+        run: npm ci
+        working-directory: web
 
       - name: Build application
-        run: |
-          cd web
-          npm run build
+        run: npm run build:ci
+        working-directory: web
         env:
           NEXT_PUBLIC_SITE_URL: https://permit-school.com
 
       - name: Start server
         run: |
-          cd web
-          npm run start-ci &
-          sleep 30
+          nohup npm run start:ci >/dev/null 2>&1 &
+          echo "Waiting for http://127.0.0.1:4040 ..."
+          for i in {1..60}; do
+            if curl -fsS http://127.0.0.1:4040 >/dev/null; then
+              echo "✅ server ready"
+              break
+            fi
+            sleep 1
+          done
+        working-directory: web
         env:
           NEXT_PUBLIC_SITE_URL: https://permit-school.com
 
       - name: Run Lighthouse CI
-        uses: treosh/lighthouse-ci-action@v10
+        uses: treosh/lighthouse-ci-action@v11
         with:
-          configPath: './.lighthouserc.json'
+          configPath: web/.lighthouserc.cjs
           uploadArtifacts: true
           temporaryPublicStorage: true
 
@@ -63,24 +68,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 20
           cache: 'npm'
           cache-dependency-path: web/package-lock.json
 
       - name: Install dependencies
-        run: |
-          cd web
-          npm ci
+        run: npm ci
+        working-directory: web
 
       - name: Run ESLint with accessibility rules
-        run: |
-          cd web
-          npm run lint
+        run: npm run lint:a11y
+        working-directory: web
 
       - name: Type check
-        run: |
-          cd web
-          npm run typecheck
+        run: npm run typecheck
+        working-directory: web
 
   e2e:
     runs-on: ubuntu-latest
@@ -91,35 +93,48 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 20
           cache: 'npm'
           cache-dependency-path: web/package-lock.json
 
       - name: Install dependencies
-        run: |
-          cd web
-          npm ci
+        run: npm ci
+        working-directory: web
 
       - name: Install Playwright browsers
-        run: |
-          cd web
-          npx playwright install --with-deps
+        run: npx playwright install --with-deps
+        working-directory: web
 
       - name: Build application
-        run: |
-          cd web
-          npm run build
+        run: npm run build:ci
+        working-directory: web
         env:
-          NEXT_PUBLIC_SITE_URL: http://localhost:3000
+          NEXT_PUBLIC_SITE_URL: http://127.0.0.1:4040
+          TESTKIT_ON: true
+          TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}
+
+      - name: Start server
+        run: |
+          nohup npm run start:ci >/dev/null 2>&1 &
+          echo "Waiting for http://127.0.0.1:4040 ..."
+          for i in {1..60}; do
+            if curl -fsS http://127.0.0.1:4040 >/dev/null; then
+              echo "✅ server ready"
+              break
+            fi
+            sleep 1
+          done
+        working-directory: web
+        env:
+          NEXT_PUBLIC_SITE_URL: http://127.0.0.1:4040
           TESTKIT_ON: true
           TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}
 
       - name: Run E2E tests
-        run: |
-          cd web
-          npm run test:e2e
+        run: npx playwright test --reporter=line
+        working-directory: web
         env:
-          BASE_URL: http://localhost:3000
+          BASE_URL: http://127.0.0.1:4040
           TESTKIT_ON: true
           TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}
 

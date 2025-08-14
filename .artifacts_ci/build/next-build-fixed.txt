@@ -1,0 +1,861 @@
+  ▲ Next.js 14.2.7
+  - Environments: .env.local
+  - Experiments (use with caution):
+    · forceSwcTransforms
+    · instrumentationHook
+
+   Creating an optimized production build ...
+[@sentry/nextjs] It appears you've configured a `sentry.server.config.ts` file. Please ensure to put this file's content into the `register()` function of a Next.js instrumentation file instead. To ensure correct functionality of the SDK, `Sentry.init` must be called inside of an instrumentation file. Learn more about setting up an instrumentation file in Next.js: https://nextjs.org/docs/app/building-your-application/optimizing/instrumentation. You can safely delete the `sentry.server.config.ts` file afterward.
+warn  - It seems like you don't have a global error handler set up. It is recommended that you add a global-error.js file with Sentry instrumentation so that React rendering errors are reported to Sentry. Read more: https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/#react-render-errors-in-app-router (you can suppress this warning by setting SENTRY_SUPPRESS_GLOBAL_ERROR_HANDLER_FILE_WARNING=1 as environment variable)
+> [PWA] Compile server
+> [PWA] Compile server
+[@sentry/nextjs] DEPRECATION WARNING: It is recommended renaming your `sentry.client.config.ts` file, or moving its content to `instrumentation-client.ts`. When using Turbopack `sentry.client.config.ts` will no longer work. Read more about the `instrumentation-client.ts` file: https://nextjs.org/docs/app/api-reference/file-conventions/instrumentation-client
+> [PWA] Compile client (static)
+> [PWA] Auto register service worker with: /Users/rsternke/permit-school/permit-school/web/node_modules/next-pwa/register.js
+> [PWA] Service worker: /Users/rsternke/permit-school/permit-school/web/public/sw.js
+> [PWA]   url: /sw.js
+> [PWA]   scope: /
+ ⚠ Compiled with warnings
+
+./node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js
+./node_modules/@supabase/realtime-js/dist/module/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./src/app/api/account/avatar/upload/route.ts
+
+   Linting and checking validity of types ...
+
+./src/app/admin/audit/page.tsx
+95:6  Warning: React Hook useEffect has a missing dependency: 'fetchAuditLogs'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/admin/fulfillment/inventory/page.tsx
+71:6  Warning: React Hook useEffect has a missing dependency: 'fetchStock'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/admin/security/page.tsx
+339:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/124) ...
+Profile GET error: r [Error]: Dynamic server usage: Route /api/account/profile couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at f (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at i (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/billing/kpis/route.js:1:7013)
+    at l (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/account/profile/route.js:1:3954)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Route /api/account/profile couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Past due users error: r [Error]: Dynamic server usage: Route /api/admin/billing/past-due couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at f (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at i (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/account/profile/route.js:1:6680)
+    at p (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/billing/past-due/route.js:1:3943)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Route /api/admin/billing/past-due couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Error in courses API: q [Error]: Dynamic server usage: Route /api/admin/courses couldn't be rendered statically because it used `request.headers`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at W (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:21106)
+    at Object.get (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:28459)
+    at d (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/courses/route.js:1:3679)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:122:103 {
+  description: "Route /api/admin/courses couldn't be rendered statically because it used `request.headers`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Billing KPIs error: r [Error]: Dynamic server usage: Route /api/admin/billing/kpis couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at f (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at n (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/account/delete/route.js:1:6332)
+    at p (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/billing/kpis/route.js:1:3947)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Route /api/admin/billing/kpis couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Admin invoices error: r [Error]: Dynamic server usage: Route /api/admin/billing/invoices couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at f (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at i (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/pricing/[courseId]/toggle/route.js:1:6201)
+    at p (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/billing/invoices/route.js:1:3947)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Route /api/admin/billing/invoices couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Units API error: q [Error]: Dynamic server usage: Route /api/admin/curriculum/units couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at W (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:21106)
+    at Object.get (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:28459)
+    at p (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/curriculum/units/route.js:1:3964)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:122:103 {
+  description: "Route /api/admin/curriculum/units couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Courses API error: r [Error]: Dynamic server usage: Route /api/admin/curriculum/courses couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at f (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at o (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/curriculum/units/update/route.js:1:6174)
+    at p (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/curriculum/courses/route.js:1:3946)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Route /api/admin/curriculum/courses couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+CSV export error: r [Error]: Dynamic server usage: Route /api/admin/certificates/export couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at f (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at o (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/certificates/export/route.js:10:2125)
+    at p (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/certificates/export/route.js:1:3946)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Route /api/admin/certificates/export couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Admin guardian requests error: r [Error]: Dynamic server usage: Route /api/admin/guardian/requests couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at Object.f [as cookies] (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at S.getCookie (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/2908.js:1:5264)
+    at S.getItem (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/2908.js:1:13548)
+    at e9 (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:27213)
+    at a$.__loadSession (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:58722)
+    at a$._useSession (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:58459)
+    at a$._getUser (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:60322)
+    at /Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:60173
+    at /Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:57768 {
+  description: "Route /api/admin/guardian/requests couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Error in questions tags API: q [Error]: Dynamic server usage: Route /api/admin/questions/tags couldn't be rendered statically because it used `request.headers`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at W (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:21106)
+    at Object.get (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:28459)
+    at d (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/questions/tags/route.js:1:3679)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:122:103 {
+  description: "Route /api/admin/questions/tags couldn't be rendered statically because it used `request.headers`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Fulfillment stock error: r [Error]: Dynamic server usage: Route /api/admin/fulfillment/stock couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at Object.f [as cookies] (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at S.getCookie (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/2908.js:1:5264)
+    at S.getItem (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/2908.js:1:13548)
+    at e9 (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:27213)
+    at a$.__loadSession (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:58722)
+    at a$._useSession (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:58459)
+    at a$._getUser (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:60322)
+    at /Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:60173
+    at /Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:57768 {
+  description: "Route /api/admin/fulfillment/stock couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Error in questions stats API: q [Error]: Dynamic server usage: Route /api/admin/questions/stats couldn't be rendered statically because it used `request.headers`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at W (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:21106)
+    at Object.get (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:28459)
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/questions/stats/route.js:1:3679)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:122:103 {
+  description: "Route /api/admin/questions/stats couldn't be rendered statically because it used `request.headers`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+   Generating static pages (31/124) 
+Evidence CSV error: q [Error]: Dynamic server usage: Route /api/admin/reports/evidence couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at W (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:21106)
+    at Object.get (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:28459)
+    at p (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/reports/evidence/route.js:1:3964)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:122:103 {
+  description: "Route /api/admin/reports/evidence couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Security status error: r [Error]: Dynamic server usage: Route /api/admin/security/status couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at f (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at i (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/audit/route.js:1:6531)
+    at p (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/security/status/route.js:1:3946)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Route /api/admin/security/status couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Billing events error: r [Error]: Dynamic server usage: Route /api/admin/billing/events couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at f (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at n (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/regulatory/runs/[runId]/download/route.js:5:3361)
+    at p (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/billing/events/route.js:1:3946)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Route /api/admin/billing/events couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Billing invoices error: r [Error]: Dynamic server usage: Route /api/billing/invoices couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at f (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at i (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/billing/events/route.js:1:5987)
+    at l (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/billing/invoices/route.js:1:3958)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Route /api/billing/invoices couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Enrollments GET error: r [Error]: Dynamic server usage: Route /api/enrollments couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at f (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at o (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/billing/past-due/route.js:14:2028)
+    at p (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/enrollments/route.js:1:3946)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Route /api/enrollments couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Guardian children API error: r [Error]: Dynamic server usage: Route /api/guardian/children couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at f (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at i (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/account/export/route.js:1:7230)
+    at p (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/guardian/children/route.js:1:3946)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Route /api/guardian/children couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Eligibility check error: r [Error]: Dynamic server usage: Route /api/exam/eligibility couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at f (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at o (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/billing/invoices/route.js:18:2027)
+    at l (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/exam/eligibility/route.js:1:3957)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Route /api/exam/eligibility couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Guardian status error: r [Error]: Dynamic server usage: Route /api/guardian/status couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at Object.f [as cookies] (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at S.getCookie (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/2908.js:1:5264)
+    at S.getItem (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/2908.js:1:13548)
+    at e9 (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:27213)
+    at a$.__loadSession (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:58722)
+    at a$._useSession (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:58459)
+    at a$._getUser (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:60322)
+    at /Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:60173
+    at /Users/rsternke/permit-school/permit-school/web/.next/server/chunks/8233.js:8:57768 {
+  description: "Route /api/guardian/status couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+   Generating static pages (62/124) 
+Catalog API error: r [Error]: Dynamic server usage: Route /api/public/catalog couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at c (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7557.js:25:160549)
+    at f (/Users/rsternke/permit-school/permit-school/web/.next/server/chunks/7262.js:1:2141)
+    at n (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/regulatory/runs/[runId]/download/route.js:5:3361)
+    at d (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/public/catalog/route.js:1:3946)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Route /api/public/catalog couldn't be rendered statically because it used `cookies`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+Syllabus PDF error: q [Error]: Dynamic server usage: Route /api/admin/reports/syllabus couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at W (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:21106)
+    at Object.get (/Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:28459)
+    at l (/Users/rsternke/permit-school/permit-school/web/.next/server/app/api/admin/reports/syllabus/route.js:1:3974)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:36264
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/rsternke/permit-school/permit-school/web/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24)
+    at /Users/rsternke/permit-school/permit-school/web/node_modules/next/dist/server/lib/trace/tracer.js:122:103 {
+  description: "Route /api/admin/reports/syllabus couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /signup. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /signup. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /signup. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /signup. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /signout. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /signout. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /signout. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /signout. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /terms. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /terms. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /terms. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /terms. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /home. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /home. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /home. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /home. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /signin. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /signin. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /signin. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /signin. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /accessibility. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /accessibility. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /accessibility. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /accessibility. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /account/profile. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /account/profile. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /account/profile. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /account/profile. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /privacy. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /privacy. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /privacy. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /privacy. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /account/delete/confirm. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /account/delete/confirm. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /account/delete/confirm. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /account/delete/confirm. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /login. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /login. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /account/privacy. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /account/privacy. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /account/privacy. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /account/privacy. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /login. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /login. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/exams. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/exams. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/exams. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/exams. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /account/auth. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /account/auth. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /account/auth. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /account/auth. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+   Generating static pages (93/124) 
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/curriculum. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/curriculum. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/curriculum. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/curriculum. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /account. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /account. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /account. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /account. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/audit. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/audit. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/pricing. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/pricing. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/pricing. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/pricing. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/certificates. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/certificates. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/certificates. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/certificates. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/blueprints. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/blueprints. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/fulfillment/inventory. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/fulfillment/inventory. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/fulfillment/inventory. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/fulfillment/inventory. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/jurisdictions. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/jurisdictions. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/jurisdictions. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/jurisdictions. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/audit. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/audit. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/guardians. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/guardians. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/guardians. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/guardians. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /billing. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /billing. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /billing. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /billing. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/system. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/system. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/security. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/security. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /auth/callback. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /auth/callback. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /auth/callback. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /auth/callback. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/fulfillment. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/fulfillment. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/fulfillment. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/fulfillment. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /dashboard. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /dashboard. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /dashboard. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /dashboard. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/blueprints. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/blueprints. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/questions. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/questions. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/questions. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/questions. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/reports. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/reports. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/reports. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/reports. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/system. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/system. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/compliance. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/compliance. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/compliance. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/compliance. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /courses. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /courses. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /courses. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /courses. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/security. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/security. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /exam. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /exam. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /exam. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /exam. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /exam/start. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /exam/start. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /exam/start. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /exam/start. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /notifications. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /notifications. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /notifications. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /notifications. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /guardian. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /guardian. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /guardian. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /guardian. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /offline. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /offline. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /offline. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /offline. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/billing. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/billing. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /admin/billing. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /admin/billing. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /profile. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /profile. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /profile. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /profile. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /onboarding. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /onboarding. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /onboarding. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /onboarding. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ✓ Generating static pages (124/124)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                             Size     First Load JS
+┌ ƒ /                                                   3.16 kB         283 kB
+├ ƒ /_not-found                                         1.03 kB         151 kB
+├ ƒ /accessibility                                      4.29 kB         185 kB
+├ ƒ /account                                            3.72 kB         273 kB
+├ ƒ /account/auth                                       8.1 kB          270 kB
+├ ƒ /account/delete/confirm                             5.55 kB         266 kB
+├ ƒ /account/privacy                                    8.2 kB          275 kB
+├ ƒ /account/profile                                    9.37 kB         288 kB
+├ ƒ /admin/audit                                        4.04 kB         306 kB
+├ ƒ /admin/billing                                      9.2 kB          283 kB
+├ ƒ /admin/blueprints                                   4.59 kB         301 kB
+├ ƒ /admin/certificates                                 2.32 kB         287 kB
+├ ƒ /admin/certificates/[id]                            2.31 kB         289 kB
+├ ƒ /admin/compliance                                   17.4 kB         358 kB
+├ ƒ /admin/compliance/[runId]                           7.3 kB          278 kB
+├ ƒ /admin/curriculum                                   1.31 kB         270 kB
+├ ƒ /admin/curriculum/[courseId]                        2.21 kB         270 kB
+├ ƒ /admin/exams                                        1.29 kB         267 kB
+├ ƒ /admin/fulfillment                                  6.92 kB         251 kB
+├ ƒ /admin/fulfillment/inventory                        5.32 kB         247 kB
+├ ƒ /admin/guardians                                    9.09 kB         235 kB
+├ ƒ /admin/jurisdictions                                2.75 kB         288 kB
+├ ƒ /admin/logs                                         1.41 kB         193 kB
+├ ƒ /admin/pricing                                      2.73 kB         287 kB
+├ ƒ /admin/questions                                    19 kB           310 kB
+├ ƒ /admin/reports                                      2.5 kB          279 kB
+├ ƒ /admin/security                                     3.91 kB         288 kB
+├ ƒ /admin/system                                       5.18 kB         271 kB
+├ ƒ /api/account/avatar/upload                          0 B                0 B
+├ ƒ /api/account/delete                                 0 B                0 B
+├ ƒ /api/account/delete/confirm                         0 B                0 B
+├ ƒ /api/account/export                                 0 B                0 B
+├ ƒ /api/account/profile                                0 B                0 B
+├ ƒ /api/admin/audit                                    0 B                0 B
+├ ƒ /api/admin/billing/events                           0 B                0 B
+├ ƒ /api/admin/billing/invoices                         0 B                0 B
+├ ƒ /api/admin/billing/kpis                             0 B                0 B
+├ ƒ /api/admin/billing/past-due                         0 B                0 B
+├ ƒ /api/admin/blueprints                               0 B                0 B
+├ ƒ /api/admin/blueprints/activate                      0 B                0 B
+├ ƒ /api/admin/blueprints/save                          0 B                0 B
+├ ƒ /api/admin/certificates/export                      0 B                0 B
+├ ƒ /api/admin/certificates/issue                       0 B                0 B
+├ ƒ /api/admin/certificates/void                        0 B                0 B
+├ ƒ /api/admin/courses                                  0 B                0 B
+├ ƒ /api/admin/curriculum/courses                       0 B                0 B
+├ ƒ /api/admin/curriculum/units                         0 B                0 B
+├ ƒ /api/admin/curriculum/units/[unitId]/mappings       0 B                0 B
+├ ƒ /api/admin/curriculum/units/[unitId]/save-mappings  0 B                0 B
+├ ƒ /api/admin/curriculum/units/[unitId]/suggest        0 B                0 B
+├ ƒ /api/admin/curriculum/units/reorder                 0 B                0 B
+├ ƒ /api/admin/curriculum/units/update                  0 B                0 B
+├ ƒ /api/admin/fulfillment/batches                      0 B                0 B
+├ ƒ /api/admin/fulfillment/batches/[batchId]/download   0 B                0 B
+├ ƒ /api/admin/fulfillment/batches/[batchId]/reconcile  0 B                0 B
+├ ƒ /api/admin/fulfillment/inventory                    0 B                0 B
+├ ƒ /api/admin/fulfillment/run                          0 B                0 B
+├ ƒ /api/admin/fulfillment/stock                        0 B                0 B
+├ ƒ /api/admin/guardian/requests                        0 B                0 B
+├ ƒ /api/admin/guardian/requests/resend                 0 B                0 B
+├ ƒ /api/admin/jconfig/[jCode]                          0 B                0 B
+├ ƒ /api/admin/jobs/deletions                           0 B                0 B
+├ ƒ /api/admin/jobs/dunning-daily                       0 B                0 B
+├ ƒ /api/admin/jobs/export                              0 B                0 B
+├ ƒ /api/admin/jobs/regulatory-monthly                  0 B                0 B
+├ ƒ /api/admin/jobs/trial-reminders                     0 B                0 B
+├ ƒ /api/admin/jobs/weekly-digest                       0 B                0 B
+├ ƒ /api/admin/pricing/[courseId]/add                   0 B                0 B
+├ ƒ /api/admin/pricing/[courseId]/toggle                0 B                0 B
+├ ƒ /api/admin/questions/archive                        0 B                0 B
+├ ƒ /api/admin/questions/list                           0 B                0 B
+├ ƒ /api/admin/questions/stats                          0 B                0 B
+├ ƒ /api/admin/questions/tags                           0 B                0 B
+├ ƒ /api/admin/questions/upsert                         0 B                0 B
+├ ƒ /api/admin/regulatory/run                           0 B                0 B
+├ ƒ /api/admin/regulatory/runs                          0 B                0 B
+├ ƒ /api/admin/regulatory/runs/[runId]/artifacts        0 B                0 B
+├ ƒ /api/admin/regulatory/runs/[runId]/download         0 B                0 B
+├ ƒ /api/admin/reports/evidence                         0 B                0 B
+├ ƒ /api/admin/reports/syllabus                         0 B                0 B
+├ ƒ /api/admin/security/mfa/disable                     0 B                0 B
+├ ƒ /api/admin/security/mfa/setup                       0 B                0 B
+├ ƒ /api/admin/security/mfa/verify                      0 B                0 B
+├ ƒ /api/admin/security/reauth                          0 B                0 B
+├ ƒ /api/admin/security/status                          0 B                0 B
+├ ƒ /api/attempts/answer                                0 B                0 B
+├ ƒ /api/attempts/complete                              0 B                0 B
+├ ƒ /api/attempts/start                                 0 B                0 B
+├ ƒ /api/auth/profile/upsert                            0 B                0 B
+├ ƒ /api/billing/cancel                                 0 B                0 B
+├ ƒ /api/billing/checkout                               0 B                0 B
+├ ƒ /api/billing/invoices                               0 B                0 B
+├ ƒ /api/billing/portal                                 0 B                0 B
+├ ƒ /api/billing/resume                                 0 B                0 B
+├ ƒ /api/billing/summary                                0 B                0 B
+├ ƒ /api/billing/webhook                                0 B                0 B
+├ ƒ /api/certificates/[number]                          0 B                0 B
+├ ƒ /api/consent                                        0 B                0 B
+├ ƒ /api/enroll                                         0 B                0 B
+├ ƒ /api/enrollments                                    0 B                0 B
+├ ƒ /api/exam/answer                                    0 B                0 B
+├ ƒ /api/exam/complete                                  0 B                0 B
+├ ƒ /api/exam/eligibility                               0 B                0 B
+├ ƒ /api/exam/start                                     0 B                0 B
+├ ƒ /api/guardian/cancel                                0 B                0 B
+├ ƒ /api/guardian/children                              0 B                0 B
+├ ƒ /api/guardian/children/[studentId]/courses          0 B                0 B
+├ ƒ /api/guardian/consent                               0 B                0 B
+├ ƒ /api/guardian/request                               0 B                0 B
+├ ƒ /api/guardian/status                                0 B                0 B
+├ ƒ /api/guardian/verify/[token]                        0 B                0 B
+├ ○ /api/health                                         0 B                0 B
+├ ƒ /api/notifications                                  0 B                0 B
+├ ƒ /api/notifications/read                             0 B                0 B
+├ ƒ /api/profile                                        0 B                0 B
+├ ƒ /api/progress/heartbeat                             0 B                0 B
+├ ƒ /api/progress/seat-time                             0 B                0 B
+├ ƒ /api/public/catalog                                 0 B                0 B
+├ ƒ /api/testkit/cert/draft-to-issued                   0 B                0 B
+├ ƒ /api/testkit/enroll                                 0 B                0 B
+├ ƒ /api/testkit/entitlement                            0 B                0 B
+├ ƒ /api/testkit/exam/blueprint                         0 B                0 B
+├ ƒ /api/testkit/guardian/request                       0 B                0 B
+├ ƒ /api/testkit/reset                                  0 B                0 B
+├ ƒ /api/testkit/seat-time                              0 B                0 B
+├ ƒ /api/testkit/user                                   0 B                0 B
+├ ƒ /api/tutor                                          0 B                0 B
+├ ƒ /auth/callback                                      3.16 kB         222 kB
+├ ƒ /billing                                            6.07 kB         272 kB
+├ ƒ /course/[j_code]/[course_code]                      456 B           271 kB
+├ ƒ /courses                                            5.58 kB         270 kB
+├ ƒ /dashboard                                          7.81 kB         272 kB
+├ ƒ /exam                                               2.58 kB         268 kB
+├ ƒ /exam/[attemptId]                                   2.24 kB         274 kB
+├ ƒ /exam/start                                         4.3 kB          265 kB
+├ ƒ /guardian                                           6.11 kB         268 kB
+├ ƒ /guardian/[studentId]                               5.21 kB         197 kB
+├ ƒ /guardian/student/[id]                              6.52 kB         269 kB
+├ ƒ /guardian/verify/[token]                            5.35 kB         231 kB
+├ ƒ /home                                               4 kB            268 kB
+├ ƒ /learn/[unitId]                                     3.81 kB         270 kB
+├ ƒ /login                                              6.04 kB         282 kB
+├ ƒ /notifications                                      6.68 kB         278 kB
+├ ƒ /offline                                            5.05 kB         197 kB
+├ ƒ /onboarding                                         8.28 kB         290 kB
+├ ƒ /privacy                                            2.02 kB         264 kB
+├ ƒ /profile                                            3.01 kB         287 kB
+├ ƒ /quiz/[attemptId]                                   3.53 kB         250 kB
+├ ƒ /quiz/start/[unitId]                                4.93 kB         268 kB
+├ ○ /robots.txt                                         0 B                0 B
+├ ƒ /signin                                             4.77 kB         266 kB
+├ ƒ /signout                                            613 B           195 kB
+├ ƒ /signup                                             6.21 kB         282 kB
+├ ○ /sitemap.xml                                        0 B                0 B
+├ ƒ /terms                                              2.02 kB         264 kB
+└ ƒ /verify/[number]                                    3.49 kB         269 kB
++ First Load JS shared by all                           150 kB
+  ├ chunks/3237-b7e04acbbfec61ee.js                     93 kB
+  ├ chunks/fd9d1056-c1e7d054c97dbd89.js                 53.8 kB
+  └ other shared chunks (total)                         3.21 kB
+
+
+ƒ Middleware                                            70.2 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

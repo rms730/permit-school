@@ -93,7 +93,7 @@ select
     from public.certificates as cert
     where cert.student_id = ste.student_id
       and cert.course_id = ste.course_id
-      and cert.status in ('draft','issued')
+      and cert.status in ('draft','ready')
   ) as has_certificate
 from public.guardian_links as gl
 join public.seat_time_events as ste

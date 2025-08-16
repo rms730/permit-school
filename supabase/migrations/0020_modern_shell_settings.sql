@@ -36,11 +36,11 @@ begin
       to authenticated
       using (
         bucket_id = 'avatars'
-        and (storage.foldername(name) = safe_auth_uid()::text)
+        and (storage.foldername(name))[1] = safe_auth_uid()::text
       )
       with check (
         bucket_id = 'avatars'
-        and (storage.foldername(name) = safe_auth_uid()::text)
+        and (storage.foldername(name))[1] = safe_auth_uid()::text
       );
   end if;
 end$$;
@@ -59,7 +59,7 @@ begin
       using (
         bucket_id = 'avatars'
         and (
-          storage.foldername(name) = safe_auth_uid()::text
+          (storage.foldername(name))[1] = safe_auth_uid()::text
           or is_admin()
         )
       );

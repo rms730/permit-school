@@ -148,7 +148,7 @@ BEGIN
         LEFT JOIN public.student_profiles AS sp ON sp.user_id = p.id
         LEFT JOIN public.fulfillment_items AS fi ON fi.certificate_id = cert.id
         WHERE j.code = p_j_code 
-            AND cert.status = 'issued' 
+            AND cert.status = 'ready' 
             AND fi.certificate_id IS NULL
             AND (p_course_id IS NULL OR c.id = p_course_id)
     LOOP
@@ -278,7 +278,7 @@ INNER JOIN public.profiles AS p ON p.id = cert.student_id
 LEFT JOIN public.student_profiles AS sp ON p.id = sp.user_id
 LEFT JOIN public.fulfillment_items AS fi ON cert.id = fi.certificate_id
 WHERE j.code = 'CA' 
-    AND cert.status = 'issued' 
+    AND cert.status = 'ready' 
     AND fi.certificate_id IS NULL;
 
 -- View: Inventory status

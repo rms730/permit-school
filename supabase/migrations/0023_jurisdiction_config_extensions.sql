@@ -17,13 +17,20 @@ COMMENT ON COLUMN public.jurisdiction_configs.regulatory_signing_secret IS 'Secr
 COMMENT ON COLUMN public.jurisdiction_configs.fulfillment_low_stock_threshold IS 'Threshold for low stock alerts in certificate fulfillment';
 
 -- Update existing CA configuration with current environment variable values
-UPDATE public.jurisdiction_configs 
-SET 
-  certificate_issuer_name = 'Acme Driving Academy',
-  certificate_issuer_license = 'CA-INS-000123',
-  support_phone = '1-800-PERMIT',
-  fulfillment_low_stock_threshold = 200
-WHERE jurisdiction_id = (SELECT id FROM public.jurisdictions WHERE code = 'CA');
+DO $$
+BEGIN
+  UPDATE public.jurisdiction_configs 
+  SET 
+    certificate_issuer_name = 'Acme Driving Academy',
+    certificate_issuer_license = 'CA-INS-000123',
+    support_phone = '1-800-PERMIT',
+    fulfillment_low_stock_threshold = 200
+  WHERE jurisdiction_id = (SELECT id FROM public.jurisdictions WHERE code = 'CA');
+EXCEPTION
+  WHEN OTHERS THEN
+    -- Log the error but continue
+    RAISE NOTICE 'Error updating CA jurisdiction config: %', SQLERRM;
+END $$;
 
 -- Create a view for easy access to jurisdiction configuration
 CREATE OR REPLACE VIEW public.v_jurisdiction_config AS

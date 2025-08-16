@@ -22,10 +22,12 @@ CREATE INDEX IF NOT EXISTS question_translations_q_lang_idx
 ALTER TABLE public.question_translations ENABLE ROW LEVEL SECURITY;
 
 -- RLS Policies
+DROP POLICY IF EXISTS question_translations_select_all ON public.question_translations;
 CREATE POLICY question_translations_select_all
     ON public.question_translations FOR SELECT
     USING (true);
 
+DROP POLICY IF EXISTS question_translations_admin_all ON public.question_translations;
 CREATE POLICY question_translations_admin_all
     ON public.question_translations FOR ALL
     USING (is_admin());

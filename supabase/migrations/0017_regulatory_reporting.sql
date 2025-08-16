@@ -159,7 +159,7 @@ with cert_data as (
     on cert.course_id = c.id
   inner join public.jurisdictions as j
     on cert.jurisdiction_id = j.id
-  where cert.status = 'issued'
+  where cert.status = 'ready'
     and cert.issued_at is not null
 )
 

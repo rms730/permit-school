@@ -68,7 +68,7 @@ export default function InventoryPage() {
   useEffect(() => {
     fetchInventory();
     fetchStock();
-  }, [jCode]);
+  }, [jCode]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchInventory = async () => {
     try {

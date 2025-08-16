@@ -336,6 +336,7 @@ export default function AdminSecurityPage() {
                 </Typography>
                 
                 <Box display="flex" justifyContent="center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
                     src={mfaSetup.qr_code} 
                     alt="MFA QR Code" 

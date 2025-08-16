@@ -38,6 +38,10 @@ jobs:
         run: npm run build:ci
         working-directory: web
         env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon-placeholder' }}
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || 'service-role-placeholder' }}
           NEXT_PUBLIC_SITE_URL: https://permit-school.com
 
       - name: Start server
@@ -139,6 +143,10 @@ jobs:
         run: npm run build:ci
         working-directory: web
         env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon-placeholder' }}
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || 'service-role-placeholder' }}
           NEXT_PUBLIC_SITE_URL: http://127.0.0.1:4040
           TESTKIT_ON: true
           TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}

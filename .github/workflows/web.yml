@@ -57,6 +57,8 @@ jobs:
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon-placeholder' }}
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || 'service-role-placeholder' }}
           NEXT_PUBLIC_COMMIT_SHA: ${{ github.sha }}
           NEXT_PUBLIC_BUILD_AT: ${{ github.run_started_at }}
           SENTRY_SUPPRESS_GLOBAL_ERROR_HANDLER_FILE_WARNING: 1

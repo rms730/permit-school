@@ -20,12 +20,27 @@ end$$;
 -- notifications: per-user, read-only payload
 create table if not exists public.notifications (
   id bigserial primary key,
-  user_id uuid not null references auth.users(id) on delete cascade,
+  user_id uuid not null,
   type public.notification_type not null,
   data jsonb not null, -- {course_id, unit_id, minutes, attempt_id, certificate_number, ...}
   read_at timestamptz,
   created_at timestamptz not null default now()
 );
+
+-- Add FK to auth.users defensively
+do $$
+begin
+  if to_regclass('auth.users') is not null then
+    execute $ddl$
+      alter table public.notifications
+      add constraint notifications_user_id_fkey
+      foreign key (user_id) references auth.users(id)
+      on delete cascade;
+    $ddl$;
+  else
+    raise notice 'auth.users not present at migration time; skipping FK for local apply';
+  end if;
+end$$;
 
 create index if not exists notifications_user_created_idx
   on public.notifications (user_id, created_at desc);
@@ -44,7 +59,7 @@ create policy notifications_owner_update
 -- admin read (support)
 create policy notifications_admin_read
   on public.notifications for select
-  using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+  using (is_admin());
 
 -- guardian reporting views (read-only, RLS respected via underlying tables)
 create or replace view public.v_guardian_children as

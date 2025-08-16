@@ -24,10 +24,15 @@ interface JurisdictionConfig {
   final_exam_pass_pct: number;
   seat_time_required_minutes: number;
   certificate_prefix: string;
+  certificate_issuer_name?: string;
+  certificate_issuer_license?: string;
   disclaimer?: string;
   support_email?: string;
+  support_phone?: string;
   terms_url?: string;
   privacy_url?: string;
+  regulatory_signing_secret?: string;
+  fulfillment_low_stock_threshold?: number;
 }
 
 interface Jurisdiction {
@@ -50,10 +55,15 @@ export default function JurisdictionConfigDialog({ jurisdiction, config }: Props
     final_exam_pass_pct: config?.final_exam_pass_pct || 0.8,
     seat_time_required_minutes: config?.seat_time_required_minutes || 150,
     certificate_prefix: config?.certificate_prefix || jurisdiction.code,
+    certificate_issuer_name: config?.certificate_issuer_name || "",
+    certificate_issuer_license: config?.certificate_issuer_license || "",
     disclaimer: config?.disclaimer || "",
     support_email: config?.support_email || "",
+    support_phone: config?.support_phone || "",
     terms_url: config?.terms_url || "",
     privacy_url: config?.privacy_url || "",
+    regulatory_signing_secret: config?.regulatory_signing_secret || "",
+    fulfillment_low_stock_threshold: config?.fulfillment_low_stock_threshold || 200,
   });
 
   const handleOpen = () => setOpen(true);
@@ -187,6 +197,50 @@ export default function JurisdictionConfigDialog({ jurisdiction, config }: Props
               onChange={(e) => handleInputChange("privacy_url", e.target.value)}
               fullWidth
               helperText="Relative path (e.g., /privacy)"
+            />
+
+            <Stack direction="row" spacing={2}>
+              <TextField
+                label="Certificate Issuer Name"
+                value={formData.certificate_issuer_name}
+                onChange={(e) => handleInputChange("certificate_issuer_name", e.target.value)}
+                fullWidth
+                helperText="e.g., Acme Driving Academy"
+              />
+              <TextField
+                label="Certificate Issuer License"
+                value={formData.certificate_issuer_license}
+                onChange={(e) => handleInputChange("certificate_issuer_license", e.target.value)}
+                fullWidth
+                helperText="e.g., CA-INS-000123"
+              />
+            </Stack>
+
+            <TextField
+              label="Support Phone"
+              value={formData.support_phone}
+              onChange={(e) => handleInputChange("support_phone", e.target.value)}
+              fullWidth
+              helperText="e.g., 1-800-PERMIT"
+            />
+
+            <TextField
+              label="Regulatory Signing Secret"
+              value={formData.regulatory_signing_secret}
+              onChange={(e) => handleInputChange("regulatory_signing_secret", e.target.value)}
+              type="password"
+              fullWidth
+              helperText="Secret key for signing regulatory reports"
+            />
+
+            <TextField
+              label="Fulfillment Low Stock Threshold"
+              type="number"
+              value={formData.fulfillment_low_stock_threshold}
+              onChange={(e) => handleInputChange("fulfillment_low_stock_threshold", parseInt(e.target.value))}
+              fullWidth
+              inputProps={{ min: 1 }}
+              helperText="Alert threshold for certificate inventory"
             />
           </Stack>
         </DialogContent>

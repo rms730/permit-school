@@ -52,7 +52,7 @@ create policy student_profiles_update_own
 
 create policy student_profiles_admin_read
   on public.student_profiles for select
-  using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+  using (is_admin());
 
 -- enrollments: user ↔ course (one active per course)
 do $$
@@ -64,13 +64,28 @@ end$$;
 
 create table if not exists public.enrollments (
   id uuid primary key default gen_random_uuid(),
-  student_id uuid not null references auth.users(id) on delete cascade,
+  student_id uuid not null,
   course_id uuid not null references public.courses(id) on delete cascade,
   status public.enrollment_status not null default 'active',
   started_at timestamptz not null default now(),
   completed_at timestamptz,
   unique (student_id, course_id)
 );
+
+-- Add FK to auth.users defensively
+do $$
+begin
+  if to_regclass('auth.users') is not null then
+    execute $ddl$
+      alter table public.enrollments
+      add constraint enrollments_student_id_fkey
+      foreign key (student_id) references auth.users(id)
+      on delete cascade;
+    $ddl$;
+  else
+    raise notice 'auth.users not present at migration time; skipping FK for local apply';
+  end if;
+end$$;
 
 alter table public.enrollments enable row level security;
 
@@ -91,18 +106,33 @@ create policy enrollments_update_own
 
 create policy enrollments_admin_all
   on public.enrollments for all
-  using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+  using (is_admin());
 
 -- consents: audit of e-sign events (terms/privacy/guardian)
 create table if not exists public.consents (
   id bigserial primary key,
-  student_id uuid not null references auth.users(id) on delete cascade,
+  student_id uuid not null,
   consent_type text not null check (consent_type in ('terms','privacy','guardian')),
   signed_at timestamptz not null default now(),
   ip inet,
   user_agent text,
   payload jsonb
 );
+
+-- Add FK to auth.users defensively
+do $$
+begin
+  if to_regclass('auth.users') is not null then
+    execute $ddl$
+      alter table public.consents
+      add constraint consents_student_id_fkey
+      foreign key (student_id) references auth.users(id)
+      on delete cascade;
+    $ddl$;
+  else
+    raise notice 'auth.users not present at migration time; skipping FK for local apply';
+  end if;
+end$$;
 
 alter table public.consents enable row level security;
 
@@ -119,7 +149,7 @@ create policy consents_insert_own
 
 create policy consents_admin_read
   on public.consents for select
-  using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+  using (is_admin());
 
 -- helper view: eligibility snapshot (profile completeness + seat time)
 create or replace view public.v_profile_eligibility as
@@ -137,12 +167,12 @@ select
     and sp.postal_code is not null
     and sp.terms_accepted_at is not null
     and sp.privacy_accepted_at is not null) as is_profile_complete
-from auth.users as u
+from public.profiles as u
 join public.enrollments as e
-  on auth.users.id = public.enrollments.student_id
+  on u.id = e.student_id
 join public.courses as c
-  on public.enrollments.course_id = public.courses.id
+  on e.course_id = c.id
 join public.jurisdictions as j
-  on public.courses.jurisdiction_id = public.jurisdictions.id
+  on c.jurisdiction_id = j.id
 left join public.student_profiles as sp
-  on auth.users.id = public.student_profiles.user_id;
+  on u.id = sp.user_id;

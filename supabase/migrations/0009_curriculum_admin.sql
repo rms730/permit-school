@@ -21,7 +21,7 @@ select
   c.title as course_title,
   j.code as jurisdiction_code,
   ste.course_id,
-  cert.certificate_number,
+  cert.number,
   cert.issued_at,
   sum(ste.ms_delta) / 60000.0 as minutes_total,
   count(a.id) as quiz_attempts,
@@ -43,7 +43,7 @@ left join public.courses as c
 left join public.jurisdictions as j
   on c.jurisdiction_id = j.id
 where ste.course_id is not null
-group by p.id, p.full_name, p.role, c.code, c.title, j.code, ste.course_id, cert.certificate_number, cert.issued_at;
+group by p.id, p.full_name, p.role, c.code, c.title, j.code, ste.course_id, cert.number, cert.issued_at;
 
 -- Function to safely reorder units
 create or replace function public.reorder_course_units(

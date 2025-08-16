@@ -1,3 +1,4 @@
+-- 0024_i18n.sql
 -- i18n: question translations + locale support
 -- Add locale column to student_profiles
 ALTER TABLE public.student_profiles
@@ -27,7 +28,7 @@ CREATE POLICY question_translations_select_all
 
 CREATE POLICY question_translations_admin_all
     ON public.question_translations FOR ALL
-    USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+    USING (is_admin());
 
 -- Helper view for convenience in API
 CREATE OR REPLACE VIEW public.v_question_text AS

@@ -67,12 +67,12 @@ alter table public.regulatory_artifacts enable row level security;
 -- RLS policies for regulatory_runs (admin only)
 create policy regulatory_runs_admin_all
   on public.regulatory_runs for all
-  using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+  using (is_admin());
 
 -- RLS policies for regulatory_artifacts (admin only)
 create policy regulatory_artifacts_admin_all
   on public.regulatory_artifacts for all
-  using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+  using (is_admin());
 
 -- Touch updated_at trigger
 drop trigger if exists trg_regulatory_runs_touch on public.regulatory_runs;
@@ -88,10 +88,10 @@ with roster_data as (
   select
     p.id as user_id,
     p.full_name,
-    sp.date_of_birth,
-    sp.address_city,
-    sp.address_state,
-    sp.address_zip,
+    sp.dob as date_of_birth,
+    sp.city as address_city,
+    sp.state as address_state,
+    sp.postal_code as address_zip,
     c.id as course_id,
     c.code as course_code,
     c.title as course_title,

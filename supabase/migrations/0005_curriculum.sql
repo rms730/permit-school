@@ -7,9 +7,21 @@ CREATE TABLE IF NOT EXISTS public.course_units (
     course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE CASCADE,
     unit_no int NOT NULL CHECK (unit_no > 0),
     title text NOT NULL,
-    minutes_required int NOT NULL CHECK (minutes_required BETWEEN 5 AND 240),
-    UNIQUE (course_id, unit_no)
+    minutes_required int NOT NULL CHECK (minutes_required BETWEEN 5 AND 240)
 );
+
+-- Add unique constraint if it doesn't exist
+DO $$ 
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM pg_constraint 
+        WHERE conname = 'course_units_course_unit_unique'
+    ) THEN
+        ALTER TABLE public.course_units 
+        ADD CONSTRAINT course_units_course_unit_unique 
+        UNIQUE (course_id, unit_no);
+    END IF;
+END $$;
 
 -- Unit content chunks (mapped to handbook content)
 CREATE TABLE IF NOT EXISTS public.unit_chunks (

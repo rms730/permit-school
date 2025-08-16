@@ -72,10 +72,15 @@ export async function POST(
       final_exam_pass_pct,
       seat_time_required_minutes,
       certificate_prefix,
+      certificate_issuer_name,
+      certificate_issuer_license,
       disclaimer,
       support_email,
+      support_phone,
       terms_url,
       privacy_url,
+      regulatory_signing_secret,
+      fulfillment_low_stock_threshold,
     } = body;
 
     // Validate required fields
@@ -113,10 +118,15 @@ export async function POST(
         final_exam_pass_pct,
         seat_time_required_minutes,
         certificate_prefix,
+        certificate_issuer_name,
+        certificate_issuer_license,
         disclaimer,
         support_email,
+        support_phone,
         terms_url,
         privacy_url,
+        regulatory_signing_secret,
+        fulfillment_low_stock_threshold,
         updated_at: new Date().toISOString(),
       })
       .select()

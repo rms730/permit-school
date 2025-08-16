@@ -3,7 +3,7 @@
 
 -- jurisdiction-level runtime config
 create table if not exists public.jurisdiction_configs (
-  jurisdiction_id uuid primary key references public.jurisdictions(id) on delete cascade,
+  jurisdiction_id integer primary key references public.jurisdictions(id) on delete cascade,
   final_exam_questions int not null default 30,
   final_exam_pass_pct numeric not null check (final_exam_pass_pct > 0 and final_exam_pass_pct <= 1) default 0.8,
   seat_time_required_minutes int not null default 150,

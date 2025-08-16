@@ -22,33 +22,46 @@ insert into storage.buckets (id, name, public)
 values ('avatars','avatars', false) 
 on conflict (id) do nothing;
 
--- Storage RLS policies for avatars bucket
--- Owner can insert/update/delete within avatars/{auth.uid()}/*
-create policy "Users can upload their own avatars"
-  on storage.objects for insert
-  with check (
-    bucket_id = 'avatars' 
-    and auth.uid()::text = (storage.foldername(name))[1]
-  );
+-- Storage RLS policies for avatars bucket (robust version)
+-- Owner write policies
+do $$
+begin
+  if not exists (
+    select 1 from pg_policies
+    where schemaname = 'storage' and tablename = 'objects' and policyname = 'avatars-owner-write'
+  ) then
+    create policy "avatars-owner-write"
+      on storage.objects
+      for all
+      to authenticated
+      using (
+        bucket_id = 'avatars'
+        and (storage.foldername(name) = safe_auth_uid()::text)
+      )
+      with check (
+        bucket_id = 'avatars'
+        and (storage.foldername(name) = safe_auth_uid()::text)
+      );
+  end if;
+end$$;
 
-create policy "Users can update their own avatars"
-  on storage.objects for update
-  using (
-    bucket_id = 'avatars' 
-    and auth.uid()::text = (storage.foldername(name))[1]
-  );
-
-create policy "Users can delete their own avatars"
-  on storage.objects for delete
-  using (
-    bucket_id = 'avatars' 
-    and auth.uid()::text = (storage.foldername(name))[1]
-  );
-
--- Anyone can read avatars (for signed URL access)
-create policy "Anyone can read avatars"
-  on storage.objects for select
-  using (bucket_id = 'avatars');
-
--- Add comment for documentation
-comment on table storage.objects is 'Avatar files stored in private bucket, accessed via signed URLs';
+-- Owner read (signed URLs bypass RLS, but allow owner/admin anyway)
+do $$
+begin
+  if not exists (
+    select 1 from pg_policies
+    where schemaname = 'storage' and tablename = 'objects' and policyname = 'avatars-owner-read'
+  ) then
+    create policy "avatars-owner-read"
+      on storage.objects
+      for select
+      to authenticated
+      using (
+        bucket_id = 'avatars'
+        and (
+          storage.foldername(name) = safe_auth_uid()::text
+          or is_admin()
+        )
+      );
+  end if;
+end$$;

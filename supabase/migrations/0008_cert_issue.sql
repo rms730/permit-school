@@ -29,7 +29,7 @@ drop constraint if exists certificates_status_check;
 
 alter table public.certificates
 add constraint certificates_status_check
-check (status in ('draft', 'issued', 'void'));
+check (status in ('ready', 'queued', 'mailed', 'void', 'draft'));
 
 -- Create index on number for fast lookups
 create index if not exists certificates_number_idx
@@ -44,12 +44,12 @@ on conflict (id) do nothing;
 drop policy if exists certs_own_read on public.certificates;
 drop policy if exists certs_admin_write on public.certificates;
 
--- Users can read their own certificates (draft or issued only)
+-- Users can read their own certificates (draft or ready only)
 create policy certs_own_read
 on public.certificates for select
 using (
   auth.uid() = student_id
-  and status in ('draft', 'issued')
+  and status in ('draft', 'ready')
 );
 
 -- Admins can read all certificates
@@ -65,4 +65,4 @@ using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
 -- Admins can insert certificates
 create policy certs_admin_insert
 on public.certificates for insert
-using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+with check ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');

@@ -5,6 +5,7 @@ This document describes the bilingual (English/Spanish) implementation for the p
 ## Overview
 
 The i18n system provides:
+
 - **Locale detection**: Cookie-based with profile fallback
 - **UI translations**: Complete Spanish translations for core UI elements
 - **Content localization**: Locale-aware learning content and exam questions
@@ -53,7 +54,7 @@ import { getDictionary } from '@/lib/i18n';
 export default async function MyPage() {
   const locale = await getLocaleFromRequest();
   const dict = getDictionary(locale);
-  
+
   return <div>{dict.nav.home}</div>;
 }
 ```
@@ -65,7 +66,7 @@ import { useI18n } from '@/lib/i18n/I18nProvider';
 
 export default function MyComponent() {
   const { locale, dict } = useI18n();
-  
+
   return <button>{dict.actions.start}</button>;
 }
 ```
@@ -73,7 +74,7 @@ export default function MyComponent() {
 ### API Routes
 
 ```typescript
-import { getLocaleFromRequest } from '@/lib/i18n/server';
+import { getLocaleFromRequest } from "@/lib/i18n/server";
 
 export async function POST(req: Request) {
   const locale = await getLocaleFromRequest();
@@ -91,6 +92,7 @@ export async function POST(req: Request) {
 ## Language Switcher
 
 The `LanguageSwitcher` component in the AppBar allows users to toggle between English and Spanish. It:
+
 - Sets the `lang` cookie
 - Updates the user's profile locale (if signed in)
 - Triggers a page refresh to apply changes
@@ -100,12 +102,14 @@ The `LanguageSwitcher` component in the AppBar allows users to toggle between En
 ### Learning Content
 
 The learn page filters `content_chunks` by locale:
+
 - Prefers chunks with `lang = current_locale`
 - Falls back to English (`lang = 'en'`) if no localized content exists
 
 ### Exam Questions
 
 Question translations are applied when creating exam attempts:
+
 - Fetches translations from `question_translations` table
 - Overrides `stem`, `choices`, and `explanation` fields
 - Keeps answer keys unchanged (scoring is locale-independent)
@@ -119,10 +123,10 @@ The tutor API accepts an optional `lang` parameter to prioritize localized conte
 Email functions accept a `locale` parameter:
 
 ```typescript
-await sendWelcomeEmail({ 
-  to: 'user@example.com', 
-  name: 'John', 
-  locale: 'es' 
+await sendWelcomeEmail({
+  to: "user@example.com",
+  name: "John",
+  locale: "es",
 });
 ```
 
@@ -148,7 +152,7 @@ await sendWelcomeEmail({
 
 ```sql
 -- Check translation coverage
-SELECT 
+SELECT
   COUNT(*) as total_questions,
   COUNT(qt.question_id) as translated_questions,
   ROUND(COUNT(qt.question_id) * 100.0 / COUNT(*), 2) as coverage_percent

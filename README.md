@@ -33,6 +33,7 @@ PLAN.md – initial backlog (agent-readable)
 ### Features
 
 #### Guardian Portal
+
 - **My Students** (`/guardian`) - List of linked students with basic info
 - **Student Overview** (`/guardian/[studentId]`) - Detailed progress view showing:
   - Student name and age
@@ -40,12 +41,14 @@ PLAN.md – initial backlog (agent-readable)
   - All data is read-only and respects existing RLS policies
 
 #### Notifications System
+
 - **In-app notifications** with unread badges in the AppBar
 - **Notification types**: seat time milestones, quiz completions, final exam results, certificate issuances, guardian consent verification, weekly digests
 - **Privacy-preserving**: Only minimal, appropriate data in notifications
 - **Fan-out**: Notifications sent to both students and their linked guardians
 
 #### Notification Triggers
+
 - **Seat time milestones**: Every 30 minutes of study time (configurable)
 - **Final exam completion**: When student passes final exam
 - **Certificate issuance**: When admin issues certificate
@@ -55,6 +58,7 @@ PLAN.md – initial backlog (agent-readable)
 ### Database Schema
 
 The migration `0016_guardian_portal.sql` adds:
+
 - `notifications` table with RLS policies
 - `v_guardian_children` view for guardian-student relationships
 - `v_guardian_student_course` view for progress summaries
@@ -62,14 +66,17 @@ The migration `0016_guardian_portal.sql` adds:
 ### API Endpoints
 
 #### Guardian Portal
+
 - `GET /api/guardian/children` - List linked students (guardian/admin only)
 - `GET /api/guardian/children/[studentId]/courses` - Student course progress
 
 #### Notifications
+
 - `GET /api/notifications` - User's notifications (paginated)
 - `POST /api/notifications/read` - Mark notifications as read
 
 #### Jobs
+
 - `POST /api/admin/jobs/weekly-digest` - Generate weekly digest (HMAC protected)
 
 ### Privacy & Security
@@ -106,6 +113,7 @@ curl -X POST http://localhost:3000/api/admin/jobs/weekly-digest \
 ### Features
 
 #### Google Sign-In (Supabase OAuth)
+
 - **One-click Google login/signup** with profile upsert and avatar
 - **Fully SSR-compatible** OAuth flow
 - **Profile upsert on first login** with Google data (display name, avatar, locale)
@@ -113,6 +121,7 @@ curl -X POST http://localhost:3000/api/admin/jobs/weekly-digest \
 - **Admin MFA requirements preserved**
 
 #### UX Refresh (Phase 1 — Foundations)
+
 - **Modern theme system** with teen-friendly colors (teal/cyan primary, violet secondary)
 - **Google Fonts integration** (Rubik for headings, Inter for body)
 - **Mobile-first responsive design** with touch-friendly targets (≥44px)
@@ -120,6 +129,7 @@ curl -X POST http://localhost:3000/api/admin/jobs/weekly-digest \
 - **Hero section** with gradient backgrounds and engaging copy
 
 #### Mobile-First Polish
+
 - **Responsive layouts** that work on xs/sm breakpoints
 - **Touch-friendly interactions** with increased hit areas
 - **Mobile navigation drawer** with large targets
@@ -128,6 +138,7 @@ curl -X POST http://localhost:3000/api/admin/jobs/weekly-digest \
 ### Database Schema
 
 The migration `0019_auth_ui_foundation.sql` adds:
+
 - `avatar_url` - Google OAuth avatar URL
 - `preferred_name` - User preferred display name
 - `last_login_at` - Timestamp for analytics
@@ -136,10 +147,12 @@ The migration `0019_auth_ui_foundation.sql` adds:
 ### API Endpoints
 
 #### Authentication
+
 - `POST /api/auth/profile/upsert` - Server-side profile upsert (Google OAuth data)
 - `/auth/callback` - OAuth callback handler
 
 #### Theme Management
+
 - `POST /api/admin/users/[id]/ui-variant` - Admin toggle for UI variant (HMAC protected)
 
 ### Environment Variables
@@ -166,12 +179,14 @@ GOOGLE_OAUTH_ON=true
 ### UI Implementation
 
 #### New Components
+
 - `AppBarV2.tsx` - Modern navigation with mobile drawer
 - `modernTheme.ts` - Teen-friendly design tokens
 - `/login` & `/signup` pages with Google CTA first
 - `/home` page with hero section and benefits
 
 #### Theme System
+
 - **Classic theme**: Existing design (default)
 - **Modern theme**: New teen-friendly design
 - **Feature flag**: `ui_variant` profile field + cookie override
@@ -201,11 +216,13 @@ GOOGLE_OAUTH_ON=true
 ### Usage
 
 #### For Users
+
 1. **Sign up**: Visit `/signup` and click "Continue with Google"
 2. **Sign in**: Visit `/login` and use Google OAuth
 3. **Profile**: Avatar and name automatically populated from Google
 
 #### For Admins
+
 1. **Toggle UI variant**: Use admin API to switch users between classic/modern themes
 2. **Monitor OAuth**: Check Supabase Auth logs for OAuth activity
 
@@ -224,36 +241,42 @@ GOOGLE_OAUTH_ON=true
 ### Features
 
 #### Engagement Tracking & Seat-Time Integrity
+
 - **IdleTracker** - Client-side engagement tracking with configurable timeouts
 - **Heartbeat API** - Server-side engagement logging and analytics
 - **Tab/Window Monitoring** - Pause tracking when user switches tabs or windows
 - **CA Compliance** - Ensures accurate seat-time tracking for regulatory requirements
 
 #### Modern Learn v2 Components
+
 - **UnitHeader** - Sticky header with progress bar and navigation
 - **StickyActions** - Fixed bottom navigation with Previous/Next controls
 - **ReadingProgress** - Visual progress indicator with section navigation
 - **Mobile-First** - Responsive design optimized for touch interactions
 
 #### QuizPlayer v2
+
 - **Accessibility** - Full keyboard navigation and screen reader support
 - **Modern UI** - Progress tracking, immediate feedback, celebration animations
 - **Mobile Optimized** - Touch-friendly interface with gesture support
 - **Keyboard Shortcuts** - Arrow keys for navigation, Enter for submission
 
 #### ExamPlayer v2
+
 - **Advanced Features** - Time management, question flagging, review system
 - **Pause/Resume** - Exam pause functionality with overlay
 - **Progress Tracking** - Detailed progress with answered/flagged counts
 - **Accessibility** - WCAG 2.2 AA compliance with keyboard shortcuts
 
 #### Resume Helper & AppBar Integration
+
 - **Smart Resume** - Shows last accessed unit/quiz with progress
 - **AppBar CTA** - Resume button in navigation for quick access
 - **Progress Summary** - Overall progress and time spent tracking
 - **Contextual** - Relevant information based on user state
 
 #### Confetti Celebrations
+
 - **Lightweight** - Canvas-based animations with performance optimization
 - **Accessible** - Respects `prefers-reduced-motion` user preference
 - **Customizable** - Configurable colors, shapes, and effects
@@ -262,6 +285,7 @@ GOOGLE_OAUTH_ON=true
 ### Database Schema
 
 The migration `0019_learner_ux_polish.sql` adds:
+
 - `last_seen_tip` - Track when user last saw a tip
 - `last_seen_celebration_at` - Track celebration timestamps
 - `allow_confetti` - User preference for confetti animations
@@ -269,11 +293,13 @@ The migration `0019_learner_ux_polish.sql` adds:
 ### API Endpoints
 
 #### Engagement Tracking
+
 - `POST /api/progress/heartbeat` - Update user engagement status
 
 ### Component Architecture
 
 #### IdleTracker
+
 ```typescript
 const { startTracking, stopTracking, getState } = useIdleTracker({
   idleTimeoutMs: 300000, // 5 minutes
@@ -285,6 +311,7 @@ const { startTracking, stopTracking, getState } = useIdleTracker({
 ```
 
 #### Confetti
+
 ```typescript
 const { fire, stop } = useConfetti();
 
@@ -299,6 +326,7 @@ fire({
 ### Accessibility Features
 
 #### WCAG 2.2 AA Compliance
+
 - **Keyboard Navigation** - Full keyboard accessibility
 - **Screen Reader Support** - Proper ARIA labels and live regions
 - **Focus Management** - Visible focus indicators
@@ -306,12 +334,14 @@ fire({
 - **Reduced Motion** - Respects user preferences
 
 #### Keyboard Shortcuts
+
 - **Quiz Navigation**: Arrow keys for choices, Enter for submission
 - **Exam Navigation**: Arrow keys, Space for pause, F for flag, R for review
 
 ### Mobile Experience
 
 #### Responsive Design
+
 - **Mobile-First** - Designed for mobile devices first
 - **Touch-Friendly** - Minimum 44px touch targets
 - **Gesture Support** - Swipe navigation where appropriate
@@ -320,10 +350,12 @@ fire({
 ### Internationalization
 
 #### Supported Languages
+
 - **English (EN)** - Primary language
 - **Spanish (ES)** - Secondary language
 
 #### Key Translation Categories
+
 - **Navigation** - Previous, Next, Submit, etc.
 - **Feedback** - Correct, Incorrect, Loading, etc.
 - **Accessibility** - Keyboard shortcuts, ARIA labels
@@ -333,11 +365,13 @@ fire({
 ### Testing
 
 #### Unit Tests
+
 - **IdleTracker** - Engagement tracking functionality
 - **Confetti** - Animation and accessibility features
 - **Components** - Individual component behavior
 
 #### E2E Tests
+
 - **Learner Flow** - Complete learning experience
 - **Quiz Experience** - Quiz interaction and feedback
 - **Exam Experience** - Exam functionality and features
@@ -347,6 +381,7 @@ fire({
 ### Performance Considerations
 
 #### Optimization
+
 - **Lazy Loading** - Components loaded on demand
 - **Memoization** - React.memo for expensive components
 - **Debouncing** - User input debouncing
@@ -355,6 +390,7 @@ fire({
 ### Configuration
 
 #### Environment Variables
+
 ```bash
 # Engagement tracking
 NEXT_PUBLIC_IDLE_TIMEOUT_MS=300000
@@ -379,6 +415,7 @@ NEXT_PUBLIC_REDUCED_MOTION=false
 ### Features
 
 #### Regulatory Reporting System
+
 - **Admin Dashboard** (`/admin/compliance`) - Generate reports with dry-run preview
 - **Report Generation** - CSV exports for roster, exams, certificates, and seat time
 - **Cover Sheet PDF** - Professional summary with counts and metadata
@@ -386,6 +423,7 @@ NEXT_PUBLIC_REDUCED_MOTION=false
 - **ZIP Packages** - Complete bundles ready for DMV submission
 
 #### File Formats
+
 - **roster.csv** - Student enrollment data (name, DOB, address, course info)
 - **exams.csv** - Final exam attempts with scores and pass/fail results
 - **certs.csv** - Certificate issuance records with official numbers
@@ -394,6 +432,7 @@ NEXT_PUBLIC_REDUCED_MOTION=false
 - **manifest.json** - Signed metadata with SHA256 hashes and HMAC signature
 
 #### Security & Compliance
+
 - **RLS Everywhere** - All regulatory tables require admin role
 - **Private Storage** - Files stored in `dmv_reports` bucket (not public)
 - **HMAC Signing** - Manifest signed with `REGULATORY_SIGNING_SECRET`
@@ -401,6 +440,7 @@ NEXT_PUBLIC_REDUCED_MOTION=false
 - **Content Minimization** - Only necessary data included in reports
 
 #### Multi-State Ready
+
 - **Jurisdiction-Agnostic** - Works with any state via `jurisdiction_configs`
 - **CA-First** - Default configuration for California DMV requirements
 - **Scalable Storage** - Namespaced paths by jurisdiction and period
@@ -409,6 +449,7 @@ NEXT_PUBLIC_REDUCED_MOTION=false
 ### Database Schema
 
 The migration `0017_regulatory_reporting.sql` adds:
+
 - `regulatory_runs` - Track report generation with status and metadata
 - `regulatory_artifacts` - Store file metadata with SHA256 hashes
 - `v_reg_roster` - View for student enrollment data
@@ -420,23 +461,27 @@ The migration `0017_regulatory_reporting.sql` adds:
 ### API Endpoints
 
 #### Report Generation
+
 - `POST /api/admin/regulatory/run` - Generate report (with dry-run support)
 - `GET /api/admin/regulatory/runs` - List report runs with pagination
 - `GET /api/admin/regulatory/runs/[runId]/download` - Download ZIP package
 - `GET /api/admin/regulatory/runs/[runId]/artifacts` - Get artifact metadata
 
 #### Automated Jobs
+
 - `POST /api/admin/jobs/regulatory-monthly` - Generate monthly reports (HMAC protected)
 
 ### Usage
 
 #### On-Demand Reports
+
 1. Navigate to `/admin/compliance`
 2. Select jurisdiction (default: CA), course, and period
 3. Click "Dry Run" to preview counts
 4. Click "Generate & Download" for full package
 
 #### Monthly Automation
+
 ```bash
 # Enable monthly job
 REGULATORY_MONTHLY_ENABLED=true
@@ -469,24 +514,28 @@ curl -X POST http://localhost:3000/api/admin/jobs/regulatory-monthly \
 ### Features
 
 #### Billing Lifecycle Management
+
 - **Invoice Tracking**: Complete invoice history with Stripe sync
 - **Dunning System**: Automated payment failure handling with state machine
 - **Subscription Management**: Cancel/resume with period-end handling
 - **Entitlement Control**: Automatic access revocation based on payment status
 
 #### Dunning Workflow
+
 - **State Machine**: `none → email_1 → email_2 → email_3 → canceled`
 - **Email Sequence**: Progressive urgency with 3-day and 7-day intervals
 - **Automatic Actions**: Subscription cancellation after final notice
 - **Admin Override**: Manual dunning email sending and subscription management
 
 #### Self-Serve Features
+
 - **Billing Summary**: Real-time subscription status and payment history
 - **Invoice Access**: View and download invoices with Stripe portal integration
 - **Cancel/Resume**: Self-service subscription management
 - **Payment Updates**: Direct links to Stripe portal for payment method updates
 
 #### Admin Dashboard
+
 - **KPIs**: Active subscriptions, past due count, MRR, churn rates
 - **Past Due Management**: User list with dunning states and manual actions
 - **Invoice Overview**: Recent invoices with user context and download links
@@ -495,6 +544,7 @@ curl -X POST http://localhost:3000/api/admin/jobs/regulatory-monthly \
 ### Database Schema
 
 The migration `0018_billing_lifecycle.sql` adds:
+
 - `billing_invoices` - Invoice tracking with Stripe sync
 - `billing_dunning` - Dunning state machine and scheduling
 - `v_billing_summary_my` - User billing summary view
@@ -503,28 +553,33 @@ The migration `0018_billing_lifecycle.sql` adds:
 ### API Endpoints
 
 #### User Self-Serve
+
 - `GET /api/billing/summary` - User billing summary
 - `GET /api/billing/invoices` - User invoice history
 - `POST /api/billing/cancel` - Cancel subscription at period end
 - `POST /api/billing/resume` - Resume canceled subscription
 
 #### Admin Management
+
 - `GET /api/admin/billing/kpis` - Billing KPIs and metrics
 - `GET /api/admin/billing/past-due` - Past due users with dunning info
 - `GET /api/admin/billing/invoices` - Recent invoices with user context
 
 #### Automated Jobs
+
 - `POST /api/admin/jobs/dunning-daily` - Daily dunning processing (HMAC protected)
 - `POST /api/admin/jobs/trial-reminders` - Trial end reminders (HMAC protected)
 
 #### Email Templates
 
 ##### Payment Failure Sequence
+
 - **Email 1**: Immediate notification with payment method update instructions
 - **Email 2**: 3-day follow-up with increased urgency
 - **Email 3**: 7-day final notice with cancellation warning
 
 ##### Other Templates
+
 - **Payment Success**: Confirmation of successful payment
 - **Trial Reminders**: 3-day and 1-day pre-trial end notifications
 - **Cancellation Confirmation**: Subscription cancellation confirmation
@@ -549,18 +604,21 @@ STRIPE_PORTAL_RETURN_URL=http://localhost:3000/billing
 #### Usage
 
 ##### User Experience
+
 1. Visit `/billing` to view subscription status and payment history
 2. Use "Manage Billing" to access Stripe portal for payment updates
 3. Cancel/resume subscription with immediate feedback
 4. View invoice history with download links
 
 ##### Admin Operations
+
 1. Access `/admin/billing` for comprehensive billing overview
 2. Monitor past due subscriptions with dunning state visibility
 3. Send manual dunning emails or cancel subscriptions
 4. Review recent invoices with user context
 
 ##### Automated Processing
+
 ```bash
 # Daily dunning job (cron recommended)
 curl -X POST http://localhost:3000/api/admin/jobs/dunning-daily \
@@ -692,10 +750,12 @@ curl -s -X POST http://localhost:3000/api/tutor \
    ```
 
 2. Verify the migration:
+
    - Check that 5 units are created for CA DE-ONLINE course
    - Verify `unit_chunks` are populated with relevant content
 
 3. Test the learning flow:
+
    - Visit `/course/CA/DE-ONLINE` to see the course outline
    - Click "Start" on a unit to begin learning at `/learn/[unitId]`
    - Study the content (seat-time tracking active when tab visible)
@@ -712,29 +772,31 @@ curl -s -X POST http://localhost:3000/api/tutor \
 ### Sprint 5: Payments & Entitlements (Stripe)
 
 1. **Stripe Setup**:
+
    - Create a Stripe account and get your API keys
    - Create a product and price in Stripe Dashboard (recurring monthly subscription)
    - Note the `price_id` for your subscription
 
 2. **Environment Variables**:
    Add these to `web/.env.local`:
+
    ```bash
    # Stripe
    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_xxx
    STRIPE_SECRET_KEY=sk_test_xxx
    STRIPE_PRICE_ID=price_xxx
    STRIPE_WEBHOOK_SECRET=whsec_xxx
-   
+
    # Billing URLs
    BILLING_SUCCESS_URL=http://localhost:3000/billing?status=success
    BILLING_CANCEL_URL=http://localhost:3000/billing?status=cancel
    STRIPE_PORTAL_RETURN_URL=http://localhost:3000/billing
-   
+
    # Dunning Configuration
    DUNNING_EMAIL_DAY_1=now
    DUNNING_EMAIL_DAY_2=3
    DUNNING_EMAIL_DAY_3=7
-   
+
    # Admin Jobs
    DUNNING_DAILY_ENABLED=true
    TRIAL_REMINDERS_ENABLED=true
@@ -742,6 +804,7 @@ curl -s -X POST http://localhost:3000/api/tutor \
    ```
 
 3. **Database Migration**:
+
    ```bash
    # Apply the billing migration
    supabase db push
@@ -749,12 +812,14 @@ curl -s -X POST http://localhost:3000/api/tutor \
    ```
 
 4. **Webhook Setup**:
+
    ```bash
    # Install Stripe CLI and forward webhooks locally
    stripe listen --forward-to http://localhost:3000/api/billing/webhook
    ```
 
 5. **Test the Flow**:
+
    - Visit `/billing` to see subscription options
    - Click "Subscribe Now" to go through Stripe Checkout
    - Use test card `4242 4242 4242 4242` with any future expiry
@@ -768,10 +833,10 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - **RLS policies**: Secure access to billing data
    - **Event logging**: All billing events stored for admin review
 
-
 ### Sprint 6: Final Exam, Compliance Gating & Draft Certificate
 
 1. **Final Exam Setup**:
+
    - Apply the exam migration: `supabase db push`
    - Configure exam thresholds in `web/.env.local`:
      ```bash
@@ -781,22 +846,26 @@ curl -s -X POST http://localhost:3000/api/tutor \
      ```
 
 2. **Eligibility Requirements**:
+
    - **Entitlement**: Must have active subscription
    - **Seat Time**: Must complete 150 minutes of study time across all units
    - **Course Progress**: All units should be accessible
 
 3. **Exam Flow**:
+
    - Visit `/exam` to check eligibility
    - If eligible: Start final exam → Answer questions → Submit
    - On pass (≥80%): Draft certificate automatically issued
    - On fail: Can retry after reviewing course material
 
 4. **Admin Features**:
+
    - `/admin/exams`: View final exam attempts with scores and status
    - `/admin/certificates`: View certificate drafts with CSV export
    - All admin pages enforce existing RLS policies
 
 5. **Key Features**:
+
    - **Compliance gating**: Entitlement + seat-time requirements
    - **Final exam**: 30 questions across all course material
    - **Draft certificates**: Automatically issued on pass
@@ -804,6 +873,7 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - **Reused infrastructure**: Leverages existing attempts/quiz system
 
 6. **Environment Variables**:
+
    - `FINAL_EXAM_NUM_QUESTIONS`: Number of exam questions (default: 30)
    - `FINAL_EXAM_PASS_PCT`: Pass threshold as decimal (default: 0.8 = 80%)
    - `FINAL_EXAM_MINUTES_REQUIRED`: Minimum seat time in minutes (default: 150)
@@ -816,6 +886,7 @@ curl -s -X POST http://localhost:3000/api/tutor \
 ### Sprint 7: Certificate Issuance & Verification
 
 1. **Certificate Setup**:
+
    - Apply the certificate migration: `supabase db push`
    - Configure certificate settings in `web/.env.local`:
      ```bash
@@ -826,17 +897,20 @@ curl -s -X POST http://localhost:3000/api/tutor \
      ```
 
 2. **Storage Bucket**:
+
    - The migration creates a `certificates` bucket in Supabase Storage
    - PDFs are stored with public read access
    - Admin-only write access via service role
 
 3. **Certificate Workflow**:
+
    - **Draft**: Created when student passes final exam
    - **Issue**: Admin clicks "Issue PDF" to finalize certificate
    - **PDF Generation**: Creates tamper-evident PDF with QR code
    - **Verification**: Public verification page at `/verify/[number]`
 
 4. **Admin Features**:
+
    - `/admin/certificates`: List all certificates with action buttons
    - **Issue PDF**: Convert draft to issued certificate
    - **Void**: Invalidate issued certificates with reason
@@ -844,12 +918,14 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - **Verification Link**: Preview verification page
 
 5. **Public Verification**:
+
    - `/verify/[number]`: Public verification page
    - Shows certificate validity and details
    - Student name is masked for privacy
    - QR code on PDF links to this page
 
 6. **Key Features**:
+
    - **Unique numbering**: Format `CA-2025-000123`
    - **PDF generation**: Professional certificates with QR codes
    - **Storage integration**: Supabase Storage for PDFs
@@ -857,16 +933,18 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - **Admin controls**: Issue/void with audit trail
 
 7. **Environment Variables**:
+
    - `APP_ORIGIN`: Base URL for verification links
    - `CERT_ISSUER_NAME`: Name of issuing organization
    - `CERT_ISSUER_LICENSE`: License number of issuer
    - `CERT_NUMBER_PREFIX`: Prefix for certificate numbers
 
 8. **Manual Test Flow**:
+
    ```bash
    # 1) Apply migration
    supabase db push
-   
+
    # 2) Pass final exam to create draft certificate
    # 3) Visit /admin/certificates
    # 4) Click "Issue PDF" on draft certificate
@@ -878,6 +956,7 @@ curl -s -X POST http://localhost:3000/api/tutor \
 ### Sprint 8: Launch Hardening & Operational Readiness
 
 1. **Transactional Email Setup**:
+
    - Sign up for [Resend](https://resend.com) and get API key
    - Configure email settings in `web/.env.local`:
      ```bash
@@ -888,6 +967,7 @@ curl -s -X POST http://localhost:3000/api/tutor \
      ```
 
 2. **Email Features**:
+
    - **Welcome emails**: Sent when users sign up
    - **Subscription active**: Sent when subscription is activated
    - **Certificate issued**: Sent with PDF and verification links
@@ -895,24 +975,28 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - **Graceful fallback**: Endpoints work without email keys
 
 3. **Monitoring & Observability**:
+
    - **Sentry integration**: Error tracking and performance monitoring
    - **Health checks**: `/api/health` endpoint for system status
    - **Admin monitoring**: `/admin/system` for operational dashboard
    - **Billing events**: Track all payment and subscription events
 
 4. **Legal & Compliance**:
+
    - **Terms of Service**: `/terms` page with MUI components
    - **Privacy Policy**: `/privacy` page with comprehensive policy
    - **Navigation**: Legal links added to AppBar
    - **Contact information**: Support email integration
 
 5. **Rate Limiting**:
+
    - **In-memory rate limiting**: Basic protection for API endpoints
    - **Configurable limits**: Set via environment variables
    - **Stripe webhook bypass**: Rate limiting skipped for Stripe signatures
    - **Proper headers**: Rate limit information in response headers
 
 6. **Key Features**:
+
    - **Production-ready emails**: Professional templates with branding
    - **System monitoring**: Health checks and operational dashboard
    - **Legal compliance**: Terms and privacy policy pages
@@ -920,16 +1004,17 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - **Graceful degradation**: Services work without optional keys
 
 7. **Environment Variables**:
+
    ```bash
    # Email Configuration (Resend)
    RESEND_API_KEY=
    FROM_EMAIL="Permit School <no-reply@yourdomain.com>"
    SUPPORT_EMAIL=support@yourdomain.com
    APP_BASE_URL=http://localhost:3000
-   
+
    # Monitoring (Sentry)
    SENTRY_DSN=
-   
+
    # Rate Limiting
    RATE_LIMIT_ON=true
    RATE_LIMIT_WINDOW_MS=60000
@@ -937,6 +1022,7 @@ curl -s -X POST http://localhost:3000/api/tutor \
    ```
 
 8. **Manual Test Flow**:
+
    ```bash
    # 1) Set up Resend and Sentry (optional)
    # 2) Configure environment variables
@@ -955,6 +1041,7 @@ curl -s -X POST http://localhost:3000/api/tutor \
    ```
 
 9. **Observability**:
+
    - **Health checks**: Monitor system status and response times
    - **Error tracking**: Sentry captures errors and performance issues
    - **Billing monitoring**: Track subscription and payment events
@@ -971,34 +1058,40 @@ curl -s -X POST http://localhost:3000/api/tutor \
 ### Sprint 9: Curriculum CMS + Syllabus & Evidence Reports
 
 1. **Curriculum Management**:
+
    - Apply the curriculum admin migration: `supabase db push`
    - Access curriculum management at `/admin/curriculum`
    - View courses with unit counts and manage individual course units
 
 2. **Unit Management Features**:
+
    - **List Units**: View all units for a course with metadata
    - **Edit Units**: Update title, minutes required, learning objectives, and published status
    - **Reorder Units**: Move units up/down using the reorder function
    - **Content Mapping**: Map handbook content chunks to units using AI suggestions
 
 3. **Content Mapping**:
+
    - **Current Mappings**: View existing content chunks mapped to each unit
    - **AI Suggestions**: Get content suggestions using hybrid RAG search
    - **Replace/Append**: Choose to replace all mappings or append new ones
    - **Manual Management**: Remove individual mappings as needed
 
 4. **Reports Generation**:
+
    - Access reports at `/admin/reports`
    - **Syllabus PDF**: Generate course syllabus with unit details and objectives
    - **Evidence CSV**: Export student progress data for compliance reporting
 
 5. **Syllabus PDF Features**:
+
    - **Course Information**: Title, jurisdiction, total required hours
    - **Unit Details**: Number, title, minutes required, learning objectives
    - **Professional Layout**: Clean formatting with page numbers
    - **Download**: Automatic PDF download with course code in filename
 
 6. **Evidence CSV Features**:
+
    - **Student Data**: User ID, email, full name, role
    - **Progress Metrics**: Seat time minutes, quiz attempts and averages
    - **Exam Results**: Final exam scores and pass status
@@ -1006,6 +1099,7 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - **Date Filtering**: Optional date range filtering for compliance periods
 
 7. **Admin API Endpoints**:
+
    - `GET /api/admin/curriculum/courses` - List all courses
    - `GET /api/admin/curriculum/units?course_id=...` - List units for a course
    - `POST /api/admin/curriculum/units/update` - Update unit details
@@ -1017,6 +1111,7 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - `GET /api/admin/reports/evidence?course_id=...&from=...&to=...` - Generate evidence CSV
 
 8. **Database Changes**:
+
    - **Unit Metadata**: Added `objectives`, `is_published`, `updated_at` to `course_units`
    - **Progress View**: New `v_student_course_progress` view for reporting
    - **Reorder Function**: `reorder_course_units()` function for safe unit reordering
@@ -1029,7 +1124,8 @@ curl -s -X POST http://localhost:3000/api/tutor \
    - **Safe Reordering**: Database function prevents constraint violations
    - **AI-Powered Suggestions**: Hybrid RAG search for content mapping
    - **Compliance Ready**: PDF and CSV exports for regulatory requirements
-```
+
+````
 
 ### Sprint 10: Platformize for Multi‑State (CA First)
 
@@ -1089,7 +1185,7 @@ curl -s -X POST http://localhost:3000/api/tutor \
     ```bash
     # 1) Apply migration
     supabase db push
-    
+
     # 2) Visit /admin/jurisdictions
     # 3) Edit CA configuration (e.g., change seat time to 120 minutes)
     # 4) Test exam eligibility reflects new seat time requirement
@@ -1181,7 +1277,7 @@ curl -s -X POST http://localhost:3000/api/tutor \
     ```bash
     # 1) Apply migration
     supabase db push
-    
+
     # 2) Create new user account
     # 3) Visit /dashboard - should show profile completion banner
     # 4) Click "Complete Profile" to start onboarding
@@ -1297,7 +1393,7 @@ curl -s -X POST http://localhost:3000/api/tutor \
     ```bash
     # 1) Apply migration
     supabase db push
-    
+
     # 2) Create minor user account (under 18)
     # 3) Start onboarding - guardian step should appear
     # 4) Enter guardian info and send request
@@ -1368,9 +1464,11 @@ This sprint introduces a comprehensive question bank management system with exam
 #### Import/Export Formats
 
 **CSV Import Headers:**
-```
+````
+
 course_id,skill,difficulty,stem,choices,answer,explanation,tags,source_sections,source_ref,status
-```
+
+````
 
 **JSON Import Format:**
 ```json
@@ -1390,11 +1488,12 @@ course_id,skill,difficulty,stem,choices,answer,explanation,tags,source_sections,
     }
   ]
 }
-```
+````
 
 #### Blueprint Rule Semantics
 
 **Rule Configuration:**
+
 - `skill`: Must match question bank skill exactly
 - `count`: Number of questions to select
 - `min_difficulty`/`max_difficulty`: Difficulty range (1-5)
@@ -1402,6 +1501,7 @@ course_id,skill,difficulty,stem,choices,answer,explanation,tags,source_sections,
 - `exclude_tags`: Questions must have NONE of specified tags
 
 **Validation:**
+
 - Sum of all rule counts must equal blueprint total_questions
 - Each rule must have sufficient approved questions available
 - Difficulty ranges must be valid (min ≤ max)
@@ -1409,6 +1509,7 @@ course_id,skill,difficulty,stem,choices,answer,explanation,tags,source_sections,
 #### Exam Fallback Logic
 
 **Blueprint Selection:**
+
 1. Check for active blueprint for course
 2. If active blueprint exists:
    - Apply rules sequentially
@@ -1419,6 +1520,7 @@ course_id,skill,difficulty,stem,choices,answer,explanation,tags,source_sections,
    - Use jurisdiction config for question count
 
 **Backward Compatibility:**
+
 - Existing exams continue to work without blueprints
 - No code changes required for current functionality
 - Blueprints are opt-in per course
@@ -1426,6 +1528,7 @@ course_id,skill,difficulty,stem,choices,answer,explanation,tags,source_sections,
 #### Item Analytics
 
 **Metrics Available:**
+
 - `p_correct`: Proportion of correct answers (0-1)
 - `attempts`: Total number of attempts
 - `correct_count`: Number of correct answers
@@ -1433,6 +1536,7 @@ course_id,skill,difficulty,stem,choices,answer,explanation,tags,source_sections,
 - `last_seen_at`: Most recent usage
 
 **Visualization:**
+
 - Color-coded chips: <30% (hard), 30-70% (ok), >70% (easy)
 - Trend analysis for last 30/90 days
 - Export capabilities with analytics data
@@ -1461,6 +1565,7 @@ supabase db push
 #### A) Accessibility (WCAG 2.2 AA)
 
 **Global a11y improvements:**
+
 - ✅ Skip to content link rendered as first focusable element
 - ✅ All interactive components keyboard reachable with visible focus
 - ✅ Proper ARIA attributes and semantic landmarks
@@ -1469,11 +1574,13 @@ supabase db push
 - ✅ Accessibility statement page at `/accessibility`
 
 **MUI theme & focus:**
+
 - ✅ Color contrast ≥ 4.5:1 across theme palette
 - ✅ Consistent focus outline using MUI theme overrides
 - ✅ No custom CSS files (MUI only)
 
 **Automated a11y checks:**
+
 - ✅ eslint-plugin-jsx-a11y with recommended rules
 - ✅ @axe-core/cli for automated testing
 - ✅ CI integration with accessibility thresholds
@@ -1481,34 +1588,39 @@ supabase db push
 #### B) PWA (Installable app; careful offline)
 
 **Requirements:**
+
 - ✅ Do NOT cache authenticated pages or compliance routes
 - ✅ Seat‑time MUST NOT accrue while offline
 - ✅ Offline fallback page explains connectivity requirements
 
 **Implementation:**
+
 - ✅ Web app manifest with proper icons and shortcuts
 - ✅ Service worker with next-pwa (app dir compatible)
 - ✅ Runtime caching strategy:
-  - Cache First: static assets (_next/static, fonts, icons)
-  - Stale While Revalidate: public pages (/, /courses, /privacy, /terms, /verify/*)
+  - Cache First: static assets (\_next/static, fonts, icons)
+  - Stale While Revalidate: public pages (/, /courses, /privacy, /terms, /verify/\*)
   - Network Only: private/compliance routes (api/**, learn/**, quiz/**, exam/**, etc.)
 - ✅ Offline page at `/offline` with EN/ES messaging
 
 #### C) SEO & Performance
 
 **SEO improvements:**
+
 - ✅ robots.txt and sitemap.xml routes
 - ✅ Canonical URLs via metadata in root layout
 - ✅ OpenGraph & Twitter meta on key pages
 - ✅ JSON‑LD Course schema on /courses
 
 **Performance optimizations:**
+
 - ✅ next/font for Roboto/roboto‑mono (no external font blocking)
 - ✅ HTTP caching headers for public pages
 - ✅ Tree‑shake large libs; lazy‑load admin pages
 - ✅ No blocking console.warn/errors in production
 
 **CI gates:**
+
 - ✅ Lighthouse CI with thresholds:
   - Performance ≥ 90
   - Accessibility ≥ 95
@@ -1519,18 +1631,21 @@ supabase db push
 #### D) Manual Testing Checklist
 
 **Accessibility:**
+
 - [ ] Keyboard-only navigation through signup → learn unit → quiz start
 - [ ] Screen reader spot check (NVDA/VoiceOver) on /, /courses, signin
 - [ ] Focus indicators visible on all interactive elements
 - [ ] Color contrast meets WCAG 2.2 AA standards
 
 **PWA:**
+
 - [ ] Install prompt works on supported browsers
 - [ ] /offline renders when disconnected
 - [ ] Exam/learn never load offline (Network Only strategy)
 - [ ] Static assets cached for offline viewing
 
 **Performance:**
+
 - [ ] Lighthouse scores meet thresholds on key pages
 - [ ] No console errors in production build
 - [ ] Images optimized with next/Image
@@ -1573,6 +1688,7 @@ npm run start
 #### G) CI Integration
 
 The GitHub Actions workflow (`.github/workflows/accessibility-ci.yml`) runs:
+
 - Lighthouse CI with performance/accessibility/SEO thresholds
 - axe-core accessibility testing
 - ESLint with jsx-a11y rules
@@ -1591,6 +1707,7 @@ All checks must pass before merge to main/develop branches.
 **Security**: Routes under `/api/testkit/**` are only available when `TESTKIT_ON=true` and with correct bearer token. In production, the whole folder returns 404 (dead code via env guard).
 
 **Available endpoints**:
+
 - `POST /api/testkit/reset` — Truncate test data
 - `POST /api/testkit/user` — Create user (profile + entitlement opt‑in)
 - `POST /api/testkit/enroll` — Enroll user in course
@@ -1603,6 +1720,7 @@ All checks must pass before merge to main/develop branches.
 #### B) Playwright E2E Tests
 
 **Coverage**:
+
 1. **Auth & Onboarding (Adult)** — Sign up, complete onboarding, enroll in course
 2. **Guardian e‑sign (Minor)** — Create minor, send guardian request, complete consent
 3. **Learn → Seat‑time Gating → Unit Quiz** — Visit unit, confirm quiz gating, complete quiz
@@ -1642,12 +1760,14 @@ npx playwright test auth-onboarding.spec.ts
 #### D) CI Integration
 
 The GitHub Actions workflow includes an E2E job that:
+
 - Installs Playwright browsers
 - Builds the application with testkit enabled
 - Runs all E2E tests in headless mode
 - Uploads artifacts (reports, traces, screenshots) on every run
 
 **Required secrets**:
+
 - `TESTKIT_TOKEN` — Bearer token for testkit API access
 
 #### E) Security Guardrails
@@ -1688,17 +1808,20 @@ DEBUG=pw:api  # Playwright API debugging
 #### I) Manual Testing Checklist
 
 **Testkit Security**:
+
 - [ ] Testkit endpoints return 404 when `TESTKIT_ON=false`
 - [ ] Testkit endpoints return 401 with invalid token
 - [ ] Testkit endpoints work with valid token
 
 **E2E Test Coverage**:
+
 - [ ] All 7 test suites run green locally
 - [ ] Tests complete in < 8 minutes on CI
 - [ ] No dependencies on real Stripe or email
 - [ ] Artifacts uploaded on failure
 
 **Test Stability**:
+
 - [ ] Role-based selectors used where possible
 - [ ] data-testid attributes added for ambiguous elements
 - [ ] Tests clean up after themselves
@@ -1709,6 +1832,7 @@ DEBUG=pw:api  # Playwright API debugging
 ### Multi-Factor Authentication (MFA)
 
 **Setup for Admins**:
+
 1. Navigate to `/admin/security`
 2. Click "Setup MFA" to generate QR code and backup codes
 3. Scan QR code with authenticator app (Google Authenticator, Authy, etc.)
@@ -1716,6 +1840,7 @@ DEBUG=pw:api  # Playwright API debugging
 5. Save backup codes securely - they won't be shown again
 
 **Session Management**:
+
 - Admin sessions are considered "recent" if authenticated within 5 minutes
 - Sensitive admin actions require recent authentication
 - Use "Re-authenticate" button if session is stale
@@ -1723,18 +1848,21 @@ DEBUG=pw:api  # Playwright API debugging
 ### Data Subject Access Rights (DSAR)
 
 **Data Export**:
+
 - Users can request data export at `/account/privacy`
 - Exports include: profile, enrollments, seat time, attempts, certificates
 - Certificate PDFs provided via signed URLs (1-hour expiry)
 - Exports expire after 7 days
 
 **Account Deletion**:
+
 - Users can request account deletion at `/account/privacy`
 - 7-day grace period with email confirmation required
 - Certificate numbers retained for compliance
 - All personal data permanently deleted after grace period
 
 **Manual Processing**:
+
 - See `PRIVACY_RUNBOOK.md` for manual DSAR procedures
 - Background workers process requests automatically
 - Manual intervention available if automated processing fails
@@ -1742,18 +1870,21 @@ DEBUG=pw:api  # Playwright API debugging
 ### Audit Logs
 
 **Tamper-Evident Logging**:
+
 - All sensitive operations logged with HMAC signatures
 - Audit logs include: actor, action, object, before/after data, IP, user agent
 - Signatures verified automatically in admin audit UI
 - Invalid signatures indicate potential tampering
 
 **Admin Audit Interface**:
+
 - View audit logs at `/admin/audit`
 - Filter by date, action, object table, actor
 - View JSON diffs for before/after data
 - Verify signature integrity
 
 **Audit Key Management**:
+
 - Audit key stored in database GUC setting `app.audit_key`
 - Key rotation invalidates all existing signatures
 - Emergency rotation procedures in `PRIVACY_RUNBOOK.md`
@@ -1761,12 +1892,14 @@ DEBUG=pw:api  # Playwright API debugging
 ### Bot Protection
 
 **Cloudflare Turnstile Integration**:
+
 - Protects public forms from bot abuse
 - Environment variables: `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`
 - Graceful degradation when keys not configured
 - Applied to: guardian consent, public contact forms
 
 **Configuration**:
+
 ```bash
 # Required for production
 TURNSTILE_SITE_KEY=your-site-key
@@ -1779,18 +1912,21 @@ TURNSTILE_BYPASS=true
 ### Background Workers
 
 **Export Processing**:
+
 - Processes pending data export requests
 - Creates ZIP bundles with user data and certificate URLs
 - Uploads to Supabase storage bucket "exports"
 - Updates export status to "ready"
 
 **Deletion Processing**:
+
 - Processes confirmed deletion requests after grace period
 - Executes user deletion via database function
 - Voids certificates (doesn't delete numbers)
 - Removes user from Supabase Auth
 
 **Worker Security**:
+
 - Protected by `BACKGROUND_WORKER_TOKEN` environment variable
 - Workers called via GitHub Actions or Supabase scheduled functions
 - No service role keys exposed to client
@@ -1798,6 +1934,7 @@ TURNSTILE_BYPASS=true
 ### Environment Variables
 
 **Security & Privacy**:
+
 ```bash
 # MFA (optional - uses Supabase Auth TOTP)
 MFA_SECRET=your-mfa-secret
@@ -1816,12 +1953,14 @@ BACKGROUND_WORKER_TOKEN=your-worker-token
 ### Compliance Monitoring
 
 **Regular Checks**:
+
 - Monitor stuck export/deletion requests
 - Verify audit log signatures
 - Check background worker health
 - Review admin access patterns
 
 **Incident Response**:
+
 - See `INCIDENT_RESPONSE.md` for detailed procedures
 - Contact tree and escalation paths defined
 - SLOs: 15min response for critical, 1hr for high severity
@@ -1829,12 +1968,14 @@ BACKGROUND_WORKER_TOKEN=your-worker-token
 ### Security Best Practices
 
 **RLS Guarantees**:
+
 - All tables have Row Level Security enabled
 - Policies enforce user ownership and admin access
 - No service role keys exposed to client
 - Audit logs capture all sensitive operations
 
 **Certificate Security**:
+
 - Certificate numbers never deleted (compliance)
 - Certificate PDFs deleted on account deletion
 - Voided certificates marked as "void" status

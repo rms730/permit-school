@@ -5,6 +5,7 @@
 **Trigger:** Push to `release/**` branch or manual workflow dispatch
 
 **Required Secrets:**
+
 - `STAGING_SUPABASE_ACCESS_TOKEN` - Supabase access token for staging project
 - `STAGING_SUPABASE_PROJECT_REF` - Staging project reference ID
 - `STAGING_DATABASE_URL` - Direct database connection for staging
@@ -12,6 +13,7 @@
 - `TESTKIT_TOKEN` - Token for E2E test authentication
 
 **Process:**
+
 1. Lint, typecheck, and build web application
 2. Run Supabase migrations (`supabase db push`)
 3. Execute RLS audit to ensure security compliance
@@ -25,12 +27,14 @@
 **Trigger:** Manual approval after successful staging deployment
 
 **Required Secrets:**
+
 - `PROD_SUPABASE_ACCESS_TOKEN` - Supabase access token for production project
 - `PROD_SUPABASE_PROJECT_REF` - Production project reference ID
 - `PROD_DATABASE_URL` - Direct database connection for production
 - `PROD_BASE_URL` - Production environment URL for smoke tests
 
 **Process:**
+
 1. Manual approval via GitHub Environments protection
 2. Run Supabase migrations (`supabase db push`)
 3. Execute RLS audit on production database
@@ -41,12 +45,14 @@
 ## Backup & Restore
 
 ### Automated Backups
+
 - **When:** Every staging deployment (before E2E tests)
 - **Where:** GitHub Actions artifacts (`staging-db-backup`)
 - **Format:** PostgreSQL custom format (`.sqlc`)
 - **Retention:** GitHub Actions artifact retention policy
 
 ### Manual Backup
+
 ```bash
 # Create backup
 DATABASE_URL="your-db-url" bash ops/db/backup.sh
@@ -56,6 +62,7 @@ DATABASE_URL="your-local-db-url" bash ops/db/restore_local.sh backup-20241201-14
 ```
 
 ### Disaster Recovery
+
 1. Download latest backup artifact from GitHub Actions
 2. Restore to staging environment for validation
 3. Verify data integrity and application functionality
@@ -64,6 +71,7 @@ DATABASE_URL="your-local-db-url" bash ops/db/restore_local.sh backup-20241201-14
 ## Rotate Secrets
 
 ### Supabase
+
 1. Generate new access token in Supabase dashboard
 2. Update GitHub repository secrets:
    - `STAGING_SUPABASE_ACCESS_TOKEN`
@@ -72,6 +80,7 @@ DATABASE_URL="your-local-db-url" bash ops/db/restore_local.sh backup-20241201-14
 4. Promote to production
 
 ### Stripe
+
 1. Generate new API keys in Stripe dashboard
 2. Update environment variables:
    - `STRIPE_SECRET_KEY`
@@ -80,6 +89,7 @@ DATABASE_URL="your-local-db-url" bash ops/db/restore_local.sh backup-20241201-14
 4. Test billing functionality in staging
 
 ### Sentry
+
 1. Generate new DSN in Sentry project settings
 2. Update environment variables:
    - `SENTRY_DSN`
@@ -87,12 +97,14 @@ DATABASE_URL="your-local-db-url" bash ops/db/restore_local.sh backup-20241201-14
 3. Verify error reporting works in staging
 
 ### Resend (Email)
+
 1. Generate new API key in Resend dashboard
 2. Update environment variables:
    - `RESEND_API_KEY`
 3. Test email functionality in staging
 
 ### Database URLs
+
 1. Rotate database passwords in Supabase
 2. Update GitHub secrets:
    - `STAGING_DATABASE_URL`
@@ -106,6 +118,7 @@ DATABASE_URL="your-local-db-url" bash ops/db/restore_local.sh backup-20241201-14
 **Frequency:** Quarterly
 
 **Process:**
+
 1. Download latest staging backup artifact
 2. Create isolated test environment
 3. Restore backup to test environment

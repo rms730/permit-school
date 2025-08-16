@@ -18,63 +18,68 @@ The regulatory reporting system generates monthly (and on-demand) compliance pac
 All CSV files use UTF-8 encoding with comma delimiters and proper escaping for quotes and commas.
 
 #### roster.csv
+
 Student enrollment data for the reporting period.
 
-| Column | Header | Description |
-|--------|--------|-------------|
-| user_id | User ID | Unique student identifier |
-| full_name | Full Name | Student's full name |
-| date_of_birth | Date of Birth | Student's date of birth |
-| address_city | City | Student's city |
-| address_state | State | Student's state |
-| address_zip | ZIP Code | Student's ZIP code |
-| course_id | Course ID | Internal course identifier |
-| course_code | Course Code | Human-readable course code |
-| course_title | Course Title | Course display name |
-| j_code | Jurisdiction | 2-letter jurisdiction code |
+| Column          | Header                | Description                 |
+| --------------- | --------------------- | --------------------------- |
+| user_id         | User ID               | Unique student identifier   |
+| full_name       | Full Name             | Student's full name         |
+| date_of_birth   | Date of Birth         | Student's date of birth     |
+| address_city    | City                  | Student's city              |
+| address_state   | State                 | Student's state             |
+| address_zip     | ZIP Code              | Student's ZIP code          |
+| course_id       | Course ID             | Internal course identifier  |
+| course_code     | Course Code           | Human-readable course code  |
+| course_title    | Course Title          | Course display name         |
+| j_code          | Jurisdiction          | 2-letter jurisdiction code  |
 | first_enroll_at | First Enrollment Date | When student first enrolled |
 
 #### exams.csv
+
 Final exam attempt data for the reporting period.
 
-| Column | Header | Description |
-|--------|--------|-------------|
-| user_id | User ID | Unique student identifier |
-| attempt_id | Attempt ID | Unique exam attempt identifier |
-| started_at | Started At | When exam was started |
-| completed_at | Completed At | When exam was completed |
-| score | Score | Exam score (0.0-1.0) |
-| passed | Passed | Boolean pass/fail result |
-| course_id | Course ID | Internal course identifier |
-| course_code | Course Code | Human-readable course code |
-| j_code | Jurisdiction | 2-letter jurisdiction code |
+| Column       | Header       | Description                    |
+| ------------ | ------------ | ------------------------------ |
+| user_id      | User ID      | Unique student identifier      |
+| attempt_id   | Attempt ID   | Unique exam attempt identifier |
+| started_at   | Started At   | When exam was started          |
+| completed_at | Completed At | When exam was completed        |
+| score        | Score        | Exam score (0.0-1.0)           |
+| passed       | Passed       | Boolean pass/fail result       |
+| course_id    | Course ID    | Internal course identifier     |
+| course_code  | Course Code  | Human-readable course code     |
+| j_code       | Jurisdiction | 2-letter jurisdiction code     |
 
 #### certs.csv
+
 Certificate issuance data for the reporting period.
 
-| Column | Header | Description |
-|--------|--------|-------------|
-| number | Certificate Number | Official certificate number |
-| issued_at | Issued At | When certificate was issued |
-| student_id | Student ID | Unique student identifier |
-| course_id | Course ID | Internal course identifier |
-| course_code | Course Code | Human-readable course code |
-| j_code | Jurisdiction | 2-letter jurisdiction code |
+| Column      | Header             | Description                 |
+| ----------- | ------------------ | --------------------------- |
+| number      | Certificate Number | Official certificate number |
+| issued_at   | Issued At          | When certificate was issued |
+| student_id  | Student ID         | Unique student identifier   |
+| course_id   | Course ID          | Internal course identifier  |
+| course_code | Course Code        | Human-readable course code  |
+| j_code      | Jurisdiction       | 2-letter jurisdiction code  |
 
 #### seat_time.csv
+
 Seat time tracking data aggregated by student and course.
 
-| Column | Header | Description |
-|--------|--------|-------------|
-| user_id | User ID | Unique student identifier |
-| course_id | Course ID | Internal course identifier |
-| course_code | Course Code | Human-readable course code |
-| j_code | Jurisdiction | 2-letter jurisdiction code |
+| Column        | Header        | Description                |
+| ------------- | ------------- | -------------------------- |
+| user_id       | User ID       | Unique student identifier  |
+| course_id     | Course ID     | Internal course identifier |
+| course_code   | Course Code   | Human-readable course code |
+| j_code        | Jurisdiction  | 2-letter jurisdiction code |
 | total_minutes | Total Minutes | Total seat time in minutes |
 
 ### Cover Sheet PDF
 
 The cover sheet contains:
+
 - Report title and jurisdiction information
 - Course details and reporting period
 - Summary counts (students, exams, certificates, seat time records)
@@ -129,9 +134,9 @@ To verify a manifest signature:
 
 ```javascript
 const payload = JSON.stringify(manifest, Object.keys(manifest).sort());
-const expectedSignature = createHash('sha256')
+const expectedSignature = createHash("sha256")
   .update(payload + secretKey)
-  .digest('hex');
+  .digest("hex");
 const isValid = manifest.signature === expectedSignature;
 ```
 
@@ -167,6 +172,7 @@ The system includes an automated monthly job that:
 ### Storage Structure
 
 Files are stored in the private `dmv_reports` bucket under:
+
 ```
 /{j_code}/{YYYY-MM}/{run_id}/
 ├── roster.csv

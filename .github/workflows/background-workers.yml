@@ -3,7 +3,7 @@ name: Background Workers
 on:
   schedule:
     # Run every 10 minutes
-    - cron: '*/10 * * * *'
+    - cron: "*/10 * * * *"
   workflow_dispatch:
     # Allow manual triggering
 
@@ -12,7 +12,7 @@ jobs:
     name: Process Data Exports
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -20,8 +20,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
           cache-dependency-path: web/package-lock.json
 
       - name: Install dependencies
@@ -44,7 +44,7 @@ jobs:
     name: Process Account Deletions
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -52,8 +52,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
           cache-dependency-path: web/package-lock.json
 
       - name: Install dependencies
@@ -76,10 +76,10 @@ jobs:
     name: Cleanup Expired Data
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    
+
     # Run daily at 2 AM UTC
     if: github.event_name == 'schedule' && github.event.schedule == '0 2 * * *'
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -87,8 +87,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
           cache-dependency-path: web/package-lock.json
 
       - name: Install dependencies

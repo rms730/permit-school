@@ -13,10 +13,12 @@ The platform uses a **hybrid migration approach**:
 ## Migration Files Overview
 
 ### Baseline Migration
+
 - **`0000_init.up.sql`**: Core tables (jurisdictions, courses, course_units)
 - **`0000_init.down.sql`**: Rollback for baseline migration
 
 ### Feature Migrations (0010-0022)
+
 - **`0010_jurisdiction_config.sql`**: Multi-state configuration system
 - **`0011_profiles_enrollment.sql`**: User profiles and enrollment management
 - **`0012_guardian_esign.sql`**: Guardian electronic signatures
@@ -32,6 +34,7 @@ The platform uses a **hybrid migration approach**:
 - **`0022_handbook_sources.sql`**: Handbook sources management
 
 ### Extension Migrations (0023+)
+
 - **`0023_jurisdiction_config_extensions.sql`**: Extends jurisdiction_configs with additional fields
 - **`0024_i18n.sql`**: Additional internationalization features
 - **`0025_learner_ux_polish.sql`**: Learner UX improvements
@@ -39,17 +42,20 @@ The platform uses a **hybrid migration approach**:
 ## Migration Naming Convention
 
 ### Format
+
 ```
 XXXX_description.sql
 ```
 
 ### Rules
+
 - **0000**: Baseline/core migrations
 - **0010-0099**: Feature migrations
 - **0020+**: Extension and enhancement migrations
 - **Description**: Lowercase with underscores, descriptive of the feature
 
 ### Examples
+
 - `0010_jurisdiction_config.sql` - Jurisdiction configuration system
 - `0023_jurisdiction_config_extensions.sql` - Extends jurisdiction config
 - `0025_learner_ux_polish.sql` - Learner UX improvements
@@ -57,17 +63,20 @@ XXXX_description.sql
 ## Migration Dependencies
 
 ### Baseline Dependencies
+
 - `0000_init.up.sql` must run first
 - Contains core tables: jurisdictions, courses, course_units
 - Other migrations depend on these core tables
 
 ### Feature Dependencies
+
 - `0010_jurisdiction_config.sql` depends on `jurisdictions` table
 - `0011_profiles_enrollment.sql` depends on `auth.users` (Supabase Auth)
 - `0014_question_bank_admin.sql` depends on `courses` table
 - `0017_regulatory_reporting.sql` depends on multiple tables
 
 ### Extension Dependencies
+
 - `0023_jurisdiction_config_extensions.sql` extends `0010_jurisdiction_config.sql`
 - `0024_i18n.sql` extends internationalization features
 - `0025_learner_ux_polish.sql` extends user profiles
@@ -83,13 +92,16 @@ Supabase applies migrations in alphabetical order by filename. The current order
 ## Rollback Strategy
 
 ### Individual Rollbacks
+
 Each migration should be designed to be reversible. However, not all migrations have explicit rollback files.
 
 ### Baseline Rollback
+
 - `0000_init.down.sql` provides complete baseline rollback
 - Drops all core tables and sequences
 
 ### Feature Rollbacks
+
 - Most feature migrations use `IF EXISTS` and `IF NOT EXISTS` clauses
 - This allows safe re-running of migrations
 - Some migrations may need manual rollback procedures
@@ -105,6 +117,7 @@ Each migration should be designed to be reversible. However, not all migrations 
 5. **Test rollback**: Ensure migrations can be safely reversed
 
 ### Example New Migration
+
 ```sql
 -- 0026_new_feature.sql
 -- Add new feature functionality
@@ -118,7 +131,7 @@ CREATE TABLE IF NOT EXISTS public.new_feature (
 );
 
 -- Add indexes
-CREATE INDEX IF NOT EXISTS new_feature_jurisdiction_idx 
+CREATE INDEX IF NOT EXISTS new_feature_jurisdiction_idx
     ON public.new_feature (jurisdiction_id);
 
 -- Enable RLS
@@ -153,6 +166,7 @@ If you encounter migration conflicts:
 ### Migration History
 
 Track migration history in:
+
 - Git commits with migration files
 - Database migration logs
 - Deployment documentation
@@ -160,19 +174,25 @@ Track migration history in:
 ## Future Considerations
 
 ### Migration Compression
+
 Consider compressing old migrations into baseline when:
+
 - Platform is stable and mature
 - Migration history becomes unwieldy
 - Performance benefits are needed
 
 ### Migration Testing
+
 Implement automated migration testing:
+
 - Test migration application
 - Test rollback procedures
 - Test data integrity after migrations
 
 ### Migration Documentation
+
 Maintain up-to-date documentation:
+
 - Migration purposes and dependencies
 - Rollback procedures
 - Breaking changes and data migrations

@@ -50,6 +50,7 @@ Course enrollment information (minimal PII):
 ### Guardian Consent Request Flow
 
 1. **Request Creation** (Student → Guardian):
+
    - Student provides guardian name and email during onboarding
    - System generates cryptographically secure random token (32+ bytes)
    - Token is hashed using SHA-256 and stored in database
@@ -57,6 +58,7 @@ Course enrollment information (minimal PII):
    - Email sent to guardian with secure consent link
 
 2. **Consent Verification** (Guardian → System):
+
    - Guardian clicks email link (contains raw token)
    - System hashes token and looks up request in database
    - If valid and not expired, shows consent form
@@ -194,13 +196,23 @@ The platform automatically scrubs PII from error reports:
 export const sentryOptions = {
   beforeSend(event) {
     const redact = (obj) => {
-      if (!obj || typeof obj !== 'object') return;
+      if (!obj || typeof obj !== "object") return;
       const pii = [
-        'first_name', 'last_name', 'middle_name', 'dob', 'phone',
-        'address_line1', 'address_line2', 'city', 'state', 'postal_code',
-        'guardian_name', 'guardian_email', 'guardian_phone'
+        "first_name",
+        "last_name",
+        "middle_name",
+        "dob",
+        "phone",
+        "address_line1",
+        "address_line2",
+        "city",
+        "state",
+        "postal_code",
+        "guardian_name",
+        "guardian_email",
+        "guardian_phone",
       ];
-      for (const k of pii) if (k in obj) obj[k] = '[redacted]';
+      for (const k of pii) if (k in obj) obj[k] = "[redacted]";
       Object.values(obj).forEach(redact);
     };
     redact(event.extra);
@@ -221,8 +233,10 @@ const dob = new Date(profile.dob);
 const today = new Date();
 const age = today.getFullYear() - dob.getFullYear();
 const monthDiff = today.getMonth() - dob.getMonth();
-const isMinor = age < 18 || (age === 18 && monthDiff < 0) || 
-                (age === 18 && monthDiff === 0 && today.getDate() < dob.getDate());
+const isMinor =
+  age < 18 ||
+  (age === 18 && monthDiff < 0) ||
+  (age === 18 && monthDiff === 0 && today.getDate() < dob.getDate());
 ```
 
 ### Guardian Requirements
@@ -239,12 +253,12 @@ For students under 18:
 
 ```sql
 -- Check for recent guardian consent (within last year)
-SELECT signed_at 
-FROM consents 
-WHERE student_id = $1 
-  AND consent_type = 'guardian' 
+SELECT signed_at
+FROM consents
+WHERE student_id = $1
+  AND consent_type = 'guardian'
   AND signed_at >= NOW() - INTERVAL '1 year'
-ORDER BY signed_at DESC 
+ORDER BY signed_at DESC
 LIMIT 1;
 ```
 

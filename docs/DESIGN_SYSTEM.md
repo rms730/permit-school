@@ -7,12 +7,14 @@ The Permit School design system is built for **teen-friendly UX** with a focus o
 ## Design Philosophy
 
 ### Core Principles
+
 - **Teen-Friendly**: Engaging, energetic, yet professional
 - **Accessible**: WCAG 2.2 AA compliance
 - **Mobile-First**: Touch-friendly, responsive design
 - **Inclusive**: Clear, readable, and supportive
 
 ### Target Audience
+
 - **Primary**: 13-17 year olds preparing for permit tests
 - **Secondary**: Parents/guardians monitoring progress
 - **Tertiary**: Educators and administrators
@@ -20,6 +22,7 @@ The Permit School design system is built for **teen-friendly UX** with a focus o
 ## Color Palette
 
 ### Primary Colors
+
 ```css
 /* Teal/Cyan - Energetic yet professional */
 primary: {
@@ -39,6 +42,7 @@ secondary: {
 ```
 
 ### Semantic Colors
+
 ```css
 success: {
   main: "#4CAF50",    /* Success states, completions */
@@ -60,6 +64,7 @@ error: {
 ```
 
 ### Neutral Colors
+
 ```css
 text: {
   primary: "#1A1A1A",     /* Main text */
@@ -75,6 +80,7 @@ divider: "#E0E0E0"        /* Borders, separators */
 ```
 
 ### Accessibility
+
 - **Contrast ratios**: Minimum 4.5:1 for normal text, 3:1 for large text
 - **Color independence**: No information conveyed by color alone
 - **Focus indicators**: Clear, visible focus outlines
@@ -82,6 +88,7 @@ divider: "#E0E0E0"        /* Borders, separators */
 ## Typography
 
 ### Font Stack
+
 ```css
 /* Google Fonts via next/font */
 fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif'
@@ -91,6 +98,7 @@ h1-h6: '"Rubik", "Roboto", "Helvetica", "Arial", sans-serif'
 ```
 
 ### Type Scale
+
 ```css
 h1: {
   fontSize: '2.5rem',
@@ -148,10 +156,12 @@ button: {
 ## Spacing System
 
 ### Base Unit
+
 - **8px** base spacing unit
 - All spacing values are multiples of 8px
 
 ### Common Spacing Values
+
 ```css
 xs: 4px    /* 0.5 * base */
 sm: 8px    /* 1 * base */
@@ -162,6 +172,7 @@ xxl: 48px  /* 6 * base */
 ```
 
 ### Component Spacing
+
 ```css
 /* Card padding */
 cardPadding: 24px
@@ -179,6 +190,7 @@ sectionSpacing: 48px
 ## Border Radius
 
 ### Values
+
 ```css
 xs: 4px     /* Small elements */
 sm: 8px     /* Buttons, inputs */
@@ -188,6 +200,7 @@ xl: 20px    /* Hero sections */
 ```
 
 ### Usage Guidelines
+
 - **Buttons**: 12px radius for modern feel
 - **Cards**: 16px radius for soft appearance
 - **Inputs**: 12px radius for consistency
@@ -196,6 +209,7 @@ xl: 20px    /* Hero sections */
 ## Shadows
 
 ### Elevation Levels
+
 ```css
 /* Level 1 - Subtle elevation */
 shadow1: '0 2px 8px rgba(0, 0, 0, 0.1)'
@@ -211,6 +225,7 @@ shadow4: '0 12px 40px rgba(0, 0, 0, 0.15)'
 ```
 
 ### Usage Guidelines
+
 - **Cards**: Level 2 shadow by default, Level 3 on hover
 - **Buttons**: Level 1 shadow, Level 2 on hover
 - **Modals**: Level 4 shadow
@@ -221,6 +236,7 @@ shadow4: '0 12px 40px rgba(0, 0, 0, 0.15)'
 ### Buttons
 
 #### Primary Button
+
 ```css
 /* Default state */
 background: 'linear-gradient(135deg, #00BCD4 0%, #4DD0E1 100%)'
@@ -241,6 +257,7 @@ outlineOffset: '2px'
 ```
 
 #### Secondary Button
+
 ```css
 /* Default state */
 border: '2px solid #00BCD4'
@@ -257,6 +274,7 @@ borderColor: '#0097A7'
 ### Cards
 
 #### Standard Card
+
 ```css
 /* Default state */
 borderRadius: 16px
@@ -272,6 +290,7 @@ transform: 'translateY(-2px)'
 ### Input Fields
 
 #### Text Input
+
 ```css
 /* Container */
 borderRadius: 12px
@@ -287,6 +306,7 @@ borderColor: '#4DD0E1'
 ### AppBar
 
 #### Modern AppBar
+
 ```css
 /* Background */
 backgroundColor: 'rgba(255, 255, 255, 0.95)'
@@ -298,6 +318,7 @@ borderBottom: '1px solid #E0E0E0'
 ## Responsive Design
 
 ### Breakpoints
+
 ```css
 xs: 0px      /* Mobile portrait */
 sm: 600px    /* Mobile landscape */
@@ -307,12 +328,14 @@ xl: 1536px   /* Large desktop */
 ```
 
 ### Mobile-First Guidelines
+
 - **Touch targets**: Minimum 44px for all interactive elements
 - **Spacing**: Increase spacing on mobile for better touch interaction
 - **Typography**: Maintain readability across all screen sizes
 - **Navigation**: Collapsible drawer for mobile navigation
 
 ### Responsive Patterns
+
 ```css
 /* Stack on mobile, row on desktop */
 direction: { xs: 'column', md: 'row' }
@@ -327,6 +350,7 @@ fontSize: { xs: '1rem', md: '1.25rem' }
 ## Animation & Transitions
 
 ### Duration
+
 ```css
 fast: '0.15s'    /* Quick feedback */
 normal: '0.2s'   /* Standard transitions */
@@ -334,6 +358,7 @@ slow: '0.3s'     /* Complex animations */
 ```
 
 ### Easing
+
 ```css
 easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)'
 easeOut: 'cubic-bezier(0, 0, 0.2, 1)'
@@ -341,6 +366,7 @@ easeIn: 'cubic-bezier(0.4, 0, 1, 1)'
 ```
 
 ### Common Animations
+
 ```css
 /* Button hover */
 transition: 'all 0.2s ease-in-out'
@@ -355,21 +381,25 @@ transition: 'opacity 0.2s ease-in-out'
 ## Accessibility Guidelines
 
 ### Focus Management
+
 - **Visible focus**: Clear focus indicators on all interactive elements
 - **Focus order**: Logical tab order following visual layout
 - **Skip links**: Provide skip navigation for keyboard users
 
 ### Color & Contrast
+
 - **Minimum contrast**: 4.5:1 for normal text, 3:1 for large text
 - **Color independence**: Never rely solely on color to convey information
 - **High contrast mode**: Support system high contrast preferences
 
 ### Screen Reader Support
+
 - **Semantic HTML**: Use proper heading hierarchy and landmarks
 - **ARIA labels**: Provide descriptive labels for complex interactions
 - **Alt text**: Meaningful alt text for all images
 
 ### Keyboard Navigation
+
 - **Full keyboard access**: All functionality accessible via keyboard
 - **Logical tab order**: Tab order follows visual layout
 - **Keyboard shortcuts**: Provide shortcuts for common actions
@@ -377,16 +407,19 @@ transition: 'opacity 0.2s ease-in-out'
 ## Implementation Guidelines
 
 ### MUI Integration
+
 - Use MUI's `sx` prop for custom styling
 - Leverage MUI's theme system for consistency
 - Override component styles through theme customization
 
 ### CSS-in-JS Best Practices
+
 - Use theme tokens for all values
 - Maintain consistent naming conventions
 - Keep styles close to components
 
 ### Performance Considerations
+
 - Minimize CSS bundle size
 - Use CSS-in-JS efficiently
 - Optimize for critical rendering path
@@ -394,16 +427,19 @@ transition: 'opacity 0.2s ease-in-out'
 ## Future Considerations
 
 ### Dark Mode
+
 - Prepare color tokens for dark mode
 - Consider contrast ratios in both themes
 - Plan for system preference detection
 
 ### Internationalization
+
 - Support for right-to-left languages
 - Consider text length variations
 - Plan for cultural color preferences
 
 ### Advanced Interactions
+
 - Micro-interactions for engagement
 - Loading states and skeleton screens
 - Progressive disclosure patterns

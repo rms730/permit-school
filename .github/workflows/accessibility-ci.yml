@@ -49,10 +49,10 @@ jobs:
       - name: Run Lighthouse CI (monorepo-aware)
         env:
           # Make the port explicit & stable for LHCI
-          PORT: 4310
+          PORT: 4320
         run: |
           npx --yes @lhci/cli@0.13.0 autorun \
-            --config=web/.lighthouserc.cjs \
+            --config=.lighthouserc.cjs \
             --collect.startServerCommand="PORT=$PORT npm run start:ci" \
             --collect.url="http://localhost:$PORT/" \
             --collect.numberOfRuns=2

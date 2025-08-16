@@ -92,7 +92,7 @@ export default function AdminAuditPage() {
 
   useEffect(() => {
     fetchAuditLogs();
-  }, [page, rowsPerPage, filters]);
+  }, [page, rowsPerPage, filters]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchAuditLogs = async () => {
     try {

@@ -3,7 +3,13 @@ import { IdleTracker } from '../idleTracker';
 
 describe('IdleTracker', () => {
   let idleTracker: IdleTracker;
-  let mockConfig: any;
+  let mockConfig: {
+    idleTimeoutMs: number;
+    heartbeatIntervalMs: number;
+    onIdle: ReturnType<typeof vi.fn>;
+    onActive: ReturnType<typeof vi.fn>;
+    onHeartbeat: ReturnType<typeof vi.fn>;
+  };
 
   beforeEach(() => {
     // Mock timers
@@ -79,7 +85,7 @@ describe('IdleTracker', () => {
     // Simulate user activity
     const mockEvent = new Event('mousemove');
     const handleActivity = (document.addEventListener as any).mock.calls.find(
-      (call: any) => call[0] === 'mousemove'
+      (call: [string, EventListener]) => call[0] === 'mousemove'
     )[1];
     
     handleActivity(mockEvent);
@@ -111,7 +117,7 @@ describe('IdleTracker', () => {
     // Then simulate activity
     const mockEvent = new Event('mousemove');
     const handleActivity = (document.addEventListener as any).mock.calls.find(
-      (call: any) => call[0] === 'mousemove'
+      (call: [string, EventListener]) => call[0] === 'mousemove'
     )[1];
     
     handleActivity(mockEvent);
@@ -133,7 +139,7 @@ describe('IdleTracker', () => {
     });
     
     const handleVisibilityChange = (document.addEventListener as any).mock.calls.find(
-      (call: any) => call[0] === 'visibilitychange'
+      (call: [string, EventListener]) => call[0] === 'visibilitychange'
     )[1];
     
     handleVisibilityChange();
@@ -173,11 +179,11 @@ describe('IdleTracker', () => {
     idleTracker.start();
     
     const handleFocus = (window.addEventListener as any).mock.calls.find(
-      (call: any) => call[0] === 'focus'
+      (call: [string, EventListener]) => call[0] === 'focus'
     )[1];
     
     const handleBlur = (window.addEventListener as any).mock.calls.find(
-      (call: any) => call[0] === 'blur'
+      (call: [string, EventListener]) => call[0] === 'blur'
     )[1];
     
     // Simulate window blur

@@ -1,11 +1,16 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { createConfetti, stopConfetti, useConfetti } from '../confetti';
+
+// Clear module cache to ensure fresh imports
+vi.resetModules();
 
 describe('Confetti', () => {
   let mockCanvas: HTMLCanvasElement;
   let mockContext: CanvasRenderingContext2D;
+  let createConfetti: any;
+  let stopConfetti: any;
+  let useConfetti: any;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     // Mock canvas and context
     mockContext = {
       clearRect: vi.fn(),
@@ -20,7 +25,13 @@ describe('Confetti', () => {
     } as any;
 
     mockCanvas = {
-      style: {},
+      style: {
+        position: '',
+        top: '',
+        left: '',
+        pointerEvents: '',
+        zIndex: '',
+      },
       width: 800,
       height: 600,
       getContext: vi.fn(() => mockContext),
@@ -32,11 +43,11 @@ describe('Confetti', () => {
     // Mock document.body.appendChild
     vi.spyOn(document.body, 'appendChild').mockReturnValue(mockCanvas);
     
-    // Mock window.matchMedia
+    // Mock window.matchMedia to return false for reduced motion
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
-      value: vi.fn().mockImplementation(query => ({
-        matches: false,
+      value: vi.fn().mockImplementation((query: string) => ({
+        matches: query.includes('prefers-reduced-motion') ? false : false,
         media: query,
         onchange: null,
         addListener: vi.fn(),
@@ -48,13 +59,19 @@ describe('Confetti', () => {
     });
 
     // Mock requestAnimationFrame
-    vi.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => {
+    vi.spyOn(window, 'requestAnimationFrame').mockImplementation((cb: FrameRequestCallback) => {
       setTimeout(cb, 16);
       return 1;
     });
 
     // Mock cancelAnimationFrame
     vi.spyOn(window, 'cancelAnimationFrame').mockImplementation(() => {});
+    
+    // Import the module after mocks are set up
+    const confettiModule = await import('../confetti');
+    createConfetti = confettiModule.createConfetti;
+    stopConfetti = confettiModule.stopConfetti;
+    useConfetti = confettiModule.useConfetti;
   });
 
   afterEach(() => {
@@ -88,7 +105,7 @@ describe('Confetti', () => {
     // Mock reduced motion preference
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
-      value: vi.fn().mockImplementation(query => ({
+      value: vi.fn().mockImplementation((query: string) => ({
         matches: query.includes('prefers-reduced-motion'),
         media: query,
         onchange: null,
@@ -144,7 +161,7 @@ describe('Confetti', () => {
 
   it('should handle different particle shapes', () => {
     const configWithShapes = {
-      shapes: ['square', 'circle'],
+      shapes: ['square', 'circle'] as ('square' | 'circle')[],
       particleCount: 10,
     };
 

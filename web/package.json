@@ -10,15 +10,18 @@
     "start:offline": "OFFLINE_DEV=1 next start -p 3000",
     "start-ci": "next start -p 3000",
     "start:ci": "next start -p 4040",
-    "lint": "next lint",
-    "lint:a11y": "eslint --ext .js,.jsx,.ts,.tsx src --max-warnings=0 || true",
-    "typecheck": "tsc --noEmit",
-    "axe:ci": "axe http://localhost:3000/ http://localhost:3000/courses http://localhost:3000/signin --exit 1 || true",
+    "lint": "eslint . --ext .ts,.tsx --max-warnings=0",
+    "lint:a11y": "eslint src --ext .tsx --plugin jsx-a11y --rule 'jsx-a11y/alt-text:error' --rule 'jsx-a11y/anchor-has-content:error' --rule 'jsx-a11y/anchor-is-valid:error' --rule 'jsx-a11y/click-events-have-key-events:error' --rule 'jsx-a11y/heading-has-content:error' --rule 'jsx-a11y/html-has-lang:error' --rule 'jsx-a11y/iframe-has-title:error' --rule 'jsx-a11y/img-redundant-alt:error' --rule 'jsx-a11y/no-access-key:error' --rule 'jsx-a11y/no-autofocus:error' --rule 'jsx-a11y/no-distracting-elements:error' --rule 'jsx-a11y/no-interactive-element-to-noninteractive-role:error' --rule 'jsx-a11y/no-noninteractive-element-interactions:error' --rule 'jsx-a11y/no-noninteractive-tabindex:error' --rule 'jsx-a11y/no-redundant-roles:error' --rule 'jsx-a11y/no-static-element-interactions:error' --rule 'jsx-a11y/role-has-required-aria-props:error' --rule 'jsx-a11y/role-supports-aria-props:error' --rule 'jsx-a11y/scope:error' --rule 'jsx-a11y/tabindex-no-positive:error' --max-warnings=0",
+    "typecheck": "tsc --noEmit -p tsconfig.build.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "axe:ci": "axe http://localhost:4040/ http://localhost:4040/courses http://localhost:4040/signin --exit 1 || true",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:debug": "playwright test --debug",
     "test:e2e:install": "playwright install",
-    "seed:handbooks": "tsx ops/seed/seed-handbooks.ts"
+    "seed:handbooks": "tsx ops/seed/seed-handbooks.ts",
+    "lhci": "lhci autorun"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -50,16 +53,27 @@
   "devDependencies": {
     "@axe-core/cli": "^4.8.4",
     "@playwright/test": "^1.42.1",
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
     "@types/archiver": "^6.0.3",
     "@types/node": "^20.14.12",
     "@types/qrcode": "^1.5.5",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.1",
+    "@typescript-eslint/parser": "^8.39.1",
+    "@vitest/coverage-v8": "^2.0.5",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.7",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-testing-library": "^6.2.3",
+    "eslint-plugin-vitest": "^0.5.4",
+    "jsdom": "^26.1.0",
     "lighthouse": "^11.6.0",
     "tsx": "^4.19.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "vite-tsconfig-paths": "^5.1.2",
+    "vitest": "^2.0.5"
   }
 }

@@ -18,12 +18,13 @@
     },
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
     "plugins": [
       {
         "name": "next"
       }
     ]
   },
-  "include": ["next-env.d.ts", "src/**/*", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "vitest.config.ts", "src/test/setup.ts", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "tests/e2e/**/*"]
 }

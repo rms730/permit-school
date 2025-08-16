@@ -2,10 +2,10 @@
 module.exports = {
   ci: {
     collect: {
-      startServerCommand: 'npm run start:ci',
-      startServerReadyPattern: 'started server',
-      numberOfRuns: 1,
-      url: ['http://localhost:4040/'],
+      startServerCommand: 'PORT=${PORT:-4310} npm run start:ci',
+      startServerReadyPattern: 'Ready on',
+      numberOfRuns: 2,
+      url: ['http://localhost:4310/'],
       settings: {
         chromeFlags: '--no-sandbox --headless=new'
       }

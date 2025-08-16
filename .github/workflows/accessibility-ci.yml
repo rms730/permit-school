@@ -18,6 +18,8 @@ jobs:
         with:
           node-version: 20
           check-latest: true
+          cache: "npm"
+          cache-dependency-path: web/package-lock.json
 
       - name: Show node/npm
         run: |
@@ -44,27 +46,24 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || 'service-role-placeholder' }}
           NEXT_PUBLIC_SITE_URL: https://permit-school.com
 
-      - name: Start server
-        run: |
-          nohup npm run start:ci >/dev/null 2>&1 &
-          echo "Waiting for http://127.0.0.1:4040 ..."
-          for i in {1..60}; do
-            if curl -fsS http://127.0.0.1:4040 >/dev/null; then
-              echo "✅ server ready"
-              break
-            fi
-            sleep 1
-          done
-        working-directory: web
+      - name: Run Lighthouse CI (monorepo-aware)
         env:
-          NEXT_PUBLIC_SITE_URL: https://permit-school.com
+          # Make the port explicit & stable for LHCI
+          PORT: 4310
+        run: |
+          npx --yes @lhci/cli@0.13.0 autorun \
+            --config=web/.lighthouserc.cjs \
+            --collect.startServerCommand="PORT=$PORT npm run start:ci" \
+            --collect.url="http://localhost:$PORT/" \
+            --collect.numberOfRuns=2
+        working-directory: web
 
-      - name: Run Lighthouse CI
-        uses: treosh/lighthouse-ci-action@v11
+      - name: Upload LHCI artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          configPath: web/.lighthouserc.cjs
-          uploadArtifacts: true
-          temporaryPublicStorage: true
+          name: lhci-artifacts
+          path: web/.lighthouseci/*
 
       - name: Run axe-core accessibility tests
         run: |

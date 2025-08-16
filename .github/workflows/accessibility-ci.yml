@@ -146,16 +146,16 @@ jobs:
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon-placeholder' }}
           SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || 'service-role-placeholder' }}
-          NEXT_PUBLIC_SITE_URL: http://127.0.0.1:4040
+          NEXT_PUBLIC_SITE_URL: http://127.0.0.1:4330
           TESTKIT_ON: true
           TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}
 
       - name: Start server
         run: |
           nohup npm run start:ci >/dev/null 2>&1 &
-          echo "Waiting for http://127.0.0.1:4040 ..."
+          echo "Waiting for http://127.0.0.1:4330 ..."
           for i in {1..60}; do
-            if curl -fsS http://127.0.0.1:4040 >/dev/null; then
+            if curl -fsS http://127.0.0.1:4330 >/dev/null; then
               echo "✅ server ready"
               break
             fi
@@ -163,7 +163,7 @@ jobs:
           done
         working-directory: web
         env:
-          NEXT_PUBLIC_SITE_URL: http://127.0.0.1:4040
+          NEXT_PUBLIC_SITE_URL: http://127.0.0.1:4330
           TESTKIT_ON: true
           TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}
 
@@ -171,7 +171,7 @@ jobs:
         run: npx playwright test --reporter=line
         working-directory: web
         env:
-          BASE_URL: http://127.0.0.1:4040
+          BASE_URL: http://127.0.0.1:4330
           TESTKIT_ON: true
           TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}
 

@@ -1,0 +1,2 @@
+rollup ok: true
+linux-x64-gnu NOT present (ok on non-Linux)

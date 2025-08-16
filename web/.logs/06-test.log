@@ -1,0 +1,222 @@
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+ RUN  v2.1.9 /Users/rsternke/permit-school/permit-school/web
+
+ ❯ src/lib/__tests__/idleTracker.test.ts (11 tests | 1 failed) 7ms
+   × IdleTracker > should not start tracking multiple times 2ms
+     → expected "spy" to be called 1 times, but got 7 times
+ ❯ src/lib/__tests__/confetti.test.ts (14 tests | 8 failed) 18ms
+   × Confetti > should create confetti with custom config 2ms
+     → expected "createElement" to be called with arguments: [ 'canvas' ]
+
+Received: 
+
+
+
+Number of calls: 0
+
+   × Confetti > should not create multiple canvas elements 1ms
+     → expected "createElement" to be called 1 times, but got 0 times
+   × Confetti > should use default colors when not specified 0ms
+     → expected "spy" to be called with arguments: [ '2d' ]
+
+Received: 
+
+
+
+Number of calls: 0
+
+   × Confetti > should handle different particle shapes 0ms
+     → expected "spy" to be called with arguments: [ '2d' ]
+
+Received: 
+
+
+
+Number of calls: 0
+
+   × Confetti > should set correct canvas styles 2ms
+     → expected '' to be 'fixed' // Object.is equality
+   × Confetti > should handle fire function from hook 0ms
+     → expected "createElement" to be called with arguments: [ 'canvas' ]
+
+Received: 
+
+
+
+Number of calls: 0
+
+   × Confetti > should handle custom origin 1ms
+     → expected "spy" to be called with arguments: [ '2d' ]
+
+Received: 
+
+
+
+Number of calls: 0
+
+   × Confetti > should handle custom zIndex 0ms
+     → expected '' to be '5000' // Object.is equality
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/lib/__tests__/confetti.test.ts > Confetti > should create confetti with custom config
+AssertionError: expected "createElement" to be called with arguments: [ 'canvas' ]
+
+Received: 
+
+
+
+Number of calls: 0
+
+ ❯ src/lib/__tests__/confetti.test.ts:100:36
+     98|     createConfetti(customConfig);
+     99|     
+    100|     expect(document.createElement).toHaveBeenCalledWith('canvas');
+       |                                    ^
+    101|     expect(document.body.appendChild).toHaveBeenCalledWith(mockCanvas);
+    102|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  src/lib/__tests__/confetti.test.ts > Confetti > should not create multiple canvas elements
+AssertionError: expected "createElement" to be called 1 times, but got 0 times
+ ❯ src/lib/__tests__/confetti.test.ts:138:36
+    136|     
+    137|     // Should only create one canvas
+    138|     expect(document.createElement).toHaveBeenCalledTimes(1);
+       |                                    ^
+    139|   });
+    140| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  src/lib/__tests__/confetti.test.ts > Confetti > should use default colors when not specified
+AssertionError: expected "spy" to be called with arguments: [ '2d' ]
+
+Received: 
+
+
+
+Number of calls: 0
+
+ ❯ src/lib/__tests__/confetti.test.ts:159:35
+    157|     const defaultColors = ['#00BCD4', '#7C4DFF', '#4CAF50', '#FF9800',…
+    158|     // The confetti creation should use these colors
+    159|     expect(mockCanvas.getContext).toHaveBeenCalledWith('2d');
+       |                                   ^
+    160|   });
+    161| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  src/lib/__tests__/confetti.test.ts > Confetti > should handle different particle shapes
+AssertionError: expected "spy" to be called with arguments: [ '2d' ]
+
+Received: 
+
+
+
+Number of calls: 0
+
+ ❯ src/lib/__tests__/confetti.test.ts:170:35
+    168|     createConfetti(configWithShapes);
+    169|     
+    170|     expect(mockCanvas.getContext).toHaveBeenCalledWith('2d');
+       |                                   ^
+    171|   });
+    172| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  src/lib/__tests__/confetti.test.ts > Confetti > should set correct canvas styles
+AssertionError: expected '' to be 'fixed' // Object.is equality
+
+- Expected
++ Received
+
+- fixed
+
+ ❯ src/lib/__tests__/confetti.test.ts:176:39
+    174|     createConfetti();
+    175|     
+    176|     expect(mockCanvas.style.position).toBe('fixed');
+       |                                       ^
+    177|     expect(mockCanvas.style.top).toBe('0');
+    178|     expect(mockCanvas.style.left).toBe('0');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  src/lib/__tests__/confetti.test.ts > Confetti > should handle fire function from hook
+AssertionError: expected "createElement" to be called with arguments: [ 'canvas' ]
+
+Received: 
+
+
+
+Number of calls: 0
+
+ ❯ src/lib/__tests__/confetti.test.ts:195:36
+    193|     fire();
+    194|     
+    195|     expect(document.createElement).toHaveBeenCalledWith('canvas');
+       |                                    ^
+    196|   });
+    197| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+
+ FAIL  src/lib/__tests__/confetti.test.ts > Confetti > should handle custom origin
+AssertionError: expected "spy" to be called with arguments: [ '2d' ]
+
+Received: 
+
+
+
+Number of calls: 0
+
+ ❯ src/lib/__tests__/confetti.test.ts:214:35
+    212|     createConfetti(configWithOrigin);
+    213|     
+    214|     expect(mockCanvas.getContext).toHaveBeenCalledWith('2d');
+       |                                   ^
+    215|   });
+    216| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/9]⎯
+
+ FAIL  src/lib/__tests__/confetti.test.ts > Confetti > should handle custom zIndex
+AssertionError: expected '' to be '5000' // Object.is equality
+
+- Expected
++ Received
+
+- 5000
+
+ ❯ src/lib/__tests__/confetti.test.ts:225:37
+    223|     createConfetti(configWithZIndex);
+    224|     
+    225|     expect(mockCanvas.style.zIndex).toBe('5000');
+       |                                     ^
+    226|   });
+    227| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/9]⎯
+
+ FAIL  src/lib/__tests__/idleTracker.test.ts > IdleTracker > should not start tracking multiple times
+AssertionError: expected "spy" to be called 1 times, but got 7 times
+ ❯ src/lib/__tests__/idleTracker.test.ts:79:39
+     77|     idleTracker.start();
+     78|     // Should only add event listeners once
+     79|     expect(document.addEventListener).toHaveBeenCalledTimes(1);
+       |                                       ^
+     80|   });
+     81| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/9]⎯
+
+ Test Files  2 failed (2)
+      Tests  9 failed | 16 passed (25)
+   Start at  09:44:33
+   Duration  496ms (transform 37ms, setup 77ms, collect 31ms, tests 25ms, environment 523ms, prepare 59ms)
+

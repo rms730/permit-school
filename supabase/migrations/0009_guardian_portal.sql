@@ -37,9 +37,9 @@ SELECT
     sp.dob,
     p.role AS student_role
 FROM public.guardian_links AS gl
-JOIN public.student_profiles AS sp
+INNER JOIN public.student_profiles AS sp
     ON gl.student_id = sp.user_id
-JOIN public.profiles AS p
+INNER JOIN public.profiles AS p
     ON sp.user_id = p.id;
 
 -- Course progress summary per student (reuses existing tables)
@@ -54,7 +54,7 @@ SELECT
     COALESCE(SUM(ste.ms_delta) / 60000.0, 0) AS minutes_total,
     COALESCE(MAX(a.score) FILTER (WHERE a.mode = 'final'), NULL) AS final_exam_score,
     COALESCE(MAX(a.completed_at) FILTER (WHERE a.mode = 'final'), NULL) AS final_exam_completed,
-    EXISTS (
+    EXISTS(
         SELECT 1
         FROM public.certificates AS cert
         WHERE cert.student_id = ste.student_id
@@ -62,15 +62,15 @@ SELECT
             AND cert.status IN ('draft','ready')
     ) AS has_certificate
 FROM public.guardian_links AS gl
-JOIN public.seat_time_events AS ste
+INNER JOIN public.seat_time_events AS ste
     ON gl.student_id = ste.student_id
-JOIN public.courses AS c
+INNER JOIN public.courses AS c
     ON ste.course_id = c.id
-JOIN public.jurisdictions AS j
+INNER JOIN public.jurisdictions AS j
     ON c.jurisdiction_id = j.id
 LEFT JOIN public.attempts AS a
-    ON a.student_id = ste.student_id
-    AND a.course_id = ste.course_id
+    ON ste.student_id = a.student_id
+    AND ste.course_id = a.course_id
 GROUP BY gl.guardian_id, ste.student_id, ste.course_id, j.code, c.code, c.title;
 
 -- RLS policies for notifications

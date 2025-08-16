@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS public.courses (
     title text NOT NULL,
     price_cents int NOT NULL DEFAULT 999,
     hours_required_minutes int, -- e.g., CA equivalency 30*50=1500
-    active boolean DEFAULT TRUE,
+    active boolean DEFAULT true,
     UNIQUE (jurisdiction_id, code)
 );
 
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS public.question_bank (
     answer text NOT NULL,
     explanation text NOT NULL,
     source_sections text[] NOT NULL,
-    is_generated boolean DEFAULT FALSE,
+    is_generated boolean DEFAULT false,
     created_at timestamptz DEFAULT now()
 );
 
@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS public.content_chunks (
 CREATE TABLE IF NOT EXISTS public.certificate_serials (
     jurisdiction_id int NOT NULL REFERENCES public.jurisdictions(id) ON DELETE CASCADE,
     serial text NOT NULL,
-    used boolean DEFAULT FALSE,
+    used boolean DEFAULT false,
     assigned_to uuid REFERENCES auth.users(id),
     assigned_at timestamptz,
     PRIMARY KEY (jurisdiction_id, serial)
@@ -290,7 +290,7 @@ CREATE TABLE IF NOT EXISTS public.data_exports (
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     error text,
-    expires_at timestamptz NOT NULL DEFAULT (now() + INTERVAL '7 days')
+    expires_at timestamptz NOT NULL DEFAULT (now() + interval '7 days')
 );
 
 -- Deletion requests for DSAR
@@ -303,7 +303,7 @@ CREATE TABLE IF NOT EXISTS public.deletion_requests (
     executed_at timestamptz,
     reason text,
     confirmation_token text UNIQUE,
-    token_expires_at timestamptz NOT NULL DEFAULT (now() + INTERVAL '7 days')
+    token_expires_at timestamptz NOT NULL DEFAULT (now() + interval '7 days')
 );
 
 -- Audit logs for tamper-evident audit trail
@@ -324,12 +324,14 @@ CREATE TABLE IF NOT EXISTS public.audit_logs (
 
 -- Create indexes
 CREATE INDEX IF NOT EXISTS course_units_course_id_idx ON public.course_units USING btree (course_id);
-CREATE INDEX IF NOT EXISTS content_chunks_embedding_idx ON public.content_chunks USING ivfflat (embedding vector_cosine_ops);
+CREATE INDEX IF NOT EXISTS content_chunks_embedding_idx 
+    ON public.content_chunks USING ivfflat (embedding vector_cosine_ops);
 CREATE INDEX IF NOT EXISTS subscriptions_user_id_idx ON public.subscriptions(user_id);
 CREATE INDEX IF NOT EXISTS entitlements_active_idx ON public.entitlements(active, expires_at);
 CREATE INDEX IF NOT EXISTS billing_events_user_id_idx ON public.billing_events USING btree (user_id);
 CREATE INDEX IF NOT EXISTS tutor_logs_student_course_idx ON public.tutor_logs USING btree (student_id, course_id);
-CREATE INDEX IF NOT EXISTS seat_time_events_student_course_idx ON public.seat_time_events USING btree (student_id, course_id);
+CREATE INDEX IF NOT EXISTS seat_time_events_student_course_idx 
+    ON public.seat_time_events USING btree (student_id, course_id);
 CREATE INDEX IF NOT EXISTS consents_user_id_idx ON public.consents USING btree (user_id);
 CREATE INDEX IF NOT EXISTS notifications_user_id_idx ON public.notifications USING btree (user_id);
 CREATE INDEX IF NOT EXISTS audit_logs_actor_user_id_idx ON public.audit_logs USING btree (actor_user_id);
@@ -367,7 +369,7 @@ VALUES ('CA', 'California', 'DL-400C')
 ON CONFLICT (code) DO NOTHING;
 
 INSERT INTO public.jurisdictions (code, name, certificate_type)
-VALUES ('TX', 'Texas', NULL)
+VALUES ('TX', 'Texas', null)
 ON CONFLICT (code) DO NOTHING;
 
 -- Link default course for CA
@@ -389,6 +391,6 @@ SELECT
     e.j_code,
     (
         e.active
-        AND (e.expires_at IS NULL OR e.expires_at > now())
+        AND (e.expires_at IS null OR e.expires_at > now())
     ) AS active
 FROM public.entitlements AS e;

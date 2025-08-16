@@ -50,11 +50,11 @@ CREATE INDEX IF NOT EXISTS regulatory_artifacts_run_id_idx
 -- Supporting indexes for time-range queries
 CREATE INDEX IF NOT EXISTS attempts_completed_at_idx
     ON public.attempts (completed_at)
-    WHERE completed_at IS NOT NULL;
+    WHERE completed_at IS NOT null;
 
 CREATE INDEX IF NOT EXISTS certificates_issued_at_idx
     ON public.certificates (issued_at)
-    WHERE issued_at IS NOT NULL;
+    WHERE issued_at IS NOT null;
 
 CREATE INDEX IF NOT EXISTS seat_time_events_created_at_idx
     ON public.seat_time_events (created_at);

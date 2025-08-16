@@ -61,7 +61,7 @@ WITH priced AS (
         j.code AS j_code,
         c.code AS course_code,
         c.title AS course_title,
-        EXISTS(
+        exists(
             SELECT 1
             FROM public.billing_prices AS bp
             WHERE bp.course_id = c.id
@@ -71,6 +71,7 @@ WITH priced AS (
     INNER JOIN public.jurisdictions AS j
         ON c.jurisdiction_id = j.id
 )
+
 SELECT
     p.j_code,
     p.course_code,

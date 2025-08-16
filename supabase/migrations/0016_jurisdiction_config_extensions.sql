@@ -10,11 +10,16 @@ ADD COLUMN IF NOT EXISTS regulatory_signing_secret text,
 ADD COLUMN IF NOT EXISTS fulfillment_low_stock_threshold integer DEFAULT 200;
 
 -- Add comments for documentation
-COMMENT ON COLUMN public.jurisdiction_configs.certificate_issuer_name IS 'Name of the certificate issuing organization (e.g., "Acme Driving Academy")';
-COMMENT ON COLUMN public.jurisdiction_configs.certificate_issuer_license IS 'License number of the certificate issuing organization (e.g., "CA-INS-000123")';
-COMMENT ON COLUMN public.jurisdiction_configs.support_phone IS 'Support phone number for this jurisdiction';
-COMMENT ON COLUMN public.jurisdiction_configs.regulatory_signing_secret IS 'Secret key for signing regulatory reports and manifests';
-COMMENT ON COLUMN public.jurisdiction_configs.fulfillment_low_stock_threshold IS 'Threshold for low stock alerts in certificate fulfillment';
+COMMENT ON COLUMN public.jurisdiction_configs.certificate_issuer_name IS 
+    'Name of the certificate issuing organization (e.g., "Acme Driving Academy")';
+COMMENT ON COLUMN public.jurisdiction_configs.certificate_issuer_license IS 
+    'License number of the certificate issuing organization (e.g., "CA-INS-000123")';
+COMMENT ON COLUMN public.jurisdiction_configs.support_phone IS 
+    'Support phone number for this jurisdiction';
+COMMENT ON COLUMN public.jurisdiction_configs.regulatory_signing_secret IS 
+    'Secret key for signing regulatory reports and manifests';
+COMMENT ON COLUMN public.jurisdiction_configs.fulfillment_low_stock_threshold IS 
+    'Threshold for low stock alerts in certificate fulfillment';
 
 -- Update existing CA configuration with current environment variable values
 DO $$
@@ -51,9 +56,9 @@ SELECT
     jc.regulatory_signing_secret,
     jc.fulfillment_low_stock_threshold,
     jc.updated_at
-FROM public.jurisdictions j
-LEFT JOIN public.jurisdiction_configs jc ON jc.jurisdiction_id = j.id
-WHERE jc.jurisdiction_id IS NOT NULL;
+FROM public.jurisdictions AS j
+LEFT JOIN public.jurisdiction_configs AS jc ON j.id = jc.jurisdiction_id
+WHERE jc.jurisdiction_id IS NOT null;
 
 -- Grant appropriate permissions
 GRANT SELECT ON public.v_jurisdiction_config TO authenticated;

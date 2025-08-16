@@ -26,9 +26,26 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          check-latest: true
 
-      - name: Install deps
-        run: npm ci
+      - name: Show node/npm
+        run: |
+          node -v
+          npm -v
+
+      - name: Update npm (workaround optionalDependencies install bugs)
+        run: npm i -g npm@latest
+
+      - name: Clean install dependencies
+        run: |
+          rm -rf node_modules package-lock.json
+          npm cache clean --force
+          npm install --no-audit --prefer-online
+
+      - name: Dependency sanity check (rollup)
+        run: |
+          node -e "try{const r=require('rollup');console.log('rollup ok:', typeof r==='object');}catch(e){console.error('rollup not resolvable');process.exit(1)}"
+          node -e "try{require.resolve('@rollup/rollup-linux-x64-gnu');console.log('linux-x64-gnu pkg present');}catch{console.log('linux-x64-gnu pkg NOT present (ok if not needed on this runner)');}"
 
       - name: Lint
         run: npm run lint
@@ -38,12 +55,9 @@ jobs:
 
       - name: Build
         env:
-          # Avoid failing on missing optional env at build time
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon-placeholder' }}
-          # Build metadata
           NEXT_PUBLIC_COMMIT_SHA: ${{ github.sha }}
           NEXT_PUBLIC_BUILD_AT: ${{ github.run_started_at }}
-          # Suppress Sentry warnings in CI
           SENTRY_SUPPRESS_GLOBAL_ERROR_HANDLER_FILE_WARNING: 1
         run: npm run build:ci

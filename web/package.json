@@ -12,7 +12,7 @@
     "start:ci": "next start -p 4040",
     "lint": "eslint . --ext .ts,.tsx --max-warnings=0",
     "lint:a11y": "eslint src --ext .tsx --plugin jsx-a11y --rule 'jsx-a11y/alt-text:error' --rule 'jsx-a11y/anchor-has-content:error' --rule 'jsx-a11y/anchor-is-valid:error' --rule 'jsx-a11y/click-events-have-key-events:error' --rule 'jsx-a11y/heading-has-content:error' --rule 'jsx-a11y/html-has-lang:error' --rule 'jsx-a11y/iframe-has-title:error' --rule 'jsx-a11y/img-redundant-alt:error' --rule 'jsx-a11y/no-access-key:error' --rule 'jsx-a11y/no-autofocus:error' --rule 'jsx-a11y/no-distracting-elements:error' --rule 'jsx-a11y/no-interactive-element-to-noninteractive-role:error' --rule 'jsx-a11y/no-noninteractive-element-interactions:error' --rule 'jsx-a11y/no-noninteractive-tabindex:error' --rule 'jsx-a11y/no-redundant-roles:error' --rule 'jsx-a11y/no-static-element-interactions:error' --rule 'jsx-a11y/role-has-required-aria-props:error' --rule 'jsx-a11y/role-supports-aria-props:error' --rule 'jsx-a11y/scope:error' --rule 'jsx-a11y/tabindex-no-positive:error' --max-warnings=0",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit -p tsconfig.build.json",
     "test": "vitest run",
     "test:watch": "vitest",
     "axe:ci": "axe http://localhost:4040/ http://localhost:4040/courses http://localhost:4040/signin --exit 1 || true",

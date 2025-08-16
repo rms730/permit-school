@@ -15,7 +15,7 @@ END$$;
 -- Create data_exports table for DSAR export requests
 CREATE TABLE IF NOT EXISTS public.data_exports (
     id BIGSERIAL PRIMARY KEY,
-    user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    user_id UUID NOT NULL,
     status public.export_status NOT NULL DEFAULT 'pending',
     bundle_path TEXT,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -24,10 +24,25 @@ CREATE TABLE IF NOT EXISTS public.data_exports (
     expires_at TIMESTAMPTZ NOT NULL DEFAULT (now() + INTERVAL '7 days')
 );
 
+-- Add FK to auth.users defensively
+do $$
+begin
+  if to_regclass('auth.users') is not null then
+    execute $ddl$
+      alter table public.data_exports
+      add constraint data_exports_user_id_fkey
+      foreign key (user_id) references auth.users(id)
+      on delete cascade;
+    $ddl$;
+  else
+    raise notice 'auth.users not present at migration time; skipping FK for local apply';
+  end if;
+end$$;
+
 -- Create deletion_requests table for DSAR deletion requests
 CREATE TABLE IF NOT EXISTS public.deletion_requests (
     id BIGSERIAL PRIMARY KEY,
-    user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    user_id UUID NOT NULL,
     status public.deletion_status NOT NULL DEFAULT 'pending',
     requested_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     confirmed_at TIMESTAMPTZ,
@@ -37,10 +52,25 @@ CREATE TABLE IF NOT EXISTS public.deletion_requests (
     token_expires_at TIMESTAMPTZ NOT NULL DEFAULT (now() + INTERVAL '7 days')
 );
 
+-- Add FK to auth.users defensively
+do $$
+begin
+  if to_regclass('auth.users') is not null then
+    execute $ddl$
+      alter table public.deletion_requests
+      add constraint deletion_requests_user_id_fkey
+      foreign key (user_id) references auth.users(id)
+      on delete cascade;
+    $ddl$;
+  else
+    raise notice 'auth.users not present at migration time; skipping FK for local apply';
+  end if;
+end$$;
+
 -- Create audit_logs table for tamper-evident audit trail
 CREATE TABLE IF NOT EXISTS public.audit_logs (
     id BIGSERIAL PRIMARY KEY,
-    actor_user_id UUID REFERENCES auth.users(id),
+    actor_user_id UUID,
     actor_role TEXT NOT NULL,
     action TEXT NOT NULL,
     object_table TEXT NOT NULL,
@@ -52,6 +82,21 @@ CREATE TABLE IF NOT EXISTS public.audit_logs (
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     signature TEXT NOT NULL
 );
+
+-- Add FK to auth.users defensively
+do $$
+begin
+  if to_regclass('auth.users') is not null then
+    execute $ddl$
+      alter table public.audit_logs
+      add constraint audit_logs_actor_user_id_fkey
+      foreign key (actor_user_id) references auth.users(id)
+      on delete set null;
+    $ddl$;
+  else
+    raise notice 'auth.users not present at migration time; skipping FK for local apply';
+  end if;
+end$$;
 
 -- Create indexes for performance
 CREATE INDEX IF NOT EXISTS data_exports_user_id_idx ON public.data_exports (user_id);
@@ -473,13 +518,13 @@ CREATE POLICY data_exports_owner_insert
 DROP POLICY IF EXISTS data_exports_admin_select ON public.data_exports;
 CREATE POLICY data_exports_admin_select
     ON public.data_exports FOR SELECT
-    USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+    USING (is_admin());
 
 DROP POLICY IF EXISTS data_exports_admin_update ON public.data_exports;
 CREATE POLICY data_exports_admin_update
     ON public.data_exports FOR UPDATE
-    USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin')
-    WITH CHECK ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+    USING (is_admin())
+    WITH CHECK (is_admin());
 
 -- RLS Policies for deletion_requests
 DROP POLICY IF EXISTS deletion_requests_owner_select ON public.deletion_requests;
@@ -495,19 +540,19 @@ CREATE POLICY deletion_requests_owner_insert
 DROP POLICY IF EXISTS deletion_requests_admin_select ON public.deletion_requests;
 CREATE POLICY deletion_requests_admin_select
     ON public.deletion_requests FOR SELECT
-    USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+    USING (is_admin());
 
 DROP POLICY IF EXISTS deletion_requests_admin_update ON public.deletion_requests;
 CREATE POLICY deletion_requests_admin_update
     ON public.deletion_requests FOR UPDATE
-    USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin')
-    WITH CHECK ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+    USING (is_admin())
+    WITH CHECK (is_admin());
 
 -- RLS Policies for audit_logs (admin only)
 DROP POLICY IF EXISTS audit_logs_admin_select ON public.audit_logs;
 CREATE POLICY audit_logs_admin_select
     ON public.audit_logs FOR SELECT
-    USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+    USING (is_admin());
 
 -- Function to handle user deletion (preserves audit trail)
 CREATE OR REPLACE FUNCTION public.execute_user_deletion(user_uuid UUID) RETURNS VOID AS $$

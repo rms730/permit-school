@@ -16,11 +16,12 @@ This guide walks through the process of adding a new jurisdiction (state) to the
 First, add the jurisdiction to the `jurisdictions` table:
 
 ```sql
-INSERT INTO public.jurisdictions (code, name) 
+INSERT INTO public.jurisdictions (code, name)
 VALUES ('TX', 'Texas');
 ```
 
 **Required fields:**
+
 - `code`: Two-letter state code (e.g., 'TX', 'NY', 'FL')
 - `name`: Full state name
 
@@ -33,12 +34,14 @@ Configure the jurisdiction-specific rules using the admin interface:
 3. Fill in the required configuration:
 
    **Required Settings:**
+
    - **Final Exam Questions**: Number of questions in final exam
    - **Pass Percentage**: Minimum score to pass (0.1 to 1.0, e.g., 0.8 = 80%)
    - **Seat Time Required**: Minimum study time in minutes
    - **Certificate Prefix**: Prefix for certificate numbers (e.g., 'TX')
 
    **Optional Settings:**
+
    - **Disclaimer**: Legal disclaimer for the course
    - **Support Email**: Contact email for support
    - **Terms URL**: Link to terms of service
@@ -49,15 +52,16 @@ Configure the jurisdiction-specific rules using the admin interface:
 Create course records for the jurisdiction:
 
 ```sql
-INSERT INTO public.courses (code, title, jurisdiction_id) 
+INSERT INTO public.courses (code, title, jurisdiction_id)
 VALUES (
-  'DE-ONLINE-TX', 
+  'DE-ONLINE-TX',
   'Texas Driver Education Online Course',
   (SELECT id FROM public.jurisdictions WHERE code = 'TX')
 );
 ```
 
 **Required fields:**
+
 - `code`: Unique course code
 - `title`: Course title
 - `jurisdiction_id`: Reference to the jurisdiction
@@ -83,6 +87,7 @@ If you have jurisdiction-specific content:
 3. **Questions**: Add jurisdiction-specific questions to the question bank
 
 **Content Structure:**
+
 - Units are organized by `unit_no` (order)
 - Content chunks are mapped to units via `unit_chunks` table
 - Questions reference the `course_id`
@@ -90,18 +95,21 @@ If you have jurisdiction-specific content:
 ### 6. Configure Question Bank & Blueprints (Optional)
 
 **Question Bank Management:**
+
 - Visit `/admin/questions` to manage jurisdiction-specific questions
 - Questions are course-scoped and can be tagged for organization
 - Use status workflow: draft → approved → archived
 - Import/export questions via CSV or JSON formats
 
 **Exam Blueprints:**
+
 - Visit `/admin/blueprints` to create exam blueprints
 - Blueprints are per-course and require approved questions
 - Configure rules for skill distribution, difficulty ranges, and tag inclusion/exclusion
 - Only one active blueprint per course (others are automatically deactivated)
 
 **Skills and Tags:**
+
 - Skills are course-scoped and should match your jurisdiction's requirements
 - Tags help organize questions by topic, source, or difficulty
 - Both skills and tags are used in blueprint rule configuration
@@ -228,11 +236,11 @@ Before going live with a new state:
 
 ```sql
 -- Check jurisdiction configuration
-SELECT * FROM public.jurisdiction_configs 
+SELECT * FROM public.jurisdiction_configs
 WHERE jurisdiction_id = (SELECT id FROM public.jurisdictions WHERE code = 'TX');
 
 -- Check course pricing
-SELECT * FROM public.billing_prices 
+SELECT * FROM public.billing_prices
 WHERE course_id = (SELECT id FROM public.courses WHERE code = 'DE-ONLINE-TX');
 
 -- Check course catalog view

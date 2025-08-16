@@ -9,6 +9,7 @@ Sprint 23 focuses on modernizing the learning, quiz, and exam experiences to be 
 ### 1. Engagement Tracking & Seat-Time Integrity
 
 #### IdleTracker
+
 - **Purpose**: Tracks user engagement and idle time for CA compliance
 - **Features**:
   - Monitors mouse, keyboard, scroll, and touch events
@@ -17,6 +18,7 @@ Sprint 23 focuses on modernizing the learning, quiz, and exam experiences to be 
   - React hook for easy integration
 
 #### Heartbeat API
+
 - **Endpoint**: `/api/progress/heartbeat`
 - **Purpose**: Server-side engagement tracking
 - **Features**:
@@ -27,6 +29,7 @@ Sprint 23 focuses on modernizing the learning, quiz, and exam experiences to be 
 ### 2. Modern Learn v2 Components
 
 #### UnitHeader
+
 - **Features**:
   - Sticky header with progress bar
   - Unit information and navigation
@@ -34,6 +37,7 @@ Sprint 23 focuses on modernizing the learning, quiz, and exam experiences to be 
   - Mobile-responsive design
 
 #### StickyActions
+
 - **Features**:
   - Fixed bottom navigation
   - Previous/Next buttons
@@ -42,6 +46,7 @@ Sprint 23 focuses on modernizing the learning, quiz, and exam experiences to be 
   - Mobile-optimized layout
 
 #### ReadingProgress
+
 - **Features**:
   - Visual progress indicator
   - Section navigation
@@ -51,6 +56,7 @@ Sprint 23 focuses on modernizing the learning, quiz, and exam experiences to be 
 ### 3. QuizPlayer v2
 
 #### Accessibility Features
+
 - **Keyboard Navigation**:
   - Arrow keys for choice navigation
   - Enter to submit answers
@@ -61,12 +67,14 @@ Sprint 23 focuses on modernizing the learning, quiz, and exam experiences to be 
   - Semantic HTML structure
 
 #### Modern UI
+
 - **Progress Tracking**: Visual progress bar with percentage
 - **Feedback System**: Immediate feedback with explanations
 - **Celebration**: Confetti animations (respects reduced motion)
 - **Mobile-First**: Touch-friendly interface
 
 #### Features
+
 - Accessibility menu with keyboard shortcuts
 - Mute/unmute functionality
 - Fullscreen support
@@ -75,6 +83,7 @@ Sprint 23 focuses on modernizing the learning, quiz, and exam experiences to be 
 ### 4. ExamPlayer v2
 
 #### Advanced Features
+
 - **Time Management**: Countdown timer with warnings
 - **Question Flagging**: Mark questions for review
 - **Review System**: Comprehensive question review dialog
@@ -82,6 +91,7 @@ Sprint 23 focuses on modernizing the learning, quiz, and exam experiences to be 
 - **Progress Tracking**: Detailed progress with answered/flagged counts
 
 #### Accessibility
+
 - **Keyboard Shortcuts**:
   - Arrow keys: Navigate choices
   - Enter: Submit answer
@@ -93,12 +103,14 @@ Sprint 23 focuses on modernizing the learning, quiz, and exam experiences to be 
 ### 5. Resume Helper
 
 #### Features
+
 - **Smart Resume**: Shows last accessed unit/quiz
 - **Progress Summary**: Overall progress and time spent
 - **Quick Actions**: Direct links to resume learning
 - **Mobile Optimized**: Responsive design
 
 #### Integration
+
 - **AppBar CTA**: Resume button in navigation
 - **Dashboard Integration**: Prominent placement on dashboard
 - **Contextual**: Shows relevant information based on user state
@@ -106,12 +118,14 @@ Sprint 23 focuses on modernizing the learning, quiz, and exam experiences to be 
 ### 6. Confetti Celebrations
 
 #### Features
+
 - **Lightweight**: Canvas-based animations
 - **Accessible**: Respects `prefers-reduced-motion`
 - **Customizable**: Configurable colors, shapes, and effects
 - **Performance**: Optimized for smooth animations
 
 #### Usage
+
 - Correct answers in quizzes/exams
 - Milestone achievements
 - Course completions
@@ -130,6 +144,7 @@ ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS allow_confetti boolean NOT 
 ### API Endpoints
 
 #### Heartbeat API
+
 ```typescript
 POST /api/progress/heartbeat
 {
@@ -144,6 +159,7 @@ POST /api/progress/heartbeat
 ### Component Architecture
 
 #### IdleTracker
+
 ```typescript
 const { startTracking, stopTracking, getState } = useIdleTracker({
   idleTimeoutMs: 300000, // 5 minutes
@@ -155,6 +171,7 @@ const { startTracking, stopTracking, getState } = useIdleTracker({
 ```
 
 #### Confetti
+
 ```typescript
 const { fire, stop } = useConfetti();
 
@@ -169,6 +186,7 @@ fire({
 ## Accessibility Features
 
 ### WCAG 2.2 AA Compliance
+
 - **Keyboard Navigation**: Full keyboard accessibility
 - **Screen Reader Support**: Proper ARIA labels and live regions
 - **Focus Management**: Visible focus indicators
@@ -178,11 +196,13 @@ fire({
 ### Keyboard Shortcuts
 
 #### Quiz Navigation
+
 - `↑↓` Arrow keys: Navigate choices
 - `←→` Arrow keys: Previous/Next question
 - `Enter`: Submit answer
 
 #### Exam Navigation
+
 - `↑↓` Arrow keys: Navigate choices
 - `←→` Arrow keys: Previous/Next question
 - `Enter`: Submit answer
@@ -193,12 +213,14 @@ fire({
 ## Mobile Experience
 
 ### Responsive Design
+
 - **Mobile-First**: Designed for mobile devices first
 - **Touch-Friendly**: Minimum 44px touch targets
 - **Gesture Support**: Swipe navigation where appropriate
 - **Performance**: Optimized for mobile performance
 
 ### Mobile-Specific Features
+
 - **Sticky Navigation**: Always accessible navigation
 - **Section Navigation**: Horizontal scroll for sections
 - **Touch Feedback**: Visual feedback for touch interactions
@@ -207,10 +229,12 @@ fire({
 ## Internationalization
 
 ### Supported Languages
+
 - **English (EN)**: Primary language
 - **Spanish (ES)**: Secondary language
 
 ### Key Translation Categories
+
 - **Navigation**: Previous, Next, Submit, etc.
 - **Feedback**: Correct, Incorrect, Loading, etc.
 - **Accessibility**: Keyboard shortcuts, ARIA labels
@@ -220,11 +244,13 @@ fire({
 ## Testing
 
 ### Unit Tests
+
 - **IdleTracker**: Engagement tracking functionality
 - **Confetti**: Animation and accessibility features
 - **Components**: Individual component behavior
 
 ### E2E Tests
+
 - **Learner Flow**: Complete learning experience
 - **Quiz Experience**: Quiz interaction and feedback
 - **Exam Experience**: Exam functionality and features
@@ -234,12 +260,14 @@ fire({
 ## Performance Considerations
 
 ### Optimization
+
 - **Lazy Loading**: Components loaded on demand
 - **Memoization**: React.memo for expensive components
 - **Debouncing**: User input debouncing
 - **Virtual Scrolling**: For large lists (future)
 
 ### Monitoring
+
 - **Engagement Metrics**: Track user engagement patterns
 - **Performance Metrics**: Monitor component performance
 - **Accessibility Metrics**: Track accessibility usage
@@ -248,12 +276,14 @@ fire({
 ## Future Enhancements
 
 ### Planned Features
+
 - **Advanced Analytics**: Detailed learning analytics
 - **Personalization**: Adaptive learning paths
 - **Offline Support**: Offline learning capabilities
 - **Advanced Accessibility**: More accessibility features
 
 ### Technical Improvements
+
 - **Performance**: Further optimization
 - **Scalability**: Handle larger user bases
 - **Integration**: Better integration with existing systems
@@ -262,6 +292,7 @@ fire({
 ## Configuration
 
 ### Environment Variables
+
 ```bash
 # Engagement tracking
 NEXT_PUBLIC_IDLE_TIMEOUT_MS=300000
@@ -273,6 +304,7 @@ NEXT_PUBLIC_REDUCED_MOTION=false
 ```
 
 ### Feature Flags
+
 ```typescript
 // Enable/disable features
 const FEATURES = {
@@ -286,12 +318,14 @@ const FEATURES = {
 ## Troubleshooting
 
 ### Common Issues
+
 1. **IdleTracker not working**: Check event listener setup
 2. **Confetti not showing**: Check reduced motion preferences
 3. **Keyboard navigation issues**: Verify focus management
 4. **Mobile performance**: Check component optimization
 
 ### Debug Tools
+
 - **React DevTools**: Component state inspection
 - **Accessibility Tools**: Screen reader testing
 - **Performance Tools**: Performance monitoring
@@ -300,12 +334,14 @@ const FEATURES = {
 ## Support
 
 ### Documentation
+
 - **Component API**: Detailed component documentation
 - **Accessibility Guide**: Accessibility implementation guide
 - **Performance Guide**: Performance optimization guide
 - **Mobile Guide**: Mobile development guide
 
 ### Resources
+
 - **Design System**: Component design specifications
 - **Accessibility Standards**: WCAG 2.2 guidelines
 - **Performance Best Practices**: Performance optimization

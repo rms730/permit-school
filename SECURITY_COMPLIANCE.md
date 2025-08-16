@@ -8,12 +8,14 @@
 
 #### PWA Implementation Constraints
 
-1. **No Offline Seat-Time**: 
+1. **No Offline Seat-Time**:
+
    - Seat-time tracking is explicitly disabled when offline
    - Service worker uses Network Only strategy for all learning/exam routes
    - No caching of authenticated or compliance-sensitive content
 
 2. **Protected Routes** (Network Only):
+
    - `/api/**` - All API endpoints
    - `/learn/**` - Learning content and seat-time tracking
    - `/quiz/**` - Practice quizzes and assessments
@@ -28,6 +30,7 @@
    - `/guardian/**` - Guardian consent management
 
 3. **Cached Routes** (Stale While Revalidate):
+
    - `/` - Home page
    - `/courses` - Course catalog
    - `/privacy`, `/terms` - Legal pages
@@ -50,11 +53,13 @@
 #### Testing Requirements
 
 1. **Offline Testing**:
+
    - Disconnect network and verify seat-time stops accruing
    - Confirm learning/exam pages show offline message
    - Verify static assets remain available offline
 
 2. **Online Testing**:
+
    - Reconnect and verify seat-time resumes tracking
    - Confirm all protected routes load normally
    - Test PWA installation and functionality

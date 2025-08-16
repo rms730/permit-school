@@ -86,33 +86,27 @@ echo "== Seeding demo data via testkit =="
 echo "Creating test users and data..."
 
 # Create admin user and get token
-ADMIN_RESPONSE=$(curl -s -X POST http://localhost:54321/functions/v1/testkit/reset \
+if curl -s -X POST http://localhost:54321/functions/v1/testkit/reset \
   -H "Content-Type: application/json" \
-  -d '{"action": "create_admin", "email": "admin@offline.local", "password": "admin123"}')
-
-if [ $? -eq 0 ]; then
+  -d '{"action": "create_admin", "email": "admin@offline.local", "password": "admin123"}'; then
     echo "✅ Created admin user"
 else
     echo "⚠️  Failed to create admin user via testkit, continuing..."
 fi
 
 # Create student user
-STUDENT_RESPONSE=$(curl -s -X POST http://localhost:54321/functions/v1/testkit/reset \
+if curl -s -X POST http://localhost:54321/functions/v1/testkit/reset \
   -H "Content-Type: application/json" \
-  -d '{"action": "create_student", "email": "student@offline.local", "password": "student123", "age": 18}')
-
-if [ $? -eq 0 ]; then
+  -d '{"action": "create_student", "email": "student@offline.local", "password": "student123", "age": 18}'; then
     echo "✅ Created student user"
 else
     echo "⚠️  Failed to create student user via testkit, continuing..."
 fi
 
 # Create minor student with guardian
-MINOR_RESPONSE=$(curl -s -X POST http://localhost:54321/functions/v1/testkit/reset \
+if curl -s -X POST http://localhost:54321/functions/v1/testkit/reset \
   -H "Content-Type: application/json" \
-  -d '{"action": "create_minor_with_guardian", "student_email": "minor@offline.local", "guardian_email": "guardian@offline.local", "student_password": "minor123", "guardian_password": "guardian123", "age": 16}')
-
-if [ $? -eq 0 ]; then
+  -d '{"action": "create_minor_with_guardian", "student_email": "minor@offline.local", "guardian_email": "guardian@offline.local", "student_password": "minor123", "guardian_password": "guardian123", "age": 16}'; then
     echo "✅ Created minor student with guardian"
 else
     echo "⚠️  Failed to create minor student via testkit, continuing..."

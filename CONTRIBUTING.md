@@ -5,11 +5,13 @@ Thank you for contributing to Permit School! This guide covers development pract
 ## Development Setup
 
 ### Prerequisites
+
 - Node.js 18+
 - npm or yarn
 - Git
 
 ### Local Development
+
 ```bash
 # Clone the repository
 git clone https://github.com/rms730/permit-school.git
@@ -35,34 +37,38 @@ We use Playwright for end-to-end testing with deterministic test data via our te
 #### Best Practices
 
 **1. Selectors**
+
 - **Prefer role-based selectors**: `page.getByRole('button', { name: 'Submit' })`
 - **Use labels for form fields**: `page.getByLabel('Email')`
 - **Add data-testid only when necessary**: `page.getByTestId('unique-element')`
 
 **2. Test Structure**
+
 ```typescript
-test.describe('Feature Name', () => {
-  test('should do something specific', async ({ page }) => {
+test.describe("Feature Name", () => {
+  test("should do something specific", async ({ page }) => {
     // Arrange - Set up test data via testkit
     const testkit = await getTestkitAPI(page);
     await testkit.createUser({ admin: true });
 
     // Act - Perform user actions
-    await page.goto('/admin');
-    await page.getByRole('button', { name: 'Create' }).click();
+    await page.goto("/admin");
+    await page.getByRole("button", { name: "Create" }).click();
 
     // Assert - Verify expected outcomes
-    await expect(page.getByText('Success')).toBeVisible();
+    await expect(page.getByText("Success")).toBeVisible();
   });
 });
 ```
 
 **3. Test Data Management**
+
 - Use testkit APIs for deterministic state
 - Never depend on real external services (Stripe, email)
 - Clean up between tests (handled by global setup/teardown)
 
 **4. Waiting Strategies**
+
 - Use `expect().toBeVisible()` instead of `page.waitForSelector()`
 - Let Playwright's auto-waiting handle most cases
 - Use `page.waitForURL()` for navigation assertions
@@ -121,22 +127,26 @@ npm run axe:ci
 ## Code Standards
 
 ### TypeScript
+
 - Use strict TypeScript configuration
 - Prefer interfaces over types for object shapes
 - Use proper typing for all function parameters and returns
 
 ### React Components
+
 - Use functional components with hooks
 - Prefer MUI components over custom CSS
 - Follow accessibility best practices (ARIA labels, semantic HTML)
 
 ### API Design
+
 - Use RESTful conventions
 - Implement proper error handling
 - Add input validation with Zod schemas
 - Use proper HTTP status codes
 
 ### Database
+
 - Follow existing naming conventions
 - Use RLS policies for security
 - Add proper indexes for performance
@@ -145,16 +155,19 @@ npm run axe:ci
 ## Security Guidelines
 
 ### Environment Variables
+
 - Never commit secrets to version control
 - Use `.env.local` for local development
 - Document required environment variables
 
 ### Authentication & Authorization
+
 - Use Supabase Auth for user management
 - Implement proper RLS policies
 - Validate user permissions on all endpoints
 
 ### Data Protection
+
 - Sanitize all user inputs
 - Use parameterized queries
 - Implement rate limiting on public endpoints
@@ -162,12 +175,14 @@ npm run axe:ci
 ## Pull Request Process
 
 ### Before Submitting
+
 1. **Run tests**: Ensure all tests pass locally
 2. **Check linting**: Fix any ESLint violations
 3. **Update documentation**: Add/update relevant docs
 4. **Test manually**: Verify the feature works as expected
 
 ### PR Checklist
+
 - [ ] Tests added/updated for new functionality
 - [ ] All existing tests pass
 - [ ] Code follows style guidelines
@@ -176,6 +191,7 @@ npm run axe:ci
 - [ ] Accessibility requirements met
 
 ### Review Process
+
 1. **Automated checks** must pass (CI/CD pipeline)
 2. **Code review** by maintainers
 3. **Manual testing** of critical paths
@@ -184,23 +200,27 @@ npm run axe:ci
 ## Adding New Features
 
 ### 1. Planning
+
 - Create an issue describing the feature
 - Define acceptance criteria
 - Consider impact on existing functionality
 
 ### 2. Implementation
+
 - Create a feature branch: `git checkout -b feature/name`
 - Implement the feature following our standards
 - Add comprehensive tests
 - Update documentation
 
 ### 3. Testing
+
 - Write unit tests for business logic
 - Add E2E tests for user flows
 - Test accessibility compliance
 - Verify performance impact
 
 ### 4. Documentation
+
 - Update README.md if needed
 - Add inline code comments
 - Update API documentation
@@ -209,6 +229,7 @@ npm run axe:ci
 ## Common Patterns
 
 ### Database Migrations
+
 ```sql
 -- Create new table
 CREATE TABLE example (
@@ -222,6 +243,7 @@ ALTER TABLE example ENABLE ROW LEVEL SECURITY;
 ```
 
 ### API Endpoints
+
 ```typescript
 export async function POST(request: NextRequest) {
   try {
@@ -235,15 +257,13 @@ export async function POST(request: NextRequest) {
     // Return response
     return NextResponse.json(result);
   } catch (error) {
-    return NextResponse.json(
-      { error: 'Request failed' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Request failed" }, { status: 500 });
   }
 }
 ```
 
 ### React Components
+
 ```typescript
 interface ComponentProps {
   title: string;

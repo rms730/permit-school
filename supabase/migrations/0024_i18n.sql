@@ -1,3 +1,4 @@
+-- 0024_i18n.sql
 -- i18n: question translations + locale support
 -- Add locale column to student_profiles
 ALTER TABLE public.student_profiles
@@ -21,13 +22,15 @@ CREATE INDEX IF NOT EXISTS question_translations_q_lang_idx
 ALTER TABLE public.question_translations ENABLE ROW LEVEL SECURITY;
 
 -- RLS Policies
+DROP POLICY IF EXISTS question_translations_select_all ON public.question_translations;
 CREATE POLICY question_translations_select_all
     ON public.question_translations FOR SELECT
     USING (true);
 
+DROP POLICY IF EXISTS question_translations_admin_all ON public.question_translations;
 CREATE POLICY question_translations_admin_all
     ON public.question_translations FOR ALL
-    USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+    USING (is_admin());
 
 -- Helper view for convenience in API
 CREATE OR REPLACE VIEW public.v_question_text AS

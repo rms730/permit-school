@@ -11,7 +11,7 @@ end$$;
 -- requests table: stores a hashed token, never the raw token
 create table if not exists public.guardian_requests (
   id uuid primary key default gen_random_uuid(),
-  student_id uuid not null references auth.users(id) on delete cascade,
+  student_id uuid not null,
   course_id uuid not null references public.courses(id) on delete cascade,
   guardian_name text not null,
   guardian_email text not null,
@@ -24,6 +24,21 @@ create table if not exists public.guardian_requests (
   consent_id bigint references public.consents(id),
   created_at timestamptz not null default now()
 );
+
+-- Add FK to auth.users defensively
+do $$
+begin
+  if to_regclass('auth.users') is not null then
+    execute $ddl$
+      alter table public.guardian_requests
+      add constraint guardian_requests_student_id_fkey
+      foreign key (student_id) references auth.users(id)
+      on delete cascade;
+    $ddl$;
+  else
+    raise notice 'auth.users not present at migration time; skipping FK for local apply';
+  end if;
+end$$;
 
 alter table public.guardian_requests enable row level security;
 
@@ -44,7 +59,7 @@ create policy guardian_requests_insert_own
 
 create policy guardian_requests_admin_all
   on public.guardian_requests for all
-  using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+  using (is_admin());
 
 -- consents bucket for signed PDFs (separate from certificates)
 insert into storage.buckets (id, name, public)

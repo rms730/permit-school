@@ -1,6 +1,39 @@
 -- 0009_curriculum_admin.sql
 -- Curriculum CMS and reporting helpers
 
+-- Auth compatibility functions (for local development)
+-- Ensure schema exists
+create schema if not exists auth;
+
+-- Minimal users table to satisfy FKs during migration apply.
+-- If the real table already exists (local after auth boot, or in cloud), this is a no-op.
+do $$
+begin
+  if to_regclass('auth.users') is null then
+    create table auth.users (
+      id uuid primary key,
+      email text,
+      created_at timestamptz default now()
+    );
+    comment on table auth.users is 'LOCAL-DEV COMPAT SHIM: present only when Supabase Auth has not yet provisioned.';
+  end if;
+end$$;
+
+-- Helper: admin check resilient to both auth.jwt() and raw jwt claims in request context.
+create or replace function public.is_admin() returns boolean
+language sql stable as $$
+  select coalesce(
+    (nullif(current_setting('request.jwt.claims', true), '')::jsonb -> 'app_metadata' ->> 'role') = 'admin',
+    false
+  );
+$$;
+
+-- Helper: safe auth uid extraction when auth extension is not ready
+create or replace function public.safe_auth_uid() returns uuid
+language sql stable as $$
+  select nullif(current_setting('request.jwt.claim.sub', true), '')::uuid;
+$$;
+
 -- Add optional metadata for units
 alter table public.course_units
 add column if not exists objectives text,
@@ -21,7 +54,7 @@ select
   c.title as course_title,
   j.code as jurisdiction_code,
   ste.course_id,
-  cert.certificate_number,
+  cert.number,
   cert.issued_at,
   sum(ste.ms_delta) / 60000.0 as minutes_total,
   count(a.id) as quiz_attempts,
@@ -43,7 +76,7 @@ left join public.courses as c
 left join public.jurisdictions as j
   on c.jurisdiction_id = j.id
 where ste.course_id is not null
-group by p.id, p.full_name, p.role, c.code, c.title, j.code, ste.course_id, cert.certificate_number, cert.issued_at;
+group by p.id, p.full_name, p.role, c.code, c.title, j.code, ste.course_id, cert.number, cert.issued_at;
 
 -- Function to safely reorder units
 create or replace function public.reorder_course_units(

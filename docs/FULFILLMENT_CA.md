@@ -24,6 +24,7 @@ The California Certificate Fulfillment system manages the secure printing and ma
 ## CSV Export Specification
 
 ### File Format
+
 - **Filename**: `certificates.csv`
 - **Encoding**: UTF-8
 - **Line Endings**: CRLF (`\r\n`)
@@ -31,39 +32,39 @@ The California Certificate Fulfillment system manages the secure printing and ma
 
 ### Required Columns
 
-| Column | Type | Description | Example |
-|--------|------|-------------|---------|
-| `issue_batch_id` | UUID | Unique batch identifier | `550e8400-e29b-41d4-a716-446655440000` |
-| `certificate_serial` | TEXT | DMV pre-numbered serial | `CA123456789` |
-| `student_full_name` | TEXT | Student's full legal name | `John Michael Smith` |
-| `first_name` | TEXT | Student's first name | `John` |
-| `middle_name` | TEXT | Student's middle name | `Michael` |
-| `last_name` | TEXT | Student's last name | `Smith` |
-| `dob` | DATE | Date of birth (YYYY-MM-DD) | `1990-05-15` |
-| `completion_date` | DATE | Course completion date | `2024-01-15` |
-| `course_code` | TEXT | Course identifier | `CA-DL-001` |
-| `course_title` | TEXT | Course title | `California Driver Education` |
-| `jurisdiction_code` | TEXT | State code | `CA` |
-| `school_name` | TEXT | School name | `Permit School` |
-| `school_license_number` | TEXT | School license | `12345` |
-| `school_address_line1` | TEXT | School address | `123 Main Street` |
-| `school_address_line2` | TEXT | School address line 2 | `Suite 100` |
-| `school_city` | TEXT | School city | `Los Angeles` |
-| `school_state` | TEXT | School state | `CA` |
-| `school_postal_code` | TEXT | School ZIP code | `90210` |
-| `school_phone` | TEXT | School phone | `(555) 123-4567` |
-| `signatory_printed_name` | TEXT | Authorized signer | `Jane Doe` |
-| `signatory_title` | TEXT | Signer's title | `Director` |
-| `wet_signature_required` | TEXT | Signature requirement | `Y` |
-| `mail_to_name` | TEXT | Mailing name | `John Michael Smith` |
-| `mail_to_line1` | TEXT | Mailing address | `456 Oak Avenue` |
-| `mail_to_line2` | TEXT | Mailing address line 2 | `Apt 2B` |
-| `mail_to_city` | TEXT | Mailing city | `San Francisco` |
-| `mail_to_state` | TEXT | Mailing state | `CA` |
-| `mail_to_postal_code` | TEXT | Mailing ZIP code | `94102` |
-| `qr_verify_url` | URL | Certificate verification URL | `https://permit-school.com/verify/123` |
-| `barcode_value` | TEXT | Barcode data | `CA123456789` |
-| `language` | TEXT | Certificate language | `EN` |
+| Column                   | Type | Description                  | Example                                |
+| ------------------------ | ---- | ---------------------------- | -------------------------------------- |
+| `issue_batch_id`         | UUID | Unique batch identifier      | `550e8400-e29b-41d4-a716-446655440000` |
+| `certificate_serial`     | TEXT | DMV pre-numbered serial      | `CA123456789`                          |
+| `student_full_name`      | TEXT | Student's full legal name    | `John Michael Smith`                   |
+| `first_name`             | TEXT | Student's first name         | `John`                                 |
+| `middle_name`            | TEXT | Student's middle name        | `Michael`                              |
+| `last_name`              | TEXT | Student's last name          | `Smith`                                |
+| `dob`                    | DATE | Date of birth (YYYY-MM-DD)   | `1990-05-15`                           |
+| `completion_date`        | DATE | Course completion date       | `2024-01-15`                           |
+| `course_code`            | TEXT | Course identifier            | `CA-DL-001`                            |
+| `course_title`           | TEXT | Course title                 | `California Driver Education`          |
+| `jurisdiction_code`      | TEXT | State code                   | `CA`                                   |
+| `school_name`            | TEXT | School name                  | `Permit School`                        |
+| `school_license_number`  | TEXT | School license               | `12345`                                |
+| `school_address_line1`   | TEXT | School address               | `123 Main Street`                      |
+| `school_address_line2`   | TEXT | School address line 2        | `Suite 100`                            |
+| `school_city`            | TEXT | School city                  | `Los Angeles`                          |
+| `school_state`           | TEXT | School state                 | `CA`                                   |
+| `school_postal_code`     | TEXT | School ZIP code              | `90210`                                |
+| `school_phone`           | TEXT | School phone                 | `(555) 123-4567`                       |
+| `signatory_printed_name` | TEXT | Authorized signer            | `Jane Doe`                             |
+| `signatory_title`        | TEXT | Signer's title               | `Director`                             |
+| `wet_signature_required` | TEXT | Signature requirement        | `Y`                                    |
+| `mail_to_name`           | TEXT | Mailing name                 | `John Michael Smith`                   |
+| `mail_to_line1`          | TEXT | Mailing address              | `456 Oak Avenue`                       |
+| `mail_to_line2`          | TEXT | Mailing address line 2       | `Apt 2B`                               |
+| `mail_to_city`           | TEXT | Mailing city                 | `San Francisco`                        |
+| `mail_to_state`          | TEXT | Mailing state                | `CA`                                   |
+| `mail_to_postal_code`    | TEXT | Mailing ZIP code             | `94102`                                |
+| `qr_verify_url`          | URL  | Certificate verification URL | `https://permit-school.com/verify/123` |
+| `barcode_value`          | TEXT | Barcode data                 | `CA123456789`                          |
+| `language`               | TEXT | Certificate language         | `EN`                                   |
 
 ### CSV Example
 
@@ -75,6 +76,7 @@ issue_batch_id,certificate_serial,student_full_name,first_name,middle_name,last_
 ## Manifest File Specification
 
 ### File Format
+
 - **Filename**: `manifest.json`
 - **Encoding**: UTF-8
 - **Content-Type**: `application/json`
@@ -161,16 +163,19 @@ CA123456792,stock_damaged
 ### Exception Handling
 
 #### Misprints
+
 - Mark original as void
 - Queue for reprint with new serial
 - Include in next export batch
 
 #### Damaged Stock
+
 - Mark serial as void
 - Document reason in database
 - Request replacement from DMV
 
 #### Missing Mailings
+
 - Track via USPS tracking numbers
 - Follow up with vendor after 7 days
 - Escalate if not resolved within 14 days
@@ -178,16 +183,19 @@ CA123456792,stock_damaged
 ## Security Considerations
 
 ### Access Control
+
 - Admin-only access to fulfillment features
 - Row-level security on all tables
 - Audit logging of all operations
 
 ### Data Protection
+
 - PII encrypted in transit and at rest
 - Signed URLs for secure file access
 - HMAC verification of all manifests
 
 ### Inventory Security
+
 - Serial allocation is atomic and race-safe
 - No duplicate serials possible
 - Complete audit trail of all movements
@@ -197,21 +205,25 @@ CA123456792,stock_damaged
 ### Common Issues
 
 #### "Out of certificate stock"
+
 - Check inventory levels
 - Request new stock from DMV
 - Verify serial upload completed
 
 #### "Export failed"
+
 - Check database connectivity
 - Verify pending certificates exist
 - Review error logs for details
 
 #### "Reconciliation errors"
+
 - Validate CSV format
 - Check serial numbers exist
 - Verify batch status is "exported"
 
 #### "Low stock warning"
+
 - Monitor inventory dashboard
 - Plan for stock replenishment
 - Consider reducing export frequency
@@ -247,6 +259,7 @@ DAILY_CUTOFF_TZ=America/Los_Angeles
 ### Database Configuration
 
 Ensure these tables exist and RLS is enabled:
+
 - `cert_stock`
 - `fulfillment_batches`
 - `fulfillment_items`

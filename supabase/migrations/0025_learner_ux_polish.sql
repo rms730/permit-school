@@ -1,4 +1,4 @@
--- 0019_learner_ux_polish.sql
+-- 0025_learner_ux_polish.sql
 -- Sprint 23: Learner Surfaces Polish (Modern UI Phase 2) + Quiz/Exam Player v2 + Seat-Time Integrity
 
 -- Add profile fields for learner engagement and preferences

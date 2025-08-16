@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS public.fulfillment_batches (
     counts JSONB NOT NULL DEFAULT '{"queued":0,"exported":0,"mailed":0,"void":0,"reprint":0}'::jsonb,
     export_path TEXT,
     hmac_sha256 TEXT,
-    created_by UUID REFERENCES auth.users(id),
+    created_by UUID,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
@@ -57,20 +57,35 @@ CREATE INDEX IF NOT EXISTS fulfillment_items_status_idx ON public.fulfillment_it
 CREATE INDEX IF NOT EXISTS fulfillment_items_serial_idx ON public.fulfillment_items (serial);
 CREATE INDEX IF NOT EXISTS fulfillment_items_mailed_idx ON public.fulfillment_items (mailed_at);
 
+-- Add FK to auth.users defensively
+do $$
+begin
+  if to_regclass('auth.users') is not null then
+    execute $ddl$
+      alter table public.fulfillment_batches
+      add constraint fulfillment_batches_created_by_fkey
+      foreign key (created_by) references auth.users(id)
+      on delete set null;
+    $ddl$;
+  else
+    raise notice 'auth.users not present at migration time; skipping FK for local apply';
+  end if;
+end$$;
+
 -- Row Level Security
 ALTER TABLE public.cert_stock ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.fulfillment_batches ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.fulfillment_items ENABLE ROW LEVEL SECURITY;
 
 CREATE POLICY cert_stock_admin_all ON public.cert_stock FOR ALL 
-    USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin') 
-    WITH CHECK ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+    USING (is_admin()) 
+    WITH CHECK (is_admin());
 CREATE POLICY fulfill_batches_admin_all ON public.fulfillment_batches FOR ALL 
-    USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin') 
-    WITH CHECK ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+    USING (is_admin()) 
+    WITH CHECK (is_admin());
 CREATE POLICY fulfill_items_admin_all ON public.fulfillment_items FOR ALL 
-    USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin') 
-    WITH CHECK ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+    USING (is_admin()) 
+    WITH CHECK (is_admin());
 
 -- Touch trigger for updated_at
 DROP TRIGGER IF EXISTS trg_fulfillment_batches_touch ON public.fulfillment_batches;
@@ -133,7 +148,7 @@ BEGIN
         LEFT JOIN public.student_profiles AS sp ON sp.user_id = p.id
         LEFT JOIN public.fulfillment_items AS fi ON fi.certificate_id = cert.id
         WHERE j.code = p_j_code 
-            AND cert.status = 'issued' 
+            AND cert.status = 'ready' 
             AND fi.certificate_id IS NULL
             AND (p_course_id IS NULL OR c.id = p_course_id)
     LOOP
@@ -263,7 +278,7 @@ INNER JOIN public.profiles AS p ON p.id = cert.student_id
 LEFT JOIN public.student_profiles AS sp ON p.id = sp.user_id
 LEFT JOIN public.fulfillment_items AS fi ON cert.id = fi.certificate_id
 WHERE j.code = 'CA' 
-    AND cert.status = 'issued' 
+    AND cert.status = 'ready' 
     AND fi.certificate_id IS NULL;
 
 -- View: Inventory status

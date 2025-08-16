@@ -5,6 +5,7 @@ A complete offline development environment for testing Permit School without int
 ## Quick Start (5 minutes)
 
 ### Prerequisites
+
 - Docker installed and running
 - Supabase CLI installed (`npm install -g supabase`)
 - Node.js 18+ installed
@@ -17,6 +18,7 @@ A complete offline development environment for testing Permit School without int
 ```
 
 This script will:
+
 - Start local Supabase with all migrations
 - Create test users and data
 - Start Next.js in offline mode
@@ -30,16 +32,17 @@ This script will:
 
 ### 3. Test Users
 
-| Role | Email | Password |
-|------|-------|----------|
-| Admin | admin@offline.local | admin123 |
-| Student | student@offline.local | student123 |
-| Minor | minor@offline.local | minor123 |
+| Role     | Email                 | Password    |
+| -------- | --------------------- | ----------- |
+| Admin    | admin@offline.local   | admin123    |
+| Student  | student@offline.local | student123  |
+| Minor    | minor@offline.local   | minor123    |
 | Guardian | guardian@offian.local | guardian123 |
 
 ## Testing Flows
 
 ### Student Flow
+
 1. Sign in as `student@offline.local`
 2. Navigate to courses
 3. Enroll in CA_DL_BASIC
@@ -49,6 +52,7 @@ This script will:
 7. Generate certificate
 
 ### Admin Flow
+
 1. Sign in as `admin@offline.local`
 2. View admin dashboard
 3. Manage courses and questions
@@ -56,6 +60,7 @@ This script will:
 5. View compliance reports
 
 ### Guardian Flow
+
 1. Sign in as `guardian@offline.local`
 2. View linked students
 3. Monitor progress
@@ -64,12 +69,14 @@ This script will:
 ## Offline Mode Features
 
 ### What's Disabled
+
 - Google One-Tap sign-in
 - External API calls (Sentry, Resend, Stripe)
 - External font/asset loading
 - Email delivery (logged to console)
 
 ### What Works
+
 - All core application functionality
 - Local Supabase database
 - File uploads to local storage
@@ -78,6 +85,7 @@ This script will:
 - Admin operations
 
 ### Visual Indicators
+
 - "OFFLINE" badge in AppBar
 - Console logs showing offline mode
 - Disabled external service buttons
@@ -85,6 +93,7 @@ This script will:
 ## Common Gotchas
 
 ### Database Issues
+
 ```bash
 # Reset database if needed
 supabase db reset
@@ -94,7 +103,9 @@ supabase status
 ```
 
 ### Port Conflicts
+
 If ports are in use:
+
 ```bash
 # Stop existing Supabase
 supabase stop
@@ -104,7 +115,9 @@ supabase stop
 ```
 
 ### Environment Variables
+
 The script creates `web/.env.local` automatically. If you need to modify:
+
 ```bash
 # Edit environment
 nano web/.env.local
@@ -114,7 +127,9 @@ cd web && npm run dev:offline
 ```
 
 ### Test Data
+
 Test data is seeded via testkit endpoints. To reset:
+
 ```bash
 # Clear and reseed
 curl -X POST http://localhost:54321/functions/v1/testkit/reset \
@@ -125,16 +140,19 @@ curl -X POST http://localhost:54321/functions/v1/testkit/reset \
 ## Verification
 
 ### Check Offline Mode
+
 1. Look for "OFFLINE" badge in top-right
 2. Check browser console for offline logs
 3. Verify no external network requests
 
 ### Test Complete Flow
+
 1. Student login → course enrollment → learning → quiz → exam → certificate
 2. Admin login → dashboard → certificate issuance
 3. Guardian login → student monitoring
 
 ### Network Verification
+
 ```bash
 # Turn off WiFi/network
 # Verify app still works
@@ -144,6 +162,7 @@ curl -X POST http://localhost:54321/functions/v1/testkit/reset \
 ## Troubleshooting
 
 ### Supabase Won't Start
+
 ```bash
 # Check Docker
 docker ps
@@ -156,6 +175,7 @@ docker restart
 ```
 
 ### App Won't Load
+
 ```bash
 # Check if ports are free
 lsof -i :3000
@@ -169,6 +189,7 @@ kill -9 <PID>
 ```
 
 ### Test Users Not Working
+
 ```bash
 # Check Supabase logs
 supabase logs
@@ -183,19 +204,24 @@ supabase db reset
 ## Development
 
 ### Adding Test Data
+
 Edit fixtures in `ops/fixtures/offline/`:
+
 - `users.json` - Test user accounts
 - `enrollments.json` - Course enrollments
 - `entitlements.json` - Access permissions
 - `seat-time.json` - Learning progress
 
 ### Modifying Offline Behavior
+
 Edit `web/src/lib/offline.ts` to:
+
 - Add new disabled features
 - Modify offline indicators
 - Change configuration
 
 ### Running Tests
+
 ```bash
 # Run offline E2E tests
 npm run test:e2e -- tests/e2e/offline-review.spec.ts
@@ -215,6 +241,7 @@ npm run test:e2e:ui -- tests/e2e/offline-review.spec.ts
 ## Next Steps
 
 After testing offline:
+
 1. Commit any changes
 2. Push to feature branch
 3. Create PR with offline testing results

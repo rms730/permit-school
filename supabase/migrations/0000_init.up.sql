@@ -23,11 +23,11 @@ CREATE SEQUENCE IF NOT EXISTS tutor_logs_id_seq;
 
 -- Core tables
 CREATE TABLE IF NOT EXISTS public.jurisdictions (
-    id integer NOT NULL DEFAULT nextval(jurisdictions_id_seq::regclass),
+    id integer NOT NULL DEFAULT nextval('jurisdictions_id_seq'),
     code text NOT NULL,
     name text NOT NULL,
     certificate_type text,
-    metadata jsonb DEFAULT {}::jsonb,
+    metadata jsonb DEFAULT '{}'::jsonb,
     CONSTRAINT jurisdictions_pkey PRIMARY KEY (id),
     CONSTRAINT jurisdictions_code_key UNIQUE (code),
     CONSTRAINT jurisdictions_code_check CHECK (char_length(code) = 2)

@@ -5,10 +5,15 @@ export interface JurisdictionConfig {
   final_exam_pass_pct: number;
   seat_time_required_minutes: number;
   certificate_prefix: string;
+  certificate_issuer_name?: string;
+  certificate_issuer_license?: string;
   disclaimer?: string;
   support_email?: string;
+  support_phone?: string;
   terms_url?: string;
   privacy_url?: string;
+  regulatory_signing_secret?: string;
+  fulfillment_low_stock_threshold?: number;
 }
 
 export async function getJurisdictionConfig(
@@ -24,10 +29,15 @@ export async function getJurisdictionConfig(
         final_exam_pass_pct,
         seat_time_required_minutes,
         certificate_prefix,
+        certificate_issuer_name,
+        certificate_issuer_license,
         disclaimer,
         support_email,
+        support_phone,
         terms_url,
-        privacy_url
+        privacy_url,
+        regulatory_signing_secret,
+        fulfillment_low_stock_threshold
       `)
       .eq('jurisdictions.code', jCode)
       .single();

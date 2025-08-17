@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getRouteClient } from '@/lib/supabaseRoute';
 import { getJurisdictionConfig } from '@/lib/jurisdictionConfig';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
     const supabase = getRouteClient();

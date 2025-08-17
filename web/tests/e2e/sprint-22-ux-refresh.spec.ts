@@ -8,8 +8,8 @@ test.describe('Sprint 22 - UX Refresh & Google Auth', () => {
     await expect(page.locator('text=Welcome Back!')).toBeVisible();
     await expect(page.locator('text=Sign in to continue your learning journey')).toBeVisible();
     
-    // Check for Google auth button
-    await expect(page.locator('text=Continue with Google')).toBeVisible();
+    // Check for Google auth button (use first() to avoid multiple matches)
+    await expect(page.locator('text=Continue with Google').first()).toBeVisible();
     
     // Check for email sign-in option
     await expect(page.locator('text=Sign in with Email')).toBeVisible();
@@ -26,8 +26,8 @@ test.describe('Sprint 22 - UX Refresh & Google Auth', () => {
     await expect(page.locator('text=Join Permit School!')).toBeVisible();
     await expect(page.locator('text=Start your learning journey today')).toBeVisible();
     
-    // Check for Google auth button
-    await expect(page.locator('text=Continue with Google')).toBeVisible();
+    // Check for Google auth button (use first() to avoid multiple matches)
+    await expect(page.locator('text=Continue with Google').first()).toBeVisible();
     
     // Check for email sign-up option
     await expect(page.locator('text=Sign up with Email')).toBeVisible();
@@ -64,7 +64,11 @@ test.describe('Sprint 22 - UX Refresh & Google Auth', () => {
     // Check that email form is displayed
     await expect(page.locator('label:has-text("Full Name")')).toBeVisible();
     await expect(page.locator('input[type="email"]')).toBeVisible();
-    await expect(page.locator('input[type="password"]')).toBeVisible();
+    
+    // Check for password fields (there are two: Password and Confirm Password)
+    const passwordFields = page.locator('input[type="password"]');
+    await expect(passwordFields.first()).toBeVisible();
+    await expect(passwordFields.nth(1)).toBeVisible();
     
     // Check for submit button (text changes based on loading state)
     const submitButton = page.locator('button[type="submit"]');
@@ -78,7 +82,8 @@ test.describe('Sprint 22 - UX Refresh & Google Auth', () => {
     await page.goto('/');
     
     // Check for AppBarV2 (which should be present on all pages)
-    await expect(page.locator('text=Permit School')).toBeVisible();
+    // Use a more specific selector to avoid multiple matches
+    await expect(page.locator('h6:has-text("Permit School")').first()).toBeVisible();
     
     // Check for navigation elements
     const homeLink = page.locator('a[href="/"]').or(page.locator('text=Home'));
@@ -91,7 +96,8 @@ test.describe('Sprint 22 - UX Refresh & Google Auth', () => {
     await page.goto('/login');
     
     // Check that buttons have minimum 44px height (touch-friendly)
-    const googleButton = page.locator('text=Continue with Google');
+    // Use first() to avoid multiple matches
+    const googleButton = page.locator('text=Continue with Google').first();
     const buttonBox = await googleButton.boundingBox();
     
     if (buttonBox) {
@@ -106,7 +112,8 @@ test.describe('Sprint 22 - UX Refresh & Google Auth', () => {
     await page.keyboard.press('Tab');
     
     // Check that focus is visible (this is handled by CSS, but we can verify the element is focused)
-    const googleButton = page.locator('text=Continue with Google');
+    // Use first() to avoid multiple matches
+    const googleButton = page.locator('text=Continue with Google').first();
     await expect(googleButton).toBeFocused();
   });
 

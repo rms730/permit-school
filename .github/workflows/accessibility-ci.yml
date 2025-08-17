@@ -167,6 +167,39 @@ jobs:
           TESTKIT_ON: true
           TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}
 
+      - name: Setup test data
+        run: |
+          echo "Setting up test data..."
+          curl -X POST http://127.0.0.1:4330/api/testkit/reset \
+            -H "Authorization: Bearer $TESTKIT_TOKEN" \
+            -H "Content-Type: application/json" || echo "Reset failed, continuing..."
+          
+          # Create test users
+          curl -X POST http://127.0.0.1:4330/api/testkit/user \
+            -H "Authorization: Bearer $TESTKIT_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"admin": true, "locale": "en"}' || echo "Admin user creation failed"
+            
+          curl -X POST http://127.0.0.1:4330/api/testkit/user \
+            -H "Authorization: Bearer $TESTKIT_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"admin": false, "locale": "en"}' || echo "Student user creation failed"
+            
+          curl -X POST http://127.0.0.1:4330/api/testkit/user \
+            -H "Authorization: Bearer $TESTKIT_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"minor": true, "admin": false, "locale": "en"}' || echo "Minor user creation failed"
+            
+          # Create exam blueprint
+          curl -X POST http://127.0.0.1:4330/api/testkit/exam/blueprint \
+            -H "Authorization: Bearer $TESTKIT_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"j_code": "CA", "course_code": "DE-ONLINE", "num_questions": 5}' || echo "Blueprint creation failed"
+            
+          echo "Test data setup completed"
+        env:
+          TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}
+
       - name: Run E2E tests
         run: npx playwright test --reporter=line
         working-directory: web
@@ -198,3 +231,13 @@ jobs:
           name: playwright-traces
           path: web/test-results/
           retention-days: 30
+
+      - name: Cleanup test data
+        if: always()
+        run: |
+          echo "Cleaning up test data..."
+          curl -X POST http://127.0.0.1:4330/api/testkit/reset \
+            -H "Authorization: Bearer $TESTKIT_TOKEN" \
+            -H "Content-Type: application/json" || echo "Cleanup failed, continuing..."
+        env:
+          TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}

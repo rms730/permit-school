@@ -6,21 +6,21 @@ Test files should be named descriptively based on the functionality they test, n
 
 ### Current Test Files
 
-| File Name | Purpose | Description |
-|-----------|---------|-------------|
-| `auth-ui.spec.ts` | Authentication UI | Login/signup forms, Google auth, form validation |
-| `learner-features.spec.ts` | Learner Experience | Learning pages, quiz/exam interfaces, engagement tracking |
-| `account-shell.spec.ts` | Account Management | User profile, settings, account navigation |
-| `catalog-i18n.spec.ts` | Course Catalog | Course listing, internationalization, language switching |
-| `accessibility.spec.ts` | Accessibility | ARIA labels, keyboard navigation, screen reader support |
-| `billing-lifecycle.spec.ts` | Billing & Payments | Subscription management, payment flows, invoices |
-| `regulatory-reporting.spec.ts` | Compliance | Regulatory reports, data export, compliance features |
-| `auth-onboarding.spec.ts` | User Onboarding | New user flow, welcome screens, tutorial |
-| `exam-certificate.spec.ts` | Certifications | Exam completion, certificate generation, verification |
-| `guardian-esign.spec.ts` | Guardian Features | Parent/guardian consent, electronic signatures |
-| `guardian-notifications.spec.ts` | Guardian Notifications | Parent alerts, progress updates, communication |
-| `learn-quiz.spec.ts` | Learning & Assessment | Quiz functionality, progress tracking, scoring |
-| `offline-review.spec.ts` | Offline Functionality | Offline mode, data sync, offline review |
+| File Name                        | Purpose                | Description                                               |
+| -------------------------------- | ---------------------- | --------------------------------------------------------- |
+| `auth-ui.spec.ts`                | Authentication UI      | Login/signup forms, Google auth, form validation          |
+| `learner-features.spec.ts`       | Learner Experience     | Learning pages, quiz/exam interfaces, engagement tracking |
+| `account-shell.spec.ts`          | Account Management     | User profile, settings, account navigation                |
+| `catalog-i18n.spec.ts`           | Course Catalog         | Course listing, internationalization, language switching  |
+| `accessibility.spec.ts`          | Accessibility          | ARIA labels, keyboard navigation, screen reader support   |
+| `billing-lifecycle.spec.ts`      | Billing & Payments     | Subscription management, payment flows, invoices          |
+| `regulatory-reporting.spec.ts`   | Compliance             | Regulatory reports, data export, compliance features      |
+| `auth-onboarding.spec.ts`        | User Onboarding        | New user flow, welcome screens, tutorial                  |
+| `exam-certificate.spec.ts`       | Certifications         | Exam completion, certificate generation, verification     |
+| `guardian-esign.spec.ts`         | Guardian Features      | Parent/guardian consent, electronic signatures            |
+| `guardian-notifications.spec.ts` | Guardian Notifications | Parent alerts, progress updates, communication            |
+| `learn-quiz.spec.ts`             | Learning & Assessment  | Quiz functionality, progress tracking, scoring            |
+| `offline-review.spec.ts`         | Offline Functionality  | Offline mode, data sync, offline review                   |
 
 ### Naming Guidelines
 
@@ -50,10 +50,10 @@ When adding new test files:
 Each test file should follow this structure:
 
 ```typescript
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test.describe('Feature Name - Clear Description', () => {
-  test('should perform specific action', async ({ page }) => {
+test.describe("Feature Name - Clear Description", () => {
+  test("should perform specific action", async ({ page }) => {
     // Test implementation
   });
 });
@@ -62,6 +62,7 @@ test.describe('Feature Name - Clear Description', () => {
 ### CI Integration
 
 All test files are automatically included in CI runs. The test suite runs:
+
 - On pull requests
 - On main branch pushes
 - In parallel across multiple browsers

@@ -8,7 +8,6 @@ import { getLocaleFromRequest } from "@/lib/i18n/server";
 import { getDictionary } from "@/lib/i18n";
 import { I18nProvider } from "@/lib/i18n/I18nProvider";
 import { SkipLink } from "@/components/SkipLink";
-import AppBar from "@/components/AppBar";
 import OfflineModeIndicator from "@/components/OfflineModeIndicator";
 
 // Load Google Fonts
@@ -95,9 +94,6 @@ export default async function RootLayout({
             <I18nProvider locale={locale} dict={dict}>
                 <SkipLink />
                 <OfflineModeIndicator />
-                <header>
-                  <AppBar />
-                </header>
                 <main id="main" role="main">
                   {children}
                 </main>

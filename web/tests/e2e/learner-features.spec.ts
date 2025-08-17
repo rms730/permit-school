@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Sprint 23 - Learner Surfaces Polish', () => {
+test.describe('Learner Features & Learning Experience', () => {
   test.beforeEach(async ({ page }) => {
     // Set viewport for mobile testing
     await page.setViewportSize({ width: 375, height: 812 });

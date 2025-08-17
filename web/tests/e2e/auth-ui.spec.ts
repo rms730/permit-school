@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Sprint 22 - UX Refresh & Google Auth', () => {
+test.describe('Authentication UI & User Experience', () => {
   test('should display login page with Google auth option', async ({ page }) => {
     await page.goto('/login');
     

@@ -1,9 +1,22 @@
 import { test, expect } from '@playwright/test';
+import { TestkitAPI } from './utils/testkit';
 
 test.describe('Account & Shell Functionality', () => {
-  test.beforeEach(async ({ page }) => {
-    // Navigate to the app
-    await page.goto('/');
+  let testkit: TestkitAPI;
+  let testUser: { email: string; password: string };
+
+  test.beforeAll(async ({ browser }) => {
+    // Create a testkit API instance
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto('http://127.0.0.1:4330');
+    testkit = new TestkitAPI('http://127.0.0.1:4330', process.env.TESTKIT_TOKEN || '');
+    
+    // Create a test user
+    const user = await testkit.createUser({ admin: false, locale: 'en' });
+    testUser = { email: user.email, password: user.password };
+    
+    await context.close();
   });
 
   test.describe('Mobile Bottom Navigation', () => {
@@ -11,15 +24,15 @@ test.describe('Account & Shell Functionality', () => {
       // Set mobile viewport
       await page.setViewportSize({ width: 375, height: 667 });
 
-      // Sign in first (assuming there's a test user)
+      // Sign in first using the created test user
       await page.goto('/login');
       
       // Click "Sign in with Email" to show the form
       await page.click('text=Sign in with Email');
       
       // Fill in the form using proper selectors
-      await page.fill('input[type="email"]', 'test@example.com');
-      await page.fill('input[type="password"]', 'password123');
+      await page.fill('input[type="email"]', testUser.email);
+      await page.fill('input[type="password"]', testUser.password);
       await page.click('button[type="submit"]');
       
       // Wait for navigation to dashboard
@@ -61,8 +74,8 @@ test.describe('Account & Shell Functionality', () => {
       await page.click('text=Sign in with Email');
       
       // Fill in the form using proper selectors
-      await page.fill('input[type="email"]', 'test@example.com');
-      await page.fill('input[type="password"]', 'password123');
+      await page.fill('input[type="email"]', testUser.email);
+      await page.fill('input[type="password"]', testUser.password);
       await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 
@@ -90,8 +103,8 @@ test.describe('Account & Shell Functionality', () => {
       await page.click('text=Sign in with Email');
       
       // Fill in the form using proper selectors
-      await page.fill('input[type="email"]', 'test@example.com');
-      await page.fill('input[type="password"]', 'password123');
+      await page.fill('input[type="email"]', testUser.email);
+      await page.fill('input[type="password"]', testUser.password);
       await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 
@@ -125,8 +138,8 @@ test.describe('Account & Shell Functionality', () => {
       await page.click('text=Sign in with Email');
       
       // Fill in the form using proper selectors
-      await page.fill('input[type="email"]', 'test@example.com');
-      await page.fill('input[type="password"]', 'password123');
+      await page.fill('input[type="email"]', testUser.email);
+      await page.fill('input[type="password"]', testUser.password);
       await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 
@@ -158,8 +171,8 @@ test.describe('Account & Shell Functionality', () => {
       await page.click('text=Sign in with Email');
       
       // Fill in the form using proper selectors
-      await page.fill('input[type="email"]', 'test@example.com');
-      await page.fill('input[type="password"]', 'password123');
+      await page.fill('input[type="email"]', testUser.email);
+      await page.fill('input[type="password"]', testUser.password);
       await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 
@@ -188,8 +201,8 @@ test.describe('Account & Shell Functionality', () => {
       await page.click('text=Sign in with Email');
       
       // Fill in the form using proper selectors
-      await page.fill('input[type="email"]', 'test@example.com');
-      await page.fill('input[type="password"]', 'password123');
+      await page.fill('input[type="email"]', testUser.email);
+      await page.fill('input[type="password"]', testUser.password);
       await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 
@@ -211,7 +224,7 @@ test.describe('Account & Shell Functionality', () => {
     test('should show One-Tap when enabled and user is signed out', async ({ page }) => {
       // Set environment variable for One-Tap
       await page.addInitScript(() => {
-        window.process = { env: { NEXT_PUBLIC_GOOGLE_ONE_TAP: '1' } };
+        (window as any).process = { env: { NEXT_PUBLIC_GOOGLE_ONE_TAP: '1', NODE_ENV: 'test' } };
       });
 
       // Navigate to home page (signed out)
@@ -225,7 +238,7 @@ test.describe('Account & Shell Functionality', () => {
     test('should not show One-Tap when disabled', async ({ page }) => {
       // Set environment variable to disable One-Tap
       await page.addInitScript(() => {
-        window.process = { env: { NEXT_PUBLIC_GOOGLE_ONE_TAP: '0' } };
+        (window as any).process = { env: { NEXT_PUBLIC_GOOGLE_ONE_TAP: '0', NODE_ENV: 'test' } };
       });
 
       // Navigate to home page
@@ -246,8 +259,8 @@ test.describe('Account & Shell Functionality', () => {
       await page.click('text=Sign in with Email');
       
       // Fill in the form using proper selectors
-      await page.fill('input[type="email"]', 'test@example.com');
-      await page.fill('input[type="password"]', 'password123');
+      await page.fill('input[type="email"]', testUser.email);
+      await page.fill('input[type="password"]', testUser.password);
       await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 
@@ -264,8 +277,8 @@ test.describe('Account & Shell Functionality', () => {
       await page.click('text=Sign in with Email');
       
       // Fill in the form using proper selectors
-      await page.fill('input[type="email"]', 'test@example.com');
-      await page.fill('input[type="password"]', 'password123');
+      await page.fill('input[type="email"]', testUser.email);
+      await page.fill('input[type="password"]', testUser.password);
       await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 

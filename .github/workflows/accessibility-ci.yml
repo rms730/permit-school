@@ -173,7 +173,7 @@ jobs:
           curl -X POST http://127.0.0.1:4330/api/testkit/reset \
             -H "Authorization: Bearer $TESTKIT_TOKEN" \
             -H "Content-Type: application/json" || echo "Reset failed, continuing..."
-          
+
           # Create test users
           curl -X POST http://127.0.0.1:4330/api/testkit/user \
             -H "Authorization: Bearer $TESTKIT_TOKEN" \

@@ -13,9 +13,14 @@ test.describe('Account & Shell Functionality', () => {
 
       // Sign in first (assuming there's a test user)
       await page.goto('/login');
-      await page.fill('[data-testid="email-input"]', 'test@example.com');
-      await page.fill('[data-testid="password-input"]', 'password123');
-      await page.click('[data-testid="signin-button"]');
+      
+      // Click "Sign in with Email" to show the form
+      await page.click('text=Sign in with Email');
+      
+      // Fill in the form using proper selectors
+      await page.fill('input[type="email"]', 'test@example.com');
+      await page.fill('input[type="password"]', 'password123');
+      await page.click('button[type="submit"]');
       
       // Wait for navigation to dashboard
       await page.waitForURL('/dashboard');
@@ -51,9 +56,14 @@ test.describe('Account & Shell Functionality', () => {
 
       // Sign in and navigate to dashboard
       await page.goto('/login');
-      await page.fill('[data-testid="email-input"]', 'test@example.com');
-      await page.fill('[data-testid="password-input"]', 'password123');
-      await page.click('[data-testid="signin-button"]');
+      
+      // Click "Sign in with Email" to show the form
+      await page.click('text=Sign in with Email');
+      
+      // Fill in the form using proper selectors
+      await page.fill('input[type="email"]', 'test@example.com');
+      await page.fill('input[type="password"]', 'password123');
+      await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 
       // Check bottom navigation tabs
@@ -75,9 +85,14 @@ test.describe('Account & Shell Functionality', () => {
     test('should persist theme preference', async ({ page }) => {
       // Sign in
       await page.goto('/login');
-      await page.fill('[data-testid="email-input"]', 'test@example.com');
-      await page.fill('[data-testid="password-input"]', 'password123');
-      await page.click('[data-testid="signin-button"]');
+      
+      // Click "Sign in with Email" to show the form
+      await page.click('text=Sign in with Email');
+      
+      // Fill in the form using proper selectors
+      await page.fill('input[type="email"]', 'test@example.com');
+      await page.fill('input[type="password"]', 'password123');
+      await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 
       // Navigate to account settings
@@ -105,9 +120,14 @@ test.describe('Account & Shell Functionality', () => {
     test('should upload and display avatar', async ({ page }) => {
       // Sign in
       await page.goto('/login');
-      await page.fill('[data-testid="email-input"]', 'test@example.com');
-      await page.fill('[data-testid="password-input"]', 'password123');
-      await page.click('[data-testid="signin-button"]');
+      
+      // Click "Sign in with Email" to show the form
+      await page.click('text=Sign in with Email');
+      
+      // Fill in the form using proper selectors
+      await page.fill('input[type="email"]', 'test@example.com');
+      await page.fill('input[type="password"]', 'password123');
+      await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 
       // Navigate to profile edit
@@ -133,9 +153,14 @@ test.describe('Account & Shell Functionality', () => {
     test('should handle marketing opt-in toggle', async ({ page }) => {
       // Sign in
       await page.goto('/login');
-      await page.fill('[data-testid="email-input"]', 'test@example.com');
-      await page.fill('[data-testid="password-input"]', 'password123');
-      await page.click('[data-testid="signin-button"]');
+      
+      // Click "Sign in with Email" to show the form
+      await page.click('text=Sign in with Email');
+      
+      // Fill in the form using proper selectors
+      await page.fill('input[type="email"]', 'test@example.com');
+      await page.fill('input[type="password"]', 'password123');
+      await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 
       // Navigate to privacy settings
@@ -158,9 +183,14 @@ test.describe('Account & Shell Functionality', () => {
     test('should show Google auth status', async ({ page }) => {
       // Sign in
       await page.goto('/login');
-      await page.fill('[data-testid="email-input"]', 'test@example.com');
-      await page.fill('[data-testid="password-input"]', 'password123');
-      await page.click('[data-testid="signin-button"]');
+      
+      // Click "Sign in with Email" to show the form
+      await page.click('text=Sign in with Email');
+      
+      // Fill in the form using proper selectors
+      await page.fill('input[type="email"]', 'test@example.com');
+      await page.fill('input[type="password"]', 'password123');
+      await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 
       // Navigate to auth settings
@@ -211,9 +241,14 @@ test.describe('Account & Shell Functionality', () => {
     test('should show AppBarV2 in AppShell', async ({ page }) => {
       // Sign in
       await page.goto('/login');
-      await page.fill('[data-testid="email-input"]', 'test@example.com');
-      await page.fill('[data-testid="password-input"]', 'password123');
-      await page.click('[data-testid="signin-button"]');
+      
+      // Click "Sign in with Email" to show the form
+      await page.click('text=Sign in with Email');
+      
+      // Fill in the form using proper selectors
+      await page.fill('input[type="email"]', 'test@example.com');
+      await page.fill('input[type="password"]', 'password123');
+      await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 
       // Check that AppBarV2 elements are present
@@ -224,9 +259,14 @@ test.describe('Account & Shell Functionality', () => {
     test('should handle sign out from AppShell', async ({ page }) => {
       // Sign in
       await page.goto('/login');
-      await page.fill('[data-testid="email-input"]', 'test@example.com');
-      await page.fill('[data-testid="password-input"]', 'password123');
-      await page.click('[data-testid="signin-button"]');
+      
+      // Click "Sign in with Email" to show the form
+      await page.click('text=Sign in with Email');
+      
+      // Fill in the form using proper selectors
+      await page.fill('input[type="email"]', 'test@example.com');
+      await page.fill('input[type="password"]', 'password123');
+      await page.click('button[type="submit"]');
       await page.waitForURL('/dashboard');
 
       // Click user avatar to open menu

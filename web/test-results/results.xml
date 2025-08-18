@@ -1,0 +1,1486 @@
+<testsuites id="" name="" tests="35" failures="35" skipped="0" errors="0" time="70.605946">
+<testsuite name="home.spec.ts" timestamp="2025-08-18T03:39:30.556Z" hostname="chromium" tests="7" failures="7" skipped="0" time="52.07" errors="0">
+<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="1.706">
+<failure message="home.spec.ts:4:7 renders and CTAs work" type="FAILURE">
+<![CDATA[  [chromium] › home.spec.ts:4:7 › Home Page › renders and CTAs work ────────────────────────────────
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByRole('link', { name: /start free practice test/i }) resolved to 2 elements:
+        1) <a tabindex="0" href="/practice" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary mui-271wgt">Start Free Practice Test</a> aka locator('header').getByRole('link', { name: 'Start Free Practice Test' })
+        2) <a tabindex="0" href="/practice" aria-label="Start Free Practice Test" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary mui-wro03k">…</a> aka getByLabel('Start Free Practice Test')
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('link', { name: /start free practice test/i })
+
+
+      11 |     // Check that the primary CTA is visible and clickable
+      12 |     const startCta = page.getByRole('link', { name: /start free practice test/i });
+    > 13 |     await expect(startCta).toBeVisible();
+         |                            ^
+      14 |     
+      15 |     // Click the CTA and verify it doesn't cause errors
+      16 |     await startCta.click();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:13:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-renders-and-CTAs-work-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-renders-and-CTAs-work-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-renders-and-CTAs-work-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-chromium/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › has proper accessibility structure" classname="home.spec.ts" time="1.518">
+<failure message="home.spec.ts:22:7 has proper accessibility structure" type="FAILURE">
+<![CDATA[  [chromium] › home.spec.ts:22:7 › Home Page › has proper accessibility structure ──────────────────
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByRole('heading', { level: 1 }) resolved to 2 elements:
+        1) <h1 id="hero-heading" class="MuiTypography-root MuiTypography-h1 mui-mdsda0">Pass your permit faster.</h1> aka getByRole('heading', { name: 'Pass your permit faster.' })
+        2) <h1>Permit School</h1> aka getByRole('heading', { name: 'Permit School', exact: true })
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { level: 1 })
+
+
+      27 |     
+      28 |     // Check for proper heading hierarchy
+    > 29 |     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+         |                                                           ^
+      30 |     
+      31 |     // Check for skip link
+      32 |     const skipLink = page.getByRole('link', { name: /skip to content/i });
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:29:59
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-has-proper-accessibility-structure-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-has-proper-accessibility-structure-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-has-proper-accessibility-structure-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-chromium/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="2.353">
+<failure message="home.spec.ts:36:7 navigation works correctly" type="FAILURE">
+<![CDATA[  [chromium] › home.spec.ts:36:7 › Home Page › navigation works correctly ──────────────────────────
+
+    Error: expect: Property 'toHaveJSDialog' not found.
+
+      49 |     
+      50 |     // Should navigate to signin page
+    > 51 |     await expect(page).not.toHaveJSDialog();
+         |                           ^
+      52 |   });
+      53 |
+      54 |   test('features section is accessible', async ({ page }) => {
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:51:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-navigation-works-correctly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-navigation-works-correctly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-navigation-works-correctly-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-chromium/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="1.438">
+<failure message="home.spec.ts:54:7 features section is accessible" type="FAILURE">
+<![CDATA[  [chromium] › home.spec.ts:54:7 › Home Page › features section is accessible ──────────────────────
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByText(/bite‑sized lessons/i) resolved to 3 elements:
+        1) <h5 class="MuiTypography-root MuiTypography-h5 mui-1w34zvs">Interactive practice tests and bite‑sized lessons…</h5> aka getByRole('heading', { name: 'Interactive practice tests' })
+        2) <h3 class="MuiTypography-root MuiTypography-h5 mui-7ounm0">Bite‑sized lessons</h3> aka getByRole('heading', { name: 'Bite‑sized lessons', exact: true })
+        3) <p>Interactive practice tests and bite‑sized lessons…</p> aka getByText('Interactive practice tests and bite‑sized lessons built from official driver')
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByText(/bite‑sized lessons/i)
+
+
+      60 |     // Check that feature cards are present
+      61 |     await expect(page.getByText(/adaptive practice/i)).toBeVisible();
+    > 62 |     await expect(page.getByText(/bite‑sized lessons/i)).toBeVisible();
+         |                                                         ^
+      63 |     await expect(page.getByText(/instant explanations/i)).toBeVisible();
+      64 |   });
+      65 |
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:62:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-features-section-is-accessible-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-features-section-is-accessible-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-features-section-is-accessible-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-chromium/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="7.591">
+<failure message="home.spec.ts:66:7 pricing section is accessible" type="FAILURE">
+<![CDATA[  [chromium] › home.spec.ts:66:7 › Home Page › pricing section is accessible ───────────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: getByRole('heading', { name: /choose your plan/i })
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { name: /choose your plan/i })
+
+
+      71 |     
+      72 |     // Check that pricing section is present
+    > 73 |     await expect(page.getByRole('heading', { name: /choose your plan/i })).toBeVisible();
+         |                                                                            ^
+      74 |     
+      75 |     // Check that pricing tiers are present
+      76 |     await expect(page.getByText(/free/i)).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:73:76
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-pricing-section-is-accessible-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-pricing-section-is-accessible-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-pricing-section-is-accessible-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-chromium/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="30.613">
+<failure message="home.spec.ts:81:7 FAQ section is functional" type="FAILURE">
+<![CDATA[  [chromium] › home.spec.ts:81:7 › Home Page › FAQ section is functional ───────────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('link', { name: /faq/i })
+
+
+      83 |     
+      84 |     // Scroll to FAQ section
+    > 85 |     await page.getByRole('link', { name: /faq/i }).click();
+         |                                                    ^
+      86 |     
+      87 |     // Check that FAQ section is present
+      88 |     await expect(page.getByRole('heading', { name: /frequently asked questions/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:85:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-FAQ-section-is-functional-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-FAQ-section-is-functional-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-FAQ-section-is-functional-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-chromium/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="6.851">
+<failure message="home.spec.ts:101:7 final CTA banner is accessible" type="FAILURE">
+<![CDATA[  [chromium] › home.spec.ts:101:7 › Home Page › final CTA banner is accessible ─────────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: getByRole('heading', { name: /ready to ace your permit/i })
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { name: /ready to ace your permit/i })
+
+
+      106 |     
+      107 |     // Check that final CTA is present
+    > 108 |     await expect(page.getByRole('heading', { name: /ready to ace your permit/i })).toBeVisible();
+          |                                                                                    ^
+      109 |     
+      110 |     // Check that CTA buttons are present
+      111 |     await expect(page.getByRole('link', { name: /start free practice test/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:108:84
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-chromium/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="home.spec.ts" timestamp="2025-08-18T03:39:30.556Z" hostname="firefox" tests="7" failures="7" skipped="0" time="45.125" errors="0">
+<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="0.814">
+<failure message="home.spec.ts:4:7 renders and CTAs work" type="FAILURE">
+<![CDATA[  [firefox] › home.spec.ts:4:7 › Home Page › renders and CTAs work ─────────────────────────────────
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByRole('link', { name: /start free practice test/i }) resolved to 2 elements:
+        1) <a tabindex="0" href="/practice" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary mui-271wgt">Start Free Practice Test</a> aka locator('header').getByRole('link', { name: 'Start Free Practice Test' })
+        2) <a tabindex="0" href="/practice" aria-label="Start Free Practice Test" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary mui-wro03k">…</a> aka getByLabel('Start Free Practice Test')
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('link', { name: /start free practice test/i })
+
+
+      11 |     // Check that the primary CTA is visible and clickable
+      12 |     const startCta = page.getByRole('link', { name: /start free practice test/i });
+    > 13 |     await expect(startCta).toBeVisible();
+         |                            ^
+      14 |     
+      15 |     // Click the CTA and verify it doesn't cause errors
+      16 |     await startCta.click();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:13:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-renders-and-CTAs-work-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-renders-and-CTAs-work-firefox/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-renders-and-CTAs-work-firefox/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-firefox/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-firefox/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-firefox/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › has proper accessibility structure" classname="home.spec.ts" time="0.828">
+<failure message="home.spec.ts:22:7 has proper accessibility structure" type="FAILURE">
+<![CDATA[  [firefox] › home.spec.ts:22:7 › Home Page › has proper accessibility structure ───────────────────
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByRole('heading', { level: 1 }) resolved to 2 elements:
+        1) <h1 id="hero-heading" class="MuiTypography-root MuiTypography-h1 mui-mdsda0">Pass your permit faster.</h1> aka getByRole('heading', { name: 'Pass your permit faster.' })
+        2) <h1>Permit School</h1> aka getByRole('heading', { name: 'Permit School', exact: true })
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { level: 1 })
+
+
+      27 |     
+      28 |     // Check for proper heading hierarchy
+    > 29 |     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+         |                                                           ^
+      30 |     
+      31 |     // Check for skip link
+      32 |     const skipLink = page.getByRole('link', { name: /skip to content/i });
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:29:59
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-has-proper-accessibility-structure-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-has-proper-accessibility-structure-firefox/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-has-proper-accessibility-structure-firefox/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-firefox/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-firefox/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-firefox/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="0.989">
+<failure message="home.spec.ts:36:7 navigation works correctly" type="FAILURE">
+<![CDATA[  [firefox] › home.spec.ts:36:7 › Home Page › navigation works correctly ───────────────────────────
+
+    Error: expect: Property 'toHaveJSDialog' not found.
+
+      49 |     
+      50 |     // Should navigate to signin page
+    > 51 |     await expect(page).not.toHaveJSDialog();
+         |                           ^
+      52 |   });
+      53 |
+      54 |   test('features section is accessible', async ({ page }) => {
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:51:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-navigation-works-correctly-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-navigation-works-correctly-firefox/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-navigation-works-correctly-firefox/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-firefox/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-firefox/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-firefox/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="0.899">
+<failure message="home.spec.ts:54:7 features section is accessible" type="FAILURE">
+<![CDATA[  [firefox] › home.spec.ts:54:7 › Home Page › features section is accessible ───────────────────────
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByText(/bite‑sized lessons/i) resolved to 3 elements:
+        1) <h5 class="MuiTypography-root MuiTypography-h5 mui-1w34zvs">Interactive practice tests and bite‑sized lessons…</h5> aka getByRole('heading', { name: 'Interactive practice tests' })
+        2) <h3 class="MuiTypography-root MuiTypography-h5 mui-7ounm0">Bite‑sized lessons</h3> aka getByRole('heading', { name: 'Bite‑sized lessons', exact: true })
+        3) <p>Interactive practice tests and bite‑sized lessons…</p> aka getByText('Interactive practice tests and bite‑sized lessons built from official driver')
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByText(/bite‑sized lessons/i)
+
+
+      60 |     // Check that feature cards are present
+      61 |     await expect(page.getByText(/adaptive practice/i)).toBeVisible();
+    > 62 |     await expect(page.getByText(/bite‑sized lessons/i)).toBeVisible();
+         |                                                         ^
+      63 |     await expect(page.getByText(/instant explanations/i)).toBeVisible();
+      64 |   });
+      65 |
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:62:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-features-section-is-accessible-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-features-section-is-accessible-firefox/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-features-section-is-accessible-firefox/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-firefox/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-firefox/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-firefox/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="5.8">
+<failure message="home.spec.ts:66:7 pricing section is accessible" type="FAILURE">
+<![CDATA[  [firefox] › home.spec.ts:66:7 › Home Page › pricing section is accessible ────────────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: getByRole('heading', { name: /choose your plan/i })
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { name: /choose your plan/i })
+
+
+      71 |     
+      72 |     // Check that pricing section is present
+    > 73 |     await expect(page.getByRole('heading', { name: /choose your plan/i })).toBeVisible();
+         |                                                                            ^
+      74 |     
+      75 |     // Check that pricing tiers are present
+      76 |     await expect(page.getByText(/free/i)).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:73:76
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-pricing-section-is-accessible-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-pricing-section-is-accessible-firefox/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-pricing-section-is-accessible-firefox/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-firefox/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-firefox/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-firefox/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="30.082">
+<failure message="home.spec.ts:81:7 FAQ section is functional" type="FAILURE">
+<![CDATA[  [firefox] › home.spec.ts:81:7 › Home Page › FAQ section is functional ────────────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('link', { name: /faq/i })
+
+
+      83 |     
+      84 |     // Scroll to FAQ section
+    > 85 |     await page.getByRole('link', { name: /faq/i }).click();
+         |                                                    ^
+      86 |     
+      87 |     // Check that FAQ section is present
+      88 |     await expect(page.getByRole('heading', { name: /frequently asked questions/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:85:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-FAQ-section-is-functional-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-FAQ-section-is-functional-firefox/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-FAQ-section-is-functional-firefox/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-firefox/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-firefox/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-firefox/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="5.713">
+<failure message="home.spec.ts:101:7 final CTA banner is accessible" type="FAILURE">
+<![CDATA[  [firefox] › home.spec.ts:101:7 › Home Page › final CTA banner is accessible ──────────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: getByRole('heading', { name: /ready to ace your permit/i })
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { name: /ready to ace your permit/i })
+
+
+      106 |     
+      107 |     // Check that final CTA is present
+    > 108 |     await expect(page.getByRole('heading', { name: /ready to ace your permit/i })).toBeVisible();
+          |                                                                                    ^
+      109 |     
+      110 |     // Check that CTA buttons are present
+      111 |     await expect(page.getByRole('link', { name: /start free practice test/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:108:84
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-firefox/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-firefox/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-firefox/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-firefox/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-firefox/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="home.spec.ts" timestamp="2025-08-18T03:39:30.556Z" hostname="webkit" tests="7" failures="7" skipped="0" time="73.201" errors="0">
+<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="0.714">
+<failure message="home.spec.ts:4:7 renders and CTAs work" type="FAILURE">
+<![CDATA[  [webkit] › home.spec.ts:4:7 › Home Page › renders and CTAs work ──────────────────────────────────
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByRole('link', { name: /start free practice test/i }) resolved to 2 elements:
+        1) <a tabindex="0" href="/practice" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary mui-271wgt">Start Free Practice Test</a> aka locator('header').getByRole('link', { name: 'Start Free Practice Test' })
+        2) <a tabindex="0" href="/practice" aria-label="Start Free Practice Test" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary mui-wro03k">…</a> aka getByLabel('Start Free Practice Test')
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('link', { name: /start free practice test/i })
+
+
+      11 |     // Check that the primary CTA is visible and clickable
+      12 |     const startCta = page.getByRole('link', { name: /start free practice test/i });
+    > 13 |     await expect(startCta).toBeVisible();
+         |                            ^
+      14 |     
+      15 |     // Click the CTA and verify it doesn't cause errors
+      16 |     await startCta.click();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:13:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-renders-and-CTAs-work-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-renders-and-CTAs-work-webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-renders-and-CTAs-work-webkit/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-webkit/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-webkit/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › has proper accessibility structure" classname="home.spec.ts" time="0.499">
+<failure message="home.spec.ts:22:7 has proper accessibility structure" type="FAILURE">
+<![CDATA[  [webkit] › home.spec.ts:22:7 › Home Page › has proper accessibility structure ────────────────────
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByRole('heading', { level: 1 }) resolved to 2 elements:
+        1) <h1 id="hero-heading" class="MuiTypography-root MuiTypography-h1 mui-mdsda0">Pass your permit faster.</h1> aka getByRole('heading', { name: 'Pass your permit faster.' })
+        2) <h1>Permit School</h1> aka getByRole('heading', { name: 'Permit School', exact: true })
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { level: 1 })
+
+
+      27 |     
+      28 |     // Check for proper heading hierarchy
+    > 29 |     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+         |                                                           ^
+      30 |     
+      31 |     // Check for skip link
+      32 |     const skipLink = page.getByRole('link', { name: /skip to content/i });
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:29:59
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-has-proper-accessibility-structure-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-has-proper-accessibility-structure-webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-has-proper-accessibility-structure-webkit/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-webkit/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-webkit/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="0.483">
+<failure message="home.spec.ts:36:7 navigation works correctly" type="FAILURE">
+<![CDATA[  [webkit] › home.spec.ts:36:7 › Home Page › navigation works correctly ────────────────────────────
+
+    Error: expect: Property 'toHaveJSDialog' not found.
+
+      49 |     
+      50 |     // Should navigate to signin page
+    > 51 |     await expect(page).not.toHaveJSDialog();
+         |                           ^
+      52 |   });
+      53 |
+      54 |   test('features section is accessible', async ({ page }) => {
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:51:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-navigation-works-correctly-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-navigation-works-correctly-webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-navigation-works-correctly-webkit/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-webkit/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-webkit/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="0.546">
+<failure message="home.spec.ts:54:7 features section is accessible" type="FAILURE">
+<![CDATA[  [webkit] › home.spec.ts:54:7 › Home Page › features section is accessible ────────────────────────
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByText(/bite‑sized lessons/i) resolved to 3 elements:
+        1) <h5 class="MuiTypography-root MuiTypography-h5 mui-1w34zvs">Interactive practice tests and bite‑sized lessons…</h5> aka getByRole('heading', { name: 'Interactive practice tests' })
+        2) <h3 class="MuiTypography-root MuiTypography-h5 mui-7ounm0">Bite‑sized lessons</h3> aka getByRole('heading', { name: 'Bite‑sized lessons', exact: true })
+        3) <p>Interactive practice tests and bite‑sized lessons…</p> aka getByText('Interactive practice tests and bite‑sized lessons built from official driver')
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByText(/bite‑sized lessons/i)
+
+
+      60 |     // Check that feature cards are present
+      61 |     await expect(page.getByText(/adaptive practice/i)).toBeVisible();
+    > 62 |     await expect(page.getByText(/bite‑sized lessons/i)).toBeVisible();
+         |                                                         ^
+      63 |     await expect(page.getByText(/instant explanations/i)).toBeVisible();
+      64 |   });
+      65 |
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:62:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-features-section-is-accessible-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-features-section-is-accessible-webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-features-section-is-accessible-webkit/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-webkit/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-webkit/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="5.572">
+<failure message="home.spec.ts:66:7 pricing section is accessible" type="FAILURE">
+<![CDATA[  [webkit] › home.spec.ts:66:7 › Home Page › pricing section is accessible ─────────────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: getByRole('heading', { name: /choose your plan/i })
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { name: /choose your plan/i })
+
+
+      71 |     
+      72 |     // Check that pricing section is present
+    > 73 |     await expect(page.getByRole('heading', { name: /choose your plan/i })).toBeVisible();
+         |                                                                            ^
+      74 |     
+      75 |     // Check that pricing tiers are present
+      76 |     await expect(page.getByText(/free/i)).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:73:76
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-pricing-section-is-accessible-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-pricing-section-is-accessible-webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-pricing-section-is-accessible-webkit/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-webkit/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-webkit/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="60.003">
+<failure message="home.spec.ts:81:7 FAQ section is functional" type="FAILURE">
+<![CDATA[  [webkit] › home.spec.ts:81:7 › Home Page › FAQ section is functional ─────────────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Tearing down "context" exceeded the test timeout of 30000ms.
+
+    Error: browserContext._wrapApiCall: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/rsternke/Library/Caches/ms-playwright/webkit-2191/pw_run.sh --inspector-pipe --no-startup-window
+    <launched> pid=49029
+    [pid=49029] <gracefully close start>
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('link', { name: /faq/i })
+
+
+      83 |     
+      84 |     // Scroll to FAQ section
+    > 85 |     await page.getByRole('link', { name: /faq/i }).click();
+         |                                                    ^
+      86 |     
+      87 |     // Check that FAQ section is present
+      88 |     await expect(page.getByRole('heading', { name: /frequently asked questions/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:85:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-FAQ-section-is-functional-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-FAQ-section-is-functional-webkit/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-webkit/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="5.384">
+<failure message="home.spec.ts:101:7 final CTA banner is accessible" type="FAILURE">
+<![CDATA[  [webkit] › home.spec.ts:101:7 › Home Page › final CTA banner is accessible ───────────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: getByRole('heading', { name: /ready to ace your permit/i })
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { name: /ready to ace your permit/i })
+
+
+      106 |     
+      107 |     // Check that final CTA is present
+    > 108 |     await expect(page.getByRole('heading', { name: /ready to ace your permit/i })).toBeVisible();
+          |                                                                                    ^
+      109 |     
+      110 |     // Check that CTA buttons are present
+      111 |     await expect(page.getByRole('link', { name: /start free practice test/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:108:84
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-webkit/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-webkit/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-webkit/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="home.spec.ts" timestamp="2025-08-18T03:39:30.556Z" hostname="Mobile Chrome" tests="7" failures="7" skipped="0" time="73.91" errors="0">
+<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="0.651">
+<failure message="home.spec.ts:4:7 renders and CTAs work" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › home.spec.ts:4:7 › Home Page › renders and CTAs work ───────────────────────────
+
+    Error: expect: Property 'toHaveJSDialog' not found.
+
+      17 |     
+      18 |     // Accept either navigation to /practice or in‑page anchor; both should not error
+    > 19 |     await expect(page).not.toHaveJSDialog();
+         |                           ^
+      20 |   });
+      21 |
+      22 |   test('has proper accessibility structure', async ({ page }) => {
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:19:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-renders-and-CTAs-work-Mobile-Chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-renders-and-CTAs-work-Mobile-Chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-renders-and-CTAs-work-Mobile-Chrome/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-Mobile-Chrome/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-Mobile-Chrome/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-Mobile-Chrome/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › has proper accessibility structure" classname="home.spec.ts" time="0.608">
+<failure message="home.spec.ts:22:7 has proper accessibility structure" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › home.spec.ts:22:7 › Home Page › has proper accessibility structure ─────────────
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByRole('heading', { level: 1 }) resolved to 2 elements:
+        1) <h1 id="hero-heading" class="MuiTypography-root MuiTypography-h1 mui-mdsda0">Pass your permit faster.</h1> aka getByRole('heading', { name: 'Pass your permit faster.' })
+        2) <h1>Permit School</h1> aka getByRole('heading', { name: 'Permit School', exact: true })
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { level: 1 })
+
+
+      27 |     
+      28 |     // Check for proper heading hierarchy
+    > 29 |     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+         |                                                           ^
+      30 |     
+      31 |     // Check for skip link
+      32 |     const skipLink = page.getByRole('link', { name: /skip to content/i });
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:29:59
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-has-proper-accessibility-structure-Mobile-Chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-has-proper-accessibility-structure-Mobile-Chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-has-proper-accessibility-structure-Mobile-Chrome/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-Mobile-Chrome/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-Mobile-Chrome/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-Mobile-Chrome/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="5.431">
+<failure message="home.spec.ts:36:7 navigation works correctly" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › home.spec.ts:36:7 › Home Page › navigation works correctly ─────────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: getByRole('link', { name: /courses/i })
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('link', { name: /courses/i })
+
+
+      38 |     
+      39 |     // Check that navigation links are present
+    > 40 |     await expect(page.getByRole('link', { name: /courses/i })).toBeVisible();
+         |                                                                ^
+      41 |     await expect(page.getByRole('link', { name: /for schools/i })).toBeVisible();
+      42 |     await expect(page.getByRole('link', { name: /pricing/i })).toBeVisible();
+      43 |     await expect(page.getByRole('link', { name: /about/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:40:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-navigation-works-correctly-Mobile-Chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-navigation-works-correctly-Mobile-Chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-navigation-works-correctly-Mobile-Chrome/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-Mobile-Chrome/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-Mobile-Chrome/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-Mobile-Chrome/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="0.582">
+<failure message="home.spec.ts:54:7 features section is accessible" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › home.spec.ts:54:7 › Home Page › features section is accessible ─────────────────
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByText(/bite‑sized lessons/i) resolved to 3 elements:
+        1) <h5 class="MuiTypography-root MuiTypography-h5 mui-1w34zvs">Interactive practice tests and bite‑sized lessons…</h5> aka getByRole('heading', { name: 'Interactive practice tests' })
+        2) <h3 class="MuiTypography-root MuiTypography-h5 mui-7ounm0">Bite‑sized lessons</h3> aka getByRole('heading', { name: 'Bite‑sized lessons', exact: true })
+        3) <p>Interactive practice tests and bite‑sized lessons…</p> aka getByText('Interactive practice tests and bite‑sized lessons built from official driver')
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByText(/bite‑sized lessons/i)
+
+
+      60 |     // Check that feature cards are present
+      61 |     await expect(page.getByText(/adaptive practice/i)).toBeVisible();
+    > 62 |     await expect(page.getByText(/bite‑sized lessons/i)).toBeVisible();
+         |                                                         ^
+      63 |     await expect(page.getByText(/instant explanations/i)).toBeVisible();
+      64 |   });
+      65 |
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:62:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-features-section-is-accessible-Mobile-Chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-features-section-is-accessible-Mobile-Chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-features-section-is-accessible-Mobile-Chrome/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-Mobile-Chrome/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-Mobile-Chrome/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-Mobile-Chrome/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="30.443">
+<failure message="home.spec.ts:66:7 pricing section is accessible" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › home.spec.ts:66:7 › Home Page › pricing section is accessible ──────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('link', { name: /pricing/i })
+
+
+      68 |     
+      69 |     // Scroll to pricing section
+    > 70 |     await page.getByRole('link', { name: /pricing/i }).click();
+         |                                                        ^
+      71 |     
+      72 |     // Check that pricing section is present
+      73 |     await expect(page.getByRole('heading', { name: /choose your plan/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:70:56
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-pricing-section-is-accessible-Mobile-Chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-pricing-section-is-accessible-Mobile-Chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-pricing-section-is-accessible-Mobile-Chrome/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-Mobile-Chrome/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-Mobile-Chrome/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-Mobile-Chrome/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="30.606">
+<failure message="home.spec.ts:81:7 FAQ section is functional" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › home.spec.ts:81:7 › Home Page › FAQ section is functional ──────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('link', { name: /faq/i })
+
+
+      83 |     
+      84 |     // Scroll to FAQ section
+    > 85 |     await page.getByRole('link', { name: /faq/i }).click();
+         |                                                    ^
+      86 |     
+      87 |     // Check that FAQ section is present
+      88 |     await expect(page.getByRole('heading', { name: /frequently asked questions/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:85:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-FAQ-section-is-functional-Mobile-Chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-FAQ-section-is-functional-Mobile-Chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-FAQ-section-is-functional-Mobile-Chrome/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-Mobile-Chrome/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-Mobile-Chrome/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-Mobile-Chrome/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="5.589">
+<failure message="home.spec.ts:101:7 final CTA banner is accessible" type="FAILURE">
+<![CDATA[  [Mobile Chrome] › home.spec.ts:101:7 › Home Page › final CTA banner is accessible ────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: getByRole('heading', { name: /ready to ace your permit/i })
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { name: /ready to ace your permit/i })
+
+
+      106 |     
+      107 |     // Check that final CTA is present
+    > 108 |     await expect(page.getByRole('heading', { name: /ready to ace your permit/i })).toBeVisible();
+          |                                                                                    ^
+      109 |     
+      110 |     // Check that CTA buttons are present
+      111 |     await expect(page.getByRole('link', { name: /start free practice test/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:108:84
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-Mobile-Chrome/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-Mobile-Chrome/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-Mobile-Chrome/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-Mobile-Chrome/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-Mobile-Chrome/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-Mobile-Chrome/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="home.spec.ts" timestamp="2025-08-18T03:39:30.556Z" hostname="Mobile Safari" tests="7" failures="7" skipped="0" time="72.275" errors="0">
+<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="0.457">
+<failure message="home.spec.ts:4:7 renders and CTAs work" type="FAILURE">
+<![CDATA[  [Mobile Safari] › home.spec.ts:4:7 › Home Page › renders and CTAs work ───────────────────────────
+
+    Error: expect: Property 'toHaveJSDialog' not found.
+
+      17 |     
+      18 |     // Accept either navigation to /practice or in‑page anchor; both should not error
+    > 19 |     await expect(page).not.toHaveJSDialog();
+         |                           ^
+      20 |   });
+      21 |
+      22 |   test('has proper accessibility structure', async ({ page }) => {
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:19:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-renders-and-CTAs-work-Mobile-Safari/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-renders-and-CTAs-work-Mobile-Safari/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-renders-and-CTAs-work-Mobile-Safari/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-Mobile-Safari/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-Mobile-Safari/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-renders-and-CTAs-work-Mobile-Safari/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › has proper accessibility structure" classname="home.spec.ts" time="0.424">
+<failure message="home.spec.ts:22:7 has proper accessibility structure" type="FAILURE">
+<![CDATA[  [Mobile Safari] › home.spec.ts:22:7 › Home Page › has proper accessibility structure ─────────────
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByRole('heading', { level: 1 }) resolved to 2 elements:
+        1) <h1 id="hero-heading" class="MuiTypography-root MuiTypography-h1 mui-mdsda0">Pass your permit faster.</h1> aka getByRole('heading', { name: 'Pass your permit faster.' })
+        2) <h1>Permit School</h1> aka getByRole('heading', { name: 'Permit School', exact: true })
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { level: 1 })
+
+
+      27 |     
+      28 |     // Check for proper heading hierarchy
+    > 29 |     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+         |                                                           ^
+      30 |     
+      31 |     // Check for skip link
+      32 |     const skipLink = page.getByRole('link', { name: /skip to content/i });
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:29:59
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-has-proper-accessibility-structure-Mobile-Safari/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-has-proper-accessibility-structure-Mobile-Safari/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-has-proper-accessibility-structure-Mobile-Safari/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-Mobile-Safari/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-Mobile-Safari/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-has-proper-accessibility-structure-Mobile-Safari/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="5.395">
+<failure message="home.spec.ts:36:7 navigation works correctly" type="FAILURE">
+<![CDATA[  [Mobile Safari] › home.spec.ts:36:7 › Home Page › navigation works correctly ─────────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: getByRole('link', { name: /courses/i })
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('link', { name: /courses/i })
+
+
+      38 |     
+      39 |     // Check that navigation links are present
+    > 40 |     await expect(page.getByRole('link', { name: /courses/i })).toBeVisible();
+         |                                                                ^
+      41 |     await expect(page.getByRole('link', { name: /for schools/i })).toBeVisible();
+      42 |     await expect(page.getByRole('link', { name: /pricing/i })).toBeVisible();
+      43 |     await expect(page.getByRole('link', { name: /about/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:40:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-navigation-works-correctly-Mobile-Safari/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-navigation-works-correctly-Mobile-Safari/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-navigation-works-correctly-Mobile-Safari/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-Mobile-Safari/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-Mobile-Safari/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-navigation-works-correctly-Mobile-Safari/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="0.428">
+<failure message="home.spec.ts:54:7 features section is accessible" type="FAILURE">
+<![CDATA[  [Mobile Safari] › home.spec.ts:54:7 › Home Page › features section is accessible ─────────────────
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByText(/bite‑sized lessons/i) resolved to 3 elements:
+        1) <h5 class="MuiTypography-root MuiTypography-h5 mui-1w34zvs">Interactive practice tests and bite‑sized lessons…</h5> aka getByRole('heading', { name: 'Interactive practice tests' })
+        2) <h3 class="MuiTypography-root MuiTypography-h5 mui-7ounm0">Bite‑sized lessons</h3> aka getByRole('heading', { name: 'Bite‑sized lessons', exact: true })
+        3) <p>Interactive practice tests and bite‑sized lessons…</p> aka getByText('Interactive practice tests and bite‑sized lessons built from official driver')
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByText(/bite‑sized lessons/i)
+
+
+      60 |     // Check that feature cards are present
+      61 |     await expect(page.getByText(/adaptive practice/i)).toBeVisible();
+    > 62 |     await expect(page.getByText(/bite‑sized lessons/i)).toBeVisible();
+         |                                                         ^
+      63 |     await expect(page.getByText(/instant explanations/i)).toBeVisible();
+      64 |   });
+      65 |
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:62:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-features-section-is-accessible-Mobile-Safari/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-features-section-is-accessible-Mobile-Safari/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-features-section-is-accessible-Mobile-Safari/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-Mobile-Safari/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-Mobile-Safari/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-features-section-is-accessible-Mobile-Safari/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="30.111">
+<failure message="home.spec.ts:66:7 pricing section is accessible" type="FAILURE">
+<![CDATA[  [Mobile Safari] › home.spec.ts:66:7 › Home Page › pricing section is accessible ──────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('link', { name: /pricing/i })
+
+
+      68 |     
+      69 |     // Scroll to pricing section
+    > 70 |     await page.getByRole('link', { name: /pricing/i }).click();
+         |                                                        ^
+      71 |     
+      72 |     // Check that pricing section is present
+      73 |     await expect(page.getByRole('heading', { name: /choose your plan/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:70:56
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-pricing-section-is-accessible-Mobile-Safari/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-pricing-section-is-accessible-Mobile-Safari/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-pricing-section-is-accessible-Mobile-Safari/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-Mobile-Safari/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-Mobile-Safari/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-pricing-section-is-accessible-Mobile-Safari/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="30.103">
+<failure message="home.spec.ts:81:7 FAQ section is functional" type="FAILURE">
+<![CDATA[  [Mobile Safari] › home.spec.ts:81:7 › Home Page › FAQ section is functional ──────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('link', { name: /faq/i })
+
+
+      83 |     
+      84 |     // Scroll to FAQ section
+    > 85 |     await page.getByRole('link', { name: /faq/i }).click();
+         |                                                    ^
+      86 |     
+      87 |     // Check that FAQ section is present
+      88 |     await expect(page.getByRole('heading', { name: /frequently asked questions/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:85:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-FAQ-section-is-functional-Mobile-Safari/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-FAQ-section-is-functional-Mobile-Safari/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-FAQ-section-is-functional-Mobile-Safari/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-Mobile-Safari/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-Mobile-Safari/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-FAQ-section-is-functional-Mobile-Safari/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="5.357">
+<failure message="home.spec.ts:101:7 final CTA banner is accessible" type="FAILURE">
+<![CDATA[  [Mobile Safari] › home.spec.ts:101:7 › Home Page › final CTA banner is accessible ────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: getByRole('heading', { name: /ready to ace your permit/i })
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('heading', { name: /ready to ace your permit/i })
+
+
+      106 |     
+      107 |     // Check that final CTA is present
+    > 108 |     await expect(page.getByRole('heading', { name: /ready to ace your permit/i })).toBeVisible();
+          |                                                                                    ^
+      109 |     
+      110 |     // Check that CTA buttons are present
+      111 |     await expect(page.getByRole('link', { name: /start free practice test/i })).toBeVisible();
+        at /Users/rsternke/permit-school/permit-school/web/tests/e2e/home.spec.ts:108:84
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-Mobile-Safari/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-Mobile-Safari/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/home-Home-Page-final-CTA-banner-is-accessible-Mobile-Safari/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-Mobile-Safari/test-failed-1.png]]
+
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-Mobile-Safari/video.webm]]
+
+[[ATTACHMENT|home-Home-Page-final-CTA-banner-is-accessible-Mobile-Safari/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

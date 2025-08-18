@@ -1,0 +1,60 @@
+# Page snapshot
+
+```yaml
+- link "Skip to main content":
+  - /url: "#main"
+- main:
+  - link "Skip to content":
+    - /url: "#main"
+  - link "Permit School":
+    - /url: /
+  - link "Courses":
+    - /url: /courses
+  - link "For Schools":
+    - /url: /schools
+  - link "Pricing":
+    - /url: "#pricing"
+  - link "About":
+    - /url: /about
+  - link "Sign In":
+    - /url: /signin
+  - link "Start Free Practice Test":
+    - /url: /practice
+  - region "Pass your permit faster.":
+    - heading "Pass your permit faster." [level=1]
+    - heading "Interactive practice tests and bite‑sized lessons built from official handbooks. Learn on your phone, track progress anywhere." [level=5]
+    - link "Start Free Practice Test":
+      - /url: /practice
+    - link "See How It Works":
+      - /url: "#how-it-works"
+    - text: Mobile‑first Real‑world explanations Progress tracking
+    - heading "📱 Practice Test 📚 Study Lessons 📊 Track Progress" [level=4]
+  - region "Why Choose Permit School?":
+    - heading "Why Choose Permit School?" [level=2]
+    - heading "Modern learning designed for today's drivers" [level=5]
+    - heading "Adaptive practice" [level=3]
+    - paragraph: Targets weak spots with every session.
+    - heading "Bite‑sized lessons" [level=3]
+    - paragraph: Master topics in minutes, not hours.
+    - heading "Instant explanations" [level=3]
+    - paragraph: Why an answer is right (and wrong).
+    - heading "Guardian & classroom views" [level=3]
+    - paragraph: Progress at a glance.
+    - heading "Works offline" [level=3]
+    - paragraph: Perfect for quick study moments.
+    - heading "Multiple languages" [level=3]
+    - paragraph: Learn comfortably in your language.
+  - heading "Permit School" [level=1]
+  - paragraph: Pass your permit faster.
+  - paragraph: Interactive practice tests and bite‑sized lessons built from official driver handbooks.
+- contentinfo:
+  - paragraph: © 2025 Permit School. All rights reserved.
+  - navigation "Footer navigation":
+    - link "Privacy":
+      - /url: /privacy
+    - link "Terms":
+      - /url: /terms
+    - link "Accessibility":
+      - /url: /accessibility
+- alert
+```

@@ -1,275 +1,547 @@
-# California Certificate Fulfillment (DL 400C)
+---
+title: "Certificate Fulfillment Operations"
+owner: "Operations"
+last_reviewed: "2025-01-27"
+status: "authoritative"
+related:
+  - </docs/DMV_REPORTING.md>
+  - </docs/RUNBOOKS.md>
+---
 
-## Overview
+# Certificate Fulfillment Operations
 
-The California Certificate Fulfillment system manages the secure printing and mailing of DMV-required certificates (DL 400C) through authorized vendors. This system maintains a secure inventory of pre-numbered certificate stock, allocates serials safely, and tracks the entire fulfillment lifecycle.
+**Purpose & Outcome**  
+Complete operational guide for certificate fulfillment, physical certificate management, and delivery processes. This ensures timely, accurate, and compliant certificate issuance while maintaining quality control and audit trails.
 
-## System Architecture
+## Prerequisites
 
-### Database Schema
+- ✅ Admin access to fulfillment dashboard
+- ✅ Certificate generation system access
+- ✅ Inventory management system access
+- ✅ Shipping and delivery system access
 
-- **`cert_stock`**: Secure inventory of DMV pre-numbered certificate serials
-- **`fulfillment_batches`**: Export batches with status tracking
-- **`fulfillment_items`**: Individual certificates within batches
-- **Views**: `v_fulfillment_pending`, `v_fulfillment_inventory`
+## Certificate Lifecycle
 
-### Key Features
+### Certificate States
 
-- **Secure Serial Allocation**: Race-safe allocation using `FOR UPDATE SKIP LOCKED`
-- **Batch Management**: Group certificates for efficient vendor processing
-- **Reconciliation**: Process vendor returns and handle exceptions
-- **Inventory Tracking**: Real-time stock levels with low-stock alerts
-- **Audit Trail**: Complete history of all certificate movements
+**Lifecycle States**:
 
-## CSV Export Specification
-
-### File Format
-
-- **Filename**: `certificates.csv`
-- **Encoding**: UTF-8
-- **Line Endings**: CRLF (`\r\n`)
-- **Delimiter**: Comma (`,`)
-
-### Required Columns
-
-| Column                   | Type | Description                  | Example                                |
-| ------------------------ | ---- | ---------------------------- | -------------------------------------- |
-| `issue_batch_id`         | UUID | Unique batch identifier      | `550e8400-e29b-41d4-a716-446655440000` |
-| `certificate_serial`     | TEXT | DMV pre-numbered serial      | `CA123456789`                          |
-| `student_full_name`      | TEXT | Student's full legal name    | `John Michael Smith`                   |
-| `first_name`             | TEXT | Student's first name         | `John`                                 |
-| `middle_name`            | TEXT | Student's middle name        | `Michael`                              |
-| `last_name`              | TEXT | Student's last name          | `Smith`                                |
-| `dob`                    | DATE | Date of birth (YYYY-MM-DD)   | `1990-05-15`                           |
-| `completion_date`        | DATE | Course completion date       | `2024-01-15`                           |
-| `course_code`            | TEXT | Course identifier            | `CA-DL-001`                            |
-| `course_title`           | TEXT | Course title                 | `California Driver Education`          |
-| `jurisdiction_code`      | TEXT | State code                   | `CA`                                   |
-| `school_name`            | TEXT | School name                  | `Permit School`                        |
-| `school_license_number`  | TEXT | School license               | `12345`                                |
-| `school_address_line1`   | TEXT | School address               | `123 Main Street`                      |
-| `school_address_line2`   | TEXT | School address line 2        | `Suite 100`                            |
-| `school_city`            | TEXT | School city                  | `Los Angeles`                          |
-| `school_state`           | TEXT | School state                 | `CA`                                   |
-| `school_postal_code`     | TEXT | School ZIP code              | `90210`                                |
-| `school_phone`           | TEXT | School phone                 | `(555) 123-4567`                       |
-| `signatory_printed_name` | TEXT | Authorized signer            | `Jane Doe`                             |
-| `signatory_title`        | TEXT | Signer's title               | `Director`                             |
-| `wet_signature_required` | TEXT | Signature requirement        | `Y`                                    |
-| `mail_to_name`           | TEXT | Mailing name                 | `John Michael Smith`                   |
-| `mail_to_line1`          | TEXT | Mailing address              | `456 Oak Avenue`                       |
-| `mail_to_line2`          | TEXT | Mailing address line 2       | `Apt 2B`                               |
-| `mail_to_city`           | TEXT | Mailing city                 | `San Francisco`                        |
-| `mail_to_state`          | TEXT | Mailing state                | `CA`                                   |
-| `mail_to_postal_code`    | TEXT | Mailing ZIP code             | `94102`                                |
-| `qr_verify_url`          | URL  | Certificate verification URL | `https://permit-school.com/verify/123` |
-| `barcode_value`          | TEXT | Barcode data                 | `CA123456789`                          |
-| `language`               | TEXT | Certificate language         | `EN`                                   |
-
-### CSV Example
-
-```csv
-issue_batch_id,certificate_serial,student_full_name,first_name,middle_name,last_name,dob,completion_date,course_code,course_title,jurisdiction_code,school_name,school_license_number,school_address_line1,school_address_line2,school_city,school_state,school_postal_code,school_phone,signatory_printed_name,signatory_title,wet_signature_required,mail_to_name,mail_to_line1,mail_to_line2,mail_to_city,mail_to_state,mail_to_postal_code,qr_verify_url,barcode_value,language
-550e8400-e29b-41d4-a716-446655440000,CA123456789,John Michael Smith,John,Michael,Smith,1990-05-15,2024-01-15,CA-DL-001,California Driver Education,CA,Permit School,12345,123 Main Street,Suite 100,Los Angeles,CA,90210,(555) 123-4567,Jane Doe,Director,Y,John Michael Smith,456 Oak Avenue,Apt 2B,San Francisco,CA,94102,https://permit-school.com/verify/123,CA123456789,EN
+```
+pending → generated → printed → shipped → delivered → archived
 ```
 
-## Manifest File Specification
+**State Transitions**:
 
-### File Format
+- `pending` → `generated`: Certificate PDF created
+- `generated` → `printed`: Physical certificate printed
+- `printed` → `shipped`: Certificate mailed to student
+- `shipped` → `delivered`: Certificate received by student
+- `delivered` → `archived`: Certificate archived after retention period
 
-- **Filename**: `manifest.json`
-- **Encoding**: UTF-8
-- **Content-Type**: `application/json`
+### Certificate Types
 
-### Structure
+**Digital Certificates**:
 
-```json
+- Immediate PDF generation
+- Email delivery to student
+- Public verification URL
+- QR code for verification
+
+**Physical Certificates**:
+
+- High-quality paper printing
+- Tamper-evident features
+- Professional presentation
+- Tracking number for delivery
+
+## Fulfillment Workflow
+
+### Certificate Generation
+
+**Automatic Generation**:
+
+```bash
+# 1. Student completes course requirements
+# - Seat time completed
+# - Final exam passed
+# - All prerequisites met
+
+# 2. System triggers certificate generation
+# API endpoint: /api/certificates/generate
 {
-  "batchId": "550e8400-e29b-41d4-a716-446655440000",
-  "j_code": "CA",
-  "counts": {
-    "queued": 0,
-    "exported": 150,
-    "mailed": 0,
-    "void": 0,
-    "reprint": 0
-  },
-  "csv": {
-    "filename": "certificates.csv",
-    "sha256": "a1b2c3d4e5f6..."
-  },
-  "createdAt": "2024-01-15T10:30:00Z",
-  "hmac": "hmac_signature_here"
+  "user_id": "user-uuid",
+  "course_id": "course-uuid",
+  "jurisdiction": "CA"
 }
+
+# 3. Certificate number assigned
+# Database function: make_certificate_number('CA', '2025')
+
+# 4. PDF certificate generated
+# Using certificate template and student data
+
+# 5. Certificate record created
+INSERT INTO certificates (
+  certificate_number,
+  user_id,
+  course_id,
+  jurisdiction,
+  completion_date,
+  status,
+  fulfillment_type
+) VALUES (
+  'CA-2025-000001',
+  'user-uuid',
+  'course-uuid',
+  'CA',
+  NOW(),
+  'generated',
+  'digital'
+);
 ```
 
-### HMAC Signing
+**Manual Generation**:
 
-The manifest is signed using HMAC-SHA256 to ensure integrity:
+```bash
+# 1. Admin initiates manual generation
+# Admin Dashboard → Certificates → Generate Certificate
 
-1. **Secret**: `FULFILLMENT_HMAC_SECRET` environment variable
-2. **Algorithm**: HMAC-SHA256
-3. **Data**: JSON stringified manifest (excluding hmac field)
-4. **Output**: Hex-encoded signature
+# 2. Verify student eligibility
+SELECT * FROM enrollments
+WHERE user_id = 'user-uuid'
+  AND course_id = 'course-uuid'
+  AND status = 'completed';
 
-## Reconciliation Files
+# 3. Generate certificate
+# Same process as automatic generation
 
-### mailed.csv
-
-Returned by the printer daily with mailing confirmation:
-
-```csv
-certificate_serial,mailed_at,tracking
-CA123456789,2024-01-16T14:30:00Z,USPS123456789
-CA123456790,2024-01-16T14:30:00Z,USPS123456790
+# 4. Update fulfillment status
+UPDATE certificates
+SET status = 'generated',
+    fulfillment_type = 'physical'
+WHERE certificate_number = 'CA-2025-000001';
 ```
 
-### exceptions.csv
+### Physical Certificate Printing
 
-Returned by the printer for misprints, voids, or reprints:
+**Print Queue Management**:
 
-```csv
-certificate_serial,reason
-CA123456791,misprint_smeared_ink
-CA123456792,stock_damaged
+```bash
+# 1. Identify certificates for printing
+SELECT
+  certificate_number,
+  student_name,
+  course_name,
+  completion_date
+FROM certificates
+WHERE status = 'generated'
+  AND fulfillment_type = 'physical'
+ORDER BY completion_date ASC;
+
+# 2. Generate print batch
+# Admin Dashboard → Fulfillment → Print Queue
+
+# 3. Verify print data
+# Check certificate numbers, student names, course details
+
+# 4. Send to printer
+# High-quality printer with certificate paper
 ```
 
-## Operational Procedures
+**Print Quality Control**:
 
-### Daily Export Process
+```bash
+# 1. Verify print quality
+# - Check for smudges or misalignment
+# - Verify certificate numbers are clear
+# - Ensure QR codes are scannable
 
-1. **Check Inventory**: Verify sufficient stock available
-2. **Run Export**: Execute export for pending certificates
-3. **Download ZIP**: Retrieve vendor bundle
-4. **Send to Vendor**: Upload to printer's SFTP or email
-5. **Track Status**: Monitor batch status in admin UI
+# 2. Quality check checklist
+# - [ ] Certificate number matches database
+# - [ ] Student name spelled correctly
+# - [ ] Course name is accurate
+# - [ ] Completion date is correct
+# - [ ] QR code scans properly
+# - [ ] Digital signature is present
 
-### Reconciliation Process
+# 3. Update certificate status
+UPDATE certificates
+SET status = 'printed',
+    printed_at = NOW()
+WHERE certificate_number = 'CA-2025-000001';
+```
 
-1. **Receive Files**: Get mailed.csv and exceptions.csv from vendor
-2. **Upload Files**: Use admin UI reconciliation feature
-3. **Process Updates**: System updates certificate statuses
-4. **Handle Exceptions**: Reprints automatically queued
-5. **Verify Completion**: Confirm all certificates processed
+### Shipping and Delivery
 
-### Low Stock Management
+**Shipping Preparation**:
 
-1. **Monitor Alerts**: System warns when stock < 200
-2. **Request Stock**: Contact DMV for new serial ranges
-3. **Upload Serials**: Use inventory management UI
-4. **Verify Upload**: Confirm serials added correctly
-5. **Test Allocation**: Run test export to verify
+```bash
+# 1. Prepare shipping materials
+# - Certificate in protective sleeve
+# - Cover letter with instructions
+# - Return envelope (if required)
+# - Tracking information
 
-### Exception Handling
+# 2. Verify shipping address
+SELECT
+  full_name,
+  address_line_1,
+  address_line_2,
+  address_city,
+  address_state,
+  address_zip
+FROM profiles
+WHERE id = 'user-uuid';
 
-#### Misprints
+# 3. Generate shipping label
+# Use shipping service API (USPS, FedEx, UPS)
 
-- Mark original as void
-- Queue for reprint with new serial
-- Include in next export batch
+# 4. Package certificate
+# - Insert certificate in protective sleeve
+# - Add cover letter
+# - Seal package securely
+# - Apply shipping label
+```
 
-#### Damaged Stock
+**Shipping Process**:
 
-- Mark serial as void
-- Document reason in database
-- Request replacement from DMV
+```bash
+# 1. Update certificate status
+UPDATE certificates
+SET status = 'shipped',
+    shipped_at = NOW(),
+    tracking_number = '1Z999AA1234567890'
+WHERE certificate_number = 'CA-2025-000001';
 
-#### Missing Mailings
+# 2. Send tracking email
+# Email student with tracking information
 
-- Track via USPS tracking numbers
-- Follow up with vendor after 7 days
-- Escalate if not resolved within 14 days
+# 3. Monitor delivery
+# Track package through shipping service
 
-## Security Considerations
+# 4. Confirm delivery
+# Update status when package is delivered
+UPDATE certificates
+SET status = 'delivered',
+    delivered_at = NOW()
+WHERE certificate_number = 'CA-2025-000001';
+```
 
-### Access Control
+## Inventory Management
 
-- Admin-only access to fulfillment features
-- Row-level security on all tables
-- Audit logging of all operations
+### Certificate Supplies
 
-### Data Protection
+**Required Materials**:
 
-- PII encrypted in transit and at rest
-- Signed URLs for secure file access
-- HMAC verification of all manifests
+- Certificate paper (high-quality, tamper-evident)
+- Protective sleeves
+- Envelopes (standard and priority)
+- Shipping labels
+- Cover letter templates
+- Return envelopes (if required)
 
-### Inventory Security
+**Inventory Tracking**:
 
-- Serial allocation is atomic and race-safe
-- No duplicate serials possible
-- Complete audit trail of all movements
+```bash
+# 1. Track inventory levels
+SELECT
+  item_name,
+  current_quantity,
+  reorder_point,
+  supplier
+FROM fulfillment_inventory
+WHERE current_quantity <= reorder_point;
 
-## Troubleshooting
+# 2. Generate reorder alerts
+# Admin Dashboard → Fulfillment → Inventory → Low Stock
+
+# 3. Update inventory after use
+UPDATE fulfillment_inventory
+SET current_quantity = current_quantity - 1
+WHERE item_name = 'certificate_paper';
+```
+
+### Quality Control
+
+**Pre-Shipment Checklist**:
+
+```bash
+# 1. Certificate verification
+# - [ ] Certificate number is correct
+# - [ ] Student name is accurate
+# - [ ] Course name is correct
+# - [ ] Completion date is valid
+# - [ ] QR code scans properly
+
+# 2. Package verification
+# - [ ] Certificate is in protective sleeve
+# - [ ] Cover letter is included
+# - [ ] Shipping label is correct
+# - [ ] Package is sealed properly
+
+# 3. Documentation
+# - [ ] Tracking number is recorded
+# - [ ] Shipping date is logged
+# - [ ] Quality check is completed
+```
+
+## Error Handling
 
 ### Common Issues
 
-#### "Out of certificate stock"
-
-- Check inventory levels
-- Request new stock from DMV
-- Verify serial upload completed
-
-#### "Export failed"
-
-- Check database connectivity
-- Verify pending certificates exist
-- Review error logs for details
-
-#### "Reconciliation errors"
-
-- Validate CSV format
-- Check serial numbers exist
-- Verify batch status is "exported"
-
-#### "Low stock warning"
-
-- Monitor inventory dashboard
-- Plan for stock replenishment
-- Consider reducing export frequency
-
-### Support Contacts
-
-- **Technical Issues**: Development team
-- **DMV Coordination**: Compliance team
-- **Vendor Issues**: Operations team
-- **Emergency**: On-call administrator
-
-## Configuration
-
-### Environment Variables
+**Certificate Generation Failures**:
 
 ```bash
-# Enable fulfillment system
-FULFILLMENT_ON=true
+# 1. Check student eligibility
+SELECT * FROM enrollments
+WHERE user_id = 'user-uuid'
+  AND course_id = 'course-uuid';
 
-# HMAC signing secret
-FULFILLMENT_HMAC_SECRET=your_secret_here
+# 2. Verify course completion
+SELECT * FROM exam_attempts
+WHERE user_id = 'user-uuid'
+  AND course_id = 'course-uuid'
+  AND status = 'completed';
 
-# Storage bucket name
-FULFILLMENT_BUCKET=dmv_fulfillment
+# 3. Check seat time requirements
+SELECT * FROM seat_time
+WHERE user_id = 'user-uuid'
+  AND course_id = 'course-uuid'
+  AND total_minutes >= required_minutes;
 
-# Low stock threshold
-FULFILLMENT_LOW_STOCK_THRESHOLD=200
-
-# Daily cutoff timezone
-DAILY_CUTOFF_TZ=America/Los_Angeles
+# 4. Manual certificate generation
+# Use admin interface to generate certificate manually
 ```
 
-### Database Configuration
+**Printing Issues**:
 
-Ensure these tables exist and RLS is enabled:
+```bash
+# 1. Check printer status
+# Verify printer is online and has paper
 
-- `cert_stock`
-- `fulfillment_batches`
-- `fulfillment_items`
-- `v_fulfillment_pending`
-- `v_fulfillment_inventory`
+# 2. Check certificate template
+# Verify template file exists and is valid
 
-## Compliance Notes
+# 3. Check certificate data
+SELECT * FROM certificates
+WHERE certificate_number = 'CA-2025-000001';
 
-- All certificate data must be accurate and complete
-- Serial numbers must match DMV records exactly
-- Mailing addresses must be current and valid
-- All operations are logged for audit purposes
-- Vendor contracts must include data security requirements
+# 4. Re-print certificate
+# Use admin interface to re-print certificate
+```
+
+**Shipping Issues**:
+
+```bash
+# 1. Check shipping address
+SELECT * FROM profiles
+WHERE id = 'user-uuid';
+
+# 2. Verify tracking information
+# Check shipping service website
+
+# 3. Contact shipping service
+# Call shipping service for package status
+
+# 4. Re-ship if necessary
+# Generate new shipping label and re-ship
+```
+
+### Emergency Procedures
+
+**Certificate System Failure**:
+
+```bash
+# 1. Pause automatic generation
+# Disable automatic certificate generation
+
+# 2. Generate certificates manually
+# Use admin interface for manual generation
+
+# 3. Verify certificate integrity
+# Check all generated certificates
+
+# 4. Resume automatic generation
+# Re-enable automatic certificate generation
+```
+
+**Printing System Failure**:
+
+```bash
+# 1. Switch to backup printer
+# Use secondary printer if available
+
+# 2. Generate digital certificates only
+# Temporarily switch to digital-only fulfillment
+
+# 3. Notify affected students
+# Email students about temporary delay
+
+# 4. Resume printing when fixed
+# Return to normal printing operations
+```
+
+**Shipping System Failure**:
+
+```bash
+# 1. Hold certificates for shipping
+# Pause shipping until system is restored
+
+# 2. Notify affected students
+# Email students about shipping delay
+
+# 3. Resume shipping when fixed
+# Process held certificates
+
+# 4. Update tracking information
+# Provide updated tracking to students
+```
+
+## Compliance and Audit
+
+### Regulatory Requirements
+
+**California Requirements**:
+
+- Certificate must be issued within 30 days of completion
+- Physical certificate must be mailed to student
+- Certificate must include all required information
+- Certificate must be tamper-evident
+
+**Texas Requirements**:
+
+- Certificate must be issued within 45 days of completion
+- Digital certificate is acceptable
+- Certificate must include parent/guardian signature for minors
+
+### Audit Trail
+
+**Certificate Operations Log**:
+
+```sql
+-- All certificate operations logged
+SELECT
+  certificate_number,
+  operation,
+  performed_by,
+  performed_at,
+  details
+FROM certificate_audit_log
+WHERE certificate_number = 'CA-2025-000001'
+ORDER BY performed_at DESC;
+```
+
+**Fulfillment Tracking**:
+
+```sql
+-- Complete fulfillment history
+SELECT
+  c.certificate_number,
+  c.status,
+  c.generated_at,
+  c.printed_at,
+  c.shipped_at,
+  c.delivered_at,
+  c.tracking_number
+FROM certificates c
+WHERE c.certificate_number = 'CA-2025-000001';
+```
+
+### Quality Assurance
+
+**Certificate Verification**:
+
+```bash
+# 1. Verify certificate data
+SELECT
+  certificate_number,
+  student_name,
+  course_name,
+  completion_date,
+  status
+FROM certificates
+WHERE created_at >= CURRENT_DATE;
+
+# 2. Check for errors
+SELECT
+  certificate_number,
+  student_name
+FROM certificates
+WHERE student_name IS NULL
+  OR completion_date IS NULL;
+
+# 3. Verify QR codes
+# Scan QR codes to verify they work properly
+
+# 4. Test digital signatures
+# Verify digital signatures are valid
+```
+
+## Performance Metrics
+
+### Key Performance Indicators
+
+**Fulfillment Metrics**:
+
+- Average time from completion to certificate generation
+- Average time from generation to printing
+- Average time from printing to shipping
+- Average time from shipping to delivery
+- Certificate generation success rate
+- Print quality error rate
+- Shipping success rate
+
+**Quality Metrics**:
+
+- Certificate accuracy rate
+- Print quality pass rate
+- Shipping damage rate
+- Customer satisfaction rate
+- Return rate
+
+### Reporting
+
+**Daily Fulfillment Report**:
+
+```sql
+-- Daily fulfillment summary
+SELECT
+  DATE(created_at) as date,
+  COUNT(*) as total_certificates,
+  COUNT(CASE WHEN status = 'generated' THEN 1 END) as generated,
+  COUNT(CASE WHEN status = 'printed' THEN 1 END) as printed,
+  COUNT(CASE WHEN status = 'shipped' THEN 1 END) as shipped,
+  COUNT(CASE WHEN status = 'delivered' THEN 1 END) as delivered
+FROM certificates
+WHERE created_at >= CURRENT_DATE - INTERVAL '7 days'
+GROUP BY DATE(created_at)
+ORDER BY date DESC;
+```
+
+**Weekly Quality Report**:
+
+```sql
+-- Weekly quality metrics
+SELECT
+  DATE_TRUNC('week', created_at) as week,
+  COUNT(*) as total_certificates,
+  COUNT(CASE WHEN status = 'delivered' THEN 1 END) as delivered,
+  COUNT(CASE WHEN status = 'returned' THEN 1 END) as returned,
+  COUNT(CASE WHEN status = 'damaged' THEN 1 END) as damaged
+FROM certificates
+WHERE created_at >= NOW() - INTERVAL '4 weeks'
+GROUP BY DATE_TRUNC('week', created_at)
+ORDER BY week DESC;
+```
+
+## References
+
+- [DMV Reporting & Compliance](docs/DMV_REPORTING.md)
+- [Operational Runbooks](docs/RUNBOOKS.md)
+- [California DMV Requirements](https://www.dmv.ca.gov/portal/driver-education-and-safety/educational-materials/driver-education/)
+- [Texas DPS Requirements](https://www.dps.texas.gov/driverlicense/drivereducation.htm)
+
+---
+
+**Last updated**: 2025-01-27  
+**Next review**: 2025-02-27

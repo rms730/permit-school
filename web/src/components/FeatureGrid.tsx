@@ -1,54 +1,41 @@
-import { Box, Typography, Grid, Card, CardContent } from '@mui/material';
+import { Grid, Card, CardContent, Stack, Typography, Box } from '@mui/material';
 import { Container } from './Container';
+import QuizIcon from '@mui/icons-material/Quiz';
+import BoltIcon from '@mui/icons-material/Bolt';
+import InsightsIcon from '@mui/icons-material/Insights';
+import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
+import TimerIcon from '@mui/icons-material/Timer';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 
-const features = [
-  {
-    title: 'Adaptive practice',
-    description: 'Targets weak spots with every session.',
-  },
-  {
-    title: 'Bite‑sized lessons',
-    description: 'Master topics in minutes, not hours.',
-  },
-  {
-    title: 'Instant explanations',
-    description: 'Why an answer is right (and wrong).',
-  },
-  {
-    title: 'Guardian & classroom views',
-    description: 'Progress at a glance.',
-  },
-  {
-    title: 'Works offline',
-    description: 'Perfect for quick study moments.',
-  },
-  {
-    title: 'Multiple languages',
-    description: 'Learn comfortably in your language.',
-  },
+const items = [
+  { icon: <QuizIcon />, title: 'Realistic questions', body: 'Written with the latest handbook in mind and mapped to exam topics.' },
+  { icon: <BoltIcon />, title: 'Adaptive practice', body: 'Focus time where it matters most with auto‑generated drills.' },
+  { icon: <InsightsIcon />, title: 'Progress insights', body: 'Know when you&apos;re truly ready with readiness scores.' },
+  { icon: <OndemandVideoIcon />, title: 'Micro‑lessons', body: 'Short explainers that make rules and signs easy to remember.' },
+  { icon: <TimerIcon />, title: 'Exam simulator', body: 'Timed mock tests with instant feedback and review.' },
+  { icon: <SupportAgentIcon />, title: 'Parent tools', body: 'Simple oversight and sign‑off—no nagging required.' },
 ];
 
 export function FeatureGrid() {
   return (
     <Box
       component="section"
-      aria-labelledby="features-heading"
+      id="section-features"
       sx={{
         py: { xs: 8, md: 12 },
         backgroundColor: 'background.default',
       }}
     >
-      <Container>
+      <Container maxWidth="lg">
         <Box sx={{ textAlign: 'center', mb: 8 }}>
           <Typography
-            id="features-heading"
             variant="h2"
             sx={{
               mb: 2,
               fontWeight: 700,
             }}
           >
-            Why Choose Permit School?
+            Why Permit School?
           </Typography>
           <Typography
             variant="h5"
@@ -62,45 +49,18 @@ export function FeatureGrid() {
           </Typography>
         </Box>
 
-        <Grid container spacing={4}>
-          {features.map((feature, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card
-                sx={{
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-              >
-                <CardContent
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    p: 4,
-                    flexGrow: 1,
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    component="h3"
-                    sx={{
-                      mb: 2,
-                      fontWeight: 600,
-                    }}
-                  >
-                    {feature.title}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: 'text.secondary',
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {feature.description}
-                  </Typography>
+        <Grid container spacing={3} id="features">
+          {items.map((item) => (
+            <Grid key={item.title} item xs={12} sm={6} md={4}>
+              <Card sx={{ height: '100%' }}>
+                <CardContent>
+                  <Stack spacing={1.5}>
+                    <Stack direction="row" spacing={1.5} alignItems="center">
+                      {item.icon}
+                      <Typography variant="h6" fontWeight={700}>{item.title}</Typography>
+                    </Stack>
+                    <Typography color="text.secondary">{item.body}</Typography>
+                  </Stack>
                 </CardContent>
               </Card>
             </Grid>

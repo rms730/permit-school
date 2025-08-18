@@ -1,82 +1,82 @@
-<testsuites id="" name="" tests="35" failures="0" skipped="0" errors="0" time="11.418877">
-<testsuite name="home.spec.ts" timestamp="2025-08-18T04:10:14.037Z" hostname="chromium" tests="7" failures="0" skipped="0" time="9.358" errors="0">
-<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="1.519">
+<testsuites id="" name="" tests="35" failures="0" skipped="0" errors="0" time="11.05813">
+<testsuite name="home.spec.ts" timestamp="2025-08-18T04:27:33.945Z" hostname="chromium" tests="7" failures="0" skipped="0" time="9.94" errors="0">
+<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="1.418">
 </testcase>
-<testcase name="Home Page › accessibility structure is correct" classname="home.spec.ts" time="1.291">
+<testcase name="Home Page › accessibility structure is correct" classname="home.spec.ts" time="1.167">
 </testcase>
-<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="1.51">
+<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="1.517">
 </testcase>
-<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="1.196">
+<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="1.103">
 </testcase>
-<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="1.294">
+<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="1.149">
 </testcase>
-<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="1.26">
+<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="2.078">
 </testcase>
-<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="1.288">
-</testcase>
-</testsuite>
-<testsuite name="home.spec.ts" timestamp="2025-08-18T04:10:14.037Z" hostname="firefox" tests="7" failures="0" skipped="0" time="7.96" errors="0">
-<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="0.979">
-</testcase>
-<testcase name="Home Page › accessibility structure is correct" classname="home.spec.ts" time="1.254">
-</testcase>
-<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="1.48">
-</testcase>
-<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="1.326">
-</testcase>
-<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="1.152">
-</testcase>
-<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="0.82">
-</testcase>
-<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="0.949">
+<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="1.508">
 </testcase>
 </testsuite>
-<testsuite name="home.spec.ts" timestamp="2025-08-18T04:10:14.037Z" hostname="webkit" tests="7" failures="0" skipped="0" time="5.606" errors="0">
-<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="1.018">
+<testsuite name="home.spec.ts" timestamp="2025-08-18T04:27:33.945Z" hostname="firefox" tests="7" failures="0" skipped="0" time="6.834" errors="0">
+<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="0.894">
 </testcase>
-<testcase name="Home Page › accessibility structure is correct" classname="home.spec.ts" time="0.906">
+<testcase name="Home Page › accessibility structure is correct" classname="home.spec.ts" time="1.157">
 </testcase>
-<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="0.768">
+<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="1.186">
 </testcase>
-<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="0.625">
+<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="0.953">
 </testcase>
-<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="0.722">
+<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="0.792">
 </testcase>
-<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="0.842">
+<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="0.817">
 </testcase>
-<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="0.725">
-</testcase>
-</testsuite>
-<testsuite name="home.spec.ts" timestamp="2025-08-18T04:10:14.037Z" hostname="Mobile Chrome" tests="7" failures="0" skipped="0" time="4.708" errors="0">
-<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="0.76">
-</testcase>
-<testcase name="Home Page › accessibility structure is correct" classname="home.spec.ts" time="0.789">
-</testcase>
-<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="0.709">
-</testcase>
-<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="0.622">
-</testcase>
-<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="0.647">
-</testcase>
-<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="0.66">
-</testcase>
-<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="0.521">
+<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="1.035">
 </testcase>
 </testsuite>
-<testsuite name="home.spec.ts" timestamp="2025-08-18T04:10:14.037Z" hostname="Mobile Safari" tests="7" failures="0" skipped="0" time="4.01" errors="0">
-<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="0.68">
+<testsuite name="home.spec.ts" timestamp="2025-08-18T04:27:33.945Z" hostname="webkit" tests="7" failures="0" skipped="0" time="4.235" errors="0">
+<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="0.937">
 </testcase>
-<testcase name="Home Page › accessibility structure is correct" classname="home.spec.ts" time="0.604">
+<testcase name="Home Page › accessibility structure is correct" classname="home.spec.ts" time="0.572">
 </testcase>
-<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="0.678">
+<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="0.68">
 </testcase>
-<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="0.55">
+<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="0.473">
 </testcase>
-<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="0.518">
+<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="0.561">
 </testcase>
-<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="0.492">
+<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="0.619">
 </testcase>
-<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="0.488">
+<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="0.393">
+</testcase>
+</testsuite>
+<testsuite name="home.spec.ts" timestamp="2025-08-18T04:27:33.945Z" hostname="Mobile Chrome" tests="7" failures="0" skipped="0" time="4.407" errors="0">
+<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="0.702">
+</testcase>
+<testcase name="Home Page › accessibility structure is correct" classname="home.spec.ts" time="0.6">
+</testcase>
+<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="0.951">
+</testcase>
+<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="0.548">
+</testcase>
+<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="0.554">
+</testcase>
+<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="0.584">
+</testcase>
+<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="0.468">
+</testcase>
+</testsuite>
+<testsuite name="home.spec.ts" timestamp="2025-08-18T04:27:33.945Z" hostname="Mobile Safari" tests="7" failures="0" skipped="0" time="3.525" errors="0">
+<testcase name="Home Page › renders and CTAs work" classname="home.spec.ts" time="0.632">
+</testcase>
+<testcase name="Home Page › accessibility structure is correct" classname="home.spec.ts" time="0.531">
+</testcase>
+<testcase name="Home Page › navigation works correctly" classname="home.spec.ts" time="0.627">
+</testcase>
+<testcase name="Home Page › features section is accessible" classname="home.spec.ts" time="0.478">
+</testcase>
+<testcase name="Home Page › pricing section is accessible" classname="home.spec.ts" time="0.421">
+</testcase>
+<testcase name="Home Page › FAQ section is functional" classname="home.spec.ts" time="0.438">
+</testcase>
+<testcase name="Home Page › final CTA banner is accessible" classname="home.spec.ts" time="0.398">
 </testcase>
 </testsuite>
 </testsuites>

@@ -2,21 +2,20 @@ import { Metadata } from 'next';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { FeatureGrid } from '@/components/FeatureGrid';
-import { HowItWorks } from '@/components/HowItWorks';
+import { StatsStrip } from '@/components/StatsStrip';
 import { Pricing } from '@/components/Pricing';
-import { Testimonials } from '@/components/Testimonials';
 import { FAQ } from '@/components/FAQ';
-import { CtaBanner } from '@/components/CtaBanner';
+import { CTASection } from '@/components/CTASection';
 import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Permit School — Pass your permit faster',
+  title: 'Permit School — Pass your DMV permit test fast, confident, first try',
   description:
-    'Interactive practice tests and bite‑sized lessons built from official driver handbooks. Progress tracking for learners, guardians, and schools.',
+    'Adaptive practice, bite‑size lessons, and real‑world questions built to help new drivers and parents get permit‑ready without the stress.',
   openGraph: {
-    title: 'Permit School — Pass your permit faster',
+    title: 'Permit School — Pass your DMV permit test fast, confident, first try',
     description:
-      'Interactive practice tests and bite‑sized lessons built from official driver handbooks.',
+      'Adaptive practice, bite‑size lessons, and real‑world questions built to help new drivers and parents get permit‑ready without the stress.',
     images: ['/og-image.png'],
   },
   twitter: { card: 'summary_large_image' },
@@ -31,11 +30,10 @@ export default function Page() {
       <Header />
       <Hero />
       <FeatureGrid />
-      <HowItWorks />
+      <StatsStrip />
       <Pricing />
-      <Testimonials />
       <FAQ />
-      <CtaBanner />
+      <CTASection />
       <Footer />
     </>
   );

@@ -1,12 +1,11 @@
 "use client";
 
-import { Box, Typography, Grid, Link, useTheme } from '@mui/material';
-import { Container } from './Container';
+import { Box, Typography, Grid, Link, Container, Stack } from '@mui/material';
 
 const footerLinks = {
   product: [
     { name: 'Practice Tests', href: '/practice' },
-    { name: 'Courses', href: '/courses' },
+    { name: 'Features', href: '#features' },
     { name: 'Pricing', href: '#pricing' },
     { name: 'For Schools', href: '/schools' },
   ],
@@ -25,126 +24,95 @@ const footerLinks = {
 };
 
 export function Footer() {
-  const theme = useTheme();
-  const currentYear = new Date().getFullYear();
-
   return (
     <Box
       component="footer"
       sx={{
         py: { xs: 6, md: 8 },
-        backgroundColor: 'grey.900',
-        color: 'white',
+        backgroundColor: 'background.paper',
+        borderTop: 1,
+        borderColor: 'divider',
       }}
     >
-      <Container>
+      <Container maxWidth="lg">
         <Grid container spacing={4}>
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>
+            <Typography variant="h6" fontWeight={700} sx={{ mb: 2 }}>
               Permit School
             </Typography>
-            <Typography variant="body2" sx={{ mb: 3, opacity: 0.8 }}>
-              Interactive practice tests and bite-sized lessons built from official driver handbooks. 
-              Pass your permit test faster with confidence.
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+              Modern permit test preparation for today&apos;s drivers.
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic' }}>
+              Permit School is an independent learning platform and is not affiliated with any Department of Motor Vehicles.
             </Typography>
           </Grid>
-
-          <Grid item xs={12} sm={4} md={2}>
-            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
-              Product
-            </Typography>
-            <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-              {footerLinks.product.map((link) => (
-                <Box component="li" key={link.name} sx={{ mb: 1 }}>
-                  <Link
-                    href={link.href}
-                    sx={{
-                      color: 'grey.300',
-                      textDecoration: 'none',
-                      '&:hover': {
-                        color: 'white',
-                        textDecoration: 'underline',
-                      },
-                    }}
-                  >
-                    {link.name}
-                  </Link>
-                </Box>
-              ))}
-            </Box>
-          </Grid>
-
-          <Grid item xs={12} sm={4} md={2}>
-            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
-              Support
-            </Typography>
-            <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-              {footerLinks.support.map((link) => (
-                <Box component="li" key={link.name} sx={{ mb: 1 }}>
-                  <Link
-                    href={link.href}
-                    sx={{
-                      color: 'grey.300',
-                      textDecoration: 'none',
-                      '&:hover': {
-                        color: 'white',
-                        textDecoration: 'underline',
-                      },
-                    }}
-                  >
-                    {link.name}
-                  </Link>
-                </Box>
-              ))}
-            </Box>
-          </Grid>
-
-          <Grid item xs={12} sm={4} md={2}>
-            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
-              Company
-            </Typography>
-            <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-              {footerLinks.company.map((link) => (
-                <Box component="li" key={link.name} sx={{ mb: 1 }}>
-                  <Link
-                    href={link.href}
-                    sx={{
-                      color: 'grey.300',
-                      textDecoration: 'none',
-                      '&:hover': {
-                        color: 'white',
-                        textDecoration: 'underline',
-                      },
-                    }}
-                  >
-                    {link.name}
-                  </Link>
-                </Box>
-              ))}
-            </Box>
-          </Grid>
-
-          <Grid item xs={12} md={2}>
-            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
-              Connect
-            </Typography>
-            <Typography variant="body2" sx={{ opacity: 0.8 }}>
-              Follow us for updates and tips
-            </Typography>
+          
+          <Grid item xs={12} md={8}>
+            <Grid container spacing={4}>
+              <Grid item xs={12} sm={4}>
+                <Typography variant="h6" fontWeight={600} sx={{ mb: 2 }}>
+                  Product
+                </Typography>
+                <Stack spacing={1}>
+                  {footerLinks.product.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      color="text.secondary"
+                      underline="hover"
+                      sx={{ fontSize: '0.875rem' }}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </Stack>
+              </Grid>
+              
+              <Grid item xs={12} sm={4}>
+                <Typography variant="h6" fontWeight={600} sx={{ mb: 2 }}>
+                  Support
+                </Typography>
+                <Stack spacing={1}>
+                  {footerLinks.support.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      color="text.secondary"
+                      underline="hover"
+                      sx={{ fontSize: '0.875rem' }}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </Stack>
+              </Grid>
+              
+              <Grid item xs={12} sm={4}>
+                <Typography variant="h6" fontWeight={600} sx={{ mb: 2 }}>
+                  Company
+                </Typography>
+                <Stack spacing={1}>
+                  {footerLinks.company.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      color="text.secondary"
+                      underline="hover"
+                      sx={{ fontSize: '0.875rem' }}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </Stack>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
-
-        <Box
-          sx={{
-            mt: 6,
-            pt: 4,
-            borderTop: '1px solid',
-            borderColor: 'grey.800',
-            textAlign: 'center',
-          }}
-        >
-          <Typography variant="body2" sx={{ opacity: 0.8 }}>
-            © {currentYear} Permit School. All rights reserved.
+        
+        <Box sx={{ mt: 6, pt: 4, borderTop: 1, borderColor: 'divider', textAlign: 'center' }}>
+          <Typography variant="body2" color="text.secondary">
+            © {new Date().getFullYear()} Permit School. All rights reserved.
           </Typography>
         </Box>
       </Container>

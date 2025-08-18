@@ -1,80 +1,226 @@
-# Sprint 2–4: Tutor MVP, Auth/RBAC, Curriculum & Seat‑Time
+---
+title: "Pull Request Template"
+owner: "Engineering"
+last_reviewed: "2025-01-27"
+status: "authoritative"
+---
 
-## Summary
+# Pull Request Template
 
-This PR bundles the work completed across Sprints 2–4:
+**Purpose & Outcome**  
+Standardized pull request template for Permit School that ensures all necessary information is provided, proper testing is completed, and the review process is efficient and thorough.
 
-- Tutor MVP web app (Next.js + MUI, server‑side proxy to Supabase edge function)
-- Hybrid RAG (FTS + vector re‑rank) + ingestion tools
-- Observability: `tutor_logs` with latency, user_id, model, errors
-- Supabase Auth + RBAC (admin‑only `/admin/logs`)
-- Curriculum: `course_units`, `unit_chunks` (FTS mapping), `seat_time_events`
-- Seat‑time tracking & quiz gating; attempts flow with EWMA mastery
-- CI: web build/typecheck/lint; SQLFluff; Prettier; smoke checks
+## Description
 
-## Changes since origin/main
+Brief description of the changes made in this PR.
 
-(auto‑generated shortlog)
+## Type of Change
 
-- eadfdf5 chore: ensure env and build outputs are gitignored
-- 1d04808 rebuild: recreate all migrations to match current schema exactly
-- 48ce805 fix(sql): restructure query to avoid window function in WHERE clause
-- 33e809a fix(sql): correct CASE statement syntax in curriculum migration
-- 93e546e fix(sql): correct column references in curriculum migration
-- e93b15f docs: add Sprint 4 documentation and navigation
-- 125353a feat(web): add quiz start and quiz player UI
-- 83a5a70 feat(web): add course outline and lesson player UI
-- 52d9ebe feat(web): add seat time tracking hook
-- e9ea067 feat(web): add progress and attempts API routes
-- ddd778c feat(sql): add curriculum tables and seat time tracking
-- 2f71d66 docs: README auth & RBAC notes
-- ab7be1d chore(web): helper script to promote admin
-- 1f4a31c feat(web): include user_id in tutor_logs from route session
-- 52933d0 feat(web): gate /admin/logs via RLS (no service role on page)
-- 83bbeac feat(web): gate /admin/logs via RLS (no service role on page)
-- 81bdac4 feat(web): add Supabase Auth (email/password) + middleware
-- 476d11f feat(web): add Supabase Auth (email/password) + middleware
-- dde6dd0 feat(web): add Supabase Auth (email/password) + middleware
-- e19d6af docs: README notes for Sprint 2
-- e6ff525 feat(web): admin logs page (SSR, MUI only)
-- 59bf4a4 feat(web): add CA/TX state picker to Tutor UI
-- 9c8da46 feat(web): log tutor calls with latency + error to tutor_logs
-- a049add feat(web): server-side supabase admin client
-- 6502c48 feat(sql): add tutor_logs table + RLS (admin read)
-- 35d1182 chore(web): remove TypeScript build info file
-- a3d74c8 chore(web): ignore TypeScript build info files
-- 36b0cda docs: README quickstart for web
-- 24d6532 ci(web): add build/lint/typecheck workflow
-- 4f1ecfe feat(web): scaffold Next.js app with MUI theme + SSR cache
+- [ ] **Bug fix** - Fixes an existing issue
+- [ ] **New feature** - Adds new functionality
+- [ ] **Breaking change** - Changes that break existing functionality
+- [ ] **Documentation update** - Updates to documentation only
+- [ ] **Refactoring** - Code changes that neither fix bugs nor add features
+- [ ] **Performance improvement** - Changes that improve performance
+- [ ] **Test update** - Adding or updating tests
+- [ ] **Dependency update** - Updates to dependencies or build tools
 
-## How to test
+## Testing
 
-1. Apply migrations (0001–0005) on a fresh Supabase project.
-2. Ingest CA handbook:
-   - `npm --prefix tools/ingest run ingest:ca:en -- --url "https://www.dmv.ca.gov/portal/file/california-driver-handbook-pdf" --source "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/"`
-3. Run web app:
-   - `cp web/.env.example web/.env.local` and fill keys
-   - `npm --prefix web run dev` → open http://localhost:3000
-4. Tutor:
-   - Ask: "When can I turn right on red in California?" → see answer + citations
-5. Curriculum:
-   - `/course/CA/DE-ONLINE` → start Unit 1
-   - Study content → seat‑time accrues, auto‑saves
-   - Quiz unlocks after required minutes; complete quiz → mastery updates
-6. Admin:
-   - Promote user via script, open `/admin/logs` → see latest 50 entries
+### Automated Tests
 
-## Security notes
+- [ ] **Unit tests** - Added/updated unit tests for new functionality
+- [ ] **E2E tests** - Added/updated end-to-end tests for user flows
+- [ ] **Accessibility tests** - Verified WCAG 2.2 AA compliance
+- [ ] **Type checking** - TypeScript compilation passes
+- [ ] **Linting** - ESLint passes with no warnings
+- [ ] **Build** - Production build completes successfully
 
-- Client only uses `NEXT_PUBLIC_SUPABASE_*` keys.
-- Server‑only keys (`SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_FUNCTIONS_URL`) stay on server.
-- RLS enforced across user‑owned tables; admin‑only policies for logs.
+### Manual Testing
+
+- [ ] **Feature testing** - Manually tested the new/changed functionality
+- [ ] **Regression testing** - Verified existing functionality still works
+- [ ] **Cross-browser testing** - Tested in Chrome, Firefox, Safari (if UI changes)
+- [ ] **Mobile testing** - Tested on mobile devices (if UI changes)
+- [ ] **Accessibility testing** - Verified keyboard navigation and screen reader support
+
+### Test Commands Run
+
+```bash
+# List the commands you ran for testing
+npm --prefix web run lint
+npm --prefix web run typecheck
+npm --prefix web test
+npm --prefix web run test:e2e
+npm --prefix web run axe:ci
+npm --prefix web run build
+```
 
 ## Checklist
 
-- [x] Prettier clean
-- [x] ESLint clean
-- [x] Typecheck passes
-- [x] Build succeeds
-- [x] SQLFluff clean
-- [x] No env/build artifacts tracked
+### Code Quality
+
+- [ ] **Code follows style guidelines** - Follows project coding standards
+- [ ] **Self-review completed** - Code has been reviewed by the author
+- [ ] **Documentation updated** - Updated relevant documentation
+- [ ] **Comments added** - Added comments for complex logic
+- [ ] **Error handling** - Proper error handling implemented
+- [ ] **Security considerations** - No security vulnerabilities introduced
+
+### Database Changes
+
+- [ ] **Migration created** - New migration file created (if applicable)
+- [ ] **RLS policies** - Row Level Security policies added/updated (if applicable)
+- [ ] **Indexes** - Database indexes added for performance (if applicable)
+- [ ] **Backward compatibility** - Changes are backward compatible
+- [ ] **Rollback plan** - Rollback procedure documented
+
+### Environment & Configuration
+
+- [ ] **Environment variables** - New environment variables documented
+- [ ] **Configuration changes** - Configuration changes documented
+- [ ] **Dependencies** - New dependencies are necessary and minimal
+- [ ] **Build process** - Build process still works correctly
+
+## Screenshots (if applicable)
+
+Add screenshots for UI changes, showing before and after states.
+
+### Before
+
+![Before screenshot](url-to-before-screenshot)
+
+### After
+
+![After screenshot](url-to-after-screenshot)
+
+## Performance Impact
+
+- [ ] **No performance regression** - Performance is maintained or improved
+- [ ] **Bundle size** - Bundle size impact is minimal
+- [ ] **Database queries** - Database queries are optimized
+- [ ] **Load testing** - Load testing completed (if applicable)
+
+## Security Considerations
+
+- [ ] **Authentication** - Proper authentication checks implemented
+- [ ] **Authorization** - Proper authorization checks implemented
+- [ ] **Input validation** - All inputs are properly validated
+- [ ] **SQL injection** - No SQL injection vulnerabilities
+- [ ] **XSS protection** - XSS protection maintained
+- [ ] **CSRF protection** - CSRF protection maintained
+
+## Accessibility
+
+- [ ] **Keyboard navigation** - All functionality accessible via keyboard
+- [ ] **Screen reader support** - Proper ARIA labels and landmarks
+- [ ] **Color contrast** - Meets WCAG 2.2 AA contrast requirements
+- [ ] **Focus management** - Proper focus indicators and management
+- [ ] **Semantic HTML** - Proper semantic HTML structure
+
+## Breaking Changes
+
+If this PR includes breaking changes, describe them here:
+
+### What Changed
+
+Description of what changed and why.
+
+### Migration Guide
+
+Steps users need to take to migrate:
+
+1. Step 1
+2. Step 2
+3. Step 3
+
+### Rollback Plan
+
+How to rollback if issues are discovered:
+
+1. Rollback step 1
+2. Rollback step 2
+
+## Related Issues
+
+- Closes #[issue-number]
+- Relates to #[issue-number]
+- Addresses #[issue-number]
+
+## Additional Notes
+
+Any additional information that reviewers should know:
+
+- Special testing considerations
+- Known limitations
+- Future improvements planned
+- Dependencies on other PRs
+
+## Review Checklist for Reviewers
+
+### Code Review
+
+- [ ] **Code quality** - Code is clean, readable, and follows standards
+- [ ] **Functionality** - Feature works as expected
+- [ ] **Security** - No security vulnerabilities
+- [ ] **Performance** - No performance issues
+- [ ] **Accessibility** - Meets accessibility requirements
+- [ ] **Testing** - Adequate test coverage
+
+### Documentation Review
+
+- [ ] **Documentation updated** - Relevant docs updated
+- [ ] **Comments clear** - Code comments are helpful
+- [ ] **README updated** - README updated if needed
+- [ ] **API docs** - API documentation updated if needed
+
+### Operational Review
+
+- [ ] **Deployment ready** - Changes can be safely deployed
+- [ ] **Monitoring** - Monitoring/alerting updated if needed
+- [ ] **Rollback plan** - Rollback plan is clear and tested
+- [ ] **Dependencies** - Dependencies are appropriate and secure
+
+## Deployment Notes
+
+### Environment Variables
+
+List any new environment variables required:
+
+```bash
+NEW_ENV_VAR=value
+ANOTHER_VAR=value
+```
+
+### Database Migrations
+
+If database migrations are included:
+
+```bash
+# Apply migrations
+supabase db push
+
+# Verify migration
+supabase migration list
+```
+
+### Manual Steps
+
+Any manual steps required for deployment:
+
+1. Step 1
+2. Step 2
+
+## Rollback Instructions
+
+If this PR needs to be rolled back:
+
+1. **Code rollback**: Revert the PR
+2. **Database rollback**: `supabase db reset` (if migrations included)
+3. **Environment rollback**: Remove any new environment variables
+4. **Verify rollback**: Test that the rollback was successful
+
+---
+
+**PR Template Version**: 1.0  
+**Last Updated**: 2025-01-27

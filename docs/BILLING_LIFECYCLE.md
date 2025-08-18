@@ -1,503 +1,42 @@
-# Billing Lifecycle Documentation
+---
+title: "Billing Lifecycle Management"
+owner: "Operations"
+last_reviewed: "2025-01-27"
+status: "authoritative"
+related:
+  - </docs/RUNBOOKS.md>
+  - </docs/DMV_REPORTING.md>
+---
 
-This document provides comprehensive documentation for the billing lifecycle system, including dunning workflows, email templates, and operational procedures.
+# Billing Lifecycle Management
 
-## Overview
+**Purpose & Outcome**  
+Complete guide for managing Stripe billing operations, subscription lifecycle, dunning procedures, and revenue operations for Permit School. This ensures reliable revenue collection, proper subscription management, and compliance with billing regulations.
 
-The billing lifecycle system provides end-to-end revenue operations management with automated dunning, self-serve capabilities, and comprehensive admin oversight.
+## Prerequisites
 
-## Lifecycle States
+- ✅ Stripe account with API access
+- ✅ Admin access to billing dashboard
+- ✅ Environment variables configured
+- ✅ Webhook endpoints configured
 
-### Subscription States
+## Stripe Configuration
 
-- **active**: Subscription is active and payment is current
-- **trialing**: Subscription is in trial period
-- **past_due**: Payment has failed, subscription is past due
-- **canceled**: Subscription has been canceled
-- **incomplete**: Initial payment failed
-- **incomplete_expired**: Initial payment failed and expired
-- **unpaid**: Payment failed and subscription is unpaid
-- **paused**: Subscription is paused
+### Environment Setup
 
-### Dunning States
-
-- **none**: No payment issues
-- **email_1**: First payment failure email sent
-- **email_2**: Second payment failure email sent
-- **email_3**: Final payment failure email sent
-- **canceled**: Subscription canceled due to payment failure
-
-## Dunning Timeline
-
-### Payment Failure Flow
-
-1. **Payment Fails** → `invoice.payment_failed` webhook
-
-   - Invoice recorded in `billing_invoices`
-   - Dunning state: `none` → `email_1`
-   - Immediate email sent
-   - In-app notification created
-   - Next action scheduled: +3 days
-
-2. **Day 3** → Daily dunning job processes
-
-   - Dunning state: `email_1` → `email_2`
-   - Email 2 sent with increased urgency
-   - Next action scheduled: +7 days
-
-3. **Day 10** → Daily dunning job processes
-
-   - Dunning state: `email_2` → `email_3`
-   - Email 3 sent (final notice)
-   - Next action scheduled: +24 hours
-
-4. **Day 11** → Daily dunning job processes
-   - Dunning state: `email_3` → `canceled`
-   - Subscription canceled at period end
-   - Entitlement revoked
-   - Final cancellation email sent
-
-### Payment Success Flow
-
-1. **Payment Succeeds** → `invoice.payment_succeeded` webhook
-   - Invoice marked as paid
-   - Dunning state reset to `none`
-   - Fail count reset to 0
-   - Success email sent
-   - Entitlement restored (if applicable)
-
-## Email Templates
-
-### Payment Failure Emails
-
-#### Email 1 (Immediate)
-
-**Subject**: Payment Failed - Action Required
-
-**English**:
-
-```
-Hi [Name],
-
-We were unable to process your payment of $[Amount] for your Permit School subscription.
-
-What you need to do:
-• Update your payment method in your billing portal
-• Ensure your card has sufficient funds
-• Check that your card hasn't expired
-
-Update Payment Method: [Billing Portal Link]
-
-If you need assistance, please contact us at [Support Email].
-
-Best regards,
-The Permit School Team
-```
-
-**Spanish**:
-
-```
-Hola [Nombre],
-
-No pudimos procesar tu pago de $[Cantidad] para tu suscripción de Permit School.
-
-Lo que necesitas hacer:
-• Actualiza tu método de pago en tu portal de facturación
-• Asegúrate de que tu tarjeta tenga fondos suficientes
-• Verifica que tu tarjeta no haya expirado
-
-Actualizar Método de Pago: [Enlace del Portal de Facturación]
-
-Si necesitas ayuda, contáctanos en [Email de Soporte].
-
-Saludos cordiales,
-El Equipo de Permit School
-```
-
-#### Email 2 (3 Days Later)
-
-**Subject**: Payment Still Pending - Urgent Action Required
-
-**English**:
-
-```
-Hi [Name],
-
-Your payment of $[Amount] for your Permit School subscription is still pending.
-
-Important: If we don't receive payment soon, your subscription may be paused and you'll lose access to your course materials.
-
-Please update your payment method immediately: [Billing Portal Link]
-
-If you need assistance, please contact us at [Support Email].
-
-Best regards,
-The Permit School Team
-```
-
-**Spanish**:
-
-```
-Hola [Nombre],
-
-Tu pago de $[Cantidad] para tu suscripción de Permit School aún está pendiente.
-
-Importante: Si no recibimos el pago pronto, tu suscripción puede ser pausada y perderás acceso a los materiales del curso.
-
-Por favor actualiza tu método de pago inmediatamente: [Enlace del Portal de Facturación]
-
-Si necesitas ayuda, contáctanos en [Email de Soporte].
-
-Saludos cordiales,
-El Equipo de Permit School
-```
-
-#### Email 3 (7 Days Later)
-
-**Subject**: Final Payment Notice - Subscription at Risk
-
-**English**:
-
-```
-Hi [Name],
-
-This is your final notice regarding your unpaid Permit School subscription payment of $[Amount].
-
-Urgent Action Required: If payment is not received within 24 hours, your subscription will be canceled and you'll lose access to all course materials.
-
-Update Payment Method Now: [Billing Portal Link]
-
-If you need assistance, please contact us immediately at [Support Email].
-
-Best regards,
-The Permit School Team
-```
-
-**Spanish**:
-
-```
-Hola [Nombre],
-
-Este es tu aviso final sobre tu pago impago de $[Cantidad] para tu suscripción de Permit School.
-
-Acción Urgente Requerida: Si el pago no se recibe dentro de 24 horas, tu suscripción será cancelada y perderás acceso a todos los materiales del curso.
-
-Actualizar Método de Pago Ahora: [Enlace del Portal de Facturación]
-
-Si necesitas ayuda, contáctanos inmediatamente en [Email de Soporte].
-
-Saludos cordiales,
-El Equipo de Permit School
-```
-
-### Success Emails
-
-#### Payment Success
-
-**Subject**: Payment Successful - Subscription Active
-
-**English**:
-
-```
-Hi [Name],
-
-Great news! Your payment has been processed successfully and your Permit School subscription is now active. 🎉
-
-You have full access to all course materials and can continue your learning journey.
-
-Continue Learning: [Course Link]
-
-If you have any questions, please contact us at [Support Email].
-
-Best regards,
-The Permit School Team
-```
-
-**Spanish**:
-
-```
-Hola [Nombre],
-
-¡Excelentes noticias! Tu pago ha sido procesado exitosamente y tu suscripción de Permit School está ahora activa. 🎉
-
-Tienes acceso completo a todos los materiales del curso y puedes continuar tu viaje de aprendizaje.
-
-Continuar Aprendiendo: [Enlace del Curso]
-
-Si tienes alguna pregunta, contáctanos en [Email de Soporte].
-
-Saludos cordiales,
-El Equipo de Permit School
-```
-
-### Trial Reminder Emails
-
-#### 3-Day Reminder
-
-**Subject**: Trial Ending Soon - 3 Days Left
-
-**English**:
-
-```
-Hi [Name],
-
-Your Permit School trial will end in 3 days. To continue your learning journey, you'll need to subscribe.
-
-What happens when your trial ends:
-• You'll lose access to course materials
-• Your progress will be saved
-• You can resume anytime by subscribing
-
-Subscribe Now: [Billing Link]
-
-If you have any questions, please contact us at [Support Email].
-
-Best regards,
-The Permit School Team
-```
-
-**Spanish**:
-
-```
-Hola [Nombre],
-
-Tu prueba de Permit School terminará en 3 días. Para continuar tu viaje de aprendizaje, necesitarás suscribirte.
-
-Qué pasa cuando termina tu prueba:
-• Perderás acceso a los materiales del curso
-• Tu progreso será guardado
-• Puedes reanudar en cualquier momento suscribiéndote
-
-Suscribirse Ahora: [Enlace de Facturación]
-
-Si tienes alguna pregunta, contáctanos en [Email de Soporte].
-
-Saludos cordiales,
-El Equipo de Permit School
-```
-
-#### 1-Day Reminder
-
-**Subject**: Trial Ending Tomorrow - Last Chance
-
-**English**:
-
-```
-Hi [Name],
-
-Your Permit School trial ends tomorrow! This is your last chance to subscribe and continue your learning journey.
-
-Don't lose your progress: Subscribe now to maintain access to all course materials.
-
-Subscribe Now: [Billing Link]
-
-If you have any questions, please contact us at [Support Email].
-
-Best regards,
-The Permit School Team
-```
-
-**Spanish**:
-
-```
-Hola [Nombre],
-
-¡Tu prueba de Permit School termina mañana! Esta es tu última oportunidad de suscribirte y continuar tu viaje de aprendizaje.
-
-No pierdas tu progreso: Suscríbete ahora para mantener acceso a todos los materiales del curso.
-
-Suscribirse Ahora: [Enlace de Facturación]
-
-Si tienes alguna pregunta, contáctanos en [Email de Soporte].
-
-Saludos cordiales,
-El Equipo de Permit School
-```
-
-### Cancellation Emails
-
-#### Cancellation Confirmation
-
-**Subject**: Subscription Cancellation Confirmed
-
-**English**:
-
-```
-Hi [Name],
-
-Your Permit School subscription cancellation has been confirmed.
-
-Access until: [End Date]
-
-You can resume your subscription anytime before this date by visiting your billing portal.
-
-Resume Subscription: [Billing Link]
-
-If you have any questions, please contact us at [Support Email].
-
-Best regards,
-The Permit School Team
-```
-
-**Spanish**:
-
-```
-Hola [Nombre],
-
-Tu cancelación de suscripción de Permit School ha sido confirmada.
-
-Acceso hasta: [Fecha de Fin]
-
-Puedes reanudar tu suscripción en cualquier momento antes de esta fecha visitando tu portal de facturación.
-
-Reanudar Suscripción: [Enlace de Facturación]
-
-Si tienes alguna pregunta, contáctanos en [Email de Soporte].
-
-Saludos cordiales,
-El Equipo de Permit School
-```
-
-## Webhook Event Mapping
-
-### Stripe Webhook Events
-
-| Event                           | Action                           | Database Updates                      | Emails/Notifications             |
-| ------------------------------- | -------------------------------- | ------------------------------------- | -------------------------------- |
-| `invoice.payment_failed`        | Record invoice, update dunning   | `billing_invoices`, `billing_dunning` | Email 1, in-app notification     |
-| `invoice.payment_succeeded`     | Mark invoice paid, reset dunning | `billing_invoices`, `billing_dunning` | Success email, notification      |
-| `customer.subscription.updated` | Update subscription status       | `subscriptions`, `entitlements`       | None (handled by invoice events) |
-| `customer.subscription.deleted` | Mark subscription canceled       | `subscriptions`, `entitlements`       | Cancellation notification        |
-
-### Admin Job Events
-
-| Job               | Frequency | Purpose                     | Actions                                          |
-| ----------------- | --------- | --------------------------- | ------------------------------------------------ |
-| `dunning-daily`   | Daily     | Process dunning escalations | Send emails, update states, cancel subscriptions |
-| `trial-reminders` | Daily     | Send trial end reminders    | Send 3-day and 1-day reminders                   |
-
-## Admin Procedures
-
-### Daily Operations
-
-#### 1. Monitor Billing Dashboard
-
-- Check `/admin/billing` for KPIs and alerts
-- Review past due subscriptions
-- Monitor dunning states
-
-#### 2. Review Failed Payments
-
-- Check dunning state progression
-- Verify email delivery
-- Monitor manual intervention needs
-
-#### 3. Handle Manual Actions
-
-- Send immediate dunning emails if needed
-- Cancel subscriptions manually if required
-- Process refunds or adjustments
-
-### Weekly Operations
-
-#### 1. Review Churn Metrics
-
-- Analyze 7-day and 30-day churn rates
-- Identify patterns in payment failures
-- Review dunning effectiveness
-
-#### 2. Audit Billing Data
-
-- Verify invoice accuracy
-- Check subscription status consistency
-- Review entitlement assignments
-
-#### 3. Update Procedures
-
-- Adjust dunning timelines if needed
-- Update email templates based on feedback
-- Refine admin dashboard metrics
-
-### Monthly Operations
-
-#### 1. Financial Reconciliation
-
-- Reconcile Stripe data with internal records
-- Verify MRR calculations
-- Review revenue recognition
-
-#### 2. System Maintenance
-
-- Clean up old billing events
-- Archive completed dunning records
-- Update billing configurations
-
-#### 3. Performance Review
-
-- Analyze dunning success rates
-- Review customer satisfaction metrics
-- Plan system improvements
-
-## Troubleshooting
-
-### Common Issues
-
-#### Payment Failures Not Processing
-
-1. Check webhook endpoint status
-2. Verify Stripe webhook configuration
-3. Review webhook event logs
-4. Check database connectivity
-
-#### Dunning Emails Not Sending
-
-1. Verify email service configuration
-2. Check email template syntax
-3. Review user email addresses
-4. Monitor email delivery logs
-
-#### Subscription Status Mismatch
-
-1. Compare Stripe and local subscription data
-2. Check webhook processing logs
-3. Verify subscription update logic
-4. Review entitlement assignment
-
-#### Admin Dashboard Issues
-
-1. Check admin role assignments
-2. Verify RLS policy configuration
-3. Review API endpoint permissions
-4. Check database view definitions
-
-### Emergency Procedures
-
-#### Payment System Outage
-
-1. Disable automatic dunning
-2. Pause subscription cancellations
-3. Notify customers of temporary issues
-4. Resume normal operations when resolved
-
-#### Data Inconsistency
-
-1. Export current billing data
-2. Compare with Stripe dashboard
-3. Identify discrepancies
-4. Manually reconcile differences
-
-#### Security Incident
-
-1. Review access logs
-2. Check for unauthorized changes
-3. Reset admin tokens if compromised
-4. Audit billing data integrity
-
-## Configuration
-
-### Environment Variables
+**Required Environment Variables**:
 
 ```bash
+# Stripe Configuration
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+
+# Billing URLs
+BILLING_SUCCESS_URL=https://your-domain.com/billing?status=success
+BILLING_CANCEL_URL=https://your-domain.com/billing?status=cancel
+STRIPE_PORTAL_RETURN_URL=https://your-domain.com/billing
+
 # Dunning Configuration
 DUNNING_EMAIL_DAY_1=now
 DUNNING_EMAIL_DAY_2=3
@@ -507,94 +46,513 @@ DUNNING_EMAIL_DAY_3=7
 DUNNING_DAILY_ENABLED=true
 TRIAL_REMINDERS_ENABLED=true
 ADMIN_JOB_TOKEN=your-secure-token
-
-# Stripe Configuration
-STRIPE_SECRET_KEY=sk_test_xxx
-STRIPE_WEBHOOK_SECRET=whsec_xxx
-STRIPE_PORTAL_RETURN_URL=http://localhost:3000/billing
-
-# Email Configuration
-RESEND_API_KEY=re_xxx
-FROM_EMAIL=no-reply@yourdomain.com
-SUPPORT_EMAIL=support@yourdomain.com
 ```
 
-### Database Configuration
+### Webhook Configuration
 
-#### RLS Policies
+**Stripe Webhook Endpoint**:
 
-- `billing_invoices`: Owner SELECT, admin SELECT
-- `billing_dunning`: Admin-only access
-- `subscriptions`: Owner SELECT, admin SELECT
-- `entitlements`: Owner SELECT, admin SELECT
+```
+URL: https://your-domain.com/api/billing/webhook
+Events:
+- customer.subscription.created
+- customer.subscription.updated
+- customer.subscription.deleted
+- invoice.payment_succeeded
+- invoice.payment_failed
+- payment_method.attached
+```
 
-#### Indexes
+**Verify Webhook**:
 
-- `billing_invoices(user_id, created_at desc)`
-- `billing_invoices(subscription_id)`
-- `billing_dunning(next_action_at)`
+```bash
+# Test webhook locally
+stripe listen --forward-to http://localhost:3000/api/billing/webhook
 
-### Monitoring
+# Verify webhook signature
+curl -X POST https://your-domain.com/api/billing/webhook \
+  -H "Stripe-Signature: test" \
+  -d '{"type":"test"}'
+```
 
-#### Key Metrics
+## Subscription Lifecycle
 
-- Active subscription count
-- Past due subscription count
-- Dunning state distribution
-- Email delivery rates
-- Payment success rates
-- Churn rates
+### New Subscription Flow
 
-#### Alerts
+**1. User Initiates Subscription**:
 
-- High past due count
-- Dunning job failures
-- Webhook processing errors
-- Email delivery failures
-- Data inconsistency warnings
+```bash
+# Frontend creates checkout session
+POST /api/billing/checkout
+{
+  "course_id": "course-uuid",
+  "success_url": "https://your-domain.com/billing?status=success",
+  "cancel_url": "https://your-domain.com/billing?status=cancel"
+}
 
-## Compliance & Security
+# Response includes Stripe checkout URL
+{
+  "url": "https://checkout.stripe.com/pay/cs_test_..."
+}
+```
 
-### Data Protection
+**2. Stripe Webhook Processing**:
 
-- All billing data encrypted at rest
-- PII minimized in logs and notifications
-- Secure transmission of payment data
-- Regular security audits
+```bash
+# Webhook receives subscription.created event
+# Database updated with subscription details
+# User entitlement activated
+# Welcome email sent
+```
 
-### Audit Requirements
+**3. Verification**:
 
-- Complete billing event logging
-- Admin action tracking
-- Webhook processing records
-- Email delivery confirmations
+```bash
+# Check subscription status
+curl -H "Authorization: Bearer $STRIPE_SECRET_KEY" \
+  https://api.stripe.com/v1/subscriptions/sub_123
 
-### Privacy Considerations
+# Verify database record
+SELECT * FROM billing_subscriptions WHERE stripe_subscription_id = 'sub_123';
+```
 
-- Minimal data in notifications
-- Secure handling of payment information
-- User consent for billing communications
-- Right to data deletion
+### Subscription Management
 
-## Multi-State Considerations
+**User Self-Service**:
 
-### Jurisdiction-Specific Requirements
+```bash
+# Access billing portal
+POST /api/billing/portal
+{
+  "return_url": "https://your-domain.com/billing"
+}
 
-- State-specific billing regulations
-- Tax calculation requirements
-- Refund policy compliance
-- Consumer protection laws
+# Cancel subscription
+POST /api/billing/cancel
+{
+  "cancel_at_period_end": true
+}
 
-### Scalability Planning
+# Resume subscription
+POST /api/billing/resume
+```
 
-- Jurisdiction-aware billing logic
-- Multi-currency support
-- Regional payment methods
-- Localized email templates
+**Admin Management**:
 
-### Future Enhancements
+```bash
+# View subscription details
+# Admin Dashboard → Billing → Subscriptions
 
-- Advanced dunning strategies
-- Payment plan support
-- Subscription tier management
-- Revenue analytics dashboard
+# Cancel subscription immediately
+# Admin Dashboard → Billing → Subscriptions → Cancel
+
+# Update payment method
+# Stripe Dashboard → Customers → Payment Methods
+```
+
+## Dunning Management
+
+### Dunning State Machine
+
+**States**:
+
+```
+none → email_1 → email_2 → email_3 → canceled
+```
+
+**State Transitions**:
+
+- `none` → `email_1`: Payment fails
+- `email_1` → `email_2`: 3 days after first email
+- `email_2` → `email_3`: 7 days after first email
+- `email_3` → `canceled`: 7 days after final email
+
+### Dunning Email Sequence
+
+**Email 1 (Immediate)**:
+
+```
+Subject: Payment Failed - Action Required
+Content: Immediate notification with payment method update instructions
+```
+
+**Email 2 (3 days)**:
+
+```
+Subject: Payment Still Pending - Urgent Action Required
+Content: Increased urgency with payment method update instructions
+```
+
+**Email 3 (7 days)**:
+
+```
+Subject: Final Notice - Subscription Will Be Canceled
+Content: Final warning with cancellation notice
+```
+
+### Dunning Automation
+
+**Daily Job**:
+
+```bash
+# Trigger dunning job
+curl -X POST https://your-domain.com/api/admin/jobs/dunning-daily \
+  -H "Authorization: Bearer $ADMIN_JOB_TOKEN"
+
+# Job processes:
+# 1. Identifies subscriptions in dunning states
+# 2. Sends appropriate emails
+# 3. Updates dunning state
+# 4. Cancels subscriptions after final notice
+```
+
+**Manual Dunning**:
+
+```bash
+# Send manual dunning email
+# Admin Dashboard → Billing → Past Due → Send Email
+
+# Override dunning state
+# Admin Dashboard → Billing → Subscriptions → Override State
+```
+
+## Payment Processing
+
+### Payment Method Management
+
+**Add Payment Method**:
+
+```bash
+# User adds payment method via Stripe Portal
+# Webhook: payment_method.attached
+# Database updated with new payment method
+```
+
+**Update Payment Method**:
+
+```bash
+# User updates payment method
+# Stripe Portal → Payment Methods → Update
+# Webhook: payment_method.attached
+# Database updated
+```
+
+**Remove Payment Method**:
+
+```bash
+# User removes payment method
+# Stripe Portal → Payment Methods → Remove
+# Webhook: payment_method.detached
+# Database updated
+```
+
+### Payment Failure Handling
+
+**Automatic Retry**:
+
+```bash
+# Stripe automatically retries failed payments
+# Retry schedule: 1, 3, 5, 7 days after failure
+# Webhook: invoice.payment_failed
+# Dunning state updated to email_1
+```
+
+**Manual Retry**:
+
+```bash
+# Admin can manually retry payment
+# Stripe Dashboard → Invoices → Retry Payment
+# Or via API:
+curl -X POST https://api.stripe.com/v1/invoices/in_123/pay \
+  -H "Authorization: Bearer $STRIPE_SECRET_KEY"
+```
+
+## Billing Analytics
+
+### Key Metrics
+
+**Revenue Metrics**:
+
+```sql
+-- Monthly Recurring Revenue (MRR)
+SELECT
+  DATE_TRUNC('month', created_at) as month,
+  SUM(amount) / 100.0 as mrr
+FROM billing_invoices
+WHERE status = 'paid'
+  AND created_at >= NOW() - INTERVAL '12 months'
+GROUP BY month
+ORDER BY month;
+
+-- Churn Rate
+SELECT
+  DATE_TRUNC('month', canceled_at) as month,
+  COUNT(*) as churned_subscriptions,
+  COUNT(*) * 100.0 / (SELECT COUNT(*) FROM billing_subscriptions) as churn_rate
+FROM billing_subscriptions
+WHERE canceled_at IS NOT NULL
+GROUP BY month
+ORDER BY month;
+```
+
+**Subscription Metrics**:
+
+```sql
+-- Active Subscriptions
+SELECT COUNT(*) as active_subscriptions
+FROM billing_subscriptions
+WHERE status = 'active';
+
+-- Trial Conversions
+SELECT
+  COUNT(*) as trial_conversions,
+  COUNT(*) * 100.0 / (SELECT COUNT(*) FROM billing_subscriptions WHERE trial_end IS NOT NULL) as conversion_rate
+FROM billing_subscriptions
+WHERE trial_end IS NOT NULL
+  AND status = 'active';
+```
+
+### Dashboard Views
+
+**Admin Dashboard**:
+
+- Active subscriptions count
+- Past due subscriptions
+- Monthly revenue
+- Churn rate
+- Payment failure rate
+
+**Stripe Dashboard**:
+
+- Revenue analytics
+- Customer metrics
+- Payment method analytics
+- Subscription analytics
+
+## Invoice Management
+
+### Invoice Generation
+
+**Automatic Invoicing**:
+
+```bash
+# Stripe automatically generates invoices
+# Webhook: invoice.created
+# Database updated with invoice details
+# Email sent to customer
+```
+
+**Manual Invoicing**:
+
+```bash
+# Create manual invoice
+curl -X POST https://api.stripe.com/v1/invoices \
+  -H "Authorization: Bearer $STRIPE_SECRET_KEY" \
+  -d "customer=cus_123" \
+  -d "auto_advance=false"
+```
+
+### Invoice Processing
+
+**Successful Payment**:
+
+```bash
+# Webhook: invoice.payment_succeeded
+# Database updated
+# Success email sent
+# Entitlement extended
+```
+
+**Failed Payment**:
+
+```bash
+# Webhook: invoice.payment_failed
+# Dunning state updated
+# Failure email sent
+# Retry scheduled
+```
+
+## Refund Processing
+
+### Refund Policies
+
+**Automatic Refunds**:
+
+- Failed payments within 24 hours
+- Duplicate charges
+- System errors
+
+**Manual Refunds**:
+
+- Customer requests
+- Service issues
+- Billing errors
+
+### Refund Process
+
+**Initiate Refund**:
+
+```bash
+# Via Stripe Dashboard
+# Stripe Dashboard → Payments → Refund
+
+# Via API
+curl -X POST https://api.stripe.com/v1/refunds \
+  -H "Authorization: Bearer $STRIPE_SECRET_KEY" \
+  -d "payment_intent=pi_123" \
+  -d "amount=1000"
+```
+
+**Refund Processing**:
+
+```bash
+# Webhook: charge.refunded
+# Database updated
+# Refund email sent
+# Entitlement adjusted if needed
+```
+
+## Compliance & Reporting
+
+### Financial Reporting
+
+**Monthly Reconciliation**:
+
+```bash
+# 1. Export Stripe transactions
+# Stripe Dashboard → Reports → Transactions
+
+# 2. Compare with database records
+SELECT
+  DATE_TRUNC('month', created_at) as month,
+  COUNT(*) as transactions,
+  SUM(amount) / 100.0 as total_amount
+FROM billing_invoices
+WHERE status = 'paid'
+GROUP BY month;
+
+# 3. Reconcile discrepancies
+# Investigate and resolve any differences
+```
+
+**Tax Reporting**:
+
+```bash
+# Export tax data
+# Stripe Dashboard → Reports → Tax Reports
+
+# Generate tax summaries
+# Include in financial reporting
+```
+
+### Audit Trail
+
+**Billing Events**:
+
+```sql
+-- All billing events logged
+SELECT * FROM audit_logs
+WHERE table_name = 'billing_subscriptions'
+  OR table_name = 'billing_invoices'
+ORDER BY created_at DESC;
+```
+
+**Payment History**:
+
+```sql
+-- Complete payment history
+SELECT
+  bi.created_at,
+  bi.amount,
+  bi.status,
+  bs.stripe_subscription_id
+FROM billing_invoices bi
+JOIN billing_subscriptions bs ON bi.subscription_id = bs.id
+ORDER BY bi.created_at DESC;
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**Webhook Failures**:
+
+```bash
+# Check webhook logs
+# Stripe Dashboard → Developers → Webhooks → Logs
+
+# Verify webhook signature
+# Check webhook secret in environment variables
+
+# Test webhook endpoint
+curl -X POST https://your-domain.com/api/billing/webhook \
+  -H "Stripe-Signature: test" \
+  -d '{"type":"test"}'
+```
+
+**Payment Failures**:
+
+```bash
+# Check payment method
+# Stripe Dashboard → Customers → Payment Methods
+
+# Verify customer details
+# Stripe Dashboard → Customers → Customer Details
+
+# Check for fraud indicators
+# Stripe Dashboard → Radar → Risk Evaluation
+```
+
+**Subscription Issues**:
+
+```bash
+# Check subscription status
+# Stripe Dashboard → Subscriptions → Subscription Details
+
+# Verify webhook processing
+# Check database for subscription records
+
+# Review dunning state
+# Database → billing_subscriptions → dunning_state
+```
+
+### Debug Commands
+
+**Check Stripe Configuration**:
+
+```bash
+# Verify API keys
+curl -H "Authorization: Bearer $STRIPE_SECRET_KEY" \
+  https://api.stripe.com/v1/account
+
+# Test webhook endpoint
+stripe listen --forward-to http://localhost:3000/api/billing/webhook
+```
+
+**Database Verification**:
+
+```bash
+# Check subscription records
+SELECT * FROM billing_subscriptions WHERE status = 'active';
+
+# Verify invoice records
+SELECT * FROM billing_invoices WHERE status = 'paid';
+
+# Check dunning states
+SELECT dunning_state, COUNT(*)
+FROM billing_subscriptions
+GROUP BY dunning_state;
+```
+
+## References
+
+- [Stripe Documentation](https://stripe.com/docs)
+- [Stripe API Reference](https://stripe.com/docs/api)
+- [Stripe Webhooks](https://stripe.com/docs/webhooks)
+- [Stripe Billing](https://stripe.com/docs/billing)
+- [Operational Runbooks](docs/RUNBOOKS.md)
+
+---
+
+**Last updated**: 2025-01-27  
+**Next review**: 2025-02-27

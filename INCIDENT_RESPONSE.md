@@ -1,424 +1,494 @@
-# Incident Response Plan
+---
+title: "Incident Response Runbook"
+owner: "Operations"
+last_reviewed: "2025-01-27"
+status: "authoritative"
+related:
+  - </docs/RUNBOOKS.md>
+  - </docs/SECURITY_COMPLIANCE.md>
+---
 
-This document outlines the procedures for responding to security and privacy incidents in the Permit School platform.
+# Incident Response Runbook
+
+**Purpose & Outcome**  
+Comprehensive incident response procedures for Permit School. This runbook provides step-by-step guidance for detecting, responding to, and resolving incidents while maintaining service availability and data integrity.
+
+## Prerequisites
+
+- ✅ Access to production environment
+- ✅ Admin credentials for all systems
+- ✅ Communication channels established
+- ✅ Escalation contacts documented
 
 ## Incident Classification
 
 ### Severity Levels
 
-#### Critical (P0)
+| Level  | Description                           | Response Time | Example                                      |
+| ------ | ------------------------------------- | ------------- | -------------------------------------------- |
+| **P0** | Critical - Complete service outage    | 15 minutes    | Site completely down, data loss              |
+| **P1** | High - Major functionality broken     | 30 minutes    | Users can't complete courses, billing broken |
+| **P2** | Medium - Minor functionality affected | 2 hours       | Slow performance, non-critical features down |
+| **P3** | Low - Cosmetic issues, minor bugs     | 24 hours      | UI glitches, non-blocking issues             |
 
-- Data breach with confirmed exposure of PII
-- Complete system compromise
-- Unauthorized access to admin accounts
-- Certificate fraud or tampering
-- Ransomware or destructive malware
+### Impact Assessment
 
-#### High (P1)
+**User Impact**:
 
-- Suspicious admin account activity
-- Failed audit log signatures
-- DSAR request processing failures
-- Unauthorized access attempts
-- System availability issues affecting compliance
+- **High**: Users cannot access core functionality
+- **Medium**: Users experience degraded service
+- **Low**: Minor inconvenience or cosmetic issues
 
-#### Medium (P2)
+**Business Impact**:
 
-- Bot protection bypass attempts
-- Failed MFA attempts
-- Unusual API usage patterns
-- Performance issues affecting security features
-
-#### Low (P3)
-
-- Minor configuration issues
-- Non-critical system alerts
-- Documentation updates needed
-
-## Contact Tree
-
-### Primary Contacts
-
-1. **Security Lead**: [REDACTED] - 24/7
-2. **Privacy Officer**: [REDACTED] - Business hours
-3. **Technical Lead**: [REDACTED] - 24/7
-
-### Escalation Path
-
-1. **Immediate**: Security Lead
-2. **Within 1 hour**: Privacy Officer + Technical Lead
-3. **Within 4 hours**: Legal Team + CTO
-4. **Within 24 hours**: CEO + Board (if Critical)
-
-### External Contacts
-
-- **Legal Counsel**: [REDACTED]
-- **Forensics Team**: [REDACTED]
-- **Law Enforcement**: Local cybercrime unit
-- **Regulatory Bodies**: As required by jurisdiction
+- **High**: Revenue loss, compliance violations
+- **Medium**: Operational inefficiency
+- **Low**: Minor operational impact
 
 ## Response Procedures
 
-### Initial Response (0-1 hour)
+### P0 - Critical Incident
 
-#### For All Incidents
+**Immediate Actions** (0-15 minutes):
 
-1. **Document the Incident**
+1. **Acknowledge Incident**
 
-   - Record timestamp, description, and initial assessment
-   - Capture relevant logs and evidence
-   - Assign incident ID (format: INC-YYYYMMDD-XXX)
+   ```bash
+   # Check system status
+   curl https://your-domain.com/api/health
 
-2. **Assess Severity**
-
-   - Determine if Critical/High/Medium/Low
-   - Activate appropriate response team
-   - Begin containment procedures
-
-3. **Preserve Evidence**
-   - Take system snapshots if possible
-   - Capture network logs
-   - Preserve audit logs
-   - Document all actions taken
-
-#### For Critical Incidents
-
-1. **Immediate Containment**
-
-   - Isolate affected systems
-   - Disable compromised accounts
-   - Block suspicious IP addresses
-   - Activate emergency procedures
-
-2. **Legal Notification**
-   - Contact legal counsel immediately
-   - Begin regulatory notification process
-   - Prepare customer notification if required
-
-### Containment (1-4 hours)
-
-#### Data Breach Response
-
-1. **Identify Scope**
-
-   ```sql
-   -- Check for unauthorized access
-   SELECT * FROM audit_logs
-   WHERE created_at >= 'INCIDENT_START_TIME'
-   AND (actor_user_id = 'COMPROMISED_USER' OR ip = 'SUSPICIOUS_IP');
+   # Check Supabase status
+   curl https://your-project.supabase.co/rest/v1/
    ```
 
-2. **Assess Data Exposure**
+2. **Page On-Call Engineer**
 
-   - Determine what data was accessed
-   - Identify affected users
-   - Document data types and sensitivity
+   - Send immediate page to on-call engineer
+   - Include incident details and severity level
+   - Request immediate response
 
-3. **Contain Access**
-   - Revoke compromised tokens
-   - Reset affected user passwords
-   - Disable suspicious accounts
+3. **Initial Assessment**
 
-#### Certificate Compromise
+   ```bash
+   # Check application logs
+   # Supabase Dashboard → Logs
+   # Vercel Dashboard → Functions → Logs
 
-1. **Immediate Actions**
-
-   - Void all certificates issued during compromise period
-   - Notify affected users
-   - Contact issuing authorities if required
-
-2. **Investigation**
-   - Review certificate issuance logs
-   - Check for unauthorized certificate generation
-   - Verify certificate integrity
-
-#### DSAR Processing Failure
-
-1. **Manual Processing**
-
-   - Execute manual export/deletion procedures
-   - Document all actions taken
-   - Notify affected users of delays
-
-2. **System Recovery**
-   - Restart background workers
-   - Check database connectivity
-   - Verify storage access
-
-### Eradication (4-24 hours)
-
-#### System Recovery
-
-1. **Remove Threats**
-
-   - Patch vulnerabilities
-   - Remove malware
-   - Clean compromised accounts
-
-2. **Verify Integrity**
-
-   - Check audit log signatures
-   - Verify database integrity
-   - Test security controls
-
-3. **Update Security**
-   - Rotate compromised keys
-   - Update access controls
-   - Enhance monitoring
-
-#### Certificate Recovery
-
-1. **Reissue Certificates**
-
-   - Generate new certificates for affected users
-   - Update certificate database
-   - Notify users of new certificates
-
-2. **Update Systems**
-   - Update certificate validation
-   - Enhance issuance controls
-   - Improve monitoring
-
-### Recovery (24-72 hours)
-
-#### System Restoration
-
-1. **Gradual Restoration**
-
-   - Restore services incrementally
-   - Monitor for issues
-   - Verify functionality
-
-2. **User Communication**
-   - Notify users of resolution
-   - Provide status updates
-   - Offer support
-
-#### Compliance Reporting
-
-1. **Regulatory Notifications**
-
-   - Submit required reports
-   - Document compliance actions
-   - Maintain audit trail
-
-2. **Internal Reporting**
-   - Complete incident report
-   - Update procedures
-   - Conduct lessons learned
-
-## Specific Incident Procedures
-
-### Certificate Fraud
-
-1. **Immediate Response**
-
-   - Void all certificates issued in affected timeframe
-   - Notify law enforcement
-   - Contact issuing authorities
-
-2. **Investigation**
-
-   - Review certificate issuance process
-   - Check for system compromise
-   - Verify certificate database integrity
-
-3. **Recovery**
-   - Implement enhanced certificate controls
-   - Reissue valid certificates
-   - Update certificate validation
-
-### Audit Log Tampering
-
-1. **Detection**
-
-   ```sql
-   -- Check for invalid signatures
-   SELECT COUNT(*) FROM audit_logs
-   WHERE NOT verify_audit_signature(id);
+   # Check database connectivity
+   supabase status
    ```
 
-2. **Response**
+4. **Communication**
+   - Update status page immediately
+   - Send initial notification to stakeholders
+   - Create incident ticket
 
-   - Rotate audit key immediately
-   - Investigate tampering method
-   - Document compromised period
+**Escalation** (15-30 minutes):
 
-3. **Recovery**
-   - Generate new audit key
-   - Verify new signatures
-   - Enhance audit controls
+- Escalate to engineering lead if no response
+- Escalate to CTO if still no response
+- Consider external support if needed
 
-### MFA Bypass
+### P1 - High Priority Incident
 
-1. **Detection**
+**Immediate Actions** (0-30 minutes):
 
-   - Monitor failed MFA attempts
-   - Check for suspicious admin access
-   - Review session logs
+1. **Investigate Root Cause**
 
-2. **Response**
+   ```bash
+   # Check recent deployments
+   # Vercel Dashboard → Deployments
 
-   - Disable affected accounts
-   - Require password reset
-   - Review MFA configuration
+   # Check database performance
+   # Supabase Dashboard → Database → Performance
 
-3. **Recovery**
-   - Re-enable MFA for affected users
-   - Update MFA policies
-   - Enhance monitoring
+   # Check error rates
+   # Sentry Dashboard → Issues
+   ```
 
-### Bot Protection Failure
+2. **Implement Workaround**
 
-1. **Detection**
+   - Deploy hotfix if possible
+   - Enable maintenance mode if needed
+   - Redirect traffic if applicable
 
-   - Monitor for increased spam/abuse
-   - Check Turnstile verification logs
-   - Review form submission patterns
+3. **Monitor Impact**
+   - Track user experience metrics
+   - Monitor error rates
+   - Check business metrics
 
-2. **Response**
+### P2/P3 - Medium/Low Priority
 
-   - Update Turnstile configuration
-   - Block suspicious IPs
-   - Review form security
+**Standard Response**:
 
-3. **Recovery**
-   - Test bot protection
-   - Update security rules
-   - Monitor effectiveness
+1. Acknowledge within SLA timeframe
+2. Investigate during business hours
+3. Deploy fix in next regular release
+4. Update stakeholders as needed
 
-## Communication Plan
+## Common Incident Scenarios
+
+### Database Issues
+
+**Symptoms**:
+
+- 500 errors on API endpoints
+- Database connection timeouts
+- RLS policy errors
+
+**Response**:
+
+```bash
+# 1. Check Supabase status
+supabase status
+
+# 2. Check database performance
+# Supabase Dashboard → Database → Performance
+
+# 3. Check recent migrations
+supabase migration list
+
+# 4. Rollback if needed
+supabase db reset --linked
+```
+
+**Verification**:
+
+```bash
+# Test database connectivity
+curl -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+  https://your-project.supabase.co/rest/v1/profiles?select=count
+```
+
+### Authentication Issues
+
+**Symptoms**:
+
+- Users can't log in
+- Session errors
+- OAuth failures
+
+**Response**:
+
+```bash
+# 1. Check Supabase Auth status
+# Supabase Dashboard → Authentication → Users
+
+# 2. Check OAuth providers
+# Supabase Dashboard → Authentication → Providers
+
+# 3. Verify environment variables
+echo $NEXT_PUBLIC_SUPABASE_URL
+echo $NEXT_PUBLIC_SUPABASE_ANON_KEY
+```
+
+**Verification**:
+
+```bash
+# Test authentication endpoint
+curl -X POST https://your-domain.com/api/auth/profile
+```
+
+### Payment/Billing Issues
+
+**Symptoms**:
+
+- Stripe webhook failures
+- Subscription errors
+- Payment processing issues
+
+**Response**:
+
+```bash
+# 1. Check Stripe dashboard
+# Stripe Dashboard → Events → Webhooks
+
+# 2. Check webhook logs
+# Vercel Dashboard → Functions → Logs
+
+# 3. Verify webhook secret
+echo $STRIPE_WEBHOOK_SECRET
+```
+
+**Verification**:
+
+```bash
+# Test webhook endpoint
+curl -X POST https://your-domain.com/api/billing/webhook \
+  -H "Stripe-Signature: test" \
+  -d '{"type":"test"}'
+```
+
+### Performance Issues
+
+**Symptoms**:
+
+- Slow page loads
+- Timeout errors
+- High response times
+
+**Response**:
+
+```bash
+# 1. Check Vercel performance
+# Vercel Dashboard → Analytics → Performance
+
+# 2. Check database queries
+# Supabase Dashboard → Database → Logs
+
+# 3. Check external services
+curl https://api.openai.com/v1/models
+```
+
+**Verification**:
+
+```bash
+# Test performance
+curl -w "@curl-format.txt" https://your-domain.com/api/health
+```
+
+## Communication Procedures
 
 ### Internal Communication
 
-- **Immediate**: Slack/Teams alert to security team
-- **1 hour**: Email to management team
-- **4 hours**: Company-wide notification if needed
-- **24 hours**: Detailed incident report
+**Slack Channels**:
+
+- `#incidents` - Primary incident channel
+- `#engineering` - Technical discussion
+- `#operations` - Operational updates
+
+**Status Page Updates**:
+
+1. **Investigating** - Issue identified, working on resolution
+2. **Identified** - Root cause found, implementing fix
+3. **Monitoring** - Fix deployed, monitoring for resolution
+4. **Resolved** - Issue resolved, normal operations restored
 
 ### External Communication
 
-- **Customers**: Email notification within 72 hours (if required)
-- **Regulators**: As required by law (varies by jurisdiction)
-- **Public**: Press release if significant incident
-- **Partners**: Direct communication if affected
+**Customer Updates**:
 
-### Communication Templates
+- Email notifications for P0/P1 incidents
+- Status page updates for all incidents
+- Social media updates for major incidents
 
-#### Customer Notification (Data Breach)
+**Stakeholder Updates**:
 
-```
-Subject: Important Security Notice - Permit School
+- Executive summary for P0/P1 incidents
+- Detailed report within 24 hours
+- Lessons learned within 1 week
 
-Dear [Customer Name],
+## Rollback Procedures
 
-We are writing to inform you of a security incident that may have affected your account.
+### Code Rollback
 
-[Incident details]
+```bash
+# 1. Identify problematic deployment
+# Vercel Dashboard → Deployments
 
-What we're doing:
-- [Action 1]
-- [Action 2]
-- [Action 3]
+# 2. Rollback to previous version
+# Vercel Dashboard → Deployments → Rollback
 
-What you should do:
-- [Recommendation 1]
-- [Recommendation 2]
-
-For questions, contact: [Contact Information]
-
-Sincerely,
-Permit School Security Team
+# 3. Verify rollback
+curl https://your-domain.com/api/health
 ```
 
-#### Regulatory Notification
+### Database Rollback
 
+```bash
+# 1. Check migration status
+supabase migration list
+
+# 2. Rollback specific migration
+supabase db reset --linked
+
+# 3. Verify database state
+supabase db diff
 ```
-[Template varies by jurisdiction - consult legal team]
+
+### Configuration Rollback
+
+```bash
+# 1. Revert environment variables
+# Vercel Dashboard → Settings → Environment Variables
+
+# 2. Revert feature flags
+# Database → jurisdiction_configs table
+
+# 3. Verify configuration
+curl https://your-domain.com/api/health
 ```
 
-## Post-Incident Activities
+## Post-Incident Procedures
 
-### Lessons Learned
+### Incident Review
 
-1. **Conduct Post-Mortem**
+**Within 24 hours**:
 
-   - Review incident timeline
-   - Identify root causes
-   - Document lessons learned
+1. Schedule post-incident review
+2. Document timeline and actions taken
+3. Identify root cause
+4. List lessons learned
 
-2. **Update Procedures**
+**Within 1 week**:
 
-   - Revise incident response plan
-   - Update runbooks
-   - Enhance training
-
-3. **Improve Systems**
-   - Implement additional controls
-   - Enhance monitoring
-   - Update security policies
+1. Complete incident report
+2. Implement preventive measures
+3. Update runbooks and procedures
+4. Share learnings with team
 
 ### Documentation
 
-1. **Incident Report**
+**Incident Report Template**:
 
-   - Complete incident details
-   - Actions taken
-   - Timeline of events
-   - Lessons learned
+```markdown
+# Incident Report: [Title]
 
-2. **Compliance Documentation**
+## Summary
 
-   - Regulatory notifications
-   - Customer communications
-   - Audit trail maintenance
+Brief description of the incident
 
-3. **System Updates**
-   - Security improvements
-   - Process changes
-   - Policy updates
+## Timeline
 
-## SLOs and Metrics
+- [Time] - Incident detected
+- [Time] - Response initiated
+- [Time] - Root cause identified
+- [Time] - Resolution implemented
+- [Time] - Service restored
 
-### Response Time SLOs
+## Root Cause
 
-- **Critical**: 15 minutes initial response
-- **High**: 1 hour initial response
-- **Medium**: 4 hours initial response
-- **Low**: 24 hours initial response
+Detailed analysis of what caused the incident
 
-### Resolution SLOs
+## Impact
 
-- **Critical**: 24 hours
-- **High**: 72 hours
-- **Medium**: 1 week
-- **Low**: 2 weeks
+- User impact
+- Business impact
+- Financial impact
 
-### Metrics to Track
+## Actions Taken
 
-- Time to detection
-- Time to containment
-- Time to resolution
-- Number of affected users
-- Cost of incident
-- Lessons learned implementation
+List of actions taken during response
 
-## Training and Testing
+## Lessons Learned
 
-### Regular Training
+What went well and what could be improved
 
-- Quarterly incident response training
-- Annual tabletop exercises
-- Monthly security awareness training
+## Preventive Measures
 
-### Testing
+Actions to prevent similar incidents
+```
 
-- Quarterly incident response drills
-- Annual full-scale exercises
-- Monthly system recovery tests
+## Monitoring & Alerting
 
-### Documentation Review
+### Key Metrics
 
-- Quarterly procedure review
-- Annual plan updates
-- Continuous improvement process
+**Application Health**:
+
+- Response time < 2 seconds
+- Error rate < 1%
+- Uptime > 99.9%
+
+**Database Health**:
+
+- Connection pool utilization < 80%
+- Query response time < 500ms
+- Active connections < 100
+
+**Business Metrics**:
+
+- User registration rate
+- Course completion rate
+- Payment success rate
+
+### Alerting Rules
+
+**Critical Alerts** (P0):
+
+- Application down
+- Database unavailable
+- Payment processing failed
+
+**Warning Alerts** (P1):
+
+- High error rate (>5%)
+- Slow response time (>5s)
+- Database performance degradation
+
+**Info Alerts** (P2/P3):
+
+- Unusual traffic patterns
+- Feature usage anomalies
+- Security events
+
+## Escalation Contacts
+
+### Primary Contacts
+
+| Role                 | Name   | Contact | Escalation Time |
+| -------------------- | ------ | ------- | --------------- |
+| **On-Call Engineer** | [Name] | [Phone] | Immediate       |
+| **Engineering Lead** | [Name] | [Phone] | 15 minutes      |
+| **CTO**              | [Name] | [Phone] | 30 minutes      |
+
+### Secondary Contacts
+
+| Role                  | Name   | Contact | Escalation Time |
+| --------------------- | ------ | ------- | --------------- |
+| **DevOps Engineer**   | [Name] | [Phone] | 1 hour          |
+| **Security Engineer** | [Name] | [Phone] | 1 hour          |
+| **Legal/Compliance**  | [Name] | [Phone] | 2 hours         |
+
+## Tools & Resources
+
+### Monitoring Tools
+
+- **Vercel Analytics** - Application performance
+- **Supabase Dashboard** - Database monitoring
+- **Sentry** - Error tracking
+- **Stripe Dashboard** - Payment monitoring
+- **Status Page** - Public status updates
+
+### Access Credentials
+
+**Production Access**:
+
+```bash
+# Supabase
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=[redacted]
+
+# Vercel
+VERCEL_TOKEN=[redacted]
+
+# Stripe
+STRIPE_SECRET_KEY=[redacted]
+```
+
+### Useful Commands
+
+```bash
+# Health check
+curl https://your-domain.com/api/health
+
+# Database status
+supabase status
+
+# Recent logs
+supabase logs
+
+# Performance test
+curl -w "@curl-format.txt" https://your-domain.com/api/health
+```
+
+## References
+
+- [Supabase Status Page](https://status.supabase.com/)
+- [Vercel Status Page](https://vercel-status.com/)
+- [Stripe Status Page](https://status.stripe.com/)
+- [OpenAI Status Page](https://status.openai.com/)
+
+---
+
+**Last updated**: 2025-01-27  
+**Next review**: 2025-02-27

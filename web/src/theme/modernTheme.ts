@@ -1,101 +1,120 @@
 import { createTheme } from "@mui/material/styles";
 
-// Modern theme for teen-friendly UX
+// High-converting marketing theme with improved design system
 export const modernTheme = createTheme({
   palette: {
     primary: {
-      main: "#00BCD4", // Teal/Cyan - energetic yet professional
-      light: "#4DD0E1",
-      dark: "#0097A7",
+      main: "#2563eb", // Brand blue
+      light: "#3b82f6",
+      dark: "#1d4ed8",
       contrastText: "#ffffff",
     },
     secondary: {
-      main: "#7C4DFF", // Violet - modern and engaging
-      light: "#B388FF",
-      dark: "#512DA8",
+      main: "#22c55e", // Success green
+      light: "#4ade80",
+      dark: "#16a34a",
       contrastText: "#ffffff",
     },
     success: {
-      main: "#4CAF50",
-      light: "#81C784",
-      dark: "#388E3C",
+      main: "#22c55e",
+      light: "#4ade80",
+      dark: "#16a34a",
     },
     warning: {
-      main: "#FF9800",
-      light: "#FFB74D",
-      dark: "#F57C00",
+      main: "#f59e0b",
+      light: "#fbbf24",
+      dark: "#d97706",
     },
     error: {
-      main: "#F44336",
-      light: "#E57373",
-      dark: "#D32F2F",
+      main: "#ef4444",
+      light: "#f87171",
+      dark: "#dc2626",
     },
     text: {
-      primary: "#1A1A1A",
-      secondary: "#666666",
+      primary: "#0f172a", // Dark ink
+      secondary: "#475569", // Muted text
     },
     background: {
-      default: "#FAFAFA",
-      paper: "#FFFFFF",
+      default: "#ffffff",
+      paper: "#ffffff",
     },
-    divider: "#E0E0E0",
+    divider: "#1f2937", // Border color
   },
   typography: {
-    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Inter", "Manrope", "Space Grotesk", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
-      fontFamily: '"Rubik", "Roboto", "Helvetica", "Arial", sans-serif',
-      fontWeight: 700,
-      fontSize: '2.5rem',
-      lineHeight: 1.2,
+      fontFamily: '"Inter", "Manrope", "Space Grotesk", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontWeight: 800,
+      fontSize: '3.5rem', // 56px
+      lineHeight: 1.1,
+      letterSpacing: '-0.02em',
+      '@media (max-width:900px)': {
+        fontSize: '2.75rem', // 44px
+      },
     },
     h2: {
-      fontFamily: '"Rubik", "Roboto", "Helvetica", "Arial", sans-serif',
-      fontWeight: 600,
-      fontSize: '2rem',
-      lineHeight: 1.3,
+      fontFamily: '"Inter", "Manrope", "Space Grotesk", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontWeight: 700,
+      fontSize: '2.5rem', // 40px
+      lineHeight: 1.15,
+      letterSpacing: '-0.01em',
+      '@media (max-width:900px)': {
+        fontSize: '2rem', // 32px
+      },
     },
     h3: {
-      fontFamily: '"Rubik", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontFamily: '"Inter", "Manrope", "Space Grotesk", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 600,
-      fontSize: '1.75rem',
-      lineHeight: 1.3,
+      fontSize: '1.75rem', // 28px
+      lineHeight: 1.2,
+      '@media (max-width:900px)': {
+        fontSize: '1.5rem', // 24px
+      },
     },
     h4: {
-      fontFamily: '"Rubik", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontFamily: '"Inter", "Manrope", "Space Grotesk", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 600,
       fontSize: '1.5rem',
-      lineHeight: 1.4,
+      lineHeight: 1.3,
     },
     h5: {
-      fontFamily: '"Rubik", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontFamily: '"Inter", "Manrope", "Space Grotesk", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 600,
       fontSize: '1.25rem',
       lineHeight: 1.4,
     },
     h6: {
-      fontFamily: '"Rubik", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontFamily: '"Inter", "Manrope", "Space Grotesk", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 600,
       fontSize: '1.125rem',
       lineHeight: 1.4,
     },
     body1: {
-      fontSize: '1rem',
+      fontSize: '1.125rem', // 18px
       lineHeight: 1.6,
+      letterSpacing: '0.01em',
     },
     body2: {
-      fontSize: '0.875rem',
+      fontSize: '1rem', // 16px
       lineHeight: 1.6,
+      letterSpacing: '0.01em',
     },
     button: {
       fontWeight: 600,
       textTransform: 'none',
-      fontSize: '0.875rem',
+      fontSize: '1rem',
+      letterSpacing: '0.01em',
+    },
+    caption: {
+      fontSize: '0.875rem', // 14px
+      lineHeight: 1.5,
+      letterSpacing: '0.02em',
     },
   },
   shape: {
-    borderRadius: 12, // More rounded corners for modern feel
+    borderRadius: 12,
   },
-  spacing: 8, // Base spacing unit
+  spacing: 8,
   breakpoints: {
     values: {
       xs: 0,
@@ -111,7 +130,7 @@ export const modernTheme = createTheme({
         root: {
           borderRadius: 12,
           padding: '12px 24px',
-          minHeight: 44, // Touch-friendly target size
+          minHeight: 44,
           fontWeight: 600,
           textTransform: 'none',
           boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
@@ -121,14 +140,17 @@ export const modernTheme = createTheme({
             transform: 'translateY(-1px)',
           },
           '&:focus-visible': {
-            outline: '3px solid #00BCD4',
+            outline: '3px solid #2563eb',
             outlineOffset: '2px',
+          },
+          '&.Mui-disabled': {
+            opacity: 0.6,
           },
         },
         contained: {
-          background: 'linear-gradient(135deg, #00BCD4 0%, #4DD0E1 100%)',
+          background: 'linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #22d3ee 100%)',
           '&:hover': {
-            background: 'linear-gradient(135deg, #0097A7 0%, #00BCD4 100%)',
+            background: 'linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #06b6d4 100%)',
           },
         },
         outlined: {
@@ -137,6 +159,16 @@ export const modernTheme = createTheme({
             borderWidth: '2px',
           },
         },
+        sizeSmall: {
+          padding: '8px 16px',
+          minHeight: 36,
+          fontSize: '0.875rem',
+        },
+        sizeLarge: {
+          padding: '16px 32px',
+          minHeight: 52,
+          fontSize: '1.125rem',
+        },
       },
     },
     MuiCard: {
@@ -144,7 +176,7 @@ export const modernTheme = createTheme({
         root: {
           borderRadius: 16,
           boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
-          border: '1px solid #F0F0F0',
+          border: '1px solid #1f2937',
           transition: 'all 0.2s ease-in-out',
           '&:hover': {
             boxShadow: '0 8px 30px rgba(0, 0, 0, 0.12)',
@@ -159,11 +191,11 @@ export const modernTheme = createTheme({
           '& .MuiOutlinedInput-root': {
             borderRadius: 12,
             '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-              borderColor: '#00BCD4',
+              borderColor: '#2563eb',
               borderWidth: '2px',
             },
             '&:hover .MuiOutlinedInput-notchedOutline': {
-              borderColor: '#4DD0E1',
+              borderColor: '#3b82f6',
             },
           },
         },
@@ -184,7 +216,7 @@ export const modernTheme = createTheme({
           borderRadius: 20,
           fontWeight: 600,
           '&.MuiChip-colorPrimary': {
-            background: 'linear-gradient(135deg, #00BCD4 0%, #4DD0E1 100%)',
+            background: 'linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #22d3ee 100%)',
             color: '#ffffff',
           },
         },
@@ -199,7 +231,7 @@ export const modernTheme = createTheme({
             textDecoration: 'underline',
           },
           '&:focus-visible': {
-            outline: '3px solid #00BCD4',
+            outline: '3px solid #2563eb',
             outlineOffset: '2px',
             borderRadius: '4px',
           },
@@ -213,7 +245,7 @@ export const modernTheme = createTheme({
           minWidth: 44,
           minHeight: 44,
           '&:focus-visible': {
-            outline: '3px solid #00BCD4',
+            outline: '3px solid #2563eb',
             outlineOffset: '2px',
           },
         },
@@ -223,6 +255,16 @@ export const modernTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 16,
+        },
+      },
+    },
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          borderRadius: 12,
+          '&:before': {
+            display: 'none',
+          },
         },
       },
     },

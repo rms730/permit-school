@@ -1,0 +1,27 @@
+{
+  "Header": {
+    "brand": "Permit School",
+    "nav.how": "Cómo funciona",
+    "nav.practice": "Pruebas de práctica",
+    "nav.pricing": "Precios",
+    "nav.faq": "Preguntas frecuentes",
+    "nav.signIn": "Iniciar sesión",
+    "nav.start": "Comenzar gratis"
+  },
+  "Home": {
+    "hero.title": "Aprueba tu permiso en California a la primera.",
+    "hero.subtitle": "Estudia exactamente lo que pide el DMV. Pruebas inteligentes, retroalimentación instantánea y lecciones breves para personas ocupadas.",
+    "hero.primaryCta": "Comenzar práctica gratis",
+    "hero.secondaryCta": "Cómo funciona",
+    "trust.badge": "Confiado por más de 10,000 estudiantes • Calificación promedio 4.8★",
+    "features.title": "Saber exactamente qué esperar en el DMV—sin sorpresas.",
+    "features.items": [
+      "Preguntas al estilo del DMV que reflejan el examen real",
+      "Revisión personalizada con explicaciones claras",
+      "Audio y lectura en voz alta para estudiar en movimiento",
+      "Progreso que se guarda en todos tus dispositivos"
+    ],
+    "socialProof.title": "Amado por estudiantes y familias",
+    "footer.cta": "¿Listo? Vamos a ponerte en la carretera."
+  }
+}

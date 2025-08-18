@@ -1,120 +1,223 @@
-"use client";
-
-import { Box, Typography, Grid, Link, Container, Stack } from '@mui/material';
+import * as React from 'react';
+import {
+  Container,
+  Box,
+  Stack,
+  Typography,
+  Link,
+  useTheme,
+  useMediaQuery,
+} from '@mui/material';
+import { Accessibility } from '@mui/icons-material';
 
 const footerLinks = {
   product: [
-    { name: 'Practice Tests', href: '/practice' },
-    { name: 'Features', href: '#features' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'For Schools', href: '/schools' },
+    { label: 'How it works', href: '#how-it-works' },
+    { label: 'Practice tests', href: '#practice-tests' },
+    { label: 'Pricing', href: '#pricing' },
+    { label: 'FAQ', href: '#faq' },
   ],
   support: [
-    { name: 'Help Center', href: '/help' },
-    { name: 'Contact Us', href: '/contact' },
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms of Service', href: '/terms' },
+    { label: 'Help Center', href: '/help' },
+    { label: 'Contact Us', href: '/contact' },
+    { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'Terms of Service', href: '/terms' },
   ],
   company: [
-    { name: 'About Us', href: '/about' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Press', href: '/press' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Careers', href: '/careers' },
+    { label: 'Press', href: '/press' },
   ],
 };
 
 export function Footer() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
     <Box
       component="footer"
       sx={{
+        backgroundColor: 'grey.900',
+        color: 'white',
         py: { xs: 6, md: 8 },
-        backgroundColor: 'background.paper',
-        borderTop: 1,
+        borderTop: '1px solid',
         borderColor: 'divider',
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
-            <Typography variant="h6" fontWeight={700} sx={{ mb: 2 }}>
-              Permit School
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-              Modern permit test preparation for today&apos;s drivers.
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic' }}>
-              Permit School is an independent learning platform and is not affiliated with any Department of Motor Vehicles.
-            </Typography>
-          </Grid>
-          
-          <Grid item xs={12} md={8}>
-            <Grid container spacing={4}>
-              <Grid item xs={12} sm={4}>
-                <Typography variant="h6" fontWeight={600} sx={{ mb: 2 }}>
-                  Product
-                </Typography>
-                <Stack spacing={1}>
-                  {footerLinks.product.map((link) => (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      color="text.secondary"
-                      underline="hover"
-                      sx={{ fontSize: '0.875rem' }}
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </Stack>
-              </Grid>
+        <Stack spacing={6}>
+          {/* Main footer content */}
+          <Stack
+            direction={{ xs: 'column', md: 'row' }}
+            spacing={{ xs: 4, md: 8 }}
+            justifyContent="space-between"
+          >
+            {/* Brand section */}
+            <Box sx={{ maxWidth: 300 }}>
+              <Typography
+                variant="h5"
+                component="h2"
+                sx={{
+                  fontWeight: 700,
+                  mb: 2,
+                }}
+              >
+                Permit School
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: 'grey.400',
+                  lineHeight: 1.6,
+                  mb: 3,
+                }}
+              >
+                Helping new drivers pass their permit test with confidence through smart practice and personalized learning.
+              </Typography>
               
-              <Grid item xs={12} sm={4}>
-                <Typography variant="h6" fontWeight={600} sx={{ mb: 2 }}>
-                  Support
+              {/* Accessibility badge */}
+              <Stack
+                direction="row"
+                spacing={1}
+                alignItems="center"
+                sx={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  padding: '8px 12px',
+                  borderRadius: 2,
+                  width: 'fit-content',
+                }}
+              >
+                <Accessibility sx={{ fontSize: 20, color: '#22c55e' }} />
+                <Typography
+                  variant="caption"
+                  sx={{
+                    fontWeight: 600,
+                    color: 'grey.300',
+                  }}
+                >
+                  Built with accessibility in mind
                 </Typography>
-                <Stack spacing={1}>
-                  {footerLinks.support.map((link) => (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      color="text.secondary"
-                      underline="hover"
-                      sx={{ fontSize: '0.875rem' }}
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </Stack>
-              </Grid>
+              </Stack>
+            </Box>
+
+            {/* Links sections */}
+            <Stack
+              direction={{ xs: 'column', sm: 'row' }}
+              spacing={{ xs: 4, sm: 6, md: 8 }}
+            >
+              {Object.entries(footerLinks).map(([category, links]) => (
+                <Box key={category}>
+                  <Typography
+                    variant="subtitle1"
+                    component="h3"
+                    sx={{
+                      fontWeight: 600,
+                      mb: 2,
+                      textTransform: 'capitalize',
+                    }}
+                  >
+                    {category}
+                  </Typography>
+                  <Stack spacing={1}>
+                    {links.map((link) => (
+                      <Link
+                        key={link.label}
+                        href={link.href}
+                        variant="body2"
+                        sx={{
+                          color: 'grey.400',
+                          textDecoration: 'none',
+                          '&:hover': {
+                            color: 'white',
+                            textDecoration: 'underline',
+                          },
+                        }}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </Stack>
+                </Box>
+              ))}
+            </Stack>
+          </Stack>
+
+          {/* Bottom section */}
+          <Box
+            sx={{
+              borderTop: '1px solid',
+              borderColor: 'grey.800',
+              pt: 4,
+            }}
+          >
+            <Stack
+              direction={{ xs: 'column', sm: 'row' }}
+              spacing={{ xs: 2, sm: 4 }}
+              justifyContent="space-between"
+              alignItems={{ xs: 'flex-start', sm: 'center' }}
+            >
+              <Typography
+                variant="body2"
+                sx={{
+                  color: 'grey.400',
+                }}
+              >
+                © 2024 Permit School. All rights reserved.
+              </Typography>
               
-              <Grid item xs={12} sm={4}>
-                <Typography variant="h6" fontWeight={600} sx={{ mb: 2 }}>
-                  Company
-                </Typography>
-                <Stack spacing={1}>
-                  {footerLinks.company.map((link) => (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      color="text.secondary"
-                      underline="hover"
-                      sx={{ fontSize: '0.875rem' }}
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </Stack>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-        
-        <Box sx={{ mt: 6, pt: 4, borderTop: 1, borderColor: 'divider', textAlign: 'center' }}>
-          <Typography variant="body2" color="text.secondary">
-            © {new Date().getFullYear()} Permit School. All rights reserved.
-          </Typography>
-        </Box>
+              <Stack
+                direction="row"
+                spacing={3}
+                alignItems="center"
+              >
+                <Link
+                  href="/privacy"
+                  variant="body2"
+                  sx={{
+                    color: 'grey.400',
+                    textDecoration: 'none',
+                    '&:hover': {
+                      color: 'white',
+                      textDecoration: 'underline',
+                    },
+                  }}
+                >
+                  Privacy
+                </Link>
+                <Link
+                  href="/terms"
+                  variant="body2"
+                  sx={{
+                    color: 'grey.400',
+                    textDecoration: 'none',
+                    '&:hover': {
+                      color: 'white',
+                      textDecoration: 'underline',
+                    },
+                  }}
+                >
+                  Terms
+                </Link>
+                <Link
+                  href="/accessibility"
+                  variant="body2"
+                  sx={{
+                    color: 'grey.400',
+                    textDecoration: 'none',
+                    '&:hover': {
+                      color: 'white',
+                      textDecoration: 'underline',
+                    },
+                  }}
+                >
+                  Accessibility
+                </Link>
+              </Stack>
+            </Stack>
+          </Box>
+        </Stack>
       </Container>
     </Box>
   );

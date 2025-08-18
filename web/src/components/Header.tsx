@@ -16,6 +16,8 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import Link from 'next/link';
+import {useTranslations, useLocale} from 'next-intl';
 import { Button } from './Button';
 
 const navigationItems = [
@@ -26,8 +28,10 @@ const navigationItems = [
 ];
 
 export function Header() {
+  const t = useTranslations('Header');
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const locale = useLocale();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -45,7 +49,7 @@ export function Header() {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2, fontWeight: 700 }}>
-        Permit School
+        {t('brand')}
       </Typography>
       <List>
         {navigationItems.map((item) => (
@@ -116,8 +120,8 @@ export function Header() {
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Typography 
             variant="h6" 
-            component="a"
-            href="/"
+            component={Link}
+            href={`/${locale}`}
             sx={{ 
               fontWeight: 700, 
               color: 'text.primary',
@@ -127,7 +131,7 @@ export function Header() {
               },
             }}
           >
-            Permit School
+            {t('brand')}
           </Typography>
           
           {!isMobile && (
@@ -145,7 +149,7 @@ export function Header() {
                     },
                   }}
                 >
-                  {item.label}
+                  {t(item.label === 'How it works' ? 'nav.how' : item.label === 'Practice tests' ? 'nav.practice' : item.label === 'Pricing' ? 'nav.pricing' : 'nav.faq')}
                 </Button>
               ))}
             </Stack>
@@ -156,18 +160,18 @@ export function Header() {
               <>
                 <Button
                   variant="ghost"
-                  href="/login"
+                  href={`/${locale}/login`}
                   size="md"
                 >
-                  Sign in
+                  {t('nav.signIn')}
                 </Button>
                 <Button
                   variant="primary"
-                  href="/practice"
+                  href={`/${locale}/practice`}
                   size="md"
                   data-cta="header-start-free"
                 >
-                  Start free
+                  {t('nav.start')}
                 </Button>
               </>
             )}

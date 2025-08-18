@@ -16,6 +16,7 @@ import {
   Timer,
   SupportAgent,
 } from '@mui/icons-material';
+import {useTranslations} from 'next-intl';
 
 const features = [
   {
@@ -51,6 +52,7 @@ const features = [
 ];
 
 export function FeatureGrid() {
+  const t = useTranslations('Home');
   return (
     <Box
       component="section"
@@ -62,15 +64,8 @@ export function FeatureGrid() {
     >
       <Container maxWidth="lg">
         <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography
-            variant="h2"
-            component="h2"
-            sx={{
-              mb: 2,
-              fontWeight: 700,
-            }}
-          >
-            Know exactly what to expect at the DMV—no surprises.
+          <Typography variant="h2" component="h2" sx={{ mb: 2, fontWeight: 700 }}>
+            {t('features.title')}
           </Typography>
           <Typography
             variant="h5"

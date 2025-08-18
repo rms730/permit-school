@@ -11,9 +11,11 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import { CheckCircle } from '@mui/icons-material';
+import {useTranslations} from 'next-intl';
 import { Button } from './Button';
 
 export function Hero() {
+  const t = useTranslations('Home');
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -70,7 +72,7 @@ export function Hero() {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                Pass your California permit test—on your first try.
+                {t('hero.title')}
               </Typography>
               
               <Typography
@@ -82,7 +84,7 @@ export function Hero() {
                   maxWidth: 600,
                 }}
               >
-                Study exactly what the DMV asks. Smart practice tests, instant feedback, and bite‑size lessons designed for busy people.
+                {t('hero.subtitle')}
               </Typography>
             </Stack>
 
@@ -100,7 +102,7 @@ export function Hero() {
                   },
                 }}
               >
-                Start free practice
+                {t('hero.primaryCta')}
               </Button>
               <Button
                 variant="secondary"
@@ -116,7 +118,7 @@ export function Hero() {
                   },
                 }}
               >
-                See how it works
+                {t('hero.secondaryCta')}
               </Button>
             </Stack>
 
@@ -158,7 +160,7 @@ export function Hero() {
                   fontSize: '0.875rem',
                 }}
               >
-                Trusted by 10,000+ learners • 4.8★ average rating
+                {t('trust.badge')}
               </Typography>
               
               <Typography

@@ -1,4 +1,5 @@
 const { withSentryConfig } = require("@sentry/nextjs");
+const withNextIntl = require('next-intl/plugin')('./i18n/request.ts');
 const withPWA = require("next-pwa")({
   dest: "public",
   disable: process.env.NODE_ENV === "development",
@@ -115,4 +116,4 @@ const sentryWebpackPluginOptions = {
   project: "permit-school-web",
 };
 
-module.exports = withPWA(withSentryConfig(nextConfig, sentryWebpackPluginOptions));
+module.exports = withNextIntl(withPWA(withSentryConfig(nextConfig, sentryWebpackPluginOptions)));

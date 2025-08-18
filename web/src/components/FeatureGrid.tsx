@@ -1,19 +1,53 @@
-import { Grid, Card, CardContent, Stack, Typography, Box } from '@mui/material';
-import { Container } from './Container';
-import QuizIcon from '@mui/icons-material/Quiz';
-import BoltIcon from '@mui/icons-material/Bolt';
-import InsightsIcon from '@mui/icons-material/Insights';
-import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
-import TimerIcon from '@mui/icons-material/Timer';
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import * as React from 'react';
+import {
+  Grid,
+  Card,
+  CardContent,
+  Stack,
+  Typography,
+  Box,
+  Container,
+} from '@mui/material';
+import {
+  Quiz,
+  Bolt,
+  Insights,
+  OndemandVideo,
+  Timer,
+  SupportAgent,
+} from '@mui/icons-material';
 
-const items = [
-  { icon: <QuizIcon />, title: 'Realistic questions', body: 'Written with the latest handbook in mind and mapped to exam topics.' },
-  { icon: <BoltIcon />, title: 'Adaptive practice', body: 'Focus time where it matters most with auto‑generated drills.' },
-  { icon: <InsightsIcon />, title: 'Progress insights', body: 'Know when you&apos;re truly ready with readiness scores.' },
-  { icon: <OndemandVideoIcon />, title: 'Micro‑lessons', body: 'Short explainers that make rules and signs easy to remember.' },
-  { icon: <TimerIcon />, title: 'Exam simulator', body: 'Timed mock tests with instant feedback and review.' },
-  { icon: <SupportAgentIcon />, title: 'Parent tools', body: 'Simple oversight and sign‑off—no nagging required.' },
+const features = [
+  {
+    icon: <Quiz sx={{ fontSize: 32, color: 'primary.main' }} />,
+    title: 'DMV-style questions',
+    description: 'Practice with items modeled on the official handbook.',
+  },
+  {
+    icon: <Bolt sx={{ fontSize: 32, color: 'primary.main' }} />,
+    title: 'Personalized review',
+    description: 'Fix weak spots with smart explanations.',
+  },
+  {
+    icon: <OndemandVideo sx={{ fontSize: 32, color: 'primary.main' }} />,
+    title: 'Audio & read-along',
+    description: 'Learn hands-free on the go.',
+  },
+  {
+    icon: <Insights sx={{ fontSize: 32, color: 'primary.main' }} />,
+    title: 'Progress that sticks',
+    description: 'Resume anywhere—phone, tablet, or laptop.',
+  },
+  {
+    icon: <Timer sx={{ fontSize: 32, color: 'primary.main' }} />,
+    title: 'Bite-size lessons',
+    description: 'Short sessions that fit your day, from 5 to 15 minutes.',
+  },
+  {
+    icon: <SupportAgent sx={{ fontSize: 32, color: 'primary.main' }} />,
+    title: 'Try free—cancel anytime',
+    description: 'Start in 60 seconds. No credit card for the free plan.',
+  },
 ];
 
 export function FeatureGrid() {
@@ -30,36 +64,60 @@ export function FeatureGrid() {
         <Box sx={{ textAlign: 'center', mb: 8 }}>
           <Typography
             variant="h2"
+            component="h2"
             sx={{
               mb: 2,
               fontWeight: 700,
             }}
           >
-            Why Permit School?
+            Know exactly what to expect at the DMV—no surprises.
           </Typography>
           <Typography
             variant="h5"
-            sx={{
-              color: 'text.secondary',
-              maxWidth: 600,
-              mx: 'auto',
-            }}
+            color="text.secondary"
+            sx={{ maxWidth: 600, mx: 'auto', lineHeight: 1.5 }}
           >
-            Modern learning designed for today&apos;s drivers
+                             Modern learning designed for today&apos;s drivers
           </Typography>
         </Box>
 
-        <Grid container spacing={3} id="features">
-          {items.map((item) => (
-            <Grid key={item.title} item xs={12} sm={6} md={4}>
-              <Card sx={{ height: '100%' }}>
-                <CardContent>
-                  <Stack spacing={1.5}>
-                    <Stack direction="row" spacing={1.5} alignItems="center">
-                      {item.icon}
-                      <Typography variant="h6" fontWeight={700}>{item.title}</Typography>
+        <Grid container spacing={3} id="features" role="list">
+          {features.map((feature, index) => (
+            <Grid key={feature.title} item xs={12} sm={6} md={4} role="listitem">
+              <Card
+                sx={{
+                  height: '100%',
+                  transition: 'all 0.2s ease-in-out',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: '0 8px 30px rgba(0, 0, 0, 0.12)',
+                  },
+                }}
+              >
+                <CardContent sx={{ p: 4, height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  <Stack spacing={3} sx={{ flexGrow: 1 }}>
+                    <Box
+                      sx={{
+                        width: 64,
+                        height: 64,
+                        borderRadius: 2,
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      {feature.icon}
+                    </Box>
+                    
+                    <Stack spacing={1}>
+                      <Typography variant="h6" component="h3" fontWeight={700}>
+                        {feature.title}
+                      </Typography>
+                      <Typography color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                        {feature.description}
+                      </Typography>
                     </Stack>
-                    <Typography color="text.secondary">{item.body}</Typography>
                   </Stack>
                 </CardContent>
               </Card>

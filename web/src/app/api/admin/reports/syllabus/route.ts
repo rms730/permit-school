@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { getServerClient } from "@/lib/supabaseServer";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);

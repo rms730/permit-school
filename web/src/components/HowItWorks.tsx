@@ -1,27 +1,23 @@
-import { Box, Typography, Grid, Card, CardContent, useTheme } from '@mui/material';
+"use client";
+
+import { Box, Typography, Grid, Paper, useTheme } from '@mui/material';
 import { Container } from './Container';
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import SchoolIcon from '@mui/icons-material/School';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 const steps = [
   {
-    icon: <AssignmentIcon sx={{ fontSize: 50, color: 'primary.main' }} />,
-    step: '1',
-    title: 'Take a Practice Test',
-    description: 'Start with our free practice test to see where you stand. Get instant feedback on every question.',
+    number: '1',
+    title: 'Take a practice test',
+    description: 'Start with a free practice test to see where you stand.',
   },
   {
-    icon: <SchoolIcon sx={{ fontSize: 50, color: 'primary.main' }} />,
-    step: '2',
-    title: 'Study Smart Lessons',
-    description: 'Focus on your weak areas with bite-sized lessons. Learn at your own pace, anywhere, anytime.',
+    number: '2',
+    title: 'Study bite-sized lessons',
+    description: 'Learn from official handbooks broken into digestible chunks.',
   },
   {
-    icon: <EmojiEventsIcon sx={{ fontSize: 50, color: 'primary.main' }} />,
-    step: '3',
-    title: 'Pass with Confidence',
-    description: 'Track your progress and take the real test with confidence. Our students pass at higher rates.',
+    number: '3',
+    title: 'Track your progress',
+    description: 'See your improvement and get ready for the real test.',
   },
 ];
 
@@ -35,7 +31,7 @@ export function HowItWorks() {
       aria-labelledby="how-it-works-heading"
       sx={{
         py: { xs: 8, md: 12 },
-        backgroundColor: 'background.paper',
+        backgroundColor: 'grey.50',
       }}
     >
       <Container>
@@ -44,124 +40,72 @@ export function HowItWorks() {
             id="how-it-works-heading"
             variant="h2"
             sx={{
-              mb: 2,
+              fontSize: { xs: '2rem', md: '2.5rem' },
               fontWeight: 700,
+              mb: 2,
             }}
           >
             How It Works
           </Typography>
           <Typography
             variant="h5"
-            sx={{
-              color: 'text.secondary',
-              maxWidth: 600,
-              mx: 'auto',
-            }}
+            color="text.secondary"
+            sx={{ maxWidth: 600, mx: 'auto' }}
           >
-            Three simple steps to get your permit
+            Get ready for your permit test in three simple steps
           </Typography>
         </Box>
 
         <Grid container spacing={4}>
           {steps.map((step, index) => (
             <Grid item xs={12} md={4} key={index}>
-              <Card
+              <Paper
+                elevation={0}
                 sx={{
+                  p: 4,
+                  textAlign: 'center',
                   height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  position: 'relative',
-                  transition: 'all 0.3s ease-in-out',
-                  '&:hover': {
-                    transform: 'translateY(-4px)',
-                    boxShadow: theme.shadows[8],
-                  },
+                  border: '1px solid',
+                  borderColor: 'grey.200',
+                  borderRadius: 2,
                 }}
               >
-                <CardContent
+                <Box
                   sx={{
+                    width: 60,
+                    height: 60,
+                    borderRadius: '50%',
+                    backgroundColor: 'primary.main',
+                    color: 'white',
                     display: 'flex',
-                    flexDirection: 'column',
                     alignItems: 'center',
-                    textAlign: 'center',
-                    p: 4,
-                    flexGrow: 1,
-                    position: 'relative',
+                    justifyContent: 'center',
+                    fontSize: '1.5rem',
+                    fontWeight: 700,
+                    mx: 'auto',
+                    mb: 3,
                   }}
                 >
-                  {/* Step number badge */}
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      top: -15,
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      width: 40,
-                      height: 40,
-                      borderRadius: '50%',
-                      backgroundColor: 'primary.main',
-                      color: 'white',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontWeight: 700,
-                      fontSize: '1.2rem',
-                      zIndex: 1,
-                    }}
-                  >
-                    {step.step}
-                  </Box>
-
-                  <Box sx={{ mb: 3, mt: 2 }}>{step.icon}</Box>
-                  
-                  <Typography
-                    variant="h5"
-                    component="h3"
-                    sx={{
-                      mb: 2,
-                      fontWeight: 600,
-                    }}
-                  >
-                    {step.title}
-                  </Typography>
-                  
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: 'text.secondary',
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {step.description}
-                  </Typography>
-                </CardContent>
-              </Card>
+                  {step.number}
+                </Box>
+                <Typography
+                  variant="h5"
+                  component="h3"
+                  sx={{ fontWeight: 600, mb: 2 }}
+                >
+                  {step.title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  sx={{ lineHeight: 1.6 }}
+                >
+                  {step.description}
+                </Typography>
+              </Paper>
             </Grid>
           ))}
         </Grid>
-
-        {/* Connection lines between steps */}
-        <Box
-          sx={{
-            display: { xs: 'none', md: 'block' },
-            position: 'relative',
-            mt: -4,
-            mb: 4,
-          }}
-        >
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '50%',
-              left: '33.33%',
-              width: '33.33%',
-              height: 2,
-              backgroundColor: 'primary.main',
-              opacity: 0.3,
-              transform: 'translateY(-50%)',
-            }}
-          />
-        </Box>
       </Container>
     </Box>
   );

@@ -1,6 +1,8 @@
-import { Box, Typography, Button, useTheme } from '@mui/material';
+"use client";
+
+import { Box, Typography, useTheme } from '@mui/material';
+import { Button } from './Button';
 import { Container } from './Container';
-import SchoolIcon from '@mui/icons-material/School';
 
 export function CtaBanner() {
   const theme = useTheme();
@@ -11,88 +13,68 @@ export function CtaBanner() {
       aria-labelledby="cta-heading"
       sx={{
         py: { xs: 8, md: 12 },
-        background: 'linear-gradient(135deg, #00BCD4 0%, #4DD0E1 100%)',
+        backgroundColor: 'primary.main',
         color: 'white',
-        textAlign: 'center',
       }}
     >
       <Container>
-        <Typography
-          id="cta-heading"
-          variant="h2"
-          sx={{
-            mb: 3,
-            fontWeight: 700,
-            color: 'white',
-          }}
-        >
-          Ready to ace your permit?
-        </Typography>
-        
-        <Typography
-          variant="h5"
-          sx={{
-            mb: 4,
-            color: 'rgba(255, 255, 255, 0.9)',
-            maxWidth: 600,
-            mx: 'auto',
-            lineHeight: 1.6,
-          }}
-        >
-          Start your free practice test today and join thousands of successful drivers
-        </Typography>
-
-        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, flexWrap: 'wrap' }}>
-          <Button
-            href="/practice"
-            variant="contained"
-            size="large"
-            startIcon={<SchoolIcon />}
+        <Box sx={{ textAlign: 'center' }}>
+          <Typography
+            id="cta-heading"
+            variant="h2"
             sx={{
-              backgroundColor: 'white',
-              color: 'primary.main',
-              fontWeight: 600,
-              px: 4,
-              py: 2,
-              fontSize: '1.1rem',
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              },
+              fontSize: { xs: '2rem', md: '2.5rem' },
+              fontWeight: 700,
+              mb: 3,
             }}
           >
-            Start Free Practice Test
-          </Button>
+            Ready to Get Your Permit?
+          </Typography>
           
-          <Button
-            href="/signup"
-            variant="outlined"
-            size="large"
+          <Typography
+            variant="h5"
             sx={{
-              borderColor: 'white',
-              color: 'white',
-              fontWeight: 600,
-              px: 4,
-              py: 2,
-              fontSize: '1.1rem',
-              '&:hover': {
-                borderColor: 'white',
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              },
+              mb: 4,
+              opacity: 0.9,
+              maxWidth: 600,
+              mx: 'auto',
             }}
           >
-            Create Account
-          </Button>
-        </Box>
+            Join thousands of students who&apos;ve passed their permit test with confidence
+          </Typography>
 
-        <Typography
-          variant="body2"
-          sx={{
-            mt: 4,
-            color: 'rgba(255, 255, 255, 0.8)',
-          }}
-        >
-          No credit card required • Start studying in seconds
-        </Typography>
+          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Button
+              href="/practice"
+              variant="secondary"
+              size="large"
+              sx={{
+                backgroundColor: 'white',
+                color: 'primary.main',
+                '&:hover': {
+                  backgroundColor: 'grey.100',
+                },
+              }}
+            >
+              Start Free Practice Test
+            </Button>
+            
+            <Button
+              href="/signup"
+              variant="ghost"
+              size="large"
+              sx={{
+                color: 'white',
+                borderColor: 'white',
+                '&:hover': {
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                },
+              }}
+            >
+              Create Account
+            </Button>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );

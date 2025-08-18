@@ -1,35 +1,26 @@
-import { Box, Typography, Grid, Card, CardContent, Avatar, Rating, useTheme } from '@mui/material';
+"use client";
+
+import { Box, Typography, Grid, Paper, Avatar, useTheme } from '@mui/material';
 import { Container } from './Container';
-import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
 const testimonials = [
   {
     name: 'Sarah M.',
     role: 'Student',
-    avatar: 'SM',
+    content: 'Passed my permit test on the first try! The practice tests were spot-on.',
     rating: 5,
-    quote: 'I passed my permit test on the first try! The practice tests were so helpful and the explanations made everything click.',
   },
   {
-    name: 'David R.',
+    name: 'Mike R.',
     role: 'Parent',
-    avatar: 'DR',
+    content: 'Great for my teen. The progress tracking helped me stay involved.',
     rating: 5,
-    quote: 'As a parent, I love being able to track my son\'s progress. The guardian dashboard gives me peace of mind.',
   },
   {
-    name: 'Maria L.',
+    name: 'Jennifer L.',
     role: 'Student',
-    avatar: 'ML',
+    content: 'The bite-sized lessons made studying so much easier. Highly recommend!',
     rating: 5,
-    quote: 'The bite-sized lessons are perfect for my busy schedule. I can study for just 5 minutes and actually learn something.',
-  },
-  {
-    name: 'Coach Johnson',
-    role: 'Driving Instructor',
-    avatar: 'CJ',
-    rating: 5,
-    quote: 'I use Permit School with all my students. The progress tracking helps me focus on what they need to work on.',
   },
 ];
 
@@ -42,7 +33,7 @@ export function Testimonials() {
       aria-labelledby="testimonials-heading"
       sx={{
         py: { xs: 8, md: 12 },
-        backgroundColor: 'background.paper',
+        backgroundColor: 'grey.50',
       }}
     >
       <Container>
@@ -51,185 +42,92 @@ export function Testimonials() {
             id="testimonials-heading"
             variant="h2"
             sx={{
-              mb: 2,
+              fontSize: { xs: '2rem', md: '2.5rem' },
               fontWeight: 700,
+              mb: 2,
             }}
           >
-            What Our Users Say
+            What Our Students Say
           </Typography>
           <Typography
             variant="h5"
-            sx={{
-              color: 'text.secondary',
-              maxWidth: 600,
-              mx: 'auto',
-            }}
+            color="text.secondary"
+            sx={{ maxWidth: 600, mx: 'auto' }}
           >
-            Join thousands of successful drivers
+            Join thousands of students who&apos;ve passed their permit test
           </Typography>
         </Box>
 
         <Grid container spacing={4}>
           {testimonials.map((testimonial, index) => (
-            <Grid item xs={12} sm={6} md={3} key={index}>
-              <Card
+            <Grid item xs={12} md={4} key={index}>
+              <Paper
+                elevation={1}
                 sx={{
+                  p: 4,
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
-                  transition: 'all 0.3s ease-in-out',
-                  '&:hover': {
-                    transform: 'translateY(-4px)',
-                    boxShadow: theme.shadows[8],
-                  },
+                  borderRadius: 2,
                 }}
               >
-                <CardContent
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    p: 4,
-                    flexGrow: 1,
-                    position: 'relative',
-                  }}
-                >
-                  {/* Quote icon */}
-                  <FormatQuoteIcon
-                    sx={{
-                      fontSize: 40,
-                      color: 'primary.main',
-                      opacity: 0.2,
-                      position: 'absolute',
-                      top: 16,
-                      right: 16,
-                    }}
-                  />
-
-                  <Box sx={{ mb: 3 }}>
-                    <Rating value={testimonial.rating} readOnly size="small" />
-                  </Box>
-
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: 'text.secondary',
-                      lineHeight: 1.6,
-                      mb: 3,
-                      flexGrow: 1,
-                      fontStyle: 'italic',
-                    }}
-                  >
-                    &ldquo;{testimonial.quote}&rdquo;
-                  </Typography>
-
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Avatar
+                <Box sx={{ mb: 3 }}>
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Typography
+                      key={i}
+                      component="span"
                       sx={{
-                        bgcolor: 'primary.main',
-                        width: 48,
-                        height: 48,
-                        mr: 2,
-                        fontWeight: 600,
+                        color: 'primary.main',
+                        fontSize: '1.2rem',
+                        fontWeight: 700,
                       }}
                     >
-                      {testimonial.avatar}
-                    </Avatar>
-                    <Box>
-                      <Typography
-                        variant="subtitle1"
-                        sx={{
-                          fontWeight: 600,
-                        }}
-                      >
-                        {testimonial.name}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          color: 'text.secondary',
-                        }}
-                      >
-                        {testimonial.role}
-                      </Typography>
-                    </Box>
+                      ★
+                    </Typography>
+                  ))}
+                </Box>
+
+                <Typography
+                  variant="body1"
+                  sx={{
+                    mb: 3,
+                    flexGrow: 1,
+                    fontStyle: 'italic',
+                    lineHeight: 1.6,
+                  }}
+                >
+                  &ldquo;{testimonial.content}&rdquo;
+                </Typography>
+
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Avatar
+                    sx={{
+                      width: 48,
+                      height: 48,
+                      mr: 2,
+                      backgroundColor: 'primary.main',
+                    }}
+                  >
+                    {testimonial.name.charAt(0)}
+                  </Avatar>
+                  <Box>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+                      {testimonial.name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {testimonial.role}
+                    </Typography>
                   </Box>
-                </CardContent>
-              </Card>
+                </Box>
+              </Paper>
             </Grid>
           ))}
         </Grid>
 
-        {/* Social proof stats */}
-        <Box
-          sx={{
-            mt: 8,
-            pt: 6,
-            borderTop: `1px solid ${theme.palette.divider}`,
-            textAlign: 'center',
-          }}
-        >
-          <Grid container spacing={4} justifyContent="center">
-            <Grid item xs={6} sm={3}>
-              <Typography
-                variant="h3"
-                sx={{
-                  fontWeight: 700,
-                  color: 'primary.main',
-                  mb: 1,
-                }}
-              >
-                10K+
-              </Typography>
-              <Typography variant="body1" color="text.secondary">
-                Students
-              </Typography>
-            </Grid>
-            <Grid item xs={6} sm={3}>
-              <Typography
-                variant="h3"
-                sx={{
-                  fontWeight: 700,
-                  color: 'primary.main',
-                  mb: 1,
-                }}
-              >
-                95%
-              </Typography>
-              <Typography variant="body1" color="text.secondary">
-                Pass Rate
-              </Typography>
-            </Grid>
-            <Grid item xs={6} sm={3}>
-              <Typography
-                variant="h3"
-                sx={{
-                  fontWeight: 700,
-                  color: 'primary.main',
-                  mb: 1,
-                }}
-              >
-                50+
-              </Typography>
-              <Typography variant="body1" color="text.secondary">
-                Schools
-              </Typography>
-            </Grid>
-            <Grid item xs={6} sm={3}>
-              <Typography
-                variant="h3"
-                sx={{
-                  fontWeight: 700,
-                  color: 'primary.main',
-                  mb: 1,
-                }}
-              >
-                4.9★
-              </Typography>
-              <Typography variant="body1" color="text.secondary">
-                Rating
-              </Typography>
-            </Grid>
-          </Grid>
+        <Box sx={{ textAlign: 'center', mt: 6 }}>
+          <Typography variant="h6" color="text.secondary">
+            Trusted by 10,000+ students nationwide
+          </Typography>
         </Box>
       </Container>
     </Box>

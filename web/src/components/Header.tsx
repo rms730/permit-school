@@ -61,8 +61,8 @@ export function Header() {
   );
 
   return (
-    <>
-      <AppBar position="sticky" elevation={0} sx={{ backgroundColor: 'background.paper' }}>
+    <Box component="header" role="banner">
+      <AppBar position="sticky" elevation={0} role="banner" sx={{ backgroundColor: 'background.paper' }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography
             variant="h6"
@@ -125,6 +125,6 @@ export function Header() {
       >
         {drawer}
       </Drawer>
-    </>
+    </Box>
   );
 }

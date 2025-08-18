@@ -1,23 +1,26 @@
-import { Box, Typography, Grid, Link, Divider, useTheme } from '@mui/material';
+"use client";
+
+import { Box, Typography, Grid, Link, useTheme } from '@mui/material';
 import { Container } from './Container';
 
 const footerLinks = {
   product: [
-    { label: 'Practice Tests', href: '/practice' },
-    { label: 'Courses', href: '/courses' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'For Schools', href: '/schools' },
+    { name: 'Practice Tests', href: '/practice' },
+    { name: 'Courses', href: '/courses' },
+    { name: 'Pricing', href: '#pricing' },
+    { name: 'For Schools', href: '/schools' },
   ],
   support: [
-    { label: 'Help Center', href: '/help' },
-    { label: 'Contact Us', href: 'mailto:support@permit-school.com' },
-    { label: 'FAQ', href: '#faq' },
+    { name: 'Help Center', href: '/help' },
+    { name: 'Contact Us', href: '/contact' },
+    { name: 'Privacy Policy', href: '/privacy' },
+    { name: 'Terms of Service', href: '/terms' },
   ],
   company: [
-    { label: 'About', href: '/about' },
-    { label: 'Privacy Policy', href: '/privacy' },
-    { label: 'Terms of Service', href: '/terms' },
-    { label: 'Accessibility', href: '/accessibility' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Careers', href: '/careers' },
+    { name: 'Press', href: '/press' },
   ],
 };
 
@@ -28,63 +31,43 @@ export function Footer() {
   return (
     <Box
       component="footer"
-      role="contentinfo"
       sx={{
-        backgroundColor: 'background.paper',
-        borderTop: `1px solid ${theme.palette.divider}`,
-        py: 6,
+        py: { xs: 6, md: 8 },
+        backgroundColor: 'grey.900',
+        color: 'white',
       }}
     >
       <Container>
         <Grid container spacing={4}>
           <Grid item xs={12} md={4}>
-            <Typography
-              variant="h6"
-              sx={{
-                fontWeight: 700,
-                mb: 2,
-              }}
-            >
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>
               Permit School
             </Typography>
-            <Typography
-              variant="body2"
-              sx={{
-                color: 'text.secondary',
-                mb: 3,
-                lineHeight: 1.6,
-              }}
-            >
-              Modern, mobile‑first practice tests and bite‑sized lessons built from official driver handbooks. 
-              Clear study paths for teens, a guardian view for progress, and classroom tools for schools.
+            <Typography variant="body2" sx={{ mb: 3, opacity: 0.8 }}>
+              Interactive practice tests and bite-sized lessons built from official driver handbooks. 
+              Pass your permit test faster with confidence.
             </Typography>
           </Grid>
 
           <Grid item xs={12} sm={4} md={2}>
-            <Typography
-              variant="subtitle1"
-              sx={{
-                fontWeight: 600,
-                mb: 2,
-              }}
-            >
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
               Product
             </Typography>
             <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
               {footerLinks.product.map((link) => (
-                <Box component="li" key={link.label} sx={{ mb: 1 }}>
+                <Box component="li" key={link.name} sx={{ mb: 1 }}>
                   <Link
                     href={link.href}
                     sx={{
-                      color: 'text.secondary',
+                      color: 'grey.300',
                       textDecoration: 'none',
                       '&:hover': {
-                        color: 'primary.main',
+                        color: 'white',
                         textDecoration: 'underline',
                       },
                     }}
                   >
-                    {link.label}
+                    {link.name}
                   </Link>
                 </Box>
               ))}
@@ -92,30 +75,24 @@ export function Footer() {
           </Grid>
 
           <Grid item xs={12} sm={4} md={2}>
-            <Typography
-              variant="subtitle1"
-              sx={{
-                fontWeight: 600,
-                mb: 2,
-              }}
-            >
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
               Support
             </Typography>
             <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
               {footerLinks.support.map((link) => (
-                <Box component="li" key={link.label} sx={{ mb: 1 }}>
+                <Box component="li" key={link.name} sx={{ mb: 1 }}>
                   <Link
                     href={link.href}
                     sx={{
-                      color: 'text.secondary',
+                      color: 'grey.300',
                       textDecoration: 'none',
                       '&:hover': {
-                        color: 'primary.main',
+                        color: 'white',
                         textDecoration: 'underline',
                       },
                     }}
                   >
-                    {link.label}
+                    {link.name}
                   </Link>
                 </Box>
               ))}
@@ -123,30 +100,24 @@ export function Footer() {
           </Grid>
 
           <Grid item xs={12} sm={4} md={2}>
-            <Typography
-              variant="subtitle1"
-              sx={{
-                fontWeight: 600,
-                mb: 2,
-              }}
-            >
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
               Company
             </Typography>
             <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
               {footerLinks.company.map((link) => (
-                <Box component="li" key={link.label} sx={{ mb: 1 }}>
+                <Box component="li" key={link.name} sx={{ mb: 1 }}>
                   <Link
                     href={link.href}
                     sx={{
-                      color: 'text.secondary',
+                      color: 'grey.300',
                       textDecoration: 'none',
                       '&:hover': {
-                        color: 'primary.main',
+                        color: 'white',
                         textDecoration: 'underline',
                       },
                     }}
                   >
-                    {link.label}
+                    {link.name}
                   </Link>
                 </Box>
               ))}
@@ -154,62 +125,26 @@ export function Footer() {
           </Grid>
 
           <Grid item xs={12} md={2}>
-            <Typography
-              variant="subtitle1"
-              sx={{
-                fontWeight: 600,
-                mb: 2,
-              }}
-            >
-              Contact
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
+              Connect
             </Typography>
-            <Typography
-              variant="body2"
-              sx={{
-                color: 'text.secondary',
-                mb: 1,
-              }}
-            >
-              support@permit-school.com
-            </Typography>
-            <Typography
-              variant="body2"
-              sx={{
-                color: 'text.secondary',
-              }}
-            >
-              Available 24/7
+            <Typography variant="body2" sx={{ opacity: 0.8 }}>
+              Follow us for updates and tips
             </Typography>
           </Grid>
         </Grid>
 
-        <Divider sx={{ my: 4 }} />
-
         <Box
           sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', sm: 'row' },
-            justifyContent: 'space-between',
-            alignItems: { xs: 'flex-start', sm: 'center' },
-            gap: 2,
+            mt: 6,
+            pt: 4,
+            borderTop: '1px solid',
+            borderColor: 'grey.800',
+            textAlign: 'center',
           }}
         >
-          <Typography
-            variant="body2"
-            sx={{
-              color: 'text.secondary',
-            }}
-          >
+          <Typography variant="body2" sx={{ opacity: 0.8 }}>
             © {currentYear} Permit School. All rights reserved.
-          </Typography>
-          
-          <Typography
-            variant="body2"
-            sx={{
-              color: 'text.secondary',
-            }}
-          >
-            Made with ❤️ for safer roads
           </Typography>
         </Box>
       </Container>

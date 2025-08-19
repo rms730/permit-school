@@ -119,6 +119,18 @@ node web/scripts/make_admin.mjs email  # Create admin user
 
 ## Environment Setup
 
+1. Copy example envs:
+   - Root: `cp .env.local.example .env.local` (fill values)
+   - Web: `cp web/.env.local.example web/.env.local` (fill values)
+
+2. Verify:
+   - Local: `npm run env:check:local`
+
+3. Run:
+   - `cd web && npm run dev`
+
+**Never commit real secrets**. Use `.example` files and GitHub Secrets in CI.
+
 **Required environment variables** (see [setup guide](docs/ENVIRONMENT_SETUP.md)):
 
 ```bash

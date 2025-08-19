@@ -1,0 +1,12 @@
+{
+  "name": "permit-school",
+  "private": true,
+  "scripts": {
+    "env:copy:root": "node -e \"const fs=require('fs'); if(!fs.existsSync('.env.local')) fs.copyFileSync('.env.local.example','.env.local')\"",
+    "env:copy:web": "node -e \"const fs=require('fs'); if(!fs.existsSync('web/.env.local')) fs.copyFileSync('web/.env.local.example','web/.env.local')\"",
+    "env:copy": "npm run env:copy:root && npm run env:copy:web",
+    "env:check:local": "node tools/check-env.mjs local",
+    "env:check:dev": "node tools/check-env.mjs development",
+    "env:check:prod": "node tools/check-env.mjs production"
+  }
+}

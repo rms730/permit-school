@@ -42,6 +42,28 @@ jobs:
           npm cache clean --force
           npm install --no-audit --prefer-online
 
+      - name: Prepare env files
+        working-directory: .
+        run: |
+          # Create development environment files from examples
+          cp .env.dev.example .env.dev
+          cp web/.env.development.example web/.env.development
+          
+          # Root overrides from GitHub Secrets (optional)
+          [ -n "${{ secrets.SUPABASE_URL }}" ] && sed -i 's|^SUPABASE_URL=.*|SUPABASE_URL=${{ secrets.SUPABASE_URL }}|' .env.dev
+          [ -n "${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" ] && sed -i 's|^SUPABASE_SERVICE_ROLE_KEY=.*|SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}|' .env.dev
+          [ -n "${{ secrets.SUPABASE_ANON_KEY }}" ] && sed -i 's|^SUPABASE_ANON_KEY=.*|SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}|' .env.dev
+          [ -n "${{ secrets.OPENAI_API_KEY }}" ] && sed -i 's|^OPENAI_API_KEY=.*|OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}|' .env.dev
+          [ -n "${{ secrets.BASE_URL }}" ] && sed -i 's|^BASE_URL=.*|BASE_URL=${{ secrets.BASE_URL }}|' .env.dev
+
+          # Web overrides
+          [ -n "${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}" ] && sed -i 's|^NEXT_PUBLIC_SUPABASE_URL=.*|NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}|' web/.env.development
+          [ -n "${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}" ] && sed -i 's|^NEXT_PUBLIC_SUPABASE_ANON_KEY=.*|NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}|' web/.env.development
+          [ -n "${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" ] && sed -i 's|^SUPABASE_SERVICE_ROLE_KEY=.*|SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}|' web/.env.development
+
+      - name: Verify env (development)
+        run: npm run env:check:dev
+
       - name: Dependency sanity check (rollup)
         run: |
           node -e "try{const r=require('rollup');console.log('rollup ok:', typeof r==='object');}catch(e){console.error('rollup not resolvable');process.exit(1)}"

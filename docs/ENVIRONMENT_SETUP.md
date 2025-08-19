@@ -70,39 +70,97 @@ supabase link --project-ref YOUR_PROJECT_REF
 ### 4. Configure Environment Variables
 
 ```bash
-# Copy environment template
-cp web/.env.example web/.env.local
+# Copy environment templates (creates both root and web env files)
+npm run env:copy
 
 # Edit with your values
-nano web/.env.local
+nano .env.local          # Root-level variables for scripts/tools
+nano web/.env.local      # Web app variables
 ```
+
+**Environment Structure**:
+
+We use a multi-environment setup with separate files for different contexts:
+
+- **Root level** (`.env.local`, `.env.dev`, `.env.prod`) - For scripts, tools, and CI
+- **Web level** (`web/.env.local`, `web/.env.development`, `web/.env.production`) - For Next.js app
 
 **Required environment variables**:
 
+**Root-level variables** (`.env.local`):
 ```bash
 # Supabase (get from your project dashboard)
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_PUBLISHABLE_KEY=${SUPABASE_ANON_KEY}
+
+# OpenAI (for AI features)
+OPENAI_API_KEY=sk-your-openai-key
+
+# Base URL
+BASE_URL=http://localhost:3000
+
+# Test Configuration
+TESTKIT_ON=true
+TESTKIT_TOKEN=your-testkit-token
+```
+
+**Web-level variables** (`web/.env.local`):
+```bash
+# Client-exposed (safe for browser)
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+
+# Server-only (never exposed to browser)
+SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 
-# Stripe (get from Stripe dashboard)
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
-STRIPE_SECRET_KEY=sk_test_...
-STRIPE_PRICE_ID=price_...
-STRIPE_WEBHOOK_SECRET=whsec_...
-
-# Email (get from Resend dashboard)
-RESEND_API_KEY=re_...
-FROM_EMAIL="Permit School <no-reply@yourdomain.com>"
-SUPPORT_EMAIL=support@yourdomain.com
-
-# App configuration
-APP_BASE_URL=http://localhost:3000
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
-
-# Optional: Monitoring
-SENTRY_DSN=
+# Optional functions URL
+SUPABASE_FUNCTIONS_URL=https://your-project.supabase.co/functions/v1
 ```
+
+**Verify your setup**:
+```bash
+npm run env:check:local
+```
+
+### Environment Management Tools
+
+**Available commands**:
+```bash
+# Copy environment files from examples
+npm run env:copy                    # Creates both root and web .env.local files
+npm run env:copy:root              # Creates only root .env.local
+npm run env:copy:web               # Creates only web .env.local
+
+# Verify environment variables
+npm run env:check:local            # Check local environment
+npm run env:check:dev              # Check development environment  
+npm run env:check:prod             # Check production environment
+```
+
+**Environment files structure**:
+```
+permit-school/
+├── .env.example                   # Root base template
+├── .env.local.example            # Root local development
+├── .env.dev.example              # Root cloud development
+├── .env.prod.example             # Root production
+├── web/
+│   ├── .env.example              # Web base template
+│   ├── .env.local.example        # Web local development
+│   ├── .env.development.example  # Web cloud development
+│   └── .env.production.example   # Web production
+└── tools/
+    └── check-env.mjs             # Environment verification utility
+```
+
+**Security notes**:
+- Never commit real `.env` files (only `.example` files are tracked)
+- Server-only secrets (like `SUPABASE_SERVICE_ROLE_KEY`) are never exposed to the browser
+- Client-safe variables use `NEXT_PUBLIC_` prefix
+- Use GitHub Secrets for CI/CD environment variables
 
 ### 5. Start Local Development
 

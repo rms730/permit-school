@@ -4,10 +4,17 @@ npm-debug.log*
 pnpm-lock.yaml
 yarn.lock
 
-# Env
+# Env files
 .env
 .env.local
-.env.*.local
+.env.dev
+.env.prod
+web/.env
+web/.env.local
+web/.env.development
+web/.env.production
+# But keep examples
+!*.example
 
 # Supabase local dev
 .supabase/

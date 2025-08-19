@@ -1,9 +1,11 @@
+<!-- markdownlint-disable MD025 MD031 MD032 -->
 ---
 title: "Local Development"
 owner: "Engineering"
 last_reviewed: "2025-01-27"
 status: "authoritative"
 related:
+
   - </docs/ENVIRONMENT_SETUP.md>
   - </docs/TESTING.md>
   - </docs/WEB_ARCHITECTURE.md>
@@ -335,6 +337,7 @@ NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 ```
 
 **Environment Management**:
+
 ```bash
 # Setup environment files
 npm run env:copy

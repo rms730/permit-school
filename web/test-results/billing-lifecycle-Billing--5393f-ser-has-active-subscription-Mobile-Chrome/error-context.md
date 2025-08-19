@@ -1,0 +1,45 @@
+# Page snapshot
+
+```yaml
+- link "Skip to main content":
+  - /url: "#main"
+- main:
+  - heading "Billing & Subscription" [level=6]
+  - link "Home":
+    - /url: /
+  - link "Courses":
+    - /url: /course/CA/DE-ONLINE
+  - link "Admin":
+    - /url: /admin/logs
+  - link "Upgrade":
+    - /url: /billing
+  - button "0"
+  - link "Sign in":
+    - /url: /signin
+  - link "Privacy":
+    - /url: /privacy
+  - link "Terms":
+    - /url: /terms
+  - group:
+    - button "EN"
+    - button "ES"
+  - heading "Billing & Subscription" [level=4]
+  - heading "Upgrade to Premium" [level=6]
+  - paragraph: Get access to all course units and features with our premium subscription.
+  - heading "$9.99" [level=5]
+  - paragraph: per month
+  - paragraph: ✓ Access to all course units
+  - paragraph: ✓ Unlimited practice quizzes
+  - paragraph: ✓ Progress tracking
+  - button "Subscribe Now"
+- contentinfo:
+  - paragraph: © 2025 Permit School. All rights reserved.
+  - navigation "Footer navigation":
+    - link "Privacy":
+      - /url: /privacy
+    - link "Terms":
+      - /url: /terms
+    - link "Accessibility":
+      - /url: /accessibility
+- alert
+```

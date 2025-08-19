@@ -1,0 +1,63 @@
+# Page snapshot
+
+```yaml
+- link "Skip to main content":
+  - /url: "#main"
+- main:
+  - link "Skip to content":
+    - /url: "#content"
+  - link "Permit School":
+    - /url: /en
+  - button "Header.nav.how"
+  - button "Header.nav.practice"
+  - button "Header.nav.pricing"
+  - button "Header.nav.faq"
+  - link "Header.nav.signIn":
+    - /url: /en/login
+  - link "Header.nav.start":
+    - /url: /en/practice
+  - heading "Home.hero.title" [level=1]
+  - heading "Home.hero.subtitle" [level=5]
+  - link "Home.hero.primaryCta":
+    - /url: /practice
+  - link "Home.hero.secondaryCta":
+    - /url: "#how-it-works"
+  - text: DMV-style questions Instant explanations Mobile-friendly
+  - paragraph: Home.trust.badge
+  - link "Aligned with 2025 DMV handbook":
+    - /url: /handbook
+  - heading "✓" [level=4]
+  - heading "Interactive Practice Platform" [level=6]
+  - paragraph: Real DMV-style questions with instant feedback and progress tracking
+  - heading "Home.features.title" [level=2]
+  - heading "Modern learning designed for today's drivers" [level=5]
+  - list:
+    - listitem:
+      - heading "DMV-style questions" [level=3]
+      - paragraph: Practice with items modeled on the official handbook.
+    - listitem:
+      - heading "Personalized review" [level=3]
+      - paragraph: Fix weak spots with smart explanations.
+    - listitem:
+      - heading "Audio & read-along" [level=3]
+      - paragraph: Learn hands-free on the go.
+    - listitem:
+      - heading "Progress that sticks" [level=3]
+      - paragraph: Resume anywhere—phone, tablet, or laptop.
+    - listitem:
+      - heading "Bite-size lessons" [level=3]
+      - paragraph: Short sessions that fit your day, from 5 to 15 minutes.
+    - listitem:
+      - heading "Try free—cancel anytime" [level=3]
+      - paragraph: Start in 60 seconds. No credit card for the free plan.
+- contentinfo:
+  - paragraph: © 2025 Permit School. All rights reserved.
+  - navigation "Footer navigation":
+    - link "Privacy":
+      - /url: /privacy
+    - link "Terms":
+      - /url: /terms
+    - link "Accessibility":
+      - /url: /accessibility
+- alert
+```

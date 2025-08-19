@@ -63,7 +63,7 @@ export async function POST(req: Request) {
       );
     }
 
-    if (attempt.courses.programs.kind !== 'test_prep') {
+    if (attempt.courses[0]?.programs[0]?.kind !== 'test_prep') {
       return NextResponse.json(
         { error: "Attempt is not for a test prep course", code: "INVALID_COURSE_TYPE" },
         { status: 400 },
@@ -188,8 +188,8 @@ export async function POST(req: Request) {
         .eq("id", section.id);
 
       sectionResults.push({
-        sectionCode: section.test_sections.code,
-        sectionName: section.test_sections.name,
+        sectionCode: section.test_sections[0]?.code,
+        sectionName: section.test_sections[0]?.name,
         rawScore,
         scaledScore,
         timeLimitSec: section.time_limit_sec,

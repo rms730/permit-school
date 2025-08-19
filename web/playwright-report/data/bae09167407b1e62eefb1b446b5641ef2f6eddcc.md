@@ -1,0 +1,41 @@
+# Page snapshot
+
+```yaml
+- link "Skip to main content":
+  - /url: "#main"
+- main:
+  - button "open drawer"
+  - text: Permit School
+  - button "Sign In"
+  - main:
+    - heading "Welcome back! 👋" [level=1]
+    - heading "Ready to continue your learning journey?" [level=6]
+    - heading "Your Progress" [level=5]
+    - paragraph: Active Enrollments
+    - heading "0" [level=3]
+    - paragraph: Total Seat Time
+    - heading "0 min" [level=3]
+    - button "Continue Learning"
+    - heading "Exam Eligibility" [level=5]
+    - text: Not Eligible
+    - button "Take Exam" [disabled]
+    - heading "Quick Actions" [level=5]
+    - button "Browse Courses"
+    - button "Edit Profile"
+    - button "Manage Billing"
+    - button "Take Exam"
+  - button "Home"
+  - button "Learn"
+  - button "Notifications"
+  - button "Profile"
+- contentinfo:
+  - paragraph: © 2025 Permit School. All rights reserved.
+  - navigation "Footer navigation":
+    - link "Privacy":
+      - /url: /privacy
+    - link "Terms":
+      - /url: /terms
+    - link "Accessibility":
+      - /url: /accessibility
+- alert
+```

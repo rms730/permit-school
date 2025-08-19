@@ -65,7 +65,7 @@ export async function GET(
     }
 
     // Verify ownership
-    if (outcome.attempts.student_id !== user.id) {
+    if (outcome.attempts[0]?.student_id !== user.id) {
       return NextResponse.json(
         { error: "Unauthorized", code: "UNAUTHORIZED" },
         { status: 403 },
@@ -73,7 +73,7 @@ export async function GET(
     }
 
     // Verify this is a test prep course
-    if (outcome.attempts.courses.programs.kind !== 'test_prep') {
+    if (outcome.attempts[0]?.courses[0]?.programs[0]?.kind !== 'test_prep') {
       return NextResponse.json(
         { error: "Invalid course type", code: "INVALID_COURSE_TYPE" },
         { status: 400 },
@@ -106,14 +106,14 @@ export async function GET(
 
     // Calculate timing statistics
     const timingStats = attemptSections?.map(section => {
-      const startTime = new Date(section.started_at || outcome.attempts.completed_at);
-      const endTime = new Date(section.ended_at || outcome.attempts.completed_at);
+      const startTime = new Date(section.started_at || outcome.attempts[0]?.completed_at);
+      const endTime = new Date(section.ended_at || outcome.attempts[0]?.completed_at);
       const durationMs = endTime.getTime() - startTime.getTime();
       const durationSec = Math.round(durationMs / 1000);
       
       return {
-        sectionCode: section.test_sections.code,
-        sectionName: section.test_sections.name,
+        sectionCode: section.test_sections[0]?.code,
+        sectionName: section.test_sections[0]?.name,
         timeLimitSec: section.time_limit_sec,
         actualTimeSec: durationSec,
         timeRemainingSec: Math.max(0, section.time_limit_sec - durationSec),
@@ -160,15 +160,15 @@ export async function GET(
     // Build comprehensive score report
     const scoreReport = {
       attemptId,
-      testCode: outcome.attempts.standardized_tests?.code,
-      testName: outcome.attempts.standardized_tests?.name,
-      courseCode: outcome.attempts.courses.code,
-      courseTitle: outcome.attempts.courses.title,
-      completedAt: outcome.attempts.completed_at,
-      overall: {
-        rawScore: outcome.attempts.raw_score,
-        scaledScore: outcome.attempts.scaled_score,
-      },
+      testCode: outcome.attempts[0]?.standardized_tests[0]?.code,
+      testName: outcome.attempts[0]?.standardized_tests[0]?.name,
+              courseCode: outcome.attempts[0]?.courses[0]?.code,
+        courseTitle: outcome.attempts[0]?.courses[0]?.title,
+              completedAt: outcome.attempts[0]?.completed_at,
+              overall: {
+          rawScore: outcome.attempts[0]?.raw_score,
+          scaledScore: outcome.attempts[0]?.scaled_score,
+        },
       sections: outcome.payload.sections || [],
       timing: timingStats,
       skills: skillAnalysis,

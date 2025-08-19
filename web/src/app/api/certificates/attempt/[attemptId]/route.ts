@@ -69,7 +69,7 @@ export async function POST(
     }
 
     // Verify this is a permit course
-    if (attempt.courses.programs.kind !== 'permit') {
+    if (attempt.courses[0]?.programs[0]?.kind !== 'permit') {
       return NextResponse.json(
         { error: "Certificates are only available for permit courses", code: "INVALID_COURSE_TYPE" },
         { status: 400 },
@@ -123,8 +123,8 @@ export async function POST(
     const { data: lastCert } = await adminSupabase
       .from("certificates")
       .select("dl_serial")
-      .eq("jurisdiction_id", attempt.courses.jurisdiction_id)
-      .like("dl_serial", `${attempt.courses.jurisdictions.code}-${year}-%`)
+      .eq("jurisdiction_id", attempt.courses[0].jurisdiction_id)
+      .like("dl_serial", `${attempt.courses[0].jurisdictions[0].code}-${year}-%`)
       .order("dl_serial", { ascending: false })
       .limit(1)
       .single();
@@ -136,7 +136,7 @@ export async function POST(
       sequence = lastSequence + 1;
     }
 
-    const certificateNumber = `${attempt.courses.jurisdictions.code}-${year}-${sequence.toString().padStart(4, '0')}`;
+    const certificateNumber = `${attempt.courses[0].jurisdictions[0].code}-${year}-${sequence.toString().padStart(4, '0')}`;
 
     // Create certificate record
     const { data: certificate, error: certError } = await adminSupabase
@@ -144,14 +144,14 @@ export async function POST(
       .insert({
         student_id: user.id,
         course_id: attempt.course_id,
-        jurisdiction_id: attempt.courses.jurisdiction_id,
+        jurisdiction_id: attempt.courses[0].jurisdiction_id,
         dl_serial: certificateNumber,
         status: 'ready',
         ship_to: {
           name: profile?.full_name || 'Student',
           address1: 'Online Course',
           city: 'Online',
-          state: attempt.courses.jurisdictions.code,
+          state: attempt.courses[0].jurisdictions[0].code,
           zip: '00000'
         },
         passed_at: attempt.completed_at,
@@ -171,14 +171,14 @@ export async function POST(
     const certificatePayload = {
       certificateId: certificate.id,
       certificateNumber: certificate.dl_serial,
-      jurisdictionCode: attempt.courses.jurisdictions.code,
-      jurisdictionName: attempt.courses.jurisdictions.name,
-      courseCode: attempt.courses.code,
-      courseTitle: attempt.courses.title,
+      jurisdictionCode: attempt.courses[0].jurisdictions[0].code,
+      jurisdictionName: attempt.courses[0].jurisdictions[0].name,
+      courseCode: attempt.courses[0].code,
+      courseTitle: attempt.courses[0].title,
       studentName: profile?.full_name || 'Student',
       passedAt: attempt.completed_at,
       score: attempt.score,
-      certificateType: attempt.courses.jurisdictions.certificate_type,
+      certificateType: attempt.courses[0].jurisdictions[0].certificate_type,
     };
 
     const { error: outcomeError } = await adminSupabase

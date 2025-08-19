@@ -62,7 +62,7 @@ export async function POST(req: Request) {
       );
     }
 
-    if (course.programs.kind !== 'test_prep') {
+    if (course.programs[0]?.kind !== 'test_prep') {
       return NextResponse.json(
         { error: "Course is not a test prep course", code: "INVALID_COURSE_TYPE" },
         { status: 400 },

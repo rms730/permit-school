@@ -19,9 +19,9 @@ CREATE TABLE IF NOT EXISTS public.exam_blueprints (
     course_id UUID NOT NULL REFERENCES public.courses(id) ON DELETE CASCADE,
     name TEXT NOT NULL,
     total_questions INT NOT NULL CHECK (total_questions > 0),
-    test_id uuid REFERENCES public.standardized_tests(id) ON DELETE SET NULL,
-    time_limit_sec int CHECK (time_limit_sec IS NULL OR time_limit_sec > 0),
-    is_active BOOLEAN NOT NULL DEFAULT false,
+    test_id UUID REFERENCES public.standardized_tests(id) ON DELETE SET NULL,
+    time_limit_sec INT CHECK (time_limit_sec IS NULL OR time_limit_sec > 0),
+    is_active BOOLEAN NOT NULL DEFAULT FALSE,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
@@ -36,8 +36,8 @@ CREATE TABLE IF NOT EXISTS public.exam_blueprint_rules (
     max_difficulty SMALLINT CHECK (max_difficulty BETWEEN 1 AND 5),
     include_tags TEXT[] DEFAULT '{}'::TEXT[],
     exclude_tags TEXT[] DEFAULT '{}'::TEXT[],
-    section_id uuid REFERENCES public.test_sections(id) ON DELETE SET NULL,
-    tags_any text[] DEFAULT NULL,
+    section_id UUID REFERENCES public.test_sections(id) ON DELETE SET NULL,
+    tags_any TEXT[] DEFAULT NULL,
     PRIMARY KEY (blueprint_id, rule_no)
 );
 
@@ -58,7 +58,7 @@ CREATE INDEX IF NOT EXISTS idx_qb_course_skill_diff_tags
 -- Create unique constraint for one active blueprint per course
 CREATE UNIQUE INDEX IF NOT EXISTS exam_blueprints_one_active_per_course_idx
     ON public.exam_blueprints (course_id)
-    WHERE is_active = true;
+    WHERE is_active = TRUE;
 
 -- Add updated_at trigger to question_bank
 DROP TRIGGER IF EXISTS question_bank_updated_at_trigger ON public.question_bank;
@@ -81,7 +81,7 @@ ALTER TABLE public.exam_blueprint_rules ENABLE ROW LEVEL SECURITY;
 -- RLS policies for exam blueprints
 CREATE POLICY exam_blueprints_select_all
     ON public.exam_blueprints FOR SELECT
-    USING (true);
+    USING (TRUE);
 
 CREATE POLICY exam_blueprints_admin_all
     ON public.exam_blueprints FOR ALL
@@ -90,7 +90,7 @@ CREATE POLICY exam_blueprints_admin_all
 -- RLS policies for exam blueprint rules
 CREATE POLICY exam_blueprint_rules_select_all
     ON public.exam_blueprint_rules FOR SELECT
-    USING (true);
+    USING (TRUE);
 
 CREATE POLICY exam_blueprint_rules_admin_all
     ON public.exam_blueprint_rules FOR ALL

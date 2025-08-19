@@ -189,11 +189,15 @@ supabase db push
 **Environment variables not loading**:
 
 ```bash
-# Verify .env.local exists
-ls -la web/.env.local
+# Verify environment files exist
+ls -la .env.local web/.env.local
 
 # Check variable names
+cat .env.local | grep SUPABASE
 cat web/.env.local | grep SUPABASE
+
+# Verify environment setup
+npm run env:check:local
 ```
 
 **Port conflicts**:
@@ -314,13 +318,29 @@ curl http://localhost:3000/api/health
 **Development vs Production**:
 
 ```bash
-# Development (.env.local)
+# Local Development (.env.local files)
+# Root: .env.local
+SUPABASE_URL=http://localhost:54321
+SUPABASE_SERVICE_ROLE_KEY=...
+OPENAI_API_KEY=...
+
+# Web: web/.env.local  
 NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+SUPABASE_SERVICE_ROLE_KEY=...
 
 # Production (environment variables)
+SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+```
+
+**Environment Management**:
+```bash
+# Setup environment files
+npm run env:copy
+
+# Verify configuration
+npm run env:check:local
 ```
 
 ## Best Practices
@@ -349,10 +369,11 @@ git push -u origin feature/your-feature
 
 ### Environment Management
 
-- **Never commit secrets** - Use `.env.local` for local development
+- **Never commit secrets** - Use `.env.local` files for local development
 - **Use environment variables** - For production configuration
 - **Test with real data** - Use testkit for E2E tests
 - **Reset frequently** - Keep database clean
+- **Verify setup** - Use `npm run env:check:local` to validate configuration
 
 ## Troubleshoot
 

@@ -3,3 +3,7 @@
 /.env*
 *.tsbuildinfo
 .env.local
+
+# Test artifacts
+/test-results
+/playwright-report

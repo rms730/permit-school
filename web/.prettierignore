@@ -1,21 +1,16 @@
 # Dependencies
 node_modules/
-**/node_modules/
 
 # Build artifacts
 .next/
 out/
 dist/
 build/
-**/build/
 
 # Test artifacts
 test-results/
-**/test-results/
 playwright-report/
-**/playwright-report/
 coverage/
-**/coverage/
 
 # Generated files
 *.log
@@ -28,11 +23,3 @@ coverage/
 # OS files
 .DS_Store
 Thumbs.db
-
-# Supabase generated
-supabase/.branches/
-supabase/.temp/
-
-# Artifacts
-.artifacts_ci/
-*/.artifacts_ci/

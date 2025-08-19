@@ -181,6 +181,55 @@ export class TestkitAPI {
 
     return response.json();
   }
+
+  // New methods for dual product lines
+  async seedPrograms() {
+    const response = await fetch(`${this.baseURL}/api/testkit/programs/seed`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${this.token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok()) {
+      throw new Error(`Programs seeding failed: ${await response.text()}`);
+    }
+
+    return response.json();
+  }
+
+  async seedPrepTests() {
+    const response = await fetch(`${this.baseURL}/api/testkit/prep/seed-tests`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${this.token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok()) {
+      throw new Error(`Prep tests seeding failed: ${await response.text()}`);
+    }
+
+    return response.json();
+  }
+
+  async seedPrepBlueprints() {
+    const response = await fetch(`${this.baseURL}/api/testkit/prep/seed-blueprints`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${this.token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok()) {
+      throw new Error(`Prep blueprints seeding failed: ${await response.text()}`);
+    }
+
+    return response.json();
+  }
 }
 
 export async function getTestkitAPI(page: Page): Promise<TestkitAPI> {
@@ -217,3 +266,78 @@ export function getTestMinorUser(): TestUser {
   }
   return JSON.parse(userStr);
 }
+
+// Convenience functions for the new test structure
+export const testkit = {
+  async reset() {
+    const baseURL = process.env.BASE_URL || 'http://localhost:3000';
+    const token = process.env.TESTKIT_TOKEN;
+    
+    if (!token) {
+      throw new Error('TESTKIT_TOKEN environment variable is required');
+    }
+
+    const api = new TestkitAPI(baseURL, token);
+    return api.reset();
+  },
+
+  async seedPrograms() {
+    const baseURL = process.env.BASE_URL || 'http://localhost:3000';
+    const token = process.env.TESTKIT_TOKEN;
+    
+    if (!token) {
+      throw new Error('TESTKIT_TOKEN environment variable is required');
+    }
+
+    const api = new TestkitAPI(baseURL, token);
+    return api.seedPrograms();
+  },
+
+  async seedPrepTests() {
+    const baseURL = process.env.BASE_URL || 'http://localhost:3000';
+    const token = process.env.TESTKIT_TOKEN;
+    
+    if (!token) {
+      throw new Error('TESTKIT_TOKEN environment variable is required');
+    }
+
+    const api = new TestkitAPI(baseURL, token);
+    return api.seedPrepTests();
+  },
+
+  async seedPrepBlueprints() {
+    const baseURL = process.env.BASE_URL || 'http://localhost:3000';
+    const token = process.env.TESTKIT_TOKEN;
+    
+    if (!token) {
+      throw new Error('TESTKIT_TOKEN environment variable is required');
+    }
+
+    const api = new TestkitAPI(baseURL, token);
+    return api.seedPrepBlueprints();
+  },
+
+  async createUser(role: 'student' | 'admin' = 'student') {
+    const baseURL = process.env.BASE_URL || 'http://localhost:3000';
+    const token = process.env.TESTKIT_TOKEN;
+    
+    if (!token) {
+      throw new Error('TESTKIT_TOKEN environment variable is required');
+    }
+
+    const api = new TestkitAPI(baseURL, token);
+    return api.createUser({ admin: role === 'admin' });
+  },
+
+  async login(email: string, password: string) {
+    // This would need to be implemented based on your auth system
+    // For now, we'll assume the test user is already authenticated
+    return { email, password };
+  },
+
+  async getAuthCookie() {
+    // This would need to be implemented based on your auth system
+    // For now, return a placeholder
+    return 'auth-token=test-token';
+  }
+};

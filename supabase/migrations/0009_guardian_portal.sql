@@ -51,7 +51,7 @@ SELECT
     j.code AS j_code,
     c.code AS course_code,
     c.title AS course_title,
-    COALESCE(SUM(ste.ms_delta) / 60000.0, 0) AS minutes_total,
+    COALESCE(COUNT(ste.id), 0) AS events_total,
     COALESCE(MAX(a.score) FILTER (WHERE a.mode = 'final'), NULL) AS final_exam_score,
     COALESCE(MAX(a.completed_at) FILTER (WHERE a.mode = 'final'), NULL) AS final_exam_completed,
     EXISTS(
@@ -59,7 +59,7 @@ SELECT
         FROM public.certificates AS cert
         WHERE cert.student_id = ste.student_id
             AND cert.course_id = ste.course_id
-            AND cert.status IN ('draft','ready')
+            AND cert.status = 'ready'
     ) AS has_certificate
 FROM public.guardian_links AS gl
 INNER JOIN public.seat_time_events AS ste

@@ -22,9 +22,20 @@ BEGIN
     END IF;
 END $$;
 
+-- Ensure localized fields exist where helpful
+ALTER TABLE public.course_units
+    ADD COLUMN IF NOT EXISTS title_i18n jsonb NOT NULL DEFAULT '{}'::jsonb;
+
+ALTER TABLE public.question_bank
+    ADD COLUMN IF NOT EXISTS locale text NOT NULL DEFAULT 'en',
+    ADD COLUMN IF NOT EXISTS stem_i18n jsonb NOT NULL DEFAULT '{}'::jsonb,
+    ADD COLUMN IF NOT EXISTS explanation_i18n jsonb NOT NULL DEFAULT '{}'::jsonb;
+
+CREATE INDEX IF NOT EXISTS idx_question_locale ON public.question_bank(locale);
+
 -- Index for seat time queries
 CREATE INDEX IF NOT EXISTS seat_time_events_student_unit_idx
-    ON public.seat_time_events (student_id, unit_id, created_at);
+    ON public.seat_time_events (student_id, unit_id, timestamp);
 
 -- Enable RLS on new tables
 ALTER TABLE public.unit_chunks ENABLE ROW LEVEL SECURITY;
@@ -58,11 +69,12 @@ CREATE POLICY "seat_time_events_select_own_or_admin" ON public.seat_time_events
     );
 
 -- Seed CA DE-ONLINE course units
-INSERT INTO public.course_units (course_id, unit_no, title, minutes_required)
+INSERT INTO public.course_units (course_id, unit_no, title, title_i18n, minutes_required)
 SELECT
     c.id AS course_id,
     1 AS unit_no,
     'Traffic Basics' AS title,
+    '{"en": "Traffic Basics", "es": "Conceptos Básicos de Tráfico"}' AS title_i18n,
     30 AS minutes_required
 FROM public.courses AS c
 WHERE
@@ -75,11 +87,12 @@ WHERE
     )
 ON CONFLICT (course_id, unit_no) DO NOTHING;
 
-INSERT INTO public.course_units (course_id, unit_no, title, minutes_required)
+INSERT INTO public.course_units (course_id, unit_no, title, title_i18n, minutes_required)
 SELECT
     c.id AS course_id,
     2 AS unit_no,
     'Signs and Signals' AS title,
+    '{"en": "Signs and Signals", "es": "Señales y Semáforos"}' AS title_i18n,
     25 AS minutes_required
 FROM public.courses AS c
 WHERE
@@ -92,11 +105,12 @@ WHERE
     )
 ON CONFLICT (course_id, unit_no) DO NOTHING;
 
-INSERT INTO public.course_units (course_id, unit_no, title, minutes_required)
+INSERT INTO public.course_units (course_id, unit_no, title, title_i18n, minutes_required)
 SELECT
     c.id AS course_id,
     3 AS unit_no,
     'Safe Driving Practices' AS title,
+    '{"en": "Safe Driving Practices", "es": "Prácticas de Conducción Segura"}' AS title_i18n,
     35 AS minutes_required
 FROM public.courses AS c
 WHERE

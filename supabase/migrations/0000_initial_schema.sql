@@ -22,7 +22,58 @@ BEGIN
     IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'deletion_status') THEN
         CREATE TYPE deletion_status AS ENUM ('pending', 'confirmed', 'executed', 'canceled');
     END IF;
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'program_kind') THEN
+        CREATE TYPE program_kind AS ENUM ('permit', 'test_prep');
+    END IF;
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'attempt_kind') THEN
+        CREATE TYPE attempt_kind AS ENUM ('quiz','mock','final','diagnostic','section_practice');
+    END IF;
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'outcome_kind') THEN
+        CREATE TYPE outcome_kind AS ENUM ('certificate','score_report','badge');
+    END IF;
 END$$;
+
+-- Programs (permit vs test prep)
+CREATE TABLE IF NOT EXISTS public.programs (
+    id            uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    code          text UNIQUE NOT NULL, -- e.g., 'PERMIT', 'ACT', 'SAT'
+    kind          program_kind NOT NULL,
+    title         text NOT NULL,
+    title_i18n    jsonb NOT NULL DEFAULT '{}'::jsonb,
+    is_active     boolean NOT NULL DEFAULT true,
+    created_at    timestamptz NOT NULL DEFAULT now(),
+    updated_at    timestamptz NOT NULL DEFAULT now()
+);
+
+-- Standardized tests (for college prep)
+CREATE TABLE IF NOT EXISTS public.standardized_tests (
+    id          uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    code        text UNIQUE NOT NULL,      -- 'ACT', 'SAT'
+    name        text NOT NULL,
+    is_active   boolean NOT NULL DEFAULT true,
+    metadata    jsonb NOT NULL DEFAULT '{}'::jsonb  -- freeform: references, disclaimers
+);
+
+-- Test sections (e.g., ACT: ENGLISH, MATH, READING, SCIENCE)
+CREATE TABLE IF NOT EXISTS public.test_sections (
+    id             uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    test_id        uuid NOT NULL REFERENCES public.standardized_tests(id) ON DELETE CASCADE,
+    code           text NOT NULL,          -- e.g., 'ENGLISH','MATH_NC','MATH_C','READING','WRITING' etc.
+    name           text NOT NULL,
+    order_no       int  NOT NULL,
+    time_limit_sec int  NOT NULL CHECK (time_limit_sec > 0),
+    UNIQUE(test_id, code)
+);
+
+-- Raw→scaled scoring (lookup tables allow future GMAT/GRE)
+CREATE TABLE IF NOT EXISTS public.score_scales (
+    id             uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    test_id        uuid NOT NULL REFERENCES public.standardized_tests(id) ON DELETE CASCADE,
+    section_id     uuid REFERENCES public.test_sections(id) ON DELETE CASCADE, -- NULL = composite/overall scale (ACT composite, SAT total)
+    raw_score      int  NOT NULL,
+    scaled_score   int  NOT NULL,
+    UNIQUE(test_id, section_id, raw_score)
+);
 
 -- Jurisdictions (e.g., CA, TX)
 CREATE TABLE IF NOT EXISTS public.jurisdictions (
@@ -33,16 +84,18 @@ CREATE TABLE IF NOT EXISTS public.jurisdictions (
     metadata jsonb DEFAULT '{}'::jsonb
 );
 
--- Courses (per jurisdiction)
+-- Courses (per jurisdiction or program)
 CREATE TABLE IF NOT EXISTS public.courses (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    jurisdiction_id int NOT NULL REFERENCES public.jurisdictions(id) ON DELETE RESTRICT,
-    code text NOT NULL,         -- e.g., 'DE-ONLINE'
+    jurisdiction_id int REFERENCES public.jurisdictions(id) ON DELETE RESTRICT,
+    program_id uuid REFERENCES public.programs(id) ON DELETE RESTRICT,
+    code text NOT NULL,         -- e.g., 'DE-ONLINE', 'ACT-PREP-101'
     title text NOT NULL,
     price_cents int NOT NULL DEFAULT 999,
     hours_required_minutes int, -- e.g., CA equivalency 30*50=1500
     active boolean DEFAULT true,
-    UNIQUE (jurisdiction_id, code)
+    locale text NOT NULL DEFAULT 'en', -- for default course locale
+    UNIQUE (jurisdiction_id, program_id, code)
 );
 
 -- Course units
@@ -51,6 +104,7 @@ CREATE TABLE IF NOT EXISTS public.course_units (
     course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE CASCADE,
     unit_no integer NOT NULL,
     title text NOT NULL,
+    title_i18n jsonb NOT NULL DEFAULT '{}'::jsonb,
     minutes_required integer NOT NULL,
     objectives text,
     is_published boolean NOT NULL DEFAULT false,
@@ -94,13 +148,33 @@ CREATE TABLE IF NOT EXISTS public.attempts (
     student_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
     course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE RESTRICT,
     mode attempt_mode NOT NULL,
+    kind attempt_kind NOT NULL DEFAULT 'quiz',
+    test_id uuid REFERENCES public.standardized_tests(id) ON DELETE SET NULL,
     score numeric,
+    total_time_sec int DEFAULT NULL,
+    scaled_score int DEFAULT NULL,  -- overall scaled (ACT composite/SAT total)
+    raw_score int DEFAULT NULL,
     started_at timestamptz DEFAULT now(),
     completed_at timestamptz
 );
 
+-- Sectioned attempts (for standardized tests)
+CREATE TABLE IF NOT EXISTS public.attempt_sections (
+    id            uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    attempt_id    uuid NOT NULL REFERENCES public.attempts(id) ON DELETE CASCADE,
+    section_id    uuid REFERENCES public.test_sections(id) ON DELETE SET NULL,
+    order_no      int NOT NULL,
+    started_at    timestamptz,
+    ended_at      timestamptz,
+    time_limit_sec int,
+    raw_score     int DEFAULT 0,
+    scaled_score  int DEFAULT NULL,
+    UNIQUE(attempt_id, order_no)
+);
+
 CREATE TABLE IF NOT EXISTS public.attempt_items (
     attempt_id uuid NOT NULL REFERENCES public.attempts(id) ON DELETE CASCADE,
+    attempt_section_id uuid REFERENCES public.attempt_sections(id) ON DELETE CASCADE,
     item_no smallint NOT NULL,
     skill text NOT NULL,
     stem text NOT NULL,
@@ -110,6 +184,17 @@ CREATE TABLE IF NOT EXISTS public.attempt_items (
     correct boolean,
     source_sections text[] DEFAULT '{}'::text[],
     PRIMARY KEY (attempt_id, item_no)
+);
+
+-- Outcomes (certificates vs score reports)
+CREATE TABLE IF NOT EXISTS public.outcomes (
+    id            uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    kind          outcome_kind NOT NULL,
+    user_id       uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    attempt_id    uuid REFERENCES public.attempts(id) ON DELETE SET NULL,
+    course_id     uuid REFERENCES public.courses(id) ON DELETE SET NULL,
+    payload       jsonb NOT NULL DEFAULT '{}'::jsonb, -- e.g., certificate metadata or score JSON
+    created_at    timestamptz NOT NULL DEFAULT now()
 );
 
 -- Mastery (EWMA)
@@ -129,10 +214,13 @@ CREATE TABLE IF NOT EXISTS public.question_bank (
     skill text NOT NULL,
     difficulty smallint NOT NULL CHECK (difficulty BETWEEN 1 AND 5),
     stem text NOT NULL,
+    stem_i18n jsonb NOT NULL DEFAULT '{}'::jsonb,
     choices jsonb NOT NULL,
     answer text NOT NULL,
     explanation text NOT NULL,
+    explanation_i18n jsonb NOT NULL DEFAULT '{}'::jsonb,
     source_sections text[] NOT NULL,
+    locale text NOT NULL DEFAULT 'en',
     is_generated boolean DEFAULT false,
     created_at timestamptz DEFAULT now()
 );
@@ -335,8 +423,17 @@ CREATE INDEX IF NOT EXISTS seat_time_events_student_course_idx
 CREATE INDEX IF NOT EXISTS consents_user_id_idx ON public.consents USING btree (user_id);
 CREATE INDEX IF NOT EXISTS notifications_user_id_idx ON public.notifications USING btree (user_id);
 CREATE INDEX IF NOT EXISTS audit_logs_actor_user_id_idx ON public.audit_logs USING btree (actor_user_id);
+CREATE INDEX IF NOT EXISTS question_locale_idx ON public.question_bank(locale);
+CREATE INDEX IF NOT EXISTS outcomes_user_id_idx ON public.outcomes(user_id);
+CREATE INDEX IF NOT EXISTS outcomes_attempt_id_idx ON public.outcomes(attempt_id);
+CREATE INDEX IF NOT EXISTS attempt_sections_attempt_id_idx ON public.attempt_sections(attempt_id);
+CREATE INDEX IF NOT EXISTS score_scales_test_section_idx ON public.score_scales(test_id, section_id);
 
 -- Enable RLS on all tables
+ALTER TABLE public.programs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.standardized_tests ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.test_sections ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.score_scales ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.jurisdictions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.courses ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.course_units ENABLE ROW LEVEL SECURITY;
@@ -344,7 +441,9 @@ ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.guardian_links ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.unit_progress ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.attempts ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.attempt_sections ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.attempt_items ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.outcomes ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.skill_mastery ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.question_bank ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.content_chunks ENABLE ROW LEVEL SECURITY;
@@ -372,16 +471,26 @@ INSERT INTO public.jurisdictions (code, name, certificate_type)
 VALUES ('TX', 'Texas', null)
 ON CONFLICT (code) DO NOTHING;
 
--- Link default course for CA
-INSERT INTO public.courses (jurisdiction_id, code, title, price_cents, hours_required_minutes)
+-- Insert initial programs
+INSERT INTO public.programs (code, kind, title, title_i18n)
+VALUES 
+    ('PERMIT', 'permit', 'Driver Permits', '{"en": "Driver Permits", "es": "Permisos de Conducir"}'),
+    ('ACT', 'test_prep', 'ACT Test Prep', '{"en": "ACT Test Prep", "es": "Preparación para ACT"}'),
+    ('SAT', 'test_prep', 'SAT Test Prep', '{"en": "SAT Test Prep", "es": "Preparación para SAT"}')
+ON CONFLICT (code) DO NOTHING;
+
+-- Link default course for CA (permit program)
+INSERT INTO public.courses (jurisdiction_id, program_id, code, title, price_cents, hours_required_minutes)
 SELECT
     j.id AS jurisdiction_id,
+    p.id AS program_id,
     'DE-ONLINE' AS code,
     'Online Driver Education' AS title,
     999 AS price_cents,
     1500 AS hours_required_minutes
 FROM public.jurisdictions AS j
-WHERE j.code = 'CA'
+CROSS JOIN public.programs AS p
+WHERE j.code = 'CA' AND p.code = 'PERMIT'
 ON CONFLICT DO NOTHING;
 
 -- Create billing views

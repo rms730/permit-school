@@ -34,11 +34,11 @@ BEGIN
             TO authenticated
             USING (
                 bucket_id = 'avatars'
-                AND (storage.foldername(name))[1] = safe_auth_uid()::text
+                AND (storage.foldername(name))[1] = auth.uid()::text
             )
             WITH CHECK (
                 bucket_id = 'avatars'
-                AND (storage.foldername(name))[1] = safe_auth_uid()::text
+                AND (storage.foldername(name))[1] = auth.uid()::text
             );
     END IF;
 END$$;
@@ -57,7 +57,7 @@ BEGIN
             USING (
                 bucket_id = 'avatars'
                 AND (
-                    (storage.foldername(name))[1] = safe_auth_uid()::text
+                    (storage.foldername(name))[1] = auth.uid()::text
                     OR (auth.jwt() -> 'app_metadata' ->> 'role') = 'admin'
                 )
             );

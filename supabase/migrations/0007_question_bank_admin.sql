@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS public.exam_blueprints (
     course_id UUID NOT NULL REFERENCES public.courses(id) ON DELETE CASCADE,
     name TEXT NOT NULL,
     total_questions INT NOT NULL CHECK (total_questions > 0),
+    test_id uuid REFERENCES public.standardized_tests(id) ON DELETE SET NULL,
+    time_limit_sec int CHECK (time_limit_sec IS NULL OR time_limit_sec > 0),
     is_active BOOLEAN NOT NULL DEFAULT false,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
@@ -34,6 +36,8 @@ CREATE TABLE IF NOT EXISTS public.exam_blueprint_rules (
     max_difficulty SMALLINT CHECK (max_difficulty BETWEEN 1 AND 5),
     include_tags TEXT[] DEFAULT '{}'::TEXT[],
     exclude_tags TEXT[] DEFAULT '{}'::TEXT[],
+    section_id uuid REFERENCES public.test_sections(id) ON DELETE SET NULL,
+    tags_any text[] DEFAULT NULL,
     PRIMARY KEY (blueprint_id, rule_no)
 );
 
@@ -46,6 +50,10 @@ CREATE INDEX IF NOT EXISTS question_bank_tags_gin_idx
 
 CREATE INDEX IF NOT EXISTS question_bank_search_idx
     ON public.question_bank USING gin (to_tsvector('english', coalesce(stem, '') || ' ' || coalesce(explanation, '')));
+
+-- Helpful partial index for sectioned selection
+CREATE INDEX IF NOT EXISTS idx_qb_course_skill_diff_tags
+    ON public.question_bank (course_id, skill, difficulty, tags);
 
 -- Create unique constraint for one active blueprint per course
 CREATE UNIQUE INDEX IF NOT EXISTS exam_blueprints_one_active_per_course_idx

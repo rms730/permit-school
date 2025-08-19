@@ -21,16 +21,9 @@ CREATE TABLE IF NOT EXISTS public.regulatory_runs (
         CHECK (period_start <= period_end)
 );
 
--- Regulatory artifacts table
-CREATE TABLE IF NOT EXISTS public.regulatory_artifacts (
-    run_id uuid NOT NULL REFERENCES public.regulatory_runs(id) ON DELETE CASCADE,
-    name text NOT NULL,
-    storage_path text NOT NULL,
-    sha256 text NOT NULL,
-    bytes bigint NOT NULL CHECK (bytes >= 0),
-    created_at timestamptz NOT NULL DEFAULT now(),
-    PRIMARY KEY (run_id, name)
-);
+-- Regulatory artifacts table (already exists in initial schema)
+-- Note: The existing regulatory_artifacts table has a different structure
+-- This migration focuses on regulatory_runs for now
 
 -- Create storage bucket for DMV reports
 INSERT INTO storage.buckets (id, name, public)
@@ -44,20 +37,19 @@ CREATE INDEX IF NOT EXISTS regulatory_runs_jurisdiction_course_period_idx
 CREATE INDEX IF NOT EXISTS regulatory_runs_created_at_idx
     ON public.regulatory_runs (created_at DESC);
 
-CREATE INDEX IF NOT EXISTS regulatory_artifacts_run_id_idx
-    ON public.regulatory_artifacts (run_id);
+-- Index removed - regulatory_artifacts table has different structure
 
 -- Supporting indexes for time-range queries
 CREATE INDEX IF NOT EXISTS attempts_completed_at_idx
     ON public.attempts (completed_at)
     WHERE completed_at IS NOT null;
 
-CREATE INDEX IF NOT EXISTS certificates_issued_at_idx
-    ON public.certificates (issued_at)
-    WHERE issued_at IS NOT null;
+CREATE INDEX IF NOT EXISTS certificates_passed_at_idx
+    ON public.certificates (passed_at)
+    WHERE passed_at IS NOT null;
 
-CREATE INDEX IF NOT EXISTS seat_time_events_created_at_idx
-    ON public.seat_time_events (created_at);
+CREATE INDEX IF NOT EXISTS seat_time_events_timestamp_idx
+    ON public.seat_time_events (timestamp);
 
 -- Enable RLS
 ALTER TABLE public.regulatory_runs ENABLE ROW LEVEL SECURITY;
@@ -69,6 +61,7 @@ CREATE POLICY regulatory_runs_admin_all
     USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
 
 -- RLS policies for regulatory_artifacts (admin only)
+-- Note: Using existing regulatory_artifacts table structure
 CREATE POLICY regulatory_artifacts_admin_all
     ON public.regulatory_artifacts FOR ALL
     USING ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');

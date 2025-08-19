@@ -82,8 +82,8 @@ nano web/.env.local      # Web app variables
 
 We use a multi-environment setup with separate files for different contexts:
 
-- **Root level** (`.env.local`, `.env.dev`, `.env.prod`) - For scripts, tools, and CI
-- **Web level** (`web/.env.local`, `web/.env.development`, `web/.env.production`) - For Next.js app
+- **Root level** (`.env.local`, `.env.dev`, `.env.prod`) - For scripts, tools, and CI (this step)
+- **Web level** (`web/.env.local`, `web/.env.development`, `web/.env.production`) - For Next.js app (handled separately)
 
 **Required environment variables**:
 

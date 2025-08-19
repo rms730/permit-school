@@ -20,23 +20,28 @@ The implementation introduces a **program-aware architecture** that cleanly supp
 ### New Tables
 
 1. **`programs`** - Product line classification
+
    - `code`: 'PERMIT', 'ACT', 'SAT'
    - `kind`: 'permit' or 'test_prep'
    - `title_i18n`: Localized titles
 
 2. **`standardized_tests`** - Test definitions
+
    - `code`: 'ACT', 'SAT'
    - `metadata`: Test-specific information and disclaimers
 
 3. **`test_sections`** - Test sections (e.g., ACT: English, Math, Reading, Science)
+
    - `order_no`: Section sequence
    - `time_limit_sec`: Section time limits
 
 4. **`score_scales`** - Raw-to-scaled score conversion
+
    - `section_id`: NULL for overall/composite scores
    - `raw_score` → `scaled_score` mapping
 
 5. **`attempt_sections`** - Section-level attempt tracking
+
    - Links attempts to test sections
    - Tracks timing and scores per section
 
@@ -75,12 +80,14 @@ The implementation introduces a **program-aware architecture** that cleanly supp
 ## Marketing Pages
 
 ### `/permits` - Driver Permits Landing
+
 - Hero section with permit-specific messaging
 - Features: DMV-approved content, flexible learning, progress tracking
 - Available states: California (active), Texas (coming soon)
 - Clear CTAs for signup and login
 
 ### `/prep` - College Test Prep Landing
+
 - Hero section with ACT/SAT focus
 - Test comparison: ACT (1-36) vs SAT (400-1600)
 - Features: Adaptive practice, detailed reports, personalized plans
@@ -90,18 +97,21 @@ The implementation introduces a **program-aware architecture** that cleanly supp
 ## Scoring System
 
 ### ACT Scoring
+
 - **Sections**: English, Math, Reading, Science
 - **Section scores**: 1-36 (raw → scaled conversion)
 - **Composite**: Average of section scores, rounded
 - **Timing**: 45m, 60m, 35m, 35m respectively
 
 ### SAT Scoring
+
 - **Sections**: Reading & Writing, Math
 - **Section scores**: 200-800 (raw → scaled conversion)
 - **Total**: Sum of section scores
 - **Timing**: 60m each section
 
 ### Score Scales
+
 - Fictional sample mappings for demonstration
 - Monotonic raw → scaled conversion
 - Separate scales for sections and overall scores
@@ -110,12 +120,14 @@ The implementation introduces a **program-aware architecture** that cleanly supp
 ## Security & RLS
 
 ### Row Level Security Policies
+
 - **Programs, tests, sections, scales**: Public read, admin write
 - **Attempt sections**: Owner read/write, admin read
 - **Outcomes**: Owner read, admin read/write
 - **Updated existing policies** for new schema
 
 ### Program Validation
+
 - Certificate generation only for `permit` programs
 - Score reports only for `test_prep` programs
 - API endpoints validate program type before processing
@@ -123,6 +135,7 @@ The implementation introduces a **program-aware architecture** that cleanly supp
 ## Testing
 
 ### Playwright E2E Tests
+
 - **`dual-product.spec.ts`** - Comprehensive test suite
 - Tests both product marketing pages
 - Verifies permit exam → certificate flow
@@ -131,6 +144,7 @@ The implementation introduces a **program-aware architecture** that cleanly supp
 - Validates sectioned attempts with timing
 
 ### Test Coverage
+
 - Marketing page rendering
 - API endpoint functionality
 - Outcome generation and validation
@@ -140,11 +154,13 @@ The implementation introduces a **program-aware architecture** that cleanly supp
 ## Seeding & Development
 
 ### Database Reset
+
 ```bash
 supabase db reset
 ```
 
 ### Seed Commands
+
 ```bash
 # Seed programs and courses
 curl -XPOST "$BASE_URL/api/testkit/programs/seed" -H "Authorization: Bearer $TESTKIT_TOKEN"
@@ -157,6 +173,7 @@ curl -XPOST "$BASE_URL/api/testkit/prep/seed-blueprints" -H "Authorization: Bear
 ```
 
 ### Sample Data
+
 - **Programs**: PERMIT, ACT, SAT
 - **Courses**: DE-ONLINE (permit), ACT-PREP-101, SAT-PREP-101
 - **Tests**: ACT (4 sections), SAT (2 sections)
@@ -166,11 +183,13 @@ curl -XPOST "$BASE_URL/api/testkit/prep/seed-blueprints" -H "Authorization: Bear
 ## Migration Strategy
 
 ### Database Migration
+
 - **Rebuild-friendly**: All changes in existing migration files
 - **Idempotent**: Safe to run multiple times
 - **Backward compatible**: Existing permit flows unchanged
 
 ### Code Migration
+
 - **Minimal changes** to existing permit code
 - **Program checks** in key decision points only
 - **New prep code** isolated in `/prep` routes
@@ -179,12 +198,14 @@ curl -XPOST "$BASE_URL/api/testkit/prep/seed-blueprints" -H "Authorization: Bear
 ## Future Extensibility
 
 ### Additional Tests
+
 - **GMAT**: Graduate school admissions
 - **GRE**: Graduate school admissions
 - **LSAT**: Law school admissions
 - **MCAT**: Medical school admissions
 
 ### Advanced Features
+
 - **Adaptive testing**: Multi-stage adaptivity
 - **Proctoring**: Lockdown browsers
 - **Analytics**: Detailed performance insights
@@ -193,15 +214,18 @@ curl -XPOST "$BASE_URL/api/testkit/prep/seed-blueprints" -H "Authorization: Bear
 ## Deployment Notes
 
 ### Environment Variables
+
 - No new environment variables required
 - Existing auth and database config unchanged
 
 ### Dependencies
+
 - No new npm packages required
 - Uses existing MUI components
 - Leverages existing Supabase setup
 
 ### Monitoring
+
 - New API endpoints should be monitored
 - Score scale lookups for performance
 - Section timing for user experience
@@ -214,17 +238,19 @@ curl -XPOST "$BASE_URL/api/testkit/prep/seed-blueprints" -H "Authorization: Bear
 ✅ **ACT/SAT mocks** produce score reports only  
 ✅ **Admin can manage** tests, sections, and scales  
 ✅ **RLS policies** enforce proper access control  
-✅ **Playwright tests** pass for both product lines  
+✅ **Playwright tests** pass for both product lines
 
 ## Files Modified
 
 ### Database
+
 - `supabase/migrations/0000_initial_schema.sql`
 - `supabase/migrations/0002_curriculum_admin.sql`
 - `supabase/migrations/0007_question_bank_admin.sql`
 - `supabase/migrations/0008_rls_policies.sql` (new)
 
 ### API Routes
+
 - `web/src/app/api/prep/attempt/create/route.ts` (new)
 - `web/src/app/api/prep/attempt/submit/route.ts` (new)
 - `web/src/app/api/prep/score-report/[attemptId]/route.ts` (new)
@@ -234,12 +260,15 @@ curl -XPOST "$BASE_URL/api/testkit/prep/seed-blueprints" -H "Authorization: Bear
 - `web/src/app/api/testkit/prep/seed-blueprints/route.ts` (new)
 
 ### Marketing Pages
+
 - `web/src/app/(public)/permits/page.tsx` (new)
 - `web/src/app/(public)/prep/page.tsx` (new)
 
 ### Tests
+
 - `web/tests/e2e/dual-product.spec.ts` (new)
 - `web/tests/e2e/utils/testkit.ts` (updated)
 
 ### Documentation
+
 - `DUAL_PRODUCT_IMPLEMENTATION.md` (this file)

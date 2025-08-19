@@ -129,19 +129,19 @@ export default function DiagnosticPage() {
       {/* What You'll Get Section */}
       <Box sx={{ py: 8, backgroundColor: '#f8fafc' }}>
         <Container maxWidth="lg">
-          <Typography
-            variant="h2"
-            component="h2"
-            sx={{
-              textAlign: 'center',
-              fontWeight: 700,
-              fontSize: { xs: '2rem', md: '2.5rem' },
-              mb: 6,
-              color: '#1e293b',
-            }}
-          >
-            What You'll Get
-          </Typography>
+                      <Typography
+              variant="h2"
+              component="h2"
+              sx={{
+                textAlign: 'center',
+                fontWeight: 700,
+                fontSize: { xs: '2rem', md: '2.5rem' },
+                mb: 6,
+                color: '#1e293b',
+              }}
+            >
+              What You&apos;ll Get
+            </Typography>
           <Grid container spacing={4}>
             <Grid item xs={12} md={4}>
               <Card

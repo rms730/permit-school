@@ -157,7 +157,7 @@ export default function PermitsPage() {
                     DMV-Approved Content
                   </Typography>
                   <Typography variant="body1" color="text.secondary">
-                    Our practice tests are based on official DMV handbooks and real exam questions. Study exactly what you'll be tested on.
+                    Our practice tests are based on official DMV handbooks and real exam questions. Study exactly what you&apos;ll be tested on.
                   </Typography>
                 </CardContent>
               </Card>

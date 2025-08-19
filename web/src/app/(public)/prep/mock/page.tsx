@@ -69,7 +69,7 @@ export default function MockTestPage() {
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              Practice Like It's the Real Thing
+              Practice Like It&apos;s the Real Thing
             </Typography>
             <Typography
               variant="h5"
@@ -147,7 +147,7 @@ export default function MockTestPage() {
               This is a full-length practice test
             </Typography>
             <Typography variant="body1">
-              Plan for 3-4 hours of uninterrupted time. Just like the real exam, you'll have strict timing for each section. 
+              Plan for 3-4 hours of uninterrupted time. Just like the real exam, you&apos;ll have strict timing for each section. 
               We recommend taking this test in a quiet environment with minimal distractions.
             </Typography>
           </Alert>

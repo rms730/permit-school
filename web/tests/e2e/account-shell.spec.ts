@@ -265,7 +265,7 @@ test.describe('Account & Shell Functionality', () => {
       await page.waitForURL('/dashboard');
 
       // Check that AppBarV2 elements are present
-      await expect(page.locator('text=Permit School')).toBeVisible();
+      await expect(page.locator('h6:has-text("Permit School")').first()).toBeVisible();
       await expect(page.locator('[data-testid="user-avatar"]')).toBeVisible();
     });
 

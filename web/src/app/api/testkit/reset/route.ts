@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
     const { error: seatTimeError } = await supabase
       .from('seat_time_events')
       .delete()
-      .neq('id', '00000000-0000-0000-0000-000000000000'); // Keep at least one row
+      .gt('id', 0); // Delete all rows (bigserial starts at 1)
 
     const { error: attemptsError } = await supabase
       .from('attempts')
@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
     const { error: attemptItemsError } = await supabase
       .from('attempt_items')
       .delete()
-      .neq('id', '00000000-0000-0000-0000-000000000000');
+      .neq('attempt_id', '00000000-0000-0000-0000-000000000000');
 
     const { error: enrollmentsError } = await supabase
       .from('enrollments')
@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     const { error: consentsError } = await supabase
       .from('consents')
       .delete()
-      .neq('id', '00000000-0000-0000-0000-000000000000');
+      .gt('id', 0); // Delete all rows (bigserial starts at 1)
 
     const { error: certificatesError } = await supabase
       .from('certificates')

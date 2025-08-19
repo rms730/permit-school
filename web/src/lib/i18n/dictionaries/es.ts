@@ -1,4 +1,41 @@
 export const es = {
+  Header: {
+    brand: "Permit School",
+    nav: {
+      how: "Cómo funciona",
+      practice: "Pruebas de práctica",
+      pricing: "Precios",
+      faq: "Preguntas frecuentes",
+      signIn: "Iniciar sesión",
+      start: "Comenzar gratis"
+    }
+  },
+  Home: {
+    hero: {
+      title: "Aprueba tu examen de permiso de California—en tu primer intento.",
+      subtitle: "Estudia exactamente lo que el DMV pregunta. Pruebas de práctica inteligentes, retroalimentación instantánea y lecciones pequeñas diseñadas para personas ocupadas.",
+      primaryCta: "Comenzar práctica gratis",
+      secondaryCta: "Ver cómo funciona"
+    },
+    trust: {
+      badge: "Confiado por más de 10,000 estudiantes • 4.8★ calificación promedio"
+    },
+    features: {
+      title: "Sabe exactamente qué esperar en el DMV—sin sorpresas.",
+      items: [
+        "Preguntas estilo DMV que reflejan el examen real",
+        "Revisión personalizada con explicaciones inteligentes",
+        "Audio y lectura para estudiar en movimiento",
+        "Progreso que se mantiene en todos tus dispositivos"
+      ]
+    },
+    socialProof: {
+      title: "Amado por estudiantes y familias"
+    },
+    footer: {
+      cta: "¿Listo? Vamos a ponerte en la carretera."
+    }
+  },
   nav: {
     home: "Inicio",
     courses: "Cursos",

@@ -28,7 +28,7 @@ export class TestkitAPI {
       }
     });
 
-    if (!response.ok()) {
+    if (!response.ok) {
       throw new Error(`Reset failed: ${await response.text()}`);
     }
 
@@ -45,7 +45,7 @@ export class TestkitAPI {
       body: JSON.stringify(options)
     });
 
-    if (!response.ok()) {
+    if (!response.ok) {
       throw new Error(`User creation failed: ${await response.text()}`);
     }
 
@@ -62,12 +62,12 @@ export class TestkitAPI {
       },
       body: JSON.stringify({
         user_id: userId,
-        j_code: jCode,
+        jurisdiction_code: jCode,
         course_code: courseCode
       })
     });
 
-    if (!response.ok()) {
+    if (!response.ok) {
       throw new Error(`Enrollment failed: ${await response.text()}`);
     }
 
@@ -90,7 +90,7 @@ export class TestkitAPI {
       })
     });
 
-    if (!response.ok()) {
+    if (!response.ok) {
       throw new Error(`Seat time addition failed: ${await response.text()}`);
     }
 
@@ -111,7 +111,7 @@ export class TestkitAPI {
       })
     });
 
-    if (!response.ok()) {
+    if (!response.ok) {
       throw new Error(`Entitlement setting failed: ${await response.text()}`);
     }
 
@@ -132,7 +132,7 @@ export class TestkitAPI {
       })
     });
 
-    if (!response.ok()) {
+    if (!response.ok) {
       throw new Error(`Guardian request creation failed: ${await response.text()}`);
     }
 
@@ -153,7 +153,7 @@ export class TestkitAPI {
       })
     });
 
-    if (!response.ok()) {
+    if (!response.ok) {
       throw new Error(`Exam blueprint creation failed: ${await response.text()}`);
     }
 
@@ -175,7 +175,7 @@ export class TestkitAPI {
       })
     });
 
-    if (!response.ok()) {
+    if (!response.ok) {
       throw new Error(`Certificate issuance failed: ${await response.text()}`);
     }
 
@@ -192,7 +192,7 @@ export class TestkitAPI {
       }
     });
 
-    if (!response.ok()) {
+    if (!response.ok) {
       throw new Error(`Programs seeding failed: ${await response.text()}`);
     }
 
@@ -208,7 +208,7 @@ export class TestkitAPI {
       }
     });
 
-    if (!response.ok()) {
+    if (!response.ok) {
       throw new Error(`Prep tests seeding failed: ${await response.text()}`);
     }
 
@@ -224,7 +224,7 @@ export class TestkitAPI {
       }
     });
 
-    if (!response.ok()) {
+    if (!response.ok) {
       throw new Error(`Prep blueprints seeding failed: ${await response.text()}`);
     }
 
@@ -233,7 +233,7 @@ export class TestkitAPI {
 }
 
 export async function getTestkitAPI(page: Page): Promise<TestkitAPI> {
-  const baseURL = page.url().replace(/\/.*$/, '');
+  const baseURL = process.env.BASE_URL || 'http://localhost:3000';
   const token = process.env.TESTKIT_TOKEN;
   
   if (!token) {

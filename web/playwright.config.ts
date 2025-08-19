@@ -74,7 +74,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: process.env.CI ? undefined : {
-    command: 'npm run start:ci',
+    command: 'TESTKIT_ON=true TESTKIT_TOKEN=test-token-12345 npm run start:ci',
     url: 'http://localhost:4330',
     reuseExistingServer: true,
     timeout: 120 * 1000,

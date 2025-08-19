@@ -3,7 +3,7 @@ import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
 
 interface EnrollOptions {
   user_id: string;
-  j_code: string;
+  jurisdiction_code: string;
   course_code: string;
 }
 
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const body: EnrollOptions = await request.json();
-    const { user_id, j_code, course_code } = body;
+    const { user_id, jurisdiction_code, course_code } = body;
     
     const supabase = getSupabaseAdmin();
     
@@ -32,17 +32,32 @@ export async function POST(request: NextRequest) {
       operation: 'testkit_enroll',
       timestamp: new Date().toISOString(),
       user_id,
-      j_code,
+      jurisdiction_code,
       course_code,
       user_agent: request.headers.get('user-agent')
     }));
+
+    // Get jurisdiction ID first
+    const { data: jurisdictionData, error: jurisdictionError } = await supabase
+      .from('jurisdictions')
+      .select('id')
+      .eq('code', jurisdiction_code)
+      .single();
+
+    if (jurisdictionError || !jurisdictionData) {
+      console.error('Jurisdiction lookup error:', jurisdictionError);
+      return NextResponse.json({ 
+        error: 'Jurisdiction not found',
+        details: jurisdictionError 
+      }, { status: 404 });
+    }
 
     // Get course ID
     const { data: courseData, error: courseError } = await supabase
       .from('courses')
       .select('id')
-      .eq('j_code', j_code)
-      .eq('course_code', course_code)
+      .eq('jurisdiction_id', jurisdictionData.id)
+      .eq('code', course_code)
       .single();
 
     if (courseError || !courseData) {

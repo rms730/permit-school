@@ -1,4 +1,41 @@
 export const en = {
+  Header: {
+    brand: "Permit School",
+    nav: {
+      how: "How it works",
+      practice: "Practice tests",
+      pricing: "Pricing",
+      faq: "FAQ",
+      signIn: "Sign in",
+      start: "Start free"
+    }
+  },
+  Home: {
+    hero: {
+      title: "Pass your California permit test—on your first try.",
+      subtitle: "Study exactly what the DMV asks. Smart practice tests, instant feedback, and bite‑size lessons designed for busy people.",
+      primaryCta: "Start free practice",
+      secondaryCta: "See how it works"
+    },
+    trust: {
+      badge: "Trusted by 10,000+ learners • 4.8★ average rating"
+    },
+    features: {
+      title: "Know exactly what to expect at the DMV—no surprises.",
+      items: [
+        "DMV-style questions that mirror the real exam",
+        "Personalized review with smart explanations",
+        "Audio & read‑along for on‑the‑go study",
+        "Progress that sticks across all your devices"
+      ]
+    },
+    socialProof: {
+      title: "Loved by students and families"
+    },
+    footer: {
+      cta: "Ready? Let's get you on the road."
+    }
+  },
   nav: {
     home: "Home",
     courses: "Courses",

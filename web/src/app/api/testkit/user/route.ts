@@ -71,20 +71,16 @@ export async function POST(request: NextRequest) {
         user_id: userId,
         first_name: firstName,
         last_name: lastName,
-        date_of_birth: dateOfBirth,
-        email,
+        dob: dateOfBirth,
         phone: '+15551234567',
-        address_line_1: '123 Test St',
-        address_line_2: 'Apt 1',
+        address_line1: '123 Test St',
+        address_line2: 'Apt 1',
         city: 'Test City',
         state: 'CA',
-        zip_code: '90210',
-        country: 'US',
-        guardian_first_name: minor ? 'Test' : null,
-        guardian_last_name: minor ? 'Guardian' : null,
+        postal_code: '90210',
+        guardian_name: minor ? 'Test Guardian' : null,
         guardian_email: minor ? 'guardian@permit-school.test' : null,
-        guardian_phone: minor ? '+15551234568' : null,
-        guardian_relationship: minor ? 'Parent' : null
+        guardian_phone: minor ? '+15551234568' : null
       });
 
     if (profileError) {
@@ -117,12 +113,14 @@ export async function POST(request: NextRequest) {
         {
           user_id: userId,
           consent_type: 'terms',
+          granted: true,
           ip_address: '127.0.0.1',
           user_agent: 'Testkit/1.0'
         },
         {
           user_id: userId,
           consent_type: 'privacy',
+          granted: true,
           ip_address: '127.0.0.1',
           user_agent: 'Testkit/1.0'
         }

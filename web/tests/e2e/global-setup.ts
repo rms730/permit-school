@@ -101,7 +101,7 @@ async function globalSetup(config: FullConfig) {
         'Content-Type': 'application/json'
       },
       data: {
-        j_code: 'CA',
+        code: 'CA',
         course_code: 'DE-ONLINE',
         num_questions: 5 // Small number for faster tests
       }

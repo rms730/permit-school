@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
 
 interface ExamBlueprintOptions {
-  j_code: string;
+  code: string;
   course_code: string;
   num_questions?: number; // Default from jurisdiction config
 }
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const body: ExamBlueprintOptions = await request.json();
-    const { j_code, course_code, num_questions } = body;
+    const { code, course_code, num_questions } = body;
     
     const supabase = getSupabaseAdmin();
     
@@ -31,18 +31,22 @@ export async function POST(request: NextRequest) {
     console.info(JSON.stringify({
       operation: 'testkit_exam_blueprint',
       timestamp: new Date().toISOString(),
-      j_code,
+      code,
       course_code,
       num_questions,
       user_agent: request.headers.get('user-agent')
     }));
 
-    // Get course ID
+    // Get course ID by looking up jurisdiction first, then course
     const { data: courseData, error: courseError } = await supabase
       .from('courses')
       .select('id')
-      .eq('j_code', j_code)
-      .eq('course_code', course_code)
+      .eq('code', course_code)
+      .eq('jurisdiction_id', (await supabase
+        .from('jurisdictions')
+        .select('id')
+        .eq('code', code)
+        .single()).data?.id)
       .single();
 
     if (courseError || !courseData) {
@@ -56,11 +60,14 @@ export async function POST(request: NextRequest) {
     // Get jurisdiction config for default question count
     const { data: jConfig } = await supabase
       .from('jurisdiction_configs')
-      .select('final_exam_num_questions')
-      .eq('j_code', j_code)
+      .select(`
+        final_exam_questions,
+        jurisdictions!inner(code)
+      `)
+      .eq('jurisdictions.code', code)
       .single();
 
-    const questionCount = num_questions || jConfig?.final_exam_num_questions || 30;
+    const questionCount = num_questions || jConfig?.final_exam_questions || 30;
 
     // Check if active blueprint exists
     const { data: existingBlueprint } = await supabase

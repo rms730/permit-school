@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import Stripe from 'stripe';
 import { getRouteClient } from '@/lib/supabaseRoute';
+import { getPayments } from '@/lib/payments';
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,13 +26,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Subscription is not scheduled for cancellation' }, { status: 400 });
     }
 
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-      apiVersion: '2025-07-30.basil',
-    });
+    const payments = await getPayments();
 
-    // Resume subscription in Stripe
-    await stripe.subscriptions.update(subscription.stripe_subscription_id, {
-      cancel_at_period_end: false,
+    // Resume subscription
+    await payments.resumeSubscription({
+      subscriptionId: subscription.stripe_subscription_id,
     });
 
     // Update local subscription

@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import Stripe from 'stripe';
 import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
 import { rateLimit, getRateLimitHeaders, getRateLimitKey } from '@/lib/ratelimit';
 import { 
@@ -8,6 +7,7 @@ import {
   sendPaymentSucceededEmail 
 } from '@/lib/email';
 import { notifyStudent } from '@/lib/notify';
+import { getPayments } from '@/lib/payments';
 
 export async function POST(request: NextRequest) {
   // Rate limiting (skip for Stripe webhooks)
@@ -37,24 +37,14 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  const body = await request.text();
-  const signature = request.headers.get('stripe-signature');
-
-  if (!signature || !process.env.STRIPE_WEBHOOK_SECRET) {
-    return NextResponse.json({ error: 'Missing signature or webhook secret' }, { status: 400 });
-  }
-
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-    apiVersion: '2025-07-30.basil',
-  });
-
-  let event: Stripe.Event;
-
-  try {
-    event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_WEBHOOK_SECRET);
-  } catch (err) {
-    console.error('Webhook signature verification failed:', err);
-    return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
+  const payments = await getPayments();
+  
+  // Verify webhook using the adapter
+  const event = await payments.verifyWebhook(request);
+  
+  // If webhook verification is disabled (mock mode), return success
+  if (!event) {
+    return new Response('webhook disabled', { status: 200 });
   }
 
   const adminSupabase = getSupabaseAdmin();
@@ -62,7 +52,7 @@ export async function POST(request: NextRequest) {
   try {
     switch (event.type) {
       case 'checkout.session.completed': {
-        const session = event.data.object as Stripe.Checkout.Session;
+        const session = event.data.object as any;
         const customerId = session.customer as string;
         const subscriptionId = session.subscription as string;
 
@@ -71,8 +61,20 @@ export async function POST(request: NextRequest) {
           break;
         }
 
-        // Get customer details
-        const customer = await stripe.customers.retrieve(customerId);
+        // Get customer details - in mock mode, create a mock customer
+        let customer: any;
+        if (process.env.STRIPE_ENABLED === 'true') {
+          const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY!, {
+            apiVersion: '2025-07-30.basil',
+          });
+          customer = await stripe.customers.retrieve(customerId);
+        } else {
+          // Mock customer for local development
+          customer = {
+            deleted: false,
+            metadata: { user_id: session.metadata?.user_id || 'mock_user_id' }
+          };
+        }
         
         if (customer.deleted) {
           console.error('Customer was deleted');
@@ -110,12 +112,24 @@ export async function POST(request: NextRequest) {
       }
 
       case 'invoice.payment_failed': {
-        const invoice = event.data.object as Stripe.Invoice;
+        const invoice = event.data.object as any;
         const customerId = invoice.customer as string;
-        const subscriptionId = (invoice as any).subscription as string | null;
+        const subscriptionId = invoice.subscription as string | null;
 
-        // Get customer details
-        const customer = await stripe.customers.retrieve(customerId);
+        // Get customer details - in mock mode, create a mock customer
+        let customer: any;
+        if (process.env.STRIPE_ENABLED === 'true') {
+          const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY!, {
+            apiVersion: '2025-07-30.basil',
+          });
+          customer = await stripe.customers.retrieve(customerId);
+        } else {
+          // Mock customer for local development
+          customer = {
+            deleted: false,
+            metadata: { user_id: invoice.metadata?.user_id || 'mock_user_id' }
+          };
+        }
         
         if (customer.deleted) {
           console.error('Customer was deleted');
@@ -235,12 +249,24 @@ export async function POST(request: NextRequest) {
       }
 
       case 'invoice.payment_succeeded': {
-        const invoice = event.data.object as Stripe.Invoice;
+        const invoice = event.data.object as any;
         const customerId = invoice.customer as string;
-        const subscriptionId = (invoice as any).subscription as string | null;
+        const subscriptionId = invoice.subscription as string | null;
 
-        // Get customer details
-        const customer = await stripe.customers.retrieve(customerId);
+        // Get customer details - in mock mode, create a mock customer
+        let customer: any;
+        if (process.env.STRIPE_ENABLED === 'true') {
+          const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY!, {
+            apiVersion: '2025-07-30.basil',
+          });
+          customer = await stripe.customers.retrieve(customerId);
+        } else {
+          // Mock customer for local development
+          customer = {
+            deleted: false,
+            metadata: { user_id: invoice.metadata?.user_id || 'mock_user_id' }
+          };
+        }
         
         if (customer.deleted) {
           console.error('Customer was deleted');
@@ -332,11 +358,23 @@ export async function POST(request: NextRequest) {
       case 'customer.subscription.created':
       case 'customer.subscription.updated':
       case 'customer.subscription.deleted': {
-        const subscription = event.data.object as Stripe.Subscription;
+        const subscription = event.data.object as any;
         const customerId = subscription.customer as string;
 
-        // Get customer details
-        const customer = await stripe.customers.retrieve(customerId);
+        // Get customer details - in mock mode, create a mock customer
+        let customer: any;
+        if (process.env.STRIPE_ENABLED === 'true') {
+          const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY!, {
+            apiVersion: '2025-07-30.basil',
+          });
+          customer = await stripe.customers.retrieve(customerId);
+        } else {
+          // Mock customer for local development
+          customer = {
+            deleted: false,
+            metadata: { user_id: subscription.metadata?.user_id || 'mock_user_id' }
+          };
+        }
         
         if (customer.deleted) {
           console.error('Customer was deleted');

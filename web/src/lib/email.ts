@@ -1,8 +1,7 @@
-import { Resend } from 'resend';
 import { type SupportedLocale } from './i18n/locales';
+import { getEmail } from './email/adapter';
 
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
-const FROM = process.env.FROM_EMAIL ?? 'no-reply@example.com';
+const FROM = process.env.EMAIL_FROM ?? 'no-reply@example.com';
 
 // Generic email sending function
 export async function sendEmail({
@@ -16,10 +15,6 @@ export async function sendEmail({
   template: string;
   data: any;
 }) {
-  if (!resend) {
-    console.warn('Resend not configured, skipping email');
-    return;
-  }
 
   let html = '';
   
@@ -343,12 +338,20 @@ const emailTemplates = {
   }
 };
 
-function safeSend(html: string, subject: string, to: string) {
-  if (!resend) {
-    console.log('Email disabled: RESEND_API_KEY not configured');
-    return { ok: false as const, reason: 'RESEND_DISABLED' };
+async function safeSend(html: string, subject: string, to: string) {
+  const emailClient = getEmail();
+  try {
+    const result = await emailClient.send({
+      to,
+      subject,
+      html,
+      tags: ['permit-school']
+    });
+    return { ok: true as const, id: result.id };
+  } catch (error) {
+    console.error('Email send failed:', error);
+    return { ok: false as const, reason: 'SEND_FAILED', error };
   }
-  return resend.emails.send({ from: FROM, to, subject, html });
 }
 
 export async function sendWelcomeEmail({ 

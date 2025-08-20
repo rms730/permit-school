@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import Stripe from 'stripe';
 import { getRouteClient } from '@/lib/supabaseRoute';
+import { getPayments } from '@/lib/payments';
 
 export async function POST(request: NextRequest) {
   try {
@@ -11,9 +11,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-      apiVersion: '2025-07-30.basil',
-    });
+    const payments = await getPayments();
 
     // Get customer's stripe_customer_id
     const { data: customer, error: customerError } = await supabase
@@ -27,9 +25,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Create billing portal session
-    const session = await stripe.billingPortal.sessions.create({
-      customer: customer.stripe_customer_id,
-      return_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/billing`,
+    const session = await payments.getPortalLink({
+      customerId: customer.stripe_customer_id,
+      returnUrl: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/billing`,
     });
 
     return NextResponse.json({ url: session.url });

@@ -52,6 +52,10 @@
     "stripe": "^18.4.0",
     "swr": "^2.2.5"
   },
+  "optionalDependencies": {
+    "@sendgrid/mail": "^8.1.5",
+    "postmark": "^4.0.5"
+  },
   "devDependencies": {
     "@axe-core/cli": "^4.8.4",
     "@axe-core/playwright": "^4.10.2",

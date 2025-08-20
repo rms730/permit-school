@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import Stripe from 'stripe';
 import { getRouteClient } from '@/lib/supabaseRoute';
 import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
+import { getPayments } from '@/lib/payments';
 
 export async function POST(request: NextRequest) {
   try {
@@ -19,9 +19,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing course_id or j_code/course_code' }, { status: 400 });
     }
 
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-      apiVersion: '2025-07-30.basil',
-    });
+    const payments = await getPayments();
 
     // Get course ID if not provided
     let courseId = course_id;
@@ -71,38 +69,32 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (!customer) {
-      // Create Stripe customer
-      const stripeCustomer = await stripe.customers.create({
-        email: user.email,
-        metadata: {
-          user_id: user.id,
-        },
-      });
+      // For mock mode, create a fake customer ID
+      const customerId = process.env.STRIPE_ENABLED === 'true' ? 
+        'cus_mock_' + Date.now() : 
+        'cus_mock_' + Date.now();
 
       // Insert into billing_customers
       await adminSupabase
         .from('billing_customers')
         .insert({
           user_id: user.id,
-          stripe_customer_id: stripeCustomer.id,
+          stripe_customer_id: customerId,
         });
 
-      customer = { stripe_customer_id: stripeCustomer.id };
+      customer = { stripe_customer_id: customerId };
     }
 
     // Create checkout session
-    const session = await stripe.checkout.sessions.create({
-      customer: customer.stripe_customer_id,
-      mode: 'subscription',
-      payment_method_types: ['card'],
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        },
-      ],
-      success_url: successUrl,
-      cancel_url: cancelUrl,
+    const session = await payments.createCheckoutSession({
+      userId: user.id,
+      courseId: courseId,
+      successUrl: successUrl,
+      cancelUrl: cancelUrl,
+      priceId: priceId,
+      metadata: {
+        course_id: courseId,
+      },
     });
 
     return NextResponse.json({ url: session.url });

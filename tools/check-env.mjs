@@ -87,6 +87,45 @@ if (!rootVars.OPENAI_API_KEY) {
   warnings.push(`[root] OPENAI_API_KEY (optional - only needed for content generation scripts)`);
 }
 
+// Conditional Stripe validation
+if (rootVars.STRIPE_ENABLED === 'true') {
+  if (!rootVars.STRIPE_SECRET_KEY) {
+    missing.push(`[root] STRIPE_SECRET_KEY (required when STRIPE_ENABLED=true)`);
+  }
+  if (!rootVars.STRIPE_MODE || !['test', 'live'].includes(rootVars.STRIPE_MODE)) {
+    missing.push(`[root] STRIPE_MODE (must be 'test' or 'live' when STRIPE_ENABLED=true)`);
+  }
+  // Webhook secret is optional but recommended
+  if (!rootVars.STRIPE_WEBHOOK_SECRET) {
+    warnings.push(`[root] STRIPE_WEBHOOK_SECRET (recommended when STRIPE_ENABLED=true for webhook verification)`);
+  }
+}
+
+// Conditional email validation
+const emailProvider = (rootVars.EMAIL_PROVIDER || 'mock').toLowerCase();
+if (!['mock', 'resend', 'sendgrid', 'postmark'].includes(emailProvider)) {
+  missing.push(`[root] EMAIL_PROVIDER (must be one of: mock, resend, sendgrid, postmark)`);
+}
+
+if (emailProvider !== 'mock') {
+  const providerKeys = {
+    resend: 'RESEND_API_KEY',
+    sendgrid: 'SENDGRID_API_KEY',
+    postmark: 'POSTMARK_SERVER_TOKEN'
+  };
+  const requiredKey = providerKeys[emailProvider];
+  if (requiredKey && !rootVars[requiredKey]) {
+    missing.push(`[root] ${requiredKey} (required when EMAIL_PROVIDER=${emailProvider})`);
+  }
+}
+
+// Conditional web validation for Stripe
+if (webVars.NEXT_PUBLIC_STRIPE_ENABLED === 'true') {
+  if (!webVars.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
+    missing.push(`[web] NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY (required when NEXT_PUBLIC_STRIPE_ENABLED=true)`);
+  }
+}
+
 if (missing.length) {
   console.error(`❌ Missing required env variables for '${MODE}':\n` + missing.map((m) => ` - ${m}`).join('\n'));
   if (warnings.length) {

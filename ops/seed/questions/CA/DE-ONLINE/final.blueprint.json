@@ -1,0 +1,25 @@
+{
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "questions": {
+    "fromConfig": true, 
+    "countEnv": "FINAL_EXAM_QUESTION_COUNT"
+  },
+  "passPctFromConfig": true,
+  "skills": [
+    { "skill": "signs-and-signals",   "weight": 0.18, "units": [1,2],  "tags": ["dmv:signs","dmv:signals"] },
+    { "skill": "right-of-way",        "weight": 0.12, "units": [1,2,4],"tags": ["dmv:right-of-way"] },
+    { "skill": "turns-parking",       "weight": 0.08, "units": [2,5],  "tags": ["dmv:turns","dmv:parking"] },
+    { "skill": "sharing-the-road",    "weight": 0.10, "units": [4],    "tags": ["dmv:pedestrians","dmv:cyclists","dmv:motorcycles","dmv:buses"] },
+    { "skill": "freeways",            "weight": 0.10, "units": [3],    "tags": ["dmv:freeways","dmv:merging","dmv:exiting"] },
+    { "skill": "adverse-conditions",  "weight": 0.08, "units": [3],    "tags": ["dmv:weather","dmv:night","dmv:visibility"] },
+    { "skill": "speed-space",         "weight": 0.08, "units": [1,3],  "tags": ["dmv:speed","dmv:following-distance"] },
+    { "skill": "alcohol-drugs",       "weight": 0.08, "units": [6],    "tags": ["dmv:dui","dmv:impairment"] },
+    { "skill": "emergencies",         "weight": 0.08, "units": [8],    "tags": ["dmv:emergencies","dmv:collisions"] },
+    { "skill": "lane-control",        "weight": 0.06, "units": [2,3],  "tags": ["dmv:lanes","dmv:positioning"] },
+    { "skill": "licensing-admin",     "weight": 0.04, "units": [12],   "tags": ["dmv:licensing","dmv:registration"] }
+  ],
+  "difficulty": { "d1": 0.40, "d2": 0.35, "d3": 0.20, "d4": 0.05, "d5": 0.00 },
+  "minPerUnit": 1,
+  "maxPerSkillClamp": 0.22
+}

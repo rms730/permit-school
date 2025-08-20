@@ -15,6 +15,8 @@
     "seed:normalize:questions": "tsx ops/seed/normalize/cli.ts --mode=questions",
     "seed:normalize:questions:write": "tsx ops/seed/normalize/cli.ts --mode=questions --write",
     "seed:verify": "tsx ops/seed/normalize/verify.ts",
+    "seed:final": "tsx ops/seed/seed-final-exam.ts",
+    "seed:final:verify": "tsx ops/seed/verify-final-exam.ts",
     "seed:unit1": "tsx ops/seed/seed-unit.ts",
     "seed:curriculum:unit1": "tsx ops/seed/seed-curriculum.ts",
     "seed:questions:unit1": "tsx ops/seed/seed-questions.ts",

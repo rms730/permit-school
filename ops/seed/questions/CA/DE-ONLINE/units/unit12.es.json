@@ -1,1 +1,187 @@
-{}
+{
+    "course": { "j_code": "CA", "course_code": "DE-ONLINE" },
+    "unit_no": 12,
+    "lang": "es",
+    "questions": [
+      {
+        "id": "U12-Q01",
+        "skill": "Estrategia de Examen",
+        "difficulty": 1,
+        "stem": "Un buen primer paso al leer una pregunta es:",
+        "choices": [
+          { "key": "A", "text": "Leerla completa y predecir la respuesta.", "correct": true },
+          { "key": "B", "text": "Elegir la opción más larga." },
+          { "key": "C", "text": "Marcar la primera que menciona velocidad." },
+          { "key": "D", "text": "Saltar cualquier pregunta con señales." }
+        ],
+        "explanation": "Predecir ayuda a evaluar opciones objetivamente.",
+        "tags": ["estrategia-examen"],
+        "source_sections": ["12.1.1"]
+      },
+      {
+        "id": "U12-Q02",
+        "skill": "Eliminación",
+        "difficulty": 1,
+        "stem": "¿Qué suele indicar que una opción puede ser incorrecta?",
+        "choices": [
+          { "key": "A", "text": "Palabras absolutas como 'siempre' o 'nunca' en seguridad.", "correct": true },
+          { "key": "B", "text": "Fomentar conducción defensiva." },
+          { "key": "C", "text": "Sugerir más exploración y señalización." },
+          { "key": "D", "text": "Aconsejar reducir velocidad por malas condiciones." }
+        ],
+        "explanation": "Los absolutos pueden ser trampa; la seguridad depende de condiciones.",
+        "tags": ["estrategia-examen"],
+        "source_sections": ["12.1.1"]
+      },
+      {
+        "id": "U12-Q03",
+        "skill": "Derecho de Paso",
+        "difficulty": 2,
+        "stem": "En un alto de 4 vías con llegada simultánea, pasa primero:",
+        "choices": [
+          { "key": "A", "text": "El conductor a la derecha.", "correct": true },
+          { "key": "B", "text": "El auto más grande." },
+          { "key": "C", "text": "Quien toque la bocina." },
+          { "key": "D", "text": "Ambos a la vez." }
+        ],
+        "explanation": "El vehículo a la derecha tiene prioridad en llegada simultánea.",
+        "tags": ["derecho-de-paso", "intersecciones"],
+        "source_sections": ["12.2.1"]
+      },
+      {
+        "id": "U12-Q04",
+        "skill": "Señales/Marcaciones",
+        "difficulty": 2,
+        "stem": "Líneas amarillas dobles continuas entre carriles significan:",
+        "choices": [
+          { "key": "A", "text": "No rebasar en ninguna dirección.", "correct": true },
+          { "key": "B", "text": "Rebasar en cualquier momento." },
+          { "key": "C", "text": "Solo estacionamiento." },
+          { "key": "D", "text": "Carril de bicicletas." }
+        ],
+        "explanation": "Dobles sólidas prohíben rebasar.",
+        "tags": ["marcaciones", "no-rebasar"],
+        "source_sections": ["12.2.2"]
+      },
+      {
+        "id": "U12-Q05",
+        "skill": "Velocidad/Espacio",
+        "difficulty": 2,
+        "stem": "Al conducir de noche o con lluvia, debes:",
+        "choices": [
+          { "key": "A", "text": "Aumentar distancia y reducir velocidad según sea necesario.", "correct": true },
+          { "key": "B", "text": "Seguir más cerca para ver las luces traseras." },
+          { "key": "C", "text": "Usar luces altas para todo tráfico que viene de frente." },
+          { "key": "D", "text": "Conducir al máximo publicado sin importar condiciones." }
+        ],
+        "explanation": "Menor visibilidad y tracción requieren más espacio y menor velocidad.",
+        "tags": ["velocidad", "distancia"],
+        "source_sections": ["12.2.2"]
+      },
+      {
+        "id": "U12-Q06",
+        "skill": "Peatones",
+        "difficulty": 2,
+        "stem": "Debes ceder a un peatón:",
+        "choices": [
+          { "key": "A", "text": "En un cruce, marcado o no, cuando está en tu trayectoria.", "correct": true },
+          { "key": "B", "text": "Solo si corre." },
+          { "key": "C", "text": "Solo si hay guardia cruzando." },
+          { "key": "D", "text": "Solo si el tráfico detrás está detenido." }
+        ],
+        "explanation": "Cede a peatones que cruzan legalmente.",
+        "tags": ["peatones", "derecho-de-paso"],
+        "source_sections": ["12.2.1"]
+      },
+      {
+        "id": "U12-Q07",
+        "skill": "Día del Examen",
+        "difficulty": 1,
+        "stem": "Antes del examen teórico del DMV, debes:",
+        "choices": [
+          { "key": "A", "text": "Confirmar documentos y detalles de la cita.", "correct": true },
+          { "key": "B", "text": "No dormir para estudiar toda la noche." },
+          { "key": "C", "text": "Olvidar la identificación; es opcional." },
+          { "key": "D", "text": "Llegar tarde para evitar filas." }
+        ],
+        "explanation": "Llega preparado con documentos correctos y puntualidad.",
+        "tags": ["dmv", "logística"],
+        "source_sections": ["12.3.1"]
+      },
+      {
+        "id": "U12-Q08",
+        "skill": "Repeticiones",
+        "difficulty": 1,
+        "stem": "Si no apruebas en el primer intento:",
+        "choices": [
+          { "key": "A", "text": "Repasa temas fallados y sigue políticas de repetición.", "correct": true },
+          { "key": "B", "text": "Oculta tu resultado y repite inmediatamente sin reglas." },
+          { "key": "C", "text": "Deja de estudiar; será más fácil después." },
+          { "key": "D", "text": "Discute hasta que cambien la calificación." }
+        ],
+        "explanation": "Usa la retroalimentación y cumple las políticas de repetición.",
+        "tags": ["repetición", "estrategia"],
+        "source_sections": ["12.3.2"]
+      },
+      {
+        "id": "U12-Q09",
+        "skill": "Actitud",
+        "difficulty": 2,
+        "stem": "Una mentalidad de conducción segura incluye:",
+        "choices": [
+          { "key": "A", "text": "Paciencia, respeto y planificación.", "correct": true },
+          { "key": "B", "text": "Acelerar para ganarle al semáforo." },
+          { "key": "C", "text": "Imitar a quienes presumen." },
+          { "key": "D", "text": "Ignorar el mantenimiento." }
+        ],
+        "explanation": "Decisiones responsables reducen el riesgo para todos.",
+        "tags": ["actitud", "conducción-defensiva"],
+        "source_sections": ["12.4.1"]
+      },
+      {
+        "id": "U12-Q10",
+        "skill": "Rebase",
+        "difficulty": 2,
+        "stem": "Puedes rebasar a otro vehículo cuando:",
+        "choices": [
+          { "key": "A", "text": "Sea legal (no sobre líneas dobles) y tengas distancia clara suficiente.", "correct": true },
+          { "key": "B", "text": "En cualquier momento que quieras." },
+          { "key": "C", "text": "En un cruce peatonal." },
+          { "key": "D", "text": "En curvas o colinas sin visibilidad." }
+        ],
+        "explanation": "Rebasa solo cuando sea legal y seguro con vista despejada.",
+        "tags": ["rebase", "marcaciones"],
+        "source_sections": ["12.2.2"]
+      },
+      {
+        "id": "U12-Q11",
+        "skill": "Teléfonos",
+        "difficulty": 2,
+        "stem": "La mejor práctica con teléfonos al conducir es:",
+        "choices": [
+          { "key": "A", "text": "Evitar manipularlo; usar manos libres o esperar.", "correct": true },
+          { "key": "B", "text": "Mensajear en semáforos rojos; siempre está bien." },
+          { "key": "C", "text": "Sostener el teléfono en autopista." },
+          { "key": "D", "text": "Ver videos si el volumen es bajo." }
+        ],
+        "explanation": "Minimiza la distracción: manos libres o espera hasta estacionarte.",
+        "tags": ["distracción", "teléfonos"],
+        "source_sections": ["12.4.1"]
+      },
+      {
+        "id": "U12-Q12",
+        "skill": "Aprendizaje Continuo",
+        "difficulty": 1,
+        "stem": "Después de obtener tu permiso, el mejor siguiente paso es:",
+        "choices": [
+          { "key": "A", "text": "Practicar con supervisión y repasar el manual regularmente.", "correct": true },
+          { "key": "B", "text": "Dejar de estudiar por completo." },
+          { "key": "C", "text": "Conducir solo para aprender más rápido." },
+          { "key": "D", "text": "Ignorar el mantenimiento para ahorrar tiempo." }
+        ],
+        "explanation": "El aprendizaje continúa con práctica supervisada y repasos periódicos.",
+        "tags": ["aprendizaje", "práctica"],
+        "source_sections": ["12.4.2"]
+      }
+    ]
+  }

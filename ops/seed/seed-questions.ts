@@ -20,14 +20,53 @@ async function resolveCourseId(client: ReturnType<typeof getAdmin>, jurisdiction
   return courseData.id as string;
 }
 
+// Helper function to extract question data from different structures
+function extractQuestionData(questionData: UnitQuestions, targetUnit: number) {
+  let unitNo: number;
+  let lang: string;
+  let questions: any[];
+  let translations: any[];
+  
+  if ('unit' in questionData) {
+    // Structure 1: Flat structure
+    unitNo = questionData.unit;
+    lang = questionData.lang;
+    questions = questionData.questions;
+    translations = [];
+  } else if ('meta' in questionData) {
+    // Structure 2: Meta object
+    unitNo = questionData.meta.unit_no;
+    lang = questionData.meta.lang;
+    
+    if ('questions' in questionData) {
+      // Structure 2: Meta object with questions
+      questions = questionData.questions;
+      translations = [];
+    } else if ('translations' in questionData) {
+      // Structure 3: Meta object with translations
+      questions = [];
+      translations = questionData.translations;
+    } else {
+      throw new Error('Unknown question data structure');
+    }
+  } else {
+    throw new Error('Unknown question data structure');
+  }
+  
+  return { unitNo, lang, questions, translations };
+}
+
 async function upsertQuestions(
   client: ReturnType<typeof getAdmin>,
   courseId: string,
-  questions: UnitQuestions,
+  questionData: UnitQuestions,
   unit: number
 ) {
+  const { unitNo, lang, questions, translations } = extractQuestionData(questionData, unit);
   let count = 0;
-  for (const q of questions.questions) {
+  
+  // Handle regular questions (English or Spanish questions)
+  for (const q of questions) {
     const row = {
       course_id: courseId,
       skill: q.skill,
@@ -64,11 +103,48 @@ async function upsertQuestions(
       qb = newQuestion;
     }
 
-    // For Spanish questions, we'll handle translations separately
-    // This function now handles one language at a time
-
     count++;
   }
+  
+  // Handle translations (Spanish translations)
+  for (const t of translations) {
+    // Find the corresponding English question
+    const { data: englishQuestion } = await client
+      .from("question_bank")
+      .select("id")
+      .eq("course_id", courseId)
+      .eq("source_ref", t.ref_id)
+      .single();
+    
+    if (!englishQuestion) {
+      log.warn(`No English question found for translation ${t.ref_id}`);
+      continue;
+    }
+    
+    // Check if translation already exists
+    const { data: existingTranslation } = await client
+      .from("question_translations")
+      .select("id")
+      .eq("question_id", englishQuestion.id)
+      .eq("lang", lang)
+      .single();
+    
+    if (!existingTranslation) {
+      const { error: tErr } = await client
+        .from("question_translations")
+        .insert({
+          question_id: englishQuestion.id,
+          lang: lang,
+          stem: t.stem,
+          choices: t.choices,
+          explanation: t.explanation,
+        });
+      if (tErr) throw tErr;
+    }
+    
+    count++;
+  }
+  
   return count;
 }
 

@@ -36,20 +36,76 @@ async function ensureIds(client: ReturnType<typeof getAdmin>, jurisdiction: stri
   return { jurisdictionId: j.id, courseId: courseData!.id, unitId: "" };
 }
 
+// Helper function to extract unit data from different structures
+function extractUnitData(unitData: CurriculumUnit, targetUnit: number) {
+  let unitNo: number;
+  let title: string;
+  let minutesRequired: number;
+  let objectives: string[];
+  let lang: string;
+  
+  if ('unit' in unitData) {
+    // Structure 1: Flat structure
+    unitNo = unitData.unit;
+    title = unitData.title;
+    minutesRequired = unitData.minutes_required;
+    objectives = unitData.objectives;
+    lang = unitData.lang;
+  } else if ('meta' in unitData) {
+    // Structure 2: Meta object
+    unitNo = unitData.meta.unit_no;
+    title = unitData.meta.title;
+    minutesRequired = unitData.meta.minutes_required;
+    objectives = unitData.meta.objectives || []; // Default to empty array if not present
+    lang = unitData.meta.lang;
+  } else if ('course' in unitData && 'unit' in unitData) {
+    // Structure 3: Course and Unit objects
+    unitNo = unitData.unit.unit_no;
+    title = unitData.unit.title;
+    minutesRequired = unitData.unit.minutes_required;
+    objectives = unitData.unit.objectives || []; // Default to empty array if not present
+    lang = 'en'; // Default, will be overridden by parameter
+  } else if ('unitNumber' in unitData) {
+    // Structure 4: unitNumber
+    unitNo = unitData.unitNumber;
+    title = unitData.title;
+    minutesRequired = unitData.minutesRequired;
+    objectives = unitData.objectives;
+    lang = 'en'; // Default, will be overridden by parameter
+  } else if ('unitId' in unitData) {
+    // Structure 5: unitId
+    unitNo = targetUnit; // Extract from unitId or use target unit
+    title = unitData.title;
+    minutesRequired = unitData.estimatedTimeMinutes;
+    objectives = unitData.objectives;
+    lang = 'en'; // Default, will be overridden by parameter
+  } else {
+    throw new Error('Unknown unit data structure');
+  }
+  
+  return { unitNo, title, minutesRequired, objectives, lang };
+}
+
 async function ensureUnit(
   client: ReturnType<typeof getAdmin>,
   ids: IdMap,
-  meta: CurriculumUnit["meta"]
+  unitData: CurriculumUnit,
+  targetUnit: number
 ) {
+  const extracted = extractUnitData(unitData, targetUnit);
+  const { unitNo, title, minutesRequired, objectives } = extracted;
+  
+  log.info(`Extracted unit data: unitNo=${unitNo}, title="${title}", minutesRequired=${minutesRequired}, objectives=${objectives?.length || 0} items`);
+  
   const { data: unit, error: uErr } = await client
     .from("course_units")
     .upsert(
       {
         course_id: ids.courseId,
-        unit_no: meta.unit_no,
-        title: meta.unit_title,
-        minutes_required: meta.minutes_required,
-        objectives: meta.objectives.join("\n"),
+        unit_no: unitNo,
+        title: title,
+        minutes_required: minutesRequired,
+        objectives: objectives ? objectives.join("\n") : "",
         is_published: true,
       },
       { onConflict: "course_id,unit_no" }
@@ -63,21 +119,26 @@ async function ensureUnit(
 async function upsertParagraphs(
   client: ReturnType<typeof getAdmin>,
   ids: IdMap,
-  unit: CurriculumUnit
+  unit: CurriculumUnit,
+  targetUnit: number,
+  targetLang: string
 ) {
   let ord = 0;
   for (const s of unit.sections) {
     for (const l of s.lessons) {
       for (const p of l.paragraphs) {
         ord++;
-        const section_ref = `${s.id}:${l.id}:${ord}`; // stable reference
+        const sectionId = s.sectionId || s.id || `s${ord}`;
+        const lessonId = l.lessonId || l.id || `l${ord}`;
+        const section_ref = `${sectionId}:${lessonId}:${ord}`; // stable reference
+        
         // Check if content chunk already exists
         let chunk;
         const { data: existingChunk } = await client
           .from("content_chunks")
           .select("id")
           .eq("jurisdiction_id", ids.jurisdictionId)
-          .eq("lang", unit.meta.lang)
+          .eq("lang", targetLang)
           .eq("section_ref", section_ref)
           .single();
         
@@ -88,10 +149,10 @@ async function upsertParagraphs(
             .from("content_chunks")
             .insert({
               jurisdiction_id: ids.jurisdictionId,
-              lang: unit.meta.lang,
+              lang: targetLang,
               section_ref,
-              source_url: unit.meta.source,
-              chunk: p.text,
+              source_url: undefined, // No source field in new structure
+              chunk: p, // p is now a string, not an object
             })
             .select("id")
             .single();
@@ -120,7 +181,7 @@ async function upsertParagraphs(
       }
     }
   }
-  log.ok(`Inserted/updated ${ord} paragraphs for ${unit.meta.lang}`);
+  log.ok(`Inserted/updated ${ord} paragraphs for ${targetLang}`);
 }
 
 export async function seedCurriculum(unit: number, lang: string, jurisdiction: string, course: string) {
@@ -134,10 +195,10 @@ export async function seedCurriculum(unit: number, lang: string, jurisdiction: s
 
   // IDs & unit creation
   const ids = await ensureIds(client, jurisdiction, course);
-  await ensureUnit(client, ids, curriculum.meta);
+  await ensureUnit(client, ids, curriculum, unit);
 
   // Insert paragraphs
-  await upsertParagraphs(client, ids, curriculum);
+  await upsertParagraphs(client, ids, curriculum, unit, lang);
 
   log.ok(`Curriculum seeding complete for Unit ${unit} (${lang.toUpperCase()}).`);
 }

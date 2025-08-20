@@ -1,1 +1,187 @@
-{}
+{
+    "course": { "j_code": "CA", "course_code": "DE-ONLINE" },
+    "unit_no": 10,
+    "lang": "es",
+    "questions": [
+      {
+        "id": "U10-Q01",
+        "skill": "Registro",
+        "difficulty": 1,
+        "stem": "¿Qué documento prueba que tu vehículo puede circular legalmente?",
+        "choices": [
+          { "key": "A", "text": "Registro válido con dirección actualizada.", "correct": true },
+          { "key": "B", "text": "Un recibo de reparación." },
+          { "key": "C", "text": "Una tarjeta de seguro vieja." },
+          { "key": "D", "text": "Solo un permiso de estacionamiento." }
+        ],
+        "explanation": "Se requiere registro válido con placas/calcomanías vigentes y dirección correcta.",
+        "tags": ["registro", "documentos"],
+        "source_sections": ["10.1.1"]
+      },
+      {
+        "id": "U10-Q02",
+        "skill": "Transferencia de Título",
+        "difficulty": 2,
+        "stem": "Al comprar o vender un vehículo, debes:",
+        "choices": [
+          { "key": "A", "text": "Completar la transferencia de título según las reglas estatales.", "correct": true },
+          { "key": "B", "text": "Conservar el título viejo para ahorrar tiempo." },
+          { "key": "C", "text": "Cambiar solo las placas." },
+          { "key": "D", "text": "No hacer nada; cambia automáticamente." }
+        ],
+        "explanation": "El título debe transferirse correctamente para establecer la propiedad.",
+        "tags": ["título", "propiedad"],
+        "source_sections": ["10.1.1"]
+      },
+      {
+        "id": "U10-Q03",
+        "skill": "Renovación",
+        "difficulty": 1,
+        "stem": "Para evitar multas, debes:",
+        "choices": [
+          { "key": "A", "text": "Renovar el registro en la fecha límite o antes.", "correct": true },
+          { "key": "B", "text": "Ignorar los avisos de renovación." },
+          { "key": "C", "text": "Esperar una multa antes de renovar." },
+          { "key": "D", "text": "Renovar cada cinco años sin avisos." }
+        ],
+        "explanation": "Renovar puntualmente previene sanciones o bloqueos.",
+        "tags": ["renovación", "registro"],
+        "source_sections": ["10.1.2"]
+      },
+      {
+        "id": "U10-Q04",
+        "skill": "Prueba de Seguro",
+        "difficulty": 2,
+        "stem": "Debes mostrar prueba de responsabilidad financiera:",
+        "choices": [
+          { "key": "A", "text": "Cuando la autoridad lo solicite.", "correct": true },
+          { "key": "B", "text": "Solo al renovar el registro." },
+          { "key": "C", "text": "Solo al salir del estado." },
+          { "key": "D", "text": "Nunca; es opcional." }
+        ],
+        "explanation": "Lleva y presenta prueba de seguro (u otro medio) cuando te lo pidan.",
+        "tags": ["seguro", "responsabilidad-financiera"],
+        "source_sections": ["10.2.1"]
+      },
+      {
+        "id": "U10-Q05",
+        "skill": "Cobertura",
+        "difficulty": 2,
+        "stem": "El seguro de responsabilidad civil cubre principalmente:",
+        "choices": [
+          { "key": "A", "text": "Daños y lesiones que causas a otros.", "correct": true },
+          { "key": "B", "text": "Solo daños a tu propio vehículo." },
+          { "key": "C", "text": "Mantenimiento rutinario." },
+          { "key": "D", "text": "Multas de estacionamiento." }
+        ],
+        "explanation": "La responsabilidad paga por pérdidas de otros cuando eres culpable.",
+        "tags": ["seguro", "responsabilidad"],
+        "source_sections": ["10.2.1"]
+      },
+      {
+        "id": "U10-Q06",
+        "skill": "Reporte de Colisiones",
+        "difficulty": 2,
+        "stem": "Debes reportar una colisión al DMV y/o a la policía cuando:",
+        "choices": [
+          { "key": "A", "text": "Cumple umbrales estatales (por ejemplo, lesiones o ciertos daños).", "correct": true },
+          { "key": "B", "text": "Ocurre solo en propiedad privada." },
+          { "key": "C", "text": "Nadie la presenció." },
+          { "key": "D", "text": "Fue un rasguño menor sin umbrales." }
+        ],
+        "explanation": "Reporta según umbrales y plazos estatales.",
+        "tags": ["colisión", "reporte"],
+        "source_sections": ["10.2.2", "10.4.2"]
+      },
+      {
+        "id": "U10-Q07",
+        "skill": "Mantenimiento",
+        "difficulty": 1,
+        "stem": "¿Qué elemento de mantenimiento es MÁS crítico para frenar con seguridad?",
+        "choices": [
+          { "key": "A", "text": "Condición de los frenos.", "correct": true },
+          { "key": "B", "text": "Aroma del aromatizante." },
+          { "key": "C", "text": "Color de la pintura." },
+          { "key": "D", "text": "Diseño del polarizado." }
+        ],
+        "explanation": "Los frenos son esenciales para la seguridad; mantenlos en buen estado.",
+        "tags": ["mantenimiento", "frenos"],
+        "source_sections": ["10.3.1"]
+      },
+      {
+        "id": "U10-Q08",
+        "skill": "Equipo de Seguridad",
+        "difficulty": 2,
+        "stem": "Si se quema un faro, debes:",
+        "choices": [
+          { "key": "A", "text": "Reemplazarlo pronto; conducir con luces defectuosas es inseguro e ilegal.", "correct": true },
+          { "key": "B", "text": "Ignorarlo; un faro basta." },
+          { "key": "C", "text": "Usar intermitentes siempre." },
+          { "key": "D", "text": "Conducir solo de día para siempre." }
+        ],
+        "explanation": "Mantén el equipo requerido para ser visible y legal.",
+        "tags": ["equipo", "luces"],
+        "source_sections": ["10.3.2"]
+      },
+      {
+        "id": "U10-Q09",
+        "skill": "Protocolo en la Escena",
+        "difficulty": 2,
+        "stem": "En una colisión menor sin lesiones, lo mejor es:",
+        "choices": [
+          { "key": "A", "text": "Mover los vehículos fuera del tráfico si es seguro y luego intercambiar información.", "correct": true },
+          { "key": "B", "text": "Dejarlos bloqueando el tráfico." },
+          { "key": "C", "text": "Discutir sobre la culpa en el carril." },
+          { "key": "D", "text": "Irte sin detenerte." }
+        ],
+        "explanation": "Libera los carriles si es seguro y completa intercambio y documentación.",
+        "tags": ["colisión", "seguridad-escena"],
+        "source_sections": ["10.4.1", "10.4.2"]
+      },
+      {
+        "id": "U10-Q10",
+        "skill": "Documentación",
+        "difficulty": 2,
+        "stem": "¿Qué debes intercambiar tras una colisión?",
+        "choices": [
+          { "key": "A", "text": "Número de licencia y datos de seguro.", "correct": true },
+          { "key": "B", "text": "Tus redes sociales." },
+          { "key": "C", "text": "Tu horario escolar." },
+          { "key": "D", "text": "Tu color favorito." }
+        ],
+        "explanation": "Intercambia identificaciones legales, registro y seguro.",
+        "tags": ["colisión", "documentos"],
+        "source_sections": ["10.4.2"]
+      },
+      {
+        "id": "U10-Q11",
+        "skill": "Sanciones de Seguro",
+        "difficulty": 2,
+        "stem": "Conducir sin prueba de seguro exigido puede resultar en:",
+        "choices": [
+          { "key": "A", "text": "Multas y otras sanciones según la ley.", "correct": true },
+          { "key": "B", "text": "Descuento en el registro." },
+          { "key": "C", "text": "Sin consecuencias." },
+          { "key": "D", "text": "Un vehículo de reemplazo gratuito." }
+        ],
+        "explanation": "La ley impone sanciones por no mostrar prueba de responsabilidad financiera.",
+        "tags": ["seguro", "sanciones"],
+        "source_sections": ["10.2.1"]
+      },
+      {
+        "id": "U10-Q12",
+        "skill": "Preparación de Emergencia",
+        "difficulty": 2,
+        "stem": "Un buen kit de emergencia incluye:",
+        "choices": [
+          { "key": "A", "text": "Triángulos reflectantes, linterna, botiquín, agua.", "correct": true },
+          { "key": "B", "text": "Solo calcomanías y aromatizantes." },
+          { "key": "C", "text": "CD viejos y equipo deportivo." },
+          { "key": "D", "text": "Solo bocadillos." }
+        ],
+        "explanation": "Equipa tu vehículo para emergencias comunes en carretera.",
+        "tags": ["kit-de-emergencia", "seguridad"],
+        "source_sections": ["10.3.2"]
+      }
+    ]
+  }

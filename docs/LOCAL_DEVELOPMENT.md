@@ -21,7 +21,7 @@ Complete guide for local development workflow, including common tasks, debugging
 
 - ✅ [Environment Setup](ENVIRONMENT_SETUP.md) completed
 - ✅ All services running (Supabase, web app)
-- ✅ Environment variables configured
+- ✅ Environment variables configured and validated
 - ✅ Initial data seeded
 
 ## Development Workflow

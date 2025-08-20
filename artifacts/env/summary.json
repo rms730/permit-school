@@ -1,0 +1,22 @@
+{
+  "totalKeys": 60,
+  "nextPublicKeys": 15,
+  "serverOnlyKeys": 45,
+  "byScope": {
+    "root": 60,
+    "web": 0,
+    "both": 0
+  },
+  "byCategory": {
+    "supabase": 7,
+    "stripe": 4,
+    "email": 4,
+    "monitoring": 2,
+    "app": 7,
+    "admin": 3,
+    "regulatory": 2,
+    "test": 5,
+    "exam": 3,
+    "other": 26
+  }
+}

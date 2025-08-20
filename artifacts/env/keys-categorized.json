@@ -1,0 +1,751 @@
+{
+  "supabase": [
+    {
+      "key": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./tools/check-env.mjs",
+        "./web/src/env.ts",
+        "./web/src/lib/auth.ts",
+        "./web/src/lib/offline.ts",
+        "./web/src/lib/supabaseClient.ts"
+      ],
+      "usageCount": 5
+    },
+    {
+      "key": "NEXT_PUBLIC_SUPABASE_URL",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./tools/check-env.mjs",
+        "./web/src/app/api/account/avatar/upload/route.ts",
+        "./web/src/app/api/admin/fulfillment/batches/route.ts",
+        "./web/src/app/api/admin/fulfillment/inventory/route.ts",
+        "./web/src/app/api/admin/fulfillment/run/route.ts",
+        "./web/src/app/api/admin/fulfillment/stock/route.ts",
+        "./web/src/env.ts",
+        "./web/src/lib/auth.ts",
+        "./web/src/lib/fulfillment/allocateSerial.ts",
+        "./web/src/lib/fulfillment/fetchPending.ts",
+        "./web/src/lib/fulfillment/reconcile.ts",
+        "./web/src/lib/fulfillment/zipAndStore.ts",
+        "./web/src/lib/offline.ts",
+        "./web/src/lib/storageSignedUrl.ts",
+        "./web/src/lib/supabaseClient.ts"
+      ],
+      "usageCount": 15
+    },
+    {
+      "key": "SUPABASE_ANON_KEY",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./ops/seed/lib/supabase.ts",
+        "./tools/ingest/test_search.mjs",
+        "./tools/ingest/test_search_hybrid.mjs"
+      ],
+      "usageCount": 3
+    },
+    {
+      "key": "SUPABASE_FUNCTIONS_URL",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/tutor/route.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "SUPABASE_PUBLISHABLE_KEY",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./ops/seed/lib/supabase.ts",
+        "./tools/ingest/test_search.mjs",
+        "./tools/ingest/test_search_hybrid.mjs"
+      ],
+      "usageCount": 3
+    },
+    {
+      "key": "SUPABASE_SERVICE_ROLE_KEY",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./ops/seed/lib/supabase.ts",
+        "./ops/seed/seed-handbooks.ts",
+        "./tools/ingest/ingest_handbook.mjs",
+        "./tools/ingest/test_search.mjs",
+        "./tools/ingest/test_search_hybrid.mjs",
+        "./web/scripts/make_admin.mjs",
+        "./web/src/app/api/account/avatar/upload/route.ts",
+        "./web/src/app/api/admin/fulfillment/batches/route.ts",
+        "./web/src/app/api/admin/fulfillment/inventory/route.ts",
+        "./web/src/app/api/admin/fulfillment/run/route.ts",
+        "./web/src/app/api/admin/fulfillment/stock/route.ts",
+        "./web/src/app/api/tutor/route.ts",
+        "./web/src/lib/fulfillment/allocateSerial.ts",
+        "./web/src/lib/fulfillment/fetchPending.ts",
+        "./web/src/lib/fulfillment/reconcile.ts",
+        "./web/src/lib/fulfillment/zipAndStore.ts",
+        "./web/src/lib/storageSignedUrl.ts",
+        "./web/src/lib/supabaseAdmin.ts"
+      ],
+      "usageCount": 18
+    },
+    {
+      "key": "SUPABASE_URL",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./ops/seed/lib/supabase.ts",
+        "./ops/seed/seed-handbooks.ts",
+        "./tools/ingest/ingest_handbook.mjs",
+        "./tools/ingest/test_search.mjs",
+        "./tools/ingest/test_search_hybrid.mjs",
+        "./web/scripts/make_admin.mjs",
+        "./web/src/app/api/tutor/route.ts",
+        "./web/src/lib/supabaseAdmin.ts"
+      ],
+      "usageCount": 8
+    }
+  ],
+  "stripe": [
+    {
+      "key": "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./web/src/env.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "STRIPE_PRICE_ID",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/billing/checkout/route.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "STRIPE_SECRET_KEY",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/jobs/dunning-daily/route.ts",
+        "./web/src/app/api/billing/cancel/route.ts",
+        "./web/src/app/api/billing/checkout/route.ts",
+        "./web/src/app/api/billing/invoices/route.ts",
+        "./web/src/app/api/billing/portal/route.ts",
+        "./web/src/app/api/billing/resume/route.ts",
+        "./web/src/app/api/billing/webhook/route.ts",
+        "./web/src/lib/offline.ts"
+      ],
+      "usageCount": 8
+    },
+    {
+      "key": "STRIPE_WEBHOOK_SECRET",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/billing/webhook/route.ts"
+      ],
+      "usageCount": 1
+    }
+  ],
+  "email": [
+    {
+      "key": "FROM_EMAIL",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/lib/email.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "NEXT_PUBLIC_SUPPORT_EMAIL",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/accessibility/page.tsx"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "RESEND_API_KEY",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/admin/system/page.tsx",
+        "./web/src/app/api/health/route.ts",
+        "./web/src/lib/email.ts",
+        "./web/src/lib/offline.ts"
+      ],
+      "usageCount": 4
+    },
+    {
+      "key": "SUPPORT_EMAIL",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/(public)/privacy/page.tsx",
+        "./web/src/app/(public)/terms/page.tsx",
+        "./web/src/app/api/admin/guardian/requests/resend/route.ts",
+        "./web/src/app/api/guardian/request/route.ts",
+        "./web/src/lib/email.ts"
+      ],
+      "usageCount": 5
+    }
+  ],
+  "monitoring": [
+    {
+      "key": "NEXT_PUBLIC_SENTRY_DSN",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./web/src/env.ts",
+        "./web/src/lib/offline.ts"
+      ],
+      "usageCount": 2
+    },
+    {
+      "key": "SENTRY_DSN",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/sentry.client.config.ts",
+        "./web/sentry.server.config.ts",
+        "./web/src/app/admin/system/page.tsx",
+        "./web/src/app/api/health/route.ts"
+      ],
+      "usageCount": 4
+    }
+  ],
+  "app": [
+    {
+      "key": "APP_BASE_URL",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/admin/system/page.tsx",
+        "./web/src/app/api/admin/guardian/requests/resend/route.ts",
+        "./web/src/app/api/guardian/consent/route.ts",
+        "./web/src/app/api/guardian/request/route.ts",
+        "./web/src/lib/email.ts"
+      ],
+      "usageCount": 5
+    },
+    {
+      "key": "APP_ORIGIN",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/certificates/issue/route.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "BASE_URL",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/playwright.config.ts",
+        "./web/tests/e2e/final-exam.spec.ts",
+        "./web/tests/e2e/utils/testkit.ts"
+      ],
+      "usageCount": 3
+    },
+    {
+      "key": "NEXT_PUBLIC_APP_BASE_URL",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/(public)/login/page.tsx",
+        "./web/src/app/(public)/signup/page.tsx",
+        "./web/src/app/account/auth/AuthSettings.tsx",
+        "./web/src/app/api/admin/fulfillment/run/route.ts",
+        "./web/src/components/AppBarV2.tsx",
+        "./web/src/components/auth/GoogleOneTap.tsx"
+      ],
+      "usageCount": 6
+    },
+    {
+      "key": "NEXT_PUBLIC_SITE_URL",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/account/delete/route.ts",
+        "./web/src/app/api/billing/portal/route.ts",
+        "./web/src/app/api/exam/start/route.ts",
+        "./web/src/app/api/testkit/cert/draft-to-issued/route.ts",
+        "./web/src/app/api/testkit/guardian/request/route.ts",
+        "./web/src/app/courses/page.tsx",
+        "./web/src/app/layout.tsx",
+        "./web/src/app/robots.txt/route.ts",
+        "./web/src/app/sitemap.xml/route.ts",
+        "./web/src/env.ts"
+      ],
+      "usageCount": 10
+    },
+    {
+      "key": "NEXT_PUBLIC_SUPABASE_URL",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./tools/check-env.mjs",
+        "./web/src/app/api/account/avatar/upload/route.ts",
+        "./web/src/app/api/admin/fulfillment/batches/route.ts",
+        "./web/src/app/api/admin/fulfillment/inventory/route.ts",
+        "./web/src/app/api/admin/fulfillment/run/route.ts",
+        "./web/src/app/api/admin/fulfillment/stock/route.ts",
+        "./web/src/env.ts",
+        "./web/src/lib/auth.ts",
+        "./web/src/lib/fulfillment/allocateSerial.ts",
+        "./web/src/lib/fulfillment/fetchPending.ts",
+        "./web/src/lib/fulfillment/reconcile.ts",
+        "./web/src/lib/fulfillment/zipAndStore.ts",
+        "./web/src/lib/offline.ts",
+        "./web/src/lib/storageSignedUrl.ts",
+        "./web/src/lib/supabaseClient.ts"
+      ],
+      "usageCount": 15
+    },
+    {
+      "key": "SUPABASE_URL",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./ops/seed/lib/supabase.ts",
+        "./ops/seed/seed-handbooks.ts",
+        "./tools/ingest/ingest_handbook.mjs",
+        "./tools/ingest/test_search.mjs",
+        "./tools/ingest/test_search_hybrid.mjs",
+        "./web/scripts/make_admin.mjs",
+        "./web/src/app/api/tutor/route.ts",
+        "./web/src/lib/supabaseAdmin.ts"
+      ],
+      "usageCount": 8
+    }
+  ],
+  "admin": [
+    {
+      "key": "ADMIN_JOB_TOKEN",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/jobs/dunning-daily/route.ts",
+        "./web/src/app/api/admin/jobs/regulatory-monthly/route.ts",
+        "./web/src/app/api/admin/jobs/trial-reminders/route.ts",
+        "./web/src/app/api/admin/jobs/weekly-digest/route.ts"
+      ],
+      "usageCount": 4
+    },
+    {
+      "key": "DUNNING_DAILY_ENABLED",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/jobs/dunning-daily/route.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "TEST_ADMIN_USER",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/tests/e2e/exam-certificate.spec.ts",
+        "./web/tests/e2e/global-setup.ts",
+        "./web/tests/e2e/utils/testkit.ts"
+      ],
+      "usageCount": 3
+    }
+  ],
+  "regulatory": [
+    {
+      "key": "REGULATORY_MONTHLY_ENABLED",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/jobs/regulatory-monthly/route.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "REGULATORY_SIGNING_SECRET",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/lib/regulatory/generateReport.ts"
+      ],
+      "usageCount": 1
+    }
+  ],
+  "test": [
+    {
+      "key": "TEST_ADMIN_USER",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/tests/e2e/exam-certificate.spec.ts",
+        "./web/tests/e2e/global-setup.ts",
+        "./web/tests/e2e/utils/testkit.ts"
+      ],
+      "usageCount": 3
+    },
+    {
+      "key": "TEST_MINOR_USER",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/tests/e2e/global-setup.ts",
+        "./web/tests/e2e/utils/testkit.ts"
+      ],
+      "usageCount": 2
+    },
+    {
+      "key": "TEST_STUDENT_USER",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/tests/e2e/global-setup.ts",
+        "./web/tests/e2e/utils/testkit.ts"
+      ],
+      "usageCount": 2
+    },
+    {
+      "key": "TESTKIT_ON",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/testkit/cert/draft-to-issued/route.ts",
+        "./web/src/app/api/testkit/enroll/route.ts",
+        "./web/src/app/api/testkit/entitlement/route.ts",
+        "./web/src/app/api/testkit/exam/blueprint/route.ts",
+        "./web/src/app/api/testkit/guardian/request/route.ts",
+        "./web/src/app/api/testkit/reset/route.ts",
+        "./web/src/app/api/testkit/seat-time/route.ts",
+        "./web/src/app/api/testkit/user/route.ts",
+        "./web/tests/e2e/global-setup.ts",
+        "./web/tests/e2e/global-teardown.ts"
+      ],
+      "usageCount": 10
+    },
+    {
+      "key": "TESTKIT_TOKEN",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/testkit/cert/draft-to-issued/route.ts",
+        "./web/src/app/api/testkit/enroll/route.ts",
+        "./web/src/app/api/testkit/entitlement/route.ts",
+        "./web/src/app/api/testkit/exam/blueprint/route.ts",
+        "./web/src/app/api/testkit/guardian/request/route.ts",
+        "./web/src/app/api/testkit/reset/route.ts",
+        "./web/src/app/api/testkit/seat-time/route.ts",
+        "./web/src/app/api/testkit/user/route.ts",
+        "./web/tests/e2e/account-shell.spec.ts",
+        "./web/tests/e2e/final-exam.spec.ts",
+        "./web/tests/e2e/global-setup.ts",
+        "./web/tests/e2e/global-teardown.ts",
+        "./web/tests/e2e/utils/testkit.ts"
+      ],
+      "usageCount": 13
+    }
+  ],
+  "exam": [
+    {
+      "key": "FINAL_EXAM_MINUTES_REQUIRED",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/exam/page.tsx",
+        "./web/src/lib/jurisdictionConfig.ts"
+      ],
+      "usageCount": 2
+    },
+    {
+      "key": "FINAL_EXAM_NUM_QUESTIONS",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/exam/page.tsx",
+        "./web/src/lib/jurisdictionConfig.ts"
+      ],
+      "usageCount": 2
+    },
+    {
+      "key": "FINAL_EXAM_PASS_PCT",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/exam/complete/route.ts",
+        "./web/src/app/exam/page.tsx",
+        "./web/src/lib/jurisdictionConfig.ts"
+      ],
+      "usageCount": 3
+    }
+  ],
+  "other": [
+    {
+      "key": "BACKGROUND_WORKER_TOKEN",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/jobs/deletions/route.ts",
+        "./web/src/app/api/admin/jobs/export/route.ts"
+      ],
+      "usageCount": 2
+    },
+    {
+      "key": "BILLING_CANCEL_URL",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/billing/checkout/route.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "BILLING_SUCCESS_URL",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/billing/checkout/route.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "CERT_ISSUER_LICENSE",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/certificates/issue/route.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "CERT_ISSUER_NAME",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/certificates/issue/route.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "CI",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/playwright.config.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "FULFILLMENT_HMAC_SECRET",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/fulfillment/run/route.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "FULFILLMENT_ON",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/fulfillment/run/route.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "MFA_SECRET",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/security/mfa/verify/route.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "NEXT_PUBLIC_BUILD_AT",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./web/src/env.ts",
+        "./web/src/lib/version.ts"
+      ],
+      "usageCount": 2
+    },
+    {
+      "key": "NEXT_PUBLIC_COMMIT_SHA",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./web/src/env.ts",
+        "./web/src/lib/version.ts"
+      ],
+      "usageCount": 2
+    },
+    {
+      "key": "NEXT_PUBLIC_ENV",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./web/src/env.ts",
+        "./web/src/lib/version.ts"
+      ],
+      "usageCount": 2
+    },
+    {
+      "key": "NEXT_PUBLIC_FULFILLMENT_LOW_STOCK_THRESHOLD",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/admin/fulfillment/page.tsx"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "NEXT_PUBLIC_GOOGLE_CLIENT_ID",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./web/src/components/auth/GoogleOneTap.tsx"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "NEXT_PUBLIC_GOOGLE_ONE_TAP",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./web/src/components/auth/GoogleOneTap.tsx",
+        "./web/src/env.ts",
+        "./web/src/lib/offline.ts",
+        "./web/tests/e2e/account-shell.spec.ts"
+      ],
+      "usageCount": 4
+    },
+    {
+      "key": "NEXT_PUBLIC_SUPPORT_PHONE",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/accessibility/page.tsx"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "NEXT_PUBLIC_VAR",
+      "nextPublic": true,
+      "scope": "root",
+      "paths": [
+        "./tools/env/extract-keys-simple.mjs",
+        "./tools/env/extract-keys.ts"
+      ],
+      "usageCount": 2
+    },
+    {
+      "key": "NODE_ENV",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./tools/env/check.mjs",
+        "./web/src/env.ts"
+      ],
+      "usageCount": 2
+    },
+    {
+      "key": "OFFLINE_DEV",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/lib/offline.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "OPENAI_API_KEY",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./tools/ingest/ingest_handbook.mjs",
+        "./tools/ingest/test_search.mjs",
+        "./tools/ingest/test_search_hybrid.mjs"
+      ],
+      "usageCount": 3
+    },
+    {
+      "key": "RATE_LIMIT_MAX",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/billing/webhook/route.ts",
+        "./web/src/app/api/exam/start/route.ts",
+        "./web/src/app/api/prep/attempt/create/route.ts",
+        "./web/src/app/api/tutor/route.ts",
+        "./web/src/lib/ratelimit.ts"
+      ],
+      "usageCount": 5
+    },
+    {
+      "key": "RATE_LIMIT_ON",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/regulatory/run/route.ts",
+        "./web/src/app/api/billing/webhook/route.ts",
+        "./web/src/app/api/exam/start/route.ts",
+        "./web/src/app/api/prep/attempt/create/route.ts",
+        "./web/src/app/api/tutor/route.ts"
+      ],
+      "usageCount": 5
+    },
+    {
+      "key": "RATE_LIMIT_WINDOW_MS",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/billing/webhook/route.ts",
+        "./web/src/app/api/exam/start/route.ts",
+        "./web/src/app/api/prep/attempt/create/route.ts",
+        "./web/src/app/api/tutor/route.ts"
+      ],
+      "usageCount": 4
+    },
+    {
+      "key": "TRIAL_REMINDERS_ENABLED",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/jobs/trial-reminders/route.ts"
+      ],
+      "usageCount": 1
+    },
+    {
+      "key": "VAR",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./tools/env/extract-keys-simple.mjs",
+        "./tools/env/extract-keys.ts"
+      ],
+      "usageCount": 2
+    },
+    {
+      "key": "WEEKLY_DIGEST_ENABLED",
+      "nextPublic": false,
+      "scope": "root",
+      "paths": [
+        "./web/src/app/api/admin/jobs/weekly-digest/route.ts"
+      ],
+      "usageCount": 1
+    }
+  ]
+}

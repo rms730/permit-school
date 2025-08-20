@@ -133,7 +133,7 @@ node web/scripts/make_admin.mjs email  # Create admin user
 
 **Never commit real secrets**. Use `.example` files and GitHub Secrets in CI.
 
-**Required environment variables** (see [complete reference](docs/ENVIRONMENT_VARIABLES.md)):
+**Required environment variables** (see [Environment Setup Guide](docs/ENVIRONMENT_SETUP.md)):
 
 ```bash
 # Supabase (required)

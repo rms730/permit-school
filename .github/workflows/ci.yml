@@ -38,6 +38,10 @@ jobs:
           cd web
           npm ci
           npm run lint
+      - name: Environment validation
+        run: |
+          npm ci
+          npm run env:check:dev
 
   test:
     runs-on: ubuntu-latest

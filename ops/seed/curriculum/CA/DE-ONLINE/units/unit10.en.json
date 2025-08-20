@@ -1,0 +1,113 @@
+{
+  "unit": 10,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Vehicle Ownership, Insurance & Collisions",
+  "minutes_required": 60,
+  "objectives": [
+    "Understand registration, title, and renewal basics and keep records up to date.",
+    "Explain California financial responsibility (insurance) requirements and proof.",
+    "Perform basic maintenance checks and keep safety equipment in working order.",
+    "Know what to do at a collision scene and how/when to report.",
+    "Reduce risk and legal issues by planning for emergencies and documentation."
+  ],
+  "sections": [
+    {
+      "title": "Registration, Title & Renewal",
+      "lessons": [
+        {
+          "title": "Registration & Title Basics",
+          "minutes": 5,
+          "content": [
+            "Your vehicle must have a valid title and registration with current address on file. Display valid plates and stickers as required.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Renewals, Fees & Smog Checks",
+          "minutes": 5,
+          "content": [
+            "Renew on time to avoid penalties. Some vehicles require periodic emissions inspections based on state rules.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Insurance & Financial Responsibility",
+      "lessons": [
+        {
+          "title": "Coverage Types & Proof",
+          "minutes": 5,
+          "content": [
+            "California law requires financial responsibility, typically through liability insurance. Keep digital or paper proof available for law enforcement.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "After a Collision: Reporting & SR Forms",
+          "minutes": 5,
+          "content": [
+            "If a collision meets reporting thresholds (e.g., injury, certain property damage), you must file required reports within the state’s timeframe.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Maintenance & Safety Equipment",
+      "lessons": [
+        {
+          "title": "Essential Maintenance",
+          "minutes": 5,
+          "content": [
+            "Check tires, brakes, fluids, lights, and wipers regularly. Address warning lights promptly and keep a maintenance log.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Safety Equipment & Emergency Kits",
+          "minutes": 5,
+          "content": [
+            "Functioning headlights, brake lights, mirrors, and horn are essential. Carry an emergency kit suited to your region and season.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "At the Scene: Step-by-Step",
+      "lessons": [
+        {
+          "title": "Immediate Actions",
+          "minutes": 5,
+          "content": [
+            "Stop immediately, protect the scene if safe, and check for injuries. Call 911 for emergencies. Move vehicles out of travel lanes if minor and safe.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Exchange & Reporting",
+          "minutes": 5,
+          "content": [
+            "Exchange names, addresses, driver license numbers, license plates, and insurance details. Follow state timelines for reports.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.969Z"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "unit": 7,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Conducir bajo los efectos, distraído y con sueño",
+  "minutes_required": 78,
+  "objectives": [
+    "Identificar formas comunes de incapacidad (alcohol, drogas/medicamentos, cannabis, fatiga y distracciones).",
+    "Explicar las consecuencias legales, incluyendo la regla de Tolerancia Cero para menores de 21 años y el consentimiento implícito en California.",
+    "Aplicar las reglas sobre uso de celular/mensajes y hábitos seguros con la tecnología del vehículo.",
+    "Reconocer señales de somnolencia y elegir estrategias de prevención.",
+    "Elegir alternativas seguras: conductor designado, viajes por aplicación, retrasar el viaje y acuerdos familiares."
+  ],
+  "sections": [
+    {
+      "title": "Conceptos básicos del alcohol",
+      "lessons": [
+        {
+          "title": "Cómo afecta el alcohol al manejo",
+          "minutes": 6,
+          "content": [
+            "El alcohol es un depresor. Reduce la capacidad del cerebro para notar peligros, juzgar velocidad/distancia y reaccionar a tiempo. Incluso una pequeña cantidad puede afectar el manejo seguro.",
+            "[object Object]",
+            "Escenario: Después del partido del viernes, un amigo dice estar ‘bien’ tras una sola bebida. En el camino, una pelota rueda a la calle. El tiempo de reacción afectado puede convertirlo en choque.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Conceptos de BAC y decisiones seguras",
+          "minutes": 6,
+          "content": [
+            "La concentración de alcohol en sangre (BAC) mide el alcohol en tu torrente sanguíneo. California establece límites legales, pero cualquier incapacidad puede ser peligrosa. ‘Bajo el límite’ no significa ‘seguro’.",
+            "[object Object]",
+            "La mejor decisión: acuerda tu transporte antes del evento. Envía a tu madre/padre o adulto de confianza el plan y un respaldo.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Tolerancia Cero y consentimiento implícito",
+      "lessons": [
+        {
+          "title": "Menores de 21: Tolerancia Cero",
+          "minutes": 7,
+          "content": [
+            "La ley de Tolerancia Cero de California aplica a conductores menores de 21 años. Si un oficial sospecha consumo de alcohol, puede requerir una prueba; incluso cantidades muy bajas pueden provocar acciones sobre la licencia.",
+            "[object Object]",
+            "Las consecuencias pueden incluir decomiso del vehículo, multas y suspensión/demora del privilegio de manejar según la ley vigente de California y la guía del DMV.",
+            "En resumen: menor de 21 = cero alcohol al manejar y reglas estrictas al transportar alcohol."
+          ],
+          "review": []
+        },
+        {
+          "title": "Consentimiento implícito y proceso por DUI",
+          "minutes": 6,
+          "content": [
+            "Al manejar en California aceptas someterte a pruebas químicas cuando se soliciten legalmente (consentimiento implícito). Negarte puede resultar en suspensión o revocación de la licencia.",
+            "[object Object]",
+            "Si eres menor de 21, pueden aplicar consecuencias adicionales por tolerancia cero. Sigue la ley de CA y la guía del manual del DMV."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Medicamentos, cannabis y combinaciones",
+      "lessons": [
+        {
+          "title": "Medicamentos recetados y de mostrador",
+          "minutes": 6,
+          "content": [
+            "Muchos medicamentos recetados y de venta libre pueden afectar la atención, la vista y el tiempo de reacción. Lee etiquetas y consulta a tu profesional de salud antes de manejar.",
+            "[object Object]",
+            "Si una etiqueta indica ‘No opere un vehículo o maquinaria’, no manejes. Elige una alternativa segura."
+          ],
+          "review": []
+        },
+        {
+          "title": "Cannabis y mezclar sustancias",
+          "minutes": 6,
+          "content": [
+            "El cannabis puede distorsionar la percepción de tiempo/distancia, ralentizar la reacción y reducir la atención. Manejar con incapacidad por cannabis es ilegal.",
+            "[object Object]",
+            "Si hay cannabis en tus planes, no manejes. Usa un conductor sobrio o espera hasta estar sin efectos y sea legal y seguro hacerlo."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Celular, mensajes y tecnología a bordo",
+      "lessons": [
+        {
+          "title": "Reglas sobre celular y mensajes",
+          "minutes": 7,
+          "content": [
+            "Usar el celular en la mano al manejar es ilegal. Adultos solo manos libres cuando sea necesario y bien montado. Menores no pueden usar celular o dispositivo inalámbrico al manejar, salvo emergencias.",
+            "[object Object]",
+            "Más seguro: detente en un lugar legal y seguro para llamar o enviar mensajes."
+          ],
+          "review": []
+        },
+        {
+          "title": "Infoentretenimiento y otras distracciones",
+          "minutes": 6,
+          "content": [
+            "La navegación, listas de reproducción y pantallas del vehículo pueden desviar ojos, manos y mente. Configura todo antes de poner la palanca en DRIVE.",
+            "[object Object]",
+            "Recuerda: ‘ojos fuera del camino’ por pocos segundos a velocidad equivale a recorrer a ciegas una gran distancia."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Conducir con sueño",
+      "lessons": [
+        {
+          "title": "Señales de alerta y bajones circadianos",
+          "minutes": 6,
+          "content": [
+            "[object Object]",
+            "Los ‘bajones’ circadianos aumentan el riesgo—madrugada/noche muy tarde y media tarde. No confíes en bebidas energéticas; su efecto se va.",
+            "Si sientes sueño, ya estás incapacitado. Deja de manejar."
+          ],
+          "review": []
+        },
+        {
+          "title": "Estrategias de prevención",
+          "minutes": 6,
+          "content": [
+            "[object Object]",
+            "Si un medicamento te causa somnolencia, no manejes—cambia la hora o elige otro transporte."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Pasajeros, comida y distracciones cotidianas",
+      "lessons": [
+        {
+          "title": "Amigos, música y presión social",
+          "minutes": 6,
+          "content": [
+            "Los pasajeros pueden ayudar como ‘observadores’—o distraer mucho. Como conductor, tú fijas las reglas.",
+            "[object Object]",
+            "Escenario: tus amigos quieren grabar ‘historias’. No puedes filmar al manejar. Estaciónate o entrega el teléfono."
+          ],
+          "review": []
+        },
+        {
+          "title": "Comidas, bebidas y objetos sueltos",
+          "minutes": 5,
+          "content": [
+            "[object Object]",
+            "Mejor decisión: come antes o después de manejar, no durante."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Aplicación de la ley, sanciones y alternativas seguras",
+      "lessons": [
+        {
+          "title": "Aplicación de la ley y sanciones (panorama)",
+          "minutes": 7,
+          "content": [
+            "La ley de California contempla consecuencias serias por DUI e infracciones de menores. Puede haber acciones administrativas y sanciones judiciales. Se pueden exigir programas de DUI, comprobantes de seguro y, en algunos casos, alcoholímetro de arranque.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Alternativas seguras y acuerdos familiares",
+          "minutes": 7,
+          "content": [
+            "Plan A/B/C: (A) conductor sobrio designado, (B) viaje por aplicación/taxi, (C) llamar a madre/padre o adulto de confianza. Primero la seguridad.",
+            "[object Object]",
+            "Si un amigo está incapacitado, quítale las llaves y elige transporte sobrio. La amistad cuida."
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.968Z"
+  }
+}

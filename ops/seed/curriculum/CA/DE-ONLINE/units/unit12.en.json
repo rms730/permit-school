@@ -1,0 +1,112 @@
+{
+  "unit": 12,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Final Review & Test Readiness",
+  "minutes_required": 60,
+  "objectives": [
+    "Reinforce the most-missed topics: right-of-way, signs/markings, speed/space, and special situations.",
+    "Apply test-taking strategies: careful reading, eliminating distractors, and time management.",
+    "Prepare required documents and logistics for the DMV knowledge test.",
+    "Adopt a safe driving mindset beyond the test: maturity, responsibility, and continuous learning."
+  ],
+  "sections": [
+    {
+      "title": "Test-Taking Strategies",
+      "lessons": [
+        {
+          "title": "Read, Predict, Eliminate",
+          "minutes": 5,
+          "content": [
+            "Read the entire question, predict the answer, and eliminate clearly wrong choices. Watch for absolutes like 'always' or 'never'.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Time & Stress Management",
+          "minutes": 5,
+          "content": [
+            "Pace yourself. If stuck, mark and return. Use breathing techniques to stay calm and focused.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Most-Missed Topics: Quick Recap",
+      "lessons": [
+        {
+          "title": "Right-of-Way & Intersections",
+          "minutes": 5,
+          "content": [
+            "Yield to pedestrians in crosswalks, to vehicles already in the intersection, and to the right at 4-way stops when arriving simultaneously.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Signs, Markings & Speed/Space",
+          "minutes": 5,
+          "content": [
+            "Know regulatory vs. warning signs. Respect solid/double lines, and maintain safe following distance appropriate to speed and conditions.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "DMV Test Logistics",
+      "lessons": [
+        {
+          "title": "Documents & Eligibility",
+          "minutes": 5,
+          "content": [
+            "Bring required identification, application receipts, and any forms specified by your DMV appointment confirmation.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Retakes & Next Steps",
+          "minutes": 5,
+          "content": [
+            "Understand retake policies and waiting periods. If you don’t pass, review missed topics before trying again.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Responsible Driving Mindset",
+      "lessons": [
+        {
+          "title": "Maturity, Judgment & Risk",
+          "minutes": 5,
+          "content": [
+            "Real driving is more than passing a test; it requires restraint, patience, and respect for others.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Pledge & Continuous Learning",
+          "minutes": 5,
+          "content": [
+            "Commit to lifelong learning: refresh the handbook, practice new skills, and keep your vehicle maintained.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.970Z"
+  }
+}

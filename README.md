@@ -120,10 +120,12 @@ node web/scripts/make_admin.mjs email  # Create admin user
 ## Environment Setup
 
 1. Copy example envs:
+
    - Root: `cp .env.local.example .env.local` (fill values) - for scripts/tools
    - Web: `cp web/.env.local.example web/.env.local` (fill values) - for Next.js app
 
 2. Verify:
+
    - Local: `npm run env:check:local`
 
 3. Run:

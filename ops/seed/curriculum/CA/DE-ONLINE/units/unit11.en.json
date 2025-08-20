@@ -1,0 +1,124 @@
+{
+  "unit": 11,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Parking, Tickets, Points & Provisional Rules",
+  "minutes_required": 60,
+  "objectives": [
+    "Apply CA parking rules: colors (red/blue/white/green/yellow), distances, hills.",
+    "Understand provisional license restrictions and exceptions for minors.",
+    "Explain citations, fines, court/traffic school basics.",
+    "Describe the Negligent Operator Treatment System (NOTS) and point counts.",
+    "Recognize disability parking rules and misuse penalties."
+  ],
+  "sections": [
+    {
+      "title": "Parking Rules & Curb Colors",
+      "lessons": [
+        {
+          "title": "Color Codes & Where You Can Stop",
+          "minutes": 8,
+          "content": [
+            "Curbs communicate parking rules. White: stop only to pick up or drop off passengers (or mail). Green: limited-time parking—time limit shown on signs or painted on the curb. Yellow: stop no longer than posted to load/unload passengers or freight; drivers of noncommercial cars usually must stay with the vehicle. Red: no stopping, standing, or parking. Blue: parking reserved for disabled persons with an appropriate placard or plates; the cross-hatched access aisle next to a disabled space is never for stopping or parking.",
+            "Teen pitfalls: stopping in a red zone to 'grab something quickly'; waiting in a yellow zone longer than posted; parking in the cross-hatched access aisle next to a blue curb."
+          ],
+          "review": []
+        },
+        {
+          "title": "Bike Lanes & School Areas",
+          "minutes": 6,
+          "content": [
+            "Bicycle lanes: It is illegal to drive in a bike lane except to park where permitted, enter/leave the roadway, or within the last 200 feet before a right turn. If signs say 'No Parking,' do not park in the bike lane.",
+            "Around schools: expect heavier pedestrian traffic and loading zones; obey posted signs for passenger loading and any time-limit zones near schools."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Distances, Hills & Special Places",
+      "lessons": [
+        {
+          "title": "How Far? Hydrants, Crosswalks, Tracks",
+          "minutes": 6,
+          "content": [
+            "Never park: within 15 feet of a fire hydrant or fire station driveway; within 20 feet of a crosswalk (marked or unmarked), or within 15 feet of a crosswalk where there is a curb extension; in front of or on a sidewalk; within 3 feet of a curb ramp for disabled access; in a cross-hatched access aisle; or double-parked alongside a vehicle.",
+            "At railroad crossings: when warning devices or a person indicate a train, stop at least 15 feet from the nearest rail—never stop on the tracks."
+          ],
+          "review": []
+        },
+        {
+          "title": "Parallel & Hill Parking",
+          "minutes": 6,
+          "content": [
+            "After parallel parking, your wheels must be within 18 inches of the curb.",
+            "On hills: Downhill — turn front wheels toward the curb. Uphill with a curb — turn front wheels away from the curb and allow the vehicle to roll back slightly until the tire touches the curb. On a hill with no curb — turn the wheels so the vehicle will not roll into the road if the brakes fail."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Provisional License (Minors) — Rules & Exceptions",
+      "lessons": [
+        {
+          "title": "Curfew, Passenger Limits & Allowed Exceptions",
+          "minutes": 10,
+          "content": [
+            "During the first 12 months with a minor’s (provisional) license, you may not drive between 11 p.m. and 5 a.m. and you may not transport passengers under 20 years old unless accompanied by a California-licensed driver who is at least 25 years old.",
+            "Exceptions exist if you carry a signed note: medical necessity (from a physician), school or school activity (from a school official), employment (from your employer), or transporting an immediate family member (from a parent/guardian).",
+            "Parents/guardians can cancel a teen’s license by submitting the appropriate DMV form."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Tickets, Fines, and Traffic Violator School",
+      "lessons": [
+        {
+          "title": "Citations, Court & Correctable Issues",
+          "minutes": 8,
+          "content": [
+            "When cited, signing the ticket is a promise to appear in traffic court. Failing to appear (FTA) may result in DMV suspending your driving privilege until you appear, and the FTA is noted on your record.",
+            "Traffic Violator School (TVS): For eligible one-point violations, a judge may allow you to attend TVS so the citation is not reported to your insurance (it remains on your DMV record). You may use TVS once in any 18‑month period."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Points & the Negligent Operator Treatment System (NOTS)",
+      "lessons": [
+        {
+          "title": "Point Counts & Consequences (Adults & Minors)",
+          "minutes": 8,
+          "content": [
+            "Adult NOTS thresholds: DMV action may occur at 4 points in 12 months, 6 points in 24 months, or 8 points in 36 months.",
+            "Minors: Collisions/convictions can trigger restrictions or suspension within the first 12 months (e.g., two at‑fault collisions or convictions lead to a 30‑day restriction requiring a licensed 25+ driver; three lead to a 6‑month suspension and one year of probation)."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Disabled Parking & Misuse",
+      "lessons": [
+        {
+          "title": "Access, Placards & Common Violations",
+          "minutes": 8,
+          "content": [
+            "Blue zones are reserved for vehicles displaying disabled person placards or plates. Never stop or park in the blue access aisle (cross-hatched area) next to a disabled parking space.",
+            "Do not block curb ramps or park within 3 feet of a curb ramp. Expect enhanced enforcement in school, business, and residential districts."
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.970Z"
+  }
+}

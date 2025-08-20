@@ -1,0 +1,275 @@
+{
+  "unit": 6,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Estrategias para Conducir en Autopistas y Zonas Urbanas",
+  "minutes_required": 30,
+  "objectives": [
+    "Incorporarse con suavidad usando el carril de aceleración sin detenerse a menos que sea necesario.",
+    "Elegir el carril correcto en la autopista y usar el carril izquierdo principalmente para rebasar.",
+    "Identificar y seguir las reglas y demarcaciones de carriles HOV (viaje compartido) y carriles exprés.",
+    "Controlar la velocidad según la ley básica de velocidad de California y las condiciones del camino.",
+    "Mantener una distancia de seguimiento segura a velocidades de autopista y aumentarla en condiciones adversas.",
+    "Planear salidas con anticipación, leer señalamientos de los entronques y circular con cuidado en zonas de entrelazado.",
+    "Buscar peligros urbanos como intersecciones, paradas frecuentes y peatones.",
+    "Compartir la vía con usuarios vulnerables: bicicletas, patinetas/motonetas, autobuses y tren ligero.",
+    "Aplicar reglas de estacionamiento en ciudades: colores de guarnición, parquímetros, límites de tiempo y estacionamiento en cuestas.",
+    "Manejar condiciones especiales: resplandor nocturno, rocío de lluvia en autopista, hidroplaneo, viento y turbulencia de vehículos grandes."
+  ],
+  "sections": [
+    {
+      "title": "Fundamentos de Autopista: Rampas e Incorporación",
+      "lessons": [
+        {
+          "title": "Carriles de aceleración y semáforos de rampa",
+          "minutes": 5,
+          "content": [
+            "Las rampas y carriles de aceleración le permiten alcanzar la velocidad de la autopista antes de incorporarse. Mire lejos y ajuste su velocidad al flujo del tráfico.",
+            "Use todo el carril de aceleración. No se detenga en la rampa a menos que el tráfico o una señal lo requiera. El tráfico de la autopista tiene la preferencia de paso.",
+            "Los semáforos de rampa controlan el acceso. Obedezca el letrero—usualmente pasa un vehículo por luz verde por carril. Siga los letreros y reglas locales.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Etiqueta al incorporarse y elección del espacio",
+          "minutes": 5,
+          "content": [
+            "Use SMOG: Señalice, revise Espejos, verifique Sobre el hombro y Continúe cuando esté despejado. Entre a velocidad similar a la del tráfico.",
+            "Si alguien acelera para bloquearlo, siga señalizando y ajuste para entrar en el siguiente espacio. No se detenga en la rampa a menos que sea requerido.",
+            "Cuando dos flujos se combinan, sea cortesía y alternen si es necesario. Mantenga su carril y comuníquese con las luces direccionales.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Salidas: rampas, señales y uso del acotamiento",
+          "minutes": 4,
+          "content": [
+            "Identifique su salida con anticipación. Cambie al carril correcto de uno en uno y señalice por al menos cinco segundos (≈400 pies) antes de salir.",
+            "Obedezca las señales y velocidades sugeridas de la rampa. No cruce líneas continuas ni el área ‘gore’ para tomar una salida a último momento.",
+            "Si se pasa, continúe a la siguiente salida. Nunca retroceda en la autopista.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Uso de carriles, rebase y HOV",
+      "lessons": [
+        {
+          "title": "Numeración de carriles y derecha vs. izquierda",
+          "minutes": 5,
+          "content": [
+            "En vías de varios carriles, el carril de la izquierda es el número 1; hacia la derecha los números aumentan.",
+            "Use el carril izquierdo principalmente para rebasar o dar vuelta a la izquierda. Use los carriles derechos para entrar/salir y para tráfico más lento.",
+            "Líneas blancas continuas indican que no debe cambiar de carril; líneas blancas discontinuas permiten cambiar cuando sea seguro.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Rebase y hábitos de ‘conserve su derecha’",
+          "minutes": 4,
+          "content": [
+            "Rebase por la izquierda y regrese solo cuando vea los faros del vehículo rebasado en su espejo retrovisor.",
+            "Rebasar por la derecha se permite solo en situaciones específicas. Nunca salga del pavimento para rebasar.",
+            "No permanezca innecesariamente en el carril izquierdo. Si viene tráfico más rápido por detrás, cámbiese a la derecha cuando sea seguro.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Carriles de viaje compartido (HOV) y exprés",
+          "minutes": 5,
+          "content": [
+            "Los carriles HOV se marcan con un rombo y señalamientos. Son para vehículos con ocupación mínima publicada, vehículos de bajas emisiones con calcomanía del DMV y motocicletas (salvo se indique lo contrario).",
+            "Nunca cruce líneas blancas dobles y continuas para entrar o salir de un HOV. Use las zonas designadas con líneas discontinuas.",
+            "Algunas rutas usan carriles exprés con cobro o transpondedor. Siga los letreros y reglas locales.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Velocidad, distancia y espacio",
+      "lessons": [
+        {
+          "title": "Ley básica de velocidad de California",
+          "minutes": 5,
+          "content": [
+            "Nunca maneje más rápido de lo que sea seguro para las condiciones, sin importar el límite publicado.",
+            "El máximo típico en autopistas es 65 mph salvo que se indique lo contrario. Reduzca por tráfico, clima, visibilidad y superficie.",
+            "No obstruya el flujo circulando muy por debajo del tráfico; cámbiese a la derecha cuando sea seguro.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Distancia de seguimiento en autopista",
+          "minutes": 4,
+          "content": [
+            "Use la regla de tres segundos como mínimo. Aumente la distancia a mayor velocidad y con lluvia, oscuridad o rocío.",
+            "Si alguien lo sigue de cerca, mantenga su curso y luego cámbiese a la derecha cuando sea seguro para dejarlo pasar.",
+            "Evite meterse en espacios pequeños. Tras incorporarse, reconstruya su colchón de espacio.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Campo visual, rutas de escape y colchón de espacio",
+          "minutes": 4,
+          "content": [
+            "Escanee por lo menos 10 segundos adelante para detectar con tiempo frenadas, basura y cierres de carril.",
+            "Evite circular en puntos ciegos de otros. Genere espacio a ambos lados cuando se pueda.",
+            "Si no puede ver alrededor de un vehículo grande, aumente distancia o cambie de carril cuando sea seguro.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Entronques y estrategia de salida",
+      "lessons": [
+        {
+          "title": "Tipos de entronques y señalamientos",
+          "minutes": 5,
+          "content": [
+            "Los entronques (trébol, diamante, trompeta) conectan vías con rampas curvas y cambios de velocidad. La visibilidad en rampas puede ser limitada.",
+            "Líneas discontinuas grandes suelen marcar fin de carril y salidas. Observe ‘EXIT ONLY’ y avisos de carril que termina.",
+            "Las zonas de entrelazado aparecen donde se cruzan entradas y salidas. Mire lejos, señalice y sea paciente.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Planeación de salida, fin de carril y entrelazado",
+          "minutes": 4,
+          "content": [
+            "Cambie al carril correcto con tiempo. Señalice por al menos cinco segundos (≈400 pies) para indicar su salida.",
+            "Respete las líneas continuas y el ‘gore’. Si se pasa, vaya a la siguiente salida; nunca retroceda.",
+            "En segmentos de entrelazado, alternen (‘zipper’) y evite acelerar para bloquear.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Peligros de manejo urbano",
+      "lessons": [
+        {
+          "title": "Intersecciones y paradas frecuentes",
+          "minutes": 5,
+          "content": [
+            "Las calles urbanas tienen intersecciones cercanas. Espere semáforos y tráfico de pare‑avance.",
+            "Los peatones tienen preferencia en cruces marcados y no marcados. Ceda el paso y escanee a ambos lados.",
+            "En un apagón de semáforo, trate la intersección como alto de 4 vías. No bloquee la intersección si no puede despejarla.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Obstrucciones: doble fila, entregas y viajes compartidos",
+          "minutes": 4,
+          "content": [
+            "Espere paradas de reparto, autobuses y viajes por app en las guarniciones. La gente puede salir entre vehículos.",
+            "Estacionarse en doble fila es ilegal. Nunca se detenga en el carril de circulación para cargar o descargar.",
+            "Deje espacio extra al lado derecho y esté listo para frenar. Las puertas pueden abrirse de repente.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Usuarios vulnerables y transporte público",
+      "lessons": [
+        {
+          "title": "Bicicletas, motonetas y la ‘zona de la puerta’",
+          "minutes": 5,
+          "content": [
+            "Las bicicletas comparten la vía y pueden usar todo el carril cuando sea necesario. Démosles espacio y espere cambios de velocidad.",
+            "Deje al menos tres pies para rebasar. Cambie de carril para rebasar cuando sea necesario y seguro.",
+            "La ‘zona de la puerta’ es peligrosa. Revise espejos y sobre el hombro antes de abrir las puertas cerca del tráfico o carriles bici.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Carriles ‘Solo Autobús’, tren ligero y paradas",
+          "minutes": 4,
+          "content": [
+            "No conduzca, se detenga ni se estacione en carriles ‘Solo Autobús’. Puede cruzarlos para girar a la derecha donde se permita.",
+            "En zonas de seguridad marcadas para tranvías/trolebuses, pase a no más de 10 mph y esté atento a peatones.",
+            "No rebase tren ligero por la izquierda salvo indicación. Mire si vienen trenes antes de cruzar vías.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Reglas de estacionamiento en ciudad",
+      "lessons": [
+        {
+          "title": "Colores de guarnición, parquímetros y límites de tiempo",
+          "minutes": 5,
+          "content": [
+            "Colores: blanco = subir/bajar pasajeros, verde = tiempo limitado, amarillo = carga/comercial, rojo = prohibido parar, azul = personas discapacitadas con distintivo/placas.",
+            "Lea letreros y parquímetros para horarios y límites. Siga siempre los letreros y reglas locales.",
+            "Estaciónese a no más de 18 pulgadas de la guarnición al estacionarse en paralelo.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Cuestas, paralelo y zonas prohibidas",
+          "minutes": 4,
+          "content": [
+            "En cuestas: ruedas hacia la guarnición al bajar; lejos de la guarnición al subir; sin guarnición, apunte las ruedas hacia la orilla.",
+            "Para estacionar en paralelo: alinee, retroceda a ~45°, enderece y termine a no más de 18 pulgadas de la guarnición.",
+            "No se estacione en cruces peatonales, frente a cocheras, cerca de hidrantes ni en doble fila.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Condiciones especiales",
+      "lessons": [
+        {
+          "title": "Resplandor nocturno, rocío y hidroplaneo",
+          "minutes": 4,
+          "content": [
+            "Use luces bajas con lluvia o niebla y cuando use el limpiaparabrisas. No conduzca solo con luces de estacionamiento.",
+            "De noche, mire hacia el borde derecho para evitar el encandilamiento y reduzca para poder detenerse dentro de lo que alcanza a ver.",
+            "Con lluvia fuerte, reduzca la velocidad y evite charcos. Si empieza a hidroplanear, suelte suavemente el acelerador y evite frenar o girar bruscamente.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Viento, turbulencia de camiones y emergencias",
+          "minutes": 4,
+          "content": [
+            "Los vehículos grandes generan turbulencia y tienen puntos ciegos amplios. No circule a su lado por mucho tiempo. Rebáselos por la izquierda sin cortarlos.",
+            "Con vientos fuertes: baje la velocidad, sujete el volante con firmeza y esté atento a escombros. Evite el control de velocidad crucero.",
+            "Si su vehículo se avería, oríllese al acotamiento derecho, encienda intermitentes, llame por ayuda (511/FSP donde aplique) y permanezca dentro con el cinturón puesto.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.967Z"
+  }
+}

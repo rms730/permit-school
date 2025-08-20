@@ -1,0 +1,667 @@
+{
+  "unit": 11,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "es",
+  "questions": [
+    {
+      "ref": "u11-q01",
+      "skill": "Parking_rules",
+      "difficulty": 2,
+      "stem": "¿Qué significa un borde de acera rojo en California?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Solo detenerse"
+        },
+        {
+          "key": "B",
+          "text": "Solo zona de carga"
+        },
+        {
+          "key": "C",
+          "text": "Prohibido parar, permanecer o estacionarse"
+        },
+        {
+          "key": "D",
+          "text": "Solo ascenso/descenso de pasajeros"
+        }
+      ],
+      "answer": "C",
+      "explanation": "El borde rojo prohíbe parar, permanecer o estacionarse.",
+      "tags": [
+        "estacionamiento",
+        "colores_borde"
+      ]
+    },
+    {
+      "ref": "u11-q02",
+      "skill": "Parking_rules",
+      "difficulty": 2,
+      "stem": "Un borde de acera blanco permite:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Estacionarse todo el día si se queda en el vehículo"
+        },
+        {
+          "key": "B",
+          "text": "Parar solo para recoger o dejar pasajeros (o correo)"
+        },
+        {
+          "key": "C",
+          "text": "Cargar/descargar por el tiempo que sea necesario"
+        },
+        {
+          "key": "D",
+          "text": "Estacionarse solo con cartel de discapacitado"
+        }
+      ],
+      "answer": "B",
+      "explanation": "El borde blanco es para paradas breves de pasajeros (o correo).",
+      "tags": [
+        "estacionamiento",
+        "colores_borde"
+      ]
+    },
+    {
+      "ref": "u11-q03",
+      "skill": "Parking_rules",
+      "difficulty": 2,
+      "stem": "Los bordes de acera verdes significan:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Prohibido parar"
+        },
+        {
+          "key": "B",
+          "text": "Estacionamiento por tiempo limitado según se indique"
+        },
+        {
+          "key": "C",
+          "text": "Solo carga comercial"
+        },
+        {
+          "key": "D",
+          "text": "Solo discapacitados"
+        }
+      ],
+      "answer": "B",
+      "explanation": "El borde verde permite estacionamiento por tiempo limitado; el tiempo se indica en letreros o pintado en el borde.",
+      "tags": [
+        "estacionamiento",
+        "colores_borde"
+      ]
+    },
+    {
+      "ref": "u11-q04",
+      "skill": "Parking_rules",
+      "difficulty": 2,
+      "stem": "Los bordes de acera amarillos son principalmente para:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Solo vehículos de emergencia"
+        },
+        {
+          "key": "B",
+          "text": "Cargar/descargar pasajeros o carga por el tiempo indicado"
+        },
+        {
+          "key": "C",
+          "text": "Solo empleados"
+        },
+        {
+          "key": "D",
+          "text": "Estacionamiento de bicicletas"
+        }
+      ],
+      "answer": "B",
+      "explanation": "El borde amarillo es zona de carga para pasajeros o carga por el tiempo indicado; los conductores de vehículos no comerciales suelen permanecer en el vehículo.",
+      "tags": [
+        "estacionamiento",
+        "colores_borde",
+        "carga"
+      ]
+    },
+    {
+      "ref": "u11-q05",
+      "skill": "Disabled_parking",
+      "difficulty": 2,
+      "stem": "¿Quién puede estacionarse en un borde de acera azul?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Cualquier persona por 5 minutos o menos"
+        },
+        {
+          "key": "B",
+          "text": "Vehículos con cartel o placas de persona discapacitada"
+        },
+        {
+          "key": "C",
+          "text": "Solo vehículos comerciales"
+        },
+        {
+          "key": "D",
+          "text": "Solo residentes"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Las zonas azules son para vehículos con cartel o placas válidas de persona discapacitada.",
+      "tags": [
+        "discapacidad"
+      ]
+    },
+    {
+      "ref": "u11-q06",
+      "skill": "Disabled_parking",
+      "difficulty": 2,
+      "stem": "Estacionarse en la zona de acceso con líneas enrejadas junto a un espacio para discapacitados es:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Permitido solo para cargar"
+        },
+        {
+          "key": "B",
+          "text": "Permitido con cartel"
+        },
+        {
+          "key": "C",
+          "text": "Nunca permitido"
+        },
+        {
+          "key": "D",
+          "text": "Permitido solo de noche"
+        }
+      ],
+      "answer": "C",
+      "explanation": "La zona de acceso enrejada junto a un espacio azul es para subir/bajar sillas de ruedas y no es para parar ni estacionarse.",
+      "tags": [
+        "discapacidad",
+        "zona_acceso"
+      ]
+    },
+    {
+      "ref": "u11-q07",
+      "skill": "Parking_rules",
+      "difficulty": 2,
+      "stem": "Después de estacionarse en paralelo, las llantas deben quedar:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Tocando el borde de acera"
+        },
+        {
+          "key": "B",
+          "text": "A no más de 18 pulgadas del borde de acera"
+        },
+        {
+          "key": "C",
+          "text": "A por lo menos 2 pies del borde"
+        },
+        {
+          "key": "D",
+          "text": "Giradas en sentido opuesto al borde"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Las llantas deben quedar a no más de 18 pulgadas del borde de acera.",
+      "tags": [
+        "paralelo"
+      ]
+    },
+    {
+      "ref": "u11-q08",
+      "skill": "Parking_rules",
+      "difficulty": 2,
+      "stem": "Al estacionarse **cuesta abajo** con borde de acera, gire las ruedas:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Hacia el lado opuesto del borde"
+        },
+        {
+          "key": "B",
+          "text": "Hacia el borde de acera"
+        },
+        {
+          "key": "C",
+          "text": "Rectas"
+        },
+        {
+          "key": "D",
+          "text": "En cualquier dirección"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Cuesta abajo: gire las ruedas hacia el borde de acera.",
+      "tags": [
+        "cuestas"
+      ]
+    },
+    {
+      "ref": "u11-q09",
+      "skill": "Parking_rules",
+      "difficulty": 2,
+      "stem": "Al estacionarse **cuesta arriba** con borde de acera, debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Girar las ruedas hacia el borde"
+        },
+        {
+          "key": "B",
+          "text": "Dejar las ruedas rectas"
+        },
+        {
+          "key": "C",
+          "text": "Girar las ruedas en sentido opuesto al borde y dejar que la llanta toque ligeramente el borde"
+        },
+        {
+          "key": "D",
+          "text": "Girar las ruedas en cualquier dirección"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Cuesta arriba con borde: gire las ruedas en sentido opuesto y deje que la llanta toque el borde.",
+      "tags": [
+        "cuestas"
+      ]
+    },
+    {
+      "ref": "u11-q10",
+      "skill": "Parking_rules",
+      "difficulty": 2,
+      "stem": "¿A qué distancia de un hidrante es ilegal estacionarse?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "10 pies"
+        },
+        {
+          "key": "B",
+          "text": "12 pies"
+        },
+        {
+          "key": "C",
+          "text": "A 15 pies o menos"
+        },
+        {
+          "key": "D",
+          "text": "25 pies"
+        }
+      ],
+      "answer": "C",
+      "explanation": "No se estacione a 15 pies o menos de un hidrante.",
+      "tags": [
+        "prohibido",
+        "distancias"
+      ]
+    },
+    {
+      "ref": "u11-q11",
+      "skill": "Parking_rules",
+      "difficulty": 3,
+      "stem": "¿A qué distancia de un cruce peatonal (demarcado o no) debe evitar estacionarse?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "10 pies"
+        },
+        {
+          "key": "B",
+          "text": "15 pies"
+        },
+        {
+          "key": "C",
+          "text": "20 pies"
+        },
+        {
+          "key": "D",
+          "text": "30 pies"
+        }
+      ],
+      "answer": "C",
+      "explanation": "No se estacione a 20 pies de un cruce peatonal. Donde haya una extensión de borde, la distancia es 15 pies.",
+      "tags": [
+        "prohibido",
+        "distancias"
+      ]
+    },
+    {
+      "ref": "u11-q12",
+      "skill": "Parking_rules",
+      "difficulty": 2,
+      "stem": "Cuando dispositivos o una persona avisan que se aproxima un tren, ¿a qué distancia mínima debe detenerse del riel más cercano?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "5 pies"
+        },
+        {
+          "key": "B",
+          "text": "10 pies"
+        },
+        {
+          "key": "C",
+          "text": "15 pies"
+        },
+        {
+          "key": "D",
+          "text": "25 pies"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Deténgase por lo menos a 15 pies del riel más cercano cuando se le advierta.",
+      "tags": [
+        "vías_ferreas",
+        "distancias"
+      ]
+    },
+    {
+      "ref": "u11-q13",
+      "skill": "Parking_rules",
+      "difficulty": 3,
+      "stem": "¿Cuándo puede estacionarse en una ciclovía?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Nunca"
+        },
+        {
+          "key": "B",
+          "text": "Solo si no hay color en el borde"
+        },
+        {
+          "key": "C",
+          "text": "Donde los letreros o marcas lo permitan"
+        },
+        {
+          "key": "D",
+          "text": "Solo de noche"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Puede usar la ciclovía para estacionar donde esté permitido; obedezca los letreros.",
+      "tags": [
+        "ciclovia",
+        "estacionamiento"
+      ]
+    },
+    {
+      "ref": "u11-q14",
+      "skill": "Provisional_restrictions",
+      "difficulty": 2,
+      "stem": "Durante los primeros 12 meses con licencia provisional, no puede manejar entre:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Medianoche y 6 a.m."
+        },
+        {
+          "key": "B",
+          "text": "11 p.m. y 5 a.m."
+        },
+        {
+          "key": "C",
+          "text": "10 p.m. y 4 a.m."
+        },
+        {
+          "key": "D",
+          "text": "9 p.m. y 5 a.m."
+        }
+      ],
+      "answer": "B",
+      "explanation": "El toque de queda provisional es de 11 p.m. a 5 a.m. durante los primeros 12 meses.",
+      "tags": [
+        "provisional",
+        "toque_de_queda"
+      ]
+    },
+    {
+      "ref": "u11-q15",
+      "skill": "Provisional_restrictions",
+      "difficulty": 2,
+      "stem": "Durante el primer año, no puede llevar pasajeros menores de 20 años a menos que:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Tenga una nota de un amigo"
+        },
+        {
+          "key": "B",
+          "text": "Lo acompañe un conductor con licencia de 25 años o más"
+        },
+        {
+          "key": "C",
+          "text": "Sea de día"
+        },
+        {
+          "key": "D",
+          "text": "Conduzca a menos de 35 mph"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Debe ir acompañado por un conductor con licencia de al menos 25 años para llevar menores de 20 en el primer año.",
+      "tags": [
+        "provisional",
+        "pasajeros"
+      ]
+    },
+    {
+      "ref": "u11-q16",
+      "skill": "Provisional_restrictions",
+      "difficulty": 3,
+      "stem": "¿Cuál es una excepción permitida a las restricciones provisionales si lleva la nota firmada correspondiente?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Eventos sociales con amigos"
+        },
+        {
+          "key": "B",
+          "text": "Necesidad médica"
+        },
+        {
+          "key": "C",
+          "text": "Viaje de vacaciones"
+        },
+        {
+          "key": "D",
+          "text": "Práctica de manejo"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Excepciones: necesidad médica, escuela/actividad escolar, trabajo o transportar a un familiar cercano, con nota firmada.",
+      "tags": [
+        "provisional",
+        "excepciones"
+      ]
+    },
+    {
+      "ref": "u11-q17",
+      "skill": "NOTS_points",
+      "difficulty": 3,
+      "stem": "¿Cuál es un umbral de NOTS para adultos que puede activar acción del DMV?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "3 puntos en 12 meses"
+        },
+        {
+          "key": "B",
+          "text": "4 puntos en 12 meses"
+        },
+        {
+          "key": "C",
+          "text": "5 puntos en 12 meses"
+        },
+        {
+          "key": "D",
+          "text": "10 puntos en 24 meses"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Umbrales: 4 puntos en 12 meses, 6 en 24, u 8 en 36 meses.",
+      "tags": [
+        "NOTS",
+        "puntos"
+      ]
+    },
+    {
+      "ref": "u11-q18",
+      "skill": "NOTS_points",
+      "difficulty": 3,
+      "stem": "En los primeros 12 meses, ¿qué ocurre tras dos choques con culpa, dos condenas o una de cada una para un menor?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Cancelación permanente de la licencia"
+        },
+        {
+          "key": "B",
+          "text": "Suspensión inmediata de 6 meses"
+        },
+        {
+          "key": "C",
+          "text": "Restricción de 30 días; solo puede manejar con un adulto con licencia de 25+ años"
+        },
+        {
+          "key": "D",
+          "text": "Sin consecuencia si asiste a la escuela de infractores"
+        }
+      ],
+      "answer": "C",
+      "explanation": "El DMV puede imponer una restricción de 30 días que requiere un conductor con licencia de 25+ años.",
+      "tags": [
+        "provisional",
+        "NOTS"
+      ]
+    },
+    {
+      "ref": "u11-q19",
+      "skill": "Enforcement_basics",
+      "difficulty": 2,
+      "stem": "Si lo citan y firma la multa, su firma significa:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Admite culpabilidad"
+        },
+        {
+          "key": "B",
+          "text": "Promesa de presentarse en corte de tránsito"
+        },
+        {
+          "key": "C",
+          "text": "Puede ignorar la citación"
+        },
+        {
+          "key": "D",
+          "text": "Debe pagar en el momento"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Firmar una citación es una promesa de comparecer, no una admisión de culpabilidad.",
+      "tags": [
+        "citaciones"
+      ]
+    },
+    {
+      "ref": "u11-q20",
+      "skill": "Enforcement_basics",
+      "difficulty": 2,
+      "stem": "¿Con qué frecuencia pueden los conductores elegibles usar la Escuela de Infractores para evitar que una infracción de un punto se reporte al seguro?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Una vez cada 6 meses"
+        },
+        {
+          "key": "B",
+          "text": "Una vez cada 12 meses"
+        },
+        {
+          "key": "C",
+          "text": "Una vez cada 18 meses"
+        },
+        {
+          "key": "D",
+          "text": "Ilimitadas veces"
+        }
+      ],
+      "answer": "C",
+      "explanation": "La escuela de infractores puede usarse una vez cada 18 meses para infracciones elegibles de un punto.",
+      "tags": [
+        "escuela_infractores"
+      ]
+    },
+    {
+      "ref": "u11-q21",
+      "skill": "Enforcement_basics",
+      "difficulty": 2,
+      "stem": "Si no se presenta en corte (FTA) por una citación de tránsito:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "No ocurre nada"
+        },
+        {
+          "key": "B",
+          "text": "El DMV puede suspender su privilegio de manejar hasta que comparezca y el FTA se registra en su expediente"
+        },
+        {
+          "key": "C",
+          "text": "Gana el caso automáticamente"
+        },
+        {
+          "key": "D",
+          "text": "Se desecha la citación"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Una FTA puede llevar a suspensión hasta que comparezca y se registra en su expediente.",
+      "tags": [
+        "citaciones",
+        "FTA"
+      ]
+    },
+    {
+      "ref": "u11-q22",
+      "skill": "Parking_rules",
+      "difficulty": 3,
+      "stem": "¿Cuál situación es ilegal?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Estacionarse a 19 pies de un cruce peatonal sin extensión de borde"
+        },
+        {
+          "key": "B",
+          "text": "Parar en zona amarilla por el tiempo indicado para cargar un paquete"
+        },
+        {
+          "key": "C",
+          "text": "Estacionarse a menos de 3 pies de una rampa de acera"
+        },
+        {
+          "key": "D",
+          "text": "Estacionarse cuesta arriba con las ruedas giradas en sentido opuesto al borde"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Es ilegal estacionarse a menos de 3 pies de una rampa de acera para discapacitados.",
+      "tags": [
+        "prohibido",
+        "distancias"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.992Z"
+  }
+}

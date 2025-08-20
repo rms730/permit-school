@@ -1,0 +1,113 @@
+{
+  "unit": 10,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Propiedad del Vehículo, Seguro y Colisiones",
+  "minutes_required": 60,
+  "objectives": [
+    "Comprender registro, título y renovaciones y mantener documentos al día.",
+    "Explicar los requisitos de responsabilidad financiera (seguro) en California y su comprobación.",
+    "Realizar revisiones básicas de mantenimiento y mantener el equipo de seguridad en buen estado.",
+    "Saber qué hacer en el lugar de una colisión y cómo/cuándo reportar.",
+    "Reducir riesgos y problemas legales con preparación y documentación."
+  ],
+  "sections": [
+    {
+      "title": "Registro, Título y Renovación",
+      "lessons": [
+        {
+          "title": "Conceptos Básicos de Registro y Título",
+          "minutes": 5,
+          "content": [
+            "Tu vehículo debe tener un título y registro válidos con tu dirección actualizada. Muestra placas y calcomanías vigentes según lo requerido.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Renovaciones, Tarifas e Inspecciones de Emisiones",
+          "minutes": 5,
+          "content": [
+            "Renueva a tiempo para evitar multas. Algunos vehículos requieren inspecciones de emisiones periódicas según las reglas estatales.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Seguro y Responsabilidad Financiera",
+      "lessons": [
+        {
+          "title": "Tipos de Cobertura y Comprobación",
+          "minutes": 5,
+          "content": [
+            "La ley exige responsabilidad financiera, generalmente por seguro de responsabilidad civil. Conserva prueba digital o en papel disponible para autoridades.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Tras una Colisión: Reportes y Formularios SR",
+          "minutes": 5,
+          "content": [
+            "Si una colisión cumple criterios de reporte (por ejemplo, lesiones o ciertos daños), debes presentar informes dentro del plazo estatal.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Mantenimiento y Equipo de Seguridad",
+      "lessons": [
+        {
+          "title": "Mantenimiento Esencial",
+          "minutes": 5,
+          "content": [
+            "Revisa llantas, frenos, fluidos, luces y limpiaparabrisas. Atiende luces de advertencia y lleva un registro de mantenimiento.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Equipo de Seguridad y Kits de Emergencia",
+          "minutes": 5,
+          "content": [
+            "Faros, luces de freno, espejos y claxon deben funcionar. Lleva un kit de emergencia adecuado a tu región y temporada.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "En la Escena: Paso a Paso",
+      "lessons": [
+        {
+          "title": "Acciones Inmediatas",
+          "minutes": 5,
+          "content": [
+            "Detente de inmediato, protege la escena si es seguro y verifica lesiones. Llama al 911 ante emergencias. Mueve los vehículos fuera de los carriles si es menor y seguro.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Intercambio y Reportes",
+          "minutes": 5,
+          "content": [
+            "Intercambia nombres, direcciones, licencias, placas y seguro. Sigue los plazos estatales para informes.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.969Z"
+  }
+}

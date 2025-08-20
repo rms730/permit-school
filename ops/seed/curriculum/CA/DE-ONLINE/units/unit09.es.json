@@ -1,0 +1,114 @@
+{
+  "unit": 9,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Conducción en Autopistas y Vías Exprés",
+  "minutes_required": 60,
+  "objectives": [
+    "Entrar, incorporarse y salir de autopistas con seguridad usando exploración y señalización adecuadas.",
+    "Controlar la velocidad y el espacio a alta velocidad, incluyendo la distancia de seguimiento y la disciplina de carril.",
+    "Realizar cambios de carril con espejos, señal y verificación de punto ciego; elegir carriles según el flujo y destino.",
+    "Manejar averías, escombros y emergencias; aplicar la ley de 'Moverse a otro carril' de California.",
+    "Usar carriles de alta ocupación (HOV) y exprés/peaje, y responder a semáforos de rampa."
+  ],
+  "sections": [
+    {
+      "title": "Entradas, Incorporaciones y Elección de Carril",
+      "lessons": [
+        {
+          "title": "Tipos de Rampas, Carriles de Aceleración y Semáforos de Rampa",
+          "minutes": 5,
+          "content": [
+            "Las rampas pueden ser en rizo, direccionales o trébol. Usa el carril de aceleración para igualar la velocidad del tráfico.",
+            "Los semáforos de rampa liberan vehículos en intervalos cortos para reducir conflictos. Obedece las señales y letreros publicados.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Etiqueta al Incorporarse y Selección de Carril",
+          "minutes": 5,
+          "content": [
+            "Incorpórate en el primer espacio seguro sin obligar a otros a frenar bruscamente. Evita detenerte en la rampa salvo indicación.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Velocidad, Espacio y Distancia",
+      "lessons": [
+        {
+          "title": "Gestión de Velocidad y Flujo",
+          "minutes": 5,
+          "content": [
+            "Obedece los máximos publicados y conduce a una velocidad razonable para las condiciones. El flujo te informa, pero no justifica velocidades inseguras.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Distancia de Seguimiento y Colchones de Espacio",
+          "minutes": 5,
+          "content": [
+            "Usa al menos 3–4 segundos en condiciones ideales; añade más tiempo con lluvia, oscuridad, carga pesada o detrás de camiones grandes.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Cambios de Carril, Adelantamientos y Salidas",
+      "lessons": [
+        {
+          "title": "Cambios de Carril Seguros y Puntos Ciegos",
+          "minutes": 5,
+          "content": [
+            "Aplica la rutina de espejos–señal–verificación de hombro. No permanezcas al lado de otros vehículos ni cortes el paso.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Estrategias de Salida y Salidas Perdidas",
+          "minutes": 5,
+          "content": [
+            "Señaliza y muévete temprano al carril de salida. Reduce la velocidad solo en el carril de desaceleración; no frenes bruscamente en un carril de circulación.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Averías, Carriles HOV/Exprés y Ley de Moverse",
+      "lessons": [
+        {
+          "title": "Averías y Seguridad en el Arcén",
+          "minutes": 5,
+          "content": [
+            "Señaliza hacia la derecha y sal si es posible, o estaciona completamente en el arcén. Usa luces intermitentes y colócate tras una barrera si la hay.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Carriles HOV y Exprés/Peaje",
+          "minutes": 5,
+          "content": [
+            "Los carriles HOV exigen ocupación o tipo de vehículo; los exprés pueden requerir transpondedor o peaje. Entra/sale solo donde esté permitido.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.969Z"
+  }
+}

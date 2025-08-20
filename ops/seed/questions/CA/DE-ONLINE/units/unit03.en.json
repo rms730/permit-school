@@ -1,0 +1,594 @@
+{
+  "unit": 3,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "questions": [
+    {
+      "skill": "basic_speed_law",
+      "difficulty": 2,
+      "stem": "California’s Basic Speed Law means:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "You may always drive at the posted limit."
+        },
+        {
+          "key": "B",
+          "text": "You must never drive faster than is safe for conditions."
+        },
+        {
+          "key": "C",
+          "text": "You must match the fastest traffic speed."
+        },
+        {
+          "key": "D",
+          "text": "You must drive at least 55 mph on freeways."
+        }
+      ],
+      "answer": "B",
+      "explanation": "The Basic Speed Law requires choosing a speed that is safe for current conditions, even if that is below the posted limit.",
+      "tags": [
+        "unit3",
+        "freeway",
+        "speed"
+      ]
+    },
+    {
+      "skill": "ramp_metering",
+      "difficulty": 1,
+      "stem": "At a ramp meter showing a red light, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Proceed if traffic on the freeway is light."
+        },
+        {
+          "key": "B",
+          "text": "Stop and wait for green, usually one car per green."
+        },
+        {
+          "key": "C",
+          "text": "Treat it as a yield sign."
+        },
+        {
+          "key": "D",
+          "text": "Ignore it; ramp meters are optional."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Ramp meters regulate flow. Obey them like a normal signal—stop on red, go on green.",
+      "tags": [
+        "unit3",
+        "merge"
+      ]
+    },
+    {
+      "skill": "merging_gap_selection",
+      "difficulty": 2,
+      "stem": "When merging onto a freeway from an acceleration lane, the best strategy is to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Stop at the end of the ramp and wait for a large gap."
+        },
+        {
+          "key": "B",
+          "text": "Match freeway speed and merge into the first safe gap."
+        },
+        {
+          "key": "C",
+          "text": "Enter at any speed; others must adjust."
+        },
+        {
+          "key": "D",
+          "text": "Signal after you begin merging into the lane."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Use the acceleration lane to reach traffic speed, signal early, check blind spots, and merge smoothly.",
+      "tags": [
+        "unit3",
+        "merge"
+      ]
+    },
+    {
+      "skill": "hov_rules",
+      "difficulty": 2,
+      "stem": "Double solid white lines next to an HOV lane mean:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "You may enter if traffic is light."
+        },
+        {
+          "key": "B",
+          "text": "Enter or exit only at designated openings."
+        },
+        {
+          "key": "C",
+          "text": "Treat as a shoulder."
+        },
+        {
+          "key": "D",
+          "text": "They are advisory only."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Do not cross double solid white lines. Enter/exit HOV lanes only where permitted.",
+      "tags": [
+        "unit3",
+        "hov"
+      ]
+    },
+    {
+      "skill": "following_distance",
+      "difficulty": 1,
+      "stem": "At freeway speeds in good conditions, a general minimum following distance is:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "1 second"
+        },
+        {
+          "key": "B",
+          "text": "2 seconds"
+        },
+        {
+          "key": "C",
+          "text": "3 seconds"
+        },
+        {
+          "key": "D",
+          "text": "Half a car length"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Use at least the 3-second rule in ideal conditions; increase to 4–6 seconds for higher speeds or poor conditions.",
+      "tags": [
+        "unit3",
+        "space_management"
+      ]
+    },
+    {
+      "skill": "passing_trucks",
+      "difficulty": 2,
+      "stem": "When passing a large truck on the freeway, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Linger beside the truck to avoid speeding."
+        },
+        {
+          "key": "B",
+          "text": "Pass quickly and safely; avoid the truck’s right-side blind spot."
+        },
+        {
+          "key": "C",
+          "text": "Pass on the shoulder to minimize lane changes."
+        },
+        {
+          "key": "D",
+          "text": "Use high beams to ensure the driver sees you."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Trucks have large right-side blind spots and create turbulence. Pass efficiently and safely on the left.",
+      "tags": [
+        "unit3",
+        "passing"
+      ]
+    },
+    {
+      "skill": "gore_area",
+      "difficulty": 1,
+      "stem": "The painted triangular area (gore) near freeway ramps is:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "A legal place to stop briefly."
+        },
+        {
+          "key": "B",
+          "text": "For emergency vehicles only."
+        },
+        {
+          "key": "C",
+          "text": "Off-limits; do not drive over or stop in it."
+        },
+        {
+          "key": "D",
+          "text": "A metered waiting zone."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Gore areas are prohibited zones for general traffic—don’t drive over or stop in them.",
+      "tags": [
+        "unit3",
+        "lanes"
+      ]
+    },
+    {
+      "skill": "hydroplaning",
+      "difficulty": 2,
+      "stem": "If your vehicle begins to hydroplane, you should first:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Brake hard to slow down quickly."
+        },
+        {
+          "key": "B",
+          "text": "Steer sharply toward the shoulder."
+        },
+        {
+          "key": "C",
+          "text": "Ease off the accelerator and keep the wheels straight."
+        },
+        {
+          "key": "D",
+          "text": "Shift to park immediately."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Ease off the gas, keep steering straight, and avoid sudden braking or turns until traction returns.",
+      "tags": [
+        "unit3",
+        "weather"
+      ]
+    },
+    {
+      "skill": "fog_lights",
+      "difficulty": 1,
+      "stem": "In heavy fog you should use:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "High-beam headlights."
+        },
+        {
+          "key": "B",
+          "text": "Low-beam headlights."
+        },
+        {
+          "key": "C",
+          "text": "Parking lights only."
+        },
+        {
+          "key": "D",
+          "text": "No lights to avoid glare."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Use low-beam headlights in fog. High beams reflect and reduce visibility.",
+      "tags": [
+        "unit3",
+        "weather"
+      ]
+    },
+    {
+      "skill": "exit_prep",
+      "difficulty": 1,
+      "stem": "To exit a freeway safely, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Slow down in the main lanes, then move to the exit."
+        },
+        {
+          "key": "B",
+          "text": "Signal early and decelerate in the exit lane."
+        },
+        {
+          "key": "C",
+          "text": "Cross the gore area if needed."
+        },
+        {
+          "key": "D",
+          "text": "Wait to signal until you’re on the ramp."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Signal early and reduce speed only after entering the exit lane.",
+      "tags": [
+        "unit3",
+        "merge_exit"
+      ]
+    },
+    {
+      "skill": "following_in_rain",
+      "difficulty": 2,
+      "stem": "During steady rain at freeway speeds, you should generally:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Maintain the same speed and following distance."
+        },
+        {
+          "key": "B",
+          "text": "Slow down and increase following distance."
+        },
+        {
+          "key": "C",
+          "text": "Use cruise control to maintain traction."
+        },
+        {
+          "key": "D",
+          "text": "Drive with only your parking lights on."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Rain reduces traction. Slow down and increase following distance to maintain a safety margin.",
+      "tags": [
+        "unit3",
+        "weather",
+        "space_management"
+      ]
+    },
+    {
+      "skill": "night_high_beams",
+      "difficulty": 2,
+      "stem": "Use high-beam headlights at night:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "On open roads with no oncoming traffic."
+        },
+        {
+          "key": "B",
+          "text": "When following closely to better see the vehicle ahead."
+        },
+        {
+          "key": "C",
+          "text": "In city traffic to improve visibility."
+        },
+        {
+          "key": "D",
+          "text": "In fog for maximum reach."
+        }
+      ],
+      "answer": "A",
+      "explanation": "High beams are for open roads without oncoming traffic. Dim them when following or approaching others.",
+      "tags": [
+        "unit3",
+        "night"
+      ]
+    },
+    {
+      "skill": "engine_braking",
+      "difficulty": 2,
+      "stem": "On a long downhill grade, the safest technique is to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Ride the brakes continuously to control speed."
+        },
+        {
+          "key": "B",
+          "text": "Shift to a lower gear to use engine braking."
+        },
+        {
+          "key": "C",
+          "text": "Shift to neutral and coast."
+        },
+        {
+          "key": "D",
+          "text": "Accelerate to avoid brake fade."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Use engine braking by selecting a lower gear; continuous braking overheats and weakens brakes.",
+      "tags": [
+        "unit3",
+        "mountain"
+      ]
+    },
+    {
+      "skill": "move_over_law",
+      "difficulty": 2,
+      "stem": "Approaching a stopped emergency vehicle with flashing lights on the freeway, you must:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Maintain speed but honk to warn others."
+        },
+        {
+          "key": "B",
+          "text": "Move to a non-adjacent lane if safe, or slow down significantly."
+        },
+        {
+          "key": "C",
+          "text": "Stop in your lane until it leaves."
+        },
+        {
+          "key": "D",
+          "text": "Turn on high beams to increase visibility."
+        }
+      ],
+      "answer": "B",
+      "explanation": "California’s Move Over law requires changing lanes away from the incident or slowing significantly if you cannot move over.",
+      "tags": [
+        "unit3",
+        "incidents"
+      ]
+    },
+    {
+      "skill": "work_zones",
+      "difficulty": 1,
+      "stem": "In a freeway work zone, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Follow cones and signs, reduce speed, and increase following distance."
+        },
+        {
+          "key": "B",
+          "text": "Use the shoulder to bypass slow traffic."
+        },
+        {
+          "key": "C",
+          "text": "Drive faster to clear the area quickly."
+        },
+        {
+          "key": "D",
+          "text": "Ignore flaggers if the light is green."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Work zones require extra caution: follow all controls, slow down, and leave more space.",
+      "tags": [
+        "unit3",
+        "work_zones"
+      ]
+    },
+    {
+      "skill": "fog_stop",
+      "difficulty": 3,
+      "stem": "In extremely dense fog on the freeway, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Stop in your lane with hazard lights on."
+        },
+        {
+          "key": "B",
+          "text": "Pull far onto the shoulder and use hazards only if you cannot exit."
+        },
+        {
+          "key": "C",
+          "text": "Use high beams so others see you sooner."
+        },
+        {
+          "key": "D",
+          "text": "Drive with no lights to reduce glare."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Do not stop in a travel lane. Exit if possible; if not, pull far onto the shoulder and use hazards.",
+      "tags": [
+        "unit3",
+        "weather"
+      ]
+    },
+    {
+      "skill": "tailgater_response",
+      "difficulty": 1,
+      "stem": "If a vehicle is following too closely on the freeway, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Brake hard to warn them."
+        },
+        {
+          "key": "B",
+          "text": "Increase your speed well above the limit."
+        },
+        {
+          "key": "C",
+          "text": "Maintain speed and change lanes when safe to let them pass."
+        },
+        {
+          "key": "D",
+          "text": "Turn on your high beams."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Keep calm, maintain speed, and create space by letting the tailgater pass when safe.",
+      "tags": [
+        "unit3",
+        "space_management"
+      ]
+    },
+    {
+      "skill": "exit_late_decision",
+      "difficulty": 2,
+      "stem": "You are about to miss your exit. You should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Cross the solid line and gore area carefully."
+        },
+        {
+          "key": "B",
+          "text": "Stop in your lane and wait for a gap."
+        },
+        {
+          "key": "C",
+          "text": "Continue to the next exit and reroute."
+        },
+        {
+          "key": "D",
+          "text": "Back up on the shoulder to reach the exit."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Never cross restricted areas or stop in travel lanes. Continue safely to the next exit.",
+      "tags": [
+        "unit3",
+        "merge_exit"
+      ]
+    },
+    {
+      "skill": "wind_control",
+      "difficulty": 2,
+      "stem": "Strong crosswinds on a freeway bridge begin pushing your vehicle. You should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Grip the wheel, reduce speed, and avoid sudden steering."
+        },
+        {
+          "key": "B",
+          "text": "Accelerate to stabilize the car."
+        },
+        {
+          "key": "C",
+          "text": "Turn the wheel sharply into the wind."
+        },
+        {
+          "key": "D",
+          "text": "Brake hard and stop in your lane."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Hold the wheel firmly, slow moderately, and make smooth corrections. Avoid abrupt moves that can destabilize the car.",
+      "tags": [
+        "unit3",
+        "weather"
+      ]
+    },
+    {
+      "skill": "shoulder_breakdown",
+      "difficulty": 2,
+      "stem": "Your vehicle loses power on the freeway. The best first action is to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Stop immediately in your lane and turn on hazards."
+        },
+        {
+          "key": "B",
+          "text": "Signal, move to the right, and coast onto the shoulder."
+        },
+        {
+          "key": "C",
+          "text": "Shift to neutral and coast in the left lane."
+        },
+        {
+          "key": "D",
+          "text": "Turn off your headlights to save battery."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Signal and move right to the shoulder. Once stopped, angle wheels right and use hazards.",
+      "tags": [
+        "unit3",
+        "incidents"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.974Z"
+  }
+}

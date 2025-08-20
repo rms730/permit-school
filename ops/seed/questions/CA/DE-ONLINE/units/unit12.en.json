@@ -1,0 +1,370 @@
+{
+  "unit": 12,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "questions": [
+    {
+      "ref": "U12-Q01",
+      "skill": "Test Strategy",
+      "difficulty": 1,
+      "stem": "A good first step when reading a test question is to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Read the entire question and predict the answer."
+        },
+        {
+          "key": "B",
+          "text": "Skim quickly and choose the longest option."
+        },
+        {
+          "key": "C",
+          "text": "Pick the first answer that mentions speed."
+        },
+        {
+          "key": "D",
+          "text": "Skip any question with signs."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Predicting the answer helps you evaluate options objectively.",
+      "tags": [
+        "test-strategy"
+      ]
+    },
+    {
+      "ref": "U12-Q02",
+      "skill": "Elimination",
+      "difficulty": 1,
+      "stem": "Which option is often a clue that an answer may be wrong?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Absolute words like 'always' or 'never' in safety context."
+        },
+        {
+          "key": "B",
+          "text": "Encouraging defensive driving."
+        },
+        {
+          "key": "C",
+          "text": "Suggesting more scanning and signaling."
+        },
+        {
+          "key": "D",
+          "text": "Advising you to slow down for poor conditions."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Absolutes can be traps; safety decisions depend on conditions.",
+      "tags": [
+        "test-strategy"
+      ]
+    },
+    {
+      "ref": "U12-Q03",
+      "skill": "Right-of-Way",
+      "difficulty": 2,
+      "stem": "At a 4-way stop, two vehicles arrive at the same time. Who goes first?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "The driver on the right."
+        },
+        {
+          "key": "B",
+          "text": "The driver in the bigger car."
+        },
+        {
+          "key": "C",
+          "text": "Whoever honks."
+        },
+        {
+          "key": "D",
+          "text": "Both at once."
+        }
+      ],
+      "answer": 0,
+      "explanation": "The vehicle on the right has the right-of-way when arriving simultaneously.",
+      "tags": [
+        "right-of-way",
+        "intersections"
+      ]
+    },
+    {
+      "ref": "U12-Q04",
+      "skill": "Signs/Markings",
+      "difficulty": 2,
+      "stem": "Double solid yellow lines between lanes mean:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "No passing in either direction."
+        },
+        {
+          "key": "B",
+          "text": "Passing allowed at any time."
+        },
+        {
+          "key": "C",
+          "text": "Parking only."
+        },
+        {
+          "key": "D",
+          "text": "Bike lane."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Double solid yellows prohibit passing.",
+      "tags": [
+        "markings",
+        "no-passing"
+      ]
+    },
+    {
+      "ref": "U12-Q05",
+      "skill": "Speed/Space",
+      "difficulty": 2,
+      "stem": "When driving at night or in rain, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Increase following distance and slow as needed."
+        },
+        {
+          "key": "B",
+          "text": "Follow closer to see their taillights."
+        },
+        {
+          "key": "C",
+          "text": "Use high beams for all oncoming traffic."
+        },
+        {
+          "key": "D",
+          "text": "Drive the posted maximum regardless of conditions."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Visibility and traction are reduced; increase space and reduce speed.",
+      "tags": [
+        "speed",
+        "following-distance"
+      ]
+    },
+    {
+      "ref": "U12-Q06",
+      "skill": "Pedestrians",
+      "difficulty": 2,
+      "stem": "You must yield to a pedestrian:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "In a crosswalk, marked or unmarked, when they are in your path."
+        },
+        {
+          "key": "B",
+          "text": "Only if they run."
+        },
+        {
+          "key": "C",
+          "text": "Only when a crossing guard is present."
+        },
+        {
+          "key": "D",
+          "text": "Only if traffic is stopped behind you."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Drivers must yield to pedestrians lawfully crossing.",
+      "tags": [
+        "pedestrians",
+        "right-of-way"
+      ]
+    },
+    {
+      "ref": "U12-Q07",
+      "skill": "Test Day",
+      "difficulty": 1,
+      "stem": "Before your DMV knowledge test, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Confirm documents and appointment details."
+        },
+        {
+          "key": "B",
+          "text": "Skip sleep to study all night."
+        },
+        {
+          "key": "C",
+          "text": "Forget about ID; it’s optional."
+        },
+        {
+          "key": "D",
+          "text": "Arrive late to avoid lines."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Arrive prepared with correct documents and on time.",
+      "tags": [
+        "dmv",
+        "logistics"
+      ]
+    },
+    {
+      "ref": "U12-Q08",
+      "skill": "Retakes",
+      "difficulty": 1,
+      "stem": "If you do not pass on your first attempt:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Review missed topics and follow retake policies."
+        },
+        {
+          "key": "B",
+          "text": "Hide your results and retake immediately, regardless of policy."
+        },
+        {
+          "key": "C",
+          "text": "Stop studying; the test will be easier next time."
+        },
+        {
+          "key": "D",
+          "text": "Argue until they change the score."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Use feedback to target weaknesses and comply with retake rules.",
+      "tags": [
+        "retakes",
+        "strategy"
+      ]
+    },
+    {
+      "ref": "U12-Q09",
+      "skill": "Attitude",
+      "difficulty": 2,
+      "stem": "A safe driving mindset includes:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Patience, respect for others, and planning ahead."
+        },
+        {
+          "key": "B",
+          "text": "Racing to beat red lights."
+        },
+        {
+          "key": "C",
+          "text": "Following peers who show off."
+        },
+        {
+          "key": "D",
+          "text": "Ignoring maintenance to save money."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Responsible choices reduce risk for everyone.",
+      "tags": [
+        "mindset",
+        "defensive-driving"
+      ]
+    },
+    {
+      "ref": "U12-Q10",
+      "skill": "Passing",
+      "difficulty": 2,
+      "stem": "You may pass another vehicle when:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "It’s legal (not over double solid lines) and you have sufficient clear distance."
+        },
+        {
+          "key": "B",
+          "text": "Anytime you feel like it."
+        },
+        {
+          "key": "C",
+          "text": "In a crosswalk."
+        },
+        {
+          "key": "D",
+          "text": "On blind curves or hills."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Pass only when legal and safe with a clear view.",
+      "tags": [
+        "passing",
+        "markings"
+      ]
+    },
+    {
+      "ref": "U12-Q11",
+      "skill": "Phones",
+      "difficulty": 2,
+      "stem": "Best practice with phones while driving is to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Avoid handling the phone and use hands-free if needed, or wait."
+        },
+        {
+          "key": "B",
+          "text": "Text at red lights; it’s always fine."
+        },
+        {
+          "key": "C",
+          "text": "Hold the phone to your ear at highway speeds."
+        },
+        {
+          "key": "D",
+          "text": "Watch videos as long as volume is low."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Minimize distraction: hands-free or wait until parked.",
+      "tags": [
+        "distraction",
+        "phones"
+      ]
+    },
+    {
+      "ref": "U12-Q12",
+      "skill": "Continuous Learning",
+      "difficulty": 1,
+      "stem": "After you earn your permit, the best next step is to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Practice with supervision and review the handbook regularly."
+        },
+        {
+          "key": "B",
+          "text": "Stop studying entirely."
+        },
+        {
+          "key": "C",
+          "text": "Drive alone to learn faster."
+        },
+        {
+          "key": "D",
+          "text": "Ignore maintenance to save time."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Learning continues with supervised practice and periodic reviews.",
+      "tags": [
+        "learning",
+        "practice"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.993Z"
+  }
+}

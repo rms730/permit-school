@@ -1,0 +1,114 @@
+{
+  "unit": 9,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Freeway & Expressway Driving",
+  "minutes_required": 60,
+  "objectives": [
+    "Enter, merge, and exit freeways safely using proper scanning and signaling.",
+    "Manage speed and space at high speeds, including safe following distances and lane discipline.",
+    "Perform lane changes with mirror, signal, head-checks; choose lanes based on traffic flow and destination.",
+    "Handle breakdowns, debris, and emergencies; apply California Move Over law.",
+    "Navigate carpool/HOV and express/toll lanes, and respond to ramp meters."
+  ],
+  "sections": [
+    {
+      "title": "On-Ramps, Merging & Lane Choice",
+      "lessons": [
+        {
+          "title": "Ramp Types, Acceleration Lanes & Ramp Meters",
+          "minutes": 5,
+          "content": [
+            "Freeway ramps include loop, directional, and cloverleaf designs. Use the acceleration lane to reach a speed that matches freeway traffic.",
+            "Ramp meters (red/green lights) release vehicles in short intervals to reduce merging conflicts. Obey posted signals and signs.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Merging Etiquette & Lane Selection",
+          "minutes": 5,
+          "content": [
+            "Merge into the first safe gap without forcing others to brake hard. Maintain steady acceleration and avoid stopping on the ramp unless signed.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Speed, Space & Following Distance",
+      "lessons": [
+        {
+          "title": "Speed Management & Flow",
+          "minutes": 5,
+          "content": [
+            "Obey posted maximums and drive a speed that is reasonable for conditions. Flow speed can inform—but never justify—unsafe speeds.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Following Distance & Space Cushions",
+          "minutes": 5,
+          "content": [
+            "Use at least a 3–4 second following distance in ideal conditions; add time for rain, darkness, heavy loads, or when following large trucks.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Lane Changes, Passing & Exiting",
+      "lessons": [
+        {
+          "title": "Safe Lane Changes & Blind Spots",
+          "minutes": 5,
+          "content": [
+            "Follow the mirror–signal–head check routine. Avoid lingering next to other vehicles and never cut off a vehicle in the fast lane.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Exit Strategies & Missed Exits",
+          "minutes": 5,
+          "content": [
+            "Signal and move to the exit lane early. Reduce speed only after entering the deceleration lane; never brake abruptly in a travel lane.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Breakdowns, HOV/Express Lanes & Move Over",
+      "lessons": [
+        {
+          "title": "Breakdowns & Roadside Safety",
+          "minutes": 5,
+          "content": [
+            "If your vehicle fails, signal right, exit if possible, or steer fully onto the shoulder. Use hazard lights and stay behind a barrier if available.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "HOV/Carpool & Express/Toll Lanes",
+          "minutes": 5,
+          "content": [
+            "Carpool lanes have occupancy or vehicle-type rules; express lanes may require transponders or tolls. Enter/exit only where permitted.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.968Z"
+  }
+}

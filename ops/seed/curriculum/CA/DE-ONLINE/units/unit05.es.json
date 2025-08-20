@@ -1,0 +1,205 @@
+{
+  "unit": 5,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Conducción Defensiva y Gestión del Espacio",
+  "minutes_required": 20,
+  "objectives": [
+    "Adoptar una mentalidad defensiva que anticipe riesgos y reduzca sorpresas.",
+    "Usar sistemas de observación (SIPDE y las 5 Claves de Smith) para detectar peligros con anticipación.",
+    "Mantener cojines de tiempo/espacio y ajustar la distancia de seguimiento según las condiciones.",
+    "Gestionar posición en el carril, puntos ciegos y comunicación para evitar conflictos.",
+    "Aplicar la ley básica de velocidad y adaptar la velocidad a tráfico, vía y clima.",
+    "Elegir respuestas correctas ante emergencias (frenos ABS, control de derrapes, reventón de llanta)."
+  ],
+  "sections": [
+    {
+      "title": "Mentalidad y Riesgo",
+      "lessons": [
+        {
+          "title": "¿Qué es la conducción defensiva?",
+          "minutes": 5,
+          "content": [
+            "Conducir a la defensiva significa tomar decisiones que reduzcan el riesgo antes de que se forme un choque. Esperas errores de otros usuarios y te das tiempo y espacio para reaccionar.",
+            "Un conductor defensivo planifica rutas, observa constantemente y controla sus emociones. Manejas el riesgo controlando tu velocidad, posición de carril y atención."
+          ],
+          "review": []
+        },
+        {
+          "title": "Triángulo del Riesgo: Conductor, Vehículo, Entorno",
+          "minutes": 5,
+          "content": [
+            "Los choques suelen combinar factores: el conductor (atención, decisiones, consumo), el vehículo (llantas, frenos, tamaño) y el entorno (tráfico, clima, diseño de la vía).",
+            "Reduce el riesgo en los tres lados: conduce alerta y sobrio, mantiene tu vehículo y ajústate a condiciones como lluvia, oscuridad o congestión."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Ver el Panorama Completo: Sistemas de Observación",
+      "lessons": [
+        {
+          "title": "SIPDE",
+          "minutes": 5,
+          "content": [
+            "SIPDE = Buscar, Identificar, Predecir, Decidir, Ejecutar. Busca la vía adelante, alrededor y detrás. Identifica conflictos potenciales. Predice cómo pueden desarrollarse. Decide la acción más segura. Ejecuta con suavidad.",
+            "Aplica SIPDE continuamente—especialmente en intersecciones, incorporaciones y cerca de usuarios vulnerables como peatones y ciclistas."
+          ],
+          "review": []
+        },
+        {
+          "title": "Sistema Smith: 5 Claves",
+          "minutes": 5,
+          "content": [
+            "1) Apunta lejos al dirigir (mira 12–15 segundos adelante). 2) Ten un panorama completo (usa espejos; revisa los lados). 3) Mantén los ojos en movimiento. 4) Déjate una salida. 5) Asegúrate de que te vean (direccionales, luces, contacto visual cuando sea posible).",
+            "Estas claves ayudan a detectar peligros temprano y conservar rutas de escape."
+          ],
+          "review": []
+        },
+        {
+          "title": "Tiempo de Anticipación Visual",
+          "minutes": 5,
+          "content": [
+            "En ciudad, mira al menos 12–15 segundos por delante (aprox. una cuadra). En autopistas, 15–20 segundos. Revisa espejos cada 5–8 segundos.",
+            "Identifica semáforos ‘verdes viejos’, accesos ocultos y vehículos que puedan entrar en tu carril. La anticipación te da tiempo."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Cojín de Espacio y Distancia de Seguimiento",
+      "lessons": [
+        {
+          "title": "Regla de 3–4 Segundos",
+          "minutes": 5,
+          "content": [
+            "Elige un objeto fijo adelante. Cuando el vehículo frente a ti lo pase, cuenta ‘mil-uno, mil-dos…’. Si pasas antes de 3–4 segundos con pavimento seco, estás muy cerca.",
+            "Aumenta el cojín en subidas, al remolcar, detrás de vehículos grandes o cuando tu vista sea limitada."
+          ],
+          "review": []
+        },
+        {
+          "title": "Cuándo Aumentar la Distancia",
+          "minutes": 5,
+          "content": [
+            "Agrega tiempo con lluvia, de noche, con niebla/humo, en terracería o si te siguen muy de cerca. También incrementa la distancia detrás de motocicletas y bicicletas.",
+            "Más tiempo = más opciones. Si te siguen de cerca, crea más espacio adelante y evita frenar de golpe."
+          ],
+          "review": []
+        },
+        {
+          "title": "Distancia de Parada y Tiempo de Reacción",
+          "minutes": 5,
+          "content": [
+            "La distancia total de parada = percepción + reacción + frenado. A mayor velocidad, la distancia crece mucho.",
+            "Calcula alrededor de un segundo de reacción, más si estás distraído o cansado. Deja espacio para ese retraso."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Posición de Carril, Puntos Ciegos y Comunicación",
+      "lessons": [
+        {
+          "title": "Posicionamiento",
+          "minutes": 5,
+          "content": [
+            "Usa la posición de carril para manejar espacio: centro para manejo general, izquierda para preparar giros a la izquierda/evitar peligros a la derecha, derecha para preparar giros a la derecha/evitar tráfico en sentido contrario.",
+            "Ajusta tu posición para mantener un cojín de espacio al menos a un lado."
+          ],
+          "review": []
+        },
+        {
+          "title": "Puntos Ciegos y Revisión de Hombro",
+          "minutes": 5,
+          "content": [
+            "Los espejos no muestran todo. Antes de cualquier cambio de carril o incorporación, enciende direccional, revisa espejos y luego gira la cabeza para revisar el punto ciego.",
+            "Vuelve a comprobar tras una breve pausa; los vehículos pueden aparecer rápido en tráfico veloz."
+          ],
+          "review": []
+        },
+        {
+          "title": "Comunicación con Otros",
+          "minutes": 5,
+          "content": [
+            "Usa las direccionales con anticipación (al menos 100 pies antes de girar; en autopistas, señaliza por unos 5 segundos antes de cambiar de carril).",
+            "Toca el freno suavemente para alertar, usa luces cuando se exija y evita el claxon salvo para advertir peligros inmediatos."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Control de Velocidad y Condiciones",
+      "lessons": [
+        {
+          "title": "Ley Básica de Velocidad en California",
+          "minutes": 5,
+          "content": [
+            "Nunca conduzcas más rápido de lo que es seguro para las condiciones presentes—aunque los límites sean mayores. Reduce por tráfico, clima, superficie y visibilidad.",
+            "La velocidad ‘segura y razonable’ cambia minuto a minuto. Tu juicio es parte de la conducción defensiva."
+          ],
+          "review": []
+        },
+        {
+          "title": "Zonas de Obra y Escolares",
+          "minutes": 5,
+          "content": [
+            "Respeta límites reducidos, observa a trabajadores y bandereros, y prepárate para detenerte. En zonas escolares, reduce la velocidad y cede ante niños y vigilantes.",
+            "Espera cambios súbitos: carriles estrechos, conos y vehículos de obra entrando al tráfico."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Peligros y Emergencias",
+      "lessons": [
+        {
+          "title": "Evasión con Volante vs. Frenado Fuerte",
+          "minutes": 5,
+          "content": [
+            "Esquivar puede ser más rápido que frenar—si tienes ruta libre. Con ABS, presiona fuerte el pedal y dirige hacia el camino seguro.",
+            "Evita movimientos bruscos; las acciones suaves conservan tracción y control."
+          ],
+          "review": []
+        },
+        {
+          "title": "Derrapes y ABS",
+          "minutes": 5,
+          "content": [
+            "Con ABS: presiona y mantén; no bombee. Sentirás vibración—es normal. Dirige hacia una zona segura.",
+            "En un derrape de las ruedas traseras, suelta el acelerador y gira hacia la dirección en la que quieres que vaya el frente del vehículo."
+          ],
+          "review": []
+        },
+        {
+          "title": "Reventón de Llanta o Salida de la Calzada",
+          "minutes": 5,
+          "content": [
+            "Si revienta una llanta, sujeta el volante, suelta el acelerador y deja que el vehículo reduzca antes de dirigir a un lugar seguro. Evita frenar de golpe.",
+            "Si las ruedas derechas salen de la calzada, mantén línea recta, reduce la velocidad y vuelve suavemente al carril cuando sea seguro."
+          ],
+          "review": []
+        },
+        {
+          "title": "Falla de Frenos / Sobrecalentamiento",
+          "minutes": 5,
+          "content": [
+            "Si los frenos se desvanecen, baja cambios para usar el freno de motor y busca un área segura para detenerte. Bombea los frenos si no tienes ABS.",
+            "No apagues el encendido en movimiento; podrías perder control de la dirección."
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.966Z"
+  }
+}

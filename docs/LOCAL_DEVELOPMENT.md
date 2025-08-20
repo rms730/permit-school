@@ -1,14 +1,15 @@
-<!-- markdownlint-disable MD025 MD031 MD032 -->
----
+## <!-- markdownlint-disable MD025 MD031 MD032 -->
+
 title: "Local Development"
 owner: "Engineering"
 last_reviewed: "2025-01-27"
 status: "authoritative"
 related:
 
-  - </docs/ENVIRONMENT_SETUP.md>
-  - </docs/TESTING.md>
-  - </docs/WEB_ARCHITECTURE.md>
+- </docs/ENVIRONMENT_SETUP.md>
+- </docs/TESTING.md>
+- </docs/WEB_ARCHITECTURE.md>
+
 ---
 
 # Local Development
@@ -326,7 +327,7 @@ SUPABASE_URL=http://localhost:54321
 SUPABASE_SERVICE_ROLE_KEY=...
 OPENAI_API_KEY=...
 
-# Web: web/.env.local  
+# Web: web/.env.local
 NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 SUPABASE_SERVICE_ROLE_KEY=...

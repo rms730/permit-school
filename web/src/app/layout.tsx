@@ -1,3 +1,6 @@
+// Ensure env schema is evaluated during build/CI (fails fast on misconfig)
+import '@/env';
+
 import * as React from "react";
 import type { Metadata } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";

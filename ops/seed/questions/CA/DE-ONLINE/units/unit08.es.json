@@ -1,0 +1,660 @@
+{
+  "unit": 8,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "questions": [
+    {
+      "ref": "U08-Q-001",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Después de un choque leve sin lesiones, ¿qué es lo primero que debe hacer?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Irse a casa para llamar a su aseguradora."
+        },
+        {
+          "key": "B",
+          "text": "Detenerse, revisar si hay lesiones y asegurar la zona."
+        },
+        {
+          "key": "C",
+          "text": "Discutir de inmediato quién tiene la culpa."
+        },
+        {
+          "key": "D",
+          "text": "Negarse a mover su auto en cualquier caso."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Debe detenerse, revisar lesiones y asegurar la escena. Irse es darse a la fuga y el castigo es severo.  [oai_citation:65‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-002",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Si no hay lesiones aparentes y es seguro, ¿dónde debe colocar los vehículos tras un choque?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Dejarlos en el carril para conservar evidencia."
+        },
+        {
+          "key": "B",
+          "text": "Moverlos fuera del tráfico a un lugar seguro."
+        },
+        {
+          "key": "C",
+          "text": "Bloquear el carril para obligar a otros a bajar la velocidad."
+        },
+        {
+          "key": "D",
+          "text": "Irse sin intercambiar información."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Mueva los vehículos fuera del tráfico cuando sea seguro y luego llame al 911.  [oai_citation:66‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-003",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Qué documentos debe mostrar cuando se lo pidan tras un choque?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Solo su número de teléfono."
+        },
+        {
+          "key": "B",
+          "text": "Licencia de manejar, registro del vehículo, seguro y domicilio actual."
+        },
+        {
+          "key": "C",
+          "text": "Tarjeta del Seguro Social y acta de nacimiento."
+        },
+        {
+          "key": "D",
+          "text": "Solo la tarjeta del seguro."
+        }
+      ],
+      "answer": "B",
+      "explanation": "El manual menciona específicamente esos cuatro elementos.  [oai_citation:67‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-004",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Cuál afirmación sobre darse a la fuga es correcta?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Puede irse si el daño parece menor."
+        },
+        {
+          "key": "B",
+          "text": "No detenerse es darse a la fuga y el castigo es severo."
+        },
+        {
+          "key": "C",
+          "text": "Puede irse si llama a su aseguradora primero."
+        },
+        {
+          "key": "D",
+          "text": "Solo aplica en autopistas."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Debe detenerse en cualquier choque. Las sanciones por darse a la fuga son severas.  [oai_citation:68‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-005",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Raspa un auto estacionado y no encuentra al dueño. ¿Qué debe hacer?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Irse sin hacer nada."
+        },
+        {
+          "key": "B",
+          "text": "Dejar una nota con su nombre, teléfono y domicilio y reportar el choque a la policía."
+        },
+        {
+          "key": "C",
+          "text": "Mover el auto a otro lugar y retirarse."
+        },
+        {
+          "key": "D",
+          "text": "Llamar solo a su aseguradora."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Deje su información de contacto y repórtelo a las autoridades.  [oai_citation:69‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-006",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Cuándo se debe reportar un choque a las autoridades según el manual vigente?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Solo si un policía lo presencia."
+        },
+        {
+          "key": "B",
+          "text": "Cuando haya lesionados o fallecidos, siguiendo el plazo indicado en el manual actual."
+        },
+        {
+          "key": "C",
+          "text": "Solo cuando usted tenga la culpa."
+        },
+        {
+          "key": "D",
+          "text": "Nunca; los seguros se encargan."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Se exige reporte a las autoridades cuando hay lesiones o fallecidos, dentro del plazo señalado.  [oai_citation:70‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-007",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Cuándo se presenta el reporte de choque del DMV (SR 1)?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Solo si usted causó el choque."
+        },
+        {
+          "key": "B",
+          "text": "Solo cuando la policía se lo indique."
+        },
+        {
+          "key": "C",
+          "text": "Cuando lo exijan las reglas del manual vigente (por ejemplo, lesiones/fallecimiento o daños por encima del umbral del DMV) dentro del plazo indicado."
+        },
+        {
+          "key": "D",
+          "text": "Nunca; la policía lo presenta por usted."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Cada conductor debe presentar el SR 1 cuando apliquen las condiciones del manual; la policía no lo hará por usted.  [oai_citation:71‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-008",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Qué es cierto sobre el comprobante de responsabilidad financiera?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Solo se necesita al comprar un auto."
+        },
+        {
+          "key": "B",
+          "text": "Debe llevarlo cuando maneja y mostrarlo después de un choque."
+        },
+        {
+          "key": "C",
+          "text": "Los menores nunca necesitan seguro."
+        },
+        {
+          "key": "D",
+          "text": "Es opcional si maneja con cuidado."
+        }
+      ],
+      "answer": "B",
+      "explanation": "El comprobante de seguro es obligatorio al manejar y debe mostrarse tras un choque.  [oai_citation:72‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-009",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Tiene un choque sin la cobertura apropiada. ¿Qué puede ocurrir?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Nada si usted no tuvo la culpa."
+        },
+        {
+          "key": "B",
+          "text": "Se puede suspender su privilegio de manejar según las reglas vigentes, y quizá deba presentar un SR 22/SR 1P."
+        },
+        {
+          "key": "C",
+          "text": "La policía presentará automáticamente los documentos del DMV."
+        },
+        {
+          "key": "D",
+          "text": "Solo pueden cambiar sus tarifas del seguro."
+        }
+      ],
+      "answer": "B",
+      "explanation": "El manual explica la posible suspensión sin importar la culpa y la reinstalación con SR 22/SR 1P.  [oai_citation:73‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-010",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Quién asume la responsabilidad financiera cuando el conductor es menor de 18?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Nadie; los menores están exentos."
+        },
+        {
+          "key": "B",
+          "text": "El concesionario."
+        },
+        {
+          "key": "C",
+          "text": "Los padres o tutores."
+        },
+        {
+          "key": "D",
+          "text": "Solo la escuela."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Los padres/tutores asumen la responsabilidad financiera de los menores de 18.  [oai_citation:74‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-011",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Golpea a un perro que se cruzó. ¿Qué debe hacer?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Irse; los animales no están cubiertos."
+        },
+        {
+          "key": "B",
+          "text": "Cargar al animal al asiento trasero."
+        },
+        {
+          "key": "C",
+          "text": "Llamar al albergue de animales o a la policía y no mover al animal herido."
+        },
+        {
+          "key": "D",
+          "text": "Publicarlo en redes y retirarse."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Contacte a las autoridades y no mueva al animal herido.  [oai_citation:75‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-012",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "En un choque con lesiones graves que presencia, la mejor acción inmediata es:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Llamar al 911 y seguir instrucciones del operador."
+        },
+        {
+          "key": "B",
+          "text": "Mover a los heridos inmediatamente."
+        },
+        {
+          "key": "C",
+          "text": "Bloquear la vía con su auto."
+        },
+        {
+          "key": "D",
+          "text": "Discutir con curiosos sobre la culpa."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Llame al 911 de inmediato cuando hay heridos y siga las instrucciones.  [oai_citation:76‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-013",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Compra un auto usado en California. ¿Qué debe hacer respecto a la propiedad?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Conservar el registro del dueño anterior por un año."
+        },
+        {
+          "key": "B",
+          "text": "Traspasar el título y completar los pasos del DMV dentro de los plazos del manual vigente."
+        },
+        {
+          "key": "C",
+          "text": "Manejar indefinidamente solo con un contrato de venta."
+        },
+        {
+          "key": "D",
+          "text": "Esperar hasta la primera verificación de smog para traspasar el título."
+        }
+      ],
+      "answer": "B",
+      "explanation": "El traspaso debe completarse dentro de los plazos del DMV indicados en el manual actual.  [oai_citation:77‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-014",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Cuál afirmación sobre la matriculación en California es correcta?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "El DMV matricula cualquier vehículo sin importar emisiones."
+        },
+        {
+          "key": "B",
+          "text": "Los vehículos usados en CA deben matricularse aquí y cumplir con los controles de emisiones de CA."
+        },
+        {
+          "key": "C",
+          "text": "Los autos de fuera del estado nunca necesitan matricularse en CA."
+        },
+        {
+          "key": "D",
+          "text": "Solo los autos nuevos deben cumplir con reglas de emisiones de CA."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Todos los vehículos matriculados en CA deben cumplir con los requisitos del estado, incluidos los controles de emisiones; el DMV no puede matricular los que no califican.  [oai_citation:78‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-015",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Llega una grúa sin que la haya pedido y lo presiona para usar un taller específico. ¿Qué hace?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Firmar cualquier papel para ‘agilizar’."
+        },
+        {
+          "key": "B",
+          "text": "Rechazar con cortesía y elegir un taller autorizado de su confianza; pedir presupuestos por escrito."
+        },
+        {
+          "key": "C",
+          "text": "Entregar su título a cambio de un ‘descuento’."
+        },
+        {
+          "key": "D",
+          "text": "Dejar que se lleven el auto; decidirá después."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Usted elige el taller. Evite tácticas de presión y nunca firme documentos en blanco o incompletos.",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-016",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Un paso inteligente antes de autorizar reparaciones es:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Solicitar presupuesto por escrito y aclarar piezas/garantía."
+        },
+        {
+          "key": "B",
+          "text": "Permitir cualquier reparación sin límites."
+        },
+        {
+          "key": "C",
+          "text": "Firmar una autorización en blanco para ahorrar tiempo."
+        },
+        {
+          "key": "D",
+          "text": "Dejar que el taller decida si informa a su aseguradora."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Pida presupuesto por escrito y aclare piezas y garantía para evitar fraudes y malentendidos.",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-017",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Qué elementos ayudan más a documentar en la escena?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Fotos de daños/posiciones, fecha/hora/lugar y contactos de testigos."
+        },
+        {
+          "key": "B",
+          "text": "Solo su opinión sobre la culpa."
+        },
+        {
+          "key": "C",
+          "text": "Una selfie para redes sociales."
+        },
+        {
+          "key": "D",
+          "text": "Ninguno; la documentación no es necesaria."
+        }
+      ],
+      "answer": "A",
+      "explanation": "La documentación precisa favorece una resolución justa de reclamos.",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-018",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Para un menor con licencia provisional, ¿qué es correcto?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Choques/infracciones no afectan la licencia."
+        },
+        {
+          "key": "B",
+          "text": "El DMV puede restringir, poner en periodo de prueba o suspender el manejo tras choques/infracciones según reglas vigentes."
+        },
+        {
+          "key": "C",
+          "text": "Los padres nunca participan."
+        },
+        {
+          "key": "D",
+          "text": "Los menores no necesitan comprobante de seguro."
+        }
+      ],
+      "answer": "B",
+      "explanation": "El manual describe acciones contra la licencia de un menor tras choques/infracciones y la responsabilidad financiera del padre/tutor.  [oai_citation:79‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-019",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Qué debe hacer con un animal lesionado tras un choque?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Intentar levantarlo y cargarlo."
+        },
+        {
+          "key": "B",
+          "text": "Amarrarlo a un poste hasta que llegue ayuda."
+        },
+        {
+          "key": "C",
+          "text": "No moverlo; llamar al albergue de animales o a la policía."
+        },
+        {
+          "key": "D",
+          "text": "Ignorarlo e irse."
+        }
+      ],
+      "answer": "C",
+      "explanation": "No mueva animales heridos; contacte a las autoridades.  [oai_citation:80‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-020",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "El comprobante de seguro debe presentarse:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Solo al comprar un vehículo."
+        },
+        {
+          "key": "B",
+          "text": "Cuando maneja (incluido el examen de manejo) y después de choques cuando se lo soliciten."
+        },
+        {
+          "key": "C",
+          "text": "Solo en autopistas."
+        },
+        {
+          "key": "D",
+          "text": "Solo si el otro conductor lo pide amablemente."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Debe llevar y mostrar el comprobante de responsabilidad financiera.  [oai_citation:81‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-021",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Golpea una cerca junto a la vía y no hay nadie. ¿Qué se requiere?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Irse; es propiedad privada."
+        },
+        {
+          "key": "B",
+          "text": "Intentar localizar al dueño; si no puede, dejar una nota con sus datos y reportarlo a la policía."
+        },
+        {
+          "key": "C",
+          "text": "Llamar solo a su aseguradora."
+        },
+        {
+          "key": "D",
+          "text": "Quitar la parte dañada para ocultar la evidencia."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Siga el mismo procedimiento que con un vehículo estacionado: dejar datos y reportar.  [oai_citation:82‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-022",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Qué dato de contacto menciona el manual para la nota que se deja tras dañar un vehículo estacionado?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Su usuario de redes sociales."
+        },
+        {
+          "key": "B",
+          "text": "Su nombre, número de teléfono y domicilio."
+        },
+        {
+          "key": "C",
+          "text": "Solo su nombre de pila."
+        },
+        {
+          "key": "D",
+          "text": "Un apartado postal sin nombre es suficiente."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Deje su nombre, teléfono y domicilio adheridos con seguridad al vehículo/propiedad.  [oai_citation:83‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-023",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "En un choque menor de dos autos sin lesiones, el paso inmediato más seguro es:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Quedarse en el carril para ‘marcar el lugar’."
+        },
+        {
+          "key": "B",
+          "text": "Mover ambos autos a un lugar seguro si es posible y luego intercambiar información."
+        },
+        {
+          "key": "C",
+          "text": "Bloquear varios carriles para que todos bajen la velocidad."
+        },
+        {
+          "key": "D",
+          "text": "Irse para no retrasar el tránsito."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Moverse fuera del tráfico cuando es seguro ayuda a prevenir más choques.  [oai_citation:84‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-024",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Quién puede presentar el reporte a la autoridad cuando hay lesiones o fallecidos?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Solo los conductores involucrados."
+        },
+        {
+          "key": "B",
+          "text": "Solo el oficial que llega."
+        },
+        {
+          "key": "C",
+          "text": "Usted, su agente/corredor de seguros o su representante legal, según las reglas vigentes."
+        },
+        {
+          "key": "D",
+          "text": "Nadie; es opcional."
+        }
+      ],
+      "answer": "C",
+      "explanation": "El manual permite que su agente/corredor o representante legal presente el reporte dentro del plazo requerido cuando hay lesiones/fallecidos.  [oai_citation:85‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+      "tags": []
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.989Z"
+  }
+}

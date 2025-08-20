@@ -1,0 +1,267 @@
+{
+  "unit": 2,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Vehicle Control & Safe Maneuvers",
+  "minutes_required": 75,
+  "objectives": [
+    "Master pre-drive safety checks and vehicle setup procedures",
+    "Learn proper steering techniques and speed control fundamentals",
+    "Understand following distance rules and scanning techniques",
+    "Practice safe turning and intersection navigation basics",
+    "Develop parking and backing skills for various scenarios",
+    "Learn lane change and merging procedures with SMOG technique",
+    "Build confidence in vehicle control before complex traffic situations"
+  ],
+  "sections": [
+    {
+      "title": "Pre-Drive Safety & Setup",
+      "lessons": [
+        {
+          "title": "Vehicle Safety Checks",
+          "minutes": 5,
+          "content": [
+            "Before you start driving, always perform a thorough safety check of your vehicle. This takes just a few minutes but can prevent accidents and breakdowns. Start with a walk-around inspection.",
+            "Check your tires for proper inflation and any visible damage. Underinflated tires reduce fuel efficiency and can cause blowouts. Look for cuts, bulges, or objects stuck in the tread.",
+            "Inspect all lights: headlights, taillights, brake lights, turn signals, and hazard lights. Make sure they're clean and working properly. Broken or dirty lights can make you invisible to other drivers.",
+            "Check windshield and windows for cracks or excessive dirt",
+            "Ensure wiper blades are in good condition",
+            "Look for any fluid leaks under the vehicle"
+          ],
+          "review": []
+        },
+        {
+          "title": "Seating & Steering Position",
+          "minutes": 5,
+          "content": [
+            "Proper seating position is crucial for safe driving. Adjust your seat so you can reach all controls comfortably while maintaining good visibility. Your feet should easily reach the pedals without stretching.",
+            "Position your hands on the steering wheel at 9 and 3 o'clock or 10 and 2 o'clock. This gives you maximum control and allows for quick steering movements when needed.",
+            "Adjust your mirrors before starting the engine. The rearview mirror should show the entire rear window. Side mirrors should eliminate blind spots - you shouldn't see your own car in them.",
+            "Always wear your seat belt properly. The lap belt should fit snugly across your hips, not your stomach. The shoulder belt should cross your chest and shoulder, not your neck or face."
+          ],
+          "review": []
+        },
+        {
+          "title": "Starting Checklist",
+          "minutes": 5,
+          "content": [
+            "Once you're properly positioned, go through your starting checklist. Make sure the parking brake is engaged and the gear selector is in Park (automatic) or Neutral (manual).",
+            "Check that all doors are closed and locked. Ensure all passengers are wearing seat belts. In California, everyone in the vehicle must be properly restrained.",
+            "Start the engine and let it warm up for a moment. Check that all warning lights go off after starting. If any warning lights remain on, address the issue before driving.",
+            "Verify fuel level is adequate for your trip",
+            "Check that climate controls are set appropriately",
+            "Ensure your phone is secured and not distracting"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Steering & Speed Control",
+      "lessons": [
+        {
+          "title": "Steering Techniques",
+          "minutes": 5,
+          "content": [
+            "There are two main steering techniques: hand-over-hand and push-pull. Hand-over-hand steering is used for sharp turns and parking maneuvers. Push-pull steering is better for normal driving and gradual turns.",
+            "For hand-over-hand steering, start with your hands at 9 and 3 o'clock. As you turn, let one hand slide up while the other hand crosses over to maintain control. This technique gives you maximum steering control.",
+            "Push-pull steering is smoother and more efficient for most driving situations. Push up with one hand while pulling down with the other. This keeps your hands in the optimal position for quick reactions.",
+            "Never drive with one hand or let the steering wheel spin back on its own. Always maintain firm control and guide the wheel back to center smoothly."
+          ],
+          "review": []
+        },
+        {
+          "title": "Speed Control Fundamentals",
+          "minutes": 5,
+          "content": [
+            "Smooth speed control is essential for safe driving. Use progressive acceleration - start gently and increase pressure gradually. This saves fuel and provides better control.",
+            "For braking, use progressive braking technique. Start with light pressure and increase as needed. This gives other drivers time to react and provides smoother stops.",
+            "Anticipate stops by looking ahead and releasing the accelerator early. This allows you to slow down gradually using engine braking, which is more efficient and safer.",
+            "Use cruise control on highways to maintain consistent speed",
+            "Adjust speed for weather and road conditions",
+            "Never exceed posted speed limits"
+          ],
+          "review": []
+        },
+        {
+          "title": "Stopping Distance Factors",
+          "minutes": 5,
+          "content": [
+            "Your stopping distance depends on several factors: your speed, road conditions, vehicle condition, and your reaction time. The faster you're going, the longer it takes to stop.",
+            "At 20 mph, you need about 40 feet to stop. At 40 mph, you need about 120 feet. At 60 mph, you need about 240 feet. These distances increase significantly in poor weather.",
+            "Your reaction time also affects stopping distance. If you're distracted, tired, or impaired, your reaction time increases dramatically. Always stay alert and focused on driving.",
+            "Vehicle condition matters too. Worn brakes, bald tires, or poor suspension can double your stopping distance. Keep your vehicle well-maintained for safety."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Following Distance & Scanning",
+      "lessons": [
+        {
+          "title": "The 3-Second Rule",
+          "minutes": 5,
+          "content": [
+            "The 3-second rule is a simple way to maintain safe following distance. Pick a fixed object ahead, like a sign or tree. When the vehicle in front of you passes it, count 'one-thousand-one, one-thousand-two, one-thousand-three.'",
+            "If you reach the object before finishing the count, you're following too closely. Back off and try again. This rule works at any speed and gives you time to react if the vehicle ahead stops suddenly.",
+            "Increase your following distance to 4-5 seconds in poor weather conditions like rain, snow, or fog. Also increase distance when following motorcycles, large trucks, or vehicles towing trailers.",
+            "Remember, the 3-second rule is a minimum. More distance is always safer, especially on highways or when traffic is heavy."
+          ],
+          "review": []
+        },
+        {
+          "title": "Mirror Checks & Blind Spots",
+          "minutes": 5,
+          "content": [
+            "Check your mirrors every 5-8 seconds and before any maneuver. This keeps you aware of what's happening around your vehicle. Don't just glance - actually look and process what you see.",
+            "Your side mirrors should be adjusted to eliminate blind spots. You shouldn't see your own car in the side mirrors. This gives you a wider view of traffic beside and behind you.",
+            "Even with properly adjusted mirrors, you still have blind spots. Always turn your head and look over your shoulder before changing lanes or making turns. This is called a shoulder check.",
+            "Check mirrors before braking or turning",
+            "Look for motorcycles in your blind spots",
+            "Be extra careful when backing up"
+          ],
+          "review": []
+        },
+        {
+          "title": "Space Cushions",
+          "minutes": 5,
+          "content": [
+            "A space cushion is the area around your vehicle that you keep clear of other vehicles. This gives you room to maneuver if something unexpected happens. Think of it as your safety zone.",
+            "Maintain space cushions on all sides: front, back, left, and right. Don't drive in clusters of vehicles. If possible, position yourself so you have an escape route.",
+            "When traffic is heavy, try to stay in the center of your lane and maintain consistent speed. Avoid weaving between lanes or tailgating other vehicles.",
+            "Be especially careful around large trucks and buses. They have larger blind spots and need more space to stop. Never cut in front of a large vehicle."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Turns & Intersections (Basics)",
+      "lessons": [
+        {
+          "title": "Right and Left Turns",
+          "minutes": 5,
+          "content": [
+            "Right turns are generally easier and safer than left turns. For a right turn, position your vehicle in the right lane and signal at least 100 feet before the turn. Look for pedestrians and cyclists before turning.",
+            "For left turns, position your vehicle in the left lane and signal early. Wait for a safe gap in oncoming traffic. In California, you must yield to oncoming traffic going straight or turning right.",
+            "Make your turns smoothly and at appropriate speed. Don't cut corners or swing wide. Stay in your lane throughout the turn and complete the turn in the proper lane.",
+            "Always come to a complete stop at stop signs",
+            "Look both ways before proceeding",
+            "Yield to pedestrians in crosswalks"
+          ],
+          "review": []
+        },
+        {
+          "title": "Turn Lanes & Signaling",
+          "minutes": 5,
+          "content": [
+            "Many intersections have dedicated turn lanes. Use the correct lane for your intended turn. Don't change lanes in an intersection - decide your direction before entering.",
+            "Signal your intentions early and clearly. In California, you must signal at least 100 feet before turning if traveling under 35 mph, or 200 feet if traveling 35 mph or faster.",
+            "Turn signals help other drivers, cyclists, and pedestrians understand your intentions. Always use them, even if you think no one is around. It's a good habit that could prevent accidents.",
+            "Don't rely solely on your turn signal. Make sure the way is clear before turning. Other drivers may not see your signal or may not yield the right-of-way."
+          ],
+          "review": []
+        },
+        {
+          "title": "Complete Stop and Creep",
+          "minutes": 5,
+          "content": [
+            "At stop signs, you must come to a complete stop. Rolling through a stop sign is illegal and dangerous. Your wheels must actually stop moving.",
+            "After stopping, if your view is blocked, you may need to creep forward slowly to see around obstacles. This is called 'creeping' and should be done very carefully.",
+            "When creeping, move forward just enough to see clearly. Stop again if you still can't see. Don't pull out into traffic until you have a clear view of all approaching vehicles.",
+            "At intersections with traffic lights, wait for the green light and make sure the intersection is clear before proceeding. Don't assume other drivers will stop for red lights."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Parking & Backing",
+      "lessons": [
+        {
+          "title": "Curb Parking",
+          "minutes": 5,
+          "content": [
+            "When parking on a hill, always turn your wheels in the correct direction to prevent your car from rolling into traffic. The direction depends on whether you're facing uphill or downhill and whether there's a curb.",
+            "Facing uphill with a curb: turn wheels away from the curb (left). Facing uphill without a curb: turn wheels toward the curb (right). Facing downhill: always turn wheels toward the curb (right).",
+            "Always set your parking brake when parking on a hill. This provides an extra layer of safety in case your wheels don't hold the vehicle.",
+            "Check for parking restrictions before leaving your car",
+            "Leave enough space for other vehicles to park",
+            "Lock your vehicle and take your keys"
+          ],
+          "review": []
+        },
+        {
+          "title": "Parallel Parking Steps",
+          "minutes": 5,
+          "content": [
+            "Parallel parking can be intimidating, but it's easier with practice. Find a space that's at least 1.5 times the length of your car. Signal your intention to park and position your car next to the car in front of the space.",
+            "Turn your steering wheel all the way to the right and back up slowly until your car is at a 45-degree angle. Then turn the wheel all the way to the left and continue backing up.",
+            "Straighten your wheels and pull forward or backward as needed to center your car in the space. You should be within 12 inches of the curb and not blocking traffic.",
+            "Practice parallel parking in an empty parking lot before trying it on the street. Take your time and don't rush the process."
+          ],
+          "review": []
+        },
+        {
+          "title": "Controlled Backing",
+          "minutes": 5,
+          "content": [
+            "Backing up is one of the most dangerous maneuvers in driving. You have limited visibility and control. Always back up slowly and be extra careful.",
+            "Before backing up, walk around your vehicle to check for obstacles, children, or animals. Use your mirrors and turn your head to look behind you.",
+            "Back up in a straight line when possible. If you need to turn while backing, make small steering adjustments. Don't oversteer or make sudden movements.",
+            "If you're backing out of a parking space, back out slowly and stop if you see any movement. Honk your horn if necessary to alert others to your presence."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Lane Changes & Merging (Intro)",
+      "lessons": [
+        {
+          "title": "SMOG Technique",
+          "minutes": 5,
+          "content": [
+            "SMOG is an acronym that helps you remember the steps for safe lane changes: Signal, Mirrors, Over-the-shoulder, Go. Follow these steps every time you change lanes.",
+            "Signal: Turn on your turn signal to let other drivers know your intention. Signal at least 100 feet before changing lanes in city driving, or 200 feet on highways.",
+            "Mirrors: Check your rearview and side mirrors to see what's behind and beside you. Look for vehicles in your blind spots and check their speed.",
+            "Over-the-shoulder: Turn your head and look over your shoulder to check your blind spot. This is crucial because mirrors can't show you everything.",
+            "Go: Only change lanes if it's safe. If you see a vehicle in your blind spot, wait until it passes. Don't force your way into traffic."
+          ],
+          "review": []
+        },
+        {
+          "title": "On-Ramps and Off-Ramps",
+          "minutes": 5,
+          "content": [
+            "When entering a freeway via an on-ramp, accelerate to match the speed of traffic on the freeway. Don't merge at a much slower speed - this creates a dangerous situation.",
+            "Use the acceleration lane to build up speed. Look for a gap in traffic and signal your intention to merge. Don't stop in the acceleration lane unless absolutely necessary.",
+            "When exiting a freeway, signal early and move to the right lane well before your exit. Don't cut across multiple lanes at the last minute.",
+            "Pay attention to exit signs and mile markers. Know your exit number and be prepared to exit when you see the sign."
+          ],
+          "review": []
+        },
+        {
+          "title": "Yielding onto Freeways",
+          "minutes": 5,
+          "content": [
+            "When merging onto a freeway, you must yield to traffic already on the freeway. They have the right-of-way. Don't expect them to slow down or change lanes for you.",
+            "Look for a gap in traffic and adjust your speed to fit into that gap. If traffic is heavy, you may need to wait for a larger gap or use the next on-ramp.",
+            "Once you're on the freeway, maintain a safe following distance and stay in the right lane unless passing. Don't weave between lanes unnecessarily.",
+            "Be patient when merging in heavy traffic",
+            "Don't stop in the acceleration lane",
+            "Use your turn signals when changing lanes"
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "source": "California Driver Handbook 2024",
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.962Z"
+  }
+}

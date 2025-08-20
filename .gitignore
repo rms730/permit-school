@@ -25,3 +25,6 @@ web/.env.production
 # Logs
 logs/
 *.log/web/.next/
+
+# Seed backups
+ops/seed/.backups/

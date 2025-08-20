@@ -1,0 +1,112 @@
+{
+  "unit": 12,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Repaso Final y Preparación para el Examen",
+  "minutes_required": 60,
+  "objectives": [
+    "Reforzar temas más fallados: derecho de paso, señales/marcaciones, velocidad/espacio y situaciones especiales.",
+    "Aplicar estrategias de examen: lectura cuidadosa, eliminar distractores y manejo del tiempo.",
+    "Preparar documentos y logística para el examen teórico del DMV.",
+    "Adoptar una mentalidad de conducción segura más allá del examen."
+  ],
+  "sections": [
+    {
+      "title": "Estrategias para el Examen",
+      "lessons": [
+        {
+          "title": "Leer, Predecir y Eliminar",
+          "minutes": 5,
+          "content": [
+            "Lee toda la pregunta, predice la respuesta y elimina opciones claramente erróneas. Cuidado con absolutos como 'siempre' o 'nunca'.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Tiempo y Manejo del Estrés",
+          "minutes": 5,
+          "content": [
+            "Administra tu ritmo. Si te atoras, marca y regresa. Usa respiración para mantener calma y enfoque.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Temas Más Fallados: Repaso Rápido",
+      "lessons": [
+        {
+          "title": "Derecho de Paso e Intersecciones",
+          "minutes": 5,
+          "content": [
+            "Cede a peatones en cruces, a vehículos ya en la intersección y al vehículo de la derecha en alto de 4 vías si llegan a la vez.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Señales, Marcaciones y Velocidad/Espacio",
+          "minutes": 5,
+          "content": [
+            "Distingue señales reglamentarias y de advertencia. Respeta líneas sólidas/dobles y conserva distancia segura según la velocidad y condiciones.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Logística del Examen del DMV",
+      "lessons": [
+        {
+          "title": "Documentos y Elegibilidad",
+          "minutes": 5,
+          "content": [
+            "Lleva identificación requerida, comprobantes y cualquier formulario indicado en tu confirmación del DMV.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Repeticiones y Próximos Pasos",
+          "minutes": 5,
+          "content": [
+            "Comprende políticas de repetición y periodos de espera. Si no apruebas, repasa temas fallados antes de intentar de nuevo.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Mentalidad de Conducción Responsable",
+      "lessons": [
+        {
+          "title": "Madurez, Juicio y Riesgo",
+          "minutes": 5,
+          "content": [
+            "Conducir es más que aprobar un examen; implica autocontrol, paciencia y respeto.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Compromiso y Aprendizaje Continuo",
+          "minutes": 5,
+          "content": [
+            "Comprométete con el aprendizaje continuo: repasa el manual, practica nuevas habilidades y da mantenimiento al vehículo.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.970Z"
+  }
+}

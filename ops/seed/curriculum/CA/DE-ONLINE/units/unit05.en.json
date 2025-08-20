@@ -1,0 +1,205 @@
+{
+  "unit": 5,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Defensive Driving & Space Management",
+  "minutes_required": 20,
+  "objectives": [
+    "Adopt a defensive driving mindset that anticipates risk and reduces surprises.",
+    "Use scanning systems (SIPDE and the Smith 5 Keys) to see hazards early.",
+    "Maintain safe time/space cushions and adjust following distance for conditions.",
+    "Manage lane position, blind spots, and communication to avoid conflicts.",
+    "Apply the basic speed law and adapt speed for traffic, road, and weather.",
+    "Choose correct emergency responses (ABS braking, skid recovery, blowouts)."
+  ],
+  "sections": [
+    {
+      "title": "Mindset & Risk",
+      "lessons": [
+        {
+          "title": "What Is Defensive Driving?",
+          "minutes": 5,
+          "content": [
+            "Defensive driving means choosing actions that reduce risk before a crash can develop. You expect other road users to make mistakes, and you leave yourself time and space to react.",
+            "A defensive driver plans routes, scans constantly, and keeps emotions out of the driver’s seat. You manage risk by controlling what you can: your speed, lane position, and attention."
+          ],
+          "review": []
+        },
+        {
+          "title": "Risk Triangle: Driver, Vehicle, Environment",
+          "minutes": 5,
+          "content": [
+            "Crashes usually involve a mix of factors: the driver (attention, decisions, impairment), the vehicle (tires, brakes, size), and the environment (traffic, weather, road design).",
+            "Reduce risk on all three sides: drive alert and sober, maintain your vehicle, and adjust to conditions like rain, darkness, or congestion."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Seeing the Big Picture: Scanning Systems",
+      "lessons": [
+        {
+          "title": "SIPDE",
+          "minutes": 5,
+          "content": [
+            "SIPDE = Search, Identify, Predict, Decide, Execute. Search the road ahead, around, and behind. Identify potential conflicts. Predict how they might develop. Decide on the safest action. Execute smoothly.",
+            "Use SIPDE continuously—especially at intersections, lane merges, and around vulnerable road users like pedestrians and cyclists."
+          ],
+          "review": []
+        },
+        {
+          "title": "Smith System: 5 Keys",
+          "minutes": 5,
+          "content": [
+            "1) Aim high in steering (look 12–15 seconds ahead). 2) Get the big picture (use mirrors; check sides). 3) Keep your eyes moving. 4) Leave yourself an out. 5) Make sure they see you (signals, lights, eye contact when possible).",
+            "These keys help you detect hazards early and preserve escape paths."
+          ],
+          "review": []
+        },
+        {
+          "title": "Eye Lead Time & Visual Scanning",
+          "minutes": 5,
+          "content": [
+            "In city driving, look at least 12–15 seconds ahead (about one city block). On highways, look 15–20 seconds ahead. Scan mirrors every 5–8 seconds.",
+            "Identify ‘stale’ green lights, hidden driveways, and vehicles that might enter your path. Early awareness buys time."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Space Cushion & Following Distance",
+      "lessons": [
+        {
+          "title": "The 3–4 Second Rule",
+          "minutes": 5,
+          "content": [
+            "Pick a fixed object ahead. When the vehicle in front passes it, count ‘one-one-thousand, two-one-thousand…’. If you pass before 3–4 seconds on dry pavement, you’re following too closely.",
+            "Increase your cushion uphill, when towing, behind large vehicles, or when your view is limited."
+          ],
+          "review": []
+        },
+        {
+          "title": "When to Increase Following Distance",
+          "minutes": 5,
+          "content": [
+            "Add time in the rain, at night, in fog/smoke, on gravel, or when being tailgated. Also add space behind motorcycles and bicycles; they can stop or swerve quickly.",
+            "More time = more options. If someone tailgates you, create extra space ahead and avoid sudden braking."
+          ],
+          "review": []
+        },
+        {
+          "title": "Stopping Distance & Reaction Time",
+          "minutes": 5,
+          "content": [
+            "Total stopping distance = perception time + reaction time + braking distance. At higher speeds, distance grows dramatically.",
+            "Expect about a second of reaction time, longer if you’re distracted or tired. Leave space to account for that delay."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Lane Position, Blind Spots & Communication",
+      "lessons": [
+        {
+          "title": "Lane Positioning",
+          "minutes": 5,
+          "content": [
+            "Use lane position to manage space: center (LP1) for general driving, left (LP2) to prepare for left turns/avoid right-side hazards, right (LP3) to prepare for right turns/avoid oncoming traffic.",
+            "Adjust position to keep a space cushion on at least one side."
+          ],
+          "review": []
+        },
+        {
+          "title": "Blind Spots & Head Checks",
+          "minutes": 5,
+          "content": [
+            "Mirrors don’t show everything. Before any lane change or merge, signal, check mirrors, and then turn your head to check blind spots.",
+            "Recheck after a brief pause; vehicles can appear quickly in fast traffic."
+          ],
+          "review": []
+        },
+        {
+          "title": "Communicating with Others",
+          "minutes": 5,
+          "content": [
+            "Use turn signals early (at least 100 feet before turning; on freeways, signal for about 5 seconds before changing lanes).",
+            "Tap your brakes to warn following drivers, use headlights when required, and avoid horn use except to warn of immediate hazards."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Speed Control & Conditions",
+      "lessons": [
+        {
+          "title": "California Basic Speed Law",
+          "minutes": 5,
+          "content": [
+            "Never drive faster than is safe for current conditions—even if posted limits are higher. Slow for traffic, weather, road surfaces, and visibility.",
+            "‘Safe and reasonable’ speed changes minute by minute. Your judgment is part of defensive driving."
+          ],
+          "review": []
+        },
+        {
+          "title": "Work Zones & School Zones",
+          "minutes": 5,
+          "content": [
+            "Obey reduced speed limits, watch for workers and flaggers, and be prepared to stop. In school zones, slow down and yield to children and crossing guards.",
+            "Expect sudden changes: narrowed lanes, cones, and construction vehicles entering traffic."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Hazards & Emergencies",
+      "lessons": [
+        {
+          "title": "Evasive Steering vs. Hard Braking",
+          "minutes": 5,
+          "content": [
+            "Steering around a hazard can be faster than braking—if you have an open path. If you need to brake hard with ABS, press the pedal firmly and steer where you want to go.",
+            "Avoid jerky inputs; smooth actions maintain traction and control."
+          ],
+          "review": []
+        },
+        {
+          "title": "Skids & ABS",
+          "minutes": 5,
+          "content": [
+            "For ABS: press and hold the brake; don’t pump. You may feel vibration—that’s normal. Steer to a safe path.",
+            "For a rear-wheel skid, ease off the accelerator and steer in the direction you want the front of the vehicle to go."
+          ],
+          "review": []
+        },
+        {
+          "title": "Tire Blowout or Wheel Drop-Off",
+          "minutes": 5,
+          "content": [
+            "If a tire blows out, grip the wheel, ease off the gas, and let the vehicle slow before steering to a safe stop. Avoid hard braking.",
+            "If your right wheels leave the pavement, hold a straight line, slow down, then gently steer back onto the roadway when clear."
+          ],
+          "review": []
+        },
+        {
+          "title": "Brake Failure / Overheated Brakes",
+          "minutes": 5,
+          "content": [
+            "If brakes fade, downshift to use engine braking and look for a safe area to slow and stop. Pump brakes if you do not have ABS.",
+            "Do not turn off the ignition while moving; you could lose steering control."
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.965Z"
+  }
+}

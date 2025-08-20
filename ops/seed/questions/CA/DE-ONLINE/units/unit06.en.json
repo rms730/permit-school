@@ -1,0 +1,755 @@
+{
+  "unit": 6,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "questions": [
+    {
+      "ref": "U06-Q-001",
+      "skill": "ramp-metering",
+      "difficulty": 2,
+      "stem": "You’re at a metered on‑ramp signed “One vehicle per green per lane.” What should you do?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Stop at the limit line and go only when your lane’s light turns green—one vehicle per green unless signs say otherwise."
+        },
+        {
+          "key": "B",
+          "text": "Ignore the red if the freeway looks clear."
+        },
+        {
+          "key": "C",
+          "text": "Go at the same time as the car next to you to save time."
+        },
+        {
+          "key": "D",
+          "text": "Wait for a flashing yellow before proceeding."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Ramp meters regulate entry. Obey the signal and posted instructions—often one vehicle per green per lane.",
+      "tags": [
+        "freeway",
+        "merging",
+        "signals",
+        "teen"
+      ]
+    },
+    {
+      "ref": "U06-Q-002",
+      "skill": "merging",
+      "difficulty": 2,
+      "stem": "While entering a freeway, traffic is moving at 65 mph. What’s the best way to merge?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Stop at the end of the ramp, then sprint into a gap."
+        },
+        {
+          "key": "B",
+          "text": "Use the acceleration lane to match traffic speed, signal, check over your shoulder, and merge when a safe gap opens."
+        },
+        {
+          "key": "C",
+          "text": "Drive slowly with hazards on so others go around you."
+        },
+        {
+          "key": "D",
+          "text": "Quickly cross to the far left lane to avoid merging traffic."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Use the full acceleration lane, reach near‑traffic speed, and merge into a safe gap without stopping.",
+      "tags": [
+        "freeway",
+        "merging",
+        "speed",
+        "teen"
+      ]
+    },
+    {
+      "ref": "U06-Q-003",
+      "skill": "exit-planning",
+      "difficulty": 3,
+      "stem": "Your exit is 1 mile ahead in heavy traffic. Which strategy is safest?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Wait until the last second and cross the solid lines if necessary."
+        },
+        {
+          "key": "B",
+          "text": "Signal for at least five seconds, change one lane at a time, and move into the exit lane early."
+        },
+        {
+          "key": "C",
+          "text": "Stop on the freeway shoulder to wait for a bigger gap."
+        },
+        {
+          "key": "D",
+          "text": "Back up on the freeway if you miss the exit."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Signal early, change one lane at a time, and never cross solid lines or back up on a freeway.",
+      "tags": [
+        "freeway",
+        "exiting",
+        "signals",
+        "teen"
+      ]
+    },
+    {
+      "ref": "U06-Q-004",
+      "skill": "lane-use",
+      "difficulty": 2,
+      "stem": "Which statement about freeway lane use is true?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Lane 1 (far left) is mainly for passing or left turns."
+        },
+        {
+          "key": "B",
+          "text": "Right lanes are only for trucks."
+        },
+        {
+          "key": "C",
+          "text": "You should weave between lanes to go faster."
+        },
+        {
+          "key": "D",
+          "text": "Solid white lines mean you must change lanes now."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Lane 1 is generally used for passing. Right lanes are for entering/exiting and slower traffic. Avoid weaving.",
+      "tags": [
+        "freeway",
+        "lane-use",
+        "teen"
+      ]
+    },
+    {
+      "ref": "U06-Q-005",
+      "skill": "hov",
+      "difficulty": 3,
+      "stem": "You’re alone in a standard gasoline car without a clean‑air decal. The HOV lane shows a double‑solid white barrier. What’s correct?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Enter at any time to pass slow traffic."
+        },
+        {
+          "key": "B",
+          "text": "Use it if you keep up with traffic speed."
+        },
+        {
+          "key": "C",
+          "text": "Do not enter—HOV requires posted occupancy/qualifying vehicles, and you must not cross double‑solid white lines."
+        },
+        {
+          "key": "D",
+          "text": "Cross the double lines briefly, then return to your lane."
+        }
+      ],
+      "answer": 2,
+      "explanation": "HOV lanes have eligibility rules and often double‑solid white lines that you must not cross. Enter/exit only where permitted.",
+      "tags": [
+        "hov",
+        "lane-use",
+        "freeway",
+        "teen"
+      ]
+    },
+    {
+      "ref": "U06-Q-006",
+      "skill": "passing",
+      "difficulty": 1,
+      "stem": "When can you pass on the right?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "When there are at least two same‑direction lanes and it’s safe, or when the vehicle ahead is turning left."
+        },
+        {
+          "key": "B",
+          "text": "Whenever you’re in a hurry."
+        },
+        {
+          "key": "C",
+          "text": "On the shoulder if it’s paved."
+        },
+        {
+          "key": "D",
+          "text": "At or within 100 feet of an intersection."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Passing on the right is limited and must be done safely; never leave the paved roadway to pass.",
+      "tags": [
+        "passing",
+        "lane-use",
+        "teen"
+      ]
+    },
+    {
+      "ref": "U06-Q-007",
+      "skill": "following-distance",
+      "difficulty": 2,
+      "stem": "At 65 mph on a clear day, what’s the minimum safe following distance?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "One second."
+        },
+        {
+          "key": "B",
+          "text": "Three seconds, and more if conditions worsen."
+        },
+        {
+          "key": "C",
+          "text": "Half a second if your brakes are good."
+        },
+        {
+          "key": "D",
+          "text": "Ten seconds at all times."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Use at least a three‑second gap in ideal conditions; increase it with speed, spray, or limited visibility.",
+      "tags": [
+        "following-distance",
+        "freeway",
+        "teen"
+      ]
+    },
+    {
+      "ref": "U06-Q-008",
+      "skill": "tailgating",
+      "difficulty": 2,
+      "stem": "A driver is tailgating you in the left lane. What’s the best response?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Speed up to get away."
+        },
+        {
+          "key": "B",
+          "text": "Tap your brakes to scare them."
+        },
+        {
+          "key": "C",
+          "text": "Maintain your speed and, when safe, change to a right lane to let them pass."
+        },
+        {
+          "key": "D",
+          "text": "Stop in your lane to make them back off."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Keep your pace, avoid brake‑checking, and move right when safe so the tailgater can pass.",
+      "tags": [
+        "defensive-driving",
+        "following-distance",
+        "teen"
+      ]
+    },
+    {
+      "ref": "U06-Q-009",
+      "skill": "night-vision",
+      "difficulty": 3,
+      "stem": "At night you’re being dazzled by oncoming headlights. What should you do?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Look directly at the bright lights so your eyes adjust."
+        },
+        {
+          "key": "B",
+          "text": "Turn on your high beams to ‘even it out.’"
+        },
+        {
+          "key": "C",
+          "text": "Look to the right edge of your lane and slow as needed so you can stop within the distance you can see."
+        },
+        {
+          "key": "D",
+          "text": "Close your eyes briefly until the glare passes."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Avoid looking into glare. Use the right edge as a guide and adjust speed to your visible stopping distance.",
+      "tags": [
+        "night",
+        "visibility",
+        "teen"
+      ]
+    },
+    {
+      "ref": "U06-Q-010",
+      "skill": "weaving-areas",
+      "difficulty": 4,
+      "stem": "On a cloverleaf interchange, an entering lane and an exiting lane cross (a weaving area). What’s the safest approach?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Accelerate hard to beat the exiting traffic."
+        },
+        {
+          "key": "B",
+          "text": "Signal, scan, and take turns (‘zipper’) while adjusting speed to create space; change one lane at a time."
+        },
+        {
+          "key": "C",
+          "text": "Stop on the ramp until the area clears."
+        },
+        {
+          "key": "D",
+          "text": "Cross the gore area to skip the weave."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Weaving requires cooperation. Signal early, adjust speed, and alternate when needed—never stop in a live ramp or cross the gore.",
+      "tags": [
+        "interchanges",
+        "weaving",
+        "freeway"
+      ]
+    },
+    {
+      "ref": "U06-Q-011",
+      "skill": "lane-drops",
+      "difficulty": 3,
+      "stem": "A large broken line and an ‘EXIT ONLY’ panel appear ahead. What does this mean?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "The lane continues straight with no change."
+        },
+        {
+          "key": "B",
+          "text": "The lane ends or becomes an exit; move to a through lane early if you’re not exiting."
+        },
+        {
+          "key": "C",
+          "text": "You must speed up to keep the lane."
+        },
+        {
+          "key": "D",
+          "text": "You should stop at the end of the broken line."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Large broken lines and ‘EXIT ONLY’ signs indicate a lane drop or exit‑only lane. Change lanes early if you need to continue.",
+      "tags": [
+        "signs",
+        "interchanges",
+        "lane-use"
+      ]
+    },
+    {
+      "ref": "U06-Q-012",
+      "skill": "urban-intersections",
+      "difficulty": 1,
+      "stem": "A signalized intersection goes dark during a power outage. What should you do?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Treat it as an all‑way stop and proceed when safe."
+        },
+        {
+          "key": "B",
+          "text": "Proceed through at normal speed."
+        },
+        {
+          "key": "C",
+          "text": "Follow whoever goes first without stopping."
+        },
+        {
+          "key": "D",
+          "text": "Honk and continue if you don’t see cross‑traffic."
+        }
+      ],
+      "answer": 0,
+      "explanation": "A dark signal should be treated as an all‑way stop. Proceed only when it’s safe.",
+      "tags": [
+        "urban",
+        "signals",
+        "right-of-way"
+      ]
+    },
+    {
+      "ref": "U06-Q-013",
+      "skill": "bus-only-lane",
+      "difficulty": 2,
+      "stem": "You see a curb lane marked ‘BUS ONLY.’ You need to turn right at the next corner. What is allowed?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Drive in the bus lane for several blocks if you’re quick."
+        },
+        {
+          "key": "B",
+          "text": "Cross the bus lane near the corner to make a right turn where permitted, yielding to buses and pedestrians."
+        },
+        {
+          "key": "C",
+          "text": "Stop and load passengers in the bus lane."
+        },
+        {
+          "key": "D",
+          "text": "Pass buses on the left in the bus lane."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Do not drive or stop in bus‑only lanes. You may cross them to turn right where permitted and must yield appropriately.",
+      "tags": [
+        "urban",
+        "transit",
+        "turning"
+      ]
+    },
+    {
+      "ref": "U06-Q-014",
+      "skill": "bike-lane-turn",
+      "difficulty": 2,
+      "stem": "When making a right turn across a bike lane, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Merge into the bike lane at least 200 feet before the turn when clear, then turn right."
+        },
+        {
+          "key": "B",
+          "text": "Turn from the far left lane to avoid bikes."
+        },
+        {
+          "key": "C",
+          "text": "Stop in the bike lane and wait for cyclists to go around you."
+        },
+        {
+          "key": "D",
+          "text": "Never enter the bike lane under any circumstances."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Enter the bike lane within about 200 feet of your turn when clear, yield to cyclists, and complete the right turn.",
+      "tags": [
+        "bikes",
+        "turning",
+        "urban"
+      ]
+    },
+    {
+      "ref": "U06-Q-015",
+      "skill": "dooring",
+      "difficulty": 1,
+      "stem": "Before opening your driver‑side door next to parked cars and a bike lane, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Open quickly so cyclists have to slow."
+        },
+        {
+          "key": "B",
+          "text": "Check mirrors and look over your shoulder for cyclists and traffic, then open only when safe."
+        },
+        {
+          "key": "C",
+          "text": "Rely on your passengers to warn you."
+        },
+        {
+          "key": "D",
+          "text": "Honk and open the door immediately."
+        }
+      ],
+      "answer": 1,
+      "explanation": "The door zone is hazardous. Always check mirrors and over your shoulder before opening doors into traffic.",
+      "tags": [
+        "bikes",
+        "urban",
+        "safety"
+      ]
+    },
+    {
+      "ref": "U06-Q-016",
+      "skill": "streetcar-safety",
+      "difficulty": 3,
+      "stem": "A streetcar has stopped at a marked safety zone with pedestrians boarding. You may pass at:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Any speed if you don’t hit cones."
+        },
+        {
+          "key": "B",
+          "text": "No more than 10 mph, watching for people."
+        },
+        {
+          "key": "C",
+          "text": "35 mph if you honk first."
+        },
+        {
+          "key": "D",
+          "text": "Only if you pass on the left of the streetcar."
+        }
+      ],
+      "answer": 1,
+      "explanation": "At safety zones, pass at no more than about 10 mph and watch for pedestrians.",
+      "tags": [
+        "transit",
+        "urban",
+        "pedestrians"
+      ]
+    },
+    {
+      "ref": "U06-Q-017",
+      "skill": "parking-curb-colors",
+      "difficulty": 2,
+      "stem": "Which curb color means ‘no stopping, standing, or parking’ (except where specifically allowed)?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Green"
+        },
+        {
+          "key": "B",
+          "text": "Red"
+        },
+        {
+          "key": "C",
+          "text": "Yellow"
+        },
+        {
+          "key": "D",
+          "text": "White"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Red curbs generally prohibit stopping, standing, or parking.",
+      "tags": [
+        "parking",
+        "urban",
+        "teen"
+      ]
+    },
+    {
+      "ref": "U06-Q-018",
+      "skill": "parking-18in",
+      "difficulty": 1,
+      "stem": "When parallel parking next to a curb, your wheels must be within:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "3 feet of the curb."
+        },
+        {
+          "key": "B",
+          "text": "18 inches of the curb."
+        },
+        {
+          "key": "C",
+          "text": "6 inches of the curb."
+        },
+        {
+          "key": "D",
+          "text": "Any distance if you used hazards."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Park within approximately 18 inches of the curb.",
+      "tags": [
+        "parking",
+        "urban"
+      ]
+    },
+    {
+      "ref": "U06-Q-019",
+      "skill": "loading-zones",
+      "difficulty": 1,
+      "stem": "A yellow curb generally means:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Commercial/loading zone—stop only to load or unload as permitted; non‑commercial drivers usually must stay with the vehicle."
+        },
+        {
+          "key": "B",
+          "text": "Unlimited passenger parking."
+        },
+        {
+          "key": "C",
+          "text": "Disabled parking only."
+        },
+        {
+          "key": "D",
+          "text": "No stopping at any time."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Yellow curbs are typically for loading; time and conditions vary by sign—follow local rules.",
+      "tags": [
+        "parking",
+        "urban"
+      ]
+    },
+    {
+      "ref": "U06-Q-020",
+      "skill": "hill-parking",
+      "difficulty": 1,
+      "stem": "How should you turn your wheels when you park facing uphill next to a curb?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Toward the curb."
+        },
+        {
+          "key": "B",
+          "text": "Away from the curb, and let the vehicle roll back slightly to set the wheel against the curb."
+        },
+        {
+          "key": "C",
+          "text": "Straight ahead."
+        },
+        {
+          "key": "D",
+          "text": "Any direction if the parking brake works."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Facing uphill with a curb: turn wheels away from the curb and allow a slight roll so the tire rests against it.",
+      "tags": [
+        "parking",
+        "hills"
+      ]
+    },
+    {
+      "ref": "U06-Q-021",
+      "skill": "basic-speed-law",
+      "difficulty": 2,
+      "stem": "Under California’s basic speed law, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Always drive at the posted limit even in heavy rain."
+        },
+        {
+          "key": "B",
+          "text": "Drive at a speed that is safe for current conditions, even if it’s below the posted limit."
+        },
+        {
+          "key": "C",
+          "text": "Match the speed of the fastest vehicles."
+        },
+        {
+          "key": "D",
+          "text": "Use high beams to drive faster at night."
+        }
+      ],
+      "answer": 1,
+      "explanation": "The basic speed law requires a speed that is safe for conditions, which can be below the posted limit.",
+      "tags": [
+        "speed",
+        "freeway"
+      ]
+    },
+    {
+      "ref": "U06-Q-022",
+      "skill": "low-beams-rain",
+      "difficulty": 2,
+      "stem": "When it’s raining hard and you’re using your windshield wipers, what lights should you use?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "No lights—it’s daytime."
+        },
+        {
+          "key": "B",
+          "text": "Parking lights only."
+        },
+        {
+          "key": "C",
+          "text": "Low‑beam headlights."
+        },
+        {
+          "key": "D",
+          "text": "High‑beam headlights."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Use low beams in rain; never drive with only parking lights.",
+      "tags": [
+        "weather",
+        "visibility"
+      ]
+    },
+    {
+      "ref": "U06-Q-023",
+      "skill": "hydroplaning",
+      "difficulty": 4,
+      "stem": "Your tires begin to hydroplane at freeway speed. What is the correct first response?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Brake hard to slow quickly."
+        },
+        {
+          "key": "B",
+          "text": "Steer sharply to the shoulder."
+        },
+        {
+          "key": "C",
+          "text": "Ease off the accelerator and keep the wheels straight; avoid sudden inputs."
+        },
+        {
+          "key": "D",
+          "text": "Turn on high beams to see the water."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Hydroplaning means the tires lost contact. Ease off the gas and avoid braking or sudden steering until traction returns.",
+      "tags": [
+        "weather",
+        "freeway",
+        "safety"
+      ]
+    },
+    {
+      "ref": "U06-Q-024",
+      "skill": "breakdown",
+      "difficulty": 5,
+      "stem": "Your car loses power in the middle lane of a busy freeway. What should you do first?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Stop immediately and get out in traffic."
+        },
+        {
+          "key": "B",
+          "text": "Coast with signals on, steer to the right shoulder if possible, then turn on hazards and stay belted inside while you call for help."
+        },
+        {
+          "key": "C",
+          "text": "Back up to the last exit."
+        },
+        {
+          "key": "D",
+          "text": "Walk across lanes to the median."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Signal and coast to the right shoulder if possible, activate hazards, and stay belted in the vehicle while you call for help.",
+      "tags": [
+        "freeway",
+        "emergency",
+        "teen"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.986Z"
+  }
+}

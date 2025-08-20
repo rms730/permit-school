@@ -1,0 +1,208 @@
+{
+  "unit": 1,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "es",
+  "title": "Reglas de Tránsito: Señales, Semáforos y Derecho de Paso",
+  "minutes_required": 60,
+  "objectives": [
+    "Identificar y entender las señales de tránsito, semáforos y marcas en el pavimento",
+    "Aprender las reglas de derecho de paso para diferentes situaciones de tránsito",
+    "Entender las leyes y regulaciones básicas de tránsito",
+    "Reconocer las violaciones de tránsito comunes y sus consecuencias",
+    "Desarrollar hábitos de conducción segura y habilidades de toma de decisiones",
+    "Aprender cómo responder a vehículos de emergencia y autobuses escolares",
+    "Entender la importancia de seguir las reglas de tránsito para la seguridad"
+  ],
+  "sections": [
+    {
+      "title": "Señales de Tránsito y Sus Significados",
+      "lessons": [
+        {
+          "title": "Señales Regulatorias",
+          "minutes": 5,
+          "content": [
+            "Las señales regulatorias te dicen qué debes hacer o no debes hacer. Generalmente son rectangulares con letras o símbolos negros sobre fondo blanco. Estas señales son la ley y debes obedecerlas.",
+            "Las señales de alto son octagonales (8 lados) y rojas con letras blancas. Cuando veas una señal de alto, debes detenerte completamente antes de la línea de alto o el cruce peatonal. Si no hay línea de alto o cruce peatonal, detente antes de entrar a la intersección.",
+            "Las señales de ceder el paso son triangulares y rojas y blancas. Significan que debes reducir la velocidad y estar listo para detenerte si es necesario. Deja que otro tránsito pase primero si hay un conflicto.",
+            "Las señales de límite de velocidad muestran la velocidad máxima legal para esa carretera",
+            "Las señales de no estacionar indican donde no puedes estacionar tu vehículo",
+            "Las señales de dirección única muestran la dirección en que debe fluir el tránsito"
+          ],
+          "review": []
+        },
+        {
+          "title": "Señales de Advertencia",
+          "minutes": 5,
+          "content": [
+            "Las señales de advertencia te alertan sobre peligros potenciales adelante. Generalmente son en forma de diamante con letras o símbolos negros sobre fondo amarillo. Estas señales te ayudan a prepararte para lo que viene.",
+            "Las señales de curva te advierten sobre giros cerrados adelante. La señal puede mostrar la velocidad recomendada para la curva. Reduce la velocidad antes de entrar a la curva para mantener el control de tu vehículo.",
+            "Las señales de zona escolar indican que estás entrando a un área donde pueden estar presentes niños. Los límites de velocidad generalmente se reducen en las zonas escolares y debes tener mucho cuidado.",
+            "Las señales de cruce peatonal advierten sobre personas cruzando la carretera",
+            "Las señales de cruce de animales indican que la vida silvestre puede estar en la carretera",
+            "Las señales de resbaladizo cuando está mojado advierten sobre tracción reducida en la lluvia"
+          ],
+          "review": []
+        },
+        {
+          "title": "Señales Informativas",
+          "minutes": 5,
+          "content": [
+            "Las señales informativas proporcionan información sobre destinos, servicios y rutas. Te ayudan a navegar hacia donde quieres ir. Estas señales generalmente son verdes, azules o marrones.",
+            "Las señales verdes proporcionan información direccional para autopistas y carreteras principales. Muestran números de ruta, destinos y distancias. Presta atención a estas señales para mantenerte en el camino correcto.",
+            "Las señales azules indican servicios como gasolineras, restaurantes y hospitales. Las señales marrones apuntan a áreas recreativas como parques y sitios históricos."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Semáforos y Luces de Tránsito",
+      "lessons": [
+        {
+          "title": "Colores de Semáforos",
+          "minutes": 5,
+          "content": [
+            "Los semáforos controlan el flujo de tránsito en las intersecciones. Usan tres colores: rojo, amarillo y verde. Cada color tiene un significado específico que todos los conductores deben entender y seguir.",
+            "Rojo significa alto. Debes detenerte antes de la línea de alto o el cruce peatonal. Si no hay línea de alto, detente antes de entrar a la intersección. Debes permanecer detenido hasta que la luz cambie a verde.",
+            "Amarillo significa precaución. La luz está a punto de cambiar a rojo. Si puedes detenerte de manera segura, debes hacerlo. Si estás demasiado cerca para detenerte de manera segura, puedes continuar a través de la intersección.",
+            "Verde significa avanzar, pero solo si la intersección está despejada. Mira en ambas direcciones antes de proceder, incluso con luz verde. Otros conductores aún pueden estar en la intersección."
+          ],
+          "review": []
+        },
+        {
+          "title": "Señales de Tránsito Especiales",
+          "minutes": 5,
+          "content": [
+            "Algunas intersecciones tienen señales especiales para peatones, bicicletas o vehículos que giran. Estas señales ayudan a manejar diferentes tipos de tránsito de manera segura.",
+            "Las señales peatonales muestran una persona caminando (blanca) cuando es seguro cruzar y una mano levantada (roja) cuando los peatones no deben cruzar. Siempre cede el paso a los peatones en los cruces peatonales.",
+            "Las flechas de giro permiten movimientos específicos cuando la luz principal podría estar roja. Una flecha verde significa que puedes girar en esa dirección. Una flecha roja significa que no puedes girar en esa dirección.",
+            "Las luces rojas parpadeantes significan alto, luego proceder cuando sea seguro",
+            "Las luces amarillas parpadeantes significan proceder con precaución"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Reglas de Derecho de Paso",
+      "lessons": [
+        {
+          "title": "Derecho de Paso Básico",
+          "minutes": 5,
+          "content": [
+            "Las reglas de derecho de paso determinan quién va primero cuando los vehículos se encuentran. Estas reglas ayudan a prevenir accidentes y mantener el tránsito fluyendo suavemente. Siempre sé cortés y paciente con otros conductores.",
+            "En un alto de cuatro direcciones, el primer vehículo en llegar tiene el derecho de paso. Si dos vehículos llegan al mismo tiempo, el vehículo a la derecha va primero. Si no estás seguro, deja que el otro conductor vaya primero.",
+            "En una intersección en T, los vehículos en la carretera principal tienen el derecho de paso sobre los vehículos que giran hacia la carretera principal. Siempre cede el paso al tránsito principal a menos que tengas una luz verde.",
+            "Los vehículos de emergencia con luces y sirenas siempre tienen derecho de paso",
+            "Los peatones en cruces peatonales tienen derecho de paso sobre los vehículos",
+            "Los autobuses escolares con luces parpadeantes deben recibir derecho de paso"
+          ],
+          "review": []
+        },
+        {
+          "title": "Derecho de Paso en Intersecciones",
+          "minutes": 5,
+          "content": [
+            "Las intersecciones pueden ser complejas, especialmente cuando múltiples vehículos quieren girar o ir derecho. Entender las reglas de derecho de paso ayuda a prevenir confusión y accidentes.",
+            "Cuando giras a la izquierda en una intersección, debes ceder el paso al tránsito que viene de frente yendo derecho o girando a la derecha. Espera un espacio seguro antes de hacer tu giro.",
+            "Cuando entras a una carretera desde un camino de entrada o estacionamiento, debes ceder el paso a todo el tránsito en la carretera principal. Mira en ambas direcciones y espera un espacio seguro antes de entrar.",
+            "En las glorietas, los vehículos que ya están en el círculo tienen el derecho de paso. Entra solo cuando haya un espacio seguro. Siempre cede el paso al tránsito en la glorieta."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Vehículos de Emergencia y Autobuses Escolares",
+      "lessons": [
+        {
+          "title": "Procedimientos para Vehículos de Emergencia",
+          "minutes": 5,
+          "content": [
+            "Los vehículos de emergencia incluyen carros de policía, camiones de bomberos y ambulancias. Cuando veas o escuches un vehículo de emergencia acercándose, debes ceder el derecho de paso inmediatamente.",
+            "Cuando un vehículo de emergencia se acerca con luces y sirenas, oríllate al lado derecho de la carretera y detente. Si estás en una calle de una sola dirección, oríllate a cualquier lado. Permanece detenido hasta que el vehículo de emergencia pase.",
+            "Nunca sigas de cerca un vehículo de emergencia o trates de pasarlo. Los vehículos de emergencia pueden detenerse repentinamente o cambiar de dirección rápidamente. Mantén una distancia segura.",
+            "Si estás en una intersección cuando se acerca un vehículo de emergencia, despeja la intersección primero, luego oríllate",
+            "En las autopistas, los vehículos de emergencia pueden usar el hombro - no bloquees su camino"
+          ],
+          "review": []
+        },
+        {
+          "title": "Seguridad de Autobuses Escolares",
+          "minutes": 5,
+          "content": [
+            "Los autobuses escolares transportan niños hacia y desde la escuela. Tienen reglas especiales para proteger la seguridad de los niños. Todos los conductores deben conocer y seguir estas reglas.",
+            "Cuando un autobús escolar se detiene y muestra luces rojas parpadeantes, todo el tránsito en ambas direcciones debe detenerse. Esto se aplica en todas las carreteras excepto autopistas divididas con un medianil.",
+            "Debes permanecer detenido hasta que el conductor del autobús apague las luces parpadeantes y el autobús comience a moverse nuevamente. Los niños pueden estar cruzando la carretera para subir o bajar del autobús.",
+            "En autopistas divididas, solo el tránsito que va en la misma dirección que el autobús debe detenerse. El tránsito que va en dirección opuesta puede proceder con precaución."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Límites de Velocidad y Conducción Segura",
+      "lessons": [
+        {
+          "title": "Entendiendo los Límites de Velocidad",
+          "minutes": 5,
+          "content": [
+            "Los límites de velocidad son velocidades máximas permitidas bajo condiciones ideales. Se establecen para asegurar la seguridad de todos los usuarios de la carretera. Nunca debes exceder el límite de velocidad publicado.",
+            "Los límites de velocidad varían según el tipo de carretera y ubicación. Las áreas residenciales típicamente tienen límites de velocidad más bajos (25-35 mph) para proteger a peatones y niños. Las autopistas tienen límites más altos (55-70 mph).",
+            "Las zonas escolares tienen límites de velocidad reducidos cuando los niños están presentes. Estos límites generalmente son de 15-25 mph. Presta atención a las señales de zona escolar y luces parpadeantes.",
+            "Las zonas de construcción a menudo tienen límites de velocidad reducidos",
+            "Las condiciones climáticas pueden requerir conducir por debajo del límite de velocidad",
+            "La congestión de tránsito puede requerir conducir más lento que el límite"
+          ],
+          "review": []
+        },
+        {
+          "title": "Prácticas de Conducción Segura",
+          "minutes": 5,
+          "content": [
+            "La conducción segura involucra más que solo seguir los límites de velocidad. Requiere atención constante, buen juicio y consideración por otros usuarios de la carretera.",
+            "Siempre mantén una distancia de seguimiento segura. La regla general es mantenerte al menos 3-4 segundos detrás del vehículo frente a ti. En mal tiempo, aumenta esta distancia.",
+            "Usa tus señales de giro para comunicar tus intenciones a otros conductores. Señala al menos 100 pies antes de girar o cambiar de carril. Esto le da tiempo a otros conductores para reaccionar.",
+            "Revisa tus espejos frecuentemente y mantente consciente de lo que está sucediendo alrededor de tu vehículo. Mira adelante por peligros potenciales y planifica tus acciones en consecuencia."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Violaciones de Tránsito Comunes",
+      "lessons": [
+        {
+          "title": "Violaciones en Movimiento",
+          "minutes": 5,
+          "content": [
+            "Las violaciones en movimiento son infracciones de tránsito que ocurren mientras tu vehículo está en movimiento. Estas violaciones pueden resultar en multas, puntos en tu licencia y aumentos en las tarifas de seguro.",
+            "Exceder la velocidad es una de las violaciones más comunes. Incluso ir 5 mph por encima del límite puede resultar en una multa. Mientras más rápido vayas, más alta será la multa y más puntos recibirás.",
+            "Pasar semáforos rojos y señales de alto es extremadamente peligroso. Estas violaciones a menudo causan accidentes serios. Siempre detente completamente y mira en ambas direcciones antes de proceder.",
+            "No ceder el derecho de paso puede resultar en accidentes y citaciones",
+            "Los cambios de carril inadecuados sin señalizar son violaciones comunes",
+            "Seguir muy de cerca (pegarse) es peligroso e ilegal"
+          ],
+          "review": []
+        },
+        {
+          "title": "Consecuencias de las Violaciones",
+          "minutes": 5,
+          "content": [
+            "Las violaciones de tránsito tienen consecuencias serias más allá de solo multas. Pueden afectar tu historial de conducción, tarifas de seguro e incluso tu capacidad para conducir legalmente.",
+            "Los puntos en tu licencia pueden acumularse y llevar a la suspensión de la licencia. En California, obtener 4 puntos en 12 meses, 6 puntos en 24 meses, o 8 puntos en 36 meses puede resultar en suspensión.",
+            "Las compañías de seguro revisan tu historial de conducción y pueden aumentar tus tarifas por violaciones. Algunas violaciones pueden causar que tu seguro sea cancelado o no renovado.",
+            "Las violaciones serias como DUI o conducción temeraria pueden resultar en tiempo en la cárcel, revocación de licencia y cargos criminales. Siempre conduce de manera segura y responsable."
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "source": "Manual del Conductor de California 2024",
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.961Z"
+  }
+}

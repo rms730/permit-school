@@ -1,308 +1,594 @@
 {
-    "unit": 3,
-    "j_code": "CA",
-    "course_code": "DE-ONLINE",
-    "lang": "es",
-    "questions": [
-      {
-        "id": "u3_q01",
-        "skill": "basic_speed_law",
-        "difficulty": 2,
-        "tags": ["unit3", "autopista", "velocidad"],
-        "stem": "La Ley Básica de Velocidad de California significa:",
-        "choices": [
-          {"key": "A", "text": "Siempre puede conducir al límite señalado."},
-          {"key": "B", "text": "Nunca debe conducir más rápido de lo que permiten las condiciones."},
-          {"key": "C", "text": "Debe igualar la velocidad del tráfico más rápido."},
-          {"key": "D", "text": "Debe ir al menos a 55 mph en autopistas."}
-        ],
-        "answer": "B",
-        "explanation": "La ley exige elegir una velocidad segura para las condiciones actuales, aunque sea menor al límite."
-      },
-      {
-        "id": "u3_q02",
-        "skill": "ramp_metering",
-        "difficulty": 1,
-        "tags": ["unit3", "incorporacion"],
-        "stem": "Ante un semáforo de rampa en rojo, usted debe:",
-        "choices": [
-          {"key": "A", "text": "Avanzar si el tráfico en la autopista es ligero."},
-          {"key": "B", "text": "Detenerse y esperar la luz verde; por lo general, un auto por luz."},
-          {"key": "C", "text": "Tratarlo como una señal de ceda."},
-          {"key": "D", "text": "Ignorarlo; los semáforos de rampa son opcionales."}
-        ],
-        "answer": "B",
-        "explanation": "Los semáforos de rampa regulan el flujo; obedezca como un semáforo normal."
-      },
-      {
-        "id": "u3_q03",
-        "skill": "merging_gap_selection",
-        "difficulty": 2,
-        "tags": ["unit3", "incorporacion"],
-        "stem": "Al incorporarse desde un carril de aceleración, la mejor estrategia es:",
-        "choices": [
-          {"key": "A", "text": "Detenerse al final de la rampa y esperar un gran espacio."},
-          {"key": "B", "text": "Igualar la velocidad de la autopista y entrar en el primer espacio seguro."},
-          {"key": "C", "text": "Entrar a cualquier velocidad; los demás deben ajustarse."},
-          {"key": "D", "text": "Señalizar después de empezar a entrar al carril."}
-        ],
-        "answer": "B",
-        "explanation": "Use el carril de aceleración para alcanzar la velocidad, señalice temprano y revise puntos ciegos."
-      },
-      {
-        "id": "u3_q04",
-        "skill": "hov_rules",
-        "difficulty": 2,
-        "tags": ["unit3", "hov"],
-        "stem": "Las líneas dobles blancas junto a un carril HOV significan:",
-        "choices": [
-          {"key": "A", "text": "Puede entrar si el tráfico es ligero."},
-          {"key": "B", "text": "Entre o salga solo en aperturas designadas."},
-          {"key": "C", "text": "Es un acotamiento."},
-          {"key": "D", "text": "Son solo recomendaciones."}
-        ],
-        "answer": "B",
-        "explanation": "No cruce líneas dobles continuas. Entre o salga de HOV solo donde esté permitido."
-      },
-      {
-        "id": "u3_q05",
-        "skill": "following_distance",
-        "difficulty": 1,
-        "tags": ["unit3", "espacio"],
-        "stem": "A velocidades de autopista en buenas condiciones, una distancia mínima general es:",
-        "choices": [
-          {"key": "A", "text": "1 segundo"},
-          {"key": "B", "text": "2 segundos"},
-          {"key": "C", "text": "3 segundos"},
-          {"key": "D", "text": "Medio largo de auto"}
-        ],
-        "answer": "C",
-        "explanation": "Use al menos 3 segundos en condiciones ideales; aumente a 4–6 con mayor velocidad o mal clima."
-      },
-      {
-        "id": "u3_q06",
-        "skill": "passing_trucks",
-        "difficulty": 2,
-        "tags": ["unit3", "rebasar"],
-        "stem": "Al rebasar un camión grande en la autopista, usted debe:",
-        "choices": [
-          {"key": "A", "text": "Permanecer a su lado para no acelerar."},
-          {"key": "B", "text": "Rebasar con rapidez y seguridad; evite el punto ciego derecho."},
-          {"key": "C", "text": "Usar el acotamiento para minimizar cambios de carril."},
-          {"key": "D", "text": "Usar luces altas para que lo vean."}
-        ],
-        "answer": "B",
-        "explanation": "Los camiones tienen grandes puntos ciegos y turbulencia. Rebase por la izquierda de manera eficiente y segura."
-      },
-      {
-        "id": "u3_q07",
-        "skill": "gore_area",
-        "difficulty": 1,
-        "tags": ["unit3", "carriles"],
-        "stem": "El área triangular pintada (gore) cerca de las rampas es:",
-        "choices": [
-          {"key": "A", "text": "Un lugar legal para detenerse brevemente."},
-          {"key": "B", "text": "Solo para vehículos de emergencia."},
-          {"key": "C", "text": "Zona prohibida; no circule ni se detenga ahí."},
-          {"key": "D", "text": "Una zona de espera con semáforo."}
-        ],
-        "answer": "C",
-        "explanation": "Las zonas ‘gore’ están prohibidas para el tráfico general."
-      },
-      {
-        "id": "u3_q08",
-        "skill": "hydroplaning",
-        "difficulty": 2,
-        "tags": ["unit3", "clima"],
-        "stem": "Si su vehículo empieza a hidroplanear, primero debe:",
-        "choices": [
-          {"key": "A", "text": "Frenar fuerte para reducir la velocidad."},
-          {"key": "B", "text": "Girar bruscamente hacia el acotamiento."},
-          {"key": "C", "text": "Soltar el acelerador y mantener las ruedas rectas."},
-          {"key": "D", "text": "Poner parking de inmediato."}
-        ],
-        "answer": "C",
-        "explanation": "Suelte el acelerador, mantenga el volante recto y evite frenar o girar bruscamente."
-      },
-      {
-        "id": "u3_q09",
-        "skill": "fog_lights",
-        "difficulty": 1,
-        "tags": ["unit3", "clima"],
-        "stem": "Con niebla densa debe usar:",
-        "choices": [
-          {"key": "A", "text": "Luces altas."},
-          {"key": "B", "text": "Luces bajas."},
-          {"key": "C", "text": "Solo luces de estacionamiento."},
-          {"key": "D", "text": "Ninguna luz para evitar reflejos."}
-        ],
-        "answer": "B",
-        "explanation": "Use luces bajas en niebla; las altas se reflejan y reducen la visibilidad."
-      },
-      {
-        "id": "u3_q10",
-        "skill": "exit_prep",
-        "difficulty": 1,
-        "tags": ["unit3", "salida"],
-        "stem": "Para salir de una autopista con seguridad, usted debe:",
-        "choices": [
-          {"key": "A", "text": "Bajar la velocidad en los carriles principales y luego salir."},
-          {"key": "B", "text": "Señalizar temprano y desacelerar en el carril de salida."},
-          {"key": "C", "text": "Cruzar el área triangular si es necesario."},
-          {"key": "D", "text": "Señalizar ya en la rampa."}
-        ],
-        "answer": "B",
-        "explanation": "Señalice temprano y reduzca la velocidad después de entrar al carril de salida."
-      },
-      {
-        "id": "u3_q11",
-        "skill": "following_in_rain",
-        "difficulty": 2,
-        "tags": ["unit3", "clima", "espacio"],
-        "stem": "Durante lluvia constante a velocidad de autopista, generalmente debe:",
-        "choices": [
-          {"key": "A", "text": "Mantener la misma velocidad y distancia."},
-          {"key": "B", "text": "Disminuir la velocidad y aumentar la distancia."},
-          {"key": "C", "text": "Usar control de crucero para mantener tracción."},
-          {"key": "D", "text": "Conducir solo con luces de estacionamiento."}
-        ],
-        "answer": "B",
-        "explanation": "La lluvia reduce la tracción. Baje la velocidad y aumente la distancia para conservar margen de seguridad."
-      },
-      {
-        "id": "u3_q12",
-        "skill": "night_high_beams",
-        "difficulty": 2,
-        "tags": ["unit3", "noche"],
-        "stem": "Use luces altas de noche:",
-        "choices": [
-          {"key": "A", "text": "En caminos abiertos sin tráfico de frente."},
-          {"key": "B", "text": "Al seguir de cerca para ver mejor."},
-          {"key": "C", "text": "En ciudad para mejorar visibilidad."},
-          {"key": "D", "text": "En niebla para mayor alcance."}
-        ],
-        "answer": "A",
-        "explanation": "Las luces altas son para vías abiertas sin tráfico opuesto; bájelas al seguir o aproximarse a otros."
-      },
-      {
-        "id": "u3_q13",
-        "skill": "engine_braking",
-        "difficulty": 2,
-        "tags": ["unit3", "montana"],
-        "stem": "En un descenso largo, la técnica más segura es:",
-        "choices": [
-          {"key": "A", "text": "Usar los frenos continuamente."},
-          {"key": "B", "text": "Bajar una marcha para usar el freno de motor."},
-          {"key": "C", "text": "Poner en neutral y rodar."},
-          {"key": "D", "text": "Acelerar para evitar fatiga de frenos."}
-        ],
-        "answer": "B",
-        "explanation": "Use el freno de motor con una marcha baja; frenar continuamente sobrecalienta y debilita los frenos."
-      },
-      {
-        "id": "u3_q14",
-        "skill": "move_over_law",
-        "difficulty": 2,
-        "tags": ["unit3", "incidentes"],
-        "stem": "Al acercarse a un vehículo de emergencia detenido con luces en la autopista, usted debe:",
-        "choices": [
-          {"key": "A", "text": "Mantener la velocidad y tocar la bocina."},
-          {"key": "B", "text": "Cambiar a un carril no adyacente si es seguro, o reducir la velocidad significativamente."},
-          {"key": "C", "text": "Detenerse en su carril hasta que se vaya."},
-          {"key": "D", "text": "Encender luces altas para mayor visibilidad."}
-        ],
-        "answer": "B",
-        "explanation": "La ley de ‘Muévase a un Lado’ exige cambiar de carril cuando sea seguro o reducir la velocidad de forma notable."
-      },
-      {
-        "id": "u3_q15",
-        "skill": "work_zones",
-        "difficulty": 1,
-        "tags": ["unit3", "zonas_trabajo"],
-        "stem": "En una zona de trabajo en la autopista, usted debe:",
-        "choices": [
-          {"key": "A", "text": "Seguir conos y señales, reducir velocidad y aumentar la distancia."},
-          {"key": "B", "text": "Usar el acotamiento para rebasar."},
-          {"key": "C", "text": "Acelerar para salir rápido."},
-          {"key": "D", "text": "Ignorar abanderados si el semáforo está en verde."}
-        ],
-        "answer": "A",
-        "explanation": "Las zonas de trabajo requieren precaución: obedezca controles, reduzca velocidad y deje más espacio."
-      },
-      {
-        "id": "u3_q16",
-        "skill": "fog_stop",
-        "difficulty": 3,
-        "tags": ["unit3", "clima"],
-        "stem": "Con niebla extremadamente densa en la autopista, usted debe:",
-        "choices": [
-          {"key": "A", "text": "Detenerse en su carril con intermitentes."},
-          {"key": "B", "text": "Orillarse lo más lejos posible y usar intermitentes solo si no puede salir."},
-          {"key": "C", "text": "Usar luces altas para que lo vean antes."},
-          {"key": "D", "text": "Conducir sin luces para evitar reflejos."}
-        ],
-        "answer": "B",
-        "explanation": "No se detenga en un carril de circulación. Salga si es posible; si no, oríllese y use intermitentes."
-      },
-      {
-        "id": "u3_q17",
-        "skill": "tailgater_response",
-        "difficulty": 1,
-        "tags": ["unit3", "espacio"],
-        "stem": "Si un vehículo lo sigue demasiado cerca en la autopista, usted debe:",
-        "choices": [
-          {"key": "A", "text": "Frenar fuerte para advertirle."},
-          {"key": "B", "text": "Aumentar la velocidad por encima del límite."},
-          {"key": "C", "text": "Mantener la velocidad y cambiarse de carril cuando sea seguro para dejarlo pasar."},
-          {"key": "D", "text": "Encender luces altas."}
-        ],
-        "answer": "C",
-        "explanation": "Mantenga la calma, conserve su velocidad y permita que lo rebase cuando sea seguro."
-      },
-      {
-        "id": "u3_q18",
-        "skill": "exit_late_decision",
-        "difficulty": 2,
-        "tags": ["unit3", "salida"],
-        "stem": "Está por perder su salida. Debe:",
-        "choices": [
-          {"key": "A", "text": "Cruzar la línea sólida y el área triangular con cuidado."},
-          {"key": "B", "text": "Detenerse en su carril y esperar un espacio."},
-          {"key": "C", "text": "Continuar hasta la próxima salida y reorientar."},
-          {"key": "D", "text": "Retroceder por el acotamiento para alcanzar la salida."}
-        ],
-        "answer": "C",
-        "explanation": "Nunca cruce zonas restringidas ni se detenga en carriles. Continúe hasta la siguiente salida."
-      },
-      {
-        "id": "u3_q19",
-        "skill": "wind_control",
-        "difficulty": 2,
-        "tags": ["unit3", "clima"],
-        "stem": "Vientos laterales fuertes en un puente desvían su auto. Usted debe:",
-        "choices": [
-          {"key": "A", "text": "Sujetar el volante, reducir la velocidad y evitar giros bruscos."},
-          {"key": "B", "text": "Acelerar para estabilizar el auto."},
-          {"key": "C", "text": "Girar bruscamente hacia el viento."},
-          {"key": "D", "text": "Frenar fuerte y detenerse en el carril."}
-        ],
-        "answer": "A",
-        "explanation": "Sostenga firme, reduzca moderadamente y haga correcciones suaves."
-      },
-      {
-        "id": "u3_q20",
-        "skill": "shoulder_breakdown",
-        "difficulty": 2,
-        "tags": ["unit3", "incidentes"],
-        "stem": "Su vehículo pierde potencia en la autopista. La mejor primera acción es:",
-        "choices": [
-          {"key": "A", "text": "Detenerse de inmediato en su carril y encender intermitentes."},
-          {"key": "B", "text": "Señalizar, moverse a la derecha y orillarse."},
-          {"key": "C", "text": "Poner en neutral y continuar en el carril izquierdo."},
-          {"key": "D", "text": "Apagar luces para ahorrar batería."}
-        ],
-        "answer": "B",
-        "explanation": "Señalice y muévase al acotamiento derecho. Ya detenido, oriente llantas a la derecha y encienda intermitentes."
-      }
-    ]
+  "unit": 3,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "es",
+  "questions": [
+    {
+      "skill": "basic_speed_law",
+      "difficulty": 2,
+      "stem": "La Ley Básica de Velocidad de California significa:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Siempre puede conducir al límite señalado."
+        },
+        {
+          "key": "B",
+          "text": "Nunca debe conducir más rápido de lo que permiten las condiciones."
+        },
+        {
+          "key": "C",
+          "text": "Debe igualar la velocidad del tráfico más rápido."
+        },
+        {
+          "key": "D",
+          "text": "Debe ir al menos a 55 mph en autopistas."
+        }
+      ],
+      "answer": "B",
+      "explanation": "La ley exige elegir una velocidad segura para las condiciones actuales, aunque sea menor al límite.",
+      "tags": [
+        "unit3",
+        "autopista",
+        "velocidad"
+      ]
+    },
+    {
+      "skill": "ramp_metering",
+      "difficulty": 1,
+      "stem": "Ante un semáforo de rampa en rojo, usted debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Avanzar si el tráfico en la autopista es ligero."
+        },
+        {
+          "key": "B",
+          "text": "Detenerse y esperar la luz verde; por lo general, un auto por luz."
+        },
+        {
+          "key": "C",
+          "text": "Tratarlo como una señal de ceda."
+        },
+        {
+          "key": "D",
+          "text": "Ignorarlo; los semáforos de rampa son opcionales."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Los semáforos de rampa regulan el flujo; obedezca como un semáforo normal.",
+      "tags": [
+        "unit3",
+        "incorporacion"
+      ]
+    },
+    {
+      "skill": "merging_gap_selection",
+      "difficulty": 2,
+      "stem": "Al incorporarse desde un carril de aceleración, la mejor estrategia es:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Detenerse al final de la rampa y esperar un gran espacio."
+        },
+        {
+          "key": "B",
+          "text": "Igualar la velocidad de la autopista y entrar en el primer espacio seguro."
+        },
+        {
+          "key": "C",
+          "text": "Entrar a cualquier velocidad; los demás deben ajustarse."
+        },
+        {
+          "key": "D",
+          "text": "Señalizar después de empezar a entrar al carril."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Use el carril de aceleración para alcanzar la velocidad, señalice temprano y revise puntos ciegos.",
+      "tags": [
+        "unit3",
+        "incorporacion"
+      ]
+    },
+    {
+      "skill": "hov_rules",
+      "difficulty": 2,
+      "stem": "Las líneas dobles blancas junto a un carril HOV significan:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Puede entrar si el tráfico es ligero."
+        },
+        {
+          "key": "B",
+          "text": "Entre o salga solo en aperturas designadas."
+        },
+        {
+          "key": "C",
+          "text": "Es un acotamiento."
+        },
+        {
+          "key": "D",
+          "text": "Son solo recomendaciones."
+        }
+      ],
+      "answer": "B",
+      "explanation": "No cruce líneas dobles continuas. Entre o salga de HOV solo donde esté permitido.",
+      "tags": [
+        "unit3",
+        "hov"
+      ]
+    },
+    {
+      "skill": "following_distance",
+      "difficulty": 1,
+      "stem": "A velocidades de autopista en buenas condiciones, una distancia mínima general es:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "1 segundo"
+        },
+        {
+          "key": "B",
+          "text": "2 segundos"
+        },
+        {
+          "key": "C",
+          "text": "3 segundos"
+        },
+        {
+          "key": "D",
+          "text": "Medio largo de auto"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Use al menos 3 segundos en condiciones ideales; aumente a 4–6 con mayor velocidad o mal clima.",
+      "tags": [
+        "unit3",
+        "espacio"
+      ]
+    },
+    {
+      "skill": "passing_trucks",
+      "difficulty": 2,
+      "stem": "Al rebasar un camión grande en la autopista, usted debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Permanecer a su lado para no acelerar."
+        },
+        {
+          "key": "B",
+          "text": "Rebasar con rapidez y seguridad; evite el punto ciego derecho."
+        },
+        {
+          "key": "C",
+          "text": "Usar el acotamiento para minimizar cambios de carril."
+        },
+        {
+          "key": "D",
+          "text": "Usar luces altas para que lo vean."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Los camiones tienen grandes puntos ciegos y turbulencia. Rebase por la izquierda de manera eficiente y segura.",
+      "tags": [
+        "unit3",
+        "rebasar"
+      ]
+    },
+    {
+      "skill": "gore_area",
+      "difficulty": 1,
+      "stem": "El área triangular pintada (gore) cerca de las rampas es:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Un lugar legal para detenerse brevemente."
+        },
+        {
+          "key": "B",
+          "text": "Solo para vehículos de emergencia."
+        },
+        {
+          "key": "C",
+          "text": "Zona prohibida; no circule ni se detenga ahí."
+        },
+        {
+          "key": "D",
+          "text": "Una zona de espera con semáforo."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Las zonas ‘gore’ están prohibidas para el tráfico general.",
+      "tags": [
+        "unit3",
+        "carriles"
+      ]
+    },
+    {
+      "skill": "hydroplaning",
+      "difficulty": 2,
+      "stem": "Si su vehículo empieza a hidroplanear, primero debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Frenar fuerte para reducir la velocidad."
+        },
+        {
+          "key": "B",
+          "text": "Girar bruscamente hacia el acotamiento."
+        },
+        {
+          "key": "C",
+          "text": "Soltar el acelerador y mantener las ruedas rectas."
+        },
+        {
+          "key": "D",
+          "text": "Poner parking de inmediato."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Suelte el acelerador, mantenga el volante recto y evite frenar o girar bruscamente.",
+      "tags": [
+        "unit3",
+        "clima"
+      ]
+    },
+    {
+      "skill": "fog_lights",
+      "difficulty": 1,
+      "stem": "Con niebla densa debe usar:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Luces altas."
+        },
+        {
+          "key": "B",
+          "text": "Luces bajas."
+        },
+        {
+          "key": "C",
+          "text": "Solo luces de estacionamiento."
+        },
+        {
+          "key": "D",
+          "text": "Ninguna luz para evitar reflejos."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Use luces bajas en niebla; las altas se reflejan y reducen la visibilidad.",
+      "tags": [
+        "unit3",
+        "clima"
+      ]
+    },
+    {
+      "skill": "exit_prep",
+      "difficulty": 1,
+      "stem": "Para salir de una autopista con seguridad, usted debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Bajar la velocidad en los carriles principales y luego salir."
+        },
+        {
+          "key": "B",
+          "text": "Señalizar temprano y desacelerar en el carril de salida."
+        },
+        {
+          "key": "C",
+          "text": "Cruzar el área triangular si es necesario."
+        },
+        {
+          "key": "D",
+          "text": "Señalizar ya en la rampa."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Señalice temprano y reduzca la velocidad después de entrar al carril de salida.",
+      "tags": [
+        "unit3",
+        "salida"
+      ]
+    },
+    {
+      "skill": "following_in_rain",
+      "difficulty": 2,
+      "stem": "Durante lluvia constante a velocidad de autopista, generalmente debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Mantener la misma velocidad y distancia."
+        },
+        {
+          "key": "B",
+          "text": "Disminuir la velocidad y aumentar la distancia."
+        },
+        {
+          "key": "C",
+          "text": "Usar control de crucero para mantener tracción."
+        },
+        {
+          "key": "D",
+          "text": "Conducir solo con luces de estacionamiento."
+        }
+      ],
+      "answer": "B",
+      "explanation": "La lluvia reduce la tracción. Baje la velocidad y aumente la distancia para conservar margen de seguridad.",
+      "tags": [
+        "unit3",
+        "clima",
+        "espacio"
+      ]
+    },
+    {
+      "skill": "night_high_beams",
+      "difficulty": 2,
+      "stem": "Use luces altas de noche:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "En caminos abiertos sin tráfico de frente."
+        },
+        {
+          "key": "B",
+          "text": "Al seguir de cerca para ver mejor."
+        },
+        {
+          "key": "C",
+          "text": "En ciudad para mejorar visibilidad."
+        },
+        {
+          "key": "D",
+          "text": "En niebla para mayor alcance."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Las luces altas son para vías abiertas sin tráfico opuesto; bájelas al seguir o aproximarse a otros.",
+      "tags": [
+        "unit3",
+        "noche"
+      ]
+    },
+    {
+      "skill": "engine_braking",
+      "difficulty": 2,
+      "stem": "En un descenso largo, la técnica más segura es:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Usar los frenos continuamente."
+        },
+        {
+          "key": "B",
+          "text": "Bajar una marcha para usar el freno de motor."
+        },
+        {
+          "key": "C",
+          "text": "Poner en neutral y rodar."
+        },
+        {
+          "key": "D",
+          "text": "Acelerar para evitar fatiga de frenos."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Use el freno de motor con una marcha baja; frenar continuamente sobrecalienta y debilita los frenos.",
+      "tags": [
+        "unit3",
+        "montana"
+      ]
+    },
+    {
+      "skill": "move_over_law",
+      "difficulty": 2,
+      "stem": "Al acercarse a un vehículo de emergencia detenido con luces en la autopista, usted debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Mantener la velocidad y tocar la bocina."
+        },
+        {
+          "key": "B",
+          "text": "Cambiar a un carril no adyacente si es seguro, o reducir la velocidad significativamente."
+        },
+        {
+          "key": "C",
+          "text": "Detenerse en su carril hasta que se vaya."
+        },
+        {
+          "key": "D",
+          "text": "Encender luces altas para mayor visibilidad."
+        }
+      ],
+      "answer": "B",
+      "explanation": "La ley de ‘Muévase a un Lado’ exige cambiar de carril cuando sea seguro o reducir la velocidad de forma notable.",
+      "tags": [
+        "unit3",
+        "incidentes"
+      ]
+    },
+    {
+      "skill": "work_zones",
+      "difficulty": 1,
+      "stem": "En una zona de trabajo en la autopista, usted debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Seguir conos y señales, reducir velocidad y aumentar la distancia."
+        },
+        {
+          "key": "B",
+          "text": "Usar el acotamiento para rebasar."
+        },
+        {
+          "key": "C",
+          "text": "Acelerar para salir rápido."
+        },
+        {
+          "key": "D",
+          "text": "Ignorar abanderados si el semáforo está en verde."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Las zonas de trabajo requieren precaución: obedezca controles, reduzca velocidad y deje más espacio.",
+      "tags": [
+        "unit3",
+        "zonas_trabajo"
+      ]
+    },
+    {
+      "skill": "fog_stop",
+      "difficulty": 3,
+      "stem": "Con niebla extremadamente densa en la autopista, usted debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Detenerse en su carril con intermitentes."
+        },
+        {
+          "key": "B",
+          "text": "Orillarse lo más lejos posible y usar intermitentes solo si no puede salir."
+        },
+        {
+          "key": "C",
+          "text": "Usar luces altas para que lo vean antes."
+        },
+        {
+          "key": "D",
+          "text": "Conducir sin luces para evitar reflejos."
+        }
+      ],
+      "answer": "B",
+      "explanation": "No se detenga en un carril de circulación. Salga si es posible; si no, oríllese y use intermitentes.",
+      "tags": [
+        "unit3",
+        "clima"
+      ]
+    },
+    {
+      "skill": "tailgater_response",
+      "difficulty": 1,
+      "stem": "Si un vehículo lo sigue demasiado cerca en la autopista, usted debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Frenar fuerte para advertirle."
+        },
+        {
+          "key": "B",
+          "text": "Aumentar la velocidad por encima del límite."
+        },
+        {
+          "key": "C",
+          "text": "Mantener la velocidad y cambiarse de carril cuando sea seguro para dejarlo pasar."
+        },
+        {
+          "key": "D",
+          "text": "Encender luces altas."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Mantenga la calma, conserve su velocidad y permita que lo rebase cuando sea seguro.",
+      "tags": [
+        "unit3",
+        "espacio"
+      ]
+    },
+    {
+      "skill": "exit_late_decision",
+      "difficulty": 2,
+      "stem": "Está por perder su salida. Debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Cruzar la línea sólida y el área triangular con cuidado."
+        },
+        {
+          "key": "B",
+          "text": "Detenerse en su carril y esperar un espacio."
+        },
+        {
+          "key": "C",
+          "text": "Continuar hasta la próxima salida y reorientar."
+        },
+        {
+          "key": "D",
+          "text": "Retroceder por el acotamiento para alcanzar la salida."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Nunca cruce zonas restringidas ni se detenga en carriles. Continúe hasta la siguiente salida.",
+      "tags": [
+        "unit3",
+        "salida"
+      ]
+    },
+    {
+      "skill": "wind_control",
+      "difficulty": 2,
+      "stem": "Vientos laterales fuertes en un puente desvían su auto. Usted debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Sujetar el volante, reducir la velocidad y evitar giros bruscos."
+        },
+        {
+          "key": "B",
+          "text": "Acelerar para estabilizar el auto."
+        },
+        {
+          "key": "C",
+          "text": "Girar bruscamente hacia el viento."
+        },
+        {
+          "key": "D",
+          "text": "Frenar fuerte y detenerse en el carril."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Sostenga firme, reduzca moderadamente y haga correcciones suaves.",
+      "tags": [
+        "unit3",
+        "clima"
+      ]
+    },
+    {
+      "skill": "shoulder_breakdown",
+      "difficulty": 2,
+      "stem": "Su vehículo pierde potencia en la autopista. La mejor primera acción es:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Detenerse de inmediato en su carril y encender intermitentes."
+        },
+        {
+          "key": "B",
+          "text": "Señalizar, moverse a la derecha y orillarse."
+        },
+        {
+          "key": "C",
+          "text": "Poner en neutral y continuar en el carril izquierdo."
+        },
+        {
+          "key": "D",
+          "text": "Apagar luces para ahorrar batería."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Señalice y muévase al acotamiento derecho. Ya detenido, oriente llantas a la derecha y encienda intermitentes.",
+      "tags": [
+        "unit3",
+        "incidentes"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.975Z"
   }
+}

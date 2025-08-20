@@ -1,13 +1,11 @@
 {
-  "meta": {
-    "j_code": "CA",
-    "course_code": "DE-ONLINE",
-    "unit_no": 2,
-    "lang": "en"
-  },
+  "unit": 2,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
   "questions": [
     {
-      "id": "U2-Q1",
+      "ref": "U2-Q1",
       "skill": "Pre-Drive Safety",
       "difficulty": 1,
       "stem": "What should you check during a pre-drive vehicle inspection?",
@@ -31,10 +29,14 @@
       ],
       "answer": "B",
       "explanation": "A thorough pre-drive inspection includes checking tires for proper inflation and damage, all lights (headlights, taillights, brake lights, turn signals), windshield and windows for cracks or dirt, wiper blade condition, and looking for fluid leaks under the vehicle.",
-      "tags": ["pre-drive", "safety", "vehicle-checks"]
+      "tags": [
+        "pre-drive",
+        "safety",
+        "vehicle-checks"
+      ]
     },
     {
-      "id": "U2-Q2",
+      "ref": "U2-Q2",
       "skill": "Seating Position",
       "difficulty": 2,
       "stem": "What is the correct hand position on the steering wheel for maximum control?",
@@ -58,10 +60,14 @@
       ],
       "answer": "C",
       "explanation": "Both 9 and 3 o'clock and 10 and 2 o'clock positions are correct for maximum steering control. These positions allow for quick steering movements and maintain proper control of the vehicle.",
-      "tags": ["steering", "control", "positioning"]
+      "tags": [
+        "steering",
+        "control",
+        "positioning"
+      ]
     },
     {
-      "id": "U2-Q3",
+      "ref": "U2-Q3",
       "skill": "Starting Checklist",
       "difficulty": 1,
       "stem": "Before starting the engine, what should you ensure?",
@@ -85,10 +91,14 @@
       ],
       "answer": "A",
       "explanation": "Before starting the engine, ensure the parking brake is engaged and the gear selector is in Park (automatic) or Neutral (manual). This prevents the vehicle from moving unexpectedly when starting.",
-      "tags": ["starting", "safety", "checklist"]
+      "tags": [
+        "starting",
+        "safety",
+        "checklist"
+      ]
     },
     {
-      "id": "U2-Q4",
+      "ref": "U2-Q4",
       "skill": "Steering Techniques",
       "difficulty": 3,
       "stem": "When should you use hand-over-hand steering?",
@@ -112,10 +122,14 @@
       ],
       "answer": "B",
       "explanation": "Hand-over-hand steering is used for sharp turns and parking maneuvers where you need maximum steering control. For normal driving and gradual turns, push-pull steering is more efficient.",
-      "tags": ["steering", "techniques", "control"]
+      "tags": [
+        "steering",
+        "techniques",
+        "control"
+      ]
     },
     {
-      "id": "U2-Q5",
+      "ref": "U2-Q5",
       "skill": "Speed Control",
       "difficulty": 2,
       "stem": "What is progressive acceleration?",
@@ -139,10 +153,14 @@
       ],
       "answer": "B",
       "explanation": "Progressive acceleration means starting gently and increasing pressure gradually. This saves fuel, provides better control, and is safer than sudden acceleration.",
-      "tags": ["speed-control", "acceleration", "safety"]
+      "tags": [
+        "speed-control",
+        "acceleration",
+        "safety"
+      ]
     },
     {
-      "id": "U2-Q6",
+      "ref": "U2-Q6",
       "skill": "Stopping Distance",
       "difficulty": 3,
       "stem": "How much stopping distance do you need at 40 mph on dry pavement?",
@@ -166,10 +184,14 @@
       ],
       "answer": "B",
       "explanation": "At 40 mph, you need approximately 120 feet to stop on dry pavement. This includes both reaction time and braking distance. The distance increases significantly in poor weather conditions.",
-      "tags": ["stopping-distance", "speed", "safety"]
+      "tags": [
+        "stopping-distance",
+        "speed",
+        "safety"
+      ]
     },
     {
-      "id": "U2-Q7",
+      "ref": "U2-Q7",
       "skill": "Following Distance",
       "difficulty": 2,
       "stem": "How do you apply the 3-second rule?",
@@ -193,10 +215,14 @@
       ],
       "answer": "B",
       "explanation": "Pick a fixed object ahead (like a sign or tree). When the vehicle in front of you passes it, count 'one-thousand-one, one-thousand-two, one-thousand-three.' If you reach the object before finishing, you're following too closely.",
-      "tags": ["following-distance", "3-second-rule", "safety"]
+      "tags": [
+        "following-distance",
+        "3-second-rule",
+        "safety"
+      ]
     },
     {
-      "id": "U2-Q8",
+      "ref": "U2-Q8",
       "skill": "Mirror Checks",
       "difficulty": 2,
       "stem": "How often should you check your mirrors while driving?",
@@ -220,10 +246,14 @@
       ],
       "answer": "B",
       "explanation": "Check your mirrors every 5-8 seconds and before any maneuver. This keeps you aware of what's happening around your vehicle and helps maintain situational awareness.",
-      "tags": ["mirrors", "scanning", "awareness"]
+      "tags": [
+        "mirrors",
+        "scanning",
+        "awareness"
+      ]
     },
     {
-      "id": "U2-Q9",
+      "ref": "U2-Q9",
       "skill": "Blind Spots",
       "difficulty": 3,
       "stem": "What should you do to check your blind spot before changing lanes?",
@@ -247,10 +277,14 @@
       ],
       "answer": "B",
       "explanation": "Always turn your head and look over your shoulder to check your blind spot before changing lanes. This is called a shoulder check and is crucial because mirrors can't show you everything.",
-      "tags": ["blind-spots", "lane-changes", "safety"]
+      "tags": [
+        "blind-spots",
+        "lane-changes",
+        "safety"
+      ]
     },
     {
-      "id": "U2-Q10",
+      "ref": "U2-Q10",
       "skill": "Space Cushions",
       "difficulty": 2,
       "stem": "What is a space cushion?",
@@ -274,10 +308,14 @@
       ],
       "answer": "B",
       "explanation": "A space cushion is the area around your vehicle that you keep clear of other vehicles. This gives you room to maneuver if something unexpected happens and provides a safety zone.",
-      "tags": ["space-cushions", "safety", "positioning"]
+      "tags": [
+        "space-cushions",
+        "safety",
+        "positioning"
+      ]
     },
     {
-      "id": "U2-Q11",
+      "ref": "U2-Q11",
       "skill": "Right Turns",
       "difficulty": 1,
       "stem": "Which type of turn is generally easier and safer?",
@@ -301,10 +339,14 @@
       ],
       "answer": "B",
       "explanation": "Right turns are generally easier and safer than left turns because you don't need to cross oncoming traffic. You only need to yield to pedestrians and cyclists.",
-      "tags": ["turns", "right-turns", "safety"]
+      "tags": [
+        "turns",
+        "right-turns",
+        "safety"
+      ]
     },
     {
-      "id": "U2-Q12",
+      "ref": "U2-Q12",
       "skill": "Signaling",
       "difficulty": 2,
       "stem": "In California, how far in advance must you signal before turning if traveling under 35 mph?",
@@ -328,10 +370,14 @@
       ],
       "answer": "B",
       "explanation": "In California, you must signal at least 100 feet before turning if traveling under 35 mph, or 200 feet if traveling 35 mph or faster. This gives other drivers adequate notice of your intentions.",
-      "tags": ["signaling", "california-law", "turns"]
+      "tags": [
+        "signaling",
+        "california-law",
+        "turns"
+      ]
     },
     {
-      "id": "U2-Q13",
+      "ref": "U2-Q13",
       "skill": "Stop Signs",
       "difficulty": 1,
       "stem": "What does a complete stop at a stop sign mean?",
@@ -355,10 +401,14 @@
       ],
       "answer": "B",
       "explanation": "A complete stop means your wheels must actually stop moving. Rolling through a stop sign is illegal and dangerous. You must come to a full stop before proceeding.",
-      "tags": ["stop-signs", "complete-stop", "law"]
+      "tags": [
+        "stop-signs",
+        "complete-stop",
+        "law"
+      ]
     },
     {
-      "id": "U2-Q14",
+      "ref": "U2-Q14",
       "skill": "Hill Parking",
       "difficulty": 4,
       "stem": "When parking uphill with a curb, which direction should you turn your wheels?",
@@ -382,10 +432,14 @@
       ],
       "answer": "B",
       "explanation": "When parking uphill with a curb, turn your wheels away from the curb (left). This way, if your vehicle rolls, it will roll into the curb and stop, rather than into traffic.",
-      "tags": ["hill-parking", "curb", "safety"]
+      "tags": [
+        "hill-parking",
+        "curb",
+        "safety"
+      ]
     },
     {
-      "id": "U2-Q15",
+      "ref": "U2-Q15",
       "skill": "Parallel Parking",
       "difficulty": 4,
       "stem": "What is the minimum space needed for parallel parking?",
@@ -409,10 +463,14 @@
       ],
       "answer": "B",
       "explanation": "For parallel parking, you need a space that's at least 1.5 times the length of your car. This gives you enough room to maneuver into the space safely.",
-      "tags": ["parallel-parking", "space-requirements", "parking"]
+      "tags": [
+        "parallel-parking",
+        "space-requirements",
+        "parking"
+      ]
     },
     {
-      "id": "U2-Q16",
+      "ref": "U2-Q16",
       "skill": "Backing",
       "difficulty": 3,
       "stem": "What should you do before backing up?",
@@ -436,10 +494,14 @@
       ],
       "answer": "B",
       "explanation": "Before backing up, walk around your vehicle to check for obstacles, children, or animals. Use your mirrors and turn your head to look behind you. Backing up is dangerous due to limited visibility.",
-      "tags": ["backing", "safety", "visibility"]
+      "tags": [
+        "backing",
+        "safety",
+        "visibility"
+      ]
     },
     {
-      "id": "U2-Q17",
+      "ref": "U2-Q17",
       "skill": "SMOG Technique",
       "difficulty": 3,
       "stem": "What does the 'S' in SMOG stand for?",
@@ -463,10 +525,14 @@
       ],
       "answer": "B",
       "explanation": "SMOG stands for Signal, Mirrors, Over-the-shoulder, Go. The 'S' stands for Signal - turn on your turn signal to let other drivers know your intention to change lanes.",
-      "tags": ["smog", "lane-changes", "technique"]
+      "tags": [
+        "smog",
+        "lane-changes",
+        "technique"
+      ]
     },
     {
-      "id": "U2-Q18",
+      "ref": "U2-Q18",
       "skill": "Freeway Merging",
       "difficulty": 4,
       "stem": "When merging onto a freeway, what should you do?",
@@ -490,10 +556,14 @@
       ],
       "answer": "B",
       "explanation": "When merging onto a freeway, accelerate to match the speed of traffic on the freeway. Don't merge at a much slower speed - this creates a dangerous situation. You must yield to traffic already on the freeway.",
-      "tags": ["freeway", "merging", "speed-matching"]
+      "tags": [
+        "freeway",
+        "merging",
+        "speed-matching"
+      ]
     },
     {
-      "id": "U2-Q19",
+      "ref": "U2-Q19",
       "skill": "Lane Changes",
       "difficulty": 3,
       "stem": "What should you do if you see a vehicle in your blind spot when trying to change lanes?",
@@ -517,10 +587,14 @@
       ],
       "answer": "B",
       "explanation": "If you see a vehicle in your blind spot, wait until it passes before changing lanes. Don't force your way into traffic. Only change lanes when it's safe to do so.",
-      "tags": ["lane-changes", "blind-spots", "safety"]
+      "tags": [
+        "lane-changes",
+        "blind-spots",
+        "safety"
+      ]
     },
     {
-      "id": "U2-Q20",
+      "ref": "U2-Q20",
       "skill": "Freeway Exits",
       "difficulty": 2,
       "stem": "When exiting a freeway, when should you move to the right lane?",
@@ -544,7 +618,15 @@
       ],
       "answer": "B",
       "explanation": "When exiting a freeway, signal early and move to the right lane well before your exit. Don't cut across multiple lanes at the last minute, which is dangerous and illegal.",
-      "tags": ["freeway-exits", "lane-positioning", "safety"]
+      "tags": [
+        "freeway-exits",
+        "lane-positioning",
+        "safety"
+      ]
     }
-  ]
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.973Z"
+  }
 }

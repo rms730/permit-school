@@ -1,150 +1,114 @@
 {
-  "course": { "j_code": "CA", "course_code": "DE-ONLINE" },
-  "unit": {
-    "unit_no": 9,
-    "title": "Freeway & Expressway Driving",
-    "minutes_required": 60,
-    "objectives": [
-      "Enter, merge, and exit freeways safely using proper scanning and signaling.",
-      "Manage speed and space at high speeds, including safe following distances and lane discipline.",
-      "Perform lane changes with mirror, signal, head-checks; choose lanes based on traffic flow and destination.",
-      "Handle breakdowns, debris, and emergencies; apply California Move Over law.",
-      "Navigate carpool/HOV and express/toll lanes, and respond to ramp meters."
-    ],
-    "sections": [
-      {
-        "id": "9.1",
-        "title": "On-Ramps, Merging & Lane Choice",
-        "summary": "Build smooth, predictable freeway entries and select the correct lane for your route.",
-        "lessons": [
-          {
-            "id": "9.1.1",
-            "title": "Ramp Types, Acceleration Lanes & Ramp Meters",
-            "estimated_minutes": 8,
-            "content": [
-              { "type": "p", "text": "Freeway ramps include loop, directional, and cloverleaf designs. Use the acceleration lane to reach a speed that matches freeway traffic." },
-              { "type": "p", "text": "Ramp meters (red/green lights) release vehicles in short intervals to reduce merging conflicts. Obey posted signals and signs." },
-              { "type": "bullets", "items": [
-                "Signal early; check mirrors and blind spots.",
-                "Use the entire acceleration lane to match traffic speed.",
-                "Yield to freeway traffic—merging drivers must adjust."
-              ] }
-            ]
-          },
-          {
-            "id": "9.1.2",
-            "title": "Merging Etiquette & Lane Selection",
-            "estimated_minutes": 6,
-            "content": [
-              { "type": "p", "text": "Merge into the first safe gap without forcing others to brake hard. Maintain steady acceleration and avoid stopping on the ramp unless signed." },
-              { "type": "bullets", "items": [
-                "Right lanes: entering/exiting traffic—more turbulence.",
-                "Middle lanes: through travel—often the steadiest flow.",
-                "Left lanes: passing and faster flow—use only when appropriate."
-              ] }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "9.2",
-        "title": "Speed, Space & Following Distance",
-        "summary": "Create time and space cushions to manage risk at freeway speeds.",
-        "lessons": [
-          {
-            "id": "9.2.1",
-            "title": "Speed Management & Flow",
-            "estimated_minutes": 7,
-            "content": [
-              { "type": "p", "text": "Obey posted maximums and drive a speed that is reasonable for conditions. Flow speed can inform—but never justify—unsafe speeds." },
-              { "type": "bullets", "items": [
-                "Increase distance as speed increases.",
-                "Slow for weather, congestion, or road work.",
-                "Avoid blocking fast lanes; keep right except to pass."
-              ] }
-            ]
-          },
-          {
-            "id": "9.2.2",
-            "title": "Following Distance & Space Cushions",
-            "estimated_minutes": 7,
-            "content": [
-              { "type": "p", "text": "Use at least a 3–4 second following distance in ideal conditions; add time for rain, darkness, heavy loads, or when following large trucks." },
-              { "type": "bullets", "items": [
-                "Count seconds from when the vehicle ahead passes a fixed point.",
-                "Maintain side space by avoiding blind spots.",
-                "Double your space cushion in poor conditions."
-              ] }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "9.3",
-        "title": "Lane Changes, Passing & Exiting",
-        "summary": "Change lanes and exit smoothly using proper signals, checks, and timing.",
-        "lessons": [
-          {
-            "id": "9.3.1",
-            "title": "Safe Lane Changes & Blind Spots",
-            "estimated_minutes": 7,
-            "content": [
-              { "type": "p", "text": "Follow the mirror–signal–head check routine. Avoid lingering next to other vehicles and never cut off a vehicle in the fast lane." },
-              { "type": "bullets", "items": [
-                "Use turn signals for every lane change.",
-                "Check mirrors and over-the-shoulder blind spots.",
-                "Complete the maneuver smoothly, then cancel the signal."
-              ] }
-            ]
-          },
-          {
-            "id": "9.3.2",
-            "title": "Exit Strategies & Missed Exits",
-            "estimated_minutes": 6,
-            "content": [
-              { "type": "p", "text": "Signal and move to the exit lane early. Reduce speed only after entering the deceleration lane; never brake abruptly in a travel lane." },
-              { "type": "bullets", "items": [
-                "If you miss an exit, continue to the next—never back up.",
-                "Stay out of the gore area (painted triangle near exits).",
-                "Watch for last‑second cutters; maintain your space."
-              ] }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "9.4",
-        "title": "Breakdowns, HOV/Express Lanes & Move Over",
-        "summary": "Handle roadside emergencies and special lane rules.",
-        "lessons": [
-          {
-            "id": "9.4.1",
-            "title": "Breakdowns & Roadside Safety",
-            "estimated_minutes": 8,
-            "content": [
-              { "type": "p", "text": "If your vehicle fails, signal right, exit if possible, or steer fully onto the shoulder. Use hazard lights and stay behind a barrier if available." },
-              { "type": "bullets", "items": [
-                "Use reflective triangles/flares only if safe.",
-                "Call for roadside assistance; stay clear of traffic.",
-                "If stuck in a live lane, stay belted and call 911."
-              ] }
-            ]
-          },
-          {
-            "id": "9.4.2",
-            "title": "HOV/Carpool & Express/Toll Lanes",
-            "estimated_minutes": 8,
-            "content": [
-              { "type": "p", "text": "Carpool lanes have occupancy or vehicle-type rules; express lanes may require transponders or tolls. Enter/exit only where permitted." },
-              { "type": "bullets", "items": [
-                "Obey posted occupancy and hours.",
-                "Cross only where lane markings allow.",
-                "Move Over: slow or change lanes for stopped emergency/roadside workers when safe."
-              ] }
-            ]
-          }
-        ]
-      }
-    ]
+  "unit": 9,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Freeway & Expressway Driving",
+  "minutes_required": 60,
+  "objectives": [
+    "Enter, merge, and exit freeways safely using proper scanning and signaling.",
+    "Manage speed and space at high speeds, including safe following distances and lane discipline.",
+    "Perform lane changes with mirror, signal, head-checks; choose lanes based on traffic flow and destination.",
+    "Handle breakdowns, debris, and emergencies; apply California Move Over law.",
+    "Navigate carpool/HOV and express/toll lanes, and respond to ramp meters."
+  ],
+  "sections": [
+    {
+      "title": "On-Ramps, Merging & Lane Choice",
+      "lessons": [
+        {
+          "title": "Ramp Types, Acceleration Lanes & Ramp Meters",
+          "minutes": 5,
+          "content": [
+            "Freeway ramps include loop, directional, and cloverleaf designs. Use the acceleration lane to reach a speed that matches freeway traffic.",
+            "Ramp meters (red/green lights) release vehicles in short intervals to reduce merging conflicts. Obey posted signals and signs.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Merging Etiquette & Lane Selection",
+          "minutes": 5,
+          "content": [
+            "Merge into the first safe gap without forcing others to brake hard. Maintain steady acceleration and avoid stopping on the ramp unless signed.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Speed, Space & Following Distance",
+      "lessons": [
+        {
+          "title": "Speed Management & Flow",
+          "minutes": 5,
+          "content": [
+            "Obey posted maximums and drive a speed that is reasonable for conditions. Flow speed can inform—but never justify—unsafe speeds.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Following Distance & Space Cushions",
+          "minutes": 5,
+          "content": [
+            "Use at least a 3–4 second following distance in ideal conditions; add time for rain, darkness, heavy loads, or when following large trucks.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Lane Changes, Passing & Exiting",
+      "lessons": [
+        {
+          "title": "Safe Lane Changes & Blind Spots",
+          "minutes": 5,
+          "content": [
+            "Follow the mirror–signal–head check routine. Avoid lingering next to other vehicles and never cut off a vehicle in the fast lane.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Exit Strategies & Missed Exits",
+          "minutes": 5,
+          "content": [
+            "Signal and move to the exit lane early. Reduce speed only after entering the deceleration lane; never brake abruptly in a travel lane.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Breakdowns, HOV/Express Lanes & Move Over",
+      "lessons": [
+        {
+          "title": "Breakdowns & Roadside Safety",
+          "minutes": 5,
+          "content": [
+            "If your vehicle fails, signal right, exit if possible, or steer fully onto the shoulder. Use hazard lights and stay behind a barrier if available.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "HOV/Carpool & Express/Toll Lanes",
+          "minutes": 5,
+          "content": [
+            "Carpool lanes have occupancy or vehicle-type rules; express lanes may require transponders or tolls. Enter/exit only where permitted.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.968Z"
   }
 }

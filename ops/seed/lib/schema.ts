@@ -1,151 +1,166 @@
 import { z } from "zod";
 
-// Curriculum schemas - more flexible to handle different structures
 export const CurriculumParagraphSchema = z.object({
-  type: z.enum(["p", "li"]).default("p"),
+  type: z.string().default("p"),
   text: z.string().min(1),
+  handbook_refs: z.array(z.string()).optional(), // e.g., ["Ch2:Signs", "Ch3:RightOfWay"]
 });
 
-// Flexible lesson schema that can handle different structures
 export const CurriculumLessonSchema = z.object({
-  lessonId: z.string().min(1).optional(), // "u3_s1_l1" etc
-  id: z.string().min(1).optional(), // Alternative field name
-  title: z.string().min(1),
-  paragraphs: z.array(z.string()).min(1), // Array of strings
-  minutes: z.number().optional(),
-  callouts: z.array(z.any()).optional(),
-  key_points: z.array(z.string()).optional(),
-  citations: z.array(z.any()).optional(),
+  id: z.string().optional(),
+  title: z.string().min(3),
+  paragraphs: z.array(CurriculumParagraphSchema).min(1),
 });
 
-// Flexible section schema
 export const CurriculumSectionSchema = z.object({
-  sectionId: z.string().min(1).optional(), // "u3_s1"
-  id: z.string().min(1).optional(), // Alternative field name
-  title: z.string().min(1),
+  id: z.string().optional(),
+  title: z.string().min(3),
   lessons: z.array(CurriculumLessonSchema).min(1),
 });
 
-// Flexible unit schema that can handle different structures
-export const CurriculumUnitSchema = z.union([
-  // Structure 1: Flat structure (Unit 3, 11)
-  z.object({
-    unit: z.number().int().min(1).max(12),
-    j_code: z.literal("CA"),
-    course_code: z.literal("DE-ONLINE"),
-    lang: z.enum(["en", "es"]),
-    title: z.string().min(1),
-    minutes_required: z.number().int().min(5).max(240),
-    objectives: z.array(z.string()).min(1),
-    sections: z.array(CurriculumSectionSchema).min(1),
-  }),
-  
-  // Structure 2: Meta object (Unit 4)
-  z.object({
-    meta: z.object({
-      j_code: z.literal("CA"),
-      course_code: z.literal("DE-ONLINE"),
-      unit_no: z.number().int().min(1).max(12),
-      lang: z.enum(["en", "es"]),
-      title: z.string().min(1),
-      minutes_required: z.number().int().min(5).max(240),
-      objectives: z.array(z.string()).min(1).optional(),
-    }),
-    sections: z.array(CurriculumSectionSchema).min(1),
-  }),
-  
-  // Structure 3: Course and Unit objects (Unit 5, 9, 10, 12)
-  z.object({
-    course: z.object({
-      j_code: z.literal("CA"),
-      course_code: z.literal("DE-ONLINE"),
-    }),
-    unit: z.object({
-      unit_no: z.number().int().min(1).max(12),
-      title: z.string().min(1),
-      minutes_required: z.number().int().min(5).max(240),
-      objectives: z.array(z.string()).min(1),
-    }),
-    sections: z.array(CurriculumSectionSchema).min(1),
-  }),
-  
-  // Structure 4: unitNumber (Unit 6)
-  z.object({
-    unitNumber: z.number().int().min(1).max(12),
-    title: z.string().min(1),
-    minutesRequired: z.number().int().min(5).max(240),
-    objectives: z.array(z.string()).min(1),
-    sections: z.array(CurriculumSectionSchema).min(1),
-  }),
-  
-  // Structure 5: unitId (Unit 7, 8)
-  z.object({
-    unitId: z.string(),
-    title: z.string().min(1),
-    estimatedTimeMinutes: z.number().int().min(5).max(240),
-    objectives: z.array(z.string()).min(1),
-    sections: z.array(CurriculumSectionSchema).min(1),
-  }),
-]);
+export const CurriculumUnitSchema = z.object({
+  unit: z.number().int().positive(),
+  j_code: z.string().length(2),
+  course_code: z.string().min(2),
+  lang: z.enum(["en", "es"]),
+  title: z.string().min(3),
+  minutes_required: z.number().int().positive().optional(),
+  objectives: z.array(z.string()).min(1).optional(),
+  sections: z.array(CurriculumSectionSchema).min(1),
+});
 
 export type CurriculumUnit = z.infer<typeof CurriculumUnitSchema>;
 
-// Question schemas
-export const ChoiceSchema = z.object({
-  key: z.string().min(1),           // "A", "B", ...
+export const QuestionChoiceSchema = z.object({
+  key: z.enum(["A","B","C","D"]),
   text: z.string().min(1),
 });
 
 export const QuestionSchema = z.object({
-  id: z.string().min(1),            // "u3_q01" - stable within unit
-  skill: z.string().min(1),         // e.g., "basic_speed_law"
-  difficulty: z.number().int().min(1).max(5).default(2),
+  stem: z.string().min(8).optional(), // Allow legacy formats
+  prompt: z.string().min(8).optional(), // Unit 7 format
+  choices: z.array(z.union([QuestionChoiceSchema, z.string()])).length(4).optional(), // Allow legacy string choices
+  options: z.array(z.union([z.string(), z.object({ id: z.string(), text: z.string() })])).length(4).optional(), // Unit 7/8 format
+  answer: z.union([z.enum(["A","B","C","D"]), z.number(), z.string()]).optional(), // Allow legacy formats
+  answerIndex: z.number().optional(), // Unit 7 format
+  explanation: z.string().min(8).optional(), // Allow missing explanations
+  skill: z.string().min(2).optional(), // Allow missing skills
+  difficulty: z.number().int().min(1).max(5).default(3),
   tags: z.array(z.string()).default([]),
-  stem: z.string().min(1),
-  choices: z.array(ChoiceSchema).min(2),
-  answer: z.string().min(1),        // the 'key' that is correct
-  explanation: z.string().min(1),
+  handbook_refs: z.array(z.string()).optional(),
+  // Will be injected during normalization:
+  qid: z.string().uuid().optional(),
 });
 
-export const UnitQuestionsSchema = z.union([
-  // Structure 1: Flat structure (Unit 3, 11)
-  z.object({
-    unit: z.number().int().min(1).max(12),
-    j_code: z.literal("CA"),
-    course_code: z.literal("DE-ONLINE"),
-    lang: z.enum(["en", "es"]),
-    questions: z.array(QuestionSchema).min(5),
-  }),
-  
-  // Structure 2: Meta object with questions (Unit 4 EN, etc.)
-  z.object({
-    meta: z.object({
-      j_code: z.literal("CA"),
-      course_code: z.literal("DE-ONLINE"),
-      unit_no: z.number().int().min(1).max(12),
-      lang: z.enum(["en", "es"]),
-      count: z.number().optional(),
-    }),
-    questions: z.array(QuestionSchema).min(5),
-  }),
-  
-  // Structure 3: Meta object with translations (Unit 4 ES, etc.)
-  z.object({
-    meta: z.object({
-      j_code: z.literal("CA"),
-      course_code: z.literal("DE-ONLINE"),
-      unit_no: z.number().int().min(1).max(12),
-      lang: z.enum(["en", "es"]),
-      count: z.number().optional(),
-    }),
-    translations: z.array(z.object({
-      ref_id: z.string(),
-      stem: z.string(),
-      choices: z.array(ChoiceSchema),
-      explanation: z.string(),
-      citations: z.array(z.any()).optional(),
-    })).min(5),
-  }),
-]);
+export const QuestionsFileSchema = z.object({
+  unit: z.number().int().positive().optional(),
+  unit_no: z.number().int().positive().optional(), // legacy
+  unitNumber: z.number().int().positive().optional(), // legacy
+  unitId: z.string().optional(), // legacy
+  j_code: z.string().length(2).optional(),
+  course_code: z.string().min(2).optional(),
+  lang: z.enum(["en","es"]).optional(),
+  // canonical path
+  questions: z.array(QuestionSchema).optional(),
+  // legacy translation path (spanish):
+  translations: z.array(z.object({
+    ref_id: z.string(),
+    stem: z.string(),
+    choices: z.array(QuestionChoiceSchema),
+    explanation: z.string(),
+    citations: z.array(z.any()).optional(),
+  })).optional()
+});
 
-export type UnitQuestions = z.infer<typeof UnitQuestionsSchema>;
+export type QuestionsFile = z.infer<typeof QuestionsFileSchema>;
+
+// === CANONICAL SCHEMAS FOR NORMALIZATION ===
+
+export const CurriculumLessonCanonicalSchema = z.object({
+  title: z.string().min(3),
+  minutes: z.number().int().positive().max(60),
+  content: z.array(z.string().min(1)).min(1),
+  review: z
+    .array(
+      z.union([
+        z.object({
+          type: z.literal("mcq"),
+          prompt: z.string().min(3),
+          choices: z.array(z.string().min(1)).length(4),
+          answer: z.union([z.string().length(1), z.number().int().min(0).max(3)]),
+          explanation: z.string().min(3).optional(),
+        }),
+        z.object({
+          type: z.literal("short"),
+          prompt: z.string().min(3),
+          answer: z.string().min(1),
+          explanation: z.string().min(3).optional(),
+        }),
+      ])
+    )
+    .optional()
+    .default([]),
+});
+
+export const CurriculumSectionCanonicalSchema = z.object({
+  title: z.string().min(3),
+  lessons: z.array(CurriculumLessonCanonicalSchema).min(1),
+});
+
+export const CurriculumUnitCanonicalSchema = z.object({
+  unit: z.number().int().min(1).max(99),
+  j_code: z.literal("CA"),
+  course_code: z.literal("DE-ONLINE"),
+  lang: z.enum(["en", "es"]),
+  title: z.string().min(3),
+  minutes_required: z.number().int().positive().max(300),
+  objectives: z.array(z.string().min(3)).min(1).optional().default([]),
+  sections: z.array(CurriculumSectionCanonicalSchema).min(1),
+  metadata: z
+    .object({
+      source: z.string().min(1).optional(),
+      version: z.string().min(1).default("1.0.0"),
+      updated_at: z.string().min(5).optional(), // ISO string preferred
+    })
+    .optional()
+    .default({ version: "1.0.0" }),
+});
+
+export type CurriculumUnitCanonical = z.infer<typeof CurriculumUnitCanonicalSchema>;
+
+export const QuestionChoiceCanonicalSchema = z.object({
+  key: z.enum(["A", "B", "C", "D"]),
+  text: z.string().min(1),
+});
+
+export const QuestionCanonicalSchema = z.object({
+  ref: z.string().min(1).optional(), // optional stable ref
+  skill: z.string().min(2).optional().default("General"),
+  difficulty: z.number().int().min(1).max(5).default(2),
+  stem: z.string().min(5),
+  choices: z.array(QuestionChoiceCanonicalSchema).length(4),
+  answer: z.union([
+    z.string().length(1),             // A-D
+    z.number().int().min(0).max(3),   // 0-3
+  ]),
+  explanation: z.string().min(5).optional(),
+  tags: z.array(z.string()).optional().default([]),
+});
+
+export const QuestionSetCanonicalSchema = z.object({
+  unit: z.number().int().min(1).max(99),
+  j_code: z.literal("CA"),
+  course_code: z.literal("DE-ONLINE"),
+  lang: z.enum(["en", "es"]),
+  questions: z.array(QuestionCanonicalSchema).min(1),
+  metadata: z
+    .object({
+      source: z.string().min(1).optional(),
+      version: z.string().min(1).default("1.0.0"),
+      updated_at: z.string().min(5).optional(),
+    })
+    .optional()
+    .default({ version: "1.0.0" }),
+});
+
+export type QuestionSetCanonical = z.infer<typeof QuestionSetCanonicalSchema>;

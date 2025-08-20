@@ -1,174 +1,184 @@
 {
-    "unit": 3,
-    "j_code": "CA",
-    "course_code": "DE-ONLINE",
-    "lang": "es",
-    "title": "Autopistas y Condiciones Adversas",
-    "minutes_required": 90,
-    "objectives": [
-      "Aplicar la Ley Básica de Velocidad de California en autopistas y con mal clima.",
-      "Ingresar, incorporarse y salir de autopistas con seguridad usando una correcta gestión de carriles y espacio.",
-      "Mantener distancias de seguimiento seguras a velocidades de autopista y cuando empeoran las condiciones.",
-      "Circular correctamente por carriles HOV, líneas dobles blancas, zonas triangulares (gore) y semáforos de rampa.",
-      "Adaptar la conducción a lluvia, niebla, viento, conducción nocturna y pendientes de montaña.",
-      "Responder de forma segura y legal a averías e incidentes en la autopista."
-    ],
-    "sections": [
-      {
-        "sectionId": "u3_s1",
-        "title": "Fundamentos de Autopistas",
-        "lessons": [
-          {
-            "lessonId": "u3_s1_l1",
-            "title": "Qué Hace Diferente a una Autopista",
-            "paragraphs": [
-              "Las autopistas son vías de alta velocidad y acceso controlado con entradas y salidas limitadas. Como las velocidades son mayores, los errores pequeños pueden ser graves; por eso la disciplina de carril y la gestión del espacio son esenciales.",
-              "No puede detenerse, estacionar ni retroceder en una autopista salvo emergencias o cuando lo indique la policía. Planifique su ruta y mantenga su carril hasta que sea seguro cambiar.",
-              "En la mayoría de las autopistas de California el límite máximo es 65 mph, salvo señalización. Sin embargo, la Ley Básica de Velocidad exige no conducir nunca más rápido de lo que permiten las condiciones, aunque el límite indique más.",
-              "Los distribuidores viales, los carriles de aceleración y de desaceleración separan el tráfico que entra y sale del flujo principal. Úselos para ganar velocidad antes de incorporarse y para reducirla después de salir."
-            ]
-          },
-          {
-            "lessonId": "u3_s1_l2",
-            "title": "Líneas de Carril, HOV y Líneas Dobles",
-            "paragraphs": [
-              "Una línea blanca continua marca los bordes del carril y zonas donde no se recomienda cambiar. Una línea blanca discontinua separa carriles en el mismo sentido y permite cambiar cuando sea seguro.",
-              "Los carriles HOV (carpool) se marcan con un diamante blanco y pueden estar separados por líneas dobles blancas. No cruce líneas dobles continuas; entre o salga solo donde lo permitan las líneas discontinuas o aperturas designadas.",
-              "El carril izquierdo suele ser para rebasar. Circular más lento en el carril izquierdo puede crear peligros. Desplácese a la derecha cuando no esté rebasando.",
-              "Las zonas triangulares pintadas cerca de las rampas (gore) están prohibidas. Nunca circule ni se detenga en ellas."
-            ]
-          }
-        ]
-      },
-      {
-        "sectionId": "u3_s2",
-        "title": "Incorporación y Salida",
-        "lessons": [
-          {
-            "lessonId": "u3_s2_l1",
-            "title": "Semáforos de Rampa y Aceleración",
-            "paragraphs": [
-              "Los semáforos de rampa liberan vehículos a intervalos para suavizar el tráfico. Obedezca la señal como un semáforo normal: alto en rojo, avance en verde, generalmente un auto por luz verde salvo aviso.",
-              "Use todo el carril de aceleración para igualar la velocidad del tráfico de la autopista. Señalice con anticipación, revise espejos y puntos ciegos, e incorpórese en el primer espacio seguro sin obligar a frenar a otros.",
-              "Si dos carriles se reducen a uno, use la ‘cremallera’: alternan un auto de cada carril. No compita ni bloquee; la cooperación reduce choques y mantiene el flujo.",
-              "Si se pasa de la salida o pierde el espacio para incorporarse, no se detenga en la rampa ni en el acotamiento. Continúe hasta la siguiente salida y reoriente."
-            ]
-          },
-          {
-            "lessonId": "u3_s2_l2",
-            "title": "Desaceleración y Técnica de Salida",
-            "paragraphs": [
-              "Señalice y muévase al carril de salida con anticipación. No reduzca la velocidad en los carriles principales; hágalo ya dentro del carril de desaceleración.",
-              "Lea las señales de salida con tiempo para evitar cambios de carril de último momento. Si se pasa, continúe hasta la próxima y regrese.",
-              "Cuidado con rampas cortas y cerradas. Frene con suavidad y anticipe curvas más pronunciadas. Atento a filas al final de la rampa.",
-              "Nunca cruce un área triangular ni líneas blancas continuas para tomar una salida tardía. El riesgo de choque es alto y es ilegal."
-            ]
-          }
-        ]
-      },
-      {
-        "sectionId": "u3_s3",
-        "title": "Velocidad, Espacio y Rebasar",
-        "lessons": [
-          {
-            "lessonId": "u3_s3_l1",
-            "title": "Ley Básica de Velocidad y Distancia",
-            "paragraphs": [
-              "Ley Básica de Velocidad de California: Nunca conduzca más rápido de lo que es seguro según el tráfico, clima, visibilidad y superficie. El límite no es un objetivo en lluvia, niebla o tráfico pesado.",
-              "Use al menos 3 segundos de distancia en condiciones ideales. A velocidades de autopista o con mal clima, aumente a 4–6 segundos para tener más tiempo de reacción.",
-              "Aumente el espacio detrás de vehículos grandes y motocicletas. Ellos necesitan más distancia para maniobrar y frenar; además pueden bloquear su visibilidad.",
-              "Si alguien lo sigue de cerca, mantenga su velocidad, evite frenar de golpe y cámbiese de carril cuando sea seguro para dejarlo pasar."
-            ]
-          },
-          {
-            "lessonId": "u3_s3_l2",
-            "title": "Rebasar con Seguridad",
-            "paragraphs": [
-              "Rebase por la izquierda cuando sea posible; observe más adelante para asegurar espacio suficiente y no obligar a otros a frenar bruscamente.",
-              "Los camiones grandes generan turbulencia y tienen puntos ciegos más largos (especialmente a la derecha). Rebase con decisión y no permanezca a su lado.",
-              "Nunca rebase por el acotamiento ni zigzaguee entre carriles. Los cambios agresivos causan choques y rara vez ahorran tiempo.",
-              "Tras rebasar, señalice y regrese solo cuando vea el frente completo del vehículo rebasado en su espejo retrovisor."
-            ]
-          }
-        ]
-      },
-      {
-        "sectionId": "u3_s4",
-        "title": "Clima Adverso: Lluvia, Niebla y Viento",
-        "lessons": [
-          {
-            "lessonId": "u3_s4_l1",
-            "title": "Lluvia e Hidroplaneo",
-            "paragraphs": [
-              "La lluvia reduce la tracción y alarga la distancia de frenado. Reduzca velocidad, aumente la distancia y evite frenar fuerte.",
-              "El hidroplaneo ocurre cuando las llantas ‘flotan’ sobre una película de agua. Si sucede, suelte el acelerador, mantenga el volante recto y evite frenar o girar de golpe.",
-              "Use limpiaparabrisas y luces bajas en lluvia (‘limpiadores encendidos, luces encendidas’). Las luces altas pueden producir destello en superficies mojadas.",
-              "Evite el agua estancada: puede ocultar baches y causar pérdida de control. Si debe pasar, hágalo lento y pruebe los frenos después."
-            ]
-          },
-          {
-            "lessonId": "u3_s4_l2",
-            "title": "Niebla y Humo",
-            "paragraphs": [
-              "Use luces bajas en niebla o humo. Las luces altas se reflejan y reducen la visibilidad.",
-              "Si la visibilidad es muy limitada, disminuya, aumente la distancia y use la línea derecha (fog line) para orientarse.",
-              "Evite detenerse de golpe. Si no puede continuar, salga de la autopista si es posible. Nunca se detenga en un carril de circulación. Si debe orillarse, hágalo lejos del carril y use intermitentes.",
-              "Use desempañador para mantener ventanas claras. Mantenga luces interiores bajas para reducir reflejos."
-            ]
-          }
-        ]
-      },
-      {
-        "sectionId": "u3_s5",
-        "title": "Conducción Nocturna y en Montaña",
-        "lessons": [
-          {
-            "lessonId": "u3_s5_l1",
-            "title": "Esenciales de Noche",
-            "paragraphs": [
-              "La noche reduce visibilidad y percepción de profundidad. Disminuya la velocidad y aumente la distancia.",
-              "Use luces altas en caminos abiertos sin tráfico de frente y bájelas al seguir o acercarse a otro vehículo.",
-              "Mueva la mirada constantemente; no fije la vista en los faros. Mire la orilla derecha si las luces opuestas encandilan.",
-              "Limpie parabrisas y faros con regularidad. El cansancio es peligroso; tome descansos y evite manejar con sueño."
-            ]
-          },
-          {
-            "lessonId": "u3_s5_l2",
-            "title": "Pendientes y Freno de Motor",
-            "paragraphs": [
-              "En descensos largos, cambie a una marcha baja para usar el freno de motor. Frenar continuamente puede sobrecalentar los frenos y reducir su eficacia.",
-              "Mantenga velocidad constante en subidas y use el carril derecho si va más lento que el flujo. Fíjese en bahías para vehículos lentos.",
-              "En zonas montañosas el clima cambia rápido. Lleve cadenas cuando se requiera y obedezca la señalización de control de cadenas.",
-              "Tenga precaución en curvas: la velocidad y la gravedad empujan el auto hacia afuera. Entre lento y acelere suavemente al salir."
-            ]
-          }
-        ]
-      },
-      {
-        "sectionId": "u3_s6",
-        "title": "Incidentes y Zonas de Trabajo en Autopista",
-        "lessons": [
-          {
-            "lessonId": "u3_s6_l1",
-            "title": "Averías y Choques en Autopista",
-            "paragraphs": [
-              "Si su vehículo falla, señalice, muévase a la derecha y oríllese. Gire las ruedas a la derecha, encienda intermitentes y permanezca dentro con cinturón si está cerca del tráfico.",
-              "Si debe salir, hágalo por el lado opuesto al tráfico y aléjese de la vía. Use bengalas o triángulos si colocarlos es seguro.",
-              "En choques menores sin lesiones, mueva los vehículos fuera del flujo si es posible. Intercambie información y espere ayuda en un sitio seguro.",
-              "Ley de ‘Muévase a un Lado’: Al aproximarse a vehículos de emergencia o grúas con luces, cámbiese a un carril no adyacente si es seguro o reduzca significativamente la velocidad."
-            ]
-          },
-          {
-            "lessonId": "u3_s6_l2",
-            "title": "Zonas de Trabajo",
-            "paragraphs": [
-              "Las zonas de trabajo pueden tener carriles cerrados, trabajadores cerca y frenadas súbitas. Reduzca velocidad, aumente distancia y obedezca señales y abanderados.",
-              "Las multas en zonas de trabajo pueden ser más altas. Esté atento a camiones que entran o salen.",
-              "Siga las líneas temporales y dispositivos de canalización. No circule sobre conos, barriles o marcas temporales.",
-              "Evite distracciones: guarde el teléfono y concéntrese en el entorno cambiante."
-            ]
-          }
-        ]
-      }
-    ]
+  "unit": 3,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "es",
+  "title": "Autopistas y Condiciones Adversas",
+  "minutes_required": 90,
+  "objectives": [
+    "Aplicar la Ley Básica de Velocidad de California en autopistas y con mal clima.",
+    "Ingresar, incorporarse y salir de autopistas con seguridad usando una correcta gestión de carriles y espacio.",
+    "Mantener distancias de seguimiento seguras a velocidades de autopista y cuando empeoran las condiciones.",
+    "Circular correctamente por carriles HOV, líneas dobles blancas, zonas triangulares (gore) y semáforos de rampa.",
+    "Adaptar la conducción a lluvia, niebla, viento, conducción nocturna y pendientes de montaña.",
+    "Responder de forma segura y legal a averías e incidentes en la autopista."
+  ],
+  "sections": [
+    {
+      "title": "Fundamentos de Autopistas",
+      "lessons": [
+        {
+          "title": "Qué Hace Diferente a una Autopista",
+          "minutes": 5,
+          "content": [
+            "Las autopistas son vías de alta velocidad y acceso controlado con entradas y salidas limitadas. Como las velocidades son mayores, los errores pequeños pueden ser graves; por eso la disciplina de carril y la gestión del espacio son esenciales.",
+            "No puede detenerse, estacionar ni retroceder en una autopista salvo emergencias o cuando lo indique la policía. Planifique su ruta y mantenga su carril hasta que sea seguro cambiar.",
+            "En la mayoría de las autopistas de California el límite máximo es 65 mph, salvo señalización. Sin embargo, la Ley Básica de Velocidad exige no conducir nunca más rápido de lo que permiten las condiciones, aunque el límite indique más.",
+            "Los distribuidores viales, los carriles de aceleración y de desaceleración separan el tráfico que entra y sale del flujo principal. Úselos para ganar velocidad antes de incorporarse y para reducirla después de salir."
+          ],
+          "review": []
+        },
+        {
+          "title": "Líneas de Carril, HOV y Líneas Dobles",
+          "minutes": 5,
+          "content": [
+            "Una línea blanca continua marca los bordes del carril y zonas donde no se recomienda cambiar. Una línea blanca discontinua separa carriles en el mismo sentido y permite cambiar cuando sea seguro.",
+            "Los carriles HOV (carpool) se marcan con un diamante blanco y pueden estar separados por líneas dobles blancas. No cruce líneas dobles continuas; entre o salga solo donde lo permitan las líneas discontinuas o aperturas designadas.",
+            "El carril izquierdo suele ser para rebasar. Circular más lento en el carril izquierdo puede crear peligros. Desplácese a la derecha cuando no esté rebasando.",
+            "Las zonas triangulares pintadas cerca de las rampas (gore) están prohibidas. Nunca circule ni se detenga en ellas."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Incorporación y Salida",
+      "lessons": [
+        {
+          "title": "Semáforos de Rampa y Aceleración",
+          "minutes": 5,
+          "content": [
+            "Los semáforos de rampa liberan vehículos a intervalos para suavizar el tráfico. Obedezca la señal como un semáforo normal: alto en rojo, avance en verde, generalmente un auto por luz verde salvo aviso.",
+            "Use todo el carril de aceleración para igualar la velocidad del tráfico de la autopista. Señalice con anticipación, revise espejos y puntos ciegos, e incorpórese en el primer espacio seguro sin obligar a frenar a otros.",
+            "Si dos carriles se reducen a uno, use la ‘cremallera’: alternan un auto de cada carril. No compita ni bloquee; la cooperación reduce choques y mantiene el flujo.",
+            "Si se pasa de la salida o pierde el espacio para incorporarse, no se detenga en la rampa ni en el acotamiento. Continúe hasta la siguiente salida y reoriente."
+          ],
+          "review": []
+        },
+        {
+          "title": "Desaceleración y Técnica de Salida",
+          "minutes": 5,
+          "content": [
+            "Señalice y muévase al carril de salida con anticipación. No reduzca la velocidad en los carriles principales; hágalo ya dentro del carril de desaceleración.",
+            "Lea las señales de salida con tiempo para evitar cambios de carril de último momento. Si se pasa, continúe hasta la próxima y regrese.",
+            "Cuidado con rampas cortas y cerradas. Frene con suavidad y anticipe curvas más pronunciadas. Atento a filas al final de la rampa.",
+            "Nunca cruce un área triangular ni líneas blancas continuas para tomar una salida tardía. El riesgo de choque es alto y es ilegal."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Velocidad, Espacio y Rebasar",
+      "lessons": [
+        {
+          "title": "Ley Básica de Velocidad y Distancia",
+          "minutes": 5,
+          "content": [
+            "Ley Básica de Velocidad de California: Nunca conduzca más rápido de lo que es seguro según el tráfico, clima, visibilidad y superficie. El límite no es un objetivo en lluvia, niebla o tráfico pesado.",
+            "Use al menos 3 segundos de distancia en condiciones ideales. A velocidades de autopista o con mal clima, aumente a 4–6 segundos para tener más tiempo de reacción.",
+            "Aumente el espacio detrás de vehículos grandes y motocicletas. Ellos necesitan más distancia para maniobrar y frenar; además pueden bloquear su visibilidad.",
+            "Si alguien lo sigue de cerca, mantenga su velocidad, evite frenar de golpe y cámbiese de carril cuando sea seguro para dejarlo pasar."
+          ],
+          "review": []
+        },
+        {
+          "title": "Rebasar con Seguridad",
+          "minutes": 5,
+          "content": [
+            "Rebase por la izquierda cuando sea posible; observe más adelante para asegurar espacio suficiente y no obligar a otros a frenar bruscamente.",
+            "Los camiones grandes generan turbulencia y tienen puntos ciegos más largos (especialmente a la derecha). Rebase con decisión y no permanezca a su lado.",
+            "Nunca rebase por el acotamiento ni zigzaguee entre carriles. Los cambios agresivos causan choques y rara vez ahorran tiempo.",
+            "Tras rebasar, señalice y regrese solo cuando vea el frente completo del vehículo rebasado en su espejo retrovisor."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Clima Adverso: Lluvia, Niebla y Viento",
+      "lessons": [
+        {
+          "title": "Lluvia e Hidroplaneo",
+          "minutes": 5,
+          "content": [
+            "La lluvia reduce la tracción y alarga la distancia de frenado. Reduzca velocidad, aumente la distancia y evite frenar fuerte.",
+            "El hidroplaneo ocurre cuando las llantas ‘flotan’ sobre una película de agua. Si sucede, suelte el acelerador, mantenga el volante recto y evite frenar o girar de golpe.",
+            "Use limpiaparabrisas y luces bajas en lluvia (‘limpiadores encendidos, luces encendidas’). Las luces altas pueden producir destello en superficies mojadas.",
+            "Evite el agua estancada: puede ocultar baches y causar pérdida de control. Si debe pasar, hágalo lento y pruebe los frenos después."
+          ],
+          "review": []
+        },
+        {
+          "title": "Niebla y Humo",
+          "minutes": 5,
+          "content": [
+            "Use luces bajas en niebla o humo. Las luces altas se reflejan y reducen la visibilidad.",
+            "Si la visibilidad es muy limitada, disminuya, aumente la distancia y use la línea derecha (fog line) para orientarse.",
+            "Evite detenerse de golpe. Si no puede continuar, salga de la autopista si es posible. Nunca se detenga en un carril de circulación. Si debe orillarse, hágalo lejos del carril y use intermitentes.",
+            "Use desempañador para mantener ventanas claras. Mantenga luces interiores bajas para reducir reflejos."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Conducción Nocturna y en Montaña",
+      "lessons": [
+        {
+          "title": "Esenciales de Noche",
+          "minutes": 5,
+          "content": [
+            "La noche reduce visibilidad y percepción de profundidad. Disminuya la velocidad y aumente la distancia.",
+            "Use luces altas en caminos abiertos sin tráfico de frente y bájelas al seguir o acercarse a otro vehículo.",
+            "Mueva la mirada constantemente; no fije la vista en los faros. Mire la orilla derecha si las luces opuestas encandilan.",
+            "Limpie parabrisas y faros con regularidad. El cansancio es peligroso; tome descansos y evite manejar con sueño."
+          ],
+          "review": []
+        },
+        {
+          "title": "Pendientes y Freno de Motor",
+          "minutes": 5,
+          "content": [
+            "En descensos largos, cambie a una marcha baja para usar el freno de motor. Frenar continuamente puede sobrecalentar los frenos y reducir su eficacia.",
+            "Mantenga velocidad constante en subidas y use el carril derecho si va más lento que el flujo. Fíjese en bahías para vehículos lentos.",
+            "En zonas montañosas el clima cambia rápido. Lleve cadenas cuando se requiera y obedezca la señalización de control de cadenas.",
+            "Tenga precaución en curvas: la velocidad y la gravedad empujan el auto hacia afuera. Entre lento y acelere suavemente al salir."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Incidentes y Zonas de Trabajo en Autopista",
+      "lessons": [
+        {
+          "title": "Averías y Choques en Autopista",
+          "minutes": 5,
+          "content": [
+            "Si su vehículo falla, señalice, muévase a la derecha y oríllese. Gire las ruedas a la derecha, encienda intermitentes y permanezca dentro con cinturón si está cerca del tráfico.",
+            "Si debe salir, hágalo por el lado opuesto al tráfico y aléjese de la vía. Use bengalas o triángulos si colocarlos es seguro.",
+            "En choques menores sin lesiones, mueva los vehículos fuera del flujo si es posible. Intercambie información y espere ayuda en un sitio seguro.",
+            "Ley de ‘Muévase a un Lado’: Al aproximarse a vehículos de emergencia o grúas con luces, cámbiese a un carril no adyacente si es seguro o reduzca significativamente la velocidad."
+          ],
+          "review": []
+        },
+        {
+          "title": "Zonas de Trabajo",
+          "minutes": 5,
+          "content": [
+            "Las zonas de trabajo pueden tener carriles cerrados, trabajadores cerca y frenadas súbitas. Reduzca velocidad, aumente distancia y obedezca señales y abanderados.",
+            "Las multas en zonas de trabajo pueden ser más altas. Esté atento a camiones que entran o salen.",
+            "Siga las líneas temporales y dispositivos de canalización. No circule sobre conos, barriles o marcas temporales.",
+            "Evite distracciones: guarde el teléfono y concéntrese en el entorno cambiante."
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.963Z"
   }
+}

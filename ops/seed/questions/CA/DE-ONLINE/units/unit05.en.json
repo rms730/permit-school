@@ -1,276 +1,612 @@
 {
-    "course": { "j_code": "CA", "course_code": "DE-ONLINE" },
-    "unit_no": 5,
-    "questions": [
-      {
-        "id": "U5Q1",
-        "skill": "mindset",
-        "difficulty": 1,
-        "stem": "The primary goal of defensive driving is to:",
-        "choices": [
-          "Reduce risk by anticipating hazards and leaving time and space to react.",
-          "Arrive as quickly as possible by keeping up with the fastest traffic.",
-          "Focus mainly on your lane and ignore surrounding vehicles.",
-          "Rely on your vehicle’s safety features to prevent all crashes."
-        ],
-        "answer": "Reduce risk by anticipating hazards and leaving time and space to react.",
-        "explanation": "Defensive driving emphasizes risk reduction through anticipation, scanning, and space management—not speed or gadgets.",
-        "tags": ["defensive_driving", "risk"]
-      },
-      {
-        "id": "U5Q2",
-        "skill": "systems",
-        "difficulty": 1,
-        "stem": "SIPDE stands for:",
-        "choices": [
-          "Search, Identify, Predict, Decide, Execute",
-          "Scan, Inspect, Plan, Drive, Exit",
-          "See, Interpret, Proceed, Direct, Evaluate",
-          "Search, Indicate, Prepare, Drive, Ease"
-        ],
-        "answer": "Search, Identify, Predict, Decide, Execute",
-        "explanation": "SIPDE is the classic defensive driving process to continuously manage hazards.",
-        "tags": ["SIPDE", "scanning"]
-      },
-      {
-        "id": "U5Q3",
-        "skill": "systems",
-        "difficulty": 2,
-        "stem": "In the Smith System, “Aim high in steering” means:",
-        "choices": [
-          "Look 12–15 seconds ahead to plan for what’s coming.",
-          "Keep your eyes fixed on the vehicle immediately ahead.",
-          "Focus only on the speedometer to manage speed.",
-          "Lower your seating position for better stability."
-        ],
-        "answer": "Look 12–15 seconds ahead to plan for what’s coming.",
-        "explanation": "A long visual lead time helps you detect and respond to hazards early.",
-        "tags": ["smith_system", "vision"]
-      },
-      {
-        "id": "U5Q4",
-        "skill": "following_distance",
-        "difficulty": 1,
-        "stem": "On dry pavement, a minimum following distance for passenger cars is typically:",
-        "choices": ["3–4 seconds", "1 second", "6–8 seconds", "1 car length per 10 mph"],
-        "answer": "3–4 seconds",
-        "explanation": "Use a 3–4 second time gap in ideal conditions; add time in poor conditions.",
-        "tags": ["space_cushion", "time_gap"]
-      },
-      {
-        "id": "U5Q5",
-        "skill": "following_distance",
-        "difficulty": 2,
-        "stem": "Which situation calls for increasing your following distance?",
-        "choices": [
-          "Rain or reduced visibility",
-          "Clear, dry, empty freeway",
-          "Daytime on a straight rural road",
-          "Slow neighborhood traffic with no pedestrians"
-        ],
-        "answer": "Rain or reduced visibility",
-        "explanation": "Bad weather and limited visibility increase stopping distance and risk.",
-        "tags": ["space_cushion", "weather"]
-      },
-      {
-        "id": "U5Q6",
-        "skill": "tailgating",
-        "difficulty": 2,
-        "stem": "If a driver is tailgating you, the best response is to:",
-        "choices": [
-          "Create extra space ahead and avoid sudden braking.",
-          "Brake hard to warn them to back off.",
-          "Speed up significantly to increase distance.",
-          "Weave to discourage their behavior."
-        ],
-        "answer": "Create extra space ahead and avoid sudden braking.",
-        "explanation": "Smoothing your own driving and increasing space ahead reduces the chance of a rear-end crash.",
-        "tags": ["tailgating", "space_management"]
-      },
-      {
-        "id": "U5Q7",
-        "skill": "speed_law",
-        "difficulty": 1,
-        "stem": "California’s basic speed law requires you to:",
-        "choices": [
-          "Never drive faster than is safe for current conditions.",
-          "Drive at least the posted speed limit at all times.",
-          "Match the fastest traffic flow.",
-          "Use cruise control in all conditions."
-        ],
-        "answer": "Never drive faster than is safe for current conditions.",
-        "explanation": "Posted limits do not override the need to slow for traffic, weather, or visibility.",
-        "tags": ["basic_speed_law", "speed_management"]
-      },
-      {
-        "id": "U5Q8",
-        "skill": "vision",
-        "difficulty": 2,
-        "stem": "Good visual lead time in city driving is about:",
-        "choices": ["12–15 seconds ahead", "3–4 seconds ahead", "5–7 seconds ahead", "20–30 seconds ahead"],
-        "answer": "12–15 seconds ahead",
-        "explanation": "In urban areas, looking 12–15 seconds ahead helps anticipate intersections and hazards.",
-        "tags": ["vision", "lead_time"]
-      },
-      {
-        "id": "U5Q9",
-        "skill": "communication",
-        "difficulty": 2,
-        "stem": "Before changing lanes on a freeway in California, you should signal for approximately:",
-        "choices": ["About 5 seconds", "At least 1 second", "Only after you begin the lane change", "You do not need to signal on freeways"],
-        "answer": "About 5 seconds",
-        "explanation": "A longer signal duration on freeways gives other drivers more time to see your intent.",
-        "tags": ["signals", "freeway"]
-      },
-      {
-        "id": "U5Q10",
-        "skill": "communication",
-        "difficulty": 1,
-        "stem": "In general, you should signal a turn in California at least:",
-        "choices": ["100 feet before the turn", "25 feet before the turn", "After starting your turn", "Only if other drivers are nearby"],
-        "answer": "100 feet before the turn",
-        "explanation": "Signaling early communicates your intentions and reduces conflicts.",
-        "tags": ["signals", "turning"]
-      },
-      {
-        "id": "U5Q11",
-        "skill": "blind_spots",
-        "difficulty": 1,
-        "stem": "To check blind spots before a lane change you should:",
-        "choices": [
-          "Turn your head to look over the appropriate shoulder.",
-          "Rely only on your side mirrors.",
-          "Glance at the rearview mirror twice.",
-          "Honk to warn other drivers."
-        ],
-        "answer": "Turn your head to look over the appropriate shoulder.",
-        "explanation": "Head checks reveal vehicles that mirrors cannot show.",
-        "tags": ["blind_spots", "lane_change"]
-      },
-      {
-        "id": "U5Q12",
-        "skill": "ABS",
-        "difficulty": 2,
-        "stem": "With ABS in an emergency stop, you should:",
-        "choices": [
-          "Press the brake firmly and steer where you want to go.",
-          "Pump the brakes rapidly.",
-          "Apply the parking brake immediately.",
-          "Turn off the engine to stop faster."
-        ],
-        "answer": "Press the brake firmly and steer where you want to go.",
-        "explanation": "ABS prevents wheel lockup; keep steady pressure and maintain steering control.",
-        "tags": ["ABS", "emergency"]
-      },
-      {
-        "id": "U5Q13",
-        "skill": "skid_control",
-        "difficulty": 2,
-        "stem": "If your vehicle begins to skid, you should first:",
-        "choices": [
-          "Ease off the accelerator and look/steer to your intended path.",
-          "Brake as hard as possible immediately.",
-          "Turn the wheel opposite your intended path.",
-          "Accelerate to regain traction."
-        ],
-        "answer": "Ease off the accelerator and look/steer to your intended path.",
-        "explanation": "Reducing power helps tires regain grip; steer where you want the car to go.",
-        "tags": ["skid", "control"]
-      },
-      {
-        "id": "U5Q14",
-        "skill": "blowout",
-        "difficulty": 2,
-        "stem": "If you have a tire blowout, you should:",
-        "choices": [
-          "Grip the wheel, ease off the gas, avoid hard braking, and steer to a safe stop.",
-          "Brake hard immediately and steer sharply to the shoulder.",
-          "Accelerate to keep the car straight.",
-          "Turn off the ignition and coast to a stop."
-        ],
-        "answer": "Grip the wheel, ease off the gas, avoid hard braking, and steer to a safe stop.",
-        "explanation": "Smooth control prevents a spin or loss of control after a blowout.",
-        "tags": ["blowout", "emergency"]
-      },
-      {
-        "id": "U5Q15",
-        "skill": "off_road_recovery",
-        "difficulty": 2,
-        "stem": "If your right wheels drop off the pavement onto the shoulder, you should:",
-        "choices": [
-          "Hold the wheel straight, slow down, and gently steer back when clear.",
-          "Jerk the wheel left immediately to return to the lane.",
-          "Accelerate hard to regain the roadway.",
-          "Brake hard while turning sharply."
-        ],
-        "answer": "Hold the wheel straight, slow down, and gently steer back when clear.",
-        "explanation": "Sudden sharp steering can cause a loss of control or rollover.",
-        "tags": ["recovery", "shoulder"]
-      },
-      {
-        "id": "U5Q16",
-        "skill": "time_gap",
-        "difficulty": 1,
-        "stem": "Following distance should be measured using:",
-        "choices": [
-          "A fixed object on the road ahead and counting seconds.",
-          "The number of car lengths between vehicles.",
-          "Your speedometer reading.",
-          "A guess based on how it feels."
-        ],
-        "answer": "A fixed object on the road ahead and counting seconds.",
-        "explanation": "Counting seconds adjusts for speed and is more reliable than car lengths.",
-        "tags": ["time_gap", "measurement"]
-      },
-      {
-        "id": "U5Q17",
-        "skill": "reaction_time",
-        "difficulty": 2,
-        "stem": "Typical driver reaction time is about:",
-        "choices": ["Around 1 second", "Around 0.1 seconds", "Around 3 seconds", "Around 5 seconds"],
-        "answer": "Around 1 second",
-        "explanation": "Plan for roughly a one‑second delay before braking begins—more if distracted or tired.",
-        "tags": ["reaction", "stopping_distance"]
-      },
-      {
-        "id": "U5Q18",
-        "skill": "lane_position",
-        "difficulty": 1,
-        "stem": "For general driving, the best default lane position is:",
-        "choices": ["Centered in the lane", "Hugging the left line", "Hugging the right line", "Changing position constantly"],
-        "answer": "Centered in the lane",
-        "explanation": "Centering maximizes space on both sides and reduces drift.",
-        "tags": ["lane_position", "stability"]
-      },
-      {
-        "id": "U5Q19",
-        "skill": "stale_green",
-        "difficulty": 2,
-        "stem": "Approaching a ‘stale green’ light, you should:",
-        "choices": [
-          "Cover the brake, scan for cross-traffic, and be prepared to stop.",
-          "Accelerate to beat the yellow.",
-          "Ignore crosswalks if no pedestrians are present.",
-          "Change lanes to the fastest lane."
-        ],
-        "answer": "Cover the brake, scan for cross-traffic, and be prepared to stop.",
-        "explanation": "A stale green may change; early preparation prevents rushed decisions.",
-        "tags": ["intersections", "anticipation"]
-      },
-      {
-        "id": "U5Q20",
-        "skill": "being_passed",
-        "difficulty": 1,
-        "stem": "When another vehicle is passing you, you should:",
-        "choices": [
-          "Maintain lane and speed and allow space.",
-          "Speed up to prevent the pass.",
-          "Move into the shoulder to block.",
-          "Honk and change lanes immediately."
-        ],
-        "answer": "Maintain lane and speed and allow space.",
-        "explanation": "Holding steady helps the passing driver complete safely.",
-        "tags": ["passing", "courtesy"]
-      }
-    ]
+  "unit": 5,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "questions": [
+    {
+      "ref": "U5Q1",
+      "skill": "mindset",
+      "difficulty": 1,
+      "stem": "The primary goal of defensive driving is to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Reduce risk by anticipating hazards and leaving time and space to react."
+        },
+        {
+          "key": "B",
+          "text": "Arrive as quickly as possible by keeping up with the fastest traffic."
+        },
+        {
+          "key": "C",
+          "text": "Focus mainly on your lane and ignore surrounding vehicles."
+        },
+        {
+          "key": "D",
+          "text": "Rely on your vehicle’s safety features to prevent all crashes."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Defensive driving emphasizes risk reduction through anticipation, scanning, and space management—not speed or gadgets.",
+      "tags": [
+        "defensive_driving",
+        "risk"
+      ]
+    },
+    {
+      "ref": "U5Q2",
+      "skill": "systems",
+      "difficulty": 1,
+      "stem": "SIPDE stands for:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Search, Identify, Predict, Decide, Execute"
+        },
+        {
+          "key": "B",
+          "text": "Scan, Inspect, Plan, Drive, Exit"
+        },
+        {
+          "key": "C",
+          "text": "See, Interpret, Proceed, Direct, Evaluate"
+        },
+        {
+          "key": "D",
+          "text": "Search, Indicate, Prepare, Drive, Ease"
+        }
+      ],
+      "answer": "A",
+      "explanation": "SIPDE is the classic defensive driving process to continuously manage hazards.",
+      "tags": [
+        "SIPDE",
+        "scanning"
+      ]
+    },
+    {
+      "ref": "U5Q3",
+      "skill": "systems",
+      "difficulty": 2,
+      "stem": "In the Smith System, “Aim high in steering” means:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Look 12–15 seconds ahead to plan for what’s coming."
+        },
+        {
+          "key": "B",
+          "text": "Keep your eyes fixed on the vehicle immediately ahead."
+        },
+        {
+          "key": "C",
+          "text": "Focus only on the speedometer to manage speed."
+        },
+        {
+          "key": "D",
+          "text": "Lower your seating position for better stability."
+        }
+      ],
+      "answer": "A",
+      "explanation": "A long visual lead time helps you detect and respond to hazards early.",
+      "tags": [
+        "smith_system",
+        "vision"
+      ]
+    },
+    {
+      "ref": "U5Q4",
+      "skill": "following_distance",
+      "difficulty": 1,
+      "stem": "On dry pavement, a minimum following distance for passenger cars is typically:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "3–4 seconds"
+        },
+        {
+          "key": "B",
+          "text": "1 second"
+        },
+        {
+          "key": "C",
+          "text": "6–8 seconds"
+        },
+        {
+          "key": "D",
+          "text": "1 car length per 10 mph"
+        }
+      ],
+      "answer": 3,
+      "explanation": "Use a 3–4 second time gap in ideal conditions; add time in poor conditions.",
+      "tags": [
+        "space_cushion",
+        "time_gap"
+      ]
+    },
+    {
+      "ref": "U5Q5",
+      "skill": "following_distance",
+      "difficulty": 2,
+      "stem": "Which situation calls for increasing your following distance?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Rain or reduced visibility"
+        },
+        {
+          "key": "B",
+          "text": "Clear, dry, empty freeway"
+        },
+        {
+          "key": "C",
+          "text": "Daytime on a straight rural road"
+        },
+        {
+          "key": "D",
+          "text": "Slow neighborhood traffic with no pedestrians"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Bad weather and limited visibility increase stopping distance and risk.",
+      "tags": [
+        "space_cushion",
+        "weather"
+      ]
+    },
+    {
+      "ref": "U5Q6",
+      "skill": "tailgating",
+      "difficulty": 2,
+      "stem": "If a driver is tailgating you, the best response is to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Create extra space ahead and avoid sudden braking."
+        },
+        {
+          "key": "B",
+          "text": "Brake hard to warn them to back off."
+        },
+        {
+          "key": "C",
+          "text": "Speed up significantly to increase distance."
+        },
+        {
+          "key": "D",
+          "text": "Weave to discourage their behavior."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Smoothing your own driving and increasing space ahead reduces the chance of a rear-end crash.",
+      "tags": [
+        "tailgating",
+        "space_management"
+      ]
+    },
+    {
+      "ref": "U5Q7",
+      "skill": "speed_law",
+      "difficulty": 1,
+      "stem": "California’s basic speed law requires you to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Never drive faster than is safe for current conditions."
+        },
+        {
+          "key": "B",
+          "text": "Drive at least the posted speed limit at all times."
+        },
+        {
+          "key": "C",
+          "text": "Match the fastest traffic flow."
+        },
+        {
+          "key": "D",
+          "text": "Use cruise control in all conditions."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Posted limits do not override the need to slow for traffic, weather, or visibility.",
+      "tags": [
+        "basic_speed_law",
+        "speed_management"
+      ]
+    },
+    {
+      "ref": "U5Q8",
+      "skill": "vision",
+      "difficulty": 2,
+      "stem": "Good visual lead time in city driving is about:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "12–15 seconds ahead"
+        },
+        {
+          "key": "B",
+          "text": "3–4 seconds ahead"
+        },
+        {
+          "key": "C",
+          "text": "5–7 seconds ahead"
+        },
+        {
+          "key": "D",
+          "text": "20–30 seconds ahead"
+        }
+      ],
+      "answer": 3,
+      "explanation": "In urban areas, looking 12–15 seconds ahead helps anticipate intersections and hazards.",
+      "tags": [
+        "vision",
+        "lead_time"
+      ]
+    },
+    {
+      "ref": "U5Q9",
+      "skill": "communication",
+      "difficulty": 2,
+      "stem": "Before changing lanes on a freeway in California, you should signal for approximately:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "About 5 seconds"
+        },
+        {
+          "key": "B",
+          "text": "At least 1 second"
+        },
+        {
+          "key": "C",
+          "text": "Only after you begin the lane change"
+        },
+        {
+          "key": "D",
+          "text": "You do not need to signal on freeways"
+        }
+      ],
+      "answer": "A",
+      "explanation": "A longer signal duration on freeways gives other drivers more time to see your intent.",
+      "tags": [
+        "signals",
+        "freeway"
+      ]
+    },
+    {
+      "ref": "U5Q10",
+      "skill": "communication",
+      "difficulty": 1,
+      "stem": "In general, you should signal a turn in California at least:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "100 feet before the turn"
+        },
+        {
+          "key": "B",
+          "text": "25 feet before the turn"
+        },
+        {
+          "key": "C",
+          "text": "After starting your turn"
+        },
+        {
+          "key": "D",
+          "text": "Only if other drivers are nearby"
+        }
+      ],
+      "answer": 3,
+      "explanation": "Signaling early communicates your intentions and reduces conflicts.",
+      "tags": [
+        "signals",
+        "turning"
+      ]
+    },
+    {
+      "ref": "U5Q11",
+      "skill": "blind_spots",
+      "difficulty": 1,
+      "stem": "To check blind spots before a lane change you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Turn your head to look over the appropriate shoulder."
+        },
+        {
+          "key": "B",
+          "text": "Rely only on your side mirrors."
+        },
+        {
+          "key": "C",
+          "text": "Glance at the rearview mirror twice."
+        },
+        {
+          "key": "D",
+          "text": "Honk to warn other drivers."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Head checks reveal vehicles that mirrors cannot show.",
+      "tags": [
+        "blind_spots",
+        "lane_change"
+      ]
+    },
+    {
+      "ref": "U5Q12",
+      "skill": "ABS",
+      "difficulty": 2,
+      "stem": "With ABS in an emergency stop, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Press the brake firmly and steer where you want to go."
+        },
+        {
+          "key": "B",
+          "text": "Pump the brakes rapidly."
+        },
+        {
+          "key": "C",
+          "text": "Apply the parking brake immediately."
+        },
+        {
+          "key": "D",
+          "text": "Turn off the engine to stop faster."
+        }
+      ],
+      "answer": "A",
+      "explanation": "ABS prevents wheel lockup; keep steady pressure and maintain steering control.",
+      "tags": [
+        "ABS",
+        "emergency"
+      ]
+    },
+    {
+      "ref": "U5Q13",
+      "skill": "skid_control",
+      "difficulty": 2,
+      "stem": "If your vehicle begins to skid, you should first:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Ease off the accelerator and look/steer to your intended path."
+        },
+        {
+          "key": "B",
+          "text": "Brake as hard as possible immediately."
+        },
+        {
+          "key": "C",
+          "text": "Turn the wheel opposite your intended path."
+        },
+        {
+          "key": "D",
+          "text": "Accelerate to regain traction."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Reducing power helps tires regain grip; steer where you want the car to go.",
+      "tags": [
+        "skid",
+        "control"
+      ]
+    },
+    {
+      "ref": "U5Q14",
+      "skill": "blowout",
+      "difficulty": 2,
+      "stem": "If you have a tire blowout, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Grip the wheel, ease off the gas, avoid hard braking, and steer to a safe stop."
+        },
+        {
+          "key": "B",
+          "text": "Brake hard immediately and steer sharply to the shoulder."
+        },
+        {
+          "key": "C",
+          "text": "Accelerate to keep the car straight."
+        },
+        {
+          "key": "D",
+          "text": "Turn off the ignition and coast to a stop."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Smooth control prevents a spin or loss of control after a blowout.",
+      "tags": [
+        "blowout",
+        "emergency"
+      ]
+    },
+    {
+      "ref": "U5Q15",
+      "skill": "off_road_recovery",
+      "difficulty": 2,
+      "stem": "If your right wheels drop off the pavement onto the shoulder, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Hold the wheel straight, slow down, and gently steer back when clear."
+        },
+        {
+          "key": "B",
+          "text": "Jerk the wheel left immediately to return to the lane."
+        },
+        {
+          "key": "C",
+          "text": "Accelerate hard to regain the roadway."
+        },
+        {
+          "key": "D",
+          "text": "Brake hard while turning sharply."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Sudden sharp steering can cause a loss of control or rollover.",
+      "tags": [
+        "recovery",
+        "shoulder"
+      ]
+    },
+    {
+      "ref": "U5Q16",
+      "skill": "time_gap",
+      "difficulty": 1,
+      "stem": "Following distance should be measured using:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "A fixed object on the road ahead and counting seconds."
+        },
+        {
+          "key": "B",
+          "text": "The number of car lengths between vehicles."
+        },
+        {
+          "key": "C",
+          "text": "Your speedometer reading."
+        },
+        {
+          "key": "D",
+          "text": "A guess based on how it feels."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Counting seconds adjusts for speed and is more reliable than car lengths.",
+      "tags": [
+        "time_gap",
+        "measurement"
+      ]
+    },
+    {
+      "ref": "U5Q17",
+      "skill": "reaction_time",
+      "difficulty": 2,
+      "stem": "Typical driver reaction time is about:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Around 1 second"
+        },
+        {
+          "key": "B",
+          "text": "Around 0.1 seconds"
+        },
+        {
+          "key": "C",
+          "text": "Around 3 seconds"
+        },
+        {
+          "key": "D",
+          "text": "Around 5 seconds"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Plan for roughly a one‑second delay before braking begins—more if distracted or tired.",
+      "tags": [
+        "reaction",
+        "stopping_distance"
+      ]
+    },
+    {
+      "ref": "U5Q18",
+      "skill": "lane_position",
+      "difficulty": 1,
+      "stem": "For general driving, the best default lane position is:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Centered in the lane"
+        },
+        {
+          "key": "B",
+          "text": "Hugging the left line"
+        },
+        {
+          "key": "C",
+          "text": "Hugging the right line"
+        },
+        {
+          "key": "D",
+          "text": "Changing position constantly"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Centering maximizes space on both sides and reduces drift.",
+      "tags": [
+        "lane_position",
+        "stability"
+      ]
+    },
+    {
+      "ref": "U5Q19",
+      "skill": "stale_green",
+      "difficulty": 2,
+      "stem": "Approaching a ‘stale green’ light, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Cover the brake, scan for cross-traffic, and be prepared to stop."
+        },
+        {
+          "key": "B",
+          "text": "Accelerate to beat the yellow."
+        },
+        {
+          "key": "C",
+          "text": "Ignore crosswalks if no pedestrians are present."
+        },
+        {
+          "key": "D",
+          "text": "Change lanes to the fastest lane."
+        }
+      ],
+      "answer": "A",
+      "explanation": "A stale green may change; early preparation prevents rushed decisions.",
+      "tags": [
+        "intersections",
+        "anticipation"
+      ]
+    },
+    {
+      "ref": "U5Q20",
+      "skill": "being_passed",
+      "difficulty": 1,
+      "stem": "When another vehicle is passing you, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Maintain lane and speed and allow space."
+        },
+        {
+          "key": "B",
+          "text": "Speed up to prevent the pass."
+        },
+        {
+          "key": "C",
+          "text": "Move into the shoulder to block."
+        },
+        {
+          "key": "D",
+          "text": "Honk and change lanes immediately."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Holding steady helps the passing driver complete safely.",
+      "tags": [
+        "passing",
+        "courtesy"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.984Z"
   }
+}

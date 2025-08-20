@@ -1,0 +1,492 @@
+[
+  {
+    "unit": 1,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 63
+    }
+  },
+  {
+    "unit": 1,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 20
+    }
+  },
+  {
+    "unit": 1,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 63
+    }
+  },
+  {
+    "unit": 1,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 20
+    }
+  },
+  {
+    "unit": 2,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 87
+    }
+  },
+  {
+    "unit": 2,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 20
+    }
+  },
+  {
+    "unit": 2,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 87
+    }
+  },
+  {
+    "unit": 2,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 20
+    }
+  },
+  {
+    "unit": 3,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 48
+    }
+  },
+  {
+    "unit": 3,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 20
+    }
+  },
+  {
+    "unit": 3,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 48
+    }
+  },
+  {
+    "unit": 3,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 20
+    }
+  },
+  {
+    "unit": 4,
+    "lang": "en",
+    "warnings": [
+      "minutes_required looks off: 15"
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 48
+    }
+  },
+  {
+    "unit": 4,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 24
+    }
+  },
+  {
+    "unit": 4,
+    "lang": "es",
+    "warnings": [
+      "minutes_required looks off: 15"
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 48
+    }
+  },
+  {
+    "unit": 4,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 24
+    }
+  },
+  {
+    "unit": 5,
+    "lang": "en",
+    "warnings": [
+      "Unit has few paragraphs: 34 (< 40)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 34
+    }
+  },
+  {
+    "unit": 5,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 20
+    }
+  },
+  {
+    "unit": 5,
+    "lang": "en",
+    "warnings": [
+      "Unit has few paragraphs: 34 (< 40)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 34
+    }
+  },
+  {
+    "unit": 5,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 20
+    }
+  },
+  {
+    "unit": 6,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 76
+    }
+  },
+  {
+    "unit": 6,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 24
+    }
+  },
+  {
+    "unit": 6,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 76
+    }
+  },
+  {
+    "unit": 6,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 24
+    }
+  },
+  {
+    "unit": 7,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 42
+    }
+  },
+  {
+    "unit": 7,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 24
+    }
+  },
+  {
+    "unit": 7,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 42
+    }
+  },
+  {
+    "unit": 7,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 24
+    }
+  },
+  {
+    "unit": 8,
+    "lang": "en",
+    "warnings": [
+      "Unit has few paragraphs: 37 (< 40)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 37
+    }
+  },
+  {
+    "unit": 8,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 24
+    }
+  },
+  {
+    "unit": 8,
+    "lang": "en",
+    "warnings": [
+      "Unit has few paragraphs: 37 (< 40)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 37
+    }
+  },
+  {
+    "unit": 8,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 24
+    }
+  },
+  {
+    "unit": 9,
+    "lang": "en",
+    "warnings": [
+      "Unit has few paragraphs: 17 (< 40)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 17
+    }
+  },
+  {
+    "unit": 9,
+    "lang": "en",
+    "warnings": [
+      "Only 12 EN questions (<15)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 12
+    }
+  },
+  {
+    "unit": 9,
+    "lang": "en",
+    "warnings": [
+      "Unit has few paragraphs: 17 (< 40)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 17
+    }
+  },
+  {
+    "unit": 9,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 12
+    }
+  },
+  {
+    "unit": 10,
+    "lang": "en",
+    "warnings": [
+      "Unit has few paragraphs: 16 (< 40)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 16
+    }
+  },
+  {
+    "unit": 10,
+    "lang": "en",
+    "warnings": [
+      "Only 12 EN questions (<15)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 12
+    }
+  },
+  {
+    "unit": 10,
+    "lang": "en",
+    "warnings": [
+      "Unit has few paragraphs: 16 (< 40)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 16
+    }
+  },
+  {
+    "unit": 10,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 12
+    }
+  },
+  {
+    "unit": 11,
+    "lang": "en",
+    "warnings": [
+      "Unit has few paragraphs: 17 (< 40)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 17
+    }
+  },
+  {
+    "unit": 11,
+    "lang": "en",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 22
+    }
+  },
+  {
+    "unit": 11,
+    "lang": "es",
+    "warnings": [
+      "Unit has few paragraphs: 17 (< 40)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 17
+    }
+  },
+  {
+    "unit": 11,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 22
+    }
+  },
+  {
+    "unit": 12,
+    "lang": "en",
+    "warnings": [
+      "Unit has few paragraphs: 16 (< 40)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 16
+    }
+  },
+  {
+    "unit": 12,
+    "lang": "en",
+    "warnings": [
+      "Only 12 EN questions (<15)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 12
+    }
+  },
+  {
+    "unit": 12,
+    "lang": "en",
+    "warnings": [
+      "Unit has few paragraphs: 16 (< 40)."
+    ],
+    "errors": [],
+    "stats": {
+      "paragraphs": 16
+    }
+  },
+  {
+    "unit": 12,
+    "lang": "es",
+    "warnings": [],
+    "errors": [],
+    "stats": {
+      "paragraphs": 0,
+      "questions": 12
+    }
+  }
+]

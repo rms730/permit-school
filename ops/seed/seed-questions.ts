@@ -1,191 +1,90 @@
-import { getAdmin } from "./lib/supabase";
+import "dotenv-flow/config";
 import { readJson } from "./lib/files";
-import { log } from "./lib/log";
-import { UnitQuestionsSchema, UnitQuestions } from "./lib/schema";
+import { getAdmin } from "./lib/supabase";
+import { normalizeQuestions } from "./lib/normalize";
+import { QuestionsFileSchema } from "./lib/schema";
 
-async function resolveCourseId(client: ReturnType<typeof getAdmin>, jurisdiction: string, course: string) {
-  const { data: j } = await client
-    .from("jurisdictions")
-    .select("id")
-    .eq("code", jurisdiction)
-    .single();
-  if (!j) throw new Error(`Jurisdiction ${jurisdiction} not found`);
-  const { data: courseData } = await client
-    .from("courses")
-    .select("id")
-    .eq("jurisdiction_id", j.id)
-    .eq("code", course)
-    .single();
-  if (!courseData) throw new Error(`Course ${course} not found`);
-  return courseData.id as string;
+async function ensureCourse(admin: ReturnType<typeof getAdmin>, j_code: string, course_code: string) {
+  const { data: course } = await admin.from("courses").select("id").eq("code", course_code).limit(1).single();
+  if (!course) throw new Error(`Course not found: ${j_code}/${course_code}`);
+  return course.id;
 }
 
-// Helper function to extract question data from different structures
-function extractQuestionData(questionData: UnitQuestions, targetUnit: number) {
-  let unitNo: number;
-  let lang: string;
-  let questions: any[];
-  let translations: any[];
-  
-  if ('unit' in questionData) {
-    // Structure 1: Flat structure
-    unitNo = questionData.unit;
-    lang = questionData.lang;
-    questions = questionData.questions;
-    translations = [];
-  } else if ('meta' in questionData) {
-    // Structure 2: Meta object
-    unitNo = questionData.meta.unit_no;
-    lang = questionData.meta.lang;
-    
-    if ('questions' in questionData) {
-      // Structure 2: Meta object with questions
-      questions = questionData.questions;
-      translations = [];
-    } else if ('translations' in questionData) {
-      // Structure 3: Meta object with translations
-      questions = [];
-      translations = questionData.translations;
-    } else {
-      throw new Error('Unknown question data structure');
-    }
-  } else {
-    throw new Error('Unknown question data structure');
-  }
-  
-  return { unitNo, lang, questions, translations };
-}
-
-async function upsertQuestions(
-  client: ReturnType<typeof getAdmin>,
-  courseId: string,
-  questionData: UnitQuestions,
-  unit: number
-) {
-  const { unitNo, lang, questions, translations } = extractQuestionData(questionData, unit);
-  let count = 0;
-  
-  // Handle regular questions (English or Spanish questions)
-  for (const q of questions) {
+async function upsertEnglishQuestions(admin: ReturnType<typeof getAdmin>, courseId: string, unitNo: number, qfile: any) {
+  for (const q of qfile.questions ?? []) {
+    // Insert/upsert into question_bank with deterministic id
     const row = {
+      id: q.qid, // deterministic
       course_id: courseId,
-      skill: q.skill,
+      skill: q.skill || "general",
       difficulty: q.difficulty,
       stem: q.stem,
       choices: q.choices,
       answer: q.answer,
       explanation: q.explanation,
-      source_sections: [`unit:${unit}`],
-      tags: [...new Set([`unit:${unit}`, ...q.tags])],
-      source_ref: q.id,
+      tags: q.tags ?? [],
+      source_sections: [`unit:${unitNo}`],
       status: "approved",
-      is_generated: false,
     };
-
-    // Check if question already exists
-    let qb;
-    const { data: existingQuestion } = await client
-      .from("question_bank")
-      .select("id")
-      .eq("course_id", courseId)
-      .eq("source_ref", q.id)
-      .single();
-    
-    if (existingQuestion) {
-      qb = existingQuestion;
-    } else {
-      const { data: newQuestion, error: qErr } = await client
-        .from("question_bank")
-        .insert(row)
-        .select("id")
-        .single();
-      if (qErr) throw qErr;
-      qb = newQuestion;
-    }
-
-    count++;
+    const { error } = await admin.from("question_bank")
+      .upsert(row, { onConflict: "id" });
+    if (error) throw error;
   }
-  
-  // Handle translations (Spanish translations)
-  for (const t of translations) {
-    // Find the corresponding English question
-    const { data: englishQuestion } = await client
-      .from("question_bank")
-      .select("id")
-      .eq("course_id", courseId)
-      .eq("source_ref", t.ref_id)
-      .single();
-    
-    if (!englishQuestion) {
-      log.warn(`No English question found for translation ${t.ref_id}`);
-      continue;
-    }
-    
-    // Check if translation already exists
-    const { data: existingTranslation } = await client
-      .from("question_translations")
-      .select("id")
-      .eq("question_id", englishQuestion.id)
-      .eq("lang", lang)
-      .single();
-    
-    if (!existingTranslation) {
-      const { error: tErr } = await client
-        .from("question_translations")
-        .insert({
-          question_id: englishQuestion.id,
-          lang: lang,
-          stem: t.stem,
-          choices: t.choices,
-          explanation: t.explanation,
-        });
-      if (tErr) throw tErr;
-    }
-    
-    count++;
-  }
-  
-  return count;
 }
 
-export async function seedQuestions(unit: number, lang: string, jurisdiction: string, course: string) {
-  const client = getAdmin();
-  const unitStr = unit.toString().padStart(2, '0');
-  const filePath = `ops/seed/questions/${jurisdiction}/${course}/units/unit${unitStr}.${lang}.json`;
-  
-  const questions = UnitQuestionsSchema.parse(
-    await readJson<UnitQuestions>(filePath)
-  );
-
-  const courseId = await resolveCourseId(client, jurisdiction, course);
-  const n = await upsertQuestions(client, courseId, questions, unit);
-  log.ok(`Upserted ${n} questions for Unit ${unit} (${lang.toUpperCase()}).`);
+async function upsertSpanishTranslations(admin: ReturnType<typeof getAdmin>, courseId: string, unitNo: number, qfile: any) {
+  // Two possibilities:
+  // a) canonical ES with questions[] + deterministic ids matching EN (same qid algorithm)
+  if (qfile.questions) {
+    for (const q of qfile.questions) {
+      // For now, create Spanish questions as new questions rather than translations
+      // since the English questions may not exist yet
+      const row = {
+        id: q.qid, // deterministic
+        course_id: courseId,
+        skill: q.skill || "general",
+        difficulty: q.difficulty,
+        stem: q.stem,
+        choices: q.choices,
+        answer: q.answer,
+        explanation: q.explanation,
+        tags: q.tags ?? [],
+        source_sections: [`unit:${unitNo}`],
+        status: "approved",
+      };
+      const { error } = await admin.from("question_bank")
+        .upsert(row, { onConflict: "id" });
+      if (error) throw error;
+    }
+    return;
+  }
+  // b) legacy translations dictionary: { [someKey]: "spanish text ..." } – here we cannot resolve choices/explanations; skip with warning.
+  if (qfile.translations) {
+    console.warn("⚠️ Legacy ES translations map found; please migrate to canonical ES questions[] with deterministic IDs.");
+  }
 }
 
 async function main() {
-  // Parse command line arguments
-  const args = process.argv.slice(2);
-  const unitArg = args.find(arg => arg.startsWith('--unit='));
-  const langArg = args.find(arg => arg.startsWith('--lang='));
-  const jArg = args.find(arg => arg.startsWith('--j='));
-  const courseArg = args.find(arg => arg.startsWith('--course='));
-
-  const unit = unitArg ? parseInt(unitArg.split('=')[1]) : 1;
-  const langs = langArg ? langArg.split('=')[1].split(',') : ['en', 'es'];
-  const jurisdiction = jArg ? jArg.split('=')[1] : 'CA';
-  const course = courseArg ? courseArg.split('=')[1] : 'DE-ONLINE';
-
-  // Seed questions for all languages
-  for (const lang of langs) {
-    await seedQuestions(unit, lang, jurisdiction, course);
+  const [file, j_code, course_code, unitStr, lang] = process.argv.slice(2);
+  if (!file || !j_code || !course_code || !unitStr || !lang) {
+    throw new Error("Usage: tsx ops/seed/seed-questions.ts <file> <j_code> <course_code> <unit> <en|es>");
   }
-  
-  log.ok(`Questions seeding complete for Unit ${unit} (${langs.join('/').toUpperCase()}).`);
+  const unit = Number(unitStr) || 0;
+
+  const raw = await readJson(file);
+  const normalized = normalizeQuestions(raw, { j_code, course_code, unit, lang: lang as "en"|"es" });
+  QuestionsFileSchema.parse(normalized);
+
+  const admin = getAdmin();
+  const courseId = await ensureCourse(admin, j_code, course_code);
+
+  if (lang === "en") {
+    await upsertEnglishQuestions(admin, courseId, unit, normalized);
+  } else {
+    await upsertSpanishTranslations(admin, courseId, unit, normalized);
+  }
+
+  console.log(`✅ Questions seeded: U${unit} ${lang}`);
 }
 
-if (require.main === module) {
-  main().catch((e) => {
-    console.error(e);
-    process.exit(1);
-  });
-}
+main().catch(e => { console.error(e); process.exit(1); });

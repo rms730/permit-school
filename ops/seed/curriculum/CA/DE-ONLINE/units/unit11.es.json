@@ -1,160 +1,124 @@
 {
-    "unit": 11,
-    "lang": "es",
-    "title": "Estacionamiento, Multas, Puntos y Reglas Provisionales",
-    "minutes_required": 60,
-    "objectives": [
-      "Aplicar reglas de estacionamiento en CA: colores (rojo/azul/blanco/verde/amarillo), distancias y estacionamiento en cuestas.",
-      "Entender las restricciones de la licencia provisional de menores y sus excepciones.",
-      "Explicar conceptos básicos de citaciones, multas, corte/escuela de infractores.",
-      "Describir el sistema NOTS (Negligent Operator Treatment System) y conteo de puntos.",
-      "Reconocer reglas de estacionamiento para personas discapacitadas y sanciones por mal uso."
-    ],
-    "sections": [
-      {
-        "id": "u11-s01",
-        "title": "Reglas de Estacionamiento y Colores de Borde de Acera",
-        "lessons": [
-          {
-            "id": "u11-s01-l01",
-            "title": "Códigos de Color y Dónde Puede Parar",
-            "minutes": 8,
-            "body": [
-              "Los bordes de acera indican reglas. Blanco: parar solo para recoger o dejar pasajeros (o correo). Verde: estacionarse por tiempo limitado—el tiempo aparece en letreros o pintado en el borde. Amarillo: parar solo el tiempo permitido para cargar/descargar pasajeros o carga; si conduce un vehículo no comercial, por lo general debe permanecer en el vehículo. Rojo: prohibido parar, esperar o estacionarse. Azul: estacionamiento exclusivo para personas con discapacidad con cartel o placas válidas; la zona de acceso enrejada junto al espacio para discapacitados no es para parar ni estacionarse.",
-              "Errores comunes: detenerse en zona roja para 'bajar rápido'; quedarse más del tiempo indicado en zona amarilla; estacionarse en la zona enrejada junto al espacio azul."
-            ],
-            "key_terms": ["Colores de borde", "Zona de carga", "Zona de acceso"],
-            "references": [
-              { "source": "DL-600-ES-2025", "section": "Estacionamiento — Bordes de colores y estacionamiento prohibido" }
-            ]
-          },
-          {
-            "id": "u11-s01-l02",
-            "title": "Ciclovías y Zonas Escolares",
-            "minutes": 6,
-            "body": [
-              "Ciclovías: Es ilegal circular en una ciclovía salvo para estacionar donde esté permitido, entrar/salir de la vía o dentro de los últimos 200 pies antes de dar vuelta a la derecha. Si hay letreros de 'No Parking', no se estacione en la ciclovía.",
-              "Cerca de escuelas: espere más peatones y zonas de ascenso/descenso; obedezca los letreros de carga de pasajeros y cualquier zona con tiempo limitado."
-            ],
-            "key_terms": ["Ciclovía", "Zona de ascenso/descenso", "Zona escolar"],
-            "references": [
-              { "source": "DL-600-ES-2025", "section": "Ciclovías; Alrededor de escuelas" }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "u11-s02",
-        "title": "Distancias, Cuestas y Lugares Especiales",
-        "lessons": [
-          {
-            "id": "u11-s02-l01",
-            "title": "¿A qué distancia? Hidrantes, Cruces Peatonales y Vías del Tren",
-            "minutes": 6,
-            "body": [
-              "Nunca se estacione: a 15 pies o menos de un hidrante o la entrada de una estación de bomberos; a 20 pies de un cruce peatonal (marcado o no) o a 15 pies cuando hay una extensión de borde de acera; frente o sobre una acera; a menos de 3 pies de una rampa para discapacitados; en la zona de acceso con líneas enrejadas; o en doble fila.",
-              "Cruces ferroviarios: cuando los dispositivos o una persona indiquen que viene un tren, deténgase por lo menos a 15 pies del riel más cercano—nunca se detenga sobre las vías."
-            ],
-            "key_terms": ["Hidrante", "Cruce peatonal", "Paso a nivel"],
-            "references": [
-              { "source": "DL-600-ES-2025", "section": "Estacionamiento prohibido; Cerca de vías férreas o tren ligero" }
-            ]
-          },
-          {
-            "id": "u11-s02-l02",
-            "title": "Paralelo y Estacionamiento en Cuestas",
-            "minutes": 6,
-            "body": [
-              "Después de estacionarse en paralelo, las llantas deben quedar a no más de 18 pulgadas del borde de acera.",
-              "En cuestas: Cuesta abajo — gire las ruedas hacia el borde de acera. Cuesta arriba con borde — gire las ruedas en sentido opuesto al borde y deje que la llanta toque ligeramente el borde. Sin borde — gire las ruedas para que el vehículo no ruede hacia la vía si fallan los frenos."
-            ],
-            "key_terms": ["Estacionamiento en paralelo", "Cuesta arriba", "Cuesta abajo"],
-            "references": [
-              { "source": "DL-600-ES-2025", "section": "Estacionamiento — Paralelo y en cuestas" }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "u11-s03",
-        "title": "Licencia Provisional (Menores) — Reglas y Excepciones",
-        "lessons": [
-          {
-            "id": "u11-s03-l01",
-            "title": "Toque de queda, Pasajeros y Excepciones",
-            "minutes": 10,
-            "body": [
-              "Durante los primeros 12 meses con licencia provisional, no puede manejar entre las 11 p.m. y las 5 a.m., ni llevar pasajeros menores de 20 años salvo que lo acompañe un conductor con licencia de California de por lo menos 25 años.",
-              "Excepciones si lleva una nota firmada: necesidad médica (médico), escuela o actividad escolar (autoridad escolar), empleo (empleador) o transportar a un familiar cercano (padre/tutor).",
-              "Los padres o tutores pueden cancelar la licencia del menor mediante el formulario correspondiente del DMV."
-            ],
-            "key_terms": ["Licencia provisional", "Toque de queda", "Excepciones"],
-            "references": [
-              { "source": "DL-600-ES-2025", "section": "Restricciones y excepciones a menores" }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "u11-s04",
-        "title": "Citaciones, Multas y Escuela de Infractores",
-        "lessons": [
-          {
-            "id": "u11-s04-l01",
-            "title": "Citación, Corte y Asuntos Corregibles",
-            "minutes": 8,
-            "body": [
-              "Al firmar una citación, promete presentarse en corte. Si no se presenta (FTA), el DMV puede suspender su privilegio de manejar hasta que comparezca y el FTA quedará en su expediente.",
-              "Escuela para infractores de tránsito (TVS): Para ciertas infracciones de un punto, el juez puede permitir asistir a TVS para que la citación no se reporte a su aseguradora (permanece en el expediente del DMV). Se puede usar una vez cada 18 meses."
-            ],
-            "key_terms": ["Citación", "Escuela de infractores", "FTA (Falta de comparecer)"],
-            "references": [
-              { "source": "DL-600-ES-2025", "section": "Puntos en el expediente; Escuela para infractores" }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "u11-s05",
-        "title": "Puntos y Sistema NOTS",
-        "lessons": [
-          {
-            "id": "u11-s05-l01",
-            "title": "Conteo de Puntos y Consecuencias (Adultos y Menores)",
-            "minutes": 8,
-            "body": [
-              "Umbrales NOTS para adultos: 4 puntos en 12 meses, 6 puntos en 24 meses u 8 puntos en 36 meses.",
-              "Menores: choques/condenas pueden activar restricciones o suspensión en los primeros 12 meses (p. ej., dos choques con culpa o condenas llevan a restricción de 30 días con conductor de 25+; tres llevan a suspensión de 6 meses y un año de periodo de prueba)."
-            ],
-            "key_terms": ["NOTS", "Puntos", "Periodo de prueba"],
-            "references": [
-              { "source": "DL-600-ES-2025", "section": "Puntos; Suspensión/Revocación; Mantener su licencia provisional" }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "u11-s06",
-        "title": "Estacionamiento para Discapacitados y Mal Uso",
-        "lessons": [
-          {
-            "id": "u11-s06-l01",
-            "title": "Acceso, Carteles y Faltas Comunes",
-            "minutes": 8,
-            "body": [
-              "Las zonas azules son para vehículos con cartel o placas de persona discapacitada. Nunca se detenga ni estacione en la zona de acceso con líneas enrejadas junto al espacio para discapacitados.",
-              "No bloquee rampas ni se estacione a menos de 3 pies de una rampa de acera. Espere mayor cumplimiento en zonas escolares, comerciales y residenciales."
-            ],
-            "key_terms": ["Estacionamiento para discapacitados", "Cartel/placa", "Zona de acceso"],
-            "references": [
-              { "source": "DL-600-ES-2025", "section": "Estacionamiento — Discapacitados y zonas de acceso" }
-            ]
-          }
-        ]
-      }
-    ],
-    "assessment": {
-      "quiz_size": 6,
-      "skills": ["Parking_rules", "Provisional_restrictions", "NOTS_points", "Disabled_parking", "Enforcement_basics"]
+  "unit": 11,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "es",
+  "title": "Estacionamiento, Multas, Puntos y Reglas Provisionales",
+  "minutes_required": 60,
+  "objectives": [
+    "Aplicar reglas de estacionamiento en CA: colores (rojo/azul/blanco/verde/amarillo), distancias y estacionamiento en cuestas.",
+    "Entender las restricciones de la licencia provisional de menores y sus excepciones.",
+    "Explicar conceptos básicos de citaciones, multas, corte/escuela de infractores.",
+    "Describir el sistema NOTS (Negligent Operator Treatment System) y conteo de puntos.",
+    "Reconocer reglas de estacionamiento para personas discapacitadas y sanciones por mal uso."
+  ],
+  "sections": [
+    {
+      "title": "Reglas de Estacionamiento y Colores de Borde de Acera",
+      "lessons": [
+        {
+          "title": "Códigos de Color y Dónde Puede Parar",
+          "minutes": 8,
+          "content": [
+            "Los bordes de acera indican reglas. Blanco: parar solo para recoger o dejar pasajeros (o correo). Verde: estacionarse por tiempo limitado—el tiempo aparece en letreros o pintado en el borde. Amarillo: parar solo el tiempo permitido para cargar/descargar pasajeros o carga; si conduce un vehículo no comercial, por lo general debe permanecer en el vehículo. Rojo: prohibido parar, esperar o estacionarse. Azul: estacionamiento exclusivo para personas con discapacidad con cartel o placas válidas; la zona de acceso enrejada junto al espacio para discapacitados no es para parar ni estacionarse.",
+            "Errores comunes: detenerse en zona roja para 'bajar rápido'; quedarse más del tiempo indicado en zona amarilla; estacionarse en la zona enrejada junto al espacio azul."
+          ],
+          "review": []
+        },
+        {
+          "title": "Ciclovías y Zonas Escolares",
+          "minutes": 6,
+          "content": [
+            "Ciclovías: Es ilegal circular en una ciclovía salvo para estacionar donde esté permitido, entrar/salir de la vía o dentro de los últimos 200 pies antes de dar vuelta a la derecha. Si hay letreros de 'No Parking', no se estacione en la ciclovía.",
+            "Cerca de escuelas: espere más peatones y zonas de ascenso/descenso; obedezca los letreros de carga de pasajeros y cualquier zona con tiempo limitado."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Distancias, Cuestas y Lugares Especiales",
+      "lessons": [
+        {
+          "title": "¿A qué distancia? Hidrantes, Cruces Peatonales y Vías del Tren",
+          "minutes": 6,
+          "content": [
+            "Nunca se estacione: a 15 pies o menos de un hidrante o la entrada de una estación de bomberos; a 20 pies de un cruce peatonal (marcado o no) o a 15 pies cuando hay una extensión de borde de acera; frente o sobre una acera; a menos de 3 pies de una rampa para discapacitados; en la zona de acceso con líneas enrejadas; o en doble fila.",
+            "Cruces ferroviarios: cuando los dispositivos o una persona indiquen que viene un tren, deténgase por lo menos a 15 pies del riel más cercano—nunca se detenga sobre las vías."
+          ],
+          "review": []
+        },
+        {
+          "title": "Paralelo y Estacionamiento en Cuestas",
+          "minutes": 6,
+          "content": [
+            "Después de estacionarse en paralelo, las llantas deben quedar a no más de 18 pulgadas del borde de acera.",
+            "En cuestas: Cuesta abajo — gire las ruedas hacia el borde de acera. Cuesta arriba con borde — gire las ruedas en sentido opuesto al borde y deje que la llanta toque ligeramente el borde. Sin borde — gire las ruedas para que el vehículo no ruede hacia la vía si fallan los frenos."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Licencia Provisional (Menores) — Reglas y Excepciones",
+      "lessons": [
+        {
+          "title": "Toque de queda, Pasajeros y Excepciones",
+          "minutes": 10,
+          "content": [
+            "Durante los primeros 12 meses con licencia provisional, no puede manejar entre las 11 p.m. y las 5 a.m., ni llevar pasajeros menores de 20 años salvo que lo acompañe un conductor con licencia de California de por lo menos 25 años.",
+            "Excepciones si lleva una nota firmada: necesidad médica (médico), escuela o actividad escolar (autoridad escolar), empleo (empleador) o transportar a un familiar cercano (padre/tutor).",
+            "Los padres o tutores pueden cancelar la licencia del menor mediante el formulario correspondiente del DMV."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Citaciones, Multas y Escuela de Infractores",
+      "lessons": [
+        {
+          "title": "Citación, Corte y Asuntos Corregibles",
+          "minutes": 8,
+          "content": [
+            "Al firmar una citación, promete presentarse en corte. Si no se presenta (FTA), el DMV puede suspender su privilegio de manejar hasta que comparezca y el FTA quedará en su expediente.",
+            "Escuela para infractores de tránsito (TVS): Para ciertas infracciones de un punto, el juez puede permitir asistir a TVS para que la citación no se reporte a su aseguradora (permanece en el expediente del DMV). Se puede usar una vez cada 18 meses."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Puntos y Sistema NOTS",
+      "lessons": [
+        {
+          "title": "Conteo de Puntos y Consecuencias (Adultos y Menores)",
+          "minutes": 8,
+          "content": [
+            "Umbrales NOTS para adultos: 4 puntos en 12 meses, 6 puntos en 24 meses u 8 puntos en 36 meses.",
+            "Menores: choques/condenas pueden activar restricciones o suspensión en los primeros 12 meses (p. ej., dos choques con culpa o condenas llevan a restricción de 30 días con conductor de 25+; tres llevan a suspensión de 6 meses y un año de periodo de prueba)."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Estacionamiento para Discapacitados y Mal Uso",
+      "lessons": [
+        {
+          "title": "Acceso, Carteles y Faltas Comunes",
+          "minutes": 8,
+          "content": [
+            "Las zonas azules son para vehículos con cartel o placas de persona discapacitada. Nunca se detenga ni estacione en la zona de acceso con líneas enrejadas junto al espacio para discapacitados.",
+            "No bloquee rampas ni se estacione a menos de 3 pies de una rampa de acera. Espere mayor cumplimiento en zonas escolares, comerciales y residenciales."
+          ],
+          "review": []
+        }
+      ]
     }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.970Z"
   }
+}

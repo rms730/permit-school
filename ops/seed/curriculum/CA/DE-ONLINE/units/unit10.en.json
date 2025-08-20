@@ -1,149 +1,113 @@
 {
-    "course": { "j_code": "CA", "course_code": "DE-ONLINE" },
-    "unit": {
-      "unit_no": 10,
-      "title": "Vehicle Ownership, Insurance & Collisions",
-      "minutes_required": 60,
-      "objectives": [
-        "Understand registration, title, and renewal basics and keep records up to date.",
-        "Explain California financial responsibility (insurance) requirements and proof.",
-        "Perform basic maintenance checks and keep safety equipment in working order.",
-        "Know what to do at a collision scene and how/when to report.",
-        "Reduce risk and legal issues by planning for emergencies and documentation."
-      ],
-      "sections": [
+  "unit": 10,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Vehicle Ownership, Insurance & Collisions",
+  "minutes_required": 60,
+  "objectives": [
+    "Understand registration, title, and renewal basics and keep records up to date.",
+    "Explain California financial responsibility (insurance) requirements and proof.",
+    "Perform basic maintenance checks and keep safety equipment in working order.",
+    "Know what to do at a collision scene and how/when to report.",
+    "Reduce risk and legal issues by planning for emergencies and documentation."
+  ],
+  "sections": [
+    {
+      "title": "Registration, Title & Renewal",
+      "lessons": [
         {
-          "id": "10.1",
-          "title": "Registration, Title & Renewal",
-          "summary": "Keep your vehicle legal with proper documents and on-time renewals.",
-          "lessons": [
-            {
-              "id": "10.1.1",
-              "title": "Registration & Title Basics",
-              "estimated_minutes": 8,
-              "content": [
-                { "type": "p", "text": "Your vehicle must have a valid title and registration with current address on file. Display valid plates and stickers as required." },
-                { "type": "bullets", "items": [
-                  "Update address promptly after moving.",
-                  "Complete transfer of title when buying/selling.",
-                  "Follow state notices for smog or other requirements."
-                ] }
-              ]
-            },
-            {
-              "id": "10.1.2",
-              "title": "Renewals, Fees & Smog Checks",
-              "estimated_minutes": 6,
-              "content": [
-                { "type": "p", "text": "Renew on time to avoid penalties. Some vehicles require periodic emissions inspections based on state rules." },
-                { "type": "bullets", "items": [
-                  "Watch for renewal notices.",
-                  "Keep proof of compliance in your vehicle when needed.",
-                  "Resolve holds or fines before renewal."
-                ] }
-              ]
-            }
-          ]
+          "title": "Registration & Title Basics",
+          "minutes": 5,
+          "content": [
+            "Your vehicle must have a valid title and registration with current address on file. Display valid plates and stickers as required.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "10.2",
-          "title": "Insurance & Financial Responsibility",
-          "summary": "Carry valid proof and understand coverage types.",
-          "lessons": [
-            {
-              "id": "10.2.1",
-              "title": "Coverage Types & Proof",
-              "estimated_minutes": 7,
-              "content": [
-                { "type": "p", "text": "California law requires financial responsibility, typically through liability insurance. Keep digital or paper proof available for law enforcement." },
-                { "type": "bullets", "items": [
-                  "Liability covers damage/injury you cause.",
-                  "Additional coverages: collision, comprehensive, uninsured/underinsured.",
-                  "Penalties for no proof can include fines or impound in some cases."
-                ] }
-              ]
-            },
-            {
-              "id": "10.2.2",
-              "title": "After a Collision: Reporting & SR Forms",
-              "estimated_minutes": 7,
-              "content": [
-                { "type": "p", "text": "If a collision meets reporting thresholds (e.g., injury, certain property damage), you must file required reports within the state’s timeframe." },
-                { "type": "bullets", "items": [
-                  "Contact law enforcement when required.",
-                  "Notify your insurer promptly.",
-                  "File DMV report forms (e.g., SR) when applicable."
-                ] }
-              ]
-            }
-          ]
+          "title": "Renewals, Fees & Smog Checks",
+          "minutes": 5,
+          "content": [
+            "Renew on time to avoid penalties. Some vehicles require periodic emissions inspections based on state rules.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Insurance & Financial Responsibility",
+      "lessons": [
+        {
+          "title": "Coverage Types & Proof",
+          "minutes": 5,
+          "content": [
+            "California law requires financial responsibility, typically through liability insurance. Keep digital or paper proof available for law enforcement.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "10.3",
-          "title": "Maintenance & Safety Equipment",
-          "summary": "Prevent breakdowns and stay safe with regular checks.",
-          "lessons": [
-            {
-              "id": "10.3.1",
-              "title": "Essential Maintenance",
-              "estimated_minutes": 8,
-              "content": [
-                { "type": "p", "text": "Check tires, brakes, fluids, lights, and wipers regularly. Address warning lights promptly and keep a maintenance log." },
-                { "type": "bullets", "items": [
-                  "Proper tire inflation and tread depth.",
-                  "Brake responsiveness and noises.",
-                  "Battery, belts, coolant, and oil levels."
-                ] }
-              ]
-            },
-            {
-              "id": "10.3.2",
-              "title": "Safety Equipment & Emergency Kits",
-              "estimated_minutes": 6,
-              "content": [
-                { "type": "p", "text": "Functioning headlights, brake lights, mirrors, and horn are essential. Carry an emergency kit suited to your region and season." },
-                { "type": "bullets", "items": [
-                  "Reflective triangles, flashlight, first aid kit.",
-                  "Water, blanket, phone charger.",
-                  "Gloves and tire-changing tools."
-                ] }
-              ]
-            }
-          ]
+          "title": "After a Collision: Reporting & SR Forms",
+          "minutes": 5,
+          "content": [
+            "If a collision meets reporting thresholds (e.g., injury, certain property damage), you must file required reports within the state’s timeframe.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Maintenance & Safety Equipment",
+      "lessons": [
+        {
+          "title": "Essential Maintenance",
+          "minutes": 5,
+          "content": [
+            "Check tires, brakes, fluids, lights, and wipers regularly. Address warning lights promptly and keep a maintenance log.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "10.4",
-          "title": "At the Scene: Step-by-Step",
-          "summary": "Stay calm, safe, and thorough after a collision.",
-          "lessons": [
-            {
-              "id": "10.4.1",
-              "title": "Immediate Actions",
-              "estimated_minutes": 9,
-              "content": [
-                { "type": "p", "text": "Stop immediately, protect the scene if safe, and check for injuries. Call 911 for emergencies. Move vehicles out of travel lanes if minor and safe." },
-                { "type": "bullets", "items": [
-                  "Turn on hazards; set out triangles if safe.",
-                  "Do not admit fault at the scene.",
-                  "Document damage, location, weather, and witness contacts."
-                ] }
-              ]
-            },
-            {
-              "id": "10.4.2",
-              "title": "Exchange & Reporting",
-              "estimated_minutes": 9,
-              "content": [
-                { "type": "p", "text": "Exchange names, addresses, driver license numbers, license plates, and insurance details. Follow state timelines for reports." },
-                { "type": "bullets", "items": [
-                  "Take photos and note vehicle positions.",
-                  "File DMV report if thresholds are met.",
-                  "Notify parents/guardians if you are a minor."
-                ] }
-              ]
-            }
-          ]
+          "title": "Safety Equipment & Emergency Kits",
+          "minutes": 5,
+          "content": [
+            "Functioning headlights, brake lights, mirrors, and horn are essential. Carry an emergency kit suited to your region and season.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "At the Scene: Step-by-Step",
+      "lessons": [
+        {
+          "title": "Immediate Actions",
+          "minutes": 5,
+          "content": [
+            "Stop immediately, protect the scene if safe, and check for injuries. Call 911 for emergencies. Move vehicles out of travel lanes if minor and safe.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Exchange & Reporting",
+          "minutes": 5,
+          "content": [
+            "Exchange names, addresses, driver license numbers, license plates, and insurance details. Follow state timelines for reports.",
+            "[object Object]"
+          ],
+          "review": []
         }
       ]
     }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.969Z"
   }
+}

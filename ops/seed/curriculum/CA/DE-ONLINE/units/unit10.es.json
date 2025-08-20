@@ -1,149 +1,113 @@
 {
-    "course": { "j_code": "CA", "course_code": "DE-ONLINE" },
-    "unit": {
-      "unit_no": 10,
-      "title": "Propiedad del Vehículo, Seguro y Colisiones",
-      "minutes_required": 60,
-      "objectives": [
-        "Comprender registro, título y renovaciones y mantener documentos al día.",
-        "Explicar los requisitos de responsabilidad financiera (seguro) en California y su comprobación.",
-        "Realizar revisiones básicas de mantenimiento y mantener el equipo de seguridad en buen estado.",
-        "Saber qué hacer en el lugar de una colisión y cómo/cuándo reportar.",
-        "Reducir riesgos y problemas legales con preparación y documentación."
-      ],
-      "sections": [
+  "unit": 10,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Propiedad del Vehículo, Seguro y Colisiones",
+  "minutes_required": 60,
+  "objectives": [
+    "Comprender registro, título y renovaciones y mantener documentos al día.",
+    "Explicar los requisitos de responsabilidad financiera (seguro) en California y su comprobación.",
+    "Realizar revisiones básicas de mantenimiento y mantener el equipo de seguridad en buen estado.",
+    "Saber qué hacer en el lugar de una colisión y cómo/cuándo reportar.",
+    "Reducir riesgos y problemas legales con preparación y documentación."
+  ],
+  "sections": [
+    {
+      "title": "Registro, Título y Renovación",
+      "lessons": [
         {
-          "id": "10.1",
-          "title": "Registro, Título y Renovación",
-          "summary": "Mantén tu vehículo legal con documentos correctos y renovaciones puntuales.",
-          "lessons": [
-            {
-              "id": "10.1.1",
-              "title": "Conceptos Básicos de Registro y Título",
-              "estimated_minutes": 8,
-              "content": [
-                { "type": "p", "text": "Tu vehículo debe tener un título y registro válidos con tu dirección actualizada. Muestra placas y calcomanías vigentes según lo requerido." },
-                { "type": "bullets", "items": [
-                  "Actualiza tu dirección al mudarte.",
-                  "Completa la transferencia de título al comprar/vender.",
-                  "Sigue los avisos estatales de smog u otros requisitos."
-                ] }
-              ]
-            },
-            {
-              "id": "10.1.2",
-              "title": "Renovaciones, Tarifas e Inspecciones de Emisiones",
-              "estimated_minutes": 6,
-              "content": [
-                { "type": "p", "text": "Renueva a tiempo para evitar multas. Algunos vehículos requieren inspecciones de emisiones periódicas según las reglas estatales." },
-                { "type": "bullets", "items": [
-                  "Atiende los avisos de renovación.",
-                  "Conserva prueba de cumplimiento en el vehículo cuando sea necesario.",
-                  "Resuelve bloqueos o multas antes de renovar."
-                ] }
-              ]
-            }
-          ]
+          "title": "Conceptos Básicos de Registro y Título",
+          "minutes": 5,
+          "content": [
+            "Tu vehículo debe tener un título y registro válidos con tu dirección actualizada. Muestra placas y calcomanías vigentes según lo requerido.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "10.2",
-          "title": "Seguro y Responsabilidad Financiera",
-          "summary": "Lleva prueba válida y entiende los tipos de cobertura.",
-          "lessons": [
-            {
-              "id": "10.2.1",
-              "title": "Tipos de Cobertura y Comprobación",
-              "estimated_minutes": 7,
-              "content": [
-                { "type": "p", "text": "La ley exige responsabilidad financiera, generalmente por seguro de responsabilidad civil. Conserva prueba digital o en papel disponible para autoridades." },
-                { "type": "bullets", "items": [
-                  "La responsabilidad cubre daños/lesiones que causas.",
-                  "Coberturas adicionales: colisión, integral, conductor sin/insuficiente seguro.",
-                  "No portar prueba puede conllevar multas o retención en algunos casos."
-                ] }
-              ]
-            },
-            {
-              "id": "10.2.2",
-              "title": "Tras una Colisión: Reportes y Formularios SR",
-              "estimated_minutes": 7,
-              "content": [
-                { "type": "p", "text": "Si una colisión cumple criterios de reporte (por ejemplo, lesiones o ciertos daños), debes presentar informes dentro del plazo estatal." },
-                { "type": "bullets", "items": [
-                  "Contacta a la policía cuando sea requerido.",
-                  "Notifica a tu aseguradora de inmediato.",
-                  "Presenta formularios del DMV (por ejemplo, SR) cuando aplique."
-                ] }
-              ]
-            }
-          ]
+          "title": "Renovaciones, Tarifas e Inspecciones de Emisiones",
+          "minutes": 5,
+          "content": [
+            "Renueva a tiempo para evitar multas. Algunos vehículos requieren inspecciones de emisiones periódicas según las reglas estatales.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Seguro y Responsabilidad Financiera",
+      "lessons": [
+        {
+          "title": "Tipos de Cobertura y Comprobación",
+          "minutes": 5,
+          "content": [
+            "La ley exige responsabilidad financiera, generalmente por seguro de responsabilidad civil. Conserva prueba digital o en papel disponible para autoridades.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "10.3",
-          "title": "Mantenimiento y Equipo de Seguridad",
-          "summary": "Prevén averías y mantente seguro con revisiones periódicas.",
-          "lessons": [
-            {
-              "id": "10.3.1",
-              "title": "Mantenimiento Esencial",
-              "estimated_minutes": 8,
-              "content": [
-                { "type": "p", "text": "Revisa llantas, frenos, fluidos, luces y limpiaparabrisas. Atiende luces de advertencia y lleva un registro de mantenimiento." },
-                { "type": "bullets", "items": [
-                  "Inflado y dibujo adecuados de llantas.",
-                  "Respuesta de frenos y ruidos.",
-                  "Batería, correas, refrigerante y niveles de aceite."
-                ] }
-              ]
-            },
-            {
-              "id": "10.3.2",
-              "title": "Equipo de Seguridad y Kits de Emergencia",
-              "estimated_minutes": 6,
-              "content": [
-                { "type": "p", "text": "Faros, luces de freno, espejos y claxon deben funcionar. Lleva un kit de emergencia adecuado a tu región y temporada." },
-                { "type": "bullets", "items": [
-                  "Triángulos reflectantes, linterna, botiquín.",
-                  "Agua, manta, cargador de teléfono.",
-                  "Guantes y herramientas para cambiar llantas."
-                ] }
-              ]
-            }
-          ]
+          "title": "Tras una Colisión: Reportes y Formularios SR",
+          "minutes": 5,
+          "content": [
+            "Si una colisión cumple criterios de reporte (por ejemplo, lesiones o ciertos daños), debes presentar informes dentro del plazo estatal.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Mantenimiento y Equipo de Seguridad",
+      "lessons": [
+        {
+          "title": "Mantenimiento Esencial",
+          "minutes": 5,
+          "content": [
+            "Revisa llantas, frenos, fluidos, luces y limpiaparabrisas. Atiende luces de advertencia y lleva un registro de mantenimiento.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "10.4",
-          "title": "En la Escena: Paso a Paso",
-          "summary": "Mantente calmado, seguro y completo tras una colisión.",
-          "lessons": [
-            {
-              "id": "10.4.1",
-              "title": "Acciones Inmediatas",
-              "estimated_minutes": 9,
-              "content": [
-                { "type": "p", "text": "Detente de inmediato, protege la escena si es seguro y verifica lesiones. Llama al 911 ante emergencias. Mueve los vehículos fuera de los carriles si es menor y seguro." },
-                { "type": "bullets", "items": [
-                  "Enciende intermitentes; coloca triángulos si es seguro.",
-                  "No admitas culpa en la escena.",
-                  "Documenta daños, ubicación, clima y testigos."
-                ] }
-              ]
-            },
-            {
-              "id": "10.4.2",
-              "title": "Intercambio y Reportes",
-              "estimated_minutes": 9,
-              "content": [
-                { "type": "p", "text": "Intercambia nombres, direcciones, licencias, placas y seguro. Sigue los plazos estatales para informes." },
-                { "type": "bullets", "items": [
-                  "Toma fotos y anota posiciones de vehículos.",
-                  "Presenta reporte al DMV si se cumplen umbrales.",
-                  "Notifica a tus padres/tutores si eres menor."
-                ] }
-              ]
-            }
-          ]
+          "title": "Equipo de Seguridad y Kits de Emergencia",
+          "minutes": 5,
+          "content": [
+            "Faros, luces de freno, espejos y claxon deben funcionar. Lleva un kit de emergencia adecuado a tu región y temporada.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "En la Escena: Paso a Paso",
+      "lessons": [
+        {
+          "title": "Acciones Inmediatas",
+          "minutes": 5,
+          "content": [
+            "Detente de inmediato, protege la escena si es seguro y verifica lesiones. Llama al 911 ante emergencias. Mueve los vehículos fuera de los carriles si es menor y seguro.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Intercambio y Reportes",
+          "minutes": 5,
+          "content": [
+            "Intercambia nombres, direcciones, licencias, placas y seguro. Sigue los plazos estatales para informes.",
+            "[object Object]"
+          ],
+          "review": []
         }
       ]
     }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.969Z"
   }
+}

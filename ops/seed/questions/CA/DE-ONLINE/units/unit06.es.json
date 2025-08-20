@@ -1,365 +1,755 @@
 {
-    "unitNumber": 6,
-    "questions": [
-      {
-        "id": "U06-Q-001",
-        "skill": "ramp-metering",
-        "stem": "Está en una rampa con semáforo y un letrero que dice “Un vehículo por luz verde por carril”. ¿Qué debe hacer?",
-        "choices": [
-          "Detenerse en la línea límite y avanzar solo cuando la luz de SU carril esté en verde—usualmente un vehículo por verde, salvo que el letrero indique otra cosa.",
-          "Ignorar la luz roja si la autopista se ve despejada.",
-          "Avanzar a la par del auto de al lado para ahorrar tiempo.",
-          "Esperar una luz amarilla intermitente antes de avanzar."
-        ],
-        "answer": 0,
-        "explanation": "Los semáforos de rampa regulan la entrada. Obedezca la señal y las instrucciones publicadas—por lo general pasa un vehículo por luz verde por carril.",
-        "difficulty": 2,
-        "tags": ["autopista", "incorporación", "señales", "adolescentes"]
-      },
-      {
-        "id": "U06-Q-002",
-        "skill": "merging",
-        "stem": "Al entrar a una autopista, el tráfico circula a 65 mph. ¿Cómo debe incorporarse?",
-        "choices": [
-          "Detenerse al final de la rampa y luego lanzarse al primer espacio.",
-          "Usar el carril de aceleración para igualar la velocidad, señalizar, mirar sobre el hombro y entrar cuando haya un espacio seguro.",
-          "Circular despacio con intermitentes para que otros lo rebasen.",
-          "Cruzar de inmediato al carril izquierdo para evitar el tráfico que entra."
-        ],
-        "answer": 1,
-        "explanation": "Use todo el carril de aceleración, alcance velocidad cercana a la del tráfico y entre en un espacio seguro sin detenerse.",
-        "difficulty": 2,
-        "tags": ["autopista", "incorporación", "velocidad", "adolescentes"]
-      },
-      {
-        "id": "U06-Q-003",
-        "skill": "exit-planning",
-        "stem": "Su salida está a 1 milla en tráfico pesado. ¿Cuál estrategia es la más segura?",
-        "choices": [
-          "Esperar al último momento y cruzar las líneas continuas si es necesario.",
-          "Señalizar por al menos cinco segundos, cambiar un carril a la vez y entrar con anticipación al carril de salida.",
-          "Pararse en el acotamiento para esperar un espacio más grande.",
-          "Retroceder por la autopista si se pasa de la salida."
-        ],
-        "answer": 1,
-        "explanation": "Señalice temprano, cambie un carril por vez y nunca cruce líneas continuas ni retroceda en una autopista.",
-        "difficulty": 3,
-        "tags": ["autopista", "salidas", "señales", "adolescentes"]
-      },
-      {
-        "id": "U06-Q-004",
-        "skill": "lane-use",
-        "stem": "¿Qué afirmación sobre el uso de carriles en autopista es verdadera?",
-        "choices": [
-          "El carril 1 (izquierda) es principalmente para rebasar o dar vuelta a la izquierda.",
-          "Los carriles derechos son solo para camiones.",
-          "Debe zigzaguear entre carriles para ir más rápido.",
-          "Una línea blanca continua significa que debe cambiar de carril ahora."
-        ],
-        "answer": 0,
-        "explanation": "El carril 1 se usa generalmente para rebasar. Los carriles derechos son para entrar/salir y tráfico más lento. Evite zigzaguear.",
-        "difficulty": 2,
-        "tags": ["autopista", "carriles", "adolescentes"]
-      },
-      {
-        "id": "U06-Q-005",
-        "skill": "hov",
-        "stem": "Va solo en un auto de gasolina sin calcomanía de ‘clean‑air’. El carril HOV tiene doble línea blanca continua. ¿Qué es correcto?",
-        "choices": [
-          "Entrar en cualquier momento para rebasar tráfico lento.",
-          "Usarlo si circula a la misma velocidad del tráfico.",
-          "No entrar—el HOV requiere ocupación/vehículos elegibles y no debe cruzar líneas blancas dobles continuas.",
-          "Cruzar brevemente las líneas dobles y luego regresar."
-        ],
-        "answer": 2,
-        "explanation": "Los carriles HOV tienen requisitos y a menudo líneas blancas dobles continuas que no debe cruzar. Entre/salga solo donde esté permitido.",
-        "difficulty": 3,
-        "tags": ["hov", "carriles", "autopista", "adolescentes"]
-      },
-      {
-        "id": "U06-Q-006",
-        "skill": "passing",
-        "stem": "¿Cuándo puede rebasar por la derecha?",
-        "choices": [
-          "Cuando hay dos o más carriles en el mismo sentido y es seguro, o cuando el vehículo de adelante dará vuelta a la izquierda.",
-          "Siempre que tenga prisa.",
-          "Por el acotamiento si está pavimentado.",
-          "En o a 100 pies de una intersección."
-        ],
-        "answer": 0,
-        "explanation": "Rebasar por la derecha es limitado y debe hacerse con seguridad; nunca salga del pavimento para rebasar.",
-        "difficulty": 1,
-        "tags": ["rebase", "carriles", "adolescentes"]
-      },
-      {
-        "id": "U06-Q-007",
-        "skill": "following-distance",
-        "stem": "A 65 mph en día despejado, ¿cuál es la distancia mínima de seguimiento segura?",
-        "choices": [
-          "Un segundo.",
-          "Tres segundos, y más si empeoran las condiciones.",
-          "Medio segundo si sus frenos son buenos.",
-          "Diez segundos en todo momento."
-        ],
-        "answer": 1,
-        "explanation": "Use al menos tres segundos en condiciones ideales; increméntelos con la velocidad, rocío o visibilidad limitada.",
-        "difficulty": 2,
-        "tags": ["distancia", "autopista", "adolescentes"]
-      },
-      {
-        "id": "U06-Q-008",
-        "skill": "tailgating",
-        "stem": "Un conductor lo sigue muy de cerca en el carril izquierdo. ¿Cuál es la mejor respuesta?",
-        "choices": [
-          "Acelerar para alejarse.",
-          "Pisar el freno para asustarlo.",
-          "Mantener su velocidad y, cuando sea seguro, cambiarse a la derecha para dejarlo pasar.",
-          "Detenerse en su carril para que se aleje."
-        ],
-        "answer": 2,
-        "explanation": "Mantenga su ritmo, evite ‘brake‑check’, y cámbiese a la derecha cuando sea seguro para que lo rebase.",
-        "difficulty": 2,
-        "tags": ["conducción-defensiva", "distancia", "adolescentes"]
-      },
-      {
-        "id": "U06-Q-009",
-        "skill": "night-vision",
-        "stem": "De noche lo encandilan las luces de frente. ¿Qué debe hacer?",
-        "choices": [
-          "Mirar directamente las luces para que sus ojos se acostumbren.",
-          "Encender luces altas para ‘compensar’.",
-          "Mirar el borde derecho del carril y reducir la velocidad para poder detenerse dentro de lo que alcanza a ver.",
-          "Cerrar los ojos brevemente hasta que pase el resplandor."
-        ],
-        "answer": 2,
-        "explanation": "Evite mirar el resplandor. Use el borde derecho como guía y ajuste la velocidad a su distancia visible de frenado.",
-        "difficulty": 3,
-        "tags": ["noche", "visibilidad", "adolescentes"]
-      },
-      {
-        "id": "U06-Q-010",
-        "skill": "weaving-areas",
-        "stem": "En un entronque tipo trébol, un carril de entrada y uno de salida se cruzan (zona de entrelazado). ¿Cuál es el enfoque más seguro?",
-        "choices": [
-          "Acelerar fuerte para ganarle al tráfico que sale.",
-          "Señalizar, escanear y alternar (‘zipper’) ajustando la velocidad para crear espacio; cambiar un carril a la vez.",
-          "Detenerse en la rampa hasta que se despeje.",
-          "Cruzar el área ‘gore’ para evitar el entrelazado."
-        ],
-        "answer": 1,
-        "explanation": "El entrelazado requiere cooperación. Señalice temprano, ajuste velocidad y alternen; nunca se detenga en una rampa activa ni cruce el ‘gore’.",
-        "difficulty": 4,
-        "tags": ["entronques", "entrelazado", "autopista"]
-      },
-      {
-        "id": "U06-Q-011",
-        "skill": "lane-drops",
-        "stem": "Aparece una línea discontinua grande y un letrero ‘EXIT ONLY’. ¿Qué significa?",
-        "choices": [
-          "El carril continúa recto sin cambios.",
-          "El carril termina o se convierte en salida; cámbiese con tiempo a un carril de continuo si no va a salir.",
-          "Debe acelerar para conservar el carril.",
-          "Debe detenerse al final de la línea discontinua."
-        ],
-        "answer": 1,
-        "explanation": "Las líneas discontinuas grandes y ‘EXIT ONLY’ indican fin de carril o salida obligatoria. Cambie con anticipación si va a seguir recto.",
-        "difficulty": 3,
-        "tags": ["señales", "entronques", "carriles"]
-      },
-      {
-        "id": "U06-Q-012",
-        "skill": "urban-intersections",
-        "stem": "Un semáforo se apagó por falta de energía. ¿Qué debe hacer?",
-        "choices": [
-          "Tratarlo como alto de 4 vías y avanzar cuando sea seguro.",
-          "Pasar a velocidad normal.",
-          "Seguir al que va adelante sin detenerse.",
-          "Tocar la bocina y continuar si no ve tráfico cruzado."
-        ],
-        "answer": 0,
-        "explanation": "Un semáforo apagado se trata como un alto de 4 vías. Avance solo cuando sea seguro.",
-        "difficulty": 1,
-        "tags": ["urbano", "señales", "preferencia-de-paso"]
-      },
-      {
-        "id": "U06-Q-013",
-        "skill": "bus-only-lane",
-        "stem": "Ve un carril junto a la guarnición marcado ‘SOLO AUTOBÚS’. Debe girar a la derecha en la siguiente esquina. ¿Qué se permite?",
-        "choices": [
-          "Circular varias cuadras por el carril del autobús si va rápido.",
-          "Cruzarlo cerca de la esquina para girar a la derecha donde se permita, cediendo a autobuses y peatones.",
-          "Cargar pasajeros en el carril del autobús.",
-          "Rebasar autobuses por la izquierda dentro del carril del autobús."
-        ],
-        "answer": 1,
-        "explanation": "No conduzca ni se detenga en carriles ‘Solo Autobús’. Puede cruzarlos para girar a la derecha donde se permita y debe ceder correctamente.",
-        "difficulty": 2,
-        "tags": ["urbano", "transporte", "giros"]
-      },
-      {
-        "id": "U06-Q-014",
-        "skill": "bike-lane-turn",
-        "stem": "Para girar a la derecha a través de un carril bici, usted debe:",
-        "choices": [
-          "Entrar al carril bici a no más de 200 pies antes del giro cuando esté despejado y luego girar.",
-          "Girar desde el carril izquierdo para evitar bicicletas.",
-          "Pararse en el carril bici y esperar a que los ciclistas lo rodeen.",
-          "Nunca entrar al carril bici bajo ninguna circunstancia."
-        ],
-        "answer": 0,
-        "explanation": "Entre al carril bici a ~200 pies del giro cuando esté despejado, ceda a ciclistas y complete el giro a la derecha.",
-        "difficulty": 2,
-        "tags": ["bicicletas", "giros", "urbano"]
-      },
-      {
-        "id": "U06-Q-015",
-        "skill": "dooring",
-        "stem": "Antes de abrir la puerta del lado del conductor junto a autos estacionados y un carril bici, usted debe:",
-        "choices": [
-          "Abrir rápido para obligar a los ciclistas a frenar.",
-          "Revisar espejos y mirar sobre el hombro por ciclistas y tráfico; abrir solo cuando sea seguro.",
-          "Confiar en que los pasajeros lo avisen.",
-          "Tocar la bocina y abrir de inmediato."
-        ],
-        "answer": 1,
-        "explanation": "La ‘zona de la puerta’ es peligrosa. Revise espejos y sobre el hombro antes de abrir puertas hacia el tráfico.",
-        "difficulty": 1,
-        "tags": ["bicicletas", "urbano", "seguridad"]
-      },
-      {
-        "id": "U06-Q-016",
-        "skill": "streetcar-safety",
-        "stem": "Un tranvía se detuvo en una zona de seguridad marcada con peatones abordando. Usted puede pasar a:",
-        "choices": [
-          "Cualquier velocidad si no tira conos.",
-          "No más de 10 mph, atento a las personas.",
-          "35 mph si toca la bocina primero.",
-          "Solo si rebasa por la izquierda del tranvía."
-        ],
-        "answer": 1,
-        "explanation": "En zonas de seguridad, pase a no más de ~10 mph y esté atento a peatones.",
-        "difficulty": 3,
-        "tags": ["transporte", "urbano", "peatones"]
-      },
-      {
-        "id": "U06-Q-017",
-        "skill": "parking-curb-colors",
-        "stem": "¿Qué color de guarnición significa ‘prohibido parar, esperar o estacionarse’ (salvo indicación específica)?",
-        "choices": [
-          "Verde",
-          "Rojo",
-          "Amarillo",
-          "Blanco"
-        ],
-        "answer": 1,
-        "explanation": "Las guarniciones rojas generalmente prohíben parar, esperar o estacionarse.",
-        "difficulty": 2,
-        "tags": ["estacionamiento", "urbano", "adolescentes"]
-      },
-      {
-        "id": "U06-Q-018",
-        "skill": "parking-18in",
-        "stem": "Al estacionarse en paralelo junto a la guarnición, sus ruedas deben quedar a:",
-        "choices": [
-          "3 pies de la guarnición.",
-          "18 pulgadas de la guarnición.",
-          "6 pulgadas de la guarnición.",
-          "Cualquier distancia si enciende intermitentes."
-        ],
-        "answer": 1,
-        "explanation": "Estacione a ~18 pulgadas de la guarnición.",
-        "difficulty": 1,
-        "tags": ["estacionamiento", "urbano"]
-      },
-      {
-        "id": "U06-Q-019",
-        "skill": "loading-zones",
-        "stem": "Una guarnición amarilla generalmente indica:",
-        "choices": [
-          "Zona de carga/comercial—pare solo para cargar o descargar según se permita; los conductores no comerciales normalmente deben permanecer en el vehículo.",
-          "Estacionamiento ilimitado para pasajeros.",
-          "Solo para personas discapacitadas.",
-          "Prohibido parar en cualquier momento."
-        ],
-        "answer": 0,
-        "explanation": "Las guarniciones amarillas son típicamente para carga; el tiempo y condiciones varían por letrero—siga las reglas locales.",
-        "difficulty": 1,
-        "tags": ["estacionamiento", "urbano"]
-      },
-      {
-        "id": "U06-Q-020",
-        "skill": "hill-parking",
-        "stem": "¿Cómo debe colocar las ruedas al estacionarse cuesta arriba junto a la guarnición?",
-        "choices": [
-          "Hacia la guarnición.",
-          "Hacia el lado opuesto de la guarnición y dejar que el vehículo ruede ligeramente hasta apoyarse.",
-          "Derechas.",
-          "De cualquier forma si el freno de mano funciona."
-        ],
-        "answer": 1,
-        "explanation": "Cuesta arriba con guarnición: gire las ruedas en sentido opuesto y deje que la llanta se apoye ligeramente.",
-        "difficulty": 1,
-        "tags": ["estacionamiento", "cuestas"]
-      },
-      {
-        "id": "U06-Q-021",
-        "skill": "basic-speed-law",
-        "stem": "Según la ley básica de velocidad de California, usted debe:",
-        "choices": [
-          "Conducir siempre al límite publicado aun con lluvia intensa.",
-          "Conducir a una velocidad segura para las condiciones actuales, aunque sea menor al límite publicado.",
-          "Igualar la velocidad de los vehículos más rápidos.",
-          "Usar luces altas para ir más rápido de noche."
-        ],
-        "answer": 1,
-        "explanation": "La ley básica exige una velocidad segura para las condiciones, que puede ser menor al límite publicado.",
-        "difficulty": 2,
-        "tags": ["velocidad", "autopista"]
-      },
-      {
-        "id": "U06-Q-022",
-        "skill": "low-beams-rain",
-        "stem": "Cuando llueve fuerte y usa el limpiaparabrisas, ¿qué luces debe usar?",
-        "choices": [
-          "Ninguna—es de día.",
-          "Solo las luces de estacionamiento.",
-          "Luces bajas.",
-          "Luces altas."
-        ],
-        "answer": 2,
-        "explanation": "Use luces bajas con lluvia; nunca conduzca solo con luces de estacionamiento.",
-        "difficulty": 2,
-        "tags": ["clima", "visibilidad"]
-      },
-      {
-        "id": "U06-Q-023",
-        "skill": "hydroplaning",
-        "stem": "Sus llantas comienzan a hidroplanear a velocidad de autopista. ¿Cuál es la primera respuesta correcta?",
-        "choices": [
-          "Frenar fuerte para reducir rápido.",
-          "Girar bruscamente hacia el acotamiento.",
-          "Soltar el acelerador y mantener las ruedas rectas; evite movimientos bruscos.",
-          "Encender luces altas para ver el agua."
-        ],
-        "answer": 2,
-        "explanation": "El hidroplaneo es pérdida de contacto. Suelte el acelerador y evite frenar o girar bruscamente hasta recuperar tracción.",
-        "difficulty": 4,
-        "tags": ["clima", "autopista", "seguridad"]
-      },
-      {
-        "id": "U06-Q-024",
-        "skill": "breakdown",
-        "stem": "Su auto pierde potencia en el carril central de una autopista concurrida. ¿Qué debe hacer primero?",
-        "choices": [
-          "Detenerse de inmediato y bajarse en medio del tráfico.",
-          "Rodar con direccionales encendidas, orillarse al acotamiento derecho si es posible, luego prender intermitentes y permanecer abrochado mientras pide ayuda.",
-          "Retroceder hasta la salida anterior.",
-          "Caminar entre carriles hacia la mediana."
-        ],
-        "answer": 1,
-        "explanation": "Señalice y oríllese al acotamiento derecho si es posible, encienda intermitentes y permanezca abrochado dentro mientras llama por ayuda.",
-        "difficulty": 5,
-        "tags": ["autopista", "emergencia", "adolescentes"]
-      }
-    ]
+  "unit": 6,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "questions": [
+    {
+      "ref": "U06-Q-001",
+      "skill": "ramp-metering",
+      "difficulty": 2,
+      "stem": "Está en una rampa con semáforo y un letrero que dice “Un vehículo por luz verde por carril”. ¿Qué debe hacer?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Detenerse en la línea límite y avanzar solo cuando la luz de SU carril esté en verde—usualmente un vehículo por verde, salvo que el letrero indique otra cosa."
+        },
+        {
+          "key": "B",
+          "text": "Ignorar la luz roja si la autopista se ve despejada."
+        },
+        {
+          "key": "C",
+          "text": "Avanzar a la par del auto de al lado para ahorrar tiempo."
+        },
+        {
+          "key": "D",
+          "text": "Esperar una luz amarilla intermitente antes de avanzar."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Los semáforos de rampa regulan la entrada. Obedezca la señal y las instrucciones publicadas—por lo general pasa un vehículo por luz verde por carril.",
+      "tags": [
+        "autopista",
+        "incorporación",
+        "señales",
+        "adolescentes"
+      ]
+    },
+    {
+      "ref": "U06-Q-002",
+      "skill": "merging",
+      "difficulty": 2,
+      "stem": "Al entrar a una autopista, el tráfico circula a 65 mph. ¿Cómo debe incorporarse?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Detenerse al final de la rampa y luego lanzarse al primer espacio."
+        },
+        {
+          "key": "B",
+          "text": "Usar el carril de aceleración para igualar la velocidad, señalizar, mirar sobre el hombro y entrar cuando haya un espacio seguro."
+        },
+        {
+          "key": "C",
+          "text": "Circular despacio con intermitentes para que otros lo rebasen."
+        },
+        {
+          "key": "D",
+          "text": "Cruzar de inmediato al carril izquierdo para evitar el tráfico que entra."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Use todo el carril de aceleración, alcance velocidad cercana a la del tráfico y entre en un espacio seguro sin detenerse.",
+      "tags": [
+        "autopista",
+        "incorporación",
+        "velocidad",
+        "adolescentes"
+      ]
+    },
+    {
+      "ref": "U06-Q-003",
+      "skill": "exit-planning",
+      "difficulty": 3,
+      "stem": "Su salida está a 1 milla en tráfico pesado. ¿Cuál estrategia es la más segura?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Esperar al último momento y cruzar las líneas continuas si es necesario."
+        },
+        {
+          "key": "B",
+          "text": "Señalizar por al menos cinco segundos, cambiar un carril a la vez y entrar con anticipación al carril de salida."
+        },
+        {
+          "key": "C",
+          "text": "Pararse en el acotamiento para esperar un espacio más grande."
+        },
+        {
+          "key": "D",
+          "text": "Retroceder por la autopista si se pasa de la salida."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Señalice temprano, cambie un carril por vez y nunca cruce líneas continuas ni retroceda en una autopista.",
+      "tags": [
+        "autopista",
+        "salidas",
+        "señales",
+        "adolescentes"
+      ]
+    },
+    {
+      "ref": "U06-Q-004",
+      "skill": "lane-use",
+      "difficulty": 2,
+      "stem": "¿Qué afirmación sobre el uso de carriles en autopista es verdadera?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "El carril 1 (izquierda) es principalmente para rebasar o dar vuelta a la izquierda."
+        },
+        {
+          "key": "B",
+          "text": "Los carriles derechos son solo para camiones."
+        },
+        {
+          "key": "C",
+          "text": "Debe zigzaguear entre carriles para ir más rápido."
+        },
+        {
+          "key": "D",
+          "text": "Una línea blanca continua significa que debe cambiar de carril ahora."
+        }
+      ],
+      "answer": 0,
+      "explanation": "El carril 1 se usa generalmente para rebasar. Los carriles derechos son para entrar/salir y tráfico más lento. Evite zigzaguear.",
+      "tags": [
+        "autopista",
+        "carriles",
+        "adolescentes"
+      ]
+    },
+    {
+      "ref": "U06-Q-005",
+      "skill": "hov",
+      "difficulty": 3,
+      "stem": "Va solo en un auto de gasolina sin calcomanía de ‘clean‑air’. El carril HOV tiene doble línea blanca continua. ¿Qué es correcto?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Entrar en cualquier momento para rebasar tráfico lento."
+        },
+        {
+          "key": "B",
+          "text": "Usarlo si circula a la misma velocidad del tráfico."
+        },
+        {
+          "key": "C",
+          "text": "No entrar—el HOV requiere ocupación/vehículos elegibles y no debe cruzar líneas blancas dobles continuas."
+        },
+        {
+          "key": "D",
+          "text": "Cruzar brevemente las líneas dobles y luego regresar."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Los carriles HOV tienen requisitos y a menudo líneas blancas dobles continuas que no debe cruzar. Entre/salga solo donde esté permitido.",
+      "tags": [
+        "hov",
+        "carriles",
+        "autopista",
+        "adolescentes"
+      ]
+    },
+    {
+      "ref": "U06-Q-006",
+      "skill": "passing",
+      "difficulty": 1,
+      "stem": "¿Cuándo puede rebasar por la derecha?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Cuando hay dos o más carriles en el mismo sentido y es seguro, o cuando el vehículo de adelante dará vuelta a la izquierda."
+        },
+        {
+          "key": "B",
+          "text": "Siempre que tenga prisa."
+        },
+        {
+          "key": "C",
+          "text": "Por el acotamiento si está pavimentado."
+        },
+        {
+          "key": "D",
+          "text": "En o a 100 pies de una intersección."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Rebasar por la derecha es limitado y debe hacerse con seguridad; nunca salga del pavimento para rebasar.",
+      "tags": [
+        "rebase",
+        "carriles",
+        "adolescentes"
+      ]
+    },
+    {
+      "ref": "U06-Q-007",
+      "skill": "following-distance",
+      "difficulty": 2,
+      "stem": "A 65 mph en día despejado, ¿cuál es la distancia mínima de seguimiento segura?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Un segundo."
+        },
+        {
+          "key": "B",
+          "text": "Tres segundos, y más si empeoran las condiciones."
+        },
+        {
+          "key": "C",
+          "text": "Medio segundo si sus frenos son buenos."
+        },
+        {
+          "key": "D",
+          "text": "Diez segundos en todo momento."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Use al menos tres segundos en condiciones ideales; increméntelos con la velocidad, rocío o visibilidad limitada.",
+      "tags": [
+        "distancia",
+        "autopista",
+        "adolescentes"
+      ]
+    },
+    {
+      "ref": "U06-Q-008",
+      "skill": "tailgating",
+      "difficulty": 2,
+      "stem": "Un conductor lo sigue muy de cerca en el carril izquierdo. ¿Cuál es la mejor respuesta?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Acelerar para alejarse."
+        },
+        {
+          "key": "B",
+          "text": "Pisar el freno para asustarlo."
+        },
+        {
+          "key": "C",
+          "text": "Mantener su velocidad y, cuando sea seguro, cambiarse a la derecha para dejarlo pasar."
+        },
+        {
+          "key": "D",
+          "text": "Detenerse en su carril para que se aleje."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Mantenga su ritmo, evite ‘brake‑check’, y cámbiese a la derecha cuando sea seguro para que lo rebase.",
+      "tags": [
+        "conducción-defensiva",
+        "distancia",
+        "adolescentes"
+      ]
+    },
+    {
+      "ref": "U06-Q-009",
+      "skill": "night-vision",
+      "difficulty": 3,
+      "stem": "De noche lo encandilan las luces de frente. ¿Qué debe hacer?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Mirar directamente las luces para que sus ojos se acostumbren."
+        },
+        {
+          "key": "B",
+          "text": "Encender luces altas para ‘compensar’."
+        },
+        {
+          "key": "C",
+          "text": "Mirar el borde derecho del carril y reducir la velocidad para poder detenerse dentro de lo que alcanza a ver."
+        },
+        {
+          "key": "D",
+          "text": "Cerrar los ojos brevemente hasta que pase el resplandor."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Evite mirar el resplandor. Use el borde derecho como guía y ajuste la velocidad a su distancia visible de frenado.",
+      "tags": [
+        "noche",
+        "visibilidad",
+        "adolescentes"
+      ]
+    },
+    {
+      "ref": "U06-Q-010",
+      "skill": "weaving-areas",
+      "difficulty": 4,
+      "stem": "En un entronque tipo trébol, un carril de entrada y uno de salida se cruzan (zona de entrelazado). ¿Cuál es el enfoque más seguro?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Acelerar fuerte para ganarle al tráfico que sale."
+        },
+        {
+          "key": "B",
+          "text": "Señalizar, escanear y alternar (‘zipper’) ajustando la velocidad para crear espacio; cambiar un carril a la vez."
+        },
+        {
+          "key": "C",
+          "text": "Detenerse en la rampa hasta que se despeje."
+        },
+        {
+          "key": "D",
+          "text": "Cruzar el área ‘gore’ para evitar el entrelazado."
+        }
+      ],
+      "answer": 1,
+      "explanation": "El entrelazado requiere cooperación. Señalice temprano, ajuste velocidad y alternen; nunca se detenga en una rampa activa ni cruce el ‘gore’.",
+      "tags": [
+        "entronques",
+        "entrelazado",
+        "autopista"
+      ]
+    },
+    {
+      "ref": "U06-Q-011",
+      "skill": "lane-drops",
+      "difficulty": 3,
+      "stem": "Aparece una línea discontinua grande y un letrero ‘EXIT ONLY’. ¿Qué significa?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "El carril continúa recto sin cambios."
+        },
+        {
+          "key": "B",
+          "text": "El carril termina o se convierte en salida; cámbiese con tiempo a un carril de continuo si no va a salir."
+        },
+        {
+          "key": "C",
+          "text": "Debe acelerar para conservar el carril."
+        },
+        {
+          "key": "D",
+          "text": "Debe detenerse al final de la línea discontinua."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Las líneas discontinuas grandes y ‘EXIT ONLY’ indican fin de carril o salida obligatoria. Cambie con anticipación si va a seguir recto.",
+      "tags": [
+        "señales",
+        "entronques",
+        "carriles"
+      ]
+    },
+    {
+      "ref": "U06-Q-012",
+      "skill": "urban-intersections",
+      "difficulty": 1,
+      "stem": "Un semáforo se apagó por falta de energía. ¿Qué debe hacer?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Tratarlo como alto de 4 vías y avanzar cuando sea seguro."
+        },
+        {
+          "key": "B",
+          "text": "Pasar a velocidad normal."
+        },
+        {
+          "key": "C",
+          "text": "Seguir al que va adelante sin detenerse."
+        },
+        {
+          "key": "D",
+          "text": "Tocar la bocina y continuar si no ve tráfico cruzado."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Un semáforo apagado se trata como un alto de 4 vías. Avance solo cuando sea seguro.",
+      "tags": [
+        "urbano",
+        "señales",
+        "preferencia-de-paso"
+      ]
+    },
+    {
+      "ref": "U06-Q-013",
+      "skill": "bus-only-lane",
+      "difficulty": 2,
+      "stem": "Ve un carril junto a la guarnición marcado ‘SOLO AUTOBÚS’. Debe girar a la derecha en la siguiente esquina. ¿Qué se permite?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Circular varias cuadras por el carril del autobús si va rápido."
+        },
+        {
+          "key": "B",
+          "text": "Cruzarlo cerca de la esquina para girar a la derecha donde se permita, cediendo a autobuses y peatones."
+        },
+        {
+          "key": "C",
+          "text": "Cargar pasajeros en el carril del autobús."
+        },
+        {
+          "key": "D",
+          "text": "Rebasar autobuses por la izquierda dentro del carril del autobús."
+        }
+      ],
+      "answer": 1,
+      "explanation": "No conduzca ni se detenga en carriles ‘Solo Autobús’. Puede cruzarlos para girar a la derecha donde se permita y debe ceder correctamente.",
+      "tags": [
+        "urbano",
+        "transporte",
+        "giros"
+      ]
+    },
+    {
+      "ref": "U06-Q-014",
+      "skill": "bike-lane-turn",
+      "difficulty": 2,
+      "stem": "Para girar a la derecha a través de un carril bici, usted debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Entrar al carril bici a no más de 200 pies antes del giro cuando esté despejado y luego girar."
+        },
+        {
+          "key": "B",
+          "text": "Girar desde el carril izquierdo para evitar bicicletas."
+        },
+        {
+          "key": "C",
+          "text": "Pararse en el carril bici y esperar a que los ciclistas lo rodeen."
+        },
+        {
+          "key": "D",
+          "text": "Nunca entrar al carril bici bajo ninguna circunstancia."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Entre al carril bici a ~200 pies del giro cuando esté despejado, ceda a ciclistas y complete el giro a la derecha.",
+      "tags": [
+        "bicicletas",
+        "giros",
+        "urbano"
+      ]
+    },
+    {
+      "ref": "U06-Q-015",
+      "skill": "dooring",
+      "difficulty": 1,
+      "stem": "Antes de abrir la puerta del lado del conductor junto a autos estacionados y un carril bici, usted debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Abrir rápido para obligar a los ciclistas a frenar."
+        },
+        {
+          "key": "B",
+          "text": "Revisar espejos y mirar sobre el hombro por ciclistas y tráfico; abrir solo cuando sea seguro."
+        },
+        {
+          "key": "C",
+          "text": "Confiar en que los pasajeros lo avisen."
+        },
+        {
+          "key": "D",
+          "text": "Tocar la bocina y abrir de inmediato."
+        }
+      ],
+      "answer": 1,
+      "explanation": "La ‘zona de la puerta’ es peligrosa. Revise espejos y sobre el hombro antes de abrir puertas hacia el tráfico.",
+      "tags": [
+        "bicicletas",
+        "urbano",
+        "seguridad"
+      ]
+    },
+    {
+      "ref": "U06-Q-016",
+      "skill": "streetcar-safety",
+      "difficulty": 3,
+      "stem": "Un tranvía se detuvo en una zona de seguridad marcada con peatones abordando. Usted puede pasar a:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Cualquier velocidad si no tira conos."
+        },
+        {
+          "key": "B",
+          "text": "No más de 10 mph, atento a las personas."
+        },
+        {
+          "key": "C",
+          "text": "35 mph si toca la bocina primero."
+        },
+        {
+          "key": "D",
+          "text": "Solo si rebasa por la izquierda del tranvía."
+        }
+      ],
+      "answer": 1,
+      "explanation": "En zonas de seguridad, pase a no más de ~10 mph y esté atento a peatones.",
+      "tags": [
+        "transporte",
+        "urbano",
+        "peatones"
+      ]
+    },
+    {
+      "ref": "U06-Q-017",
+      "skill": "parking-curb-colors",
+      "difficulty": 2,
+      "stem": "¿Qué color de guarnición significa ‘prohibido parar, esperar o estacionarse’ (salvo indicación específica)?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Verde"
+        },
+        {
+          "key": "B",
+          "text": "Rojo"
+        },
+        {
+          "key": "C",
+          "text": "Amarillo"
+        },
+        {
+          "key": "D",
+          "text": "Blanco"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Las guarniciones rojas generalmente prohíben parar, esperar o estacionarse.",
+      "tags": [
+        "estacionamiento",
+        "urbano",
+        "adolescentes"
+      ]
+    },
+    {
+      "ref": "U06-Q-018",
+      "skill": "parking-18in",
+      "difficulty": 1,
+      "stem": "Al estacionarse en paralelo junto a la guarnición, sus ruedas deben quedar a:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "3 pies de la guarnición."
+        },
+        {
+          "key": "B",
+          "text": "18 pulgadas de la guarnición."
+        },
+        {
+          "key": "C",
+          "text": "6 pulgadas de la guarnición."
+        },
+        {
+          "key": "D",
+          "text": "Cualquier distancia si enciende intermitentes."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Estacione a ~18 pulgadas de la guarnición.",
+      "tags": [
+        "estacionamiento",
+        "urbano"
+      ]
+    },
+    {
+      "ref": "U06-Q-019",
+      "skill": "loading-zones",
+      "difficulty": 1,
+      "stem": "Una guarnición amarilla generalmente indica:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Zona de carga/comercial—pare solo para cargar o descargar según se permita; los conductores no comerciales normalmente deben permanecer en el vehículo."
+        },
+        {
+          "key": "B",
+          "text": "Estacionamiento ilimitado para pasajeros."
+        },
+        {
+          "key": "C",
+          "text": "Solo para personas discapacitadas."
+        },
+        {
+          "key": "D",
+          "text": "Prohibido parar en cualquier momento."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Las guarniciones amarillas son típicamente para carga; el tiempo y condiciones varían por letrero—siga las reglas locales.",
+      "tags": [
+        "estacionamiento",
+        "urbano"
+      ]
+    },
+    {
+      "ref": "U06-Q-020",
+      "skill": "hill-parking",
+      "difficulty": 1,
+      "stem": "¿Cómo debe colocar las ruedas al estacionarse cuesta arriba junto a la guarnición?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Hacia la guarnición."
+        },
+        {
+          "key": "B",
+          "text": "Hacia el lado opuesto de la guarnición y dejar que el vehículo ruede ligeramente hasta apoyarse."
+        },
+        {
+          "key": "C",
+          "text": "Derechas."
+        },
+        {
+          "key": "D",
+          "text": "De cualquier forma si el freno de mano funciona."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Cuesta arriba con guarnición: gire las ruedas en sentido opuesto y deje que la llanta se apoye ligeramente.",
+      "tags": [
+        "estacionamiento",
+        "cuestas"
+      ]
+    },
+    {
+      "ref": "U06-Q-021",
+      "skill": "basic-speed-law",
+      "difficulty": 2,
+      "stem": "Según la ley básica de velocidad de California, usted debe:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Conducir siempre al límite publicado aun con lluvia intensa."
+        },
+        {
+          "key": "B",
+          "text": "Conducir a una velocidad segura para las condiciones actuales, aunque sea menor al límite publicado."
+        },
+        {
+          "key": "C",
+          "text": "Igualar la velocidad de los vehículos más rápidos."
+        },
+        {
+          "key": "D",
+          "text": "Usar luces altas para ir más rápido de noche."
+        }
+      ],
+      "answer": 1,
+      "explanation": "La ley básica exige una velocidad segura para las condiciones, que puede ser menor al límite publicado.",
+      "tags": [
+        "velocidad",
+        "autopista"
+      ]
+    },
+    {
+      "ref": "U06-Q-022",
+      "skill": "low-beams-rain",
+      "difficulty": 2,
+      "stem": "Cuando llueve fuerte y usa el limpiaparabrisas, ¿qué luces debe usar?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Ninguna—es de día."
+        },
+        {
+          "key": "B",
+          "text": "Solo las luces de estacionamiento."
+        },
+        {
+          "key": "C",
+          "text": "Luces bajas."
+        },
+        {
+          "key": "D",
+          "text": "Luces altas."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Use luces bajas con lluvia; nunca conduzca solo con luces de estacionamiento.",
+      "tags": [
+        "clima",
+        "visibilidad"
+      ]
+    },
+    {
+      "ref": "U06-Q-023",
+      "skill": "hydroplaning",
+      "difficulty": 4,
+      "stem": "Sus llantas comienzan a hidroplanear a velocidad de autopista. ¿Cuál es la primera respuesta correcta?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Frenar fuerte para reducir rápido."
+        },
+        {
+          "key": "B",
+          "text": "Girar bruscamente hacia el acotamiento."
+        },
+        {
+          "key": "C",
+          "text": "Soltar el acelerador y mantener las ruedas rectas; evite movimientos bruscos."
+        },
+        {
+          "key": "D",
+          "text": "Encender luces altas para ver el agua."
+        }
+      ],
+      "answer": 2,
+      "explanation": "El hidroplaneo es pérdida de contacto. Suelte el acelerador y evite frenar o girar bruscamente hasta recuperar tracción.",
+      "tags": [
+        "clima",
+        "autopista",
+        "seguridad"
+      ]
+    },
+    {
+      "ref": "U06-Q-024",
+      "skill": "breakdown",
+      "difficulty": 5,
+      "stem": "Su auto pierde potencia en el carril central de una autopista concurrida. ¿Qué debe hacer primero?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Detenerse de inmediato y bajarse en medio del tráfico."
+        },
+        {
+          "key": "B",
+          "text": "Rodar con direccionales encendidas, orillarse al acotamiento derecho si es posible, luego prender intermitentes y permanecer abrochado mientras pide ayuda."
+        },
+        {
+          "key": "C",
+          "text": "Retroceder hasta la salida anterior."
+        },
+        {
+          "key": "D",
+          "text": "Caminar entre carriles hacia la mediana."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Señalice y oríllese al acotamiento derecho si es posible, encienda intermitentes y permanezca abrochado dentro mientras llama por ayuda.",
+      "tags": [
+        "autopista",
+        "emergencia",
+        "adolescentes"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.987Z"
   }
+}

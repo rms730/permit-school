@@ -1,310 +1,632 @@
 {
-  "meta": {
-    "j_code": "CA",
-    "course_code": "DE-ONLINE",
-    "unit_no": 1,
-    "lang": "en"
-  },
+  "unit": 1,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
   "questions": [
     {
-      "id": "U1-Q1",
+      "ref": "U1-Q1",
       "skill": "Traffic Signs",
       "difficulty": 1,
       "stem": "What does a red octagonal sign mean?",
       "choices": [
-        {"key": "A", "text": "Yield to other traffic"},
-        {"key": "B", "text": "Stop completely"},
-        {"key": "C", "text": "Slow down and proceed with caution"},
-        {"key": "D", "text": "Speed limit ahead"}
+        {
+          "key": "A",
+          "text": "Yield to other traffic"
+        },
+        {
+          "key": "B",
+          "text": "Stop completely"
+        },
+        {
+          "key": "C",
+          "text": "Slow down and proceed with caution"
+        },
+        {
+          "key": "D",
+          "text": "Speed limit ahead"
+        }
       ],
       "answer": "B",
       "explanation": "A red octagonal sign is a stop sign. You must come to a complete stop before the stop line or crosswalk, or before entering the intersection if there is no stop line.",
-      "tags": ["unit:1", "topic:signs", "type:regulatory"]
+      "tags": [
+        "unit:1",
+        "topic:signs",
+        "type:regulatory"
+      ]
     },
     {
-      "id": "U1-Q2",
+      "ref": "U1-Q2",
       "skill": "Traffic Signs",
       "difficulty": 2,
       "stem": "What color and shape are warning signs?",
       "choices": [
-        {"key": "A", "text": "Red and triangular"},
-        {"key": "B", "text": "Yellow and diamond-shaped"},
-        {"key": "C", "text": "Green and rectangular"},
-        {"key": "D", "text": "Blue and circular"}
+        {
+          "key": "A",
+          "text": "Red and triangular"
+        },
+        {
+          "key": "B",
+          "text": "Yellow and diamond-shaped"
+        },
+        {
+          "key": "C",
+          "text": "Green and rectangular"
+        },
+        {
+          "key": "D",
+          "text": "Blue and circular"
+        }
       ],
       "answer": "B",
       "explanation": "Warning signs are diamond-shaped with black letters or symbols on a yellow background. They alert you to potential hazards ahead.",
-      "tags": ["unit:1", "topic:signs", "type:warning"]
+      "tags": [
+        "unit:1",
+        "topic:signs",
+        "type:warning"
+      ]
     },
     {
-      "id": "U1-Q3",
+      "ref": "U1-Q3",
       "skill": "Traffic Signals",
       "difficulty": 1,
       "stem": "What should you do when you see a yellow traffic light?",
       "choices": [
-        {"key": "A", "text": "Speed up to get through the intersection"},
-        {"key": "B", "text": "Stop if you can do so safely"},
-        {"key": "C", "text": "Ignore it and continue driving normally"},
-        {"key": "D", "text": "Turn right only"}
+        {
+          "key": "A",
+          "text": "Speed up to get through the intersection"
+        },
+        {
+          "key": "B",
+          "text": "Stop if you can do so safely"
+        },
+        {
+          "key": "C",
+          "text": "Ignore it and continue driving normally"
+        },
+        {
+          "key": "D",
+          "text": "Turn right only"
+        }
       ],
       "answer": "B",
       "explanation": "A yellow light means caution. If you can safely stop, you should do so. If you are too close to stop safely, you may proceed through the intersection.",
-      "tags": ["unit:1", "topic:signals", "type:traffic_lights"]
+      "tags": [
+        "unit:1",
+        "topic:signals",
+        "type:traffic_lights"
+      ]
     },
     {
-      "id": "U1-Q4",
+      "ref": "U1-Q4",
       "skill": "Right-of-Way",
       "difficulty": 3,
       "stem": "At a four-way stop, who has the right-of-way?",
       "choices": [
-        {"key": "A", "text": "The vehicle on the left"},
-        {"key": "B", "text": "The first vehicle to arrive"},
-        {"key": "C", "text": "The vehicle making a left turn"},
-        {"key": "D", "text": "The vehicle with the most passengers"}
+        {
+          "key": "A",
+          "text": "The vehicle on the left"
+        },
+        {
+          "key": "B",
+          "text": "The first vehicle to arrive"
+        },
+        {
+          "key": "C",
+          "text": "The vehicle making a left turn"
+        },
+        {
+          "key": "D",
+          "text": "The vehicle with the most passengers"
+        }
       ],
       "answer": "B",
       "explanation": "At a four-way stop, the first vehicle to arrive has the right-of-way. If two vehicles arrive at the same time, the vehicle on the right goes first.",
-      "tags": ["unit:1", "topic:right_of_way", "type:intersection"]
+      "tags": [
+        "unit:1",
+        "topic:right_of_way",
+        "type:intersection"
+      ]
     },
     {
-      "id": "U1-Q5",
+      "ref": "U1-Q5",
       "skill": "Emergency Vehicles",
       "difficulty": 2,
       "stem": "What should you do when an emergency vehicle approaches with lights and sirens?",
       "choices": [
-        {"key": "A", "text": "Speed up to get out of the way quickly"},
-        {"key": "B", "text": "Pull over to the right and stop"},
-        {"key": "C", "text": "Follow the emergency vehicle closely"},
-        {"key": "D", "text": "Honk your horn to alert other drivers"}
+        {
+          "key": "A",
+          "text": "Speed up to get out of the way quickly"
+        },
+        {
+          "key": "B",
+          "text": "Pull over to the right and stop"
+        },
+        {
+          "key": "C",
+          "text": "Follow the emergency vehicle closely"
+        },
+        {
+          "key": "D",
+          "text": "Honk your horn to alert other drivers"
+        }
       ],
       "answer": "B",
       "explanation": "When an emergency vehicle approaches with lights and sirens, pull over to the right side of the road and stop. Stay stopped until the emergency vehicle passes.",
-      "tags": ["unit:1", "topic:emergency_vehicles", "type:safety"]
+      "tags": [
+        "unit:1",
+        "topic:emergency_vehicles",
+        "type:safety"
+      ]
     },
     {
-      "id": "U1-Q6",
+      "ref": "U1-Q6",
       "skill": "School Buses",
       "difficulty": 2,
       "stem": "When must you stop for a school bus?",
       "choices": [
-        {"key": "A", "text": "Only when children are visible"},
-        {"key": "B", "text": "When the bus displays flashing red lights"},
-        {"key": "C", "text": "Only on school days"},
-        {"key": "D", "text": "Only when the bus is moving"}
+        {
+          "key": "A",
+          "text": "Only when children are visible"
+        },
+        {
+          "key": "B",
+          "text": "When the bus displays flashing red lights"
+        },
+        {
+          "key": "C",
+          "text": "Only on school days"
+        },
+        {
+          "key": "D",
+          "text": "Only when the bus is moving"
+        }
       ],
       "answer": "B",
       "explanation": "You must stop when a school bus stops and displays flashing red lights. This applies on all roads except divided highways with a median.",
-      "tags": ["unit:1", "topic:school_buses", "type:safety"]
+      "tags": [
+        "unit:1",
+        "topic:school_buses",
+        "type:safety"
+      ]
     },
     {
-      "id": "U1-Q7",
+      "ref": "U1-Q7",
       "skill": "Speed Limits",
       "difficulty": 1,
       "stem": "What do speed limit signs indicate?",
       "choices": [
-        {"key": "A", "text": "The minimum speed you must travel"},
-        {"key": "B", "text": "The maximum legal speed under ideal conditions"},
-        {"key": "C", "text": "The recommended speed for the road"},
-        {"key": "D", "text": "The speed limit only at night"}
+        {
+          "key": "A",
+          "text": "The minimum speed you must travel"
+        },
+        {
+          "key": "B",
+          "text": "The maximum legal speed under ideal conditions"
+        },
+        {
+          "key": "C",
+          "text": "The recommended speed for the road"
+        },
+        {
+          "key": "D",
+          "text": "The speed limit only at night"
+        }
       ],
       "answer": "B",
       "explanation": "Speed limit signs show the maximum legal speed allowed under ideal conditions. You must never exceed the posted speed limit.",
-      "tags": ["unit:1", "topic:speed_limits", "type:regulatory"]
+      "tags": [
+        "unit:1",
+        "topic:speed_limits",
+        "type:regulatory"
+      ]
     },
     {
-      "id": "U1-Q8",
+      "ref": "U1-Q8",
       "skill": "Traffic Signs",
       "difficulty": 2,
       "stem": "What does a yield sign mean?",
       "choices": [
-        {"key": "A", "text": "Stop completely"},
-        {"key": "B", "text": "Slow down and be ready to stop if necessary"},
-        {"key": "C", "text": "Speed up to merge quickly"},
-        {"key": "D", "text": "Turn right only"}
+        {
+          "key": "A",
+          "text": "Stop completely"
+        },
+        {
+          "key": "B",
+          "text": "Slow down and be ready to stop if necessary"
+        },
+        {
+          "key": "C",
+          "text": "Speed up to merge quickly"
+        },
+        {
+          "key": "D",
+          "text": "Turn right only"
+        }
       ],
       "answer": "B",
       "explanation": "A yield sign means you must slow down and be ready to stop if necessary. Let other traffic go first if there is a conflict.",
-      "tags": ["unit:1", "topic:signs", "type:regulatory"]
+      "tags": [
+        "unit:1",
+        "topic:signs",
+        "type:regulatory"
+      ]
     },
     {
-      "id": "U1-Q9",
+      "ref": "U1-Q9",
       "skill": "Right-of-Way",
       "difficulty": 3,
       "stem": "When turning left at an intersection, who must you yield to?",
       "choices": [
-        {"key": "A", "text": "Only pedestrians"},
-        {"key": "B", "text": "Oncoming traffic going straight or turning right"},
-        {"key": "C", "text": "No one - you have the right-of-way"},
-        {"key": "D", "text": "Only emergency vehicles"}
+        {
+          "key": "A",
+          "text": "Only pedestrians"
+        },
+        {
+          "key": "B",
+          "text": "Oncoming traffic going straight or turning right"
+        },
+        {
+          "key": "C",
+          "text": "No one - you have the right-of-way"
+        },
+        {
+          "key": "D",
+          "text": "Only emergency vehicles"
+        }
       ],
       "answer": "B",
       "explanation": "When turning left at an intersection, you must yield to oncoming traffic going straight or turning right. Wait for a safe gap before making your turn.",
-      "tags": ["unit:1", "topic:right_of_way", "type:intersection"]
+      "tags": [
+        "unit:1",
+        "topic:right_of_way",
+        "type:intersection"
+      ]
     },
     {
-      "id": "U1-Q10",
+      "ref": "U1-Q10",
       "skill": "Traffic Signals",
       "difficulty": 2,
       "stem": "What does a green arrow signal mean?",
       "choices": [
-        {"key": "A", "text": "You can turn in that direction"},
-        {"key": "B", "text": "You cannot turn in that direction"},
-        {"key": "C", "text": "Proceed with caution"},
-        {"key": "D", "text": "Stop and wait"}
+        {
+          "key": "A",
+          "text": "You can turn in that direction"
+        },
+        {
+          "key": "B",
+          "text": "You cannot turn in that direction"
+        },
+        {
+          "key": "C",
+          "text": "Proceed with caution"
+        },
+        {
+          "key": "D",
+          "text": "Stop and wait"
+        }
       ],
       "answer": "A",
       "explanation": "A green arrow means you can turn in that direction. This allows specific movements when the main light might be red.",
-      "tags": ["unit:1", "topic:signals", "type:arrows"]
+      "tags": [
+        "unit:1",
+        "topic:signals",
+        "type:arrows"
+      ]
     },
     {
-      "id": "U1-Q11",
+      "ref": "U1-Q11",
       "skill": "Safe Driving",
       "difficulty": 2,
       "stem": "What is the general rule for following distance?",
       "choices": [
-        {"key": "A", "text": "Stay 1-2 seconds behind the vehicle in front"},
-        {"key": "B", "text": "Stay 3-4 seconds behind the vehicle in front"},
-        {"key": "C", "text": "Stay as close as possible to save space"},
-        {"key": "D", "text": "Stay 10 seconds behind the vehicle in front"}
+        {
+          "key": "A",
+          "text": "Stay 1-2 seconds behind the vehicle in front"
+        },
+        {
+          "key": "B",
+          "text": "Stay 3-4 seconds behind the vehicle in front"
+        },
+        {
+          "key": "C",
+          "text": "Stay as close as possible to save space"
+        },
+        {
+          "key": "D",
+          "text": "Stay 10 seconds behind the vehicle in front"
+        }
       ],
       "answer": "B",
       "explanation": "The general rule is to stay at least 3-4 seconds behind the vehicle in front of you. In bad weather, increase this distance.",
-      "tags": ["unit:1", "topic:safe_driving", "type:following_distance"]
+      "tags": [
+        "unit:1",
+        "topic:safe_driving",
+        "type:following_distance"
+      ]
     },
     {
-      "id": "U1-Q12",
+      "ref": "U1-Q12",
       "skill": "Traffic Violations",
       "difficulty": 2,
       "stem": "What is one of the most common traffic violations?",
       "choices": [
-        {"key": "A", "text": "Using turn signals"},
-        {"key": "B", "text": "Speeding"},
-        {"key": "C", "text": "Wearing a seatbelt"},
-        {"key": "D", "text": "Following traffic laws"}
+        {
+          "key": "A",
+          "text": "Using turn signals"
+        },
+        {
+          "key": "B",
+          "text": "Speeding"
+        },
+        {
+          "key": "C",
+          "text": "Wearing a seatbelt"
+        },
+        {
+          "key": "D",
+          "text": "Following traffic laws"
+        }
       ],
       "answer": "B",
       "explanation": "Speeding is one of the most common violations. Even going 5 mph over the limit can result in a ticket and points on your license.",
-      "tags": ["unit:1", "topic:violations", "type:speed"]
+      "tags": [
+        "unit:1",
+        "topic:violations",
+        "type:speed"
+      ]
     },
     {
-      "id": "U1-Q13",
+      "ref": "U1-Q13",
       "skill": "Traffic Signs",
       "difficulty": 1,
       "stem": "What color are guide signs that provide directional information?",
       "choices": [
-        {"key": "A", "text": "Red"},
-        {"key": "B", "text": "Yellow"},
-        {"key": "C", "text": "Green"},
-        {"key": "D", "text": "Orange"}
+        {
+          "key": "A",
+          "text": "Red"
+        },
+        {
+          "key": "B",
+          "text": "Yellow"
+        },
+        {
+          "key": "C",
+          "text": "Green"
+        },
+        {
+          "key": "D",
+          "text": "Orange"
+        }
       ],
       "answer": "C",
       "explanation": "Green signs provide directional information for highways and major roads. They show route numbers, destinations, and distances.",
-      "tags": ["unit:1", "topic:signs", "type:guide"]
+      "tags": [
+        "unit:1",
+        "topic:signs",
+        "type:guide"
+      ]
     },
     {
-      "id": "U1-Q14",
+      "ref": "U1-Q14",
       "skill": "Right-of-Way",
       "difficulty": 3,
       "stem": "At a T-intersection, who has the right-of-way?",
       "choices": [
-        {"key": "A", "text": "Vehicles turning onto the through road"},
-        {"key": "B", "text": "Vehicles on the through road"},
-        {"key": "C", "text": "The vehicle on the left"},
-        {"key": "D", "text": "The vehicle with the most passengers"}
+        {
+          "key": "A",
+          "text": "Vehicles turning onto the through road"
+        },
+        {
+          "key": "B",
+          "text": "Vehicles on the through road"
+        },
+        {
+          "key": "C",
+          "text": "The vehicle on the left"
+        },
+        {
+          "key": "D",
+          "text": "The vehicle with the most passengers"
+        }
       ],
       "answer": "B",
       "explanation": "At a T-intersection, vehicles on the through road have the right-of-way over vehicles turning onto the through road.",
-      "tags": ["unit:1", "topic:right_of_way", "type:intersection"]
+      "tags": [
+        "unit:1",
+        "topic:right_of_way",
+        "type:intersection"
+      ]
     },
     {
-      "id": "U1-Q15",
+      "ref": "U1-Q15",
       "skill": "School Zones",
       "difficulty": 2,
       "stem": "What is the typical speed limit in a school zone when children are present?",
       "choices": [
-        {"key": "A", "text": "35-45 mph"},
-        {"key": "B", "text": "15-25 mph"},
-        {"key": "C", "text": "55-65 mph"},
-        {"key": "D", "text": "45-55 mph"}
+        {
+          "key": "A",
+          "text": "35-45 mph"
+        },
+        {
+          "key": "B",
+          "text": "15-25 mph"
+        },
+        {
+          "key": "C",
+          "text": "55-65 mph"
+        },
+        {
+          "key": "D",
+          "text": "45-55 mph"
+        }
       ],
       "answer": "B",
       "explanation": "School zones have reduced speed limits when children are present. These limits are usually 15-25 mph to protect children's safety.",
-      "tags": ["unit:1", "topic:speed_limits", "type:school_zones"]
+      "tags": [
+        "unit:1",
+        "topic:speed_limits",
+        "type:school_zones"
+      ]
     },
     {
-      "id": "U1-Q16",
+      "ref": "U1-Q16",
       "skill": "Traffic Signals",
       "difficulty": 2,
       "stem": "What should you do when you see a flashing red light?",
       "choices": [
-        {"key": "A", "text": "Speed up to get through quickly"},
-        {"key": "B", "text": "Stop, then proceed when safe"},
-        {"key": "C", "text": "Ignore it and continue driving"},
-        {"key": "D", "text": "Turn right only"}
+        {
+          "key": "A",
+          "text": "Speed up to get through quickly"
+        },
+        {
+          "key": "B",
+          "text": "Stop, then proceed when safe"
+        },
+        {
+          "key": "C",
+          "text": "Ignore it and continue driving"
+        },
+        {
+          "key": "D",
+          "text": "Turn right only"
+        }
       ],
       "answer": "B",
       "explanation": "Flashing red lights mean stop, then proceed when safe. Treat them like a stop sign.",
-      "tags": ["unit:1", "topic:signals", "type:flashing"]
+      "tags": [
+        "unit:1",
+        "topic:signals",
+        "type:flashing"
+      ]
     },
     {
-      "id": "U1-Q17",
+      "ref": "U1-Q17",
       "skill": "Safe Driving",
       "difficulty": 2,
       "stem": "How far in advance should you signal before turning or changing lanes?",
       "choices": [
-        {"key": "A", "text": "At least 50 feet"},
-        {"key": "B", "text": "At least 100 feet"},
-        {"key": "C", "text": "At least 200 feet"},
-        {"key": "D", "text": "Just before you turn"}
+        {
+          "key": "A",
+          "text": "At least 50 feet"
+        },
+        {
+          "key": "B",
+          "text": "At least 100 feet"
+        },
+        {
+          "key": "C",
+          "text": "At least 200 feet"
+        },
+        {
+          "key": "D",
+          "text": "Just before you turn"
+        }
       ],
       "answer": "B",
       "explanation": "Signal at least 100 feet before turning or changing lanes. This gives other drivers time to react to your intentions.",
-      "tags": ["unit:1", "topic:safe_driving", "type:signaling"]
+      "tags": [
+        "unit:1",
+        "topic:safe_driving",
+        "type:signaling"
+      ]
     },
     {
-      "id": "U1-Q18",
+      "ref": "U1-Q18",
       "skill": "Traffic Violations",
       "difficulty": 3,
       "stem": "How many points can lead to license suspension in California?",
       "choices": [
-        {"key": "A", "text": "2 points in 12 months"},
-        {"key": "B", "text": "4 points in 12 months"},
-        {"key": "C", "text": "6 points in 12 months"},
-        {"key": "D", "text": "8 points in 12 months"}
+        {
+          "key": "A",
+          "text": "2 points in 12 months"
+        },
+        {
+          "key": "B",
+          "text": "4 points in 12 months"
+        },
+        {
+          "key": "C",
+          "text": "6 points in 12 months"
+        },
+        {
+          "key": "D",
+          "text": "8 points in 12 months"
+        }
       ],
       "answer": "B",
       "explanation": "In California, getting 4 points in 12 months, 6 points in 24 months, or 8 points in 36 months can result in license suspension.",
-      "tags": ["unit:1", "topic:violations", "type:consequences"]
+      "tags": [
+        "unit:1",
+        "topic:violations",
+        "type:consequences"
+      ]
     },
     {
-      "id": "U1-Q19",
+      "ref": "U1-Q19",
       "skill": "Emergency Vehicles",
       "difficulty": 2,
       "stem": "What should you do if you're in an intersection when an emergency vehicle approaches?",
       "choices": [
-        {"key": "A", "text": "Stay in the intersection and wait"},
-        {"key": "B", "text": "Clear the intersection first, then pull over"},
-        {"key": "C", "text": "Speed up to get out of the way"},
-        {"key": "D", "text": "Honk your horn to alert the emergency vehicle"}
+        {
+          "key": "A",
+          "text": "Stay in the intersection and wait"
+        },
+        {
+          "key": "B",
+          "text": "Clear the intersection first, then pull over"
+        },
+        {
+          "key": "C",
+          "text": "Speed up to get out of the way"
+        },
+        {
+          "key": "D",
+          "text": "Honk your horn to alert the emergency vehicle"
+        }
       ],
       "answer": "B",
       "explanation": "If you're in an intersection when an emergency vehicle approaches, clear the intersection first, then pull over to the side of the road.",
-      "tags": ["unit:1", "topic:emergency_vehicles", "type:safety"]
+      "tags": [
+        "unit:1",
+        "topic:emergency_vehicles",
+        "type:safety"
+      ]
     },
     {
-      "id": "U1-Q20",
+      "ref": "U1-Q20",
       "skill": "Traffic Signs",
       "difficulty": 1,
       "stem": "What do blue traffic signs indicate?",
       "choices": [
-        {"key": "A", "text": "Regulatory information"},
-        {"key": "B", "text": "Services like gas stations and hospitals"},
-        {"key": "C", "text": "Warning of hazards"},
-        {"key": "D", "text": "Speed limits"}
+        {
+          "key": "A",
+          "text": "Regulatory information"
+        },
+        {
+          "key": "B",
+          "text": "Services like gas stations and hospitals"
+        },
+        {
+          "key": "C",
+          "text": "Warning of hazards"
+        },
+        {
+          "key": "D",
+          "text": "Speed limits"
+        }
       ],
       "answer": "B",
       "explanation": "Blue signs indicate services like gas stations, restaurants, and hospitals. They help you find necessary services while driving.",
-      "tags": ["unit:1", "topic:signs", "type:guide"]
+      "tags": [
+        "unit:1",
+        "topic:signs",
+        "type:guide"
+      ]
     }
-  ]
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.971Z"
+  }
 }

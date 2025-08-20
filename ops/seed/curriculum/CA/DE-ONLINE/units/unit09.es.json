@@ -1,150 +1,114 @@
 {
-    "course": { "j_code": "CA", "course_code": "DE-ONLINE" },
-    "unit": {
-      "unit_no": 9,
-      "title": "Conducción en Autopistas y Vías Exprés",
-      "minutes_required": 60,
-      "objectives": [
-        "Entrar, incorporarse y salir de autopistas con seguridad usando exploración y señalización adecuadas.",
-        "Controlar la velocidad y el espacio a alta velocidad, incluyendo la distancia de seguimiento y la disciplina de carril.",
-        "Realizar cambios de carril con espejos, señal y verificación de punto ciego; elegir carriles según el flujo y destino.",
-        "Manejar averías, escombros y emergencias; aplicar la ley de 'Moverse a otro carril' de California.",
-        "Usar carriles de alta ocupación (HOV) y exprés/peaje, y responder a semáforos de rampa."
-      ],
-      "sections": [
+  "unit": 9,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Conducción en Autopistas y Vías Exprés",
+  "minutes_required": 60,
+  "objectives": [
+    "Entrar, incorporarse y salir de autopistas con seguridad usando exploración y señalización adecuadas.",
+    "Controlar la velocidad y el espacio a alta velocidad, incluyendo la distancia de seguimiento y la disciplina de carril.",
+    "Realizar cambios de carril con espejos, señal y verificación de punto ciego; elegir carriles según el flujo y destino.",
+    "Manejar averías, escombros y emergencias; aplicar la ley de 'Moverse a otro carril' de California.",
+    "Usar carriles de alta ocupación (HOV) y exprés/peaje, y responder a semáforos de rampa."
+  ],
+  "sections": [
+    {
+      "title": "Entradas, Incorporaciones y Elección de Carril",
+      "lessons": [
         {
-          "id": "9.1",
-          "title": "Entradas, Incorporaciones y Elección de Carril",
-          "summary": "Realiza incorporaciones suaves y elige el carril correcto para tu ruta.",
-          "lessons": [
-            {
-              "id": "9.1.1",
-              "title": "Tipos de Rampas, Carriles de Aceleración y Semáforos de Rampa",
-              "estimated_minutes": 8,
-              "content": [
-                { "type": "p", "text": "Las rampas pueden ser en rizo, direccionales o trébol. Usa el carril de aceleración para igualar la velocidad del tráfico." },
-                { "type": "p", "text": "Los semáforos de rampa liberan vehículos en intervalos cortos para reducir conflictos. Obedece las señales y letreros publicados." },
-                { "type": "bullets", "items": [
-                  "Señaliza temprano; revisa espejos y puntos ciegos.",
-                  "Usa todo el carril de aceleración para igualar la velocidad.",
-                  "Cede el paso al tráfico de la autopista; ajusta tu incorporación."
-                ] }
-              ]
-            },
-            {
-              "id": "9.1.2",
-              "title": "Etiqueta al Incorporarse y Selección de Carril",
-              "estimated_minutes": 6,
-              "content": [
-                { "type": "p", "text": "Incorpórate en el primer espacio seguro sin obligar a otros a frenar bruscamente. Evita detenerte en la rampa salvo indicación." },
-                { "type": "bullets", "items": [
-                  "Carriles derechos: entradas/salidas—más turbulencia.",
-                  "Carriles centrales: circulación—flujo más estable.",
-                  "Carriles izquierdos: adelantamiento y flujo más rápido—úsalos cuando sea apropiado."
-                ] }
-              ]
-            }
-          ]
+          "title": "Tipos de Rampas, Carriles de Aceleración y Semáforos de Rampa",
+          "minutes": 5,
+          "content": [
+            "Las rampas pueden ser en rizo, direccionales o trébol. Usa el carril de aceleración para igualar la velocidad del tráfico.",
+            "Los semáforos de rampa liberan vehículos en intervalos cortos para reducir conflictos. Obedece las señales y letreros publicados.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "9.2",
-          "title": "Velocidad, Espacio y Distancia",
-          "summary": "Crea colchones de tiempo y espacio para manejar el riesgo a alta velocidad.",
-          "lessons": [
-            {
-              "id": "9.2.1",
-              "title": "Gestión de Velocidad y Flujo",
-              "estimated_minutes": 7,
-              "content": [
-                { "type": "p", "text": "Obedece los máximos publicados y conduce a una velocidad razonable para las condiciones. El flujo te informa, pero no justifica velocidades inseguras." },
-                { "type": "bullets", "items": [
-                  "Aumenta la distancia a mayor velocidad.",
-                  "Reduce la velocidad por clima, congestión u obras.",
-                  "Evita obstruir; conserva la derecha excepto para adelantar."
-                ] }
-              ]
-            },
-            {
-              "id": "9.2.2",
-              "title": "Distancia de Seguimiento y Colchones de Espacio",
-              "estimated_minutes": 7,
-              "content": [
-                { "type": "p", "text": "Usa al menos 3–4 segundos en condiciones ideales; añade más tiempo con lluvia, oscuridad, carga pesada o detrás de camiones grandes." },
-                { "type": "bullets", "items": [
-                  "Cuenta segundos desde un punto fijo.",
-                  "Evita puntos ciegos manteniendo espacio lateral.",
-                  "Duplica el colchón en malas condiciones."
-                ] }
-              ]
-            }
-          ]
+          "title": "Etiqueta al Incorporarse y Selección de Carril",
+          "minutes": 5,
+          "content": [
+            "Incorpórate en el primer espacio seguro sin obligar a otros a frenar bruscamente. Evita detenerte en la rampa salvo indicación.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Velocidad, Espacio y Distancia",
+      "lessons": [
+        {
+          "title": "Gestión de Velocidad y Flujo",
+          "minutes": 5,
+          "content": [
+            "Obedece los máximos publicados y conduce a una velocidad razonable para las condiciones. El flujo te informa, pero no justifica velocidades inseguras.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "9.3",
-          "title": "Cambios de Carril, Adelantamientos y Salidas",
-          "summary": "Cambia de carril y sal de forma suave con señales y verificaciones correctas.",
-          "lessons": [
-            {
-              "id": "9.3.1",
-              "title": "Cambios de Carril Seguros y Puntos Ciegos",
-              "estimated_minutes": 7,
-              "content": [
-                { "type": "p", "text": "Aplica la rutina de espejos–señal–verificación de hombro. No permanezcas al lado de otros vehículos ni cortes el paso." },
-                { "type": "bullets", "items": [
-                  "Señaliza cada cambio de carril.",
-                  "Revisa espejos y punto ciego sobre el hombro.",
-                  "Completa el movimiento con suavidad y cancela la señal."
-                ] }
-              ]
-            },
-            {
-              "id": "9.3.2",
-              "title": "Estrategias de Salida y Salidas Perdidas",
-              "estimated_minutes": 6,
-              "content": [
-                { "type": "p", "text": "Señaliza y muévete temprano al carril de salida. Reduce la velocidad solo en el carril de desaceleración; no frenes bruscamente en un carril de circulación." },
-                { "type": "bullets", "items": [
-                  "Si pierdes una salida, continúa hasta la siguiente; nunca retrocedas.",
-                  "Evita el área de gore (triángulo pintado).",
-                  "Anticípate a conductores que se cruzan al final."
-                ] }
-              ]
-            }
-          ]
+          "title": "Distancia de Seguimiento y Colchones de Espacio",
+          "minutes": 5,
+          "content": [
+            "Usa al menos 3–4 segundos en condiciones ideales; añade más tiempo con lluvia, oscuridad, carga pesada o detrás de camiones grandes.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Cambios de Carril, Adelantamientos y Salidas",
+      "lessons": [
+        {
+          "title": "Cambios de Carril Seguros y Puntos Ciegos",
+          "minutes": 5,
+          "content": [
+            "Aplica la rutina de espejos–señal–verificación de hombro. No permanezcas al lado de otros vehículos ni cortes el paso.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "9.4",
-          "title": "Averías, Carriles HOV/Exprés y Ley de Moverse",
-          "summary": "Maneja emergencias en la carretera y reglas de carriles especiales.",
-          "lessons": [
-            {
-              "id": "9.4.1",
-              "title": "Averías y Seguridad en el Arcén",
-              "estimated_minutes": 8,
-              "content": [
-                { "type": "p", "text": "Señaliza hacia la derecha y sal si es posible, o estaciona completamente en el arcén. Usa luces intermitentes y colócate tras una barrera si la hay." },
-                { "type": "bullets", "items": [
-                  "Usa triángulos/reflejos solo si es seguro.",
-                  "Solicita asistencia; mantente lejos del tráfico.",
-                  "Si quedas en un carril, permanece abrochado y llama al 911."
-                ] }
-              ]
-            },
-            {
-              "id": "9.4.2",
-              "title": "Carriles HOV y Exprés/Peaje",
-              "estimated_minutes": 8,
-              "content": [
-                { "type": "p", "text": "Los carriles HOV exigen ocupación o tipo de vehículo; los exprés pueden requerir transpondedor o peaje. Entra/sale solo donde esté permitido." },
-                { "type": "bullets", "items": [
-                  "Respeta ocupación y horarios publicados.",
-                  "Cruza marcas solo donde sea legal.",
-                  "Ley de Moverse: cambia de carril o reduce la velocidad por vehículos detenidos con luces encendidas cuando sea seguro."
-                ] }
-              ]
-            }
-          ]
+          "title": "Estrategias de Salida y Salidas Perdidas",
+          "minutes": 5,
+          "content": [
+            "Señaliza y muévete temprano al carril de salida. Reduce la velocidad solo en el carril de desaceleración; no frenes bruscamente en un carril de circulación.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Averías, Carriles HOV/Exprés y Ley de Moverse",
+      "lessons": [
+        {
+          "title": "Averías y Seguridad en el Arcén",
+          "minutes": 5,
+          "content": [
+            "Señaliza hacia la derecha y sal si es posible, o estaciona completamente en el arcén. Usa luces intermitentes y colócate tras una barrera si la hay.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Carriles HOV y Exprés/Peaje",
+          "minutes": 5,
+          "content": [
+            "Los carriles HOV exigen ocupación o tipo de vehículo; los exprés pueden requerir transpondedor o peaje. Entra/sale solo donde esté permitido.",
+            "[object Object]"
+          ],
+          "review": []
         }
       ]
     }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.969Z"
   }
+}

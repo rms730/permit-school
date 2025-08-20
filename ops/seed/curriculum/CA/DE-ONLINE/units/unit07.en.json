@@ -1,459 +1,196 @@
 {
-    "unitId": "U07",
-    "title": "Impaired, Distracted & Drowsy Driving",
-    "estimatedTimeMinutes": 78,
-    "objectives": [
-      "Identify common forms of impairment (alcohol, drugs/medications, cannabis, fatigue, distractions).",
-      "Explain legal consequences, including California Zero Tolerance rules for under‑21 and implied consent.",
-      "Apply cell phone/texting rules and safe in‑vehicle tech habits.",
-      "Recognize signs of drowsiness and choose prevention strategies.",
-      "Select safe alternatives: designated driver, rideshare, delaying a trip, and family/parental agreements."
-    ],
-    "sections": [
-      {
-        "id": "U07-S01",
-        "title": "Alcohol Impairment Basics",
-        "lessons": [
-          {
-            "id": "U07-L01",
-            "title": "How Alcohol Affects Driving",
-            "durationMinutes": 6,
-            "objectives": [
-              "Describe how alcohol slows reaction time and decision‑making.",
-              "Connect impairment to real‑world driving situations."
-            ],
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "Alcohol is a depressant. It slows your brain’s ability to notice hazards, judge speed/distance, and react in time. Even a small amount can affect safe driving."
-              },
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "Slower reactions: braking and steering corrections are delayed.",
-                  "Narrowed attention: missing pedestrians/cyclists or new signals.",
-                  "Risky choices: following too closely, speeding, rolling stops."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "Scenario: After a Friday home game, a friend says they’re ‘fine’ after just one drink. On the quiet drive home, a ball rolls into the street. Impaired reaction time can turn this into a crash."
-              },
-              {
-                "type": "list",
-                "style": "ordered",
-                "items": [
-                  "Spot the risk early—scan 10+ seconds ahead and leave space.",
-                  "If you’ve consumed alcohol, do not drive—choose an alternative.",
-                  "As a passenger, speak up and change the plan."
-                ]
-              }
-            ]
-          },
-          {
-            "id": "U07-L02",
-            "title": "BAC Basics & Safe Decisions",
-            "durationMinutes": 6,
-            "objectives": [
-              "Explain what BAC means and why ‘below the limit’ can still be unsafe.",
-              "Commit to a no‑driving plan when alcohol is present."
-            ],
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "Blood Alcohol Concentration (BAC) measures alcohol in your bloodstream. California sets legal limits, but any impairment can be dangerous. ‘Under the limit’ does not equal ‘safe to drive.’"
-              },
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "Factors that change BAC: body size, time, food, drink strength.",
-                  "Only time lowers BAC; coffee/cold showers do not sober you up.",
-                  "Plan ahead: designated driver, rideshare, or stay put."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "Best move: decide your ride before the event starts. Text your parent/guardian or trusted adult the plan and a backup."
-              },
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "Never ride with an impaired driver.",
-                  "If plans fall through, delay the trip until a sober ride is available.",
-                  "Follow current CA law and the DMV handbook guidance for legal BAC thresholds and zero‑tolerance rules."
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "U07-S02",
-        "title": "Zero Tolerance & Implied Consent",
-        "lessons": [
-          {
-            "id": "U07-L03",
-            "title": "Under‑21: Zero Tolerance",
-            "durationMinutes": 7,
-            "objectives": [
-              "State California’s zero‑tolerance rule for drivers under 21.",
-              "Apply rules for alcohol/cannabis in vehicles for under‑21."
-            ],
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "California’s Zero Tolerance law applies to drivers under 21. If an officer suspects alcohol use, screening may be required, and even very low alcohol can trigger license actions."
-              },
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "No alcohol in your system when driving under 21.",
-                  "No possession of alcohol in the vehicle unless conditions in the handbook are met (e.g., sealed and accompanied by a person 21+ in specific situations).",
-                  "It’s illegal to drink alcohol or smoke/ingest cannabis while driving or as a passenger."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "Consequences can include vehicle impound, fines, and license suspension/delay under current California law and DMV guidance."
-              },
-              {
-                "type": "paragraph",
-                "text": "Bottom line: under 21 = zero alcohol while driving, and follow strict rules about transporting alcohol."
-              }
-            ]
-          },
-          {
-            "id": "U07-L04",
-            "title": "Implied Consent & DUI Process",
-            "durationMinutes": 6,
-            "objectives": [
-              "Explain implied consent in California.",
-              "Recognize possible administrative actions after a DUI arrest."
-            ],
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "By driving in California, you’ve agreed to chemical testing when lawfully requested (implied consent). Refusing can lead to license suspension or revocation."
-              },
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "If arrested on suspicion of DUI, DMV administrative actions may apply.",
-                  "You may be required to complete a DUI program, provide high‑risk insurance proof, and possibly install an ignition interlock device after conviction.",
-                  "DUI convictions remain on your record for a long period under current law."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "If under 21, additional zero‑tolerance consequences can apply. Follow current CA law and the DMV handbook guidance."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "U07-S03",
-        "title": "Medications, Cannabis & Mixing Substances",
-        "lessons": [
-          {
-            "id": "U07-L05",
-            "title": "Prescription & OTC Meds",
-            "durationMinutes": 6,
-            "objectives": [
-              "Identify medicine labels that warn about drowsiness or driving.",
-              "Explain how common meds can impair driving."
-            ],
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "Many prescription and over‑the‑counter (OTC) medications can impair alertness, vision, and reaction time. Read labels and talk to a pharmacist or doctor before driving."
-              },
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "Cold/allergy meds and cough syrups can cause drowsiness.",
-                  "Pain meds and muscle relaxants can slow reaction time.",
-                  "Never mix meds with alcohol—impairment multiplies."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "If a label says ‘Do not operate a vehicle or machinery,’ don’t drive. Choose a safe alternative."
-              }
-            ]
-          },
-          {
-            "id": "U07-L06",
-            "title": "Cannabis & Combining Substances",
-            "durationMinutes": 6,
-            "objectives": [
-              "Describe cannabis effects relevant to driving (attention, time‑distance, reaction).",
-              "Choose safe alternatives when substances are present."
-            ],
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "Cannabis can distort time‑distance judgement, slow reaction, and reduce attention. Driving while impaired by cannabis is illegal."
-              },
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "It’s illegal to smoke or ingest cannabis while driving or riding as a passenger.",
-                  "Open containers/products must be stored as required (e.g., in the trunk if opened).",
-                  "Combining cannabis with alcohol or other drugs/meds further increases crash risk."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "If cannabis is present in your plans—don’t drive. Use a sober ride or wait until you are unimpaired and it is legal and safe to do so."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "U07-S04",
-        "title": "Phones, Texting & In‑Car Tech",
-        "lessons": [
-          {
-            "id": "U07-L07",
-            "title": "Cell Phone & Texting Rules",
-            "durationMinutes": 7,
-            "objectives": [
-              "Apply California rules for adult and under‑18 phone use.",
-              "Mount and operate a phone legally if you must use it."
-            ],
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "Hand‑held phone use while driving is illegal. Adults may use hands‑free only when necessary and properly mounted. Minors may not use a phone or wireless device while driving, except for emergencies."
-              },
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "Mount on windshield, dashboard, or center console without blocking your view.",
-                  "If you must interact, a single tap/swipe on a mounted phone is allowed—don’t hold it.",
-                  "Best practice: silence notifications and use Do Not Disturb While Driving."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "Safer choice: pull over to a safe, legal location to make a call or send a message."
-              }
-            ]
-          },
-          {
-            "id": "U07-L08",
-            "title": "Infotainment & Other Distractions",
-            "durationMinutes": 6,
-            "objectives": [
-              "Identify common in‑vehicle distractions.",
-              "Use safer tech habits before moving."
-            ],
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "Navigation, playlists, and vehicle screens can pull your eyes, hands, and mind away from driving. Set up before you shift into DRIVE."
-              },
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "Program GPS and music before the trip.",
-                  "Use voice controls where available, but remember they still distract.",
-                  "If you need to adjust settings, park first."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "Remember: ‘Eyes off the road’ for even a few seconds at speed equals a long blind travel distance."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "U07-S05",
-        "title": "Drowsy Driving",
-        "lessons": [
-          {
-            "id": "U07-L09",
-            "title": "Warning Signs & Circadian Dips",
-            "durationMinutes": 6,
-            "objectives": [
-              "Recognize drowsy‑driving red flags.",
-              "Understand high‑risk times of day for fatigue."
-            ],
-            "content": [
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "Yawning, heavy eyelids, or drifting from your lane.",
-                  "Missing exits or not remembering the last few miles.",
-                  "Head‑nodding (‘micro‑sleeps’), hitting rumble strips."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "Circadian ‘low’ times increase risk—late night/early morning and mid‑afternoon. Don’t rely on energy drinks; they wear off."
-              },
-              {
-                "type": "paragraph",
-                "text": "If you feel sleepy, you’re already impaired. Stop driving."
-              }
-            ]
-          },
-          {
-            "id": "U07-L10",
-            "title": "Prevention Strategies",
-            "durationMinutes": 6,
-            "objectives": [
-              "Plan rest and shared driving to prevent fatigue.",
-              "Take decisive action when drowsy."
-            ],
-            "content": [
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "Sleep enough before driving; avoid very late starts.",
-                  "Take breaks every 1–2 hours on longer trips.",
-                  "Share the wheel on group trips; rotate drivers.",
-                  "Stop in a safe place for a short rest if needed."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "If a medication makes you sleepy, don’t drive—choose a different time or a different ride."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "U07-S06",
-        "title": "Passengers, Food & Other Everyday Distractions",
-        "lessons": [
-          {
-            "id": "U07-L11",
-            "title": "Friends, Music & Social Pressure",
-            "durationMinutes": 6,
-            "objectives": [
-              "Manage passenger behavior and peer pressure.",
-              "Keep music and conversations from hijacking attention."
-            ],
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "Passengers can be helpful spotters—or major distractions. As the driver, you set the tone."
-              },
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "Limit loud singing/shouting and back‑seat debates.",
-                  "Ask a passenger to handle music or navigation.",
-                  "If friends pressure you to rush or text—say no and pull over if needed."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "Scenario: Your friends want a ‘story’ while you drive. You can’t film while driving. Park first or hand off the phone."
-              }
-            ]
-          },
-          {
-            "id": "U07-L12",
-            "title": "Food, Drinks & Loose Items",
-            "durationMinutes": 5,
-            "objectives": [
-              "Explain how eating, spilled drinks, or unrestrained pets distract.",
-              "Set up the cabin to minimize reaching and fumbling."
-            ],
-            "content": [
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "Hot drinks and messy foods lead to sudden reactions.",
-                  "Secure backpacks, sports gear, and projects so they don’t roll.",
-                  "Restrain pets safely; don’t let them sit on laps."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "Best move: eat before or after you drive, not during."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "U07-S07",
-        "title": "Enforcement, Penalties & Safer Alternatives",
-        "lessons": [
-          {
-            "id": "U07-L13",
-            "title": "Enforcement & Penalties (Overview)",
-            "durationMinutes": 7,
-            "objectives": [
-              "Summarize possible license actions and penalties for DUI or under‑21 violations.",
-              "Explain administrative steps that may follow an arrest."
-            ],
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "California law provides serious consequences for DUI and under‑21 violations. Administrative license actions may occur, and courts can impose additional penalties. Requirements can include DUI education programs, proof of insurance, and ignition interlock devices in some cases."
-              },
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "Under‑21 violations can trigger impound, fines, and suspension/delay of driving privileges.",
-                  "DUI convictions remain on record for years under current law.",
-                  "Always follow current CA law and DMV handbook guidance."
-                ]
-              }
-            ]
-          },
-          {
-            "id": "U07-L14",
-            "title": "Safer Alternatives & Family Agreements",
-            "durationMinutes": 7,
-            "objectives": [
-              "Build a practical decision tree for nights out, games, and parties.",
-              "Use agreements to prevent impaired or distracted driving."
-            ],
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "Plan A/B/C: (A) designated sober driver, (B) rideshare/taxi, (C) call a parent/guardian or trusted adult. No questions asked—safety first."
-              },
-              {
-                "type": "list",
-                "style": "unordered",
-                "items": [
-                  "Share your location with a trusted adult when out late.",
-                  "Text the ride plan before events begin.",
-                  "Parent‑teen driving agreement: rules for no phone use, zero alcohol/drugs, and stopping if drowsy."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "If a friend is impaired, take the keys and choose a sober ride. Real friends protect each other."
-              }
-            ]
-          }
-        ]
-      }
-    ]
+  "unit": 7,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Impaired, Distracted & Drowsy Driving",
+  "minutes_required": 78,
+  "objectives": [
+    "Identify common forms of impairment (alcohol, drugs/medications, cannabis, fatigue, distractions).",
+    "Explain legal consequences, including California Zero Tolerance rules for under‑21 and implied consent.",
+    "Apply cell phone/texting rules and safe in‑vehicle tech habits.",
+    "Recognize signs of drowsiness and choose prevention strategies.",
+    "Select safe alternatives: designated driver, rideshare, delaying a trip, and family/parental agreements."
+  ],
+  "sections": [
+    {
+      "title": "Alcohol Impairment Basics",
+      "lessons": [
+        {
+          "title": "How Alcohol Affects Driving",
+          "minutes": 6,
+          "content": [
+            "Alcohol is a depressant. It slows your brain’s ability to notice hazards, judge speed/distance, and react in time. Even a small amount can affect safe driving.",
+            "[object Object]",
+            "Scenario: After a Friday home game, a friend says they’re ‘fine’ after just one drink. On the quiet drive home, a ball rolls into the street. Impaired reaction time can turn this into a crash.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "BAC Basics & Safe Decisions",
+          "minutes": 6,
+          "content": [
+            "Blood Alcohol Concentration (BAC) measures alcohol in your bloodstream. California sets legal limits, but any impairment can be dangerous. ‘Under the limit’ does not equal ‘safe to drive.’",
+            "[object Object]",
+            "Best move: decide your ride before the event starts. Text your parent/guardian or trusted adult the plan and a backup.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Zero Tolerance & Implied Consent",
+      "lessons": [
+        {
+          "title": "Under‑21: Zero Tolerance",
+          "minutes": 7,
+          "content": [
+            "California’s Zero Tolerance law applies to drivers under 21. If an officer suspects alcohol use, screening may be required, and even very low alcohol can trigger license actions.",
+            "[object Object]",
+            "Consequences can include vehicle impound, fines, and license suspension/delay under current California law and DMV guidance.",
+            "Bottom line: under 21 = zero alcohol while driving, and follow strict rules about transporting alcohol."
+          ],
+          "review": []
+        },
+        {
+          "title": "Implied Consent & DUI Process",
+          "minutes": 6,
+          "content": [
+            "By driving in California, you’ve agreed to chemical testing when lawfully requested (implied consent). Refusing can lead to license suspension or revocation.",
+            "[object Object]",
+            "If under 21, additional zero‑tolerance consequences can apply. Follow current CA law and the DMV handbook guidance."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Medications, Cannabis & Mixing Substances",
+      "lessons": [
+        {
+          "title": "Prescription & OTC Meds",
+          "minutes": 6,
+          "content": [
+            "Many prescription and over‑the‑counter (OTC) medications can impair alertness, vision, and reaction time. Read labels and talk to a pharmacist or doctor before driving.",
+            "[object Object]",
+            "If a label says ‘Do not operate a vehicle or machinery,’ don’t drive. Choose a safe alternative."
+          ],
+          "review": []
+        },
+        {
+          "title": "Cannabis & Combining Substances",
+          "minutes": 6,
+          "content": [
+            "Cannabis can distort time‑distance judgement, slow reaction, and reduce attention. Driving while impaired by cannabis is illegal.",
+            "[object Object]",
+            "If cannabis is present in your plans—don’t drive. Use a sober ride or wait until you are unimpaired and it is legal and safe to do so."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Phones, Texting & In‑Car Tech",
+      "lessons": [
+        {
+          "title": "Cell Phone & Texting Rules",
+          "minutes": 7,
+          "content": [
+            "Hand‑held phone use while driving is illegal. Adults may use hands‑free only when necessary and properly mounted. Minors may not use a phone or wireless device while driving, except for emergencies.",
+            "[object Object]",
+            "Safer choice: pull over to a safe, legal location to make a call or send a message."
+          ],
+          "review": []
+        },
+        {
+          "title": "Infotainment & Other Distractions",
+          "minutes": 6,
+          "content": [
+            "Navigation, playlists, and vehicle screens can pull your eyes, hands, and mind away from driving. Set up before you shift into DRIVE.",
+            "[object Object]",
+            "Remember: ‘Eyes off the road’ for even a few seconds at speed equals a long blind travel distance."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Drowsy Driving",
+      "lessons": [
+        {
+          "title": "Warning Signs & Circadian Dips",
+          "minutes": 6,
+          "content": [
+            "[object Object]",
+            "Circadian ‘low’ times increase risk—late night/early morning and mid‑afternoon. Don’t rely on energy drinks; they wear off.",
+            "If you feel sleepy, you’re already impaired. Stop driving."
+          ],
+          "review": []
+        },
+        {
+          "title": "Prevention Strategies",
+          "minutes": 6,
+          "content": [
+            "[object Object]",
+            "If a medication makes you sleepy, don’t drive—choose a different time or a different ride."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Passengers, Food & Other Everyday Distractions",
+      "lessons": [
+        {
+          "title": "Friends, Music & Social Pressure",
+          "minutes": 6,
+          "content": [
+            "Passengers can be helpful spotters—or major distractions. As the driver, you set the tone.",
+            "[object Object]",
+            "Scenario: Your friends want a ‘story’ while you drive. You can’t film while driving. Park first or hand off the phone."
+          ],
+          "review": []
+        },
+        {
+          "title": "Food, Drinks & Loose Items",
+          "minutes": 5,
+          "content": [
+            "[object Object]",
+            "Best move: eat before or after you drive, not during."
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Enforcement, Penalties & Safer Alternatives",
+      "lessons": [
+        {
+          "title": "Enforcement & Penalties (Overview)",
+          "minutes": 7,
+          "content": [
+            "California law provides serious consequences for DUI and under‑21 violations. Administrative license actions may occur, and courts can impose additional penalties. Requirements can include DUI education programs, proof of insurance, and ignition interlock devices in some cases.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Safer Alternatives & Family Agreements",
+          "minutes": 7,
+          "content": [
+            "Plan A/B/C: (A) designated sober driver, (B) rideshare/taxi, (C) call a parent/guardian or trusted adult. No questions asked—safety first.",
+            "[object Object]",
+            "If a friend is impaired, take the keys and choose a sober ride. Real friends protect each other."
+          ],
+          "review": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.967Z"
   }
+}

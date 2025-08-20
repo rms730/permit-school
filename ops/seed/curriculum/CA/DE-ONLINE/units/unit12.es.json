@@ -1,148 +1,112 @@
 {
-    "course": { "j_code": "CA", "course_code": "DE-ONLINE" },
-    "unit": {
-      "unit_no": 12,
-      "title": "Repaso Final y Preparación para el Examen",
-      "minutes_required": 60,
-      "objectives": [
-        "Reforzar temas más fallados: derecho de paso, señales/marcaciones, velocidad/espacio y situaciones especiales.",
-        "Aplicar estrategias de examen: lectura cuidadosa, eliminar distractores y manejo del tiempo.",
-        "Preparar documentos y logística para el examen teórico del DMV.",
-        "Adoptar una mentalidad de conducción segura más allá del examen."
-      ],
-      "sections": [
+  "unit": 12,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Repaso Final y Preparación para el Examen",
+  "minutes_required": 60,
+  "objectives": [
+    "Reforzar temas más fallados: derecho de paso, señales/marcaciones, velocidad/espacio y situaciones especiales.",
+    "Aplicar estrategias de examen: lectura cuidadosa, eliminar distractores y manejo del tiempo.",
+    "Preparar documentos y logística para el examen teórico del DMV.",
+    "Adoptar una mentalidad de conducción segura más allá del examen."
+  ],
+  "sections": [
+    {
+      "title": "Estrategias para el Examen",
+      "lessons": [
         {
-          "id": "12.1",
-          "title": "Estrategias para el Examen",
-          "summary": "Mejora tu puntaje leyendo con atención y usando la lógica.",
-          "lessons": [
-            {
-              "id": "12.1.1",
-              "title": "Leer, Predecir y Eliminar",
-              "estimated_minutes": 10,
-              "content": [
-                { "type": "p", "text": "Lee toda la pregunta, predice la respuesta y elimina opciones claramente erróneas. Cuidado con absolutos como 'siempre' o 'nunca'." },
-                { "type": "bullets", "items": [
-                  "Busca palabras clave (ceder, no rebasar, velocidad reducida).",
-                  "El sentido común y la seguridad suelen guiar la respuesta correcta.",
-                  "Si no sabes, elimina y elige la mejor opción restante."
-                ] }
-              ]
-            },
-            {
-              "id": "12.1.2",
-              "title": "Tiempo y Manejo del Estrés",
-              "estimated_minutes": 6,
-              "content": [
-                { "type": "p", "text": "Administra tu ritmo. Si te atoras, marca y regresa. Usa respiración para mantener calma y enfoque." },
-                { "type": "bullets", "items": [
-                  "No te apresures al inicio.",
-                  "Revisa preguntas marcadas al final.",
-                  "Hidrátate y descansa antes."
-                ] }
-              ]
-            }
-          ]
+          "title": "Leer, Predecir y Eliminar",
+          "minutes": 5,
+          "content": [
+            "Lee toda la pregunta, predice la respuesta y elimina opciones claramente erróneas. Cuidado con absolutos como 'siempre' o 'nunca'.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "12.2",
-          "title": "Temas Más Fallados: Repaso Rápido",
-          "summary": "Repasa áreas difíciles con recordatorios claros.",
-          "lessons": [
-            {
-              "id": "12.2.1",
-              "title": "Derecho de Paso e Intersecciones",
-              "estimated_minutes": 8,
-              "content": [
-                { "type": "p", "text": "Cede a peatones en cruces, a vehículos ya en la intersección y al vehículo de la derecha en alto de 4 vías si llegan a la vez." },
-                { "type": "bullets", "items": [
-                  "Giros izquierdos no protegidos ceden al tráfico que viene.",
-                  "Vuelta a la derecha en rojo solo si se permite y tras alto total.",
-                  "Revisa siempre bicicletas y scooters."
-                ] }
-              ]
-            },
-            {
-              "id": "12.2.2",
-              "title": "Señales, Marcaciones y Velocidad/Espacio",
-              "estimated_minutes": 8,
-              "content": [
-                { "type": "p", "text": "Distingue señales reglamentarias y de advertencia. Respeta líneas sólidas/dobles y conserva distancia segura según la velocidad y condiciones." },
-                { "type": "bullets", "items": [
-                  "Amarillas = advertencia; blancas/rojas = regulaciones.",
-                  "Líneas dobles sólidas: no rebasar.",
-                  "Aumenta distancia en lluvia u oscuridad."
-                ] }
-              ]
-            }
-          ]
+          "title": "Tiempo y Manejo del Estrés",
+          "minutes": 5,
+          "content": [
+            "Administra tu ritmo. Si te atoras, marca y regresa. Usa respiración para mantener calma y enfoque.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Temas Más Fallados: Repaso Rápido",
+      "lessons": [
+        {
+          "title": "Derecho de Paso e Intersecciones",
+          "minutes": 5,
+          "content": [
+            "Cede a peatones en cruces, a vehículos ya en la intersección y al vehículo de la derecha en alto de 4 vías si llegan a la vez.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "12.3",
-          "title": "Logística del Examen del DMV",
-          "summary": "Evita sorpresas el día del examen.",
-          "lessons": [
-            {
-              "id": "12.3.1",
-              "title": "Documentos y Elegibilidad",
-              "estimated_minutes": 8,
-              "content": [
-                { "type": "p", "text": "Lleva identificación requerida, comprobantes y cualquier formulario indicado en tu confirmación del DMV." },
-                { "type": "bullets", "items": [
-                  "Verifica hora y sede de la cita.",
-                  "Confirma formularios de consentimiento si eres menor.",
-                  "Revisa guías actuales del DMV sobre identificaciones aceptadas."
-                ] }
-              ]
-            },
-            {
-              "id": "12.3.2",
-              "title": "Repeticiones y Próximos Pasos",
-              "estimated_minutes": 6,
-              "content": [
-                { "type": "p", "text": "Comprende políticas de repetición y periodos de espera. Si no apruebas, repasa temas fallados antes de intentar de nuevo." },
-                { "type": "bullets", "items": [
-                  "Refuerza tus áreas débiles de inmediato.",
-                  "Agenda repetición según la política.",
-                  "Practica hábitos de conducción defensiva."
-                ] }
-              ]
-            }
-          ]
+          "title": "Señales, Marcaciones y Velocidad/Espacio",
+          "minutes": 5,
+          "content": [
+            "Distingue señales reglamentarias y de advertencia. Respeta líneas sólidas/dobles y conserva distancia segura según la velocidad y condiciones.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Logística del Examen del DMV",
+      "lessons": [
+        {
+          "title": "Documentos y Elegibilidad",
+          "minutes": 5,
+          "content": [
+            "Lleva identificación requerida, comprobantes y cualquier formulario indicado en tu confirmación del DMV.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "12.4",
-          "title": "Mentalidad de Conducción Responsable",
-          "summary": "Conduce como si la vida dependiera de ti.",
-          "lessons": [
-            {
-              "id": "12.4.1",
-              "title": "Madurez, Juicio y Riesgo",
-              "estimated_minutes": 7,
-              "content": [
-                { "type": "p", "text": "Conducir es más que aprobar un examen; implica autocontrol, paciencia y respeto." },
-                { "type": "bullets", "items": [
-                  "Evita la presión de pares y alardes.",
-                  "Nunca conduzcas bajo influencia o con excesiva fatiga.",
-                  "Planea con anticipación—ruta, clima y tiempo."
-                ] }
-              ]
-            },
-            {
-              "id": "12.4.2",
-              "title": "Compromiso y Aprendizaje Continuo",
-              "estimated_minutes": 7,
-              "content": [
-                { "type": "p", "text": "Comprométete con el aprendizaje continuo: repasa el manual, practica nuevas habilidades y da mantenimiento al vehículo." },
-                { "type": "bullets", "items": [
-                  "Firma un compromiso personal de conducción segura.",
-                  "Revisa resúmenes del curso de forma trimestral.",
-                  "Enseña hábitos seguros; sé un ejemplo."
-                ] }
-              ]
-            }
-          ]
+          "title": "Repeticiones y Próximos Pasos",
+          "minutes": 5,
+          "content": [
+            "Comprende políticas de repetición y periodos de espera. Si no apruebas, repasa temas fallados antes de intentar de nuevo.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Mentalidad de Conducción Responsable",
+      "lessons": [
+        {
+          "title": "Madurez, Juicio y Riesgo",
+          "minutes": 5,
+          "content": [
+            "Conducir es más que aprobar un examen; implica autocontrol, paciencia y respeto.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Compromiso y Aprendizaje Continuo",
+          "minutes": 5,
+          "content": [
+            "Comprométete con el aprendizaje continuo: repasa el manual, practica nuevas habilidades y da mantenimiento al vehículo.",
+            "[object Object]"
+          ],
+          "review": []
         }
       ]
     }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.970Z"
   }
+}

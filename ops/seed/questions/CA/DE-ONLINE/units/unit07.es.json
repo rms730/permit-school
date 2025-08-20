@@ -1,341 +1,660 @@
 {
-    "unitId": "U07",
-    "questions": [
-      {
-        "id": "U07-Q-001",
-        "lessonId": "U07-L07",
-        "difficulty": 2,
-        "prompt": "Tienes 17 años y tu mamá llama mientras manejas. ¿Cuál es la mejor opción legal?",
-        "options": [
-          "Contestar en altavoz sosteniendo el teléfono abajo.",
-          "Tocar una vez el teléfono montado para contestar y hablar normal.",
-          "No usar el teléfono; detente en un lugar legal y seguro si debes devolver la llamada.",
-          "Enviar un texto diciendo que estás manejando."
-        ],
-        "answerIndex": 2,
-        "explanation": "Los menores no pueden usar teléfono o dispositivo inalámbrico al manejar salvo emergencias. Lo más seguro es detenerse legalmente primero."
-      },
-      {
-        "id": "U07-Q-002",
-        "lessonId": "U07-L03",
-        "difficulty": 3,
-        "prompt": "¿Qué afirmación refleja mejor la Tolerancia Cero de California para menores de 21?",
-        "options": [
-          "Menores de 21 pueden manejar si se sienten sobrios.",
-          "Menores de 21 deben tener 0.00% BAC al manejar; niveles muy bajos pueden generar acciones sobre la licencia.",
-          "Menores de 21 pueden llevar alcohol abierto en la guantera si nadie lo bebe.",
-          "La Tolerancia Cero aplica solo en autopistas."
-        ],
-        "answerIndex": 1,
-        "explanation": "La Tolerancia Cero exige cero alcohol en el sistema al manejar; incluso niveles muy bajos pueden acarrear sanciones."
-      },
-      {
-        "id": "U07-Q-003",
-        "lessonId": "U07-L04",
-        "difficulty": 3,
-        "prompt": "Al manejar en California aceptas someterte a pruebas químicas si se solicitan legalmente. ¿Cómo se llama esto?",
-        "options": [
-          "Administrativo per se",
-          "Consentimiento implícito",
-          "Contenedor abierto",
-          "Aplicación primaria"
-        ],
-        "answerIndex": 1,
-        "explanation": "El consentimiento implícito significa que aceptas pruebas químicas cuando se solicitan legalmente; negarte puede suspender tu licencia."
-      },
-      {
-        "id": "U07-Q-004",
-        "lessonId": "U07-L07",
-        "difficulty": 2,
-        "prompt": "¿Dónde puede montar legalmente un adulto el teléfono para usarlo manos libres?",
-        "options": [
-          "En cualquier lugar excepto cerca del espejo.",
-          "En parabrisas, tablero o consola central sin bloquear la vista.",
-          "En el volante para fácil acceso.",
-          "En la ventana de la puerta del conductor, lejos de las bolsas de aire."
-        ],
-        "answerIndex": 1,
-        "explanation": "Adultos: manos libres con el teléfono montado en parabrisas, tablero o consola, sin obstruir la vista."
-      },
-      {
-        "id": "U07-Q-005",
-        "lessonId": "U07-L06",
-        "difficulty": 3,
-        "prompt": "¿Qué es verdadero sobre conducir con productos de cannabis?",
-        "options": [
-          "Es legal fumar cannabis como pasajero.",
-          "Productos abiertos pueden ir sobre el asiento si no se usan.",
-          "Es ilegal fumar/ingerir al manejar o viajar; productos abiertos deben guardarse según las reglas (p. ej., en la cajuela).",
-          "El cannabis no afecta el manejo como el alcohol."
-        ],
-        "answerIndex": 2,
-        "explanation": "La ley prohíbe fumar/ingerir cannabis al manejar o viajar; los productos abiertos deben asegurarse según la norma."
-      },
-      {
-        "id": "U07-Q-006",
-        "lessonId": "U07-L01",
-        "difficulty": 2,
-        "prompt": "Tras una bebida, tu amigo dice estar bien para manejar. Una pelota rueda a la calle. ¿Qué riesgo aumenta más con alcohol?",
-        "options": [
-          "Detección de peligros más rápida",
-          "Menor distancia de frenado",
-          "Tiempo de reacción más lento y mal juicio",
-          "Mejor enfoque con poca luz"
-        ],
-        "answerIndex": 2,
-        "explanation": "El alcohol retrasa la reacción y afecta las decisiones, aumentando el riesgo aun en niveles bajos."
-      },
-      {
-        "id": "U07-Q-007",
-        "lessonId": "U07-L05",
-        "difficulty": 3,
-        "prompt": "Tu antialérgico nuevo dice ‘puede causar somnolencia; no opere un vehículo o maquinaria’. ¿Qué haces?",
-        "options": [
-          "Manejar si te sientes despierto tras café.",
-          "Probar un trayecto corto para ver cómo reaccionas.",
-          "No manejar hasta saber que no te afecta; elige otro transporte.",
-          "Solo evitar manejar de noche."
-        ],
-        "answerIndex": 2,
-        "explanation": "Una etiqueta con somnolencia indica riesgo al conducir. Elige otra alternativa hasta confirmar seguridad."
-      },
-      {
-        "id": "U07-Q-008",
-        "lessonId": "U07-L09",
-        "difficulty": 2,
-        "prompt": "¿Qué señal sugiere que tienes demasiado sueño para manejar?",
-        "options": [
-          "Cantar con la música",
-          "Bostezos, párpados pesados, desviarte del carril",
-          "Tener hambre",
-          "Notar sol intenso"
-        ],
-        "answerIndex": 1,
-        "explanation": "Bostezos, párpados pesados y desviarte son señales clave. Deja de manejar."
-      },
-      {
-        "id": "U07-Q-009",
-        "lessonId": "U07-L10",
-        "difficulty": 3,
-        "prompt": "¿Mejor estrategia para evitar somnolencia en un viaje de 3 horas después de clases?",
-        "options": [
-          "Confiar en una bebida energética y música alta.",
-          "Compartir el manejo o posponer; hacer pausas cada 1–2 horas.",
-          "Bajar todas las ventanas y seguir.",
-          "Omitir pausas para llegar antes."
-        ],
-        "answerIndex": 1,
-        "explanation": "Planifica descanso, comparte el volante y toma pausas. La cafeína y el ruido no son confiables."
-      },
-      {
-        "id": "U07-Q-010",
-        "lessonId": "U07-L03",
-        "difficulty": 4,
-        "prompt": "Tienes 20 años. Un oficial sospecha consumo de alcohol y solicita una prueba. Te niegas. ¿Resultado probable bajo la ley de CA?",
-        "options": [
-          "Sin consecuencias si no estabas sobre el límite para adultos.",
-          "Solo una advertencia por no tener 21.",
-          "Suspensión/revocación de licencia por reglas de consentimiento implícito.",
-          "Decomiso del vehículo pero licencia intacta."
-        ],
-        "answerIndex": 2,
-        "explanation": "Negarse a una prueba legal puede provocar suspensión/revocación por consentimiento implícito y tolerancia cero."
-      },
-      {
-        "id": "U07-Q-011",
-        "lessonId": "U07-L08",
-        "difficulty": 3,
-        "prompt": "Tu app de mapas necesita un destino nuevo. ¿Cuál es la mejor práctica?",
-        "options": [
-          "Escribirlo mientras avanzas lento.",
-          "Que un pasajero lo haga o estacionar antes de cambiarlo.",
-          "Sostener el teléfono y escribir con una mano.",
-          "Esperar una luz roja larga para editarlo."
-        ],
-        "answerIndex": 1,
-        "explanation": "Configura navegación antes de conducir o que lo haga un pasajero. No teclees en movimiento."
-      },
-      {
-        "id": "U07-Q-012",
-        "lessonId": "U07-L06",
-        "difficulty": 3,
-        "prompt": "¿Qué combinación aumenta más el riesgo de choque?",
-        "options": [
-          "Cafeína y agua",
-          "Alcohol y cannabis juntos",
-          "Azúcar y música",
-          "Aire frío y pódcast"
-        ],
-        "answerIndex": 1,
-        "explanation": "Mezclar alcohol con cannabis multiplica la incapacidad y eleva el riesgo."
-      },
-      {
-        "id": "U07-Q-013",
-        "lessonId": "U07-L13",
-        "difficulty": 3,
-        "prompt": "¿Qué consecuencia puede seguir a una condena por DUI en California?",
-        "options": [
-          "Sin registro tras 6 meses si te disculpas.",
-          "Posible obligación de completar programa de DUI y presentar seguro de alto riesgo.",
-          "Solo advertencia verbal por primera vez.",
-          "Solo servicio comunitario, sin impacto en licencia."
-        ],
-        "answerIndex": 1,
-        "explanation": "Puede requerirse programa de DUI, comprobante de seguro y otras sanciones."
-      },
-      {
-        "id": "U07-Q-014",
-        "lessonId": "U07-L02",
-        "difficulty": 3,
-        "prompt": "¿Cuál afirmación es más precisa sobre BAC y seguridad?",
-        "options": [
-          "Si estás bajo el límite per se para adultos, es seguro manejar.",
-          "Solo personas grandes pueden manejar seguras tras beber.",
-          "Cualquier alcohol puede afectar; planea no manejar si bebes.",
-          "El café anula el alcohol rápidamente."
-        ],
-        "answerIndex": 2,
-        "explanation": "Incluso un BAC bajo afecta. Planea transporte sobrio cuando hay alcohol."
-      },
-      {
-        "id": "U07-Q-015",
-        "lessonId": "U07-L11",
-        "difficulty": 2,
-        "prompt": "Tus amigos hacen ruido y te piden ir más rápido. ¿Qué haces primero?",
-        "options": [
-          "Subir la música para no escucharlos.",
-          "Pedir silencio para concentrarte y mantener tu ritmo.",
-          "Acelerar un poco para calmarlos.",
-          "Pasar el teléfono atrás para que graben."
-        ],
-        "answerIndex": 1,
-        "explanation": "Fija expectativas y mantén el control. No cambies velocidad ni uses el teléfono para complacer."
-      },
-      {
-        "id": "U07-Q-016",
-        "lessonId": "U07-L12",
-        "difficulty": 2,
-        "prompt": "¿Qué objeto es más probable que sea una distracción peligrosa?",
-        "options": [
-          "Una botella de agua sellada en el portavasos",
-          "Un cuenco de fideos calientes en tu regazo",
-          "Un teléfono montado solo con audio",
-          "Un abrigo doblado en el asiento trasero"
-        ],
-        "answerIndex": 1,
-        "explanation": "Comida caliente y derramable en el regazo puede causar reacciones bruscas e inseguras."
-      },
-      {
-        "id": "U07-Q-017",
-        "lessonId": "U07-L07",
-        "difficulty": 4,
-        "prompt": "¿Qué es legalmente correcto para adultos y teléfonos?",
-        "options": [
-          "Sostener el teléfono brevemente en una luz roja está bien.",
-          "Se permite manos libres cuando sea necesario con dispositivo bien montado; no obstruyas la vista.",
-          "Es legal escribir mientras se está detenido en tráfico.",
-          "Se puede videollamar si miras hacia arriba cada pocos segundos."
-        ],
-        "answerIndex": 1,
-        "explanation": "Adultos: manos libres con dispositivo montado y mínima interacción; sostener el teléfono es ilegal."
-      },
-      {
-        "id": "U07-Q-018",
-        "lessonId": "U07-L03",
-        "difficulty": 3,
-        "prompt": "Transporte de alcohol por menores de 21 en vehículo: ¿qué es más preciso?",
-        "options": [
-          "Permitido si va en la guantera.",
-          "Permitido solo bajo condiciones específicas del manual (p. ej., sellado y con adulto de 21+ en ciertas situaciones).",
-          "Siempre permitido si el conductor está sobrio.",
-          "Nunca permitido bajo ninguna condición."
-        ],
-        "answerIndex": 1,
-        "explanation": "Existen condiciones limitadas para transportar alcohol sellado con un adulto de 21+; de lo contrario, está prohibido."
-      },
-      {
-        "id": "U07-Q-019",
-        "lessonId": "U07-L04",
-        "difficulty": 3,
-        "prompt": "Tras un arresto por DUI, ¿qué paso administrativo puede ocurrir antes de la decisión de la corte?",
-        "options": [
-          "Desestimación automática",
-          "Acción administrativa del DMV sobre la licencia",
-          "Mejora gratuita del seguro",
-          "Eliminar registro tras 30 días"
-        ],
-        "answerIndex": 1,
-        "explanation": "Puede aplicarse una acción administrativa del DMV separada del proceso judicial."
-      },
-      {
-        "id": "U07-Q-020",
-        "lessonId": "U07-L14",
-        "difficulty": 2,
-        "prompt": "Tu conductor designado bebió. ¿Cuál es el mejor siguiente paso?",
-        "options": [
-          "Esperar unos minutos y luego manejar despacio.",
-          "Manejar tú porque solo tomaste una bebida.",
-          "Usar el plan de respaldo: aplicación/taxi o llamar a un adulto de confianza.",
-          "Pedir que maneje el amigo ‘menos incapacitado’."
-        ],
-        "answerIndex": 2,
-        "explanation": "Usa el plan sobrio de respaldo—viaje por aplicación/taxi o adulto de confianza. No manejes incapacitado."
-      },
-      {
-        "id": "U07-Q-021",
-        "lessonId": "U07-L01",
-        "difficulty": 4,
-        "prompt": "¿Cuál es la interpretación más segura de los límites de BAC en California?",
-        "options": [
-          "Si tienes 21+, cualquier BAC bajo el per se garantiza seguridad.",
-          "Aun bajo los límites per se puedes estar inseguro o enfrentar consecuencias si hay incapacidad.",
-          "Solo conductores con CDL enfrentan consecuencias por BAC bajo.",
-          "Los límites de BAC no aplican si vas despacio."
-        ],
-        "answerIndex": 1,
-        "explanation": "Estar bajo el per se no garantiza seguridad; la incapacidad puede ser ilegal y peligrosa."
-      },
-      {
-        "id": "U07-Q-022",
-        "lessonId": "U07-L05",
-        "difficulty": 3,
-        "prompt": "Tomaste un relajante muscular que causa somnolencia. ¿Qué haces con tu viaje planeado?",
-        "options": [
-          "Bajar las ventanas y manejar igual.",
-          "Solo evitar la autopista.",
-          "Retrasar el viaje o usar otro transporte.",
-          "Tomar café cada 30 minutos."
-        ],
-        "answerIndex": 2,
-        "explanation": "No manejes cuando un medicamento causa sueño. Elige una alternativa."
-      },
-      {
-        "id": "U07-Q-023",
-        "lessonId": "U07-L11",
-        "difficulty": 3,
-        "prompt": "Amigos te piden transmitir en vivo mientras manejas. ¿Cuál es la mejor acción?",
-        "options": [
-          "Sostener el teléfono y transmitir con una mano.",
-          "Que un pasajero sostenga el teléfono mientras manejas.",
-          "Primero estacionar legalmente o negarte; manejar es prioridad.",
-          "Transmitir solo en calles tranquilas."
-        ],
-        "answerIndex": 2,
-        "explanation": "Grabar/transmitir al manejar es peligroso y puede ser ilegal. Estaciónate o di no."
-      },
-      {
-        "id": "U07-Q-024",
-        "lessonId": "U07-L10",
-        "difficulty": 5,
-        "prompt": "Empiezas con ‘microsueños’ (cabeceos) en una autopista de noche. ¿La MEJOR respuesta?",
-        "options": [
-          "Subir la música y pellizcarte.",
-          "Masticar chicle y abrir la ventana.",
-          "Salir y detenerte en un lugar legal y seguro para descansar; cambiar de conductor o retrasar el viaje.",
-          "Seguir hasta la próxima ciudad donde el hotel sea más barato."
-        ],
-        "answerIndex": 2,
-        "explanation": "Los microsueños significan que ya estás inseguro. Detente ahora en un lugar seguro, descansa o cambia de conductor."
-      }
-    ]
+  "unit": 7,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "questions": [
+    {
+      "ref": "U07-Q-001",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Tienes 17 años y tu mamá llama mientras manejas. ¿Cuál es la mejor opción legal?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Contestar en altavoz sosteniendo el teléfono abajo."
+        },
+        {
+          "key": "B",
+          "text": "Tocar una vez el teléfono montado para contestar y hablar normal."
+        },
+        {
+          "key": "C",
+          "text": "No usar el teléfono; detente en un lugar legal y seguro si debes devolver la llamada."
+        },
+        {
+          "key": "D",
+          "text": "Enviar un texto diciendo que estás manejando."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Los menores no pueden usar teléfono o dispositivo inalámbrico al manejar salvo emergencias. Lo más seguro es detenerse legalmente primero.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-002",
+      "skill": "General",
+      "difficulty": 3,
+      "stem": "¿Qué afirmación refleja mejor la Tolerancia Cero de California para menores de 21?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Menores de 21 pueden manejar si se sienten sobrios."
+        },
+        {
+          "key": "B",
+          "text": "Menores de 21 deben tener 0.00% BAC al manejar; niveles muy bajos pueden generar acciones sobre la licencia."
+        },
+        {
+          "key": "C",
+          "text": "Menores de 21 pueden llevar alcohol abierto en la guantera si nadie lo bebe."
+        },
+        {
+          "key": "D",
+          "text": "La Tolerancia Cero aplica solo en autopistas."
+        }
+      ],
+      "answer": 1,
+      "explanation": "La Tolerancia Cero exige cero alcohol en el sistema al manejar; incluso niveles muy bajos pueden acarrear sanciones.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-003",
+      "skill": "General",
+      "difficulty": 3,
+      "stem": "Al manejar en California aceptas someterte a pruebas químicas si se solicitan legalmente. ¿Cómo se llama esto?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Administrativo per se"
+        },
+        {
+          "key": "B",
+          "text": "Consentimiento implícito"
+        },
+        {
+          "key": "C",
+          "text": "Contenedor abierto"
+        },
+        {
+          "key": "D",
+          "text": "Aplicación primaria"
+        }
+      ],
+      "answer": 1,
+      "explanation": "El consentimiento implícito significa que aceptas pruebas químicas cuando se solicitan legalmente; negarte puede suspender tu licencia.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-004",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Dónde puede montar legalmente un adulto el teléfono para usarlo manos libres?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "En cualquier lugar excepto cerca del espejo."
+        },
+        {
+          "key": "B",
+          "text": "En parabrisas, tablero o consola central sin bloquear la vista."
+        },
+        {
+          "key": "C",
+          "text": "En el volante para fácil acceso."
+        },
+        {
+          "key": "D",
+          "text": "En la ventana de la puerta del conductor, lejos de las bolsas de aire."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Adultos: manos libres con el teléfono montado en parabrisas, tablero o consola, sin obstruir la vista.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-005",
+      "skill": "General",
+      "difficulty": 3,
+      "stem": "¿Qué es verdadero sobre conducir con productos de cannabis?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Es legal fumar cannabis como pasajero."
+        },
+        {
+          "key": "B",
+          "text": "Productos abiertos pueden ir sobre el asiento si no se usan."
+        },
+        {
+          "key": "C",
+          "text": "Es ilegal fumar/ingerir al manejar o viajar; productos abiertos deben guardarse según las reglas (p. ej., en la cajuela)."
+        },
+        {
+          "key": "D",
+          "text": "El cannabis no afecta el manejo como el alcohol."
+        }
+      ],
+      "answer": 2,
+      "explanation": "La ley prohíbe fumar/ingerir cannabis al manejar o viajar; los productos abiertos deben asegurarse según la norma.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-006",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Tras una bebida, tu amigo dice estar bien para manejar. Una pelota rueda a la calle. ¿Qué riesgo aumenta más con alcohol?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Detección de peligros más rápida"
+        },
+        {
+          "key": "B",
+          "text": "Menor distancia de frenado"
+        },
+        {
+          "key": "C",
+          "text": "Tiempo de reacción más lento y mal juicio"
+        },
+        {
+          "key": "D",
+          "text": "Mejor enfoque con poca luz"
+        }
+      ],
+      "answer": 2,
+      "explanation": "El alcohol retrasa la reacción y afecta las decisiones, aumentando el riesgo aun en niveles bajos.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-007",
+      "skill": "General",
+      "difficulty": 3,
+      "stem": "Tu antialérgico nuevo dice ‘puede causar somnolencia; no opere un vehículo o maquinaria’. ¿Qué haces?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Manejar si te sientes despierto tras café."
+        },
+        {
+          "key": "B",
+          "text": "Probar un trayecto corto para ver cómo reaccionas."
+        },
+        {
+          "key": "C",
+          "text": "No manejar hasta saber que no te afecta; elige otro transporte."
+        },
+        {
+          "key": "D",
+          "text": "Solo evitar manejar de noche."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Una etiqueta con somnolencia indica riesgo al conducir. Elige otra alternativa hasta confirmar seguridad.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-008",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Qué señal sugiere que tienes demasiado sueño para manejar?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Cantar con la música"
+        },
+        {
+          "key": "B",
+          "text": "Bostezos, párpados pesados, desviarte del carril"
+        },
+        {
+          "key": "C",
+          "text": "Tener hambre"
+        },
+        {
+          "key": "D",
+          "text": "Notar sol intenso"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Bostezos, párpados pesados y desviarte son señales clave. Deja de manejar.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-009",
+      "skill": "General",
+      "difficulty": 3,
+      "stem": "¿Mejor estrategia para evitar somnolencia en un viaje de 3 horas después de clases?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Confiar en una bebida energética y música alta."
+        },
+        {
+          "key": "B",
+          "text": "Compartir el manejo o posponer; hacer pausas cada 1–2 horas."
+        },
+        {
+          "key": "C",
+          "text": "Bajar todas las ventanas y seguir."
+        },
+        {
+          "key": "D",
+          "text": "Omitir pausas para llegar antes."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Planifica descanso, comparte el volante y toma pausas. La cafeína y el ruido no son confiables.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-010",
+      "skill": "General",
+      "difficulty": 4,
+      "stem": "Tienes 20 años. Un oficial sospecha consumo de alcohol y solicita una prueba. Te niegas. ¿Resultado probable bajo la ley de CA?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Sin consecuencias si no estabas sobre el límite para adultos."
+        },
+        {
+          "key": "B",
+          "text": "Solo una advertencia por no tener 21."
+        },
+        {
+          "key": "C",
+          "text": "Suspensión/revocación de licencia por reglas de consentimiento implícito."
+        },
+        {
+          "key": "D",
+          "text": "Decomiso del vehículo pero licencia intacta."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Negarse a una prueba legal puede provocar suspensión/revocación por consentimiento implícito y tolerancia cero.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-011",
+      "skill": "General",
+      "difficulty": 3,
+      "stem": "Tu app de mapas necesita un destino nuevo. ¿Cuál es la mejor práctica?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Escribirlo mientras avanzas lento."
+        },
+        {
+          "key": "B",
+          "text": "Que un pasajero lo haga o estacionar antes de cambiarlo."
+        },
+        {
+          "key": "C",
+          "text": "Sostener el teléfono y escribir con una mano."
+        },
+        {
+          "key": "D",
+          "text": "Esperar una luz roja larga para editarlo."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Configura navegación antes de conducir o que lo haga un pasajero. No teclees en movimiento.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-012",
+      "skill": "General",
+      "difficulty": 3,
+      "stem": "¿Qué combinación aumenta más el riesgo de choque?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Cafeína y agua"
+        },
+        {
+          "key": "B",
+          "text": "Alcohol y cannabis juntos"
+        },
+        {
+          "key": "C",
+          "text": "Azúcar y música"
+        },
+        {
+          "key": "D",
+          "text": "Aire frío y pódcast"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Mezclar alcohol con cannabis multiplica la incapacidad y eleva el riesgo.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-013",
+      "skill": "General",
+      "difficulty": 3,
+      "stem": "¿Qué consecuencia puede seguir a una condena por DUI en California?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Sin registro tras 6 meses si te disculpas."
+        },
+        {
+          "key": "B",
+          "text": "Posible obligación de completar programa de DUI y presentar seguro de alto riesgo."
+        },
+        {
+          "key": "C",
+          "text": "Solo advertencia verbal por primera vez."
+        },
+        {
+          "key": "D",
+          "text": "Solo servicio comunitario, sin impacto en licencia."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Puede requerirse programa de DUI, comprobante de seguro y otras sanciones.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-014",
+      "skill": "General",
+      "difficulty": 3,
+      "stem": "¿Cuál afirmación es más precisa sobre BAC y seguridad?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Si estás bajo el límite per se para adultos, es seguro manejar."
+        },
+        {
+          "key": "B",
+          "text": "Solo personas grandes pueden manejar seguras tras beber."
+        },
+        {
+          "key": "C",
+          "text": "Cualquier alcohol puede afectar; planea no manejar si bebes."
+        },
+        {
+          "key": "D",
+          "text": "El café anula el alcohol rápidamente."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Incluso un BAC bajo afecta. Planea transporte sobrio cuando hay alcohol.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-015",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Tus amigos hacen ruido y te piden ir más rápido. ¿Qué haces primero?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Subir la música para no escucharlos."
+        },
+        {
+          "key": "B",
+          "text": "Pedir silencio para concentrarte y mantener tu ritmo."
+        },
+        {
+          "key": "C",
+          "text": "Acelerar un poco para calmarlos."
+        },
+        {
+          "key": "D",
+          "text": "Pasar el teléfono atrás para que graben."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Fija expectativas y mantén el control. No cambies velocidad ni uses el teléfono para complacer.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-016",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "¿Qué objeto es más probable que sea una distracción peligrosa?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Una botella de agua sellada en el portavasos"
+        },
+        {
+          "key": "B",
+          "text": "Un cuenco de fideos calientes en tu regazo"
+        },
+        {
+          "key": "C",
+          "text": "Un teléfono montado solo con audio"
+        },
+        {
+          "key": "D",
+          "text": "Un abrigo doblado en el asiento trasero"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Comida caliente y derramable en el regazo puede causar reacciones bruscas e inseguras.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-017",
+      "skill": "General",
+      "difficulty": 4,
+      "stem": "¿Qué es legalmente correcto para adultos y teléfonos?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Sostener el teléfono brevemente en una luz roja está bien."
+        },
+        {
+          "key": "B",
+          "text": "Se permite manos libres cuando sea necesario con dispositivo bien montado; no obstruyas la vista."
+        },
+        {
+          "key": "C",
+          "text": "Es legal escribir mientras se está detenido en tráfico."
+        },
+        {
+          "key": "D",
+          "text": "Se puede videollamar si miras hacia arriba cada pocos segundos."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Adultos: manos libres con dispositivo montado y mínima interacción; sostener el teléfono es ilegal.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-018",
+      "skill": "General",
+      "difficulty": 3,
+      "stem": "Transporte de alcohol por menores de 21 en vehículo: ¿qué es más preciso?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Permitido si va en la guantera."
+        },
+        {
+          "key": "B",
+          "text": "Permitido solo bajo condiciones específicas del manual (p. ej., sellado y con adulto de 21+ en ciertas situaciones)."
+        },
+        {
+          "key": "C",
+          "text": "Siempre permitido si el conductor está sobrio."
+        },
+        {
+          "key": "D",
+          "text": "Nunca permitido bajo ninguna condición."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Existen condiciones limitadas para transportar alcohol sellado con un adulto de 21+; de lo contrario, está prohibido.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-019",
+      "skill": "General",
+      "difficulty": 3,
+      "stem": "Tras un arresto por DUI, ¿qué paso administrativo puede ocurrir antes de la decisión de la corte?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Desestimación automática"
+        },
+        {
+          "key": "B",
+          "text": "Acción administrativa del DMV sobre la licencia"
+        },
+        {
+          "key": "C",
+          "text": "Mejora gratuita del seguro"
+        },
+        {
+          "key": "D",
+          "text": "Eliminar registro tras 30 días"
+        }
+      ],
+      "answer": 1,
+      "explanation": "Puede aplicarse una acción administrativa del DMV separada del proceso judicial.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-020",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Tu conductor designado bebió. ¿Cuál es el mejor siguiente paso?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Esperar unos minutos y luego manejar despacio."
+        },
+        {
+          "key": "B",
+          "text": "Manejar tú porque solo tomaste una bebida."
+        },
+        {
+          "key": "C",
+          "text": "Usar el plan de respaldo: aplicación/taxi o llamar a un adulto de confianza."
+        },
+        {
+          "key": "D",
+          "text": "Pedir que maneje el amigo ‘menos incapacitado’."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Usa el plan sobrio de respaldo—viaje por aplicación/taxi o adulto de confianza. No manejes incapacitado.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-021",
+      "skill": "General",
+      "difficulty": 4,
+      "stem": "¿Cuál es la interpretación más segura de los límites de BAC en California?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Si tienes 21+, cualquier BAC bajo el per se garantiza seguridad."
+        },
+        {
+          "key": "B",
+          "text": "Aun bajo los límites per se puedes estar inseguro o enfrentar consecuencias si hay incapacidad."
+        },
+        {
+          "key": "C",
+          "text": "Solo conductores con CDL enfrentan consecuencias por BAC bajo."
+        },
+        {
+          "key": "D",
+          "text": "Los límites de BAC no aplican si vas despacio."
+        }
+      ],
+      "answer": 1,
+      "explanation": "Estar bajo el per se no garantiza seguridad; la incapacidad puede ser ilegal y peligrosa.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-022",
+      "skill": "General",
+      "difficulty": 3,
+      "stem": "Tomaste un relajante muscular que causa somnolencia. ¿Qué haces con tu viaje planeado?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Bajar las ventanas y manejar igual."
+        },
+        {
+          "key": "B",
+          "text": "Solo evitar la autopista."
+        },
+        {
+          "key": "C",
+          "text": "Retrasar el viaje o usar otro transporte."
+        },
+        {
+          "key": "D",
+          "text": "Tomar café cada 30 minutos."
+        }
+      ],
+      "answer": 2,
+      "explanation": "No manejes cuando un medicamento causa sueño. Elige una alternativa.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-023",
+      "skill": "General",
+      "difficulty": 3,
+      "stem": "Amigos te piden transmitir en vivo mientras manejas. ¿Cuál es la mejor acción?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Sostener el teléfono y transmitir con una mano."
+        },
+        {
+          "key": "B",
+          "text": "Que un pasajero sostenga el teléfono mientras manejas."
+        },
+        {
+          "key": "C",
+          "text": "Primero estacionar legalmente o negarte; manejar es prioridad."
+        },
+        {
+          "key": "D",
+          "text": "Transmitir solo en calles tranquilas."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Grabar/transmitir al manejar es peligroso y puede ser ilegal. Estaciónate o di no.",
+      "tags": []
+    },
+    {
+      "ref": "U07-Q-024",
+      "skill": "General",
+      "difficulty": 5,
+      "stem": "Empiezas con ‘microsueños’ (cabeceos) en una autopista de noche. ¿La MEJOR respuesta?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Subir la música y pellizcarte."
+        },
+        {
+          "key": "B",
+          "text": "Masticar chicle y abrir la ventana."
+        },
+        {
+          "key": "C",
+          "text": "Salir y detenerte en un lugar legal y seguro para descansar; cambiar de conductor o retrasar el viaje."
+        },
+        {
+          "key": "D",
+          "text": "Seguir hasta la próxima ciudad donde el hotel sea más barato."
+        }
+      ],
+      "answer": 2,
+      "explanation": "Los microsueños significan que ya estás inseguro. Detente ahora en un lugar seguro, descansa o cambia de conductor.",
+      "tags": []
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.988Z"
   }
+}

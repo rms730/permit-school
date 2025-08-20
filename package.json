@@ -8,6 +8,13 @@
     "env:check:local": "node tools/env/check.mjs --env=local",
     "env:check:dev": "node tools/env/check.mjs --env=development",
     "env:check:prod": "node tools/env/check.mjs --env=production",
+    "seed:normalize": "tsx ops/seed/normalize/cli.ts",
+    "seed:normalize:write": "tsx ops/seed/normalize/cli.ts --write",
+    "seed:normalize:curr": "tsx ops/seed/normalize/cli.ts --mode=curriculum",
+    "seed:normalize:curr:write": "tsx ops/seed/normalize/cli.ts --mode=curriculum --write",
+    "seed:normalize:questions": "tsx ops/seed/normalize/cli.ts --mode=questions",
+    "seed:normalize:questions:write": "tsx ops/seed/normalize/cli.ts --mode=questions --write",
+    "seed:verify": "tsx ops/seed/normalize/verify.ts",
     "seed:unit1": "tsx ops/seed/seed-unit.ts",
     "seed:curriculum:unit1": "tsx ops/seed/seed-curriculum.ts",
     "seed:questions:unit1": "tsx ops/seed/seed-questions.ts",
@@ -38,12 +45,18 @@
     "seed:verify:unit10": "tsx ops/seed/verify-seed.ts --unit=10 --lang=en,es --j=CA --course=DE-ONLINE",
     "seed:verify:unit11": "tsx ops/seed/verify-seed.ts --unit=11 --lang=en,es --j=CA --course=DE-ONLINE",
     "seed:verify:unit12": "tsx ops/seed/verify-seed.ts --unit=12 --lang=en,es --j=CA --course=DE-ONLINE",
-    "seed:make-empty-units": "node ops/seed/scripts/make-empty-units.mjs"
+    "seed:make-empty-units": "node ops/seed/scripts/make-empty-units.mjs",
+    "seed:all": "tsx ops/seed/seed-all.ts",
+    "seed:curriculum": "tsx ops/seed/seed-curriculum.ts",
+    "seed:questions": "tsx ops/seed/seed-questions.ts"
   },
   "devDependencies": {
+    "@supabase/supabase-js": "^2.47.0",
     "dotenv-flow": "^4.1.0",
-    "zod": "^4.0.17",
     "tsx": "^4.15.7",
-    "@supabase/supabase-js": "^2.47.0"
+    "zod": "^4.0.17"
+  },
+  "dependencies": {
+    "uuid": "^11.1.0"
   }
 }

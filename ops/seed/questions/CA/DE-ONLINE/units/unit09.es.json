@@ -1,187 +1,373 @@
 {
-    "course": { "j_code": "CA", "course_code": "DE-ONLINE" },
-    "unit_no": 9,
-    "lang": "es",
-    "questions": [
-      {
-        "id": "U9-Q01",
-        "skill": "Entrada a Autopista",
-        "difficulty": 2,
-        "stem": "Al usar un carril de aceleración para entrar a una autopista, debes:",
-        "choices": [
-          { "key": "A", "text": "Igualar la velocidad del tráfico y entrar en un espacio seguro.", "correct": true },
-          { "key": "B", "text": "Detenerte al final de la rampa y esperar un gran espacio." },
-          { "key": "C", "text": "Entrar a cualquier velocidad; el tráfico debe cederte el paso." },
-          { "key": "D", "text": "Señalizar solo después de incorporarte." }
-        ],
-        "explanation": "Usa todo el carril de aceleración para alcanzar la velocidad del flujo, señaliza e incorpórate en un espacio seguro.",
-        "tags": ["autopista", "incorporación", "carril-de-aceleración"],
-        "source_sections": ["9.1.1", "9.1.2"]
-      },
-      {
-        "id": "U9-Q02",
-        "skill": "Semáforos de Rampa",
-        "difficulty": 1,
-        "stem": "Los semáforos de rampa se usan para:",
-        "choices": [
-          { "key": "A", "text": "Reducir conflictos al espaciar vehículos que entran a la autopista.", "correct": true },
-          { "key": "B", "text": "Medir la velocidad para multas." },
-          { "key": "C", "text": "Indicar que la autopista está cerrada." },
-          { "key": "D", "text": "Permitir solo camiones." }
-        ],
-        "explanation": "Las rampas con semáforo liberan vehículos en intervalos para suavizar las incorporaciones y la congestión.",
-        "tags": ["semáforos-de-rampa", "autopista"],
-        "source_sections": ["9.1.1"]
-      },
-      {
-        "id": "U9-Q03",
-        "skill": "Elección de Carril",
-        "difficulty": 2,
-        "stem": "El carril izquierdo en una autopista de varios carriles se usa típicamente para:",
-        "choices": [
-          { "key": "A", "text": "Adelantar y tráfico más rápido.", "correct": true },
-          { "key": "B", "text": "Solo camiones." },
-          { "key": "C", "text": "Vehículos que entran y salen." },
-          { "key": "D", "text": "Vehículos por debajo del límite." }
-        ],
-        "explanation": "El carril izquierdo es para adelantar y velocidades más altas; circular sin adelantar puede entorpecer.",
-        "tags": ["carril", "autopista"],
-        "source_sections": ["9.1.2"]
-      },
-      {
-        "id": "U9-Q04",
-        "skill": "Distancia de Seguimiento",
-        "difficulty": 2,
-        "stem": "A 65 mph en condiciones ideales, tu distancia de seguimiento debe ser:",
-        "choices": [
-          { "key": "A", "text": "Al menos 3–4 segundos.", "correct": true },
-          { "key": "B", "text": "Aproximadamente 1 segundo." },
-          { "key": "C", "text": "Solo la longitud de un automóvil." },
-          { "key": "D", "text": "No es necesaria en autopistas." }
-        ],
-        "explanation": "A mayor velocidad, más tiempo de reacción; aumenta la distancia y añade más en malas condiciones.",
-        "tags": ["distancia", "autopista"],
-        "source_sections": ["9.2.2"]
-      },
-      {
-        "id": "U9-Q05",
-        "skill": "Gestión de Velocidad",
-        "difficulty": 2,
-        "stem": "¿Qué afirmación es correcta sobre la velocidad en autopistas?",
-        "choices": [
-          { "key": "A", "text": "Debes obedecer los máximos y reducir por condiciones, aunque otros vayan más rápido.", "correct": true },
-          { "key": "B", "text": "Siempre debes igualar al vehículo más rápido." },
-          { "key": "C", "text": "Es más seguro ir por debajo del mínimo en cualquier carril." },
-          { "key": "D", "text": "Los límites no aplican en el carril izquierdo." }
-        ],
-        "explanation": "Conduce a una velocidad legal y segura para las condiciones; no superes los límites por el flujo.",
-        "tags": ["velocidad", "autopista"],
-        "source_sections": ["9.2.1"]
-      },
-      {
-        "id": "U9-Q06",
-        "skill": "Cambio de Carril",
-        "difficulty": 2,
-        "stem": "Antes de cambiar de carril en la autopista, debes hacer todo lo siguiente EXCEPTO:",
-        "choices": [
-          { "key": "A", "text": "Señalizar tu intención." },
-          { "key": "B", "text": "Revisar espejos y punto ciego sobre el hombro." },
-          { "key": "C", "text": "Acelerar rápidamente sin revisar detrás.", "correct": true },
-          { "key": "D", "text": "Completar el movimiento con suavidad y cancelar la señal." }
-        ],
-        "explanation": "No aceleres a ciegas; la exploración y verificación de punto ciego son esenciales.",
-        "tags": ["cambio-de-carril", "punto-ciego"],
-        "source_sections": ["9.3.1"]
-      },
-      {
-        "id": "U9-Q07",
-        "skill": "Salidas",
-        "difficulty": 1,
-        "stem": "Si pierdes tu salida en la autopista, debes:",
-        "choices": [
-          { "key": "A", "text": "Continuar hasta la siguiente salida.", "correct": true },
-          { "key": "B", "text": "Retroceder por el arcén." },
-          { "key": "C", "text": "Detenerte en el área de gore y esperar." },
-          { "key": "D", "text": "Hacer un giro en U por el separador." }
-        ],
-        "explanation": "Nunca retrocedas ni te detengas en áreas prohibidas; toma la siguiente salida.",
-        "tags": ["salidas", "gore"],
-        "source_sections": ["9.3.2"]
-      },
-      {
-        "id": "U9-Q08",
-        "skill": "Averías",
-        "difficulty": 2,
-        "stem": "Tu auto pierde potencia en un carril. ¿Cuál es la primera acción más segura?",
-        "choices": [
-          { "key": "A", "text": "Señalizar, girar a la derecha y buscar el arcén.", "correct": true },
-          { "key": "B", "text": "Detenerte en el carril y caminar al arcén." },
-          { "key": "C", "text": "Abrir el cofre en el carril para alertar." },
-          { "key": "D", "text": "Rodar hacia el carril izquierdo." }
-        ],
-        "explanation": "Muévete al arcén derecho si es posible, enciende intermitentes y llama por ayuda.",
-        "tags": ["avería", "emergencia"],
-        "source_sections": ["9.4.1"]
-      },
-      {
-        "id": "U9-Q09",
-        "skill": "Ley de Moverse",
-        "difficulty": 2,
-        "stem": "La ley de 'Moverse' de California exige que:",
-        "choices": [
-          { "key": "A", "text": "Cambies de carril lejos de vehículos detenidos con luces encendidas o reduzcas la velocidad.", "correct": true },
-          { "key": "B", "text": "Te detengas junto al vehículo para ayudar." },
-          { "key": "C", "text": "Toques la bocina y pases normal." },
-          { "key": "D", "text": "Permanezcas en el mismo carril a toda velocidad." }
-        ],
-        "explanation": "Cámbiate de carril o reduce significativamente la velocidad cuando sea seguro.",
-        "tags": ["moverse", "ley"],
-        "source_sections": ["9.4.2"]
-      },
-      {
-        "id": "U9-Q10",
-        "skill": "Carriles HOV/Exprés",
-        "difficulty": 2,
-        "stem": "¿Cuál es correcta sobre los carriles HOV/exprés?",
-        "choices": [
-          { "key": "A", "text": "Tienen reglas especiales (ocupación/peajes) y entradas/salidas específicas.", "correct": true },
-          { "key": "B", "text": "Cualquiera puede entrar/salir en cualquier momento sobre líneas dobles." },
-          { "key": "C", "text": "Solo para vehículos de emergencia." },
-          { "key": "D", "text": "Solo se usan cuando el tráfico se detiene." }
-        ],
-        "explanation": "Obedece reglas publicadas y usa zonas designadas.",
-        "tags": ["hov", "exprés"],
-        "source_sections": ["9.4.2"]
-      },
-      {
-        "id": "U9-Q11",
-        "skill": "Colchón Lateral",
-        "difficulty": 2,
-        "stem": "¿Por qué es importante el colchón lateral en autopistas?",
-        "choices": [
-          { "key": "A", "text": "Te da espacio para maniobrar lejos de conflictos.", "correct": true },
-          { "key": "B", "text": "Reduce combustible, no el riesgo." },
-          { "key": "C", "text": "Ayuda a otros a seguirte de cerca." },
-          { "key": "D", "text": "Solo se requiere de noche." }
-        ],
-        "explanation": "Mantener espacio alrededor aumenta tus opciones para evitar peligros.",
-        "tags": ["colchón", "conducción-defensiva"],
-        "source_sections": ["9.2.2"]
-      },
-      {
-        "id": "U9-Q12",
-        "skill": "Área de Gore",
-        "difficulty": 1,
-        "stem": "El área de gore (triángulo pintado) en las salidas sirve para:",
-        "choices": [
-          { "key": "A", "text": "Separar carriles; no debes conducir ni detenerte allí.", "correct": true },
-          { "key": "B", "text": "Estacionamiento de emergencia." },
-          { "key": "C", "text": "Atajo rápido a la salida." },
-          { "key": "D", "text": "Giros en U si pierdes la salida." }
-        ],
-        "explanation": "Las áreas de gore no son para conducir ni detenerse.",
-        "tags": ["gore", "salidas"],
-        "source_sections": ["9.3.2"]
-      }
-    ]
+  "unit": 9,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "es",
+  "questions": [
+    {
+      "ref": "U9-Q01",
+      "skill": "Entrada a Autopista",
+      "difficulty": 2,
+      "stem": "Al usar un carril de aceleración para entrar a una autopista, debes:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Igualar la velocidad del tráfico y entrar en un espacio seguro."
+        },
+        {
+          "key": "B",
+          "text": "Detenerte al final de la rampa y esperar un gran espacio."
+        },
+        {
+          "key": "C",
+          "text": "Entrar a cualquier velocidad; el tráfico debe cederte el paso."
+        },
+        {
+          "key": "D",
+          "text": "Señalizar solo después de incorporarte."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Usa todo el carril de aceleración para alcanzar la velocidad del flujo, señaliza e incorpórate en un espacio seguro.",
+      "tags": [
+        "autopista",
+        "incorporación",
+        "carril-de-aceleración"
+      ]
+    },
+    {
+      "ref": "U9-Q02",
+      "skill": "Semáforos de Rampa",
+      "difficulty": 1,
+      "stem": "Los semáforos de rampa se usan para:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Reducir conflictos al espaciar vehículos que entran a la autopista."
+        },
+        {
+          "key": "B",
+          "text": "Medir la velocidad para multas."
+        },
+        {
+          "key": "C",
+          "text": "Indicar que la autopista está cerrada."
+        },
+        {
+          "key": "D",
+          "text": "Permitir solo camiones."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Las rampas con semáforo liberan vehículos en intervalos para suavizar las incorporaciones y la congestión.",
+      "tags": [
+        "semáforos-de-rampa",
+        "autopista"
+      ]
+    },
+    {
+      "ref": "U9-Q03",
+      "skill": "Elección de Carril",
+      "difficulty": 2,
+      "stem": "El carril izquierdo en una autopista de varios carriles se usa típicamente para:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Adelantar y tráfico más rápido."
+        },
+        {
+          "key": "B",
+          "text": "Solo camiones."
+        },
+        {
+          "key": "C",
+          "text": "Vehículos que entran y salen."
+        },
+        {
+          "key": "D",
+          "text": "Vehículos por debajo del límite."
+        }
+      ],
+      "answer": 0,
+      "explanation": "El carril izquierdo es para adelantar y velocidades más altas; circular sin adelantar puede entorpecer.",
+      "tags": [
+        "carril",
+        "autopista"
+      ]
+    },
+    {
+      "ref": "U9-Q04",
+      "skill": "Distancia de Seguimiento",
+      "difficulty": 2,
+      "stem": "A 65 mph en condiciones ideales, tu distancia de seguimiento debe ser:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Al menos 3–4 segundos."
+        },
+        {
+          "key": "B",
+          "text": "Aproximadamente 1 segundo."
+        },
+        {
+          "key": "C",
+          "text": "Solo la longitud de un automóvil."
+        },
+        {
+          "key": "D",
+          "text": "No es necesaria en autopistas."
+        }
+      ],
+      "answer": 0,
+      "explanation": "A mayor velocidad, más tiempo de reacción; aumenta la distancia y añade más en malas condiciones.",
+      "tags": [
+        "distancia",
+        "autopista"
+      ]
+    },
+    {
+      "ref": "U9-Q05",
+      "skill": "Gestión de Velocidad",
+      "difficulty": 2,
+      "stem": "¿Qué afirmación es correcta sobre la velocidad en autopistas?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Debes obedecer los máximos y reducir por condiciones, aunque otros vayan más rápido."
+        },
+        {
+          "key": "B",
+          "text": "Siempre debes igualar al vehículo más rápido."
+        },
+        {
+          "key": "C",
+          "text": "Es más seguro ir por debajo del mínimo en cualquier carril."
+        },
+        {
+          "key": "D",
+          "text": "Los límites no aplican en el carril izquierdo."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Conduce a una velocidad legal y segura para las condiciones; no superes los límites por el flujo.",
+      "tags": [
+        "velocidad",
+        "autopista"
+      ]
+    },
+    {
+      "ref": "U9-Q06",
+      "skill": "Cambio de Carril",
+      "difficulty": 2,
+      "stem": "Antes de cambiar de carril en la autopista, debes hacer todo lo siguiente EXCEPTO:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Señalizar tu intención."
+        },
+        {
+          "key": "B",
+          "text": "Revisar espejos y punto ciego sobre el hombro."
+        },
+        {
+          "key": "C",
+          "text": "Acelerar rápidamente sin revisar detrás."
+        },
+        {
+          "key": "D",
+          "text": "Completar el movimiento con suavidad y cancelar la señal."
+        }
+      ],
+      "answer": "A",
+      "explanation": "No aceleres a ciegas; la exploración y verificación de punto ciego son esenciales.",
+      "tags": [
+        "cambio-de-carril",
+        "punto-ciego"
+      ]
+    },
+    {
+      "ref": "U9-Q07",
+      "skill": "Salidas",
+      "difficulty": 1,
+      "stem": "Si pierdes tu salida en la autopista, debes:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Continuar hasta la siguiente salida."
+        },
+        {
+          "key": "B",
+          "text": "Retroceder por el arcén."
+        },
+        {
+          "key": "C",
+          "text": "Detenerte en el área de gore y esperar."
+        },
+        {
+          "key": "D",
+          "text": "Hacer un giro en U por el separador."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Nunca retrocedas ni te detengas en áreas prohibidas; toma la siguiente salida.",
+      "tags": [
+        "salidas",
+        "gore"
+      ]
+    },
+    {
+      "ref": "U9-Q08",
+      "skill": "Averías",
+      "difficulty": 2,
+      "stem": "Tu auto pierde potencia en un carril. ¿Cuál es la primera acción más segura?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Señalizar, girar a la derecha y buscar el arcén."
+        },
+        {
+          "key": "B",
+          "text": "Detenerte en el carril y caminar al arcén."
+        },
+        {
+          "key": "C",
+          "text": "Abrir el cofre en el carril para alertar."
+        },
+        {
+          "key": "D",
+          "text": "Rodar hacia el carril izquierdo."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Muévete al arcén derecho si es posible, enciende intermitentes y llama por ayuda.",
+      "tags": [
+        "avería",
+        "emergencia"
+      ]
+    },
+    {
+      "ref": "U9-Q09",
+      "skill": "Ley de Moverse",
+      "difficulty": 2,
+      "stem": "La ley de 'Moverse' de California exige que:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Cambies de carril lejos de vehículos detenidos con luces encendidas o reduzcas la velocidad."
+        },
+        {
+          "key": "B",
+          "text": "Te detengas junto al vehículo para ayudar."
+        },
+        {
+          "key": "C",
+          "text": "Toques la bocina y pases normal."
+        },
+        {
+          "key": "D",
+          "text": "Permanezcas en el mismo carril a toda velocidad."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Cámbiate de carril o reduce significativamente la velocidad cuando sea seguro.",
+      "tags": [
+        "moverse",
+        "ley"
+      ]
+    },
+    {
+      "ref": "U9-Q10",
+      "skill": "Carriles HOV/Exprés",
+      "difficulty": 2,
+      "stem": "¿Cuál es correcta sobre los carriles HOV/exprés?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Tienen reglas especiales (ocupación/peajes) y entradas/salidas específicas."
+        },
+        {
+          "key": "B",
+          "text": "Cualquiera puede entrar/salir en cualquier momento sobre líneas dobles."
+        },
+        {
+          "key": "C",
+          "text": "Solo para vehículos de emergencia."
+        },
+        {
+          "key": "D",
+          "text": "Solo se usan cuando el tráfico se detiene."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Obedece reglas publicadas y usa zonas designadas.",
+      "tags": [
+        "hov",
+        "exprés"
+      ]
+    },
+    {
+      "ref": "U9-Q11",
+      "skill": "Colchón Lateral",
+      "difficulty": 2,
+      "stem": "¿Por qué es importante el colchón lateral en autopistas?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Te da espacio para maniobrar lejos de conflictos."
+        },
+        {
+          "key": "B",
+          "text": "Reduce combustible, no el riesgo."
+        },
+        {
+          "key": "C",
+          "text": "Ayuda a otros a seguirte de cerca."
+        },
+        {
+          "key": "D",
+          "text": "Solo se requiere de noche."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Mantener espacio alrededor aumenta tus opciones para evitar peligros.",
+      "tags": [
+        "colchón",
+        "conducción-defensiva"
+      ]
+    },
+    {
+      "ref": "U9-Q12",
+      "skill": "Área de Gore",
+      "difficulty": 1,
+      "stem": "El área de gore (triángulo pintado) en las salidas sirve para:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Separar carriles; no debes conducir ni detenerte allí."
+        },
+        {
+          "key": "B",
+          "text": "Estacionamiento de emergencia."
+        },
+        {
+          "key": "C",
+          "text": "Atajo rápido a la salida."
+        },
+        {
+          "key": "D",
+          "text": "Giros en U si pierdes la salida."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Las áreas de gore no son para conducir ni detenerse.",
+      "tags": [
+        "gore",
+        "salidas"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.990Z"
   }
+}

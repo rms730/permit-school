@@ -1,148 +1,112 @@
 {
-    "course": { "j_code": "CA", "course_code": "DE-ONLINE" },
-    "unit": {
-      "unit_no": 12,
-      "title": "Final Review & Test Readiness",
-      "minutes_required": 60,
-      "objectives": [
-        "Reinforce the most-missed topics: right-of-way, signs/markings, speed/space, and special situations.",
-        "Apply test-taking strategies: careful reading, eliminating distractors, and time management.",
-        "Prepare required documents and logistics for the DMV knowledge test.",
-        "Adopt a safe driving mindset beyond the test: maturity, responsibility, and continuous learning."
-      ],
-      "sections": [
+  "unit": 12,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Final Review & Test Readiness",
+  "minutes_required": 60,
+  "objectives": [
+    "Reinforce the most-missed topics: right-of-way, signs/markings, speed/space, and special situations.",
+    "Apply test-taking strategies: careful reading, eliminating distractors, and time management.",
+    "Prepare required documents and logistics for the DMV knowledge test.",
+    "Adopt a safe driving mindset beyond the test: maturity, responsibility, and continuous learning."
+  ],
+  "sections": [
+    {
+      "title": "Test-Taking Strategies",
+      "lessons": [
         {
-          "id": "12.1",
-          "title": "Test-Taking Strategies",
-          "summary": "Score higher by reading carefully and using logic.",
-          "lessons": [
-            {
-              "id": "12.1.1",
-              "title": "Read, Predict, Eliminate",
-              "estimated_minutes": 10,
-              "content": [
-                { "type": "p", "text": "Read the entire question, predict the answer, and eliminate clearly wrong choices. Watch for absolutes like 'always' or 'never'." },
-                { "type": "bullets", "items": [
-                  "Look for key phrases (yield, no passing, reduced speed).",
-                  "Use common sense; safety-first answers often win.",
-                  "If you don't know, eliminate and make your best choice."
-                ] }
-              ]
-            },
-            {
-              "id": "12.1.2",
-              "title": "Time & Stress Management",
-              "estimated_minutes": 6,
-              "content": [
-                { "type": "p", "text": "Pace yourself. If stuck, mark and return. Use breathing techniques to stay calm and focused." },
-                { "type": "bullets", "items": [
-                  "Don't rush the first questions.",
-                  "Double-check flagged items at the end.",
-                  "Hydrate and rest beforehand."
-                ] }
-              ]
-            }
-          ]
+          "title": "Read, Predict, Eliminate",
+          "minutes": 5,
+          "content": [
+            "Read the entire question, predict the answer, and eliminate clearly wrong choices. Watch for absolutes like 'always' or 'never'.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "12.2",
-          "title": "Most-Missed Topics: Quick Recap",
-          "summary": "Review tricky areas with concise reminders.",
-          "lessons": [
-            {
-              "id": "12.2.1",
-              "title": "Right-of-Way & Intersections",
-              "estimated_minutes": 8,
-              "content": [
-                { "type": "p", "text": "Yield to pedestrians in crosswalks, to vehicles already in the intersection, and to the right at 4-way stops when arriving simultaneously." },
-                { "type": "bullets", "items": [
-                  "Unprotected lefts yield to oncoming traffic.",
-                  "Right turn on red only if allowed and after full stop.",
-                  "Always check for bikes and scooters."
-                ] }
-              ]
-            },
-            {
-              "id": "12.2.2",
-              "title": "Signs, Markings & Speed/Space",
-              "estimated_minutes": 8,
-              "content": [
-                { "type": "p", "text": "Know regulatory vs. warning signs. Respect solid/double lines, and maintain safe following distance appropriate to speed and conditions." },
-                { "type": "bullets", "items": [
-                  "Yellow signs = warnings; white/red = regulations.",
-                  "Solid double lines: no passing.",
-                  "Increase following distance in rain/darkness."
-                ] }
-              ]
-            }
-          ]
+          "title": "Time & Stress Management",
+          "minutes": 5,
+          "content": [
+            "Pace yourself. If stuck, mark and return. Use breathing techniques to stay calm and focused.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Most-Missed Topics: Quick Recap",
+      "lessons": [
+        {
+          "title": "Right-of-Way & Intersections",
+          "minutes": 5,
+          "content": [
+            "Yield to pedestrians in crosswalks, to vehicles already in the intersection, and to the right at 4-way stops when arriving simultaneously.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "12.3",
-          "title": "DMV Test Logistics",
-          "summary": "Avoid surprises on test day.",
-          "lessons": [
-            {
-              "id": "12.3.1",
-              "title": "Documents & Eligibility",
-              "estimated_minutes": 8,
-              "content": [
-                { "type": "p", "text": "Bring required identification, application receipts, and any forms specified by your DMV appointment confirmation." },
-                { "type": "bullets", "items": [
-                  "Verify appointment time and location.",
-                  "Confirm any consent/guardian forms if you are a minor.",
-                  "Check current DMV guidance for acceptable IDs."
-                ] }
-              ]
-            },
-            {
-              "id": "12.3.2",
-              "title": "Retakes & Next Steps",
-              "estimated_minutes": 6,
-              "content": [
-                { "type": "p", "text": "Understand retake policies and waiting periods. If you don’t pass, review missed topics before trying again." },
-                { "type": "bullets", "items": [
-                  "Review your weak areas immediately.",
-                  "Schedule retakes according to policy.",
-                  "Continue practicing defensive driving habits."
-                ] }
-              ]
-            }
-          ]
+          "title": "Signs, Markings & Speed/Space",
+          "minutes": 5,
+          "content": [
+            "Know regulatory vs. warning signs. Respect solid/double lines, and maintain safe following distance appropriate to speed and conditions.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "DMV Test Logistics",
+      "lessons": [
+        {
+          "title": "Documents & Eligibility",
+          "minutes": 5,
+          "content": [
+            "Bring required identification, application receipts, and any forms specified by your DMV appointment confirmation.",
+            "[object Object]"
+          ],
+          "review": []
         },
         {
-          "id": "12.4",
-          "title": "Responsible Driving Mindset",
-          "summary": "Drive like lives depend on you—because they do.",
-          "lessons": [
-            {
-              "id": "12.4.1",
-              "title": "Maturity, Judgment & Risk",
-              "estimated_minutes": 7,
-              "content": [
-                { "type": "p", "text": "Real driving is more than passing a test; it requires restraint, patience, and respect for others." },
-                { "type": "bullets", "items": [
-                  "Avoid peer pressure and show-offs.",
-                  "Never drive impaired or overly tired.",
-                  "Plan ahead—routes, weather, and time."
-                ] }
-              ]
-            },
-            {
-              "id": "12.4.2",
-              "title": "Pledge & Continuous Learning",
-              "estimated_minutes": 7,
-              "content": [
-                { "type": "p", "text": "Commit to lifelong learning: refresh the handbook, practice new skills, and keep your vehicle maintained." },
-                { "type": "bullets", "items": [
-                  "Sign a personal safe driving pledge.",
-                  "Review this course’s summaries quarterly.",
-                  "Teach peers safe habits—be a role model."
-                ] }
-              ]
-            }
-          ]
+          "title": "Retakes & Next Steps",
+          "minutes": 5,
+          "content": [
+            "Understand retake policies and waiting periods. If you don’t pass, review missed topics before trying again.",
+            "[object Object]"
+          ],
+          "review": []
+        }
+      ]
+    },
+    {
+      "title": "Responsible Driving Mindset",
+      "lessons": [
+        {
+          "title": "Maturity, Judgment & Risk",
+          "minutes": 5,
+          "content": [
+            "Real driving is more than passing a test; it requires restraint, patience, and respect for others.",
+            "[object Object]"
+          ],
+          "review": []
+        },
+        {
+          "title": "Pledge & Continuous Learning",
+          "minutes": 5,
+          "content": [
+            "Commit to lifelong learning: refresh the handbook, practice new skills, and keep your vehicle maintained.",
+            "[object Object]"
+          ],
+          "review": []
         }
       ]
     }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.970Z"
   }
+}

@@ -1,317 +1,660 @@
 {
-    "unitId": "U08",
-    "questions": [
-      {
-        "id": "U08-Q-001",
-        "type": "single",
-        "stem": "After a minor, no‑injury fender‑bender, what is the first thing you must do?",
-        "options": [
-          { "id": "A", "text": "Leave to call your insurer from home." },
-          { "id": "B", "text": "Stop, check for injuries, and secure the scene." },
-          { "id": "C", "text": "Argue about who is at fault." },
-          { "id": "D", "text": "Refuse to move your car under any circumstance." }
-        ],
-        "answer": "B",
-        "explanation": "You must stop, check for injuries, and make the scene safe. Leaving is hit‑and‑run with severe penalties.  [oai_citation:45‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-002",
-        "type": "single",
-        "stem": "If no one appears injured and it’s safe, where should you position vehicles after a collision?",
-        "options": [
-          { "id": "A", "text": "Leave them in traffic to preserve evidence." },
-          { "id": "B", "text": "Move them out of traffic to a safe location." },
-          { "id": "C", "text": "Block the lane so others must slow down." },
-          { "id": "D", "text": "Drive away separately without exchanging info." }
-        ],
-        "answer": "B",
-        "explanation": "Move vehicles out of traffic when safe to prevent secondary crashes, then call 911.  [oai_citation:46‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-003",
-        "type": "single",
-        "stem": "Which documents must you show after a collision when asked?",
-        "options": [
-          { "id": "A", "text": "Only your phone number." },
-          { "id": "B", "text": "Driver’s license, registration, insurance, and current address." },
-          { "id": "C", "text": "Social Security card and birth certificate." },
-          { "id": "D", "text": "Only the insurance card." }
-        ],
-        "answer": "B",
-        "explanation": "The handbook lists those four items specifically.  [oai_citation:47‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-004",
-        "type": "single",
-        "stem": "Which statement about hit‑and‑run is true?",
-        "options": [
-          { "id": "A", "text": "It’s okay to leave if the damage seems minor." },
-          { "id": "B", "text": "Failing to stop is hit‑and‑run and the punishment is severe." },
-          { "id": "C", "text": "You may leave if you call your insurer first." },
-          { "id": "D", "text": "It applies only on freeways." }
-        ],
-        "answer": "B",
-        "explanation": "You must stop at any collision. The handbook warns that penalties for hit‑and‑run are severe.  [oai_citation:48‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-005",
-        "type": "single",
-        "stem": "You scrape a parked car and cannot locate the owner. What must you do?",
-        "options": [
-          { "id": "A", "text": "Leave without doing anything." },
-          { "id": "B", "text": "Leave a note with your name, phone, and address and report the collision to law enforcement." },
-          { "id": "C", "text": "Move the car to a better spot and leave." },
-          { "id": "D", "text": "Call your insurer only." }
-        ],
-        "answer": "B",
-        "explanation": "Leave your contact info securely and report the collision.  [oai_citation:49‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-006",
-        "type": "single",
-        "stem": "When must a collision be reported to law enforcement according to the current handbook rules?",
-        "options": [
-          { "id": "A", "text": "Only if a police officer witnesses it." },
-          { "id": "B", "text": "When anyone is injured or killed, following the timeline in the current handbook." },
-          { "id": "C", "text": "Only when you believe you are at fault." },
-          { "id": "D", "text": "Never — insurers handle all reports." }
-        ],
-        "answer": "B",
-        "explanation": "The handbook requires a report to law enforcement when there are injuries or death, within the stated timeframe.  [oai_citation:50‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-007",
-        "type": "single",
-        "stem": "When do you file a DMV collision report (SR‑1)?",
-        "options": [
-          { "id": "A", "text": "Only if you caused the collision." },
-          { "id": "B", "text": "Only when law enforcement tells you to." },
-          { "id": "C", "text": "When the current handbook rules require it (for example, injury/death or property damage above the DMV threshold) within the stated timeframe." },
-          { "id": "D", "text": "Never — the police file it." }
-        ],
-        "answer": "C",
-        "explanation": "Each driver must file the SR‑1 with DMV when the handbook conditions apply; law enforcement will not file it for you.  [oai_citation:51‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-008",
-        "type": "single",
-        "stem": "Which is true about proof of financial responsibility?",
-        "options": [
-          { "id": "A", "text": "You only need it when buying a car." },
-          { "id": "B", "text": "You must have proof when you drive and must show it after a collision." },
-          { "id": "C", "text": "Minors never need insurance." },
-          { "id": "D", "text": "It is optional if you drive carefully." }
-        ],
-        "answer": "B",
-        "explanation": "Proof of insurance is required when you drive and must be shown after a collision.  [oai_citation:52‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-009",
-        "type": "single",
-        "stem": "You are in a collision without proper insurance. What may happen?",
-        "options": [
-          { "id": "A", "text": "Nothing if you were not at fault." },
-          { "id": "B", "text": "Your driving privilege may be suspended under current rules, and you may need an SR‑22/SR‑1P to reinstate." },
-          { "id": "C", "text": "Police will automatically file your DMV paperwork for you." },
-          { "id": "D", "text": "Only your insurance rates can change." }
-        ],
-        "answer": "B",
-        "explanation": "The handbook notes suspension is possible regardless of fault and explains SR‑22/SR‑1P reinstatement requirements.  [oai_citation:53‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-010",
-        "type": "single",
-        "stem": "Who assumes financial responsibility when a driver is under 18?",
-        "options": [
-          { "id": "A", "text": "No one — minors are exempt." },
-          { "id": "B", "text": "The car dealer." },
-          { "id": "C", "text": "Parents or guardians." },
-          { "id": "D", "text": "Only the school." }
-        ],
-        "answer": "C",
-        "explanation": "Parents/guardians take on financial responsibility for drivers under 18.  [oai_citation:54‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-011",
-        "type": "single",
-        "stem": "You hit a dog that ran into the road. What should you do?",
-        "options": [
-          { "id": "A", "text": "Leave; animals are not covered by law." },
-          { "id": "B", "text": "Try to lift the animal into your back seat." },
-          { "id": "C", "text": "Call the nearest humane society or law enforcement and do not move the injured animal." },
-          { "id": "D", "text": "Post on social media and drive away." }
-        ],
-        "answer": "C",
-        "explanation": "Contact authorities/humane society; do not try to move an injured animal.  [oai_citation:55‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-012",
-        "type": "single",
-        "stem": "At a serious injury crash you witness, what is the best immediate action?",
-        "options": [
-          { "id": "A", "text": "Call 911 and follow dispatcher instructions." },
-          { "id": "B", "text": "Move injured people yourself right away." },
-          { "id": "C", "text": "Block the roadway with your car." },
-          { "id": "D", "text": "Argue with bystanders about fault." }
-        ],
-        "answer": "A",
-        "explanation": "Call 911 immediately when anyone is hurt and follow instructions.  [oai_citation:56‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-013",
-        "type": "single",
-        "stem": "You buy a used car in California. What must you do regarding ownership?",
-        "options": [
-          { "id": "A", "text": "Keep the old owner’s registration for a year." },
-          { "id": "B", "text": "Transfer title/ownership and complete DMV steps within the current handbook’s timeframes." },
-          { "id": "C", "text": "Drive with a bill of sale only, indefinitely." },
-          { "id": "D", "text": "Wait until your first smog check to transfer title." }
-        ],
-        "answer": "B",
-        "explanation": "Ownership transfer must be completed within DMV timeframes listed in the current handbook.  [oai_citation:57‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-014",
-        "type": "single",
-        "stem": "Which statement about California registration is correct?",
-        "options": [
-          { "id": "A", "text": "DMV will register any vehicle, regardless of emissions." },
-          { "id": "B", "text": "Vehicles used in CA must be registered here and meet CA emission control requirements." },
-          { "id": "C", "text": "Out‑of‑state cars never need CA registration." },
-          { "id": "D", "text": "Only new cars must meet CA emission rules." }
-        ],
-        "answer": "B",
-        "explanation": "All vehicles registered in CA must meet CA requirements, including emission controls; DMV cannot register vehicles that do not qualify.  [oai_citation:58‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-015",
-        "type": "single",
-        "stem": "A tow truck arrives uninvited and pressures you to use a specific body shop. Best response?",
-        "options": [
-          { "id": "A", "text": "Sign any papers to speed things up." },
-          { "id": "B", "text": "Politely decline and choose a licensed shop you trust; get written estimates first." },
-          { "id": "C", "text": "Hand over your title for a discount." },
-          { "id": "D", "text": "Let them take the car; you can decide later." }
-        ],
-        "answer": "B",
-        "explanation": "You choose the repair facility. Avoid high‑pressure tactics and never sign blank/incomplete documents."
-      },
-      {
-        "id": "U08-Q-016",
-        "type": "single",
-        "stem": "Smart step before authorizing repairs is to:",
-        "options": [
-          { "id": "A", "text": "Request a written estimate and clarify parts/warranty." },
-          { "id": "B", "text": "Permit any repair without limits." },
-          { "id": "C", "text": "Sign a blank authorization to save time." },
-          { "id": "D", "text": "Let the shop choose whether to inform your insurer." }
-        ],
-        "answer": "A",
-        "explanation": "Get written estimates and clarify parts and warranty. This prevents misunderstandings and fraud."
-      },
-      {
-        "id": "U08-Q-017",
-        "type": "single",
-        "stem": "Which items are most helpful to document at the scene?",
-        "options": [
-          { "id": "A", "text": "Photos of damage/positions, date/time/location, and witness contacts." },
-          { "id": "B", "text": "Only your own opinion of fault." },
-          { "id": "C", "text": "A selfie to post online." },
-          { "id": "D", "text": "None; documentation is unnecessary." }
-        ],
-        "answer": "A",
-        "explanation": "Accurate documentation supports fair claims handling."
-      },
-      {
-        "id": "U08-Q-018",
-        "type": "single",
-        "stem": "For a minor with a provisional license, which is true?",
-        "options": [
-          { "id": "A", "text": "Collisions/violations have no licensing consequences." },
-          { "id": "B", "text": "DMV may restrict, place on probation, or suspend driving after collisions/violations under current rules." },
-          { "id": "C", "text": "Parents are never involved." },
-          { "id": "D", "text": "Insurance proof is not required for minors." }
-        ],
-        "answer": "B",
-        "explanation": "The handbook describes actions against a minor’s license after collisions/violations and notes financial responsibility for minors. "
-      },
-      {
-        "id": "U08-Q-019",
-        "type": "single",
-        "stem": "What should you do with an injured animal after a crash?",
-        "options": [
-          { "id": "A", "text": "Attempt to lift and carry it." },
-          { "id": "B", "text": "Tie it to a post until help arrives." },
-          { "id": "C", "text": "Do not move it; call humane society or law enforcement." },
-          { "id": "D", "text": "Ignore it and leave." }
-        ],
-        "answer": "C",
-        "explanation": "Do not move injured animals; contact authorities.  [oai_citation:59‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-020",
-        "type": "single",
-        "stem": "Proof of insurance must be presented:",
-        "options": [
-          { "id": "A", "text": "Only during vehicle purchase." },
-          { "id": "B", "text": "When you drive (including drive tests) and after collisions when requested." },
-          { "id": "C", "text": "Only on freeways." },
-          { "id": "D", "text": "Only if the other driver asks nicely." }
-        ],
-        "answer": "B",
-        "explanation": "Carrying and showing proof of financial responsibility is required.  [oai_citation:60‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-021",
-        "type": "single",
-        "stem": "You strike a fence beside the road and no one is around. What is required?",
-        "options": [
-          { "id": "A", "text": "Leave immediately; it’s private property." },
-          { "id": "B", "text": "Try to find the owner; if not possible, leave a note with your contact info and report the collision to law enforcement." },
-          { "id": "C", "text": "Call your insurer only." },
-          { "id": "D", "text": "Remove the damaged section to hide the evidence." }
-        ],
-        "answer": "B",
-        "explanation": "Follow the same procedure as striking a parked vehicle or property: leave contact info and report.  [oai_citation:61‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-022",
-        "type": "single",
-        "stem": "Which contact detail is specifically listed by the handbook for notes left after damaging a parked vehicle?",
-        "options": [
-          { "id": "A", "text": "Your social media handle." },
-          { "id": "B", "text": "Your name, phone number, and address." },
-          { "id": "C", "text": "Only your first name." },
-          { "id": "D", "text": "A PO box is enough with no name." }
-        ],
-        "answer": "B",
-        "explanation": "Leave your name, phone number, and address securely attached to the vehicle/property.  [oai_citation:62‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-023",
-        "type": "single",
-        "stem": "In a minor two‑car collision with no injuries, the safest immediate step is to:",
-        "options": [
-          { "id": "A", "text": "Stay in the travel lane to ‘mark the spot.’" },
-          { "id": "B", "text": "Move both cars to a safe location if possible and then exchange information." },
-          { "id": "C", "text": "Block multiple lanes so others slow down." },
-          { "id": "D", "text": "Leave to avoid delaying traffic." }
-        ],
-        "answer": "B",
-        "explanation": "Moving out of traffic when safe helps prevent further crashes.  [oai_citation:63‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      },
-      {
-        "id": "U08-Q-024",
-        "type": "single",
-        "stem": "Who can file the injury/death collision report to law enforcement?",
-        "options": [
-          { "id": "A", "text": "Only the drivers involved." },
-          { "id": "B", "text": "Only the police officer who arrives." },
-          { "id": "C", "text": "You, your insurance agent/broker, or your legal representative, according to current rules." },
-          { "id": "D", "text": "No one — it’s optional." }
-        ],
-        "answer": "C",
-        "explanation": "The handbook allows your insurance agent, broker, or legal representative to file the report when injuries/death occur, within the required timeframe.  [oai_citation:64‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
-      }
-    ]
+  "unit": 8,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "questions": [
+    {
+      "ref": "U08-Q-001",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "After a minor, no‑injury fender‑bender, what is the first thing you must do?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Leave to call your insurer from home."
+        },
+        {
+          "key": "B",
+          "text": "Stop, check for injuries, and secure the scene."
+        },
+        {
+          "key": "C",
+          "text": "Argue about who is at fault."
+        },
+        {
+          "key": "D",
+          "text": "Refuse to move your car under any circumstance."
+        }
+      ],
+      "answer": "B",
+      "explanation": "You must stop, check for injuries, and make the scene safe. Leaving is hit‑and‑run with severe penalties.  [oai_citation:45‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-002",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "If no one appears injured and it’s safe, where should you position vehicles after a collision?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Leave them in traffic to preserve evidence."
+        },
+        {
+          "key": "B",
+          "text": "Move them out of traffic to a safe location."
+        },
+        {
+          "key": "C",
+          "text": "Block the lane so others must slow down."
+        },
+        {
+          "key": "D",
+          "text": "Drive away separately without exchanging info."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Move vehicles out of traffic when safe to prevent secondary crashes, then call 911.  [oai_citation:46‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-003",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Which documents must you show after a collision when asked?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Only your phone number."
+        },
+        {
+          "key": "B",
+          "text": "Driver’s license, registration, insurance, and current address."
+        },
+        {
+          "key": "C",
+          "text": "Social Security card and birth certificate."
+        },
+        {
+          "key": "D",
+          "text": "Only the insurance card."
+        }
+      ],
+      "answer": "B",
+      "explanation": "The handbook lists those four items specifically.  [oai_citation:47‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-004",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Which statement about hit‑and‑run is true?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "It’s okay to leave if the damage seems minor."
+        },
+        {
+          "key": "B",
+          "text": "Failing to stop is hit‑and‑run and the punishment is severe."
+        },
+        {
+          "key": "C",
+          "text": "You may leave if you call your insurer first."
+        },
+        {
+          "key": "D",
+          "text": "It applies only on freeways."
+        }
+      ],
+      "answer": "B",
+      "explanation": "You must stop at any collision. The handbook warns that penalties for hit‑and‑run are severe.  [oai_citation:48‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-005",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "You scrape a parked car and cannot locate the owner. What must you do?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Leave without doing anything."
+        },
+        {
+          "key": "B",
+          "text": "Leave a note with your name, phone, and address and report the collision to law enforcement."
+        },
+        {
+          "key": "C",
+          "text": "Move the car to a better spot and leave."
+        },
+        {
+          "key": "D",
+          "text": "Call your insurer only."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Leave your contact info securely and report the collision.  [oai_citation:49‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-006",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "When must a collision be reported to law enforcement according to the current handbook rules?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Only if a police officer witnesses it."
+        },
+        {
+          "key": "B",
+          "text": "When anyone is injured or killed, following the timeline in the current handbook."
+        },
+        {
+          "key": "C",
+          "text": "Only when you believe you are at fault."
+        },
+        {
+          "key": "D",
+          "text": "Never — insurers handle all reports."
+        }
+      ],
+      "answer": "B",
+      "explanation": "The handbook requires a report to law enforcement when there are injuries or death, within the stated timeframe.  [oai_citation:50‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-007",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "When do you file a DMV collision report (SR‑1)?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Only if you caused the collision."
+        },
+        {
+          "key": "B",
+          "text": "Only when law enforcement tells you to."
+        },
+        {
+          "key": "C",
+          "text": "When the current handbook rules require it (for example, injury/death or property damage above the DMV threshold) within the stated timeframe."
+        },
+        {
+          "key": "D",
+          "text": "Never — the police file it."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Each driver must file the SR‑1 with DMV when the handbook conditions apply; law enforcement will not file it for you.  [oai_citation:51‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-008",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Which is true about proof of financial responsibility?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "You only need it when buying a car."
+        },
+        {
+          "key": "B",
+          "text": "You must have proof when you drive and must show it after a collision."
+        },
+        {
+          "key": "C",
+          "text": "Minors never need insurance."
+        },
+        {
+          "key": "D",
+          "text": "It is optional if you drive carefully."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Proof of insurance is required when you drive and must be shown after a collision.  [oai_citation:52‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-009",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "You are in a collision without proper insurance. What may happen?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Nothing if you were not at fault."
+        },
+        {
+          "key": "B",
+          "text": "Your driving privilege may be suspended under current rules, and you may need an SR‑22/SR‑1P to reinstate."
+        },
+        {
+          "key": "C",
+          "text": "Police will automatically file your DMV paperwork for you."
+        },
+        {
+          "key": "D",
+          "text": "Only your insurance rates can change."
+        }
+      ],
+      "answer": "B",
+      "explanation": "The handbook notes suspension is possible regardless of fault and explains SR‑22/SR‑1P reinstatement requirements.  [oai_citation:53‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-010",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Who assumes financial responsibility when a driver is under 18?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "No one — minors are exempt."
+        },
+        {
+          "key": "B",
+          "text": "The car dealer."
+        },
+        {
+          "key": "C",
+          "text": "Parents or guardians."
+        },
+        {
+          "key": "D",
+          "text": "Only the school."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Parents/guardians take on financial responsibility for drivers under 18.  [oai_citation:54‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-011",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "You hit a dog that ran into the road. What should you do?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Leave; animals are not covered by law."
+        },
+        {
+          "key": "B",
+          "text": "Try to lift the animal into your back seat."
+        },
+        {
+          "key": "C",
+          "text": "Call the nearest humane society or law enforcement and do not move the injured animal."
+        },
+        {
+          "key": "D",
+          "text": "Post on social media and drive away."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Contact authorities/humane society; do not try to move an injured animal.  [oai_citation:55‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-012",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "At a serious injury crash you witness, what is the best immediate action?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Call 911 and follow dispatcher instructions."
+        },
+        {
+          "key": "B",
+          "text": "Move injured people yourself right away."
+        },
+        {
+          "key": "C",
+          "text": "Block the roadway with your car."
+        },
+        {
+          "key": "D",
+          "text": "Argue with bystanders about fault."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Call 911 immediately when anyone is hurt and follow instructions.  [oai_citation:56‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-013",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "You buy a used car in California. What must you do regarding ownership?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Keep the old owner’s registration for a year."
+        },
+        {
+          "key": "B",
+          "text": "Transfer title/ownership and complete DMV steps within the current handbook’s timeframes."
+        },
+        {
+          "key": "C",
+          "text": "Drive with a bill of sale only, indefinitely."
+        },
+        {
+          "key": "D",
+          "text": "Wait until your first smog check to transfer title."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Ownership transfer must be completed within DMV timeframes listed in the current handbook.  [oai_citation:57‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-014",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Which statement about California registration is correct?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "DMV will register any vehicle, regardless of emissions."
+        },
+        {
+          "key": "B",
+          "text": "Vehicles used in CA must be registered here and meet CA emission control requirements."
+        },
+        {
+          "key": "C",
+          "text": "Out‑of‑state cars never need CA registration."
+        },
+        {
+          "key": "D",
+          "text": "Only new cars must meet CA emission rules."
+        }
+      ],
+      "answer": "B",
+      "explanation": "All vehicles registered in CA must meet CA requirements, including emission controls; DMV cannot register vehicles that do not qualify.  [oai_citation:58‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-015",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "A tow truck arrives uninvited and pressures you to use a specific body shop. Best response?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Sign any papers to speed things up."
+        },
+        {
+          "key": "B",
+          "text": "Politely decline and choose a licensed shop you trust; get written estimates first."
+        },
+        {
+          "key": "C",
+          "text": "Hand over your title for a discount."
+        },
+        {
+          "key": "D",
+          "text": "Let them take the car; you can decide later."
+        }
+      ],
+      "answer": "B",
+      "explanation": "You choose the repair facility. Avoid high‑pressure tactics and never sign blank/incomplete documents.",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-016",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Smart step before authorizing repairs is to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Request a written estimate and clarify parts/warranty."
+        },
+        {
+          "key": "B",
+          "text": "Permit any repair without limits."
+        },
+        {
+          "key": "C",
+          "text": "Sign a blank authorization to save time."
+        },
+        {
+          "key": "D",
+          "text": "Let the shop choose whether to inform your insurer."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Get written estimates and clarify parts and warranty. This prevents misunderstandings and fraud.",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-017",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Which items are most helpful to document at the scene?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Photos of damage/positions, date/time/location, and witness contacts."
+        },
+        {
+          "key": "B",
+          "text": "Only your own opinion of fault."
+        },
+        {
+          "key": "C",
+          "text": "A selfie to post online."
+        },
+        {
+          "key": "D",
+          "text": "None; documentation is unnecessary."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Accurate documentation supports fair claims handling.",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-018",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "For a minor with a provisional license, which is true?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Collisions/violations have no licensing consequences."
+        },
+        {
+          "key": "B",
+          "text": "DMV may restrict, place on probation, or suspend driving after collisions/violations under current rules."
+        },
+        {
+          "key": "C",
+          "text": "Parents are never involved."
+        },
+        {
+          "key": "D",
+          "text": "Insurance proof is not required for minors."
+        }
+      ],
+      "answer": "B",
+      "explanation": "The handbook describes actions against a minor’s license after collisions/violations and notes financial responsibility for minors. ",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-019",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "What should you do with an injured animal after a crash?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Attempt to lift and carry it."
+        },
+        {
+          "key": "B",
+          "text": "Tie it to a post until help arrives."
+        },
+        {
+          "key": "C",
+          "text": "Do not move it; call humane society or law enforcement."
+        },
+        {
+          "key": "D",
+          "text": "Ignore it and leave."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Do not move injured animals; contact authorities.  [oai_citation:59‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-020",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Proof of insurance must be presented:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Only during vehicle purchase."
+        },
+        {
+          "key": "B",
+          "text": "When you drive (including drive tests) and after collisions when requested."
+        },
+        {
+          "key": "C",
+          "text": "Only on freeways."
+        },
+        {
+          "key": "D",
+          "text": "Only if the other driver asks nicely."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Carrying and showing proof of financial responsibility is required.  [oai_citation:60‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-021",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "You strike a fence beside the road and no one is around. What is required?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Leave immediately; it’s private property."
+        },
+        {
+          "key": "B",
+          "text": "Try to find the owner; if not possible, leave a note with your contact info and report the collision to law enforcement."
+        },
+        {
+          "key": "C",
+          "text": "Call your insurer only."
+        },
+        {
+          "key": "D",
+          "text": "Remove the damaged section to hide the evidence."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Follow the same procedure as striking a parked vehicle or property: leave contact info and report.  [oai_citation:61‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-022",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Which contact detail is specifically listed by the handbook for notes left after damaging a parked vehicle?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Your social media handle."
+        },
+        {
+          "key": "B",
+          "text": "Your name, phone number, and address."
+        },
+        {
+          "key": "C",
+          "text": "Only your first name."
+        },
+        {
+          "key": "D",
+          "text": "A PO box is enough with no name."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Leave your name, phone number, and address securely attached to the vehicle/property.  [oai_citation:62‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-023",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "In a minor two‑car collision with no injuries, the safest immediate step is to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Stay in the travel lane to ‘mark the spot.’"
+        },
+        {
+          "key": "B",
+          "text": "Move both cars to a safe location if possible and then exchange information."
+        },
+        {
+          "key": "C",
+          "text": "Block multiple lanes so others slow down."
+        },
+        {
+          "key": "D",
+          "text": "Leave to avoid delaying traffic."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Moving out of traffic when safe helps prevent further crashes.  [oai_citation:63‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    },
+    {
+      "ref": "U08-Q-024",
+      "skill": "General",
+      "difficulty": 2,
+      "stem": "Who can file the injury/death collision report to law enforcement?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Only the drivers involved."
+        },
+        {
+          "key": "B",
+          "text": "Only the police officer who arrives."
+        },
+        {
+          "key": "C",
+          "text": "You, your insurance agent/broker, or your legal representative, according to current rules."
+        },
+        {
+          "key": "D",
+          "text": "No one — it’s optional."
+        }
+      ],
+      "answer": "C",
+      "explanation": "The handbook allows your insurance agent, broker, or legal representative to file the report when injuries/death occur, within the required timeframe.  [oai_citation:64‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+      "tags": []
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.988Z"
   }
+}

@@ -1,232 +1,111 @@
-import { getAdmin } from "./lib/supabase";
+import "dotenv-flow/config";
 import { readJson } from "./lib/files";
-import { log } from "./lib/log";
-import { CurriculumUnitSchema, CurriculumUnit } from "./lib/schema";
+import { getAdmin } from "./lib/supabase";
+import { normalizeCurriculum } from "./lib/normalize";
+import { CurriculumUnitSchema } from "./lib/schema";
 
-type IdMap = { courseId: string; unitId: string; jurisdictionId: number };
+function chunk<T>(arr: T[], size = 250): T[][] {
+  const out: T[][] = [];
+  for (let i=0;i<arr.length;i+=size) out.push(arr.slice(i, i+size));
+  return out;
+}
 
-async function ensureIds(client: ReturnType<typeof getAdmin>, jurisdiction: string, course: string): Promise<IdMap> {
-  // Jurisdiction
-  const { data: j } = await client
+async function upsertUnitAndContent(admin: ReturnType<typeof getAdmin>, unit: any) {
+  // Get jurisdiction
+  const { data: jurisdiction } = await admin
     .from("jurisdictions")
     .select("id")
-    .eq("code", jurisdiction)
+    .eq("code", unit.j_code)
+    .limit(1)
     .single();
-  if (!j) throw new Error(`Jurisdiction ${jurisdiction} not found`);
 
-  // Get or create PERMIT program
-  const { data: program } = await client
-    .from("programs")
-    .select("id")
-    .eq("code", "PERMIT")
-    .single();
-  if (!program) throw new Error("PERMIT program not found");
+  if (!jurisdiction) throw new Error(`Jurisdiction not found: ${unit.j_code}`);
 
-  // Course
-  const { data: courseData, error: cErr } = await client
+  // Get course
+  const { data: course } = await admin
     .from("courses")
     .select("id")
-    .eq("jurisdiction_id", j.id)
-    .eq("program_id", program.id)
-    .eq("code", course)
+    .eq("code", unit.course_code)
+    .limit(1)
     .single();
-  if (cErr) throw cErr;
-  if (!courseData) throw new Error(`Course ${course} not found`);
 
-  return { jurisdictionId: j.id, courseId: courseData!.id, unitId: "" };
-}
+  if (!course) throw new Error(`Course not found: ${unit.j_code}/${unit.course_code}`);
 
-// Helper function to extract unit data from different structures
-function extractUnitData(unitData: CurriculumUnit, targetUnit: number) {
-  let unitNo: number;
-  let title: string;
-  let minutesRequired: number;
-  let objectives: string[];
-  let lang: string;
-  
-  if ('unit' in unitData) {
-    // Structure 1: Flat structure
-    unitNo = unitData.unit;
-    title = unitData.title;
-    minutesRequired = unitData.minutes_required;
-    objectives = unitData.objectives;
-    lang = unitData.lang;
-  } else if ('meta' in unitData) {
-    // Structure 2: Meta object
-    unitNo = unitData.meta.unit_no;
-    title = unitData.meta.title;
-    minutesRequired = unitData.meta.minutes_required;
-    objectives = unitData.meta.objectives || []; // Default to empty array if not present
-    lang = unitData.meta.lang;
-  } else if ('course' in unitData && 'unit' in unitData) {
-    // Structure 3: Course and Unit objects
-    unitNo = unitData.unit.unit_no;
-    title = unitData.unit.title;
-    minutesRequired = unitData.unit.minutes_required;
-    objectives = unitData.unit.objectives || []; // Default to empty array if not present
-    lang = 'en'; // Default, will be overridden by parameter
-  } else if ('unitNumber' in unitData) {
-    // Structure 4: unitNumber
-    unitNo = unitData.unitNumber;
-    title = unitData.title;
-    minutesRequired = unitData.minutesRequired;
-    objectives = unitData.objectives;
-    lang = 'en'; // Default, will be overridden by parameter
-  } else if ('unitId' in unitData) {
-    // Structure 5: unitId
-    unitNo = targetUnit; // Extract from unitId or use target unit
-    title = unitData.title;
-    minutesRequired = unitData.estimatedTimeMinutes;
-    objectives = unitData.objectives;
-    lang = 'en'; // Default, will be overridden by parameter
-  } else {
-    throw new Error('Unknown unit data structure');
-  }
-  
-  return { unitNo, title, minutesRequired, objectives, lang };
-}
-
-async function ensureUnit(
-  client: ReturnType<typeof getAdmin>,
-  ids: IdMap,
-  unitData: CurriculumUnit,
-  targetUnit: number
-) {
-  const extracted = extractUnitData(unitData, targetUnit);
-  const { unitNo, title, minutesRequired, objectives } = extracted;
-  
-  log.info(`Extracted unit data: unitNo=${unitNo}, title="${title}", minutesRequired=${minutesRequired}, objectives=${objectives?.length || 0} items`);
-  
-  const { data: unit, error: uErr } = await client
+  // Upsert course unit
+  const { data: cu, error: cuErr } = await admin
     .from("course_units")
     .upsert(
-      {
-        course_id: ids.courseId,
-        unit_no: unitNo,
-        title: title,
-        minutes_required: minutesRequired,
-        objectives: objectives ? objectives.join("\n") : "",
-        is_published: true,
-      },
+      { course_id: course.id, unit_no: unit.unit, title: unit.title, minutes_required: unit.minutes_required },
       { onConflict: "course_id,unit_no" }
     )
     .select("id")
     .single();
-  if (uErr) throw uErr;
-  ids.unitId = unit!.id;
-}
+  if (cuErr) throw cuErr;
 
-async function upsertParagraphs(
-  client: ReturnType<typeof getAdmin>,
-  ids: IdMap,
-  unit: CurriculumUnit,
-  targetUnit: number,
-  targetLang: string
-) {
-  let ord = 0;
-  for (const s of unit.sections) {
-    for (const l of s.lessons) {
-      for (const p of l.paragraphs) {
-        ord++;
-        const sectionId = s.sectionId || s.id || `s${ord}`;
-        const lessonId = l.lessonId || l.id || `l${ord}`;
-        const section_ref = `${sectionId}:${lessonId}:${ord}`; // stable reference
-        
-        // Check if content chunk already exists
-        let chunk;
-        const { data: existingChunk } = await client
-          .from("content_chunks")
-          .select("id")
-          .eq("jurisdiction_id", ids.jurisdictionId)
-          .eq("lang", targetLang)
-          .eq("section_ref", section_ref)
-          .single();
-        
-        if (existingChunk) {
-          chunk = existingChunk;
-        } else {
-          const { data: newChunk, error: cErr } = await client
-            .from("content_chunks")
-            .insert({
-              jurisdiction_id: ids.jurisdictionId,
-              lang: targetLang,
-              section_ref,
-              source_url: undefined, // No source field in new structure
-              chunk: p, // p is now a string, not an object
-            })
-            .select("id")
-            .single();
-          if (cErr) throw cErr;
-          chunk = newChunk;
-        }
-
-        // Check if unit chunk mapping already exists
-        const { data: existingUnitChunk } = await client
-          .from("unit_chunks")
-          .select("chunk_id")
-          .eq("unit_id", ids.unitId)
-          .eq("ord", ord)
-          .single();
-        
-        if (!existingUnitChunk) {
-          const { error: ucErr } = await client
-            .from("unit_chunks")
-            .insert({
-              unit_id: ids.unitId,
-              chunk_id: chunk!.id,
-              ord,
-            });
-          if (ucErr) throw ucErr;
-        }
-      }
-    }
-  }
-  log.ok(`Inserted/updated ${ord} paragraphs for ${targetLang}`);
-}
-
-export async function seedCurriculum(unit: number, lang: string, jurisdiction: string, course: string) {
-  const client = getAdmin();
-  const unitStr = unit.toString().padStart(2, '0');
-  const filePath = `ops/seed/curriculum/${jurisdiction}/${course}/units/unit${unitStr}.${lang}.json`;
-  
-  const curriculum = CurriculumUnitSchema.parse(
-    await readJson<CurriculumUnit>(filePath)
+  // Flatten paragraphs into content_chunks + unit_chunks
+  const paragraphs = unit.sections.flatMap((s: any, si: number) =>
+    s.lessons.flatMap((l: any, li: number) =>
+      l.paragraphs.map((p: any, pi: number) => ({
+        section: s.title,
+        lesson: l.title,
+        ord: (si+1)*1000 + (li+1)*10 + (pi+1),
+        chunk: p.text,
+        lang: unit.lang,
+      }))
+    )
   );
 
-  // IDs & unit creation
-  const ids = await ensureIds(client, jurisdiction, course);
-  await ensureUnit(client, ids, curriculum, unit);
+  // Insert content_chunks in bulk (avoid duplicates by language + text)
+  for (const batch of chunk(paragraphs, 500)) {
+    const { error } = await admin.from("content_chunks")
+      .insert(batch.map(b => ({
+        jurisdiction_id: jurisdiction.id,
+        lang: b.lang,
+        chunk: b.chunk,
+        source_url: null,
+      })));
+    if (error && !String(error.message).includes("duplicate")) throw error;
+  }
 
-  // Insert paragraphs
-  await upsertParagraphs(client, ids, curriculum, unit, lang);
+  // Retrieve inserted chunks (simple approach: fetch by lang recently added)
+  const { data: chunks, error: chErr } = await admin
+    .from("content_chunks")
+    .select("id, chunk")
+    .eq("lang", unit.lang)
+    .order("id", { ascending: false })
+    .limit(paragraphs.length);
+  if (chErr) throw chErr;
 
-  log.ok(`Curriculum seeding complete for Unit ${unit} (${lang.toUpperCase()}).`);
+  // Map back to unit_chunks in the same order
+  const chunkIdByText = new Map<string, number>();
+  for (const c of chunks ?? []) chunkIdByText.set(c.chunk, c.id);
+
+  const unitChunks = paragraphs
+    .map(p => ({ unit_id: cu.id, chunk_id: chunkIdByText.get(p.chunk), ord: p.ord }))
+    .filter(uc => uc.chunk_id);
+
+  for (const batch of chunk(unitChunks, 500)) {
+    const { error } = await admin.from("unit_chunks").upsert(batch, { onConflict: "unit_id,ord" });
+    if (error) throw error;
+  }
 }
 
 async function main() {
-  // Parse command line arguments
-  const args = process.argv.slice(2);
-  const unitArg = args.find(arg => arg.startsWith('--unit='));
-  const langArg = args.find(arg => arg.startsWith('--lang='));
-  const jArg = args.find(arg => arg.startsWith('--j='));
-  const courseArg = args.find(arg => arg.startsWith('--course='));
+  const file = process.argv[2]; // path to a curriculum JSON
+  if (!file) throw new Error("Usage: tsx ops/seed/seed-curriculum.ts <file>");
 
-  const unit = unitArg ? parseInt(unitArg.split('=')[1]) : 1;
-  const langs = langArg ? langArg.split('=')[1].split(',') : ['en', 'es'];
-  const jurisdiction = jArg ? jArg.split('=')[1] : 'CA';
-  const course = courseArg ? courseArg.split('=')[1] : 'DE-ONLINE';
+  const raw = await readJson(file);
+  const unit = normalizeCurriculum(raw);
+  CurriculumUnitSchema.parse(unit);
 
-  // Seed curriculum for all languages
-  for (const lang of langs) {
-    await seedCurriculum(unit, lang, jurisdiction, course);
-  }
-  
-  log.ok(`Curriculum seeding complete for Unit ${unit} (${langs.join('/').toUpperCase()}).`);
+  const admin = getAdmin();
+  const { error: txStart } = await admin.rpc("begin");
+  if (txStart) {/* optional if you have RPC; otherwise rely on upsert atomicity */}
+
+  await upsertUnitAndContent(admin, unit);
+
+  await admin.rpc("commit");
+  console.log(`✅ Curriculum seeded: U${unit.unit} ${unit.lang}`);
 }
 
-if (require.main === module) {
-  main().catch((e) => {
-    console.error(e);
-    process.exit(1);
-  });
-}
+main().catch(e => { console.error(e); process.exit(1); });

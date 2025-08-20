@@ -1,388 +1,208 @@
 {
-  "meta": {
-    "j_code": "CA",
-    "course_code": "DE-ONLINE",
-    "unit_no": 1,
-    "lang": "en",
-    "unit_title": "Rules of the Road: Signs, Signals & Right‑of‑Way",
-    "minutes_required": 60,
-    "objectives": [
-      "Identify and understand traffic signs, signals, and pavement markings",
-      "Learn right-of-way rules for different traffic situations",
-      "Understand basic traffic laws and regulations",
-      "Recognize common traffic violations and their consequences",
-      "Develop safe driving habits and decision-making skills",
-      "Learn how to respond to emergency vehicles and school buses",
-      "Understand the importance of following traffic rules for safety"
-    ],
-    "source": "California Driver Handbook 2024"
-  },
+  "unit": 1,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "title": "Rules of the Road: Signs, Signals & Right‑of‑Way",
+  "minutes_required": 60,
+  "objectives": [
+    "Identify and understand traffic signs, signals, and pavement markings",
+    "Learn right-of-way rules for different traffic situations",
+    "Understand basic traffic laws and regulations",
+    "Recognize common traffic violations and their consequences",
+    "Develop safe driving habits and decision-making skills",
+    "Learn how to respond to emergency vehicles and school buses",
+    "Understand the importance of following traffic rules for safety"
+  ],
   "sections": [
     {
-      "id": "U1-S1",
       "title": "Traffic Signs and Their Meanings",
       "lessons": [
         {
-          "id": "U1-L1",
           "title": "Regulatory Signs",
-          "paragraphs": [
-            {
-              "type": "p",
-              "text": "Regulatory signs tell you what you must do or must not do. They are usually rectangular with black letters or symbols on a white background. These signs are the law, and you must obey them."
-            },
-            {
-              "type": "p",
-              "text": "Stop signs are octagonal (8-sided) and red with white letters. When you see a stop sign, you must come to a complete stop before the stop line or crosswalk. If there is no stop line or crosswalk, stop before entering the intersection."
-            },
-            {
-              "type": "p",
-              "text": "Yield signs are triangular and red and white. They mean you must slow down and be ready to stop if necessary. Let other traffic go first if there is a conflict."
-            },
-            {
-              "type": "li",
-              "text": "Speed limit signs show the maximum legal speed for that road"
-            },
-            {
-              "type": "li",
-              "text": "No parking signs indicate where you cannot park your vehicle"
-            },
-            {
-              "type": "li",
-              "text": "One-way signs show the direction traffic must flow"
-            }
-          ]
+          "minutes": 5,
+          "content": [
+            "Regulatory signs tell you what you must do or must not do. They are usually rectangular with black letters or symbols on a white background. These signs are the law, and you must obey them.",
+            "Stop signs are octagonal (8-sided) and red with white letters. When you see a stop sign, you must come to a complete stop before the stop line or crosswalk. If there is no stop line or crosswalk, stop before entering the intersection.",
+            "Yield signs are triangular and red and white. They mean you must slow down and be ready to stop if necessary. Let other traffic go first if there is a conflict.",
+            "Speed limit signs show the maximum legal speed for that road",
+            "No parking signs indicate where you cannot park your vehicle",
+            "One-way signs show the direction traffic must flow"
+          ],
+          "review": []
         },
         {
-          "id": "U1-L2",
           "title": "Warning Signs",
-          "paragraphs": [
-            {
-              "type": "p",
-              "text": "Warning signs alert you to potential hazards ahead. They are usually diamond-shaped with black letters or symbols on a yellow background. These signs help you prepare for what's coming."
-            },
-            {
-              "type": "p",
-              "text": "Curve signs warn you of sharp turns ahead. The sign may show the recommended speed for the curve. Slow down before entering the curve to maintain control of your vehicle."
-            },
-            {
-              "type": "p",
-              "text": "School zone signs indicate you are entering an area where children may be present. Speed limits are usually reduced in school zones, and you must be extra careful."
-            },
-            {
-              "type": "li",
-              "text": "Pedestrian crossing signs warn of people crossing the road"
-            },
-            {
-              "type": "li",
-              "text": "Animal crossing signs indicate wildlife may be on the road"
-            },
-            {
-              "type": "li",
-              "text": "Slippery when wet signs warn of reduced traction in rain"
-            }
-          ]
+          "minutes": 5,
+          "content": [
+            "Warning signs alert you to potential hazards ahead. They are usually diamond-shaped with black letters or symbols on a yellow background. These signs help you prepare for what's coming.",
+            "Curve signs warn you of sharp turns ahead. The sign may show the recommended speed for the curve. Slow down before entering the curve to maintain control of your vehicle.",
+            "School zone signs indicate you are entering an area where children may be present. Speed limits are usually reduced in school zones, and you must be extra careful.",
+            "Pedestrian crossing signs warn of people crossing the road",
+            "Animal crossing signs indicate wildlife may be on the road",
+            "Slippery when wet signs warn of reduced traction in rain"
+          ],
+          "review": []
         },
         {
-          "id": "U1-L3",
           "title": "Guide Signs",
-          "paragraphs": [
-            {
-              "type": "p",
-              "text": "Guide signs provide information about destinations, services, and routes. They help you navigate to where you want to go. These signs are usually green, blue, or brown."
-            },
-            {
-              "type": "p",
-              "text": "Green signs provide directional information for highways and major roads. They show route numbers, destinations, and distances. Pay attention to these signs to stay on the right path."
-            },
-            {
-              "type": "p",
-              "text": "Blue signs indicate services like gas stations, restaurants, and hospitals. Brown signs point to recreational areas like parks and historical sites."
-            }
-          ]
+          "minutes": 5,
+          "content": [
+            "Guide signs provide information about destinations, services, and routes. They help you navigate to where you want to go. These signs are usually green, blue, or brown.",
+            "Green signs provide directional information for highways and major roads. They show route numbers, destinations, and distances. Pay attention to these signs to stay on the right path.",
+            "Blue signs indicate services like gas stations, restaurants, and hospitals. Brown signs point to recreational areas like parks and historical sites."
+          ],
+          "review": []
         }
       ]
     },
     {
-      "id": "U1-S2",
       "title": "Traffic Signals and Lights",
       "lessons": [
         {
-          "id": "U1-L4",
           "title": "Traffic Light Colors",
-          "paragraphs": [
-            {
-              "type": "p",
-              "text": "Traffic lights control the flow of traffic at intersections. They use three colors: red, yellow, and green. Each color has a specific meaning that all drivers must understand and follow."
-            },
-            {
-              "type": "p",
-              "text": "Red means stop. You must stop before the stop line or crosswalk. If there is no stop line, stop before entering the intersection. You must remain stopped until the light turns green."
-            },
-            {
-              "type": "p",
-              "text": "Yellow means caution. The light is about to turn red. If you can safely stop, you should do so. If you are too close to stop safely, you may proceed through the intersection."
-            },
-            {
-              "type": "p",
-              "text": "Green means go, but only if the intersection is clear. Look both ways before proceeding, even on a green light. Other drivers may still be in the intersection."
-            }
-          ]
+          "minutes": 5,
+          "content": [
+            "Traffic lights control the flow of traffic at intersections. They use three colors: red, yellow, and green. Each color has a specific meaning that all drivers must understand and follow.",
+            "Red means stop. You must stop before the stop line or crosswalk. If there is no stop line, stop before entering the intersection. You must remain stopped until the light turns green.",
+            "Yellow means caution. The light is about to turn red. If you can safely stop, you should do so. If you are too close to stop safely, you may proceed through the intersection.",
+            "Green means go, but only if the intersection is clear. Look both ways before proceeding, even on a green light. Other drivers may still be in the intersection."
+          ],
+          "review": []
         },
         {
-          "id": "U1-L5",
           "title": "Special Traffic Signals",
-          "paragraphs": [
-            {
-              "type": "p",
-              "text": "Some intersections have special signals for pedestrians, bicycles, or turning vehicles. These signals help manage different types of traffic safely."
-            },
-            {
-              "type": "p",
-              "text": "Pedestrian signals show a walking person (white) when it's safe to cross and a raised hand (red) when pedestrians should not cross. Always yield to pedestrians in crosswalks."
-            },
-            {
-              "type": "p",
-              "text": "Turn arrows allow specific movements when the main light might be red. A green arrow means you can turn in that direction. A red arrow means you cannot turn in that direction."
-            },
-            {
-              "type": "li",
-              "text": "Flashing red lights mean stop, then proceed when safe"
-            },
-            {
-              "type": "li",
-              "text": "Flashing yellow lights mean proceed with caution"
-            }
-          ]
+          "minutes": 5,
+          "content": [
+            "Some intersections have special signals for pedestrians, bicycles, or turning vehicles. These signals help manage different types of traffic safely.",
+            "Pedestrian signals show a walking person (white) when it's safe to cross and a raised hand (red) when pedestrians should not cross. Always yield to pedestrians in crosswalks.",
+            "Turn arrows allow specific movements when the main light might be red. A green arrow means you can turn in that direction. A red arrow means you cannot turn in that direction.",
+            "Flashing red lights mean stop, then proceed when safe",
+            "Flashing yellow lights mean proceed with caution"
+          ],
+          "review": []
         }
       ]
     },
     {
-      "id": "U1-S3",
       "title": "Right-of-Way Rules",
       "lessons": [
         {
-          "id": "U1-L6",
           "title": "Basic Right-of-Way",
-          "paragraphs": [
-            {
-              "type": "p",
-              "text": "Right-of-way rules determine who goes first when vehicles meet. These rules help prevent accidents and keep traffic flowing smoothly. Always be courteous and patient with other drivers."
-            },
-            {
-              "type": "p",
-              "text": "At a four-way stop, the first vehicle to arrive has the right-of-way. If two vehicles arrive at the same time, the vehicle on the right goes first. If you're unsure, let the other driver go first."
-            },
-            {
-              "type": "p",
-              "text": "At a T-intersection, vehicles on the through road have the right-of-way over vehicles turning onto the through road. Always yield to through traffic unless you have a green light."
-            },
-            {
-              "type": "li",
-              "text": "Emergency vehicles with lights and sirens always have right-of-way"
-            },
-            {
-              "type": "li",
-              "text": "Pedestrians in crosswalks have right-of-way over vehicles"
-            },
-            {
-              "type": "li",
-              "text": "School buses with flashing lights must be yielded to"
-            }
-          ]
+          "minutes": 5,
+          "content": [
+            "Right-of-way rules determine who goes first when vehicles meet. These rules help prevent accidents and keep traffic flowing smoothly. Always be courteous and patient with other drivers.",
+            "At a four-way stop, the first vehicle to arrive has the right-of-way. If two vehicles arrive at the same time, the vehicle on the right goes first. If you're unsure, let the other driver go first.",
+            "At a T-intersection, vehicles on the through road have the right-of-way over vehicles turning onto the through road. Always yield to through traffic unless you have a green light.",
+            "Emergency vehicles with lights and sirens always have right-of-way",
+            "Pedestrians in crosswalks have right-of-way over vehicles",
+            "School buses with flashing lights must be yielded to"
+          ],
+          "review": []
         },
         {
-          "id": "U1-L7",
           "title": "Intersection Right-of-Way",
-          "paragraphs": [
-            {
-              "type": "p",
-              "text": "Intersections can be complex, especially when multiple vehicles want to turn or go straight. Understanding right-of-way rules helps prevent confusion and accidents."
-            },
-            {
-              "type": "p",
-              "text": "When turning left at an intersection, you must yield to oncoming traffic going straight or turning right. Wait for a safe gap before making your turn."
-            },
-            {
-              "type": "p",
-              "text": "When entering a road from a driveway or parking lot, you must yield to all traffic on the main road. Look both ways and wait for a safe gap before entering."
-            },
-            {
-              "type": "p",
-              "text": "At roundabouts, vehicles already in the circle have the right-of-way. Enter only when there is a safe gap. Always yield to traffic in the roundabout."
-            }
-          ]
+          "minutes": 5,
+          "content": [
+            "Intersections can be complex, especially when multiple vehicles want to turn or go straight. Understanding right-of-way rules helps prevent confusion and accidents.",
+            "When turning left at an intersection, you must yield to oncoming traffic going straight or turning right. Wait for a safe gap before making your turn.",
+            "When entering a road from a driveway or parking lot, you must yield to all traffic on the main road. Look both ways and wait for a safe gap before entering.",
+            "At roundabouts, vehicles already in the circle have the right-of-way. Enter only when there is a safe gap. Always yield to traffic in the roundabout."
+          ],
+          "review": []
         }
       ]
     },
     {
-      "id": "U1-S4",
       "title": "Emergency Vehicles and School Buses",
       "lessons": [
         {
-          "id": "U1-L8",
           "title": "Emergency Vehicle Procedures",
-          "paragraphs": [
-            {
-              "type": "p",
-              "text": "Emergency vehicles include police cars, fire trucks, and ambulances. When you see or hear an emergency vehicle approaching, you must yield the right-of-way immediately."
-            },
-            {
-              "type": "p",
-              "text": "When an emergency vehicle approaches with lights and sirens, pull over to the right side of the road and stop. If you're on a one-way street, pull over to either side. Stay stopped until the emergency vehicle passes."
-            },
-            {
-              "type": "p",
-              "text": "Never follow an emergency vehicle closely or try to pass it. Emergency vehicles may stop suddenly or change direction quickly. Keep a safe distance."
-            },
-            {
-              "type": "li",
-              "text": "If you're in an intersection when an emergency vehicle approaches, clear the intersection first, then pull over"
-            },
-            {
-              "type": "li",
-              "text": "On highways, emergency vehicles may use the shoulder - don't block their path"
-            }
-          ]
+          "minutes": 5,
+          "content": [
+            "Emergency vehicles include police cars, fire trucks, and ambulances. When you see or hear an emergency vehicle approaching, you must yield the right-of-way immediately.",
+            "When an emergency vehicle approaches with lights and sirens, pull over to the right side of the road and stop. If you're on a one-way street, pull over to either side. Stay stopped until the emergency vehicle passes.",
+            "Never follow an emergency vehicle closely or try to pass it. Emergency vehicles may stop suddenly or change direction quickly. Keep a safe distance.",
+            "If you're in an intersection when an emergency vehicle approaches, clear the intersection first, then pull over",
+            "On highways, emergency vehicles may use the shoulder - don't block their path"
+          ],
+          "review": []
         },
         {
-          "id": "U1-L9",
           "title": "School Bus Safety",
-          "paragraphs": [
-            {
-              "type": "p",
-              "text": "School buses transport children to and from school. They have special rules to protect children's safety. All drivers must know and follow these rules."
-            },
-            {
-              "type": "p",
-              "text": "When a school bus stops and displays flashing red lights, all traffic in both directions must stop. This applies on all roads except divided highways with a median."
-            },
-            {
-              "type": "p",
-              "text": "You must remain stopped until the bus driver turns off the flashing lights and the bus starts moving again. Children may be crossing the road to get on or off the bus."
-            },
-            {
-              "type": "p",
-              "text": "On divided highways, only traffic going in the same direction as the bus must stop. Traffic going in the opposite direction may proceed with caution."
-            }
-          ]
+          "minutes": 5,
+          "content": [
+            "School buses transport children to and from school. They have special rules to protect children's safety. All drivers must know and follow these rules.",
+            "When a school bus stops and displays flashing red lights, all traffic in both directions must stop. This applies on all roads except divided highways with a median.",
+            "You must remain stopped until the bus driver turns off the flashing lights and the bus starts moving again. Children may be crossing the road to get on or off the bus.",
+            "On divided highways, only traffic going in the same direction as the bus must stop. Traffic going in the opposite direction may proceed with caution."
+          ],
+          "review": []
         }
       ]
     },
     {
-      "id": "U1-S5",
       "title": "Speed Limits and Safe Driving",
       "lessons": [
         {
-          "id": "U1-L10",
           "title": "Understanding Speed Limits",
-          "paragraphs": [
-            {
-              "type": "p",
-              "text": "Speed limits are maximum speeds allowed under ideal conditions. They are set to ensure safety for all road users. You must never exceed the posted speed limit."
-            },
-            {
-              "type": "p",
-              "text": "Speed limits vary by road type and location. Residential areas typically have lower speed limits (25-35 mph) to protect pedestrians and children. Highways have higher limits (55-70 mph)."
-            },
-            {
-              "type": "p",
-              "text": "School zones have reduced speed limits when children are present. These limits are usually 15-25 mph. Pay attention to school zone signs and flashing lights."
-            },
-            {
-              "type": "li",
-              "text": "Construction zones often have reduced speed limits"
-            },
-            {
-              "type": "li",
-              "text": "Weather conditions may require driving below the speed limit"
-            },
-            {
-              "type": "li",
-              "text": "Traffic congestion may require driving slower than the limit"
-            }
-          ]
+          "minutes": 5,
+          "content": [
+            "Speed limits are maximum speeds allowed under ideal conditions. They are set to ensure safety for all road users. You must never exceed the posted speed limit.",
+            "Speed limits vary by road type and location. Residential areas typically have lower speed limits (25-35 mph) to protect pedestrians and children. Highways have higher limits (55-70 mph).",
+            "School zones have reduced speed limits when children are present. These limits are usually 15-25 mph. Pay attention to school zone signs and flashing lights.",
+            "Construction zones often have reduced speed limits",
+            "Weather conditions may require driving below the speed limit",
+            "Traffic congestion may require driving slower than the limit"
+          ],
+          "review": []
         },
         {
-          "id": "U1-L11",
           "title": "Safe Driving Practices",
-          "paragraphs": [
-            {
-              "type": "p",
-              "text": "Safe driving involves more than just following speed limits. It requires constant attention, good judgment, and consideration for other road users."
-            },
-            {
-              "type": "p",
-              "text": "Always maintain a safe following distance. The general rule is to stay at least 3-4 seconds behind the vehicle in front of you. In bad weather, increase this distance."
-            },
-            {
-              "type": "p",
-              "text": "Use your turn signals to communicate your intentions to other drivers. Signal at least 100 feet before turning or changing lanes. This gives other drivers time to react."
-            },
-            {
-              "type": "p",
-              "text": "Check your mirrors frequently and be aware of what's happening around your vehicle. Look ahead for potential hazards and plan your actions accordingly."
-            }
-          ]
+          "minutes": 5,
+          "content": [
+            "Safe driving involves more than just following speed limits. It requires constant attention, good judgment, and consideration for other road users.",
+            "Always maintain a safe following distance. The general rule is to stay at least 3-4 seconds behind the vehicle in front of you. In bad weather, increase this distance.",
+            "Use your turn signals to communicate your intentions to other drivers. Signal at least 100 feet before turning or changing lanes. This gives other drivers time to react.",
+            "Check your mirrors frequently and be aware of what's happening around your vehicle. Look ahead for potential hazards and plan your actions accordingly."
+          ],
+          "review": []
         }
       ]
     },
     {
-      "id": "U1-S6",
       "title": "Common Traffic Violations",
       "lessons": [
         {
-          "id": "U1-L12",
           "title": "Moving Violations",
-          "paragraphs": [
-            {
-              "type": "p",
-              "text": "Moving violations are traffic offenses that occur while your vehicle is in motion. These violations can result in fines, points on your license, and increased insurance rates."
-            },
-            {
-              "type": "p",
-              "text": "Speeding is one of the most common violations. Even going 5 mph over the limit can result in a ticket. The faster you go, the higher the fine and the more points you'll receive."
-            },
-            {
-              "type": "p",
-              "text": "Running red lights and stop signs is extremely dangerous. These violations often cause serious accidents. Always come to a complete stop and look both ways before proceeding."
-            },
-            {
-              "type": "li",
-              "text": "Failure to yield right-of-way can result in accidents and citations"
-            },
-            {
-              "type": "li",
-              "text": "Improper lane changes without signaling are common violations"
-            },
-            {
-              "type": "li",
-              "text": "Following too closely (tailgating) is dangerous and illegal"
-            }
-          ]
+          "minutes": 5,
+          "content": [
+            "Moving violations are traffic offenses that occur while your vehicle is in motion. These violations can result in fines, points on your license, and increased insurance rates.",
+            "Speeding is one of the most common violations. Even going 5 mph over the limit can result in a ticket. The faster you go, the higher the fine and the more points you'll receive.",
+            "Running red lights and stop signs is extremely dangerous. These violations often cause serious accidents. Always come to a complete stop and look both ways before proceeding.",
+            "Failure to yield right-of-way can result in accidents and citations",
+            "Improper lane changes without signaling are common violations",
+            "Following too closely (tailgating) is dangerous and illegal"
+          ],
+          "review": []
         },
         {
-          "id": "U1-L13",
           "title": "Consequences of Violations",
-          "paragraphs": [
-            {
-              "type": "p",
-              "text": "Traffic violations have serious consequences beyond just fines. They can affect your driving record, insurance rates, and even your ability to drive legally."
-            },
-            {
-              "type": "p",
-              "text": "Points on your license can accumulate and lead to license suspension. In California, getting 4 points in 12 months, 6 points in 24 months, or 8 points in 36 months can result in suspension."
-            },
-            {
-              "type": "p",
-              "text": "Insurance companies check your driving record and may increase your rates for violations. Some violations can cause your insurance to be cancelled or not renewed."
-            },
-            {
-              "type": "p",
-              "text": "Serious violations like DUI or reckless driving can result in jail time, license revocation, and criminal charges. Always drive safely and responsibly."
-            }
-          ]
+          "minutes": 5,
+          "content": [
+            "Traffic violations have serious consequences beyond just fines. They can affect your driving record, insurance rates, and even your ability to drive legally.",
+            "Points on your license can accumulate and lead to license suspension. In California, getting 4 points in 12 months, 6 points in 24 months, or 8 points in 36 months can result in suspension.",
+            "Insurance companies check your driving record and may increase your rates for violations. Some violations can cause your insurance to be cancelled or not renewed.",
+            "Serious violations like DUI or reckless driving can result in jail time, license revocation, and criminal charges. Always drive safely and responsibly."
+          ],
+          "review": []
         }
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "source": "California Driver Handbook 2024",
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.959Z"
+  }
 }

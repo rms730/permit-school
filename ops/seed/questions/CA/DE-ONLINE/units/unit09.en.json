@@ -1,187 +1,373 @@
 {
-    "course": { "j_code": "CA", "course_code": "DE-ONLINE" },
-    "unit_no": 9,
-    "lang": "en",
-    "questions": [
-      {
-        "id": "U9-Q01",
-        "skill": "Freeway Entry",
-        "difficulty": 2,
-        "stem": "When using an acceleration lane to enter a freeway, you should:",
-        "choices": [
-          { "key": "A", "text": "Match the speed of freeway traffic and merge into a safe gap.", "correct": true },
-          { "key": "B", "text": "Stop at the end of the ramp and wait for a large gap." },
-          { "key": "C", "text": "Enter at any speed; freeway traffic must yield." },
-          { "key": "D", "text": "Signal only after you’ve already merged." }
-        ],
-        "explanation": "Use the full acceleration lane to reach the flow speed, signal, and merge into a safe gap without forcing others to brake.",
-        "tags": ["freeway", "merging", "acceleration-lane"],
-        "source_sections": ["9.1.1", "9.1.2"]
-      },
-      {
-        "id": "U9-Q02",
-        "skill": "Ramp Meters",
-        "difficulty": 1,
-        "stem": "Ramp meters are used to:",
-        "choices": [
-          { "key": "A", "text": "Reduce merging conflicts by spacing vehicles entering the freeway.", "correct": true },
-          { "key": "B", "text": "Measure vehicle speed for tickets." },
-          { "key": "C", "text": "Indicate a closed freeway." },
-          { "key": "D", "text": "Allow trucks only." }
-        ],
-        "explanation": "Metered ramps release vehicles at intervals to smooth merges and reduce congestion.",
-        "tags": ["ramp-meters", "freeway"],
-        "source_sections": ["9.1.1"]
-      },
-      {
-        "id": "U9-Q03",
-        "skill": "Lane Choice",
-        "difficulty": 2,
-        "stem": "The left lane on a multi-lane freeway is typically intended for:",
-        "choices": [
-          { "key": "A", "text": "Passing and faster-moving traffic.", "correct": true },
-          { "key": "B", "text": "Trucks only." },
-          { "key": "C", "text": "Vehicles entering and exiting the freeway." },
-          { "key": "D", "text": "Vehicles going below the speed limit." }
-        ],
-        "explanation": "Left lanes are for passing and faster flow; cruising there without passing can impede traffic.",
-        "tags": ["lane-choice", "freeway"],
-        "source_sections": ["9.1.2"]
-      },
-      {
-        "id": "U9-Q04",
-        "skill": "Following Distance",
-        "difficulty": 2,
-        "stem": "At 65 mph in ideal conditions, your following distance should be:",
-        "choices": [
-          { "key": "A", "text": "At least 3–4 seconds.", "correct": true },
-          { "key": "B", "text": "About 1 second." },
-          { "key": "C", "text": "Only one car length." },
-          { "key": "D", "text": "Not needed on freeways." }
-        ],
-        "explanation": "High speeds demand more time to react; increase following distance and add more in poor conditions.",
-        "tags": ["following-distance", "freeway"],
-        "source_sections": ["9.2.2"]
-      },
-      {
-        "id": "U9-Q05",
-        "skill": "Speed Management",
-        "difficulty": 2,
-        "stem": "Which statement is true about freeway speed?",
-        "choices": [
-          { "key": "A", "text": "You must obey posted maximums and slow for conditions even if others go faster.", "correct": true },
-          { "key": "B", "text": "You should always match the fastest vehicle." },
-          { "key": "C", "text": "It’s safer to drive below the minimum speed in any lane." },
-          { "key": "D", "text": "Speed limits do not apply in the left lane." }
-        ],
-        "explanation": "Drive at a legal, safe speed for conditions; do not exceed posted limits because of the flow.",
-        "tags": ["speed", "freeway"],
-        "source_sections": ["9.2.1"]
-      },
-      {
-        "id": "U9-Q06",
-        "skill": "Lane Change",
-        "difficulty": 2,
-        "stem": "Before changing lanes on the freeway, you should do all of the following EXCEPT:",
-        "choices": [
-          { "key": "A", "text": "Signal your intention." },
-          { "key": "B", "text": "Check mirrors and over-the-shoulder blind spot." },
-          { "key": "C", "text": "Accelerate quickly without checking traffic behind you.", "correct": true },
-          { "key": "D", "text": "Complete the maneuver smoothly and cancel your signal." }
-        ],
-        "explanation": "Do not accelerate blindly; scanning and blind spot checks are essential.",
-        "tags": ["lane-change", "blind-spot"],
-        "source_sections": ["9.3.1"]
-      },
-      {
-        "id": "U9-Q07",
-        "skill": "Exiting",
-        "difficulty": 1,
-        "stem": "If you miss your freeway exit, you should:",
-        "choices": [
-          { "key": "A", "text": "Continue to the next exit.", "correct": true },
-          { "key": "B", "text": "Back up on the shoulder." },
-          { "key": "C", "text": "Stop in the gore area and wait." },
-          { "key": "D", "text": "Make a U-turn across the median." }
-        ],
-        "explanation": "Never reverse or stop in travel lanes or gore areas; take the next exit safely.",
-        "tags": ["exiting", "gore-area"],
-        "source_sections": ["9.3.2"]
-      },
-      {
-        "id": "U9-Q08",
-        "skill": "Breakdowns",
-        "difficulty": 2,
-        "stem": "Your car loses power in a freeway lane. What is the safest first action?",
-        "choices": [
-          { "key": "A", "text": "Signal, steer right, and aim for the shoulder.", "correct": true },
-          { "key": "B", "text": "Stop immediately in the lane and walk to the shoulder." },
-          { "key": "C", "text": "Open your hood in the lane to alert others." },
-          { "key": "D", "text": "Coast left into the fast lane." }
-        ],
-        "explanation": "Signal and move to the right shoulder if possible, then activate hazards and call for help.",
-        "tags": ["breakdown", "emergency"],
-        "source_sections": ["9.4.1"]
-      },
-      {
-        "id": "U9-Q09",
-        "skill": "Move Over Law",
-        "difficulty": 2,
-        "stem": "California’s Move Over law requires you to:",
-        "choices": [
-          { "key": "A", "text": "Change lanes away from stopped emergency/roadside vehicles when safe, or slow down.", "correct": true },
-          { "key": "B", "text": "Stop next to the emergency vehicle to offer help." },
-          { "key": "C", "text": "Honk and pass normally." },
-          { "key": "D", "text": "Stay in the same lane at full speed." }
-        ],
-        "explanation": "Move over or slow significantly for vehicles with flashing lights on the shoulder when safe.",
-        "tags": ["move-over", "law"],
-        "source_sections": ["9.4.2"]
-      },
-      {
-        "id": "U9-Q10",
-        "skill": "HOV/Express Lanes",
-        "difficulty": 2,
-        "stem": "Which is correct about HOV/express lanes?",
-        "choices": [
-          { "key": "A", "text": "They have special rules (occupancy/tolls) and specific entry/exit points.", "correct": true },
-          { "key": "B", "text": "Anyone may enter or exit at any time across double lines." },
-          { "key": "C", "text": "They are only for emergency vehicles." },
-          { "key": "D", "text": "They are used only when traffic comes to a stop." }
-        ],
-        "explanation": "Obey posted rules and use designated entry/exit zones.",
-        "tags": ["hov", "express-lane"],
-        "source_sections": ["9.4.2"]
-      },
-      {
-        "id": "U9-Q11",
-        "skill": "Space Cushion",
-        "difficulty": 2,
-        "stem": "Why is a side-space cushion important on freeways?",
-        "choices": [
-          { "key": "A", "text": "It gives you room to maneuver away from conflicts.", "correct": true },
-          { "key": "B", "text": "It reduces fuel use, not safety risk." },
-          { "key": "C", "text": "It helps other cars draft behind you." },
-          { "key": "D", "text": "It is required only at night." }
-        ],
-        "explanation": "Maintaining space on all sides increases your options to avoid hazards.",
-        "tags": ["space-cushion", "defensive-driving"],
-        "source_sections": ["9.2.2"]
-      },
-      {
-        "id": "U9-Q12",
-        "skill": "Gore Area",
-        "difficulty": 1,
-        "stem": "The gore area at exits (painted triangle) is intended for:",
-        "choices": [
-          { "key": "A", "text": "Separation of lanes; you should not drive on or stop there.", "correct": true },
-          { "key": "B", "text": "Emergency parking only." },
-          { "key": "C", "text": "A faster shortcut to the exit." },
-          { "key": "D", "text": "U-turns when you miss your exit." }
-        ],
-        "explanation": "Gore areas are not for driving or stopping.",
-        "tags": ["gore-area", "exiting"],
-        "source_sections": ["9.3.2"]
-      }
-    ]
+  "unit": 9,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "questions": [
+    {
+      "ref": "U9-Q01",
+      "skill": "Freeway Entry",
+      "difficulty": 2,
+      "stem": "When using an acceleration lane to enter a freeway, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Match the speed of freeway traffic and merge into a safe gap."
+        },
+        {
+          "key": "B",
+          "text": "Stop at the end of the ramp and wait for a large gap."
+        },
+        {
+          "key": "C",
+          "text": "Enter at any speed; freeway traffic must yield."
+        },
+        {
+          "key": "D",
+          "text": "Signal only after you’ve already merged."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Use the full acceleration lane to reach the flow speed, signal, and merge into a safe gap without forcing others to brake.",
+      "tags": [
+        "freeway",
+        "merging",
+        "acceleration-lane"
+      ]
+    },
+    {
+      "ref": "U9-Q02",
+      "skill": "Ramp Meters",
+      "difficulty": 1,
+      "stem": "Ramp meters are used to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Reduce merging conflicts by spacing vehicles entering the freeway."
+        },
+        {
+          "key": "B",
+          "text": "Measure vehicle speed for tickets."
+        },
+        {
+          "key": "C",
+          "text": "Indicate a closed freeway."
+        },
+        {
+          "key": "D",
+          "text": "Allow trucks only."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Metered ramps release vehicles at intervals to smooth merges and reduce congestion.",
+      "tags": [
+        "ramp-meters",
+        "freeway"
+      ]
+    },
+    {
+      "ref": "U9-Q03",
+      "skill": "Lane Choice",
+      "difficulty": 2,
+      "stem": "The left lane on a multi-lane freeway is typically intended for:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Passing and faster-moving traffic."
+        },
+        {
+          "key": "B",
+          "text": "Trucks only."
+        },
+        {
+          "key": "C",
+          "text": "Vehicles entering and exiting the freeway."
+        },
+        {
+          "key": "D",
+          "text": "Vehicles going below the speed limit."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Left lanes are for passing and faster flow; cruising there without passing can impede traffic.",
+      "tags": [
+        "lane-choice",
+        "freeway"
+      ]
+    },
+    {
+      "ref": "U9-Q04",
+      "skill": "Following Distance",
+      "difficulty": 2,
+      "stem": "At 65 mph in ideal conditions, your following distance should be:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "At least 3–4 seconds."
+        },
+        {
+          "key": "B",
+          "text": "About 1 second."
+        },
+        {
+          "key": "C",
+          "text": "Only one car length."
+        },
+        {
+          "key": "D",
+          "text": "Not needed on freeways."
+        }
+      ],
+      "answer": 0,
+      "explanation": "High speeds demand more time to react; increase following distance and add more in poor conditions.",
+      "tags": [
+        "following-distance",
+        "freeway"
+      ]
+    },
+    {
+      "ref": "U9-Q05",
+      "skill": "Speed Management",
+      "difficulty": 2,
+      "stem": "Which statement is true about freeway speed?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "You must obey posted maximums and slow for conditions even if others go faster."
+        },
+        {
+          "key": "B",
+          "text": "You should always match the fastest vehicle."
+        },
+        {
+          "key": "C",
+          "text": "It’s safer to drive below the minimum speed in any lane."
+        },
+        {
+          "key": "D",
+          "text": "Speed limits do not apply in the left lane."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Drive at a legal, safe speed for conditions; do not exceed posted limits because of the flow.",
+      "tags": [
+        "speed",
+        "freeway"
+      ]
+    },
+    {
+      "ref": "U9-Q06",
+      "skill": "Lane Change",
+      "difficulty": 2,
+      "stem": "Before changing lanes on the freeway, you should do all of the following EXCEPT:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Signal your intention."
+        },
+        {
+          "key": "B",
+          "text": "Check mirrors and over-the-shoulder blind spot."
+        },
+        {
+          "key": "C",
+          "text": "Accelerate quickly without checking traffic behind you."
+        },
+        {
+          "key": "D",
+          "text": "Complete the maneuver smoothly and cancel your signal."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Do not accelerate blindly; scanning and blind spot checks are essential.",
+      "tags": [
+        "lane-change",
+        "blind-spot"
+      ]
+    },
+    {
+      "ref": "U9-Q07",
+      "skill": "Exiting",
+      "difficulty": 1,
+      "stem": "If you miss your freeway exit, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Continue to the next exit."
+        },
+        {
+          "key": "B",
+          "text": "Back up on the shoulder."
+        },
+        {
+          "key": "C",
+          "text": "Stop in the gore area and wait."
+        },
+        {
+          "key": "D",
+          "text": "Make a U-turn across the median."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Never reverse or stop in travel lanes or gore areas; take the next exit safely.",
+      "tags": [
+        "exiting",
+        "gore-area"
+      ]
+    },
+    {
+      "ref": "U9-Q08",
+      "skill": "Breakdowns",
+      "difficulty": 2,
+      "stem": "Your car loses power in a freeway lane. What is the safest first action?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Signal, steer right, and aim for the shoulder."
+        },
+        {
+          "key": "B",
+          "text": "Stop immediately in the lane and walk to the shoulder."
+        },
+        {
+          "key": "C",
+          "text": "Open your hood in the lane to alert others."
+        },
+        {
+          "key": "D",
+          "text": "Coast left into the fast lane."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Signal and move to the right shoulder if possible, then activate hazards and call for help.",
+      "tags": [
+        "breakdown",
+        "emergency"
+      ]
+    },
+    {
+      "ref": "U9-Q09",
+      "skill": "Move Over Law",
+      "difficulty": 2,
+      "stem": "California’s Move Over law requires you to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Change lanes away from stopped emergency/roadside vehicles when safe, or slow down."
+        },
+        {
+          "key": "B",
+          "text": "Stop next to the emergency vehicle to offer help."
+        },
+        {
+          "key": "C",
+          "text": "Honk and pass normally."
+        },
+        {
+          "key": "D",
+          "text": "Stay in the same lane at full speed."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Move over or slow significantly for vehicles with flashing lights on the shoulder when safe.",
+      "tags": [
+        "move-over",
+        "law"
+      ]
+    },
+    {
+      "ref": "U9-Q10",
+      "skill": "HOV/Express Lanes",
+      "difficulty": 2,
+      "stem": "Which is correct about HOV/express lanes?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "They have special rules (occupancy/tolls) and specific entry/exit points."
+        },
+        {
+          "key": "B",
+          "text": "Anyone may enter or exit at any time across double lines."
+        },
+        {
+          "key": "C",
+          "text": "They are only for emergency vehicles."
+        },
+        {
+          "key": "D",
+          "text": "They are used only when traffic comes to a stop."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Obey posted rules and use designated entry/exit zones.",
+      "tags": [
+        "hov",
+        "express-lane"
+      ]
+    },
+    {
+      "ref": "U9-Q11",
+      "skill": "Space Cushion",
+      "difficulty": 2,
+      "stem": "Why is a side-space cushion important on freeways?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "It gives you room to maneuver away from conflicts."
+        },
+        {
+          "key": "B",
+          "text": "It reduces fuel use, not safety risk."
+        },
+        {
+          "key": "C",
+          "text": "It helps other cars draft behind you."
+        },
+        {
+          "key": "D",
+          "text": "It is required only at night."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Maintaining space on all sides increases your options to avoid hazards.",
+      "tags": [
+        "space-cushion",
+        "defensive-driving"
+      ]
+    },
+    {
+      "ref": "U9-Q12",
+      "skill": "Gore Area",
+      "difficulty": 1,
+      "stem": "The gore area at exits (painted triangle) is intended for:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Separation of lanes; you should not drive on or stop there."
+        },
+        {
+          "key": "B",
+          "text": "Emergency parking only."
+        },
+        {
+          "key": "C",
+          "text": "A faster shortcut to the exit."
+        },
+        {
+          "key": "D",
+          "text": "U-turns when you miss your exit."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Gore areas are not for driving or stopping.",
+      "tags": [
+        "gore-area",
+        "exiting"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.989Z"
   }
+}

@@ -1,187 +1,372 @@
 {
-    "course": { "j_code": "CA", "course_code": "DE-ONLINE" },
-    "unit_no": 10,
-    "lang": "en",
-    "questions": [
-      {
-        "id": "U10-Q01",
-        "skill": "Registration",
-        "difficulty": 1,
-        "stem": "Which item helps prove your vehicle is legally allowed on public roads?",
-        "choices": [
-          { "key": "A", "text": "Valid registration with current address.", "correct": true },
-          { "key": "B", "text": "A repair receipt." },
-          { "key": "C", "text": "An old insurance card." },
-          { "key": "D", "text": "A parking permit only." }
-        ],
-        "explanation": "A valid registration with correct address and displayed plates/stickers is required.",
-        "tags": ["registration", "documents"],
-        "source_sections": ["10.1.1"]
-      },
-      {
-        "id": "U10-Q02",
-        "skill": "Title Transfer",
-        "difficulty": 2,
-        "stem": "When buying or selling a vehicle, you must:",
-        "choices": [
-          { "key": "A", "text": "Complete the title transfer according to state rules.", "correct": true },
-          { "key": "B", "text": "Keep the old title to save time." },
-          { "key": "C", "text": "Only change the license plates." },
-          { "key": "D", "text": "Do nothing; it changes automatically." }
-        ],
-        "explanation": "Title must be properly transferred to establish ownership.",
-        "tags": ["title", "ownership"],
-        "source_sections": ["10.1.1"]
-      },
-      {
-        "id": "U10-Q03",
-        "skill": "Renewal",
-        "difficulty": 1,
-        "stem": "To avoid penalties, you should:",
-        "choices": [
-          { "key": "A", "text": "Renew registration on or before the due date.", "correct": true },
-          { "key": "B", "text": "Ignore renewal notices." },
-          { "key": "C", "text": "Wait for a ticket before renewing." },
-          { "key": "D", "text": "Renew every five years regardless of notice." }
-        ],
-        "explanation": "Timely renewal prevents fines or registration holds.",
-        "tags": ["renewal", "registration"],
-        "source_sections": ["10.1.2"]
-      },
-      {
-        "id": "U10-Q04",
-        "skill": "Insurance Proof",
-        "difficulty": 2,
-        "stem": "You must be able to show proof of financial responsibility:",
-        "choices": [
-          { "key": "A", "text": "When requested by law enforcement.", "correct": true },
-          { "key": "B", "text": "Only when you renew registration." },
-          { "key": "C", "text": "Only if driving out of state." },
-          { "key": "D", "text": "Never; proof is optional." }
-        ],
-        "explanation": "Drivers must carry and present insurance (or other financial responsibility) proof upon request.",
-        "tags": ["insurance", "financial-responsibility"],
-        "source_sections": ["10.2.1"]
-      },
-      {
-        "id": "U10-Q05",
-        "skill": "Coverage",
-        "difficulty": 2,
-        "stem": "Liability insurance primarily covers:",
-        "choices": [
-          { "key": "A", "text": "Damage and injuries you cause to others.", "correct": true },
-          { "key": "B", "text": "Only your own vehicle damage." },
-          { "key": "C", "text": "Routine maintenance." },
-          { "key": "D", "text": "Parking tickets." }
-        ],
-        "explanation": "Liability coverage pays for others’ losses when you are at fault.",
-        "tags": ["insurance", "liability"],
-        "source_sections": ["10.2.1"]
-      },
-      {
-        "id": "U10-Q06",
-        "skill": "Collision Reporting",
-        "difficulty": 2,
-        "stem": "You must report a collision to the DMV and/or law enforcement when:",
-        "choices": [
-          { "key": "A", "text": "It meets state thresholds (e.g., injury or qualifying property damage).", "correct": true },
-          { "key": "B", "text": "It occurs on private property only." },
-          { "key": "C", "text": "No one was around to see it." },
-          { "key": "D", "text": "It was just a minor scratch with no thresholds met." }
-        ],
-        "explanation": "Report collisions according to state thresholds and timelines.",
-        "tags": ["collision", "reporting"],
-        "source_sections": ["10.2.2", "10.4.2"]
-      },
-      {
-        "id": "U10-Q07",
-        "skill": "Maintenance",
-        "difficulty": 1,
-        "stem": "Which maintenance item is MOST critical for safe stopping?",
-        "choices": [
-          { "key": "A", "text": "Brake condition.", "correct": true },
-          { "key": "B", "text": "Air freshener scent." },
-          { "key": "C", "text": "Paint color." },
-          { "key": "D", "text": "Window tint design." }
-        ],
-        "explanation": "Brakes are essential to safety; keep them in good condition.",
-        "tags": ["maintenance", "brakes"],
-        "source_sections": ["10.3.1"]
-      },
-      {
-        "id": "U10-Q08",
-        "skill": "Safety Equipment",
-        "difficulty": 2,
-        "stem": "If a headlight burns out, you should:",
-        "choices": [
-          { "key": "A", "text": "Replace it promptly; driving with defective lighting is unsafe and often illegal.", "correct": true },
-          { "key": "B", "text": "Ignore it; one headlight is enough." },
-          { "key": "C", "text": "Use hazard lights full-time instead." },
-          { "key": "D", "text": "Only drive during the day forever." }
-        ],
-        "explanation": "Maintain required safety equipment to remain visible and legal.",
-        "tags": ["equipment", "lighting"],
-        "source_sections": ["10.3.2"]
-      },
-      {
-        "id": "U10-Q09",
-        "skill": "At-Scene Protocol",
-        "difficulty": 2,
-        "stem": "At a minor collision with no injuries, the best action is to:",
-        "choices": [
-          { "key": "A", "text": "Move vehicles out of traffic if safe, then exchange info.", "correct": true },
-          { "key": "B", "text": "Leave the cars where they are and block traffic." },
-          { "key": "C", "text": "Argue about fault in the lane." },
-          { "key": "D", "text": "Drive away without stopping." }
-        ],
-        "explanation": "Clear travel lanes if safe to do so, then complete exchanges and documentation.",
-        "tags": ["collision", "scene-safety"],
-        "source_sections": ["10.4.1", "10.4.2"]
-      },
-      {
-        "id": "U10-Q10",
-        "skill": "Documentation",
-        "difficulty": 2,
-        "stem": "Which item should you exchange after a collision?",
-        "choices": [
-          { "key": "A", "text": "Driver license number and insurance details.", "correct": true },
-          { "key": "B", "text": "Your social media handle." },
-          { "key": "C", "text": "Your school schedule." },
-          { "key": "D", "text": "Your favorite color." }
-        ],
-        "explanation": "Exchange legal IDs, registration, and insurance information.",
-        "tags": ["collision", "documents"],
-        "source_sections": ["10.4.2"]
-      },
-      {
-        "id": "U10-Q11",
-        "skill": "Insurance Penalties",
-        "difficulty": 2,
-        "stem": "Driving without proof of required insurance can result in:",
-        "choices": [
-          { "key": "A", "text": "Fines and other penalties per state law.", "correct": true },
-          { "key": "B", "text": "A discount on registration fees." },
-          { "key": "C", "text": "No consequences." },
-          { "key": "D", "text": "A free replacement vehicle." }
-        ],
-        "explanation": "States impose penalties for failing to show proof of financial responsibility.",
-        "tags": ["insurance", "penalties"],
-        "source_sections": ["10.2.1"]
-      },
-      {
-        "id": "U10-Q12",
-        "skill": "Emergency Prep",
-        "difficulty": 2,
-        "stem": "A good emergency kit includes:",
-        "choices": [
-          { "key": "A", "text": "Reflective triangles, flashlight, first aid, water.", "correct": true },
-          { "key": "B", "text": "Stickers and air fresheners only." },
-          { "key": "C", "text": "Old CDs and sports gear." },
-          { "key": "D", "text": "Snacks only." }
-        ],
-        "explanation": "Equip your vehicle to manage common roadside emergencies.",
-        "tags": ["emergency-kit", "safety"],
-        "source_sections": ["10.3.2"]
-      }
-    ]
+  "unit": 10,
+  "j_code": "CA",
+  "course_code": "DE-ONLINE",
+  "lang": "en",
+  "questions": [
+    {
+      "ref": "U10-Q01",
+      "skill": "Registration",
+      "difficulty": 1,
+      "stem": "Which item helps prove your vehicle is legally allowed on public roads?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Valid registration with current address."
+        },
+        {
+          "key": "B",
+          "text": "A repair receipt."
+        },
+        {
+          "key": "C",
+          "text": "An old insurance card."
+        },
+        {
+          "key": "D",
+          "text": "A parking permit only."
+        }
+      ],
+      "answer": 0,
+      "explanation": "A valid registration with correct address and displayed plates/stickers is required.",
+      "tags": [
+        "registration",
+        "documents"
+      ]
+    },
+    {
+      "ref": "U10-Q02",
+      "skill": "Title Transfer",
+      "difficulty": 2,
+      "stem": "When buying or selling a vehicle, you must:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Complete the title transfer according to state rules."
+        },
+        {
+          "key": "B",
+          "text": "Keep the old title to save time."
+        },
+        {
+          "key": "C",
+          "text": "Only change the license plates."
+        },
+        {
+          "key": "D",
+          "text": "Do nothing; it changes automatically."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Title must be properly transferred to establish ownership.",
+      "tags": [
+        "title",
+        "ownership"
+      ]
+    },
+    {
+      "ref": "U10-Q03",
+      "skill": "Renewal",
+      "difficulty": 1,
+      "stem": "To avoid penalties, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Renew registration on or before the due date."
+        },
+        {
+          "key": "B",
+          "text": "Ignore renewal notices."
+        },
+        {
+          "key": "C",
+          "text": "Wait for a ticket before renewing."
+        },
+        {
+          "key": "D",
+          "text": "Renew every five years regardless of notice."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Timely renewal prevents fines or registration holds.",
+      "tags": [
+        "renewal",
+        "registration"
+      ]
+    },
+    {
+      "ref": "U10-Q04",
+      "skill": "Insurance Proof",
+      "difficulty": 2,
+      "stem": "You must be able to show proof of financial responsibility:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "When requested by law enforcement."
+        },
+        {
+          "key": "B",
+          "text": "Only when you renew registration."
+        },
+        {
+          "key": "C",
+          "text": "Only if driving out of state."
+        },
+        {
+          "key": "D",
+          "text": "Never; proof is optional."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Drivers must carry and present insurance (or other financial responsibility) proof upon request.",
+      "tags": [
+        "insurance",
+        "financial-responsibility"
+      ]
+    },
+    {
+      "ref": "U10-Q05",
+      "skill": "Coverage",
+      "difficulty": 2,
+      "stem": "Liability insurance primarily covers:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Damage and injuries you cause to others."
+        },
+        {
+          "key": "B",
+          "text": "Only your own vehicle damage."
+        },
+        {
+          "key": "C",
+          "text": "Routine maintenance."
+        },
+        {
+          "key": "D",
+          "text": "Parking tickets."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Liability coverage pays for others’ losses when you are at fault.",
+      "tags": [
+        "insurance",
+        "liability"
+      ]
+    },
+    {
+      "ref": "U10-Q06",
+      "skill": "Collision Reporting",
+      "difficulty": 2,
+      "stem": "You must report a collision to the DMV and/or law enforcement when:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "It meets state thresholds (e.g., injury or qualifying property damage)."
+        },
+        {
+          "key": "B",
+          "text": "It occurs on private property only."
+        },
+        {
+          "key": "C",
+          "text": "No one was around to see it."
+        },
+        {
+          "key": "D",
+          "text": "It was just a minor scratch with no thresholds met."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Report collisions according to state thresholds and timelines.",
+      "tags": [
+        "collision",
+        "reporting"
+      ]
+    },
+    {
+      "ref": "U10-Q07",
+      "skill": "Maintenance",
+      "difficulty": 1,
+      "stem": "Which maintenance item is MOST critical for safe stopping?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Brake condition."
+        },
+        {
+          "key": "B",
+          "text": "Air freshener scent."
+        },
+        {
+          "key": "C",
+          "text": "Paint color."
+        },
+        {
+          "key": "D",
+          "text": "Window tint design."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Brakes are essential to safety; keep them in good condition.",
+      "tags": [
+        "maintenance",
+        "brakes"
+      ]
+    },
+    {
+      "ref": "U10-Q08",
+      "skill": "Safety Equipment",
+      "difficulty": 2,
+      "stem": "If a headlight burns out, you should:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Replace it promptly; driving with defective lighting is unsafe and often illegal."
+        },
+        {
+          "key": "B",
+          "text": "Ignore it; one headlight is enough."
+        },
+        {
+          "key": "C",
+          "text": "Use hazard lights full-time instead."
+        },
+        {
+          "key": "D",
+          "text": "Only drive during the day forever."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Maintain required safety equipment to remain visible and legal.",
+      "tags": [
+        "equipment",
+        "lighting"
+      ]
+    },
+    {
+      "ref": "U10-Q09",
+      "skill": "At-Scene Protocol",
+      "difficulty": 2,
+      "stem": "At a minor collision with no injuries, the best action is to:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Move vehicles out of traffic if safe, then exchange info."
+        },
+        {
+          "key": "B",
+          "text": "Leave the cars where they are and block traffic."
+        },
+        {
+          "key": "C",
+          "text": "Argue about fault in the lane."
+        },
+        {
+          "key": "D",
+          "text": "Drive away without stopping."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Clear travel lanes if safe to do so, then complete exchanges and documentation.",
+      "tags": [
+        "collision",
+        "scene-safety"
+      ]
+    },
+    {
+      "ref": "U10-Q10",
+      "skill": "Documentation",
+      "difficulty": 2,
+      "stem": "Which item should you exchange after a collision?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Driver license number and insurance details."
+        },
+        {
+          "key": "B",
+          "text": "Your social media handle."
+        },
+        {
+          "key": "C",
+          "text": "Your school schedule."
+        },
+        {
+          "key": "D",
+          "text": "Your favorite color."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Exchange legal IDs, registration, and insurance information.",
+      "tags": [
+        "collision",
+        "documents"
+      ]
+    },
+    {
+      "ref": "U10-Q11",
+      "skill": "Insurance Penalties",
+      "difficulty": 2,
+      "stem": "Driving without proof of required insurance can result in:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Fines and other penalties per state law."
+        },
+        {
+          "key": "B",
+          "text": "A discount on registration fees."
+        },
+        {
+          "key": "C",
+          "text": "No consequences."
+        },
+        {
+          "key": "D",
+          "text": "A free replacement vehicle."
+        }
+      ],
+      "answer": 0,
+      "explanation": "States impose penalties for failing to show proof of financial responsibility.",
+      "tags": [
+        "insurance",
+        "penalties"
+      ]
+    },
+    {
+      "ref": "U10-Q12",
+      "skill": "Emergency Prep",
+      "difficulty": 2,
+      "stem": "A good emergency kit includes:",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Reflective triangles, flashlight, first aid, water."
+        },
+        {
+          "key": "B",
+          "text": "Stickers and air fresheners only."
+        },
+        {
+          "key": "C",
+          "text": "Old CDs and sports gear."
+        },
+        {
+          "key": "D",
+          "text": "Snacks only."
+        }
+      ],
+      "answer": 0,
+      "explanation": "Equip your vehicle to manage common roadside emergencies.",
+      "tags": [
+        "emergency-kit",
+        "safety"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "updated_at": "2025-08-20T06:02:45.991Z"
   }
+}

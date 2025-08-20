@@ -29,11 +29,7 @@
       ],
       "answer": 0,
       "explanation": "Use the full acceleration lane to reach the flow speed, signal, and merge into a safe gap without forcing others to brake.",
-      "tags": [
-        "freeway",
-        "merging",
-        "acceleration-lane"
-      ]
+      "tags": ["freeway", "merging", "acceleration-lane"]
     },
     {
       "ref": "U9-Q02",
@@ -60,10 +56,7 @@
       ],
       "answer": 0,
       "explanation": "Metered ramps release vehicles at intervals to smooth merges and reduce congestion.",
-      "tags": [
-        "ramp-meters",
-        "freeway"
-      ]
+      "tags": ["ramp-meters", "freeway"]
     },
     {
       "ref": "U9-Q03",
@@ -90,10 +83,7 @@
       ],
       "answer": 0,
       "explanation": "Left lanes are for passing and faster flow; cruising there without passing can impede traffic.",
-      "tags": [
-        "lane-choice",
-        "freeway"
-      ]
+      "tags": ["lane-choice", "freeway"]
     },
     {
       "ref": "U9-Q04",
@@ -120,10 +110,7 @@
       ],
       "answer": 0,
       "explanation": "High speeds demand more time to react; increase following distance and add more in poor conditions.",
-      "tags": [
-        "following-distance",
-        "freeway"
-      ]
+      "tags": ["following-distance", "freeway"]
     },
     {
       "ref": "U9-Q05",
@@ -150,10 +137,7 @@
       ],
       "answer": 0,
       "explanation": "Drive at a legal, safe speed for conditions; do not exceed posted limits because of the flow.",
-      "tags": [
-        "speed",
-        "freeway"
-      ]
+      "tags": ["speed", "freeway"]
     },
     {
       "ref": "U9-Q06",
@@ -180,10 +164,7 @@
       ],
       "answer": "A",
       "explanation": "Do not accelerate blindly; scanning and blind spot checks are essential.",
-      "tags": [
-        "lane-change",
-        "blind-spot"
-      ]
+      "tags": ["lane-change", "blind-spot"]
     },
     {
       "ref": "U9-Q07",
@@ -210,10 +191,7 @@
       ],
       "answer": 0,
       "explanation": "Never reverse or stop in travel lanes or gore areas; take the next exit safely.",
-      "tags": [
-        "exiting",
-        "gore-area"
-      ]
+      "tags": ["exiting", "gore-area"]
     },
     {
       "ref": "U9-Q08",
@@ -240,10 +218,7 @@
       ],
       "answer": 0,
       "explanation": "Signal and move to the right shoulder if possible, then activate hazards and call for help.",
-      "tags": [
-        "breakdown",
-        "emergency"
-      ]
+      "tags": ["breakdown", "emergency"]
     },
     {
       "ref": "U9-Q09",
@@ -270,10 +245,7 @@
       ],
       "answer": 0,
       "explanation": "Move over or slow significantly for vehicles with flashing lights on the shoulder when safe.",
-      "tags": [
-        "move-over",
-        "law"
-      ]
+      "tags": ["move-over", "law"]
     },
     {
       "ref": "U9-Q10",
@@ -300,10 +272,7 @@
       ],
       "answer": 0,
       "explanation": "Obey posted rules and use designated entry/exit zones.",
-      "tags": [
-        "hov",
-        "express-lane"
-      ]
+      "tags": ["hov", "express-lane"]
     },
     {
       "ref": "U9-Q11",
@@ -330,10 +299,7 @@
       ],
       "answer": 0,
       "explanation": "Maintaining space on all sides increases your options to avoid hazards.",
-      "tags": [
-        "space-cushion",
-        "defensive-driving"
-      ]
+      "tags": ["space-cushion", "defensive-driving"]
     },
     {
       "ref": "U9-Q12",
@@ -360,10 +326,7 @@
       ],
       "answer": 0,
       "explanation": "Gore areas are not for driving or stopping.",
-      "tags": [
-        "gore-area",
-        "exiting"
-      ]
+      "tags": ["gore-area", "exiting"]
     }
   ],
   "metadata": {

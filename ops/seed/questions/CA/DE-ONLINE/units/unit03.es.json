@@ -28,11 +28,7 @@
       ],
       "answer": "B",
       "explanation": "La ley exige elegir una velocidad segura para las condiciones actuales, aunque sea menor al límite.",
-      "tags": [
-        "unit3",
-        "autopista",
-        "velocidad"
-      ]
+      "tags": ["unit3", "autopista", "velocidad"]
     },
     {
       "skill": "ramp_metering",
@@ -58,10 +54,7 @@
       ],
       "answer": "B",
       "explanation": "Los semáforos de rampa regulan el flujo; obedezca como un semáforo normal.",
-      "tags": [
-        "unit3",
-        "incorporacion"
-      ]
+      "tags": ["unit3", "incorporacion"]
     },
     {
       "skill": "merging_gap_selection",
@@ -87,10 +80,7 @@
       ],
       "answer": "B",
       "explanation": "Use el carril de aceleración para alcanzar la velocidad, señalice temprano y revise puntos ciegos.",
-      "tags": [
-        "unit3",
-        "incorporacion"
-      ]
+      "tags": ["unit3", "incorporacion"]
     },
     {
       "skill": "hov_rules",
@@ -116,10 +106,7 @@
       ],
       "answer": "B",
       "explanation": "No cruce líneas dobles continuas. Entre o salga de HOV solo donde esté permitido.",
-      "tags": [
-        "unit3",
-        "hov"
-      ]
+      "tags": ["unit3", "hov"]
     },
     {
       "skill": "following_distance",
@@ -145,10 +132,7 @@
       ],
       "answer": "C",
       "explanation": "Use al menos 3 segundos en condiciones ideales; aumente a 4–6 con mayor velocidad o mal clima.",
-      "tags": [
-        "unit3",
-        "espacio"
-      ]
+      "tags": ["unit3", "espacio"]
     },
     {
       "skill": "passing_trucks",
@@ -174,10 +158,7 @@
       ],
       "answer": "B",
       "explanation": "Los camiones tienen grandes puntos ciegos y turbulencia. Rebase por la izquierda de manera eficiente y segura.",
-      "tags": [
-        "unit3",
-        "rebasar"
-      ]
+      "tags": ["unit3", "rebasar"]
     },
     {
       "skill": "gore_area",
@@ -203,10 +184,7 @@
       ],
       "answer": "C",
       "explanation": "Las zonas ‘gore’ están prohibidas para el tráfico general.",
-      "tags": [
-        "unit3",
-        "carriles"
-      ]
+      "tags": ["unit3", "carriles"]
     },
     {
       "skill": "hydroplaning",
@@ -232,10 +210,7 @@
       ],
       "answer": "C",
       "explanation": "Suelte el acelerador, mantenga el volante recto y evite frenar o girar bruscamente.",
-      "tags": [
-        "unit3",
-        "clima"
-      ]
+      "tags": ["unit3", "clima"]
     },
     {
       "skill": "fog_lights",
@@ -261,10 +236,7 @@
       ],
       "answer": "B",
       "explanation": "Use luces bajas en niebla; las altas se reflejan y reducen la visibilidad.",
-      "tags": [
-        "unit3",
-        "clima"
-      ]
+      "tags": ["unit3", "clima"]
     },
     {
       "skill": "exit_prep",
@@ -290,10 +262,7 @@
       ],
       "answer": "B",
       "explanation": "Señalice temprano y reduzca la velocidad después de entrar al carril de salida.",
-      "tags": [
-        "unit3",
-        "salida"
-      ]
+      "tags": ["unit3", "salida"]
     },
     {
       "skill": "following_in_rain",
@@ -319,11 +288,7 @@
       ],
       "answer": "B",
       "explanation": "La lluvia reduce la tracción. Baje la velocidad y aumente la distancia para conservar margen de seguridad.",
-      "tags": [
-        "unit3",
-        "clima",
-        "espacio"
-      ]
+      "tags": ["unit3", "clima", "espacio"]
     },
     {
       "skill": "night_high_beams",
@@ -349,10 +314,7 @@
       ],
       "answer": "A",
       "explanation": "Las luces altas son para vías abiertas sin tráfico opuesto; bájelas al seguir o aproximarse a otros.",
-      "tags": [
-        "unit3",
-        "noche"
-      ]
+      "tags": ["unit3", "noche"]
     },
     {
       "skill": "engine_braking",
@@ -378,10 +340,7 @@
       ],
       "answer": "B",
       "explanation": "Use el freno de motor con una marcha baja; frenar continuamente sobrecalienta y debilita los frenos.",
-      "tags": [
-        "unit3",
-        "montana"
-      ]
+      "tags": ["unit3", "montana"]
     },
     {
       "skill": "move_over_law",
@@ -407,10 +366,7 @@
       ],
       "answer": "B",
       "explanation": "La ley de ‘Muévase a un Lado’ exige cambiar de carril cuando sea seguro o reducir la velocidad de forma notable.",
-      "tags": [
-        "unit3",
-        "incidentes"
-      ]
+      "tags": ["unit3", "incidentes"]
     },
     {
       "skill": "work_zones",
@@ -436,10 +392,7 @@
       ],
       "answer": "A",
       "explanation": "Las zonas de trabajo requieren precaución: obedezca controles, reduzca velocidad y deje más espacio.",
-      "tags": [
-        "unit3",
-        "zonas_trabajo"
-      ]
+      "tags": ["unit3", "zonas_trabajo"]
     },
     {
       "skill": "fog_stop",
@@ -465,10 +418,7 @@
       ],
       "answer": "B",
       "explanation": "No se detenga en un carril de circulación. Salga si es posible; si no, oríllese y use intermitentes.",
-      "tags": [
-        "unit3",
-        "clima"
-      ]
+      "tags": ["unit3", "clima"]
     },
     {
       "skill": "tailgater_response",
@@ -494,10 +444,7 @@
       ],
       "answer": "C",
       "explanation": "Mantenga la calma, conserve su velocidad y permita que lo rebase cuando sea seguro.",
-      "tags": [
-        "unit3",
-        "espacio"
-      ]
+      "tags": ["unit3", "espacio"]
     },
     {
       "skill": "exit_late_decision",
@@ -523,10 +470,7 @@
       ],
       "answer": "C",
       "explanation": "Nunca cruce zonas restringidas ni se detenga en carriles. Continúe hasta la siguiente salida.",
-      "tags": [
-        "unit3",
-        "salida"
-      ]
+      "tags": ["unit3", "salida"]
     },
     {
       "skill": "wind_control",
@@ -552,10 +496,7 @@
       ],
       "answer": "A",
       "explanation": "Sostenga firme, reduzca moderadamente y haga correcciones suaves.",
-      "tags": [
-        "unit3",
-        "clima"
-      ]
+      "tags": ["unit3", "clima"]
     },
     {
       "skill": "shoulder_breakdown",
@@ -581,10 +522,7 @@
       ],
       "answer": "B",
       "explanation": "Señalice y muévase al acotamiento derecho. Ya detenido, oriente llantas a la derecha y encienda intermitentes.",
-      "tags": [
-        "unit3",
-        "incidentes"
-      ]
+      "tags": ["unit3", "incidentes"]
     }
   ],
   "metadata": {

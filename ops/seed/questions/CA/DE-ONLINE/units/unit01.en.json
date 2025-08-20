@@ -29,11 +29,7 @@
       ],
       "answer": "B",
       "explanation": "A red octagonal sign is a stop sign. You must come to a complete stop before the stop line or crosswalk, or before entering the intersection if there is no stop line.",
-      "tags": [
-        "unit:1",
-        "topic:signs",
-        "type:regulatory"
-      ]
+      "tags": ["unit:1", "topic:signs", "type:regulatory"]
     },
     {
       "ref": "U1-Q2",
@@ -60,11 +56,7 @@
       ],
       "answer": "B",
       "explanation": "Warning signs are diamond-shaped with black letters or symbols on a yellow background. They alert you to potential hazards ahead.",
-      "tags": [
-        "unit:1",
-        "topic:signs",
-        "type:warning"
-      ]
+      "tags": ["unit:1", "topic:signs", "type:warning"]
     },
     {
       "ref": "U1-Q3",
@@ -91,11 +83,7 @@
       ],
       "answer": "B",
       "explanation": "A yellow light means caution. If you can safely stop, you should do so. If you are too close to stop safely, you may proceed through the intersection.",
-      "tags": [
-        "unit:1",
-        "topic:signals",
-        "type:traffic_lights"
-      ]
+      "tags": ["unit:1", "topic:signals", "type:traffic_lights"]
     },
     {
       "ref": "U1-Q4",
@@ -122,11 +110,7 @@
       ],
       "answer": "B",
       "explanation": "At a four-way stop, the first vehicle to arrive has the right-of-way. If two vehicles arrive at the same time, the vehicle on the right goes first.",
-      "tags": [
-        "unit:1",
-        "topic:right_of_way",
-        "type:intersection"
-      ]
+      "tags": ["unit:1", "topic:right_of_way", "type:intersection"]
     },
     {
       "ref": "U1-Q5",
@@ -153,11 +137,7 @@
       ],
       "answer": "B",
       "explanation": "When an emergency vehicle approaches with lights and sirens, pull over to the right side of the road and stop. Stay stopped until the emergency vehicle passes.",
-      "tags": [
-        "unit:1",
-        "topic:emergency_vehicles",
-        "type:safety"
-      ]
+      "tags": ["unit:1", "topic:emergency_vehicles", "type:safety"]
     },
     {
       "ref": "U1-Q6",
@@ -184,11 +164,7 @@
       ],
       "answer": "B",
       "explanation": "You must stop when a school bus stops and displays flashing red lights. This applies on all roads except divided highways with a median.",
-      "tags": [
-        "unit:1",
-        "topic:school_buses",
-        "type:safety"
-      ]
+      "tags": ["unit:1", "topic:school_buses", "type:safety"]
     },
     {
       "ref": "U1-Q7",
@@ -215,11 +191,7 @@
       ],
       "answer": "B",
       "explanation": "Speed limit signs show the maximum legal speed allowed under ideal conditions. You must never exceed the posted speed limit.",
-      "tags": [
-        "unit:1",
-        "topic:speed_limits",
-        "type:regulatory"
-      ]
+      "tags": ["unit:1", "topic:speed_limits", "type:regulatory"]
     },
     {
       "ref": "U1-Q8",
@@ -246,11 +218,7 @@
       ],
       "answer": "B",
       "explanation": "A yield sign means you must slow down and be ready to stop if necessary. Let other traffic go first if there is a conflict.",
-      "tags": [
-        "unit:1",
-        "topic:signs",
-        "type:regulatory"
-      ]
+      "tags": ["unit:1", "topic:signs", "type:regulatory"]
     },
     {
       "ref": "U1-Q9",
@@ -277,11 +245,7 @@
       ],
       "answer": "B",
       "explanation": "When turning left at an intersection, you must yield to oncoming traffic going straight or turning right. Wait for a safe gap before making your turn.",
-      "tags": [
-        "unit:1",
-        "topic:right_of_way",
-        "type:intersection"
-      ]
+      "tags": ["unit:1", "topic:right_of_way", "type:intersection"]
     },
     {
       "ref": "U1-Q10",
@@ -308,11 +272,7 @@
       ],
       "answer": "A",
       "explanation": "A green arrow means you can turn in that direction. This allows specific movements when the main light might be red.",
-      "tags": [
-        "unit:1",
-        "topic:signals",
-        "type:arrows"
-      ]
+      "tags": ["unit:1", "topic:signals", "type:arrows"]
     },
     {
       "ref": "U1-Q11",
@@ -339,11 +299,7 @@
       ],
       "answer": "B",
       "explanation": "The general rule is to stay at least 3-4 seconds behind the vehicle in front of you. In bad weather, increase this distance.",
-      "tags": [
-        "unit:1",
-        "topic:safe_driving",
-        "type:following_distance"
-      ]
+      "tags": ["unit:1", "topic:safe_driving", "type:following_distance"]
     },
     {
       "ref": "U1-Q12",
@@ -370,11 +326,7 @@
       ],
       "answer": "B",
       "explanation": "Speeding is one of the most common violations. Even going 5 mph over the limit can result in a ticket and points on your license.",
-      "tags": [
-        "unit:1",
-        "topic:violations",
-        "type:speed"
-      ]
+      "tags": ["unit:1", "topic:violations", "type:speed"]
     },
     {
       "ref": "U1-Q13",
@@ -401,11 +353,7 @@
       ],
       "answer": "C",
       "explanation": "Green signs provide directional information for highways and major roads. They show route numbers, destinations, and distances.",
-      "tags": [
-        "unit:1",
-        "topic:signs",
-        "type:guide"
-      ]
+      "tags": ["unit:1", "topic:signs", "type:guide"]
     },
     {
       "ref": "U1-Q14",
@@ -432,11 +380,7 @@
       ],
       "answer": "B",
       "explanation": "At a T-intersection, vehicles on the through road have the right-of-way over vehicles turning onto the through road.",
-      "tags": [
-        "unit:1",
-        "topic:right_of_way",
-        "type:intersection"
-      ]
+      "tags": ["unit:1", "topic:right_of_way", "type:intersection"]
     },
     {
       "ref": "U1-Q15",
@@ -463,11 +407,7 @@
       ],
       "answer": "B",
       "explanation": "School zones have reduced speed limits when children are present. These limits are usually 15-25 mph to protect children's safety.",
-      "tags": [
-        "unit:1",
-        "topic:speed_limits",
-        "type:school_zones"
-      ]
+      "tags": ["unit:1", "topic:speed_limits", "type:school_zones"]
     },
     {
       "ref": "U1-Q16",
@@ -494,11 +434,7 @@
       ],
       "answer": "B",
       "explanation": "Flashing red lights mean stop, then proceed when safe. Treat them like a stop sign.",
-      "tags": [
-        "unit:1",
-        "topic:signals",
-        "type:flashing"
-      ]
+      "tags": ["unit:1", "topic:signals", "type:flashing"]
     },
     {
       "ref": "U1-Q17",
@@ -525,11 +461,7 @@
       ],
       "answer": "B",
       "explanation": "Signal at least 100 feet before turning or changing lanes. This gives other drivers time to react to your intentions.",
-      "tags": [
-        "unit:1",
-        "topic:safe_driving",
-        "type:signaling"
-      ]
+      "tags": ["unit:1", "topic:safe_driving", "type:signaling"]
     },
     {
       "ref": "U1-Q18",
@@ -556,11 +488,7 @@
       ],
       "answer": "B",
       "explanation": "In California, getting 4 points in 12 months, 6 points in 24 months, or 8 points in 36 months can result in license suspension.",
-      "tags": [
-        "unit:1",
-        "topic:violations",
-        "type:consequences"
-      ]
+      "tags": ["unit:1", "topic:violations", "type:consequences"]
     },
     {
       "ref": "U1-Q19",
@@ -587,11 +515,7 @@
       ],
       "answer": "B",
       "explanation": "If you're in an intersection when an emergency vehicle approaches, clear the intersection first, then pull over to the side of the road.",
-      "tags": [
-        "unit:1",
-        "topic:emergency_vehicles",
-        "type:safety"
-      ]
+      "tags": ["unit:1", "topic:emergency_vehicles", "type:safety"]
     },
     {
       "ref": "U1-Q20",
@@ -618,11 +542,7 @@
       ],
       "answer": "B",
       "explanation": "Blue signs indicate services like gas stations, restaurants, and hospitals. They help you find necessary services while driving.",
-      "tags": [
-        "unit:1",
-        "topic:signs",
-        "type:guide"
-      ]
+      "tags": ["unit:1", "topic:signs", "type:guide"]
     }
   ],
   "metadata": {

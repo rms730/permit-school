@@ -29,12 +29,7 @@
       ],
       "answer": 0,
       "explanation": "Ramp meters regulate entry. Obey the signal and posted instructions—often one vehicle per green per lane.",
-      "tags": [
-        "freeway",
-        "merging",
-        "signals",
-        "teen"
-      ]
+      "tags": ["freeway", "merging", "signals", "teen"]
     },
     {
       "ref": "U06-Q-002",
@@ -61,12 +56,7 @@
       ],
       "answer": 1,
       "explanation": "Use the full acceleration lane, reach near‑traffic speed, and merge into a safe gap without stopping.",
-      "tags": [
-        "freeway",
-        "merging",
-        "speed",
-        "teen"
-      ]
+      "tags": ["freeway", "merging", "speed", "teen"]
     },
     {
       "ref": "U06-Q-003",
@@ -93,12 +83,7 @@
       ],
       "answer": 1,
       "explanation": "Signal early, change one lane at a time, and never cross solid lines or back up on a freeway.",
-      "tags": [
-        "freeway",
-        "exiting",
-        "signals",
-        "teen"
-      ]
+      "tags": ["freeway", "exiting", "signals", "teen"]
     },
     {
       "ref": "U06-Q-004",
@@ -125,11 +110,7 @@
       ],
       "answer": 0,
       "explanation": "Lane 1 is generally used for passing. Right lanes are for entering/exiting and slower traffic. Avoid weaving.",
-      "tags": [
-        "freeway",
-        "lane-use",
-        "teen"
-      ]
+      "tags": ["freeway", "lane-use", "teen"]
     },
     {
       "ref": "U06-Q-005",
@@ -156,12 +137,7 @@
       ],
       "answer": 2,
       "explanation": "HOV lanes have eligibility rules and often double‑solid white lines that you must not cross. Enter/exit only where permitted.",
-      "tags": [
-        "hov",
-        "lane-use",
-        "freeway",
-        "teen"
-      ]
+      "tags": ["hov", "lane-use", "freeway", "teen"]
     },
     {
       "ref": "U06-Q-006",
@@ -188,11 +164,7 @@
       ],
       "answer": 0,
       "explanation": "Passing on the right is limited and must be done safely; never leave the paved roadway to pass.",
-      "tags": [
-        "passing",
-        "lane-use",
-        "teen"
-      ]
+      "tags": ["passing", "lane-use", "teen"]
     },
     {
       "ref": "U06-Q-007",
@@ -219,11 +191,7 @@
       ],
       "answer": 1,
       "explanation": "Use at least a three‑second gap in ideal conditions; increase it with speed, spray, or limited visibility.",
-      "tags": [
-        "following-distance",
-        "freeway",
-        "teen"
-      ]
+      "tags": ["following-distance", "freeway", "teen"]
     },
     {
       "ref": "U06-Q-008",
@@ -250,11 +218,7 @@
       ],
       "answer": 2,
       "explanation": "Keep your pace, avoid brake‑checking, and move right when safe so the tailgater can pass.",
-      "tags": [
-        "defensive-driving",
-        "following-distance",
-        "teen"
-      ]
+      "tags": ["defensive-driving", "following-distance", "teen"]
     },
     {
       "ref": "U06-Q-009",
@@ -281,11 +245,7 @@
       ],
       "answer": 2,
       "explanation": "Avoid looking into glare. Use the right edge as a guide and adjust speed to your visible stopping distance.",
-      "tags": [
-        "night",
-        "visibility",
-        "teen"
-      ]
+      "tags": ["night", "visibility", "teen"]
     },
     {
       "ref": "U06-Q-010",
@@ -312,11 +272,7 @@
       ],
       "answer": 1,
       "explanation": "Weaving requires cooperation. Signal early, adjust speed, and alternate when needed—never stop in a live ramp or cross the gore.",
-      "tags": [
-        "interchanges",
-        "weaving",
-        "freeway"
-      ]
+      "tags": ["interchanges", "weaving", "freeway"]
     },
     {
       "ref": "U06-Q-011",
@@ -343,11 +299,7 @@
       ],
       "answer": 1,
       "explanation": "Large broken lines and ‘EXIT ONLY’ signs indicate a lane drop or exit‑only lane. Change lanes early if you need to continue.",
-      "tags": [
-        "signs",
-        "interchanges",
-        "lane-use"
-      ]
+      "tags": ["signs", "interchanges", "lane-use"]
     },
     {
       "ref": "U06-Q-012",
@@ -374,11 +326,7 @@
       ],
       "answer": 0,
       "explanation": "A dark signal should be treated as an all‑way stop. Proceed only when it’s safe.",
-      "tags": [
-        "urban",
-        "signals",
-        "right-of-way"
-      ]
+      "tags": ["urban", "signals", "right-of-way"]
     },
     {
       "ref": "U06-Q-013",
@@ -405,11 +353,7 @@
       ],
       "answer": 1,
       "explanation": "Do not drive or stop in bus‑only lanes. You may cross them to turn right where permitted and must yield appropriately.",
-      "tags": [
-        "urban",
-        "transit",
-        "turning"
-      ]
+      "tags": ["urban", "transit", "turning"]
     },
     {
       "ref": "U06-Q-014",
@@ -436,11 +380,7 @@
       ],
       "answer": 0,
       "explanation": "Enter the bike lane within about 200 feet of your turn when clear, yield to cyclists, and complete the right turn.",
-      "tags": [
-        "bikes",
-        "turning",
-        "urban"
-      ]
+      "tags": ["bikes", "turning", "urban"]
     },
     {
       "ref": "U06-Q-015",
@@ -467,11 +407,7 @@
       ],
       "answer": 1,
       "explanation": "The door zone is hazardous. Always check mirrors and over your shoulder before opening doors into traffic.",
-      "tags": [
-        "bikes",
-        "urban",
-        "safety"
-      ]
+      "tags": ["bikes", "urban", "safety"]
     },
     {
       "ref": "U06-Q-016",
@@ -498,11 +434,7 @@
       ],
       "answer": 1,
       "explanation": "At safety zones, pass at no more than about 10 mph and watch for pedestrians.",
-      "tags": [
-        "transit",
-        "urban",
-        "pedestrians"
-      ]
+      "tags": ["transit", "urban", "pedestrians"]
     },
     {
       "ref": "U06-Q-017",
@@ -529,11 +461,7 @@
       ],
       "answer": 1,
       "explanation": "Red curbs generally prohibit stopping, standing, or parking.",
-      "tags": [
-        "parking",
-        "urban",
-        "teen"
-      ]
+      "tags": ["parking", "urban", "teen"]
     },
     {
       "ref": "U06-Q-018",
@@ -560,10 +488,7 @@
       ],
       "answer": 1,
       "explanation": "Park within approximately 18 inches of the curb.",
-      "tags": [
-        "parking",
-        "urban"
-      ]
+      "tags": ["parking", "urban"]
     },
     {
       "ref": "U06-Q-019",
@@ -590,10 +515,7 @@
       ],
       "answer": 0,
       "explanation": "Yellow curbs are typically for loading; time and conditions vary by sign—follow local rules.",
-      "tags": [
-        "parking",
-        "urban"
-      ]
+      "tags": ["parking", "urban"]
     },
     {
       "ref": "U06-Q-020",
@@ -620,10 +542,7 @@
       ],
       "answer": 1,
       "explanation": "Facing uphill with a curb: turn wheels away from the curb and allow a slight roll so the tire rests against it.",
-      "tags": [
-        "parking",
-        "hills"
-      ]
+      "tags": ["parking", "hills"]
     },
     {
       "ref": "U06-Q-021",
@@ -650,10 +569,7 @@
       ],
       "answer": 1,
       "explanation": "The basic speed law requires a speed that is safe for conditions, which can be below the posted limit.",
-      "tags": [
-        "speed",
-        "freeway"
-      ]
+      "tags": ["speed", "freeway"]
     },
     {
       "ref": "U06-Q-022",
@@ -680,10 +596,7 @@
       ],
       "answer": 2,
       "explanation": "Use low beams in rain; never drive with only parking lights.",
-      "tags": [
-        "weather",
-        "visibility"
-      ]
+      "tags": ["weather", "visibility"]
     },
     {
       "ref": "U06-Q-023",
@@ -710,11 +623,7 @@
       ],
       "answer": 2,
       "explanation": "Hydroplaning means the tires lost contact. Ease off the gas and avoid braking or sudden steering until traction returns.",
-      "tags": [
-        "weather",
-        "freeway",
-        "safety"
-      ]
+      "tags": ["weather", "freeway", "safety"]
     },
     {
       "ref": "U06-Q-024",
@@ -741,11 +650,7 @@
       ],
       "answer": 1,
       "explanation": "Signal and coast to the right shoulder if possible, activate hazards, and stay belted in the vehicle while you call for help.",
-      "tags": [
-        "freeway",
-        "emergency",
-        "teen"
-      ]
+      "tags": ["freeway", "emergency", "teen"]
     }
   ],
   "metadata": {

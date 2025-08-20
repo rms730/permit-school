@@ -29,10 +29,7 @@
       ],
       "answer": 0,
       "explanation": "A valid registration with correct address and displayed plates/stickers is required.",
-      "tags": [
-        "registration",
-        "documents"
-      ]
+      "tags": ["registration", "documents"]
     },
     {
       "ref": "U10-Q02",
@@ -59,10 +56,7 @@
       ],
       "answer": 0,
       "explanation": "Title must be properly transferred to establish ownership.",
-      "tags": [
-        "title",
-        "ownership"
-      ]
+      "tags": ["title", "ownership"]
     },
     {
       "ref": "U10-Q03",
@@ -89,10 +83,7 @@
       ],
       "answer": 0,
       "explanation": "Timely renewal prevents fines or registration holds.",
-      "tags": [
-        "renewal",
-        "registration"
-      ]
+      "tags": ["renewal", "registration"]
     },
     {
       "ref": "U10-Q04",
@@ -119,10 +110,7 @@
       ],
       "answer": 0,
       "explanation": "Drivers must carry and present insurance (or other financial responsibility) proof upon request.",
-      "tags": [
-        "insurance",
-        "financial-responsibility"
-      ]
+      "tags": ["insurance", "financial-responsibility"]
     },
     {
       "ref": "U10-Q05",
@@ -149,10 +137,7 @@
       ],
       "answer": 0,
       "explanation": "Liability coverage pays for others’ losses when you are at fault.",
-      "tags": [
-        "insurance",
-        "liability"
-      ]
+      "tags": ["insurance", "liability"]
     },
     {
       "ref": "U10-Q06",
@@ -179,10 +164,7 @@
       ],
       "answer": 0,
       "explanation": "Report collisions according to state thresholds and timelines.",
-      "tags": [
-        "collision",
-        "reporting"
-      ]
+      "tags": ["collision", "reporting"]
     },
     {
       "ref": "U10-Q07",
@@ -209,10 +191,7 @@
       ],
       "answer": 0,
       "explanation": "Brakes are essential to safety; keep them in good condition.",
-      "tags": [
-        "maintenance",
-        "brakes"
-      ]
+      "tags": ["maintenance", "brakes"]
     },
     {
       "ref": "U10-Q08",
@@ -239,10 +218,7 @@
       ],
       "answer": 0,
       "explanation": "Maintain required safety equipment to remain visible and legal.",
-      "tags": [
-        "equipment",
-        "lighting"
-      ]
+      "tags": ["equipment", "lighting"]
     },
     {
       "ref": "U10-Q09",
@@ -269,10 +245,7 @@
       ],
       "answer": 0,
       "explanation": "Clear travel lanes if safe to do so, then complete exchanges and documentation.",
-      "tags": [
-        "collision",
-        "scene-safety"
-      ]
+      "tags": ["collision", "scene-safety"]
     },
     {
       "ref": "U10-Q10",
@@ -299,10 +272,7 @@
       ],
       "answer": 0,
       "explanation": "Exchange legal IDs, registration, and insurance information.",
-      "tags": [
-        "collision",
-        "documents"
-      ]
+      "tags": ["collision", "documents"]
     },
     {
       "ref": "U10-Q11",
@@ -329,10 +299,7 @@
       ],
       "answer": 0,
       "explanation": "States impose penalties for failing to show proof of financial responsibility.",
-      "tags": [
-        "insurance",
-        "penalties"
-      ]
+      "tags": ["insurance", "penalties"]
     },
     {
       "ref": "U10-Q12",
@@ -359,10 +326,7 @@
       ],
       "answer": 0,
       "explanation": "Equip your vehicle to manage common roadside emergencies.",
-      "tags": [
-        "emergency-kit",
-        "safety"
-      ]
+      "tags": ["emergency-kit", "safety"]
     }
   ],
   "metadata": {

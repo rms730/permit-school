@@ -29,11 +29,7 @@
       ],
       "answer": "B",
       "explanation": "A thorough pre-drive inspection includes checking tires for proper inflation and damage, all lights (headlights, taillights, brake lights, turn signals), windshield and windows for cracks or dirt, wiper blade condition, and looking for fluid leaks under the vehicle.",
-      "tags": [
-        "pre-drive",
-        "safety",
-        "vehicle-checks"
-      ]
+      "tags": ["pre-drive", "safety", "vehicle-checks"]
     },
     {
       "ref": "U2-Q2",
@@ -60,11 +56,7 @@
       ],
       "answer": "C",
       "explanation": "Both 9 and 3 o'clock and 10 and 2 o'clock positions are correct for maximum steering control. These positions allow for quick steering movements and maintain proper control of the vehicle.",
-      "tags": [
-        "steering",
-        "control",
-        "positioning"
-      ]
+      "tags": ["steering", "control", "positioning"]
     },
     {
       "ref": "U2-Q3",
@@ -91,11 +83,7 @@
       ],
       "answer": "A",
       "explanation": "Before starting the engine, ensure the parking brake is engaged and the gear selector is in Park (automatic) or Neutral (manual). This prevents the vehicle from moving unexpectedly when starting.",
-      "tags": [
-        "starting",
-        "safety",
-        "checklist"
-      ]
+      "tags": ["starting", "safety", "checklist"]
     },
     {
       "ref": "U2-Q4",
@@ -122,11 +110,7 @@
       ],
       "answer": "B",
       "explanation": "Hand-over-hand steering is used for sharp turns and parking maneuvers where you need maximum steering control. For normal driving and gradual turns, push-pull steering is more efficient.",
-      "tags": [
-        "steering",
-        "techniques",
-        "control"
-      ]
+      "tags": ["steering", "techniques", "control"]
     },
     {
       "ref": "U2-Q5",
@@ -153,11 +137,7 @@
       ],
       "answer": "B",
       "explanation": "Progressive acceleration means starting gently and increasing pressure gradually. This saves fuel, provides better control, and is safer than sudden acceleration.",
-      "tags": [
-        "speed-control",
-        "acceleration",
-        "safety"
-      ]
+      "tags": ["speed-control", "acceleration", "safety"]
     },
     {
       "ref": "U2-Q6",
@@ -184,11 +164,7 @@
       ],
       "answer": "B",
       "explanation": "At 40 mph, you need approximately 120 feet to stop on dry pavement. This includes both reaction time and braking distance. The distance increases significantly in poor weather conditions.",
-      "tags": [
-        "stopping-distance",
-        "speed",
-        "safety"
-      ]
+      "tags": ["stopping-distance", "speed", "safety"]
     },
     {
       "ref": "U2-Q7",
@@ -215,11 +191,7 @@
       ],
       "answer": "B",
       "explanation": "Pick a fixed object ahead (like a sign or tree). When the vehicle in front of you passes it, count 'one-thousand-one, one-thousand-two, one-thousand-three.' If you reach the object before finishing, you're following too closely.",
-      "tags": [
-        "following-distance",
-        "3-second-rule",
-        "safety"
-      ]
+      "tags": ["following-distance", "3-second-rule", "safety"]
     },
     {
       "ref": "U2-Q8",
@@ -246,11 +218,7 @@
       ],
       "answer": "B",
       "explanation": "Check your mirrors every 5-8 seconds and before any maneuver. This keeps you aware of what's happening around your vehicle and helps maintain situational awareness.",
-      "tags": [
-        "mirrors",
-        "scanning",
-        "awareness"
-      ]
+      "tags": ["mirrors", "scanning", "awareness"]
     },
     {
       "ref": "U2-Q9",
@@ -277,11 +245,7 @@
       ],
       "answer": "B",
       "explanation": "Always turn your head and look over your shoulder to check your blind spot before changing lanes. This is called a shoulder check and is crucial because mirrors can't show you everything.",
-      "tags": [
-        "blind-spots",
-        "lane-changes",
-        "safety"
-      ]
+      "tags": ["blind-spots", "lane-changes", "safety"]
     },
     {
       "ref": "U2-Q10",
@@ -308,11 +272,7 @@
       ],
       "answer": "B",
       "explanation": "A space cushion is the area around your vehicle that you keep clear of other vehicles. This gives you room to maneuver if something unexpected happens and provides a safety zone.",
-      "tags": [
-        "space-cushions",
-        "safety",
-        "positioning"
-      ]
+      "tags": ["space-cushions", "safety", "positioning"]
     },
     {
       "ref": "U2-Q11",
@@ -339,11 +299,7 @@
       ],
       "answer": "B",
       "explanation": "Right turns are generally easier and safer than left turns because you don't need to cross oncoming traffic. You only need to yield to pedestrians and cyclists.",
-      "tags": [
-        "turns",
-        "right-turns",
-        "safety"
-      ]
+      "tags": ["turns", "right-turns", "safety"]
     },
     {
       "ref": "U2-Q12",
@@ -370,11 +326,7 @@
       ],
       "answer": "B",
       "explanation": "In California, you must signal at least 100 feet before turning if traveling under 35 mph, or 200 feet if traveling 35 mph or faster. This gives other drivers adequate notice of your intentions.",
-      "tags": [
-        "signaling",
-        "california-law",
-        "turns"
-      ]
+      "tags": ["signaling", "california-law", "turns"]
     },
     {
       "ref": "U2-Q13",
@@ -401,11 +353,7 @@
       ],
       "answer": "B",
       "explanation": "A complete stop means your wheels must actually stop moving. Rolling through a stop sign is illegal and dangerous. You must come to a full stop before proceeding.",
-      "tags": [
-        "stop-signs",
-        "complete-stop",
-        "law"
-      ]
+      "tags": ["stop-signs", "complete-stop", "law"]
     },
     {
       "ref": "U2-Q14",
@@ -432,11 +380,7 @@
       ],
       "answer": "B",
       "explanation": "When parking uphill with a curb, turn your wheels away from the curb (left). This way, if your vehicle rolls, it will roll into the curb and stop, rather than into traffic.",
-      "tags": [
-        "hill-parking",
-        "curb",
-        "safety"
-      ]
+      "tags": ["hill-parking", "curb", "safety"]
     },
     {
       "ref": "U2-Q15",
@@ -463,11 +407,7 @@
       ],
       "answer": "B",
       "explanation": "For parallel parking, you need a space that's at least 1.5 times the length of your car. This gives you enough room to maneuver into the space safely.",
-      "tags": [
-        "parallel-parking",
-        "space-requirements",
-        "parking"
-      ]
+      "tags": ["parallel-parking", "space-requirements", "parking"]
     },
     {
       "ref": "U2-Q16",
@@ -494,11 +434,7 @@
       ],
       "answer": "B",
       "explanation": "Before backing up, walk around your vehicle to check for obstacles, children, or animals. Use your mirrors and turn your head to look behind you. Backing up is dangerous due to limited visibility.",
-      "tags": [
-        "backing",
-        "safety",
-        "visibility"
-      ]
+      "tags": ["backing", "safety", "visibility"]
     },
     {
       "ref": "U2-Q17",
@@ -525,11 +461,7 @@
       ],
       "answer": "B",
       "explanation": "SMOG stands for Signal, Mirrors, Over-the-shoulder, Go. The 'S' stands for Signal - turn on your turn signal to let other drivers know your intention to change lanes.",
-      "tags": [
-        "smog",
-        "lane-changes",
-        "technique"
-      ]
+      "tags": ["smog", "lane-changes", "technique"]
     },
     {
       "ref": "U2-Q18",
@@ -556,11 +488,7 @@
       ],
       "answer": "B",
       "explanation": "When merging onto a freeway, accelerate to match the speed of traffic on the freeway. Don't merge at a much slower speed - this creates a dangerous situation. You must yield to traffic already on the freeway.",
-      "tags": [
-        "freeway",
-        "merging",
-        "speed-matching"
-      ]
+      "tags": ["freeway", "merging", "speed-matching"]
     },
     {
       "ref": "U2-Q19",
@@ -587,11 +515,7 @@
       ],
       "answer": "B",
       "explanation": "If you see a vehicle in your blind spot, wait until it passes before changing lanes. Don't force your way into traffic. Only change lanes when it's safe to do so.",
-      "tags": [
-        "lane-changes",
-        "blind-spots",
-        "safety"
-      ]
+      "tags": ["lane-changes", "blind-spots", "safety"]
     },
     {
       "ref": "U2-Q20",
@@ -618,11 +542,7 @@
       ],
       "answer": "B",
       "explanation": "When exiting a freeway, signal early and move to the right lane well before your exit. Don't cut across multiple lanes at the last minute, which is dangerous and illegal.",
-      "tags": [
-        "freeway-exits",
-        "lane-positioning",
-        "safety"
-      ]
+      "tags": ["freeway-exits", "lane-positioning", "safety"]
     }
   ],
   "metadata": {

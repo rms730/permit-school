@@ -29,10 +29,7 @@
       ],
       "answer": "C",
       "explanation": "El borde rojo prohíbe parar, permanecer o estacionarse.",
-      "tags": [
-        "estacionamiento",
-        "colores_borde"
-      ]
+      "tags": ["estacionamiento", "colores_borde"]
     },
     {
       "ref": "u11-q02",
@@ -59,10 +56,7 @@
       ],
       "answer": "B",
       "explanation": "El borde blanco es para paradas breves de pasajeros (o correo).",
-      "tags": [
-        "estacionamiento",
-        "colores_borde"
-      ]
+      "tags": ["estacionamiento", "colores_borde"]
     },
     {
       "ref": "u11-q03",
@@ -89,10 +83,7 @@
       ],
       "answer": "B",
       "explanation": "El borde verde permite estacionamiento por tiempo limitado; el tiempo se indica en letreros o pintado en el borde.",
-      "tags": [
-        "estacionamiento",
-        "colores_borde"
-      ]
+      "tags": ["estacionamiento", "colores_borde"]
     },
     {
       "ref": "u11-q04",
@@ -119,11 +110,7 @@
       ],
       "answer": "B",
       "explanation": "El borde amarillo es zona de carga para pasajeros o carga por el tiempo indicado; los conductores de vehículos no comerciales suelen permanecer en el vehículo.",
-      "tags": [
-        "estacionamiento",
-        "colores_borde",
-        "carga"
-      ]
+      "tags": ["estacionamiento", "colores_borde", "carga"]
     },
     {
       "ref": "u11-q05",
@@ -150,9 +137,7 @@
       ],
       "answer": "B",
       "explanation": "Las zonas azules son para vehículos con cartel o placas válidas de persona discapacitada.",
-      "tags": [
-        "discapacidad"
-      ]
+      "tags": ["discapacidad"]
     },
     {
       "ref": "u11-q06",
@@ -179,10 +164,7 @@
       ],
       "answer": "C",
       "explanation": "La zona de acceso enrejada junto a un espacio azul es para subir/bajar sillas de ruedas y no es para parar ni estacionarse.",
-      "tags": [
-        "discapacidad",
-        "zona_acceso"
-      ]
+      "tags": ["discapacidad", "zona_acceso"]
     },
     {
       "ref": "u11-q07",
@@ -209,9 +191,7 @@
       ],
       "answer": "B",
       "explanation": "Las llantas deben quedar a no más de 18 pulgadas del borde de acera.",
-      "tags": [
-        "paralelo"
-      ]
+      "tags": ["paralelo"]
     },
     {
       "ref": "u11-q08",
@@ -238,9 +218,7 @@
       ],
       "answer": "B",
       "explanation": "Cuesta abajo: gire las ruedas hacia el borde de acera.",
-      "tags": [
-        "cuestas"
-      ]
+      "tags": ["cuestas"]
     },
     {
       "ref": "u11-q09",
@@ -267,9 +245,7 @@
       ],
       "answer": "C",
       "explanation": "Cuesta arriba con borde: gire las ruedas en sentido opuesto y deje que la llanta toque el borde.",
-      "tags": [
-        "cuestas"
-      ]
+      "tags": ["cuestas"]
     },
     {
       "ref": "u11-q10",
@@ -296,10 +272,7 @@
       ],
       "answer": "C",
       "explanation": "No se estacione a 15 pies o menos de un hidrante.",
-      "tags": [
-        "prohibido",
-        "distancias"
-      ]
+      "tags": ["prohibido", "distancias"]
     },
     {
       "ref": "u11-q11",
@@ -326,10 +299,7 @@
       ],
       "answer": "C",
       "explanation": "No se estacione a 20 pies de un cruce peatonal. Donde haya una extensión de borde, la distancia es 15 pies.",
-      "tags": [
-        "prohibido",
-        "distancias"
-      ]
+      "tags": ["prohibido", "distancias"]
     },
     {
       "ref": "u11-q12",
@@ -356,10 +326,7 @@
       ],
       "answer": "C",
       "explanation": "Deténgase por lo menos a 15 pies del riel más cercano cuando se le advierta.",
-      "tags": [
-        "vías_ferreas",
-        "distancias"
-      ]
+      "tags": ["vías_ferreas", "distancias"]
     },
     {
       "ref": "u11-q13",
@@ -386,10 +353,7 @@
       ],
       "answer": "C",
       "explanation": "Puede usar la ciclovía para estacionar donde esté permitido; obedezca los letreros.",
-      "tags": [
-        "ciclovia",
-        "estacionamiento"
-      ]
+      "tags": ["ciclovia", "estacionamiento"]
     },
     {
       "ref": "u11-q14",
@@ -416,10 +380,7 @@
       ],
       "answer": "B",
       "explanation": "El toque de queda provisional es de 11 p.m. a 5 a.m. durante los primeros 12 meses.",
-      "tags": [
-        "provisional",
-        "toque_de_queda"
-      ]
+      "tags": ["provisional", "toque_de_queda"]
     },
     {
       "ref": "u11-q15",
@@ -446,10 +407,7 @@
       ],
       "answer": "B",
       "explanation": "Debe ir acompañado por un conductor con licencia de al menos 25 años para llevar menores de 20 en el primer año.",
-      "tags": [
-        "provisional",
-        "pasajeros"
-      ]
+      "tags": ["provisional", "pasajeros"]
     },
     {
       "ref": "u11-q16",
@@ -476,10 +434,7 @@
       ],
       "answer": "B",
       "explanation": "Excepciones: necesidad médica, escuela/actividad escolar, trabajo o transportar a un familiar cercano, con nota firmada.",
-      "tags": [
-        "provisional",
-        "excepciones"
-      ]
+      "tags": ["provisional", "excepciones"]
     },
     {
       "ref": "u11-q17",
@@ -506,10 +461,7 @@
       ],
       "answer": "B",
       "explanation": "Umbrales: 4 puntos en 12 meses, 6 en 24, u 8 en 36 meses.",
-      "tags": [
-        "NOTS",
-        "puntos"
-      ]
+      "tags": ["NOTS", "puntos"]
     },
     {
       "ref": "u11-q18",
@@ -536,10 +488,7 @@
       ],
       "answer": "C",
       "explanation": "El DMV puede imponer una restricción de 30 días que requiere un conductor con licencia de 25+ años.",
-      "tags": [
-        "provisional",
-        "NOTS"
-      ]
+      "tags": ["provisional", "NOTS"]
     },
     {
       "ref": "u11-q19",
@@ -566,9 +515,7 @@
       ],
       "answer": "B",
       "explanation": "Firmar una citación es una promesa de comparecer, no una admisión de culpabilidad.",
-      "tags": [
-        "citaciones"
-      ]
+      "tags": ["citaciones"]
     },
     {
       "ref": "u11-q20",
@@ -595,9 +542,7 @@
       ],
       "answer": "C",
       "explanation": "La escuela de infractores puede usarse una vez cada 18 meses para infracciones elegibles de un punto.",
-      "tags": [
-        "escuela_infractores"
-      ]
+      "tags": ["escuela_infractores"]
     },
     {
       "ref": "u11-q21",
@@ -624,10 +569,7 @@
       ],
       "answer": "B",
       "explanation": "Una FTA puede llevar a suspensión hasta que comparezca y se registra en su expediente.",
-      "tags": [
-        "citaciones",
-        "FTA"
-      ]
+      "tags": ["citaciones", "FTA"]
     },
     {
       "ref": "u11-q22",
@@ -654,10 +596,7 @@
       ],
       "answer": "C",
       "explanation": "Es ilegal estacionarse a menos de 3 pies de una rampa de acera para discapacitados.",
-      "tags": [
-        "prohibido",
-        "distancias"
-      ]
+      "tags": ["prohibido", "distancias"]
     }
   ],
   "metadata": {

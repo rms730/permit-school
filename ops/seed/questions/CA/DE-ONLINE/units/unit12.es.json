@@ -29,9 +29,7 @@
       ],
       "answer": 0,
       "explanation": "Predecir ayuda a evaluar opciones objetivamente.",
-      "tags": [
-        "estrategia-examen"
-      ]
+      "tags": ["estrategia-examen"]
     },
     {
       "ref": "U12-Q02",
@@ -58,9 +56,7 @@
       ],
       "answer": 0,
       "explanation": "Los absolutos pueden ser trampa; la seguridad depende de condiciones.",
-      "tags": [
-        "estrategia-examen"
-      ]
+      "tags": ["estrategia-examen"]
     },
     {
       "ref": "U12-Q03",
@@ -87,10 +83,7 @@
       ],
       "answer": 0,
       "explanation": "El vehículo a la derecha tiene prioridad en llegada simultánea.",
-      "tags": [
-        "derecho-de-paso",
-        "intersecciones"
-      ]
+      "tags": ["derecho-de-paso", "intersecciones"]
     },
     {
       "ref": "U12-Q04",
@@ -117,10 +110,7 @@
       ],
       "answer": 0,
       "explanation": "Dobles sólidas prohíben rebasar.",
-      "tags": [
-        "marcaciones",
-        "no-rebasar"
-      ]
+      "tags": ["marcaciones", "no-rebasar"]
     },
     {
       "ref": "U12-Q05",
@@ -147,10 +137,7 @@
       ],
       "answer": 0,
       "explanation": "Menor visibilidad y tracción requieren más espacio y menor velocidad.",
-      "tags": [
-        "velocidad",
-        "distancia"
-      ]
+      "tags": ["velocidad", "distancia"]
     },
     {
       "ref": "U12-Q06",
@@ -177,10 +164,7 @@
       ],
       "answer": 0,
       "explanation": "Cede a peatones que cruzan legalmente.",
-      "tags": [
-        "peatones",
-        "derecho-de-paso"
-      ]
+      "tags": ["peatones", "derecho-de-paso"]
     },
     {
       "ref": "U12-Q07",
@@ -207,10 +191,7 @@
       ],
       "answer": 0,
       "explanation": "Llega preparado con documentos correctos y puntualidad.",
-      "tags": [
-        "dmv",
-        "logística"
-      ]
+      "tags": ["dmv", "logística"]
     },
     {
       "ref": "U12-Q08",
@@ -237,10 +218,7 @@
       ],
       "answer": 0,
       "explanation": "Usa la retroalimentación y cumple las políticas de repetición.",
-      "tags": [
-        "repetición",
-        "estrategia"
-      ]
+      "tags": ["repetición", "estrategia"]
     },
     {
       "ref": "U12-Q09",
@@ -267,10 +245,7 @@
       ],
       "answer": 0,
       "explanation": "Decisiones responsables reducen el riesgo para todos.",
-      "tags": [
-        "actitud",
-        "conducción-defensiva"
-      ]
+      "tags": ["actitud", "conducción-defensiva"]
     },
     {
       "ref": "U12-Q10",
@@ -297,10 +272,7 @@
       ],
       "answer": 0,
       "explanation": "Rebasa solo cuando sea legal y seguro con vista despejada.",
-      "tags": [
-        "rebase",
-        "marcaciones"
-      ]
+      "tags": ["rebase", "marcaciones"]
     },
     {
       "ref": "U12-Q11",
@@ -327,10 +299,7 @@
       ],
       "answer": 0,
       "explanation": "Minimiza la distracción: manos libres o espera hasta estacionarte.",
-      "tags": [
-        "distracción",
-        "teléfonos"
-      ]
+      "tags": ["distracción", "teléfonos"]
     },
     {
       "ref": "U12-Q12",
@@ -357,10 +326,7 @@
       ],
       "answer": 0,
       "explanation": "El aprendizaje continúa con práctica supervisada y repasos periódicos.",
-      "tags": [
-        "aprendizaje",
-        "práctica"
-      ]
+      "tags": ["aprendizaje", "práctica"]
     }
   ],
   "metadata": {

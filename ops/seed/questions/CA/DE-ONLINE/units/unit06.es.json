@@ -29,12 +29,7 @@
       ],
       "answer": 0,
       "explanation": "Los semáforos de rampa regulan la entrada. Obedezca la señal y las instrucciones publicadas—por lo general pasa un vehículo por luz verde por carril.",
-      "tags": [
-        "autopista",
-        "incorporación",
-        "señales",
-        "adolescentes"
-      ]
+      "tags": ["autopista", "incorporación", "señales", "adolescentes"]
     },
     {
       "ref": "U06-Q-002",
@@ -61,12 +56,7 @@
       ],
       "answer": 1,
       "explanation": "Use todo el carril de aceleración, alcance velocidad cercana a la del tráfico y entre en un espacio seguro sin detenerse.",
-      "tags": [
-        "autopista",
-        "incorporación",
-        "velocidad",
-        "adolescentes"
-      ]
+      "tags": ["autopista", "incorporación", "velocidad", "adolescentes"]
     },
     {
       "ref": "U06-Q-003",
@@ -93,12 +83,7 @@
       ],
       "answer": 1,
       "explanation": "Señalice temprano, cambie un carril por vez y nunca cruce líneas continuas ni retroceda en una autopista.",
-      "tags": [
-        "autopista",
-        "salidas",
-        "señales",
-        "adolescentes"
-      ]
+      "tags": ["autopista", "salidas", "señales", "adolescentes"]
     },
     {
       "ref": "U06-Q-004",
@@ -125,11 +110,7 @@
       ],
       "answer": 0,
       "explanation": "El carril 1 se usa generalmente para rebasar. Los carriles derechos son para entrar/salir y tráfico más lento. Evite zigzaguear.",
-      "tags": [
-        "autopista",
-        "carriles",
-        "adolescentes"
-      ]
+      "tags": ["autopista", "carriles", "adolescentes"]
     },
     {
       "ref": "U06-Q-005",
@@ -156,12 +137,7 @@
       ],
       "answer": 2,
       "explanation": "Los carriles HOV tienen requisitos y a menudo líneas blancas dobles continuas que no debe cruzar. Entre/salga solo donde esté permitido.",
-      "tags": [
-        "hov",
-        "carriles",
-        "autopista",
-        "adolescentes"
-      ]
+      "tags": ["hov", "carriles", "autopista", "adolescentes"]
     },
     {
       "ref": "U06-Q-006",
@@ -188,11 +164,7 @@
       ],
       "answer": 0,
       "explanation": "Rebasar por la derecha es limitado y debe hacerse con seguridad; nunca salga del pavimento para rebasar.",
-      "tags": [
-        "rebase",
-        "carriles",
-        "adolescentes"
-      ]
+      "tags": ["rebase", "carriles", "adolescentes"]
     },
     {
       "ref": "U06-Q-007",
@@ -219,11 +191,7 @@
       ],
       "answer": 1,
       "explanation": "Use al menos tres segundos en condiciones ideales; increméntelos con la velocidad, rocío o visibilidad limitada.",
-      "tags": [
-        "distancia",
-        "autopista",
-        "adolescentes"
-      ]
+      "tags": ["distancia", "autopista", "adolescentes"]
     },
     {
       "ref": "U06-Q-008",
@@ -250,11 +218,7 @@
       ],
       "answer": 2,
       "explanation": "Mantenga su ritmo, evite ‘brake‑check’, y cámbiese a la derecha cuando sea seguro para que lo rebase.",
-      "tags": [
-        "conducción-defensiva",
-        "distancia",
-        "adolescentes"
-      ]
+      "tags": ["conducción-defensiva", "distancia", "adolescentes"]
     },
     {
       "ref": "U06-Q-009",
@@ -281,11 +245,7 @@
       ],
       "answer": 2,
       "explanation": "Evite mirar el resplandor. Use el borde derecho como guía y ajuste la velocidad a su distancia visible de frenado.",
-      "tags": [
-        "noche",
-        "visibilidad",
-        "adolescentes"
-      ]
+      "tags": ["noche", "visibilidad", "adolescentes"]
     },
     {
       "ref": "U06-Q-010",
@@ -312,11 +272,7 @@
       ],
       "answer": 1,
       "explanation": "El entrelazado requiere cooperación. Señalice temprano, ajuste velocidad y alternen; nunca se detenga en una rampa activa ni cruce el ‘gore’.",
-      "tags": [
-        "entronques",
-        "entrelazado",
-        "autopista"
-      ]
+      "tags": ["entronques", "entrelazado", "autopista"]
     },
     {
       "ref": "U06-Q-011",
@@ -343,11 +299,7 @@
       ],
       "answer": 1,
       "explanation": "Las líneas discontinuas grandes y ‘EXIT ONLY’ indican fin de carril o salida obligatoria. Cambie con anticipación si va a seguir recto.",
-      "tags": [
-        "señales",
-        "entronques",
-        "carriles"
-      ]
+      "tags": ["señales", "entronques", "carriles"]
     },
     {
       "ref": "U06-Q-012",
@@ -374,11 +326,7 @@
       ],
       "answer": 0,
       "explanation": "Un semáforo apagado se trata como un alto de 4 vías. Avance solo cuando sea seguro.",
-      "tags": [
-        "urbano",
-        "señales",
-        "preferencia-de-paso"
-      ]
+      "tags": ["urbano", "señales", "preferencia-de-paso"]
     },
     {
       "ref": "U06-Q-013",
@@ -405,11 +353,7 @@
       ],
       "answer": 1,
       "explanation": "No conduzca ni se detenga en carriles ‘Solo Autobús’. Puede cruzarlos para girar a la derecha donde se permita y debe ceder correctamente.",
-      "tags": [
-        "urbano",
-        "transporte",
-        "giros"
-      ]
+      "tags": ["urbano", "transporte", "giros"]
     },
     {
       "ref": "U06-Q-014",
@@ -436,11 +380,7 @@
       ],
       "answer": 0,
       "explanation": "Entre al carril bici a ~200 pies del giro cuando esté despejado, ceda a ciclistas y complete el giro a la derecha.",
-      "tags": [
-        "bicicletas",
-        "giros",
-        "urbano"
-      ]
+      "tags": ["bicicletas", "giros", "urbano"]
     },
     {
       "ref": "U06-Q-015",
@@ -467,11 +407,7 @@
       ],
       "answer": 1,
       "explanation": "La ‘zona de la puerta’ es peligrosa. Revise espejos y sobre el hombro antes de abrir puertas hacia el tráfico.",
-      "tags": [
-        "bicicletas",
-        "urbano",
-        "seguridad"
-      ]
+      "tags": ["bicicletas", "urbano", "seguridad"]
     },
     {
       "ref": "U06-Q-016",
@@ -498,11 +434,7 @@
       ],
       "answer": 1,
       "explanation": "En zonas de seguridad, pase a no más de ~10 mph y esté atento a peatones.",
-      "tags": [
-        "transporte",
-        "urbano",
-        "peatones"
-      ]
+      "tags": ["transporte", "urbano", "peatones"]
     },
     {
       "ref": "U06-Q-017",
@@ -529,11 +461,7 @@
       ],
       "answer": 1,
       "explanation": "Las guarniciones rojas generalmente prohíben parar, esperar o estacionarse.",
-      "tags": [
-        "estacionamiento",
-        "urbano",
-        "adolescentes"
-      ]
+      "tags": ["estacionamiento", "urbano", "adolescentes"]
     },
     {
       "ref": "U06-Q-018",
@@ -560,10 +488,7 @@
       ],
       "answer": 1,
       "explanation": "Estacione a ~18 pulgadas de la guarnición.",
-      "tags": [
-        "estacionamiento",
-        "urbano"
-      ]
+      "tags": ["estacionamiento", "urbano"]
     },
     {
       "ref": "U06-Q-019",
@@ -590,10 +515,7 @@
       ],
       "answer": 0,
       "explanation": "Las guarniciones amarillas son típicamente para carga; el tiempo y condiciones varían por letrero—siga las reglas locales.",
-      "tags": [
-        "estacionamiento",
-        "urbano"
-      ]
+      "tags": ["estacionamiento", "urbano"]
     },
     {
       "ref": "U06-Q-020",
@@ -620,10 +542,7 @@
       ],
       "answer": 1,
       "explanation": "Cuesta arriba con guarnición: gire las ruedas en sentido opuesto y deje que la llanta se apoye ligeramente.",
-      "tags": [
-        "estacionamiento",
-        "cuestas"
-      ]
+      "tags": ["estacionamiento", "cuestas"]
     },
     {
       "ref": "U06-Q-021",
@@ -650,10 +569,7 @@
       ],
       "answer": 1,
       "explanation": "La ley básica exige una velocidad segura para las condiciones, que puede ser menor al límite publicado.",
-      "tags": [
-        "velocidad",
-        "autopista"
-      ]
+      "tags": ["velocidad", "autopista"]
     },
     {
       "ref": "U06-Q-022",
@@ -680,10 +596,7 @@
       ],
       "answer": 2,
       "explanation": "Use luces bajas con lluvia; nunca conduzca solo con luces de estacionamiento.",
-      "tags": [
-        "clima",
-        "visibilidad"
-      ]
+      "tags": ["clima", "visibilidad"]
     },
     {
       "ref": "U06-Q-023",
@@ -710,11 +623,7 @@
       ],
       "answer": 2,
       "explanation": "El hidroplaneo es pérdida de contacto. Suelte el acelerador y evite frenar o girar bruscamente hasta recuperar tracción.",
-      "tags": [
-        "clima",
-        "autopista",
-        "seguridad"
-      ]
+      "tags": ["clima", "autopista", "seguridad"]
     },
     {
       "ref": "U06-Q-024",
@@ -741,11 +650,7 @@
       ],
       "answer": 1,
       "explanation": "Señalice y oríllese al acotamiento derecho si es posible, encienda intermitentes y permanezca abrochado dentro mientras llama por ayuda.",
-      "tags": [
-        "autopista",
-        "emergencia",
-        "adolescentes"
-      ]
+      "tags": ["autopista", "emergencia", "adolescentes"]
     }
   ],
   "metadata": {

@@ -32,7 +32,7 @@ npm run seed:verify
 npm run seed:normalize:curr
 npm run seed:normalize:curr:write
 
-# Questions only  
+# Questions only
 npm run seed:normalize:questions
 npm run seed:normalize:questions:write
 ```
@@ -175,6 +175,7 @@ The toolchain automatically detects and converts various legacy formats:
 ### Automatic Backups
 
 When using `--write`, original files are automatically backed up to:
+
 ```
 ops/seed/.backups/{timestamp}/ops/seed/{original-path}
 ```

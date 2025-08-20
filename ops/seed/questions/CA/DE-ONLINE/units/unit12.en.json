@@ -29,9 +29,7 @@
       ],
       "answer": 0,
       "explanation": "Predicting the answer helps you evaluate options objectively.",
-      "tags": [
-        "test-strategy"
-      ]
+      "tags": ["test-strategy"]
     },
     {
       "ref": "U12-Q02",
@@ -58,9 +56,7 @@
       ],
       "answer": 0,
       "explanation": "Absolutes can be traps; safety decisions depend on conditions.",
-      "tags": [
-        "test-strategy"
-      ]
+      "tags": ["test-strategy"]
     },
     {
       "ref": "U12-Q03",
@@ -87,10 +83,7 @@
       ],
       "answer": 0,
       "explanation": "The vehicle on the right has the right-of-way when arriving simultaneously.",
-      "tags": [
-        "right-of-way",
-        "intersections"
-      ]
+      "tags": ["right-of-way", "intersections"]
     },
     {
       "ref": "U12-Q04",
@@ -117,10 +110,7 @@
       ],
       "answer": 0,
       "explanation": "Double solid yellows prohibit passing.",
-      "tags": [
-        "markings",
-        "no-passing"
-      ]
+      "tags": ["markings", "no-passing"]
     },
     {
       "ref": "U12-Q05",
@@ -147,10 +137,7 @@
       ],
       "answer": 0,
       "explanation": "Visibility and traction are reduced; increase space and reduce speed.",
-      "tags": [
-        "speed",
-        "following-distance"
-      ]
+      "tags": ["speed", "following-distance"]
     },
     {
       "ref": "U12-Q06",
@@ -177,10 +164,7 @@
       ],
       "answer": 0,
       "explanation": "Drivers must yield to pedestrians lawfully crossing.",
-      "tags": [
-        "pedestrians",
-        "right-of-way"
-      ]
+      "tags": ["pedestrians", "right-of-way"]
     },
     {
       "ref": "U12-Q07",
@@ -207,10 +191,7 @@
       ],
       "answer": 0,
       "explanation": "Arrive prepared with correct documents and on time.",
-      "tags": [
-        "dmv",
-        "logistics"
-      ]
+      "tags": ["dmv", "logistics"]
     },
     {
       "ref": "U12-Q08",
@@ -237,10 +218,7 @@
       ],
       "answer": 0,
       "explanation": "Use feedback to target weaknesses and comply with retake rules.",
-      "tags": [
-        "retakes",
-        "strategy"
-      ]
+      "tags": ["retakes", "strategy"]
     },
     {
       "ref": "U12-Q09",
@@ -267,10 +245,7 @@
       ],
       "answer": 0,
       "explanation": "Responsible choices reduce risk for everyone.",
-      "tags": [
-        "mindset",
-        "defensive-driving"
-      ]
+      "tags": ["mindset", "defensive-driving"]
     },
     {
       "ref": "U12-Q10",
@@ -297,10 +272,7 @@
       ],
       "answer": 0,
       "explanation": "Pass only when legal and safe with a clear view.",
-      "tags": [
-        "passing",
-        "markings"
-      ]
+      "tags": ["passing", "markings"]
     },
     {
       "ref": "U12-Q11",
@@ -327,10 +299,7 @@
       ],
       "answer": 0,
       "explanation": "Minimize distraction: hands-free or wait until parked.",
-      "tags": [
-        "distraction",
-        "phones"
-      ]
+      "tags": ["distraction", "phones"]
     },
     {
       "ref": "U12-Q12",
@@ -357,10 +326,7 @@
       ],
       "answer": 0,
       "explanation": "Learning continues with supervised practice and periodic reviews.",
-      "tags": [
-        "learning",
-        "practice"
-      ]
+      "tags": ["learning", "practice"]
     }
   ],
   "metadata": {

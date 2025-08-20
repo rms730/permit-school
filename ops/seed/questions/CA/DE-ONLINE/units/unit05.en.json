@@ -29,10 +29,7 @@
       ],
       "answer": "A",
       "explanation": "Defensive driving emphasizes risk reduction through anticipation, scanning, and space management—not speed or gadgets.",
-      "tags": [
-        "defensive_driving",
-        "risk"
-      ]
+      "tags": ["defensive_driving", "risk"]
     },
     {
       "ref": "U5Q2",
@@ -59,10 +56,7 @@
       ],
       "answer": "A",
       "explanation": "SIPDE is the classic defensive driving process to continuously manage hazards.",
-      "tags": [
-        "SIPDE",
-        "scanning"
-      ]
+      "tags": ["SIPDE", "scanning"]
     },
     {
       "ref": "U5Q3",
@@ -89,10 +83,7 @@
       ],
       "answer": "A",
       "explanation": "A long visual lead time helps you detect and respond to hazards early.",
-      "tags": [
-        "smith_system",
-        "vision"
-      ]
+      "tags": ["smith_system", "vision"]
     },
     {
       "ref": "U5Q4",
@@ -119,10 +110,7 @@
       ],
       "answer": 3,
       "explanation": "Use a 3–4 second time gap in ideal conditions; add time in poor conditions.",
-      "tags": [
-        "space_cushion",
-        "time_gap"
-      ]
+      "tags": ["space_cushion", "time_gap"]
     },
     {
       "ref": "U5Q5",
@@ -149,10 +137,7 @@
       ],
       "answer": "A",
       "explanation": "Bad weather and limited visibility increase stopping distance and risk.",
-      "tags": [
-        "space_cushion",
-        "weather"
-      ]
+      "tags": ["space_cushion", "weather"]
     },
     {
       "ref": "U5Q6",
@@ -179,10 +164,7 @@
       ],
       "answer": "A",
       "explanation": "Smoothing your own driving and increasing space ahead reduces the chance of a rear-end crash.",
-      "tags": [
-        "tailgating",
-        "space_management"
-      ]
+      "tags": ["tailgating", "space_management"]
     },
     {
       "ref": "U5Q7",
@@ -209,10 +191,7 @@
       ],
       "answer": "A",
       "explanation": "Posted limits do not override the need to slow for traffic, weather, or visibility.",
-      "tags": [
-        "basic_speed_law",
-        "speed_management"
-      ]
+      "tags": ["basic_speed_law", "speed_management"]
     },
     {
       "ref": "U5Q8",
@@ -239,10 +218,7 @@
       ],
       "answer": 3,
       "explanation": "In urban areas, looking 12–15 seconds ahead helps anticipate intersections and hazards.",
-      "tags": [
-        "vision",
-        "lead_time"
-      ]
+      "tags": ["vision", "lead_time"]
     },
     {
       "ref": "U5Q9",
@@ -269,10 +245,7 @@
       ],
       "answer": "A",
       "explanation": "A longer signal duration on freeways gives other drivers more time to see your intent.",
-      "tags": [
-        "signals",
-        "freeway"
-      ]
+      "tags": ["signals", "freeway"]
     },
     {
       "ref": "U5Q10",
@@ -299,10 +272,7 @@
       ],
       "answer": 3,
       "explanation": "Signaling early communicates your intentions and reduces conflicts.",
-      "tags": [
-        "signals",
-        "turning"
-      ]
+      "tags": ["signals", "turning"]
     },
     {
       "ref": "U5Q11",
@@ -329,10 +299,7 @@
       ],
       "answer": "A",
       "explanation": "Head checks reveal vehicles that mirrors cannot show.",
-      "tags": [
-        "blind_spots",
-        "lane_change"
-      ]
+      "tags": ["blind_spots", "lane_change"]
     },
     {
       "ref": "U5Q12",
@@ -359,10 +326,7 @@
       ],
       "answer": "A",
       "explanation": "ABS prevents wheel lockup; keep steady pressure and maintain steering control.",
-      "tags": [
-        "ABS",
-        "emergency"
-      ]
+      "tags": ["ABS", "emergency"]
     },
     {
       "ref": "U5Q13",
@@ -389,10 +353,7 @@
       ],
       "answer": "A",
       "explanation": "Reducing power helps tires regain grip; steer where you want the car to go.",
-      "tags": [
-        "skid",
-        "control"
-      ]
+      "tags": ["skid", "control"]
     },
     {
       "ref": "U5Q14",
@@ -419,10 +380,7 @@
       ],
       "answer": "A",
       "explanation": "Smooth control prevents a spin or loss of control after a blowout.",
-      "tags": [
-        "blowout",
-        "emergency"
-      ]
+      "tags": ["blowout", "emergency"]
     },
     {
       "ref": "U5Q15",
@@ -449,10 +407,7 @@
       ],
       "answer": "A",
       "explanation": "Sudden sharp steering can cause a loss of control or rollover.",
-      "tags": [
-        "recovery",
-        "shoulder"
-      ]
+      "tags": ["recovery", "shoulder"]
     },
     {
       "ref": "U5Q16",
@@ -479,10 +434,7 @@
       ],
       "answer": "A",
       "explanation": "Counting seconds adjusts for speed and is more reliable than car lengths.",
-      "tags": [
-        "time_gap",
-        "measurement"
-      ]
+      "tags": ["time_gap", "measurement"]
     },
     {
       "ref": "U5Q17",
@@ -509,10 +461,7 @@
       ],
       "answer": "A",
       "explanation": "Plan for roughly a one‑second delay before braking begins—more if distracted or tired.",
-      "tags": [
-        "reaction",
-        "stopping_distance"
-      ]
+      "tags": ["reaction", "stopping_distance"]
     },
     {
       "ref": "U5Q18",
@@ -539,10 +488,7 @@
       ],
       "answer": "A",
       "explanation": "Centering maximizes space on both sides and reduces drift.",
-      "tags": [
-        "lane_position",
-        "stability"
-      ]
+      "tags": ["lane_position", "stability"]
     },
     {
       "ref": "U5Q19",
@@ -569,10 +515,7 @@
       ],
       "answer": "A",
       "explanation": "A stale green may change; early preparation prevents rushed decisions.",
-      "tags": [
-        "intersections",
-        "anticipation"
-      ]
+      "tags": ["intersections", "anticipation"]
     },
     {
       "ref": "U5Q20",
@@ -599,10 +542,7 @@
       ],
       "answer": "A",
       "explanation": "Holding steady helps the passing driver complete safely.",
-      "tags": [
-        "passing",
-        "courtesy"
-      ]
+      "tags": ["passing", "courtesy"]
     }
   ],
   "metadata": {

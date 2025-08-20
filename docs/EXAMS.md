@@ -1,11 +1,13 @@
 # Final Exams
 
 ## Overview
+
 The CA/DE-ONLINE course uses an active final exam blueprint that draws questions across Units 1–12 with balanced skills and difficulty. Pass criteria and question count are sourced from `jurisdiction_configs`.
 
 ## Blueprint Configuration
 
 ### Coverage Strategy
+
 The final exam blueprint ensures comprehensive coverage across all driving skills:
 
 - **Signs & Signals** (18%): Traffic signs, signals, and pavement markings
@@ -21,7 +23,9 @@ The final exam blueprint ensures comprehensive coverage across all driving skill
 - **Licensing & Admin** (4%): License renewal and registration
 
 ### Difficulty Distribution
+
 Questions are distributed across difficulty levels for realistic assessment:
+
 - **Level 1** (40%): Basic knowledge and recognition
 - **Level 2** (35%): Understanding and application
 - **Level 3** (20%): Analysis and decision-making
@@ -29,11 +33,13 @@ Questions are distributed across difficulty levels for realistic assessment:
 - **Level 5** (0%): Reserved for special cases
 
 ### Unit Coverage
+
 Each unit (1-12) is guaranteed at least one question to ensure comprehensive curriculum coverage.
 
 ## Configuration
 
 ### Jurisdiction Settings
+
 Final exam parameters are configured in `jurisdiction_configs`:
 
 ```sql
@@ -50,6 +56,7 @@ INSERT INTO jurisdiction_configs (
 ```
 
 ### Environment Overrides
+
 For local testing and development, you can override settings:
 
 ```bash
@@ -63,6 +70,7 @@ FINAL_EXAM_PASS_PCT=0.7 npm run seed:final
 ## Seeding
 
 ### Basic Commands
+
 ```bash
 # Create/update final exam blueprint and generate missing questions
 npm run seed:final
@@ -72,6 +80,7 @@ npm run seed:final:verify
 ```
 
 ### Seeding Process
+
 The seeding process:
 
 1. **Reads Configuration**: Loads blueprint config from `ops/seed/questions/CA/DE-ONLINE/final.blueprint.json`
@@ -81,6 +90,7 @@ The seeding process:
 5. **Validates**: Ensures all requirements are met
 
 ### Question Generation
+
 When gaps are detected, the seeder generates:
 
 - **English Questions**: High-quality, curriculum-aligned questions
@@ -91,6 +101,7 @@ When gaps are detected, the seeder generates:
 ## Blueprint Rules
 
 ### Rule Structure
+
 Each skill has a corresponding blueprint rule:
 
 ```sql
@@ -117,6 +128,7 @@ INSERT INTO exam_blueprint_rules (
 ```
 
 ### Selection Logic
+
 The exam system selects questions by:
 
 1. **Skill Matching**: Questions must match the rule's skill
@@ -128,6 +140,7 @@ The exam system selects questions by:
 ## E2E Testing
 
 ### Test Coverage
+
 The E2E test suite validates:
 
 - **Blueprint Creation**: Ensures active blueprint exists
@@ -137,6 +150,7 @@ The E2E test suite validates:
 - **Rule Validation**: Checks blueprint rule structure
 
 ### Running Tests
+
 ```bash
 # Run final exam tests
 npx playwright test tests/e2e/final-exam.spec.ts
@@ -146,6 +160,7 @@ npx playwright test tests/e2e/final-exam.spec.ts --ui
 ```
 
 ### Test Scenarios
+
 1. **Fail Flow**: Student takes exam, answers ~50% correctly, fails
 2. **Pass Flow**: Student retakes exam, answers all correctly, passes
 3. **Certificate Check**: Verifies passing exam enables certificate eligibility
@@ -153,6 +168,7 @@ npx playwright test tests/e2e/final-exam.spec.ts --ui
 ## Local Development
 
 ### Setup
+
 ```bash
 # Ensure environment is configured
 cp .env.example .env.local
@@ -171,12 +187,14 @@ npx playwright test tests/e2e/final-exam.spec.ts
 ### Troubleshooting
 
 #### Common Issues
+
 1. **Missing Questions**: Run `npm run seed:final` to generate missing questions
 2. **Blueprint Not Found**: Check if active blueprint exists in database
 3. **Translation Errors**: Verify Spanish translations are properly formatted
 4. **Rule Mismatch**: Ensure blueprint rules match question bank skills
 
 #### Debug Commands
+
 ```bash
 # Check question bank status
 npm run seed:verify
@@ -191,6 +209,7 @@ psql $DATABASE_URL -c "SELECT * FROM jurisdiction_configs WHERE jurisdiction_id 
 ## Production Deployment
 
 ### CI/CD Integration
+
 The final exam system integrates with CI/CD:
 
 1. **Pre-deployment**: Run `npm run seed:final:verify` to ensure readiness
@@ -198,6 +217,7 @@ The final exam system integrates with CI/CD:
 3. **Monitoring**: Check question coverage and blueprint status
 
 ### Monitoring
+
 Key metrics to monitor:
 
 - **Question Coverage**: Ensure sufficient questions per skill
@@ -206,6 +226,7 @@ Key metrics to monitor:
 - **Translation Quality**: Monitor Spanish question quality
 
 ### Rollback Strategy
+
 If issues arise:
 
 1. **Deactivate Blueprint**: Set `is_active = false` on current blueprint
@@ -216,50 +237,56 @@ If issues arise:
 ## API Integration
 
 ### Exam Start
+
 ```typescript
 // Start final exam
-const response = await fetch('/api/exam/start', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
+const response = await fetch("/api/exam/start", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
-    j_code: 'CA',
-    course_code: 'DE-ONLINE',
-    mode: 'final'
-  })
+    j_code: "CA",
+    course_code: "DE-ONLINE",
+    mode: "final",
+  }),
 });
 
 const { attemptId, items } = await response.json();
 ```
 
 ### Exam Completion
+
 ```typescript
 // Complete final exam
-const response = await fetch('/api/exam/complete', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
+const response = await fetch("/api/exam/complete", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
-    attemptId: 'attempt-uuid',
+    attemptId: "attempt-uuid",
     answers: [
-      { item_no: 1, answer: 'A' },
-      { item_no: 2, answer: 'B' },
+      { item_no: 1, answer: "A" },
+      { item_no: 2, answer: "B" },
       // ... all answers
-    ]
-  })
+    ],
+  }),
 });
 
 const { passed, score, total } = await response.json();
 ```
 
 ### Certificate Status
+
 ```typescript
 // Check certificate eligibility
-const response = await fetch('/api/certificates/status?user_id=user-uuid&j_code=CA&course_code=DE-ONLINE');
+const response = await fetch(
+  "/api/certificates/status?user_id=user-uuid&j_code=CA&course_code=DE-ONLINE",
+);
 const { eligible, status } = await response.json();
 ```
 
 ## Future Enhancements
 
 ### Planned Features
+
 1. **Adaptive Difficulty**: Adjust question difficulty based on student performance
 2. **Skill Analytics**: Track performance by skill area
 3. **Question Rotation**: Prevent question memorization
@@ -267,6 +294,7 @@ const { eligible, status } = await response.json();
 5. **Review Mode**: Allow students to review incorrect answers
 
 ### Configuration Extensions
+
 1. **Custom Skills**: Allow jurisdiction-specific skill definitions
 2. **Dynamic Weights**: Adjust skill weights based on curriculum changes
 3. **Seasonal Content**: Include weather/season-specific questions

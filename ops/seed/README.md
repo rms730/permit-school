@@ -95,6 +95,7 @@ The normalizer (`ops/seed/lib/normalize.ts`) converts all existing legacy struct
 ### Curriculum Normalization
 
 Supports these legacy formats:
+
 - **Flat structure**: `{ unit, j_code, course_code, lang, title, sections }`
 - **Meta wrapper**: `{ meta: { unit_no, j_code, course_code, lang, title }, sections }`
 - **Course/Unit wrapper**: `{ course: { j_code, code }, unit: { unit_no, title, sections } }`
@@ -104,6 +105,7 @@ Supports these legacy formats:
 ### Questions Normalization
 
 Supports these legacy formats:
+
 - **Canonical questions**: `{ questions: [...] }`
 - **Legacy translations**: `{ translations: { "hash": "spanish_text" } }`
 - **Legacy wrappers**: `{ unit_no, questions: [...] }`
@@ -111,6 +113,7 @@ Supports these legacy formats:
 ## Deterministic Question IDs
 
 Questions use UUID v5 with a stable namespace to ensure:
+
 - **Idempotency**: Same content always generates same ID
 - **Consistency**: English and Spanish versions of same question share same ID
 - **Stability**: IDs don't change between runs
@@ -120,6 +123,7 @@ The ID is generated from: `j_code|course_code|unit|stem|choices`
 ## Spanish Translations
 
 Spanish content is handled in two ways:
+
 1. **Canonical ES questions**: Full question objects with deterministic IDs matching English
 2. **Legacy translations**: Simple text mappings (deprecated, will show warnings)
 
@@ -128,12 +132,14 @@ Spanish content is handled in two ways:
 The verifier enforces these quality gates:
 
 ### Curriculum Gates
+
 - Minimum 40 paragraphs per unit
 - Objectives array must be present
 - Minutes required between 20-120
 - Valid JSON structure
 
 ### Question Gates
+
 - Exactly 4 choices per question
 - Explanations minimum 8 characters
 - No duplicate choice keys
@@ -169,14 +175,17 @@ ops/seed/
 ## Commands
 
 ### Orchestration
+
 - `npm run seed:all` - Seed all units (curriculum → questions → verify)
 - `npm run seed:verify` - Verify all units and generate report
 
 ### Individual Files
+
 - `npm run seed:curriculum <file>` - Seed single curriculum file
 - `npm run seed:questions <file> <j_code> <course_code> <unit> <lang>` - Seed single questions file
 
 ### Legacy Support
+
 - `npm run seed:unit3` - Legacy unit-specific commands (still work)
 - `npm run seed:verify:unit3` - Legacy verification commands
 
@@ -212,6 +221,7 @@ To migrate existing units to canonical format:
 ## Environment
 
 Required environment variables:
+
 - `SUPABASE_URL` - Supabase project URL
 - `SUPABASE_SERVICE_ROLE_KEY` - Service role key for admin operations
 

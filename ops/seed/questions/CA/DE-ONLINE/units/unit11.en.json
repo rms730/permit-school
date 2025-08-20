@@ -29,10 +29,7 @@
       ],
       "answer": "C",
       "explanation": "A red curb means no stopping, standing, or parking.",
-      "tags": [
-        "parking",
-        "curb_colors"
-      ]
+      "tags": ["parking", "curb_colors"]
     },
     {
       "ref": "u11-q02",
@@ -59,10 +56,7 @@
       ],
       "answer": "B",
       "explanation": "White curbs are for short passenger (or mail) stops only.",
-      "tags": [
-        "parking",
-        "curb_colors"
-      ]
+      "tags": ["parking", "curb_colors"]
     },
     {
       "ref": "u11-q03",
@@ -89,10 +83,7 @@
       ],
       "answer": "B",
       "explanation": "A green curb allows limited-time parking; the time limit is posted on signs or the curb.",
-      "tags": [
-        "parking",
-        "curb_colors"
-      ]
+      "tags": ["parking", "curb_colors"]
     },
     {
       "ref": "u11-q04",
@@ -119,11 +110,7 @@
       ],
       "answer": "B",
       "explanation": "Yellow curbs are loading zones for passengers or freight for the time shown; noncommercial drivers usually must stay with the vehicle.",
-      "tags": [
-        "parking",
-        "curb_colors",
-        "loading"
-      ]
+      "tags": ["parking", "curb_colors", "loading"]
     },
     {
       "ref": "u11-q05",
@@ -150,9 +137,7 @@
       ],
       "answer": "B",
       "explanation": "Blue zones are reserved for vehicles displaying valid disabled person placards or plates.",
-      "tags": [
-        "disabled_parking"
-      ]
+      "tags": ["disabled_parking"]
     },
     {
       "ref": "u11-q06",
@@ -179,10 +164,7 @@
       ],
       "answer": "C",
       "explanation": "The cross‑hatched area next to a disabled parking space is an access aisle and is not for stopping or parking.",
-      "tags": [
-        "disabled_parking",
-        "access_aisle"
-      ]
+      "tags": ["disabled_parking", "access_aisle"]
     },
     {
       "ref": "u11-q07",
@@ -209,9 +191,7 @@
       ],
       "answer": "B",
       "explanation": "California requires your wheels be within 18 inches of the curb.",
-      "tags": [
-        "parallel_parking"
-      ]
+      "tags": ["parallel_parking"]
     },
     {
       "ref": "u11-q08",
@@ -238,9 +218,7 @@
       ],
       "answer": "B",
       "explanation": "Downhill: turn the wheels toward the curb.",
-      "tags": [
-        "hill_parking"
-      ]
+      "tags": ["hill_parking"]
     },
     {
       "ref": "u11-q09",
@@ -267,9 +245,7 @@
       ],
       "answer": "C",
       "explanation": "Uphill with a curb: turn wheels away from the curb and let the tire gently touch the curb.",
-      "tags": [
-        "hill_parking"
-      ]
+      "tags": ["hill_parking"]
     },
     {
       "ref": "u11-q10",
@@ -296,10 +272,7 @@
       ],
       "answer": "C",
       "explanation": "Do not park within 15 feet of a fire hydrant.",
-      "tags": [
-        "illegal_parking",
-        "distances"
-      ]
+      "tags": ["illegal_parking", "distances"]
     },
     {
       "ref": "u11-q11",
@@ -326,10 +299,7 @@
       ],
       "answer": "C",
       "explanation": "Do not park within 20 feet of a crosswalk (marked or unmarked). Where the curb extends into the street, the distance is 15 feet.",
-      "tags": [
-        "illegal_parking",
-        "distances"
-      ]
+      "tags": ["illegal_parking", "distances"]
     },
     {
       "ref": "u11-q12",
@@ -356,10 +326,7 @@
       ],
       "answer": "C",
       "explanation": "Stop at least 15 feet from the nearest rail when warned at a railroad crossing.",
-      "tags": [
-        "railroad_crossing",
-        "stopping_distance"
-      ]
+      "tags": ["railroad_crossing", "stopping_distance"]
     },
     {
       "ref": "u11-q13",
@@ -386,10 +353,7 @@
       ],
       "answer": "C",
       "explanation": "You may drive in a bike lane to park where parking is permitted; obey posted signs.",
-      "tags": [
-        "bike_lane",
-        "parking"
-      ]
+      "tags": ["bike_lane", "parking"]
     },
     {
       "ref": "u11-q14",
@@ -416,10 +380,7 @@
       ],
       "answer": "B",
       "explanation": "Provisional curfew is 11 p.m.–5 a.m. during the first 12 months.",
-      "tags": [
-        "provisional",
-        "curfew"
-      ]
+      "tags": ["provisional", "curfew"]
     },
     {
       "ref": "u11-q15",
@@ -446,10 +407,7 @@
       ],
       "answer": "B",
       "explanation": "A licensed driver who is 25 or older must be present to carry under‑20 passengers during the first 12 months.",
-      "tags": [
-        "provisional",
-        "passengers"
-      ]
+      "tags": ["provisional", "passengers"]
     },
     {
       "ref": "u11-q16",
@@ -476,10 +434,7 @@
       ],
       "answer": "B",
       "explanation": "Exceptions include medical need, school or school activity, employment, or transporting an immediate family member with a signed note.",
-      "tags": [
-        "provisional",
-        "exceptions"
-      ]
+      "tags": ["provisional", "exceptions"]
     },
     {
       "ref": "u11-q17",
@@ -506,10 +461,7 @@
       ],
       "answer": "B",
       "explanation": "Adult thresholds are 4 points in 12 months, 6 in 24, or 8 in 36 months.",
-      "tags": [
-        "NOTS",
-        "points"
-      ]
+      "tags": ["NOTS", "points"]
     },
     {
       "ref": "u11-q18",
@@ -536,10 +488,7 @@
       ],
       "answer": "C",
       "explanation": "DMV may restrict a minor’s driving for 30 days, requiring a 25+ licensed driver to accompany them.",
-      "tags": [
-        "provisional",
-        "NOTS"
-      ]
+      "tags": ["provisional", "NOTS"]
     },
     {
       "ref": "u11-q19",
@@ -566,9 +515,7 @@
       ],
       "answer": "B",
       "explanation": "Signing a citation is a promise to appear, not an admission of guilt.",
-      "tags": [
-        "citations"
-      ]
+      "tags": ["citations"]
     },
     {
       "ref": "u11-q20",
@@ -595,9 +542,7 @@
       ],
       "answer": "C",
       "explanation": "TVS may be used once during any 18‑month period for eligible one‑point violations.",
-      "tags": [
-        "traffic_school"
-      ]
+      "tags": ["traffic_school"]
     },
     {
       "ref": "u11-q21",
@@ -624,10 +569,7 @@
       ],
       "answer": "B",
       "explanation": "An FTA can lead to suspension until you appear and is recorded on your driver record.",
-      "tags": [
-        "citations",
-        "FTA"
-      ]
+      "tags": ["citations", "FTA"]
     },
     {
       "ref": "u11-q22",
@@ -654,10 +596,7 @@
       ],
       "answer": "C",
       "explanation": "It is illegal to park within 3 feet of a curb ramp for disabled access.",
-      "tags": [
-        "illegal_parking",
-        "distances"
-      ]
+      "tags": ["illegal_parking", "distances"]
     }
   ],
   "metadata": {

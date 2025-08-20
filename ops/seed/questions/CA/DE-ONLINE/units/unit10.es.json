@@ -29,10 +29,7 @@
       ],
       "answer": 0,
       "explanation": "Se requiere registro válido con placas/calcomanías vigentes y dirección correcta.",
-      "tags": [
-        "registro",
-        "documentos"
-      ]
+      "tags": ["registro", "documentos"]
     },
     {
       "ref": "U10-Q02",
@@ -59,10 +56,7 @@
       ],
       "answer": 0,
       "explanation": "El título debe transferirse correctamente para establecer la propiedad.",
-      "tags": [
-        "título",
-        "propiedad"
-      ]
+      "tags": ["título", "propiedad"]
     },
     {
       "ref": "U10-Q03",
@@ -89,10 +83,7 @@
       ],
       "answer": 0,
       "explanation": "Renovar puntualmente previene sanciones o bloqueos.",
-      "tags": [
-        "renovación",
-        "registro"
-      ]
+      "tags": ["renovación", "registro"]
     },
     {
       "ref": "U10-Q04",
@@ -119,10 +110,7 @@
       ],
       "answer": 0,
       "explanation": "Lleva y presenta prueba de seguro (u otro medio) cuando te lo pidan.",
-      "tags": [
-        "seguro",
-        "responsabilidad-financiera"
-      ]
+      "tags": ["seguro", "responsabilidad-financiera"]
     },
     {
       "ref": "U10-Q05",
@@ -149,10 +137,7 @@
       ],
       "answer": 0,
       "explanation": "La responsabilidad paga por pérdidas de otros cuando eres culpable.",
-      "tags": [
-        "seguro",
-        "responsabilidad"
-      ]
+      "tags": ["seguro", "responsabilidad"]
     },
     {
       "ref": "U10-Q06",
@@ -179,10 +164,7 @@
       ],
       "answer": 0,
       "explanation": "Reporta según umbrales y plazos estatales.",
-      "tags": [
-        "colisión",
-        "reporte"
-      ]
+      "tags": ["colisión", "reporte"]
     },
     {
       "ref": "U10-Q07",
@@ -209,10 +191,7 @@
       ],
       "answer": 0,
       "explanation": "Los frenos son esenciales para la seguridad; mantenlos en buen estado.",
-      "tags": [
-        "mantenimiento",
-        "frenos"
-      ]
+      "tags": ["mantenimiento", "frenos"]
     },
     {
       "ref": "U10-Q08",
@@ -239,10 +218,7 @@
       ],
       "answer": 0,
       "explanation": "Mantén el equipo requerido para ser visible y legal.",
-      "tags": [
-        "equipo",
-        "luces"
-      ]
+      "tags": ["equipo", "luces"]
     },
     {
       "ref": "U10-Q09",
@@ -269,10 +245,7 @@
       ],
       "answer": 0,
       "explanation": "Libera los carriles si es seguro y completa intercambio y documentación.",
-      "tags": [
-        "colisión",
-        "seguridad-escena"
-      ]
+      "tags": ["colisión", "seguridad-escena"]
     },
     {
       "ref": "U10-Q10",
@@ -299,10 +272,7 @@
       ],
       "answer": 0,
       "explanation": "Intercambia identificaciones legales, registro y seguro.",
-      "tags": [
-        "colisión",
-        "documentos"
-      ]
+      "tags": ["colisión", "documentos"]
     },
     {
       "ref": "U10-Q11",
@@ -329,10 +299,7 @@
       ],
       "answer": 0,
       "explanation": "La ley impone sanciones por no mostrar prueba de responsabilidad financiera.",
-      "tags": [
-        "seguro",
-        "sanciones"
-      ]
+      "tags": ["seguro", "sanciones"]
     },
     {
       "ref": "U10-Q12",
@@ -359,10 +326,7 @@
       ],
       "answer": 0,
       "explanation": "Equipa tu vehículo para emergencias comunes en carretera.",
-      "tags": [
-        "kit-de-emergencia",
-        "seguridad"
-      ]
+      "tags": ["kit-de-emergencia", "seguridad"]
     }
   ],
   "metadata": {

@@ -29,10 +29,7 @@
       ],
       "answer": "A",
       "explanation": "La conducción defensiva se centra en reducir el riesgo mediante anticipación, observación y gestión del espacio.",
-      "tags": [
-        "conduccion_defensiva",
-        "riesgo"
-      ]
+      "tags": ["conduccion_defensiva", "riesgo"]
     },
     {
       "ref": "U5Q2",
@@ -59,10 +56,7 @@
       ],
       "answer": "A",
       "explanation": "SIPDE es el proceso clásico para administrar peligros continuamente.",
-      "tags": [
-        "SIPDE",
-        "observacion"
-      ]
+      "tags": ["SIPDE", "observacion"]
     },
     {
       "ref": "U5Q3",
@@ -89,10 +83,7 @@
       ],
       "answer": "A",
       "explanation": "Un mayor tiempo de anticipación visual permite detectar y responder con antelación.",
-      "tags": [
-        "sistema_smith",
-        "vision"
-      ]
+      "tags": ["sistema_smith", "vision"]
     },
     {
       "ref": "U5Q4",
@@ -119,10 +110,7 @@
       ],
       "answer": 3,
       "explanation": "Usa 3–4 segundos en condiciones ideales; agrega tiempo en condiciones adversas.",
-      "tags": [
-        "cojin_espacio",
-        "tiempo"
-      ]
+      "tags": ["cojin_espacio", "tiempo"]
     },
     {
       "ref": "U5Q5",
@@ -149,10 +137,7 @@
       ],
       "answer": "A",
       "explanation": "Clima adverso y poca visibilidad incrementan distancia de frenado y riesgo.",
-      "tags": [
-        "clima",
-        "distancia"
-      ]
+      "tags": ["clima", "distancia"]
     },
     {
       "ref": "U5Q6",
@@ -179,10 +164,7 @@
       ],
       "answer": "A",
       "explanation": "Suavizar tu conducción y aumentar el espacio delante reduce el riesgo de choque trasero.",
-      "tags": [
-        "seguimiento_cercano",
-        "gestion_espacio"
-      ]
+      "tags": ["seguimiento_cercano", "gestion_espacio"]
     },
     {
       "ref": "U5Q7",
@@ -209,10 +191,7 @@
       ],
       "answer": "A",
       "explanation": "Los límites no sustituyen la necesidad de reducir por tráfico, clima o visibilidad.",
-      "tags": [
-        "ley_velocidad",
-        "gestion_velocidad"
-      ]
+      "tags": ["ley_velocidad", "gestion_velocidad"]
     },
     {
       "ref": "U5Q8",
@@ -239,10 +218,7 @@
       ],
       "answer": 3,
       "explanation": "Mirar con anticipación ayuda a prever intersecciones y peligros.",
-      "tags": [
-        "vision",
-        "anticipo"
-      ]
+      "tags": ["vision", "anticipo"]
     },
     {
       "ref": "U5Q9",
@@ -269,10 +245,7 @@
       ],
       "answer": "A",
       "explanation": "Señalizar por más tiempo da oportunidad a los demás de ver tu intención.",
-      "tags": [
-        "direccionales",
-        "autopista"
-      ]
+      "tags": ["direccionales", "autopista"]
     },
     {
       "ref": "U5Q10",
@@ -299,10 +272,7 @@
       ],
       "answer": 3,
       "explanation": "Señalizar con anticipación reduce conflictos y sorpresas.",
-      "tags": [
-        "direccionales",
-        "giros"
-      ]
+      "tags": ["direccionales", "giros"]
     },
     {
       "ref": "U5Q11",
@@ -329,10 +299,7 @@
       ],
       "answer": "A",
       "explanation": "La revisión de hombro muestra lo que los espejos no cubren.",
-      "tags": [
-        "puntos_ciegos",
-        "cambio_carril"
-      ]
+      "tags": ["puntos_ciegos", "cambio_carril"]
     },
     {
       "ref": "U5Q12",
@@ -359,10 +326,7 @@
       ],
       "answer": "A",
       "explanation": "El ABS evita el bloqueo; mantén presión firme y control de la dirección.",
-      "tags": [
-        "ABS",
-        "emergencia"
-      ]
+      "tags": ["ABS", "emergencia"]
     },
     {
       "ref": "U5Q13",
@@ -389,10 +353,7 @@
       ],
       "answer": "A",
       "explanation": "Reducir la potencia ayuda a recuperar agarre; dirige hacia donde quieres ir.",
-      "tags": [
-        "derrape",
-        "control"
-      ]
+      "tags": ["derrape", "control"]
     },
     {
       "ref": "U5Q14",
@@ -419,10 +380,7 @@
       ],
       "answer": "A",
       "explanation": "El control suave evita pérdida de control tras un reventón.",
-      "tags": [
-        "reventon",
-        "emergencia"
-      ]
+      "tags": ["reventon", "emergencia"]
     },
     {
       "ref": "U5Q15",
@@ -449,10 +407,7 @@
       ],
       "answer": "A",
       "explanation": "Los giros bruscos pueden causar pérdida de control o volcadura.",
-      "tags": [
-        "recuperacion",
-        "acotamiento"
-      ]
+      "tags": ["recuperacion", "acotamiento"]
     },
     {
       "ref": "U5Q16",
@@ -479,10 +434,7 @@
       ],
       "answer": "A",
       "explanation": "Contar segundos se ajusta a la velocidad y es más confiable que ‘largos de auto’.",
-      "tags": [
-        "tiempo",
-        "medicion"
-      ]
+      "tags": ["tiempo", "medicion"]
     },
     {
       "ref": "U5Q17",
@@ -509,10 +461,7 @@
       ],
       "answer": "A",
       "explanation": "Planea cerca de un segundo antes de que inicie el frenado—más si hay distracción o cansancio.",
-      "tags": [
-        "reaccion",
-        "frenado"
-      ]
+      "tags": ["reaccion", "frenado"]
     },
     {
       "ref": "U5Q18",
@@ -539,10 +488,7 @@
       ],
       "answer": "A",
       "explanation": "Centrarse maximiza el espacio a ambos lados y reduce el desvío.",
-      "tags": [
-        "posicion_carril",
-        "estabilidad"
-      ]
+      "tags": ["posicion_carril", "estabilidad"]
     },
     {
       "ref": "U5Q19",
@@ -569,10 +515,7 @@
       ],
       "answer": "A",
       "explanation": "Una luz verde vieja puede cambiar; la preparación temprana evita decisiones de último momento.",
-      "tags": [
-        "intersecciones",
-        "anticipacion"
-      ]
+      "tags": ["intersecciones", "anticipacion"]
     },
     {
       "ref": "U5Q20",
@@ -599,10 +542,7 @@
       ],
       "answer": "A",
       "explanation": "Mantenerse estable ayuda a que el otro conductor complete el rebase con seguridad.",
-      "tags": [
-        "rebase",
-        "cortesia"
-      ]
+      "tags": ["rebase", "cortesia"]
     }
   ],
   "metadata": {

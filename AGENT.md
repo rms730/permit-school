@@ -3,6 +3,7 @@
 ## Cursor Working Agreement (Repo-Scoped)
 
 **Always do this:**
+
 1. **Be persistent** — keep going until the job is fully solved.
 2. **Use tools, don't guess** — open files, run commands, capture logs.
 3. **Plan then reflect** — write a short plan first; reflect after each run.
@@ -10,12 +11,15 @@
 **Template to use in every tool run:**
 
 **PLAN**
+
 - …
 
 **RUN**
+
 - …
 
 **REFLECT**
+
 - …
 
 See project rules in `.cursorrules` for details and guardrails (MUI-only UI, sqlfluff-clean SQL, RLS on all tables, EN/ES i18n, CI must stay green).

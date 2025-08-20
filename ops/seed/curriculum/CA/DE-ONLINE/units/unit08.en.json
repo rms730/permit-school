@@ -1,1 +1,356 @@
-{}
+{
+    "unitId": "U08",
+    "title": "CA DE-ONLINE – Unit 8: Collisions, Financial Responsibility & Ownership Basics",
+    "minutes": 75,
+    "sections": [
+      {
+        "id": "U08-S01",
+        "title": "First Minutes After a Collision",
+        "lessons": [
+          {
+            "id": "U08-L01",
+            "title": "Stop, Secure, and Check for Injuries",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "Collisions are stressful. Your first job is to protect people and prevent a second crash. Stay calm and take methodical steps."
+              },
+              {
+                "type": "list",
+                "style": "ordered",
+                "items": [
+                  "Stop immediately and turn on your hazard lights. Never leave the scene — leaving is considered hit-and-run with severe penalties.  [oai_citation:0‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+                  "Check yourself and passengers for injuries. If anyone may be hurt, call 911 right away and follow the dispatcher’s guidance.  [oai_citation:1‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+                  "If it is safe and there are no apparent injuries, move vehicles out of traffic to prevent further danger. Then call 911.  [oai_citation:2‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "Put out cones/triangles if available. Do not stand in traffic lanes. Keep children and pets out of the roadway."
+              },
+              {
+                "type": "paragraph",
+                "content": "If an animal is injured or killed, contact the nearest humane society or law enforcement. Do not try to move an injured animal.  [oai_citation:3‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+              }
+            ]
+          },
+          {
+            "id": "U08-L02",
+            "title": "Prevent Secondary Crashes and Call for Help",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Park in a safe spot off the roadway when possible.",
+                  "Use flares only if you understand how and it’s safe to do so; never near fuel leaks.",
+                  "Share the exact location (street, nearest landmark, direction of travel) with 911.",
+                  "Follow dispatcher instructions and do not hang up until told to do so."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "If traffic is already blocked and responders are on their way, avoid standing between vehicles. Keep seat belts on if stopped on a high-speed shoulder."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U08-S02",
+        "title": "Exchange Information & Reporting",
+        "lessons": [
+          {
+            "id": "U08-L03",
+            "title": "Exchange the Right Information",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "After everyone is safe, exchange information calmly. Take photos before moving vehicles if it’s safe."
+              },
+              {
+                "type": "list",
+                "style": "ordered",
+                "items": [
+                  "Show your driver’s license, vehicle registration card, insurance information, and current address to involved parties and law enforcement.  [oai_citation:4‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+                  "Record the other driver’s full name, contact info, license plate, insurance company/policy, and the vehicle’s make/model/VIN if available.",
+                  "Capture scene details: positions, damage, weather, road conditions, and any injuries."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "Be factual. Do not argue about fault or make promises. Let insurers and, if needed, law enforcement sort out responsibility."
+              }
+            ]
+          },
+          {
+            "id": "U08-L04",
+            "title": "When and How to Report",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "Report promptly according to current handbook rules. If anyone is injured or killed, you must report to law enforcement within the timeframe described in the current handbook. Your insurance agent, broker, or legal representative may also file that report.  [oai_citation:5‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+              },
+              {
+                "type": "paragraph",
+                "content": "You must also report certain collisions to DMV using the Report of Traffic Accident Occurring in California (SR 1) form within the timeframe and thresholds stated in the current handbook (for example, injury/death or property damage above the DMV threshold). Law enforcement will not file the SR 1 for you.  [oai_citation:6‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Keep a blank SR 1 link bookmarked for quick access.",
+                  "File even if the crash happened on private property or you were not at fault — the handbook requires filing based on conditions, not fault.  [oai_citation:7‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U08-S03",
+        "title": "Insurance & Financial Responsibility",
+        "lessons": [
+          {
+            "id": "U08-L05",
+            "title": "Proof of Insurance and Who Is Responsible",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "California requires proof of financial responsibility (insurance) when you drive and during a drive test. You must show proof after a collision.  [oai_citation:8‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Carry valid proof of insurance and provide it upon request.",
+                  "Parents/guardians take on financial responsibility for drivers under 18; once you are 18, you take on your own financial responsibility.  [oai_citation:9‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+                  "Confirm your insurer/agent is licensed by the California Department of Insurance.  [oai_citation:10‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "State law sets minimum liability coverage amounts. Use at least the current minimums listed in the DMV handbook and your policy documents.  [oai_citation:11‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+              }
+            ]
+          },
+          {
+            "id": "U08-L06",
+            "title": "If You Lack Proof — Consequences & Options",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "If you are in a collision without proper insurance, your driving privilege may be suspended, regardless of fault, under current rules.  [oai_citation:12‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+              },
+              {
+                "type": "paragraph",
+                "content": "To reinstate during the eligible period, you may need to file and maintain a California Insurance Proof Certificate (SR 22/SR 1P).  [oai_citation:13‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+              },
+              {
+                "type": "paragraph",
+                "content": "If cost is a barrier, see the California Low Cost Automobile Insurance Program for eligibility.  [oai_citation:14‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U08-S04",
+        "title": "Special Situations",
+        "lessons": [
+          {
+            "id": "U08-L07",
+            "title": "Parked Property & Animals",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "list",
+                "style": "ordered",
+                "items": [
+                  "If you hit a parked vehicle or other property, try to find the owner. If you cannot, leave a note with your name, phone number, and address securely attached, and report the collision to law enforcement.  [oai_citation:15‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)",
+                  "If an animal is injured or killed, contact the nearest humane society or law enforcement. Do not move the animal.  [oai_citation:16‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "Document the scene with photos and time/location notes. This protects you and helps owners and insurers resolve claims fairly."
+              }
+            ]
+          },
+          {
+            "id": "U08-L08",
+            "title": "Hit-and-Run: What It Is and Why You Must Never Do It",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "Failing to stop after a collision is hit-and-run. Penalties are severe. Always stop, secure the scene, and exchange information or report as required.  [oai_citation:17‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Do not chase another driver. Get the plate, vehicle description, direction of travel, and call 911.",
+                  "Ask witnesses for names and contact information; note nearby cameras."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U08-S05",
+        "title": "Vehicle Ownership Basics",
+        "lessons": [
+          {
+            "id": "U08-L09",
+            "title": "Title Transfers, Buying & Selling",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "When you buy or sell a vehicle in California, you must transfer ownership and notify DMV within the time frames in the current handbook. Sellers must submit a Notice of Transfer and Release of Liability (NRL).  [oai_citation:18‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Verify the VIN on the title and vehicle.",
+                  "Keep a copy of the bill of sale and odometer disclosure (if required).",
+                  "Confirm there are no liens unless disclosed."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "U08-L10",
+            "title": "Registration & Smog Basics",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "Vehicles used in California must be registered in California. Follow the current DMV steps and deadlines when you become a resident or start working here.  [oai_citation:19‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+              },
+              {
+                "type": "paragraph",
+                "content": "All vehicles registered in California must meet California requirements, including vehicle emission controls. The DMV cannot register a vehicle that does not qualify.  [oai_citation:20‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Have current registration and proof of insurance in the vehicle.",
+                  "Keep plates, stickers, and address information up to date."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U08-S06",
+        "title": "After the Tow: Repairs & Avoiding Scams",
+        "lessons": [
+          {
+            "id": "U08-L11",
+            "title": "Towing, Estimates, and Your Choices",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "You choose where your vehicle goes. If safe, request a tow to your home or a repair shop you prefer. Get the towing company’s name, address, and rates."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Ask for a written estimate before authorizing repairs.",
+                  "Clarify parts (new, OEM, remanufactured, aftermarket) and any warranty.",
+                  "Do not sign blank or incomplete documents."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "Your insurer can recommend shops, but you are generally free to choose a qualified repair facility."
+              }
+            ]
+          },
+          {
+            "id": "U08-L12",
+            "title": "Spotting Red Flags",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "High-pressure “accident chasers” at the scene pushing you to a specific shop or clinic.",
+                  "Demands for large cash deposits or requests to sign over your title.",
+                  "Promises that seem too good to be true or instructions to misstate facts to an insurer."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "Keep control of your documents. Photograph all damage and parts replaced. Save all invoices and communications."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U08-S07",
+        "title": "Records, Claims & Teen/Guardian Responsibilities",
+        "lessons": [
+          {
+            "id": "U08-L13",
+            "title": "Build Your Collision File",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "list",
+                "style": "ordered",
+                "items": [
+                  "Create a folder (digital or paper) with photos, notes, and a timeline.",
+                  "Save names/contacts of drivers, owners, witnesses, and first responders.",
+                  "Keep copies of reports (law enforcement and SR 1 confirmation when required), claim forms, estimates, invoices, and medical notes."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "Dashcam clips, intersection camera timestamps, and annotated maps can speed claims resolution. Back up files to cloud storage."
+              }
+            ]
+          },
+          {
+            "id": "U08-L14",
+            "title": "Talk to Your Insurer and, If You’re a Minor, to Your Parent/Guardian",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "Report the collision to your insurer promptly. Share facts, photos, and any report numbers. Ask how to handle repairs, rentals, and medical bills."
+              },
+              {
+                "type": "paragraph",
+                "content": "For minors with a provisional license, collisions and traffic violations can lead to license restrictions, probation, or suspension under current rules. Keep parents/guardians informed; they assume financial responsibility for drivers under 18. "
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Never ignore DMV or court notices.",
+                  "Keep proof of insurance and any required certificates (for example, SR 22/SR 1P after certain suspensions) up to date.  [oai_citation:21‡DriverHandbook_CA_EN.pdf](file-service://file-JZ5buQ9fdTyc75quRFSXq5)"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

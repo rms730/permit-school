@@ -1,1 +1,467 @@
-{}
+{
+    "meta": {
+      "j_code": "CA",
+      "course_code": "DE-ONLINE",
+      "unit_no": 4,
+      "lang": "es",
+      "title": "Compartir la Vía y Situaciones Especiales",
+      "minutes_required": 15
+    },
+    "sections": [
+      {
+        "id": "u4-s1",
+        "title": "Peatones y Cruces Peatonales",
+        "lessons": [
+          {
+            "id": "u4-s1-l1",
+            "title": "Cruces peatonales y derecho de paso",
+            "minutes": 3,
+            "paragraphs": [
+              "Los peatones tienen el derecho de paso en cruces peatonales marcados y no marcados. Un cruce no marcado es el área a través de una intersección donde se unirían las banquetas. Siempre observa ambos lados por personas que se acerquen al borde.",
+              "Al girar, cede el paso a las personas en el cruce que vas a atravesar. No rebases a un vehículo detenido en un cruce peatonal porque podría haber alguien cruzando que no ves.",
+              "Detente antes del cruce peatonal y espera hasta que esté completamente despejado. Mantén libres los cruces y las banquetas para personas con sillas de ruedas, carriolas o andaderas."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Cede el paso a los peatones en cruces marcados y no marcados, y no rebases a un vehículo detenido en un cruce." },
+              { "type": "TIP", "text": "Coloca el pie sobre el freno y prepárate para detenerte cuando veas a alguien cerca del borde." },
+              { "type": "WARNING", "text": "Rodar dentro del cruce bloquea a las personas y puede causar una multa y un choque." }
+            ],
+            "key_points": [
+              "Los cruces existen en la mayoría de las intersecciones aunque no estén pintados.",
+              "Cede y espera hasta que el cruce esté despejado antes de avanzar."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 31, "section": "Peatones" },
+              { "source": "DL-600-ES-2025", "page": 32, "section": "Cruces peatonales e intersecciones" }
+            ]
+          },
+          {
+            "id": "u4-s1-l2",
+            "title": "Peatones ciegos y zonas escolares",
+            "minutes": 2,
+            "paragraphs": [
+              "Las personas ciegas con bastón blanco o perro guía tienen el derecho de paso absoluto. Detente bien antes del cruce para que puedan oír el motor y ubicar tu posición.",
+              "No toques la bocina, no aceleres el motor ni les señales que crucen. Espera hasta que terminen de cruzar con seguridad.",
+              "Cerca de las escuelas, reduce la velocidad, obedece a los guardias escolares y vigila a los niños, que pueden moverse de forma impredecible."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Detente por una persona con bastón blanco o perro guía y no detengas el vehículo dentro del cruce." },
+              { "type": "TIP", "text": "Detente aproximadamente a 5 pies antes del cruce para darle espacio y señales auditivas a la persona ciega." },
+              { "type": "WARNING", "text": "Nunca toques la bocina a un peatón ciego; puede asustarlo y confundirlo." }
+            ],
+            "key_points": [
+              "Bastón blanco/perro guía = detente y cede hasta que termine de cruzar.",
+              "Las señales de los guardias escolares tienen autoridad legal."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 33, "section": "Peatones ciegos" },
+              { "source": "DL-600-ES-2025", "page": 31, "section": "Zonas escolares" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "u4-s2",
+        "title": "Ciclistas y Carriles para Bicicletas",
+        "lessons": [
+          {
+            "id": "u4-s2-l1",
+            "title": "Rebase a ciclistas y regla de 3 pies",
+            "minutes": 3,
+            "paragraphs": [
+              "Deja al menos 3 pies al rebasar a una bicicleta. Si no puedes dar 3 pies, reduce la velocidad y espera hasta que sea seguro rebasar.",
+              "Aumenta el espacio a mayores velocidades o con ráfagas de viento de vehículos grandes. Trata a la bicicleta como a un vehículo lento.",
+              "Revisa espejos y puntos ciegos antes de volver a tu carril para no cortarle el paso al ciclista."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Los conductores deben dejar al menos 3 pies al rebasar a un ciclista." },
+              { "type": "TIP", "text": "Si el carril es angosto, espera un hueco mayor para cambiar de carril y rebasar con seguridad." },
+              { "type": "WARNING", "text": "Un rebase cercano provoca choques y puede resultar en una infracción bajo la ley de Tres Pies por Seguridad." }
+            ],
+            "key_points": [
+              "3 pies mínimo; más a mayores velocidades.",
+              "Vuelve al carril solo cuando veas al ciclista en tu espejo."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 35, "section": "Ciclistas" }
+            ]
+          },
+          {
+            "id": "u4-s2-l2",
+            "title": "Carriles para bicicletas y giros a la derecha",
+            "minutes": 3,
+            "paragraphs": [
+              "Los carriles para bicicletas son para ciclistas. Puedes entrar a un carril para bicicletas solo para estacionarte (donde esté permitido), entrar o salir de la vía, o para girar a la derecha.",
+              "Incórporate al carril para bicicletas no más de unos 200 pies antes de tu giro a la derecha. Cede el paso a cualquier ciclista en el carril antes de cruzarlo.",
+              "Usa direccionales con anticipación, mira sobre tu hombro derecho y busca bicicletas rápidas antes de girar."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Puedes conducir en el carril para bicicletas en los últimos ~200 pies antes de girar a la derecha, pero debes ceder a los ciclistas." },
+              { "type": "TIP", "text": "Intenta incorporarte detrás del ciclista, no delante de él, cerca de la intersección." },
+              { "type": "WARNING", "text": "No gires a la derecha cruzando el carril para bicicletas justo después de rebasar a un ciclista." }
+            ],
+            "key_points": [
+              "Entra al carril para bicicletas cerca del giro y cede a las bicis.",
+              "Señaliza y mira por el hombro antes de cruzar el carril."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 34, "section": "Carriles para bicicletas" },
+              { "source": "DL-600-ES-2025", "page": 35, "section": "Ciclistas" }
+            ]
+          },
+          {
+            "id": "u4-s2-l3",
+            "title": "Puertas y carriles compartidos",
+            "minutes": 2,
+            "paragraphs": [
+              "Antes de abrir tu puerta, revisa espejos y mira por encima del hombro si vienen ciclistas. Abrir una puerta hacia el flujo es peligroso e ilegal si interfiere con otros.",
+              "Los ciclistas pueden usar todo el carril cuando es muy angosto para compartirlo con seguridad o para evitar peligros. No los aprietes.",
+              "Reduce la velocidad y deja espacio cuando los ciclistas rodeen autos estacionados, baches o escombros."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "No abras una puerta a menos que sea seguro y no interfiera con el tránsito, incluidas las bicicletas." },
+              { "type": "TIP", "text": "Usa el \"alcance holandés\": abre la puerta con la mano derecha para girar el cuerpo y mirar hacia atrás." },
+              { "type": "WARNING", "text": "Apretar a un ciclista puede obligarlo a entrar al tránsito o a la zona de puertas." }
+            ],
+            "key_points": [
+              "Busca bicicletas antes de abrir puertas.",
+              "Los ciclistas pueden tomar el carril para mantenerse a salvo."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 36, "section": "Compartir la vía con ciclistas" },
+              { "source": "DL-600-ES-2025", "page": 64, "section": "Estacionamiento y apertura de puertas" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "u4-s3",
+        "title": "Motocicletas y Scooters",
+        "lessons": [
+          {
+            "id": "u4-s3-l1",
+            "title": "Ver y ser visto",
+            "minutes": 3,
+            "paragraphs": [
+              "Las motocicletas son pequeñas y su velocidad/distancia es difícil de juzgar. Mira dos veces en giros a la izquierda y antes de cambiar de carril.",
+              "Muchos choques suceden cuando un conductor gira a la izquierda frente a una moto. Cede hasta estar seguro de que el camino está libre.",
+              "Usa espejos y revisa puntos ciegos. Señaliza con anticipación para que los motociclistas conozcan tu plan."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Dale a las motocicletas todo el ancho del carril. No compartas el carril ni las aprietes." },
+              { "type": "TIP", "text": "Haz una pausa extra antes del giro a la izquierda para volver a buscar una moto que pueda estar oculta." },
+              { "type": "WARNING", "text": "El perfil pequeño hace que las motos se pasen por alto con facilidad." }
+            ],
+            "key_points": [
+              "Mira dos veces, especialmente antes de girar a la izquierda.",
+              "La moto ocupa todo el carril: no lo compartas."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 40, "section": "Compartir la vía con motociclistas" }
+            ]
+          },
+          {
+            "id": "u4-s3-l2",
+            "title": "Conciencia de carril compartido y distancia",
+            "minutes": 2,
+            "paragraphs": [
+              "En California, los motociclistas pueden circular entre carriles (lane splitting). No bloquees ni desalientes a quien lo haga.",
+              "Deja más espacio detrás de las motos. Mantén al menos 4 segundos de distancia y aumenta el espacio con mal clima.",
+              "Revisa espejos antes de cambiar de carril y evita movimientos bruscos que sorprendan al motociclista."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "No bloquees intencionalmente a un motociclista. Deja distancia adicional de seguimiento." },
+              { "type": "TIP", "text": "Si una moto circula entre carriles, mantén una trayectoria estable y no hagas cambios repentinos." },
+              { "type": "WARNING", "text": "Seguir muy de cerca a una moto puede causar un choque trasero grave." }
+            ],
+            "key_points": [
+              "El lane splitting es legal; no interfieras.",
+              "Usa una brecha de seguimiento de 4 segundos."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 41, "section": "Motociclistas y uso del carril" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "u4-s4",
+        "title": "Autobuses Escolares y Vehículos de Emergencia",
+        "lessons": [
+          {
+            "id": "u4-s4-l1",
+            "title": "Luces del autobús escolar y paradas",
+            "minutes": 3,
+            "paragraphs": [
+              "Las luces amarillas intermitentes indican que el autobús se prepara para detenerse. Reduce la velocidad y prepárate para detenerte.",
+              "Las luces rojas intermitentes y la paleta de ALTO significan que debes detenerte desde cualquier dirección hasta que las luces dejen de parpadear y los niños estén a salvo. Permanece detenido aunque tengas prisa.",
+              "Si el autobús está al otro lado de una autopista dividida o en una vía con un camellón físico, no tienes que detenerte. Aun así, procede con cuidado por niños cerca de la calzada."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Detente por las luces rojas intermitentes del autobús escolar desde cualquier dirección, salvo si estás al otro lado de una autopista dividida/camellón." },
+              { "type": "TIP", "text": "Busca a niños que puedan salir entre autos estacionados o frente al autobús." },
+              { "type": "WARNING", "text": "Nunca rodees un autobús escolar detenido con luces rojas intermitentes." }
+            ],
+            "key_points": [
+              "Amarillo = prepárate; Rojo = alto total.",
+              "La excepción principal es al otro lado de una vía dividida."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 46, "section": "Autobuses escolares" }
+            ]
+          },
+          {
+            "id": "u4-s4-l2",
+            "title": "Ceder a los vehículos de emergencia",
+            "minutes": 3,
+            "paragraphs": [
+              "Cuando veas luces rojas y oigas una sirena, oríllate a la derecha y detente. No te detengas dentro de una intersección.",
+              "Si ya estás dentro de la intersección, termina de cruzarla y luego oríllate a la derecha y detente. Mantén libres los cruces peatonales.",
+              "No sigas de cerca a un vehículo de emergencia que usa luces y sirena."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Cede el derecho de paso a los vehículos de emergencia orillándote a la derecha y deteniéndote." },
+              { "type": "TIP", "text": "Baja el volumen y entreabre una ventana en tráfico para oír las sirenas antes." },
+              { "type": "WARNING", "text": "Bloquear o detenerse en una intersección retrasa a los rescatistas y es ilegal." }
+            ],
+            "key_points": [
+              "Oríllate a la derecha y detente; nunca te quedes en la intersección.",
+              "Vuelve al carril solo cuando sea seguro."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 48, "section": "Vehículos de emergencia" }
+            ]
+          },
+          {
+            "id": "u4-s4-l3",
+            "title": "Ley de moverse a otro carril y cruces",
+            "minutes": 2,
+            "paragraphs": [
+              "Al acercarte a un vehículo de emergencia, grúa o Caltrans detenido con luces intermitentes, cámbiate a un carril no adyacente cuando sea seguro o reduce la velocidad. Esta es la regla de Moverse/Reducir la Velocidad.",
+              "Observa a los trabajadores en el acotamiento y prepárate para frenadas súbitas. Mantén libres intersecciones y cruces peatonales para movimientos de emergencia.",
+              "En vías de varios carriles, señaliza con anticipación y cambia de carril de forma suave. Si no puedes cambiar, reduce a una velocidad segura."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Muévete de carril o reduce la velocidad ante vehículos de emergencia o de servicio detenidos con luces intermitentes." },
+              { "type": "TIP", "text": "Planea el cambio de carril con anticipación para evitar giros bruscos cerca de trabajadores." },
+              { "type": "WARNING", "text": "No te detengas sobre cruces peatonales ni bloquees intersecciones." }
+            ],
+            "key_points": [
+              "Muévete o reduce la velocidad cerca de luces intermitentes y trabajadores.",
+              "Mantén libres intersecciones y cruces."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 49, "section": "Moverse/Reducir la velocidad" },
+              { "source": "DL-600-ES-2025", "page": 55, "section": "Zonas de trabajo" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "u4-s5",
+        "title": "Camiones Grandes y Zonas de Trabajo",
+        "lessons": [
+          {
+            "id": "u4-s5-l1",
+            "title": "Puntos ciegos (No‑Zones) y giros amplios",
+            "minutes": 3,
+            "paragraphs": [
+              "Los camiones y autobuses tienen grandes puntos ciegos llamados No‑Zones en los cuatro lados. Si no ves los espejos del conductor, él no puede verte.",
+              "Deja más espacio porque los camiones necesitan más distancia para girar y frenar. Espera giros amplios a la derecha que pueden iniciar desde el carril izquierdo.",
+              "Nunca te metas entre un camión que gira y la banqueta. Mantente atrás y permite que complete el giro."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "No circules por tiempo prolongado en los puntos ciegos de un camión. Cede espacio para giros amplios." },
+              { "type": "TIP", "text": "Si un camión señala giro a la derecha, no lo rebases por ese lado." },
+              { "type": "WARNING", "text": "Quedarte al lado de un camión o muy cerca detrás te oculta en un No‑Zone." }
+            ],
+            "key_points": [
+              "Evita los puntos ciegos: frente, laterales y parte trasera.",
+              "Permite giros amplios."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 69, "section": "Compartir la vía con vehículos grandes" },
+              { "source": "DL-600-ES-2025", "page": 70, "section": "No‑Zones (puntos ciegos)" }
+            ]
+          },
+          {
+            "id": "u4-s5-l2",
+            "title": "Rebases e incorporaciones alrededor de camiones",
+            "minutes": 3,
+            "paragraphs": [
+              "Rebasa camiones por la izquierda y no permanezcas a su lado. Asegúrate de ver todo el frente del camión en tu espejo antes de volver al carril.",
+              "No te le cierres a un camión ni te incorpores a baja velocidad. Los camiones tardan más en frenar por su tamaño y peso.",
+              "Deja espacio en bajadas y con lluvia o viento. Aumenta tu distancia de seguimiento detrás de ellos."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "No vuelvas al carril hasta tener suficiente espacio delante del camión." },
+              { "type": "TIP", "text": "Si un camión te rebasa, reduce un poco para darle espacio y disminuir ráfagas de viento." },
+              { "type": "WARNING", "text": "Cortarle el paso a un camión puede provocar alcances por sus largas distancias de frenado." }
+            ],
+            "key_points": [
+              "Rebasa por la izquierda y no permanezcas en puntos ciegos.",
+              "Deja espacio adicional: frenan más lento."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 71, "section": "Rebasar vehículos grandes" }
+            ]
+          },
+          {
+            "id": "u4-s5-l3",
+            "title": "Zonas de trabajo y bandereros",
+            "minutes": 3,
+            "paragraphs": [
+              "Señales naranjas, conos y tableros de flechas indican una zona de trabajo. Reduce la velocidad y prepárate para desvíos y frenadas repentinas.",
+              "Obedece a los bandereros; sus indicaciones tienen la misma autoridad que las señales y semáforos. Las multas y sanciones pueden aumentar en estas zonas.",
+              "Fusiónate temprano y deja espacio adicional alrededor de trabajadores y equipo. Evita distracciones."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Obedece a los bandereros y los límites reducidos de velocidad. Espera multas más altas por infracciones." },
+              { "type": "TIP", "text": "Mira lejos para leer señales con anticipación y poder cambiarte de carril con calma." },
+              { "type": "WARNING", "text": "Cambios de carril de último momento cerca de conos causan choques." }
+            ],
+            "key_points": [
+              "Reduce la velocidad y sigue a los bandereros.",
+              "Fusiónate con anticipación y da espacio a los trabajadores."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 55, "section": "Zonas de trabajo" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "u4-s6",
+        "title": "Cruces Ferroviarios y Animales",
+        "lessons": [
+          {
+            "id": "u4-s6-l1",
+            "title": "Cruces activos vs. pasivos",
+            "minutes": 3,
+            "paragraphs": [
+              "Los cruces activos tienen plumas, timbres o luces rojas intermitentes. Obedece todas las señales y nunca rodees plumas abajo.",
+              "Los cruces pasivos pueden tener solo una cruz o letrero. Reduce la velocidad, mira a ambos lados, escucha y asegúrate de tener espacio del otro lado antes de cruzar.",
+              "Nunca te detengas sobre las vías. Si el tráfico se detiene, espera antes de las vías hasta poder despejarlas por completo."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Detente cuando las luces rojas parpadeen o bajen las plumas. No rodees la pluma." },
+              { "type": "TIP", "text": "Baja el volumen y abre un poco la ventana para escuchar trenes, especialmente en cruces pasivos." },
+              { "type": "WARNING", "text": "Los trenes son más anchos que las vías y requieren largas distancias para detenerse." }
+            ],
+            "key_points": [
+              "Activo = obedece señales; Pasivo = reduce, mira y escucha.",
+              "Asegura espacio más allá de las vías antes de cruzar."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 52, "section": "Cruces de ferrocarril" }
+            ]
+          },
+          {
+            "id": "u4-s6-l2",
+            "title": "Si te quedas sobre las vías",
+            "minutes": 2,
+            "paragraphs": [
+              "Si tu vehículo se apaga o queda atorado sobre las vías, salgan todos de inmediato. Si viene un tren, corran en dirección al tren en un ángulo lejos de las vías.",
+              "Usa el letrero azul del Sistema de Notificación de Emergencias (ENS) en el cruce para pedir ayuda. Da al operador el número de identificación del cruce.",
+              "Llama al 9‑1‑1 y al número ferroviario del letrero. Solo intentes mover el vehículo si no hay tren a la vista y es seguro."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Usa el letrero ENS para reportar emergencias en cruces y sigue las instrucciones de las autoridades." },
+              { "type": "TIP", "text": "Identifica dónde está el letrero azul ENS en los cruces que usas con frecuencia." },
+              { "type": "WARNING", "text": "No pierdas tiempo con pertenencias: sal primero." }
+            ],
+            "key_points": [
+              "Sal del vehículo y aléjate en ángulo hacia el tren.",
+              "Llama con el letrero ENS y al 9‑1‑1."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 53, "section": "Letrero de notificación de emergencia (ENS)" }
+            ]
+          },
+          {
+            "id": "u4-s6-l3",
+            "title": "Animales y vehículos lentos/agrícolas",
+            "minutes": 3,
+            "paragraphs": [
+              "Atiende señales de cruce de animales y jinetes a caballo. Reduce la velocidad y sigue las señales de mano del jinete o las instrucciones de los encargados.",
+              "No toques la bocina cerca de caballos o ganado. Dales espacio extra y prepárate para detenerte si se asustan.",
+              "Los vehículos lentos llevan un triángulo naranja y suelen circular a 25 mph o menos. Rebasa solo cuando sea legal y seguro, dejando amplio espacio."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Cede a los jinetes y encargados de animales cuando te indiquen detenerte o reducir la velocidad." },
+              { "type": "TIP", "text": "Espera maquinaria agrícola que entre a la vía cerca de campos y entradas." },
+              { "type": "WARNING", "text": "Usar la bocina de forma repentina puede espantar a los animales y causar choques." }
+            ],
+            "key_points": [
+              "Da espacio adicional a animales y encargados; evita ruidos fuertes.",
+              "Triángulo naranja = vehículo lento (≈25 mph o menos)."
+            ],
+            "citations": [
+              { "source": "DL-600-ES-2025", "page": 57, "section": "Animales y jinetes" },
+              { "source": "DL-600-ES-2025", "page": 58, "section": "Vehículos de movimiento lento" }
+            ]
+          }
+        ]
+      }
+    ],
+    "glossary": [
+      {
+        "term": "No‑Zone",
+        "definition": "Puntos ciegos de vehículos grandes donde tu auto puede quedar oculto para el conductor.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 70, "section": "No‑Zones (puntos ciegos)" }]
+      },
+      {
+        "term": "Tres Pies por Seguridad",
+        "definition": "Regla de California que exige al menos 3 pies de separación al rebasar a un ciclista.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 35, "section": "Ciclistas" }]
+      },
+      {
+        "term": "Letrero ENS",
+        "definition": "Letrero azul del Sistema de Notificación de Emergencias en cruces ferroviarios con ID del cruce y teléfono.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 53, "section": "Letrero de notificación de emergencia (ENS)" }]
+      },
+      {
+        "term": "Ley de moverse a otro carril",
+        "definition": "Obligación de cambiar de carril o reducir la velocidad ante vehículos detenidos con luces intermitentes.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 49, "section": "Moverse/Reducir la velocidad" }]
+      },
+      {
+        "term": "Cruce ferroviario pasivo",
+        "definition": "Cruce sin plumas ni luces; el conductor debe mirar y escuchar por trenes.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 52, "section": "Cruces de ferrocarril" }]
+      },
+      {
+        "term": "Emblema de vehículo lento",
+        "definition": "Triángulo naranja en vehículos que circulan a 25 mph o menos, como maquinaria agrícola.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 58, "section": "Vehículos de movimiento lento" }]
+      },
+      {
+        "term": "Lane splitting",
+        "definition": "Motociclista que circula entre carriles; es legal en California cuando se hace con seguridad.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 41, "section": "Motociclistas y uso del carril" }]
+      },
+      {
+        "term": "Cruce peatonal",
+        "definition": "Parte de la calzada destinada para que crucen las personas, marcado o no marcado en intersecciones.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 32, "section": "Cruces peatonales e intersecciones" }]
+      }
+    ],
+    "review": {
+      "summary": [
+        "Cede a los peatones en cruces, incluidos los no marcados, y detente por bastón blanco o perro guía.",
+        "Deja 3 pies a ciclistas, incorpórate al carril para bicicletas antes de girar a la derecha y revisa antes de abrir puertas.",
+        "Respeta a las motos: dales todo el carril y una distancia de 4 segundos; no bloquees el lane splitting.",
+        "Detente por luces rojas del autobús escolar; oríllate a la derecha y detente por vehículos de emergencia; muévete o reduce la velocidad ante luces intermitentes en el acotamiento.",
+        "Evita No‑Zones de camiones, reduce en zonas de trabajo y usa máxima precaución en cruces ferroviarios y con animales o vehículos agrícolas."
+      ],
+      "flashcards": [
+        { "front": "¿Cuánto espacio debes dejar al rebasar a un ciclista?", "back": "Al menos 3 pies; más a mayores velocidades.", "citations": [{ "source": "DL-600-ES-2025", "page": 35, "section": "Ciclistas" }] },
+        { "front": "¿Qué haces cuando un autobús escolar tiene luces rojas intermitentes?", "back": "Detenerte desde cualquier dirección hasta que las luces se apaguen, salvo al otro lado de una vía dividida.", "citations": [{ "source": "DL-600-ES-2025", "page": 46, "section": "Autobuses escolares" }] },
+        { "front": "¿Qué distancia debes dejar detrás de una motocicleta?", "back": "Al menos 4 segundos de separación.", "citations": [{ "source": "DL-600-ES-2025", "page": 41, "section": "Motociclistas y uso del carril" }] },
+        { "front": "¿Qué es un No‑Zone?", "back": "Un punto ciego de un vehículo grande donde tu auto puede no ser visto.", "citations": [{ "source": "DL-600-ES-2025", "page": 70, "section": "No‑Zones (puntos ciegos)" }] },
+        { "front": "¿Qué haces en un cruce ferroviario pasivo?", "back": "Reducir, mirar y escuchar, y cruzar solo si hay espacio del otro lado.", "citations": [{ "source": "DL-600-ES-2025", "page": 52, "section": "Cruces de ferrocarril" }] },
+        { "front": "¿Qué exige la ley de moverse a otro carril?", "back": "Cambiarte a un carril no adyacente o reducir a una velocidad segura cerca de luces intermitentes en el acotamiento.", "citations": [{ "source": "DL-600-ES-2025", "page": 49, "section": "Moverse/Reducir la velocidad" }] },
+        { "front": "¿Qué significa el triángulo naranja atrás de un vehículo?", "back": "Es un vehículo de movimiento lento (≈25 mph o menos).", "citations": [{ "source": "DL-600-ES-2025", "page": 58, "section": "Vehículos de movimiento lento" }] }
+      ]
+    }
+  }

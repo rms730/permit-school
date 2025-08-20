@@ -2,8 +2,8 @@
   "name": "permit-school",
   "private": true,
   "scripts": {
-    "env:copy:root": "node -e \"const fs=require('fs'); if(!fs.existsSync('.env.local')) fs.copyFileSync('.env.local.example','.env.local')\"",
-    "env:copy:web": "node -e \"const fs=require('fs'); if(!fs.existsSync('web/.env.local')) fs.copyFileSync('web/.env.local.example','web/.env.local')\"",
+    "env:copy:root": "node -e \"const fs=require('fs'); if(!fs.existsSync('.env.local')) fs.copyFileSync('.env.local.example','.env.local'); if(!fs.existsSync('.env.dev')) fs.copyFileSync('.env.dev.example','.env.dev'); if(!fs.existsSync('.env.prod')) fs.copyFileSync('.env.prod.example','.env.prod')\"",
+    "env:copy:web": "node -e \"const fs=require('fs'); if(!fs.existsSync('web/.env.local')) fs.copyFileSync('web/.env.local.example','web/.env.local'); if(!fs.existsSync('web/.env.development')) fs.copyFileSync('web/.env.development.example','web/.env.development'); if(!fs.existsSync('web/.env.production')) fs.copyFileSync('web/.env.production.example','web/.env.production')\"",
     "env:copy": "npm run env:copy:root && npm run env:copy:web",
     "env:check:local": "node tools/env/check.mjs --env=local",
     "env:check:dev": "node tools/env/check.mjs --env=development",

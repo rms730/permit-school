@@ -1,1 +1,174 @@
-{}
+{
+    "unit": 3,
+    "j_code": "CA",
+    "course_code": "DE-ONLINE",
+    "lang": "en",
+    "title": "Freeways & Adverse Conditions",
+    "minutes_required": 90,
+    "objectives": [
+      "Apply California's Basic Speed Law on freeways and during poor weather.",
+      "Enter, merge, and exit freeways safely using correct lane and space management.",
+      "Maintain safe following distances at freeway speeds and when conditions worsen.",
+      "Navigate HOV lanes, double white lines, gore areas, and ramp meters correctly.",
+      "Adapt driving for rain, fog, wind, night, and mountain grades.",
+      "Respond to breakdowns and incidents on the freeway safely and legally."
+    ],
+    "sections": [
+      {
+        "sectionId": "u3_s1",
+        "title": "Freeway Foundations",
+        "lessons": [
+          {
+            "lessonId": "u3_s1_l1",
+            "title": "What Makes a Freeway Different",
+            "paragraphs": [
+              "Freeways are high-speed, controlled-access roads with limited entry and exit points. Because speeds are higher, small mistakes can become serious quickly—so lane discipline and space management matter more.",
+              "You may not stop, park, or back up on a freeway except for emergencies or when directed by law enforcement. Plan your route ahead, and commit to your lane until you can change safely.",
+              "Most California freeways have a maximum speed limit of 65 mph unless posted otherwise. However, the Basic Speed Law requires you to never drive faster than is safe for current conditions—even if that is below the posted limit.",
+              "Interchanges, acceleration lanes, and deceleration lanes are designed to separate entering and exiting traffic from mainline flow. Use them to build speed before merging and to slow down after exiting."
+            ]
+          },
+          {
+            "lessonId": "u3_s1_l2",
+            "title": "Lane Lines, HOV Lanes & Double Lines",
+            "paragraphs": [
+              "A solid white line marks lane edges and areas where lane changes are discouraged. A broken white line separates lanes moving in the same direction—lane changes are allowed when safe.",
+              "HOV (carpool) lanes are marked with a white diamond symbol and may be separated by double white lines. Do not cross double solid white lines; enter and exit only where permitted by broken lines or designated openings.",
+              "The left-most lane is typically the passing lane. Cruising below traffic speed in the left lane can create hazards. Move right when you are not passing.",
+              "Gore areas—the triangular painted zones near ramps—are off-limits. Never drive over or stop in a gore area."
+            ]
+          }
+        ]
+      },
+      {
+        "sectionId": "u3_s2",
+        "title": "Merging & Exiting",
+        "lessons": [
+          {
+            "lessonId": "u3_s2_l1",
+            "title": "Ramp Metering & Acceleration",
+            "paragraphs": [
+              "Ramp meters release vehicles at timed intervals to smooth traffic. Obey the signal as you would a regular traffic light—stop on red, go on green, usually one car per green unless otherwise posted.",
+              "Use the entire length of the acceleration lane to match the speed of freeway traffic. Signal early, check mirrors and blind spots, and merge into the first safe gap without forcing other drivers to brake hard.",
+              "If two lanes are merging into one, the safest approach is the ‘zipper merge’: cars alternate, one from each lane. Don’t race or block other drivers—cooperation reduces collisions and keeps traffic moving.",
+              "If you overshoot your exit or miss a gap to merge, do not stop on the ramp or shoulder. Continue safely to the next exit and reroute."
+            ]
+          },
+          {
+            "lessonId": "u3_s2_l2",
+            "title": "Deceleration & Exit Technique",
+            "paragraphs": [
+              "Signal and move to the exit lane early. Do not slow down on the main freeway lanes—use the deceleration lane to reduce speed after you enter it.",
+              "Read exit signs in advance to avoid last-second lane changes. If you miss your exit, continue to the next one and loop back.",
+              "Beware of short, tight exit ramps. Brake smoothly and anticipate sharper curves. Watch for queued traffic at the end of the ramp.",
+              "Never cross a gore area or solid white lines to make a late exit. The risk of a collision is high and it is illegal."
+            ]
+          }
+        ]
+      },
+      {
+        "sectionId": "u3_s3",
+        "title": "Speed, Space & Passing",
+        "lessons": [
+          {
+            "lessonId": "u3_s3_l1",
+            "title": "Basic Speed Law & Following Distance",
+            "paragraphs": [
+              "California’s Basic Speed Law: Never drive faster than is safe for current conditions—traffic, weather, visibility, and road surface. A posted limit is not a target in rain, fog, or heavy traffic.",
+              "Use at least a 3-second following distance in ideal conditions. At freeway speeds or in poor conditions, extend to 4–6 seconds for more time to react.",
+              "Increase space behind large vehicles and motorcycles. They need more room to maneuver and stop; your view may be blocked behind big trucks or buses.",
+              "If someone tailgates you, maintain your speed, avoid braking suddenly, and change lanes when safe to let them pass."
+            ]
+          },
+          {
+            "lessonId": "u3_s3_l2",
+            "title": "Passing Safely",
+            "paragraphs": [
+              "Pass on the left when possible; scanning ahead for enough open space to complete the pass without speeding excessively or cutting off other drivers.",
+              "Large trucks create wind turbulence and have longer blind spots (especially on the right). Pass quickly and safely—don’t linger alongside.",
+              "Never pass on the shoulder and never weave between lanes. Aggressive lane changes cause crashes and rarely save time in congestion.",
+              "After passing, signal and return to your lane only when you see the entire front of the vehicle you passed in your rearview mirror."
+            ]
+          }
+        ]
+      },
+      {
+        "sectionId": "u3_s4",
+        "title": "Adverse Weather: Rain, Fog & Wind",
+        "lessons": [
+          {
+            "lessonId": "u3_s4_l1",
+            "title": "Rain & Hydroplaning",
+            "paragraphs": [
+              "Rain reduces tire traction and lengthens stopping distances. Slow down, increase following distance, and avoid hard braking.",
+              "Hydroplaning occurs when your tires ride on a thin film of water. If it happens, ease off the accelerator, keep steering straight, and do not brake or turn abruptly.",
+              "Use your windshield wipers and low-beam headlights in rain (‘wipers on, lights on’). High beams can create glare on wet surfaces.",
+              "Avoid standing water—hidden potholes and loss of control are common. If you must drive through, go slowly and test your brakes afterward."
+            ]
+          },
+          {
+            "lessonId": "u3_s4_l2",
+            "title": "Fog & Smoke",
+            "paragraphs": [
+              "Use low-beam headlights in fog or smoke. High beams reflect off particles and reduce visibility.",
+              "If visibility is extremely limited, slow down, increase following distance, and use the right edge line (fog line) as a guide.",
+              "Avoid sudden stops. If you cannot continue, exit the freeway if possible. Never stop in a travel lane. If you must pull over, move far onto the shoulder and use hazard lights.",
+              "Use defrosters to keep windows clear. Keep interior lights low to reduce reflections."
+            ]
+          }
+        ]
+      },
+      {
+        "sectionId": "u3_s5",
+        "title": "Night & Mountain Driving",
+        "lessons": [
+          {
+            "lessonId": "u3_s5_l1",
+            "title": "Night Driving Essentials",
+            "paragraphs": [
+              "Night reduces visibility and depth perception. Slow down and increase following distance.",
+              "Use high beams on open roads when there is no oncoming traffic and dim them when following another vehicle or approaching one.",
+              "Keep your eyes moving—don’t stare at headlights. Glance to the right edge of your lane if oncoming lights are too bright.",
+              "Clean windshields and headlights help visibility. Fatigue is dangerous—take breaks and avoid driving drowsy."
+            ]
+          },
+          {
+            "lessonId": "u3_s5_l2",
+            "title": "Hills, Grades & Engine Braking",
+            "paragraphs": [
+              "On long downhill grades, shift to a lower gear to use engine braking. Riding the brakes can overheat them and reduce stopping power.",
+              "Maintain a steady speed on climbs and use the right lane if you are moving slower than traffic. Watch for slow vehicle turnouts.",
+              "In mountainous areas, weather can change quickly. Carry chains when required and follow chain control signs and instructions.",
+              "Use extra caution on curves—speed and gravity can push your vehicle outward. Enter curves slowly and accelerate gently through."
+            ]
+          }
+        ]
+      },
+      {
+        "sectionId": "u3_s6",
+        "title": "Freeway Incidents & Work Zones",
+        "lessons": [
+          {
+            "lessonId": "u3_s6_l1",
+            "title": "Breakdowns & Collisions on the Freeway",
+            "paragraphs": [
+              "If your vehicle fails, signal, move right, and coast onto the shoulder. Turn wheels to the right, turn on hazard lights, and stay inside with seatbelts on if close to traffic.",
+              "If you must exit the vehicle, do so from the side away from traffic and stand well off the roadway. Use flares or triangles if safe to place.",
+              "For minor crashes without injuries, move vehicles out of traffic if possible. Exchange information and wait for assistance in a safe place.",
+              "California’s Move Over law: When approaching stationary emergency or tow vehicles with flashing lights, move to a non-adjacent lane if safe, or slow down significantly."
+            ]
+          },
+          {
+            "lessonId": "u3_s6_l2",
+            "title": "Work Zones",
+            "paragraphs": [
+              "Work zones can have lane closures, workers near traffic, and sudden slowdowns. Reduce speed, increase following distance, and obey all signs and flaggers.",
+              "Fines for violations in work zones can be higher. Stay alert for trucks entering or exiting the roadway.",
+              "Follow temporary lane lines and channelizing devices. Do not drive over cones, drums, or temporary markings.",
+              "Avoid distractions—put the phone away and focus on the changing road environment."
+            ]
+          }
+        ]
+      }
+    ]
+  }

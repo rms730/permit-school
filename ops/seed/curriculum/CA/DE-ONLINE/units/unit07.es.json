@@ -1,1 +1,459 @@
-{}
+{
+    "unitId": "U07",
+    "title": "Conducir bajo los efectos, distraído y con sueño",
+    "estimatedTimeMinutes": 78,
+    "objectives": [
+      "Identificar formas comunes de incapacidad (alcohol, drogas/medicamentos, cannabis, fatiga y distracciones).",
+      "Explicar las consecuencias legales, incluyendo la regla de Tolerancia Cero para menores de 21 años y el consentimiento implícito en California.",
+      "Aplicar las reglas sobre uso de celular/mensajes y hábitos seguros con la tecnología del vehículo.",
+      "Reconocer señales de somnolencia y elegir estrategias de prevención.",
+      "Elegir alternativas seguras: conductor designado, viajes por aplicación, retrasar el viaje y acuerdos familiares."
+    ],
+    "sections": [
+      {
+        "id": "U07-S01",
+        "title": "Conceptos básicos del alcohol",
+        "lessons": [
+          {
+            "id": "U07-L01",
+            "title": "Cómo afecta el alcohol al manejo",
+            "durationMinutes": 6,
+            "objectives": [
+              "Describir cómo el alcohol retrasa el tiempo de reacción y la toma de decisiones.",
+              "Relacionar la incapacidad con situaciones reales al volante."
+            ],
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "El alcohol es un depresor. Reduce la capacidad del cerebro para notar peligros, juzgar velocidad/distancia y reaccionar a tiempo. Incluso una pequeña cantidad puede afectar el manejo seguro."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Reacciones más lentas: el frenado y las correcciones de volante se demoran.",
+                  "Atención reducida: se pasan peatones/ciclistas o nuevas señales.",
+                  "Decisiones de riesgo: ir pegado, exceder velocidad, no hacer alto completo."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Escenario: Después del partido del viernes, un amigo dice estar ‘bien’ tras una sola bebida. En el camino, una pelota rueda a la calle. El tiempo de reacción afectado puede convertirlo en choque."
+              },
+              {
+                "type": "list",
+                "style": "ordered",
+                "items": [
+                  "Detecta riesgos con anticipación: observa 10+ segundos al frente y deja espacio.",
+                  "Si consumiste alcohol, no manejes: elige una alternativa.",
+                  "Como pasajero, di algo y cambia el plan."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "U07-L02",
+            "title": "Conceptos de BAC y decisiones seguras",
+            "durationMinutes": 6,
+            "objectives": [
+              "Explicar qué es el BAC y por qué ‘estar bajo el límite’ igual puede ser inseguro.",
+              "Comprometerse con un plan de no manejar cuando hay alcohol."
+            ],
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "La concentración de alcohol en sangre (BAC) mide el alcohol en tu torrente sanguíneo. California establece límites legales, pero cualquier incapacidad puede ser peligrosa. ‘Bajo el límite’ no significa ‘seguro’."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Factores que cambian el BAC: talla, tiempo, comida, fuerza de la bebida.",
+                  "Solo el tiempo baja el BAC; el café o una ducha fría no ‘despiertan’.",
+                  "Planea antes: conductor designado, viajes por aplicación o quedarse."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "La mejor decisión: acuerda tu transporte antes del evento. Envía a tu madre/padre o adulto de confianza el plan y un respaldo."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Nunca viajes con un conductor incapacitado.",
+                  "Si el plan falla, retrasa el viaje hasta tener transporte sobrio.",
+                  "Sigue la ley vigente de CA y la guía del manual del DMV para umbrales legales y reglas de tolerancia cero."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U07-S02",
+        "title": "Tolerancia Cero y consentimiento implícito",
+        "lessons": [
+          {
+            "id": "U07-L03",
+            "title": "Menores de 21: Tolerancia Cero",
+            "durationMinutes": 7,
+            "objectives": [
+              "Indicar la regla de tolerancia cero para conductores menores de 21 años.",
+              "Aplicar reglas sobre alcohol/cannabis dentro del vehículo para menores de 21."
+            ],
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "La ley de Tolerancia Cero de California aplica a conductores menores de 21 años. Si un oficial sospecha consumo de alcohol, puede requerir una prueba; incluso cantidades muy bajas pueden provocar acciones sobre la licencia."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Cero alcohol en tu sistema al manejar si eres menor de 21.",
+                  "No portar alcohol en el vehículo salvo condiciones del manual (p. ej., sellado y acompañado por persona de 21+ en situaciones específicas).",
+                  "Es ilegal beber alcohol o fumar/ingerir cannabis mientras manejas o vas de pasajero."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Las consecuencias pueden incluir decomiso del vehículo, multas y suspensión/demora del privilegio de manejar según la ley vigente de California y la guía del DMV."
+              },
+              {
+                "type": "paragraph",
+                "text": "En resumen: menor de 21 = cero alcohol al manejar y reglas estrictas al transportar alcohol."
+              }
+            ]
+          },
+          {
+            "id": "U07-L04",
+            "title": "Consentimiento implícito y proceso por DUI",
+            "durationMinutes": 6,
+            "objectives": [
+              "Explicar el consentimiento implícito en California.",
+              "Reconocer acciones administrativas posibles tras un arresto por DUI."
+            ],
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Al manejar en California aceptas someterte a pruebas químicas cuando se soliciten legalmente (consentimiento implícito). Negarte puede resultar en suspensión o revocación de la licencia."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Si te arrestan por presunto DUI, puede haber acciones administrativas del DMV.",
+                  "Puedes tener que completar un programa de DUI, presentar comprobante de seguro de alto riesgo y, en algunos casos, instalar un alcoholímetro de arranque.",
+                  "Las condenas por DUI permanecen en el expediente por años según la ley vigente."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Si eres menor de 21, pueden aplicar consecuencias adicionales por tolerancia cero. Sigue la ley de CA y la guía del manual del DMV."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U07-S03",
+        "title": "Medicamentos, cannabis y combinaciones",
+        "lessons": [
+          {
+            "id": "U07-L05",
+            "title": "Medicamentos recetados y de mostrador",
+            "durationMinutes": 6,
+            "objectives": [
+              "Identificar etiquetas que advierten somnolencia o no manejar.",
+              "Explicar cómo medicamentos comunes afectan el manejo."
+            ],
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Muchos medicamentos recetados y de venta libre pueden afectar la atención, la vista y el tiempo de reacción. Lee etiquetas y consulta a tu profesional de salud antes de manejar."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Antigripales/antialérgicos y jarabes para la tos pueden causar sueño.",
+                  "Analgésicos y relajantes musculares retrasan la reacción.",
+                  "Nunca mezcles medicamentos con alcohol: la incapacidad se multiplica."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Si una etiqueta indica ‘No opere un vehículo o maquinaria’, no manejes. Elige una alternativa segura."
+              }
+            ]
+          },
+          {
+            "id": "U07-L06",
+            "title": "Cannabis y mezclar sustancias",
+            "durationMinutes": 6,
+            "objectives": [
+              "Describir efectos del cannabis relevantes al manejo (atención, tiempo‑distancia, reacción).",
+              "Elegir alternativas seguras cuando hay sustancias presentes."
+            ],
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "El cannabis puede distorsionar la percepción de tiempo/distancia, ralentizar la reacción y reducir la atención. Manejar con incapacidad por cannabis es ilegal."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Es ilegal fumar o ingerir cannabis mientras manejas o viajas como pasajero.",
+                  "Los envases/productos abiertos deben guardarse según se requiere (p. ej., en la cajuela si están abiertos).",
+                  "Mezclar cannabis con alcohol u otras drogas/medicamentos aumenta el riesgo de choque."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Si hay cannabis en tus planes, no manejes. Usa un conductor sobrio o espera hasta estar sin efectos y sea legal y seguro hacerlo."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U07-S04",
+        "title": "Celular, mensajes y tecnología a bordo",
+        "lessons": [
+          {
+            "id": "U07-L07",
+            "title": "Reglas sobre celular y mensajes",
+            "durationMinutes": 7,
+            "objectives": [
+              "Aplicar reglas de California para adultos y menores de 18 sobre el teléfono.",
+              "Montar y operar el celular legalmente si es imprescindible."
+            ],
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Usar el celular en la mano al manejar es ilegal. Adultos solo manos libres cuando sea necesario y bien montado. Menores no pueden usar celular o dispositivo inalámbrico al manejar, salvo emergencias."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Móntalo en el parabrisas, tablero o consola central sin bloquear la vista.",
+                  "Si debes interactuar, un toque/deslizar en un teléfono montado—no lo sostengas.",
+                  "Mejor práctica: silencia notificaciones y usa No Molestar al Conducir."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Más seguro: detente en un lugar legal y seguro para llamar o enviar mensajes."
+              }
+            ]
+          },
+          {
+            "id": "U07-L08",
+            "title": "Infoentretenimiento y otras distracciones",
+            "durationMinutes": 6,
+            "objectives": [
+              "Identificar distracciones comunes en el vehículo.",
+              "Adoptar hábitos más seguros con la tecnología antes de avanzar."
+            ],
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "La navegación, listas de reproducción y pantallas del vehículo pueden desviar ojos, manos y mente. Configura todo antes de poner la palanca en DRIVE."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Programa GPS y música antes del viaje.",
+                  "Usa controles por voz cuando existan, pero recuerda que igual distraen.",
+                  "Si necesitas ajustar algo, estaciona primero."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Recuerda: ‘ojos fuera del camino’ por pocos segundos a velocidad equivale a recorrer a ciegas una gran distancia."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U07-S05",
+        "title": "Conducir con sueño",
+        "lessons": [
+          {
+            "id": "U07-L09",
+            "title": "Señales de alerta y bajones circadianos",
+            "durationMinutes": 6,
+            "objectives": [
+              "Reconocer señales de somnolencia al volante.",
+              "Comprender momentos del día con mayor riesgo de fatiga."
+            ],
+            "content": [
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Bostezos, párpados pesados o desviarse del carril.",
+                  "Olvidar salidas o no recordar los últimos kilómetros.",
+                  "Cabeceos (‘microsueños’), vibradores/banquetas sonoras."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Los ‘bajones’ circadianos aumentan el riesgo—madrugada/noche muy tarde y media tarde. No confíes en bebidas energéticas; su efecto se va."
+              },
+              {
+                "type": "paragraph",
+                "text": "Si sientes sueño, ya estás incapacitado. Deja de manejar."
+              }
+            ]
+          },
+          {
+            "id": "U07-L10",
+            "title": "Estrategias de prevención",
+            "durationMinutes": 6,
+            "objectives": [
+              "Planear descanso y manejo compartido para evitar fatiga.",
+              "Actuar con decisión cuando aparece el sueño."
+            ],
+            "content": [
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Duerme lo suficiente antes de manejar; evita salidas muy tarde.",
+                  "Toma descansos cada 1–2 horas en viajes largos.",
+                  "Comparte el volante en viajes de grupo; rota conductores.",
+                  "Detente en un lugar seguro para una siesta corta si es necesario."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Si un medicamento te causa somnolencia, no manejes—cambia la hora o elige otro transporte."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U07-S06",
+        "title": "Pasajeros, comida y distracciones cotidianas",
+        "lessons": [
+          {
+            "id": "U07-L11",
+            "title": "Amigos, música y presión social",
+            "durationMinutes": 6,
+            "objectives": [
+              "Gestionar la conducta de los pasajeros y la presión de pares.",
+              "Evitar que música y charlas se apoderen de la atención."
+            ],
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Los pasajeros pueden ayudar como ‘observadores’—o distraer mucho. Como conductor, tú fijas las reglas."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Limita cantos/gritos y discusiones en el asiento trasero.",
+                  "Pide a un pasajero que maneje música o navegación.",
+                  "Si te presionan para apurarte o textear—di no y detente si es necesario."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Escenario: tus amigos quieren grabar ‘historias’. No puedes filmar al manejar. Estaciónate o entrega el teléfono."
+              }
+            ]
+          },
+          {
+            "id": "U07-L12",
+            "title": "Comidas, bebidas y objetos sueltos",
+            "durationMinutes": 5,
+            "objectives": [
+              "Explicar cómo comer, derrames o mascotas sueltas distraen.",
+              "Preparar la cabina para minimizar movimientos y buscar cosas."
+            ],
+            "content": [
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Bebidas calientes y comida desordenada provocan reacciones bruscas.",
+                  "Asegura mochilas, equipo y proyectos para que no rueden.",
+                  "Sujeta adecuadamente a las mascotas; no las lleves en el regazo."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Mejor decisión: come antes o después de manejar, no durante."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U07-S07",
+        "title": "Aplicación de la ley, sanciones y alternativas seguras",
+        "lessons": [
+          {
+            "id": "U07-L13",
+            "title": "Aplicación de la ley y sanciones (panorama)",
+            "durationMinutes": 7,
+            "objectives": [
+              "Resumir posibles acciones sobre la licencia y sanciones por DUI o infracciones de menores.",
+              "Explicar pasos administrativos posibles tras un arresto."
+            ],
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "La ley de California contempla consecuencias serias por DUI e infracciones de menores. Puede haber acciones administrativas y sanciones judiciales. Se pueden exigir programas de DUI, comprobantes de seguro y, en algunos casos, alcoholímetro de arranque."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Para menores de 21, ciertas infracciones pueden implicar decomiso, multas y suspensión/demora del privilegio de manejar.",
+                  "Las condenas por DUI permanecen por años según la ley vigente.",
+                  "Sigue siempre la ley de CA y la guía del manual del DMV."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "U07-L14",
+            "title": "Alternativas seguras y acuerdos familiares",
+            "durationMinutes": 7,
+            "objectives": [
+              "Crear un plan práctico para salidas, partidos y fiestas.",
+              "Usar acuerdos para prevenir manejo bajo efectos o distraído."
+            ],
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Plan A/B/C: (A) conductor sobrio designado, (B) viaje por aplicación/taxi, (C) llamar a madre/padre o adulto de confianza. Primero la seguridad."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Comparte tu ubicación con un adulto de confianza cuando salgas tarde.",
+                  "Envía el plan de transporte antes del evento.",
+                  "Acuerdo familia‑adolescente: sin celular, cero alcohol/drogas y detenerse si hay sueño."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Si un amigo está incapacitado, quítale las llaves y elige transporte sobrio. La amistad cuida."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

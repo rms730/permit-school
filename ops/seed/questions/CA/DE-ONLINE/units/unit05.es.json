@@ -1,1 +1,276 @@
-{}
+{
+    "course": { "j_code": "CA", "course_code": "DE-ONLINE" },
+    "unit_no": 5,
+    "questions": [
+      {
+        "id": "U5Q1",
+        "skill": "mindset",
+        "difficulty": 1,
+        "stem": "El objetivo principal de la conducción defensiva es:",
+        "choices": [
+          "Reducir el riesgo anticipando peligros y dejando tiempo y espacio para reaccionar.",
+          "Llegar lo más rápido posible siguiendo al tráfico más veloz.",
+          "Enfocarse solo en tu carril e ignorar a los demás vehículos.",
+          "Confiar en los sistemas del auto para evitar todos los choques."
+        ],
+        "answer": "Reducir el riesgo anticipando peligros y dejando tiempo y espacio para reaccionar.",
+        "explanation": "La conducción defensiva se centra en reducir el riesgo mediante anticipación, observación y gestión del espacio.",
+        "tags": ["conduccion_defensiva", "riesgo"]
+      },
+      {
+        "id": "U5Q2",
+        "skill": "systems",
+        "difficulty": 1,
+        "stem": "SIPDE significa:",
+        "choices": [
+          "Buscar, Identificar, Predecir, Decidir, Ejecutar",
+          "Escanear, Inspeccionar, Planear, Conducir, Salir",
+          "Ver, Interpretar, Proceder, Dirigir, Evaluar",
+          "Buscar, Indicar, Preparar, Conducir, Entrar"
+        ],
+        "answer": "Buscar, Identificar, Predecir, Decidir, Ejecutar",
+        "explanation": "SIPDE es el proceso clásico para administrar peligros continuamente.",
+        "tags": ["SIPDE", "observacion"]
+      },
+      {
+        "id": "U5Q3",
+        "skill": "systems",
+        "difficulty": 2,
+        "stem": "En el Sistema Smith, “Apunta lejos al dirigir” significa:",
+        "choices": [
+          "Mirar 12–15 segundos por delante para planear lo que viene.",
+          "Mantener la vista fija en el vehículo de adelante.",
+          "Enfocarse solo en el velocímetro para controlar la velocidad.",
+          "Bajar el asiento para mayor estabilidad."
+        ],
+        "answer": "Mirar 12–15 segundos por delante para planear lo que viene.",
+        "explanation": "Un mayor tiempo de anticipación visual permite detectar y responder con antelación.",
+        "tags": ["sistema_smith", "vision"]
+      },
+      {
+        "id": "U5Q4",
+        "skill": "following_distance",
+        "difficulty": 1,
+        "stem": "En pavimento seco, una distancia mínima de seguimiento para autos es típicamente:",
+        "choices": ["3–4 segundos", "1 segundo", "6–8 segundos", "1 largo de auto por cada 10 mph"],
+        "answer": "3–4 segundos",
+        "explanation": "Usa 3–4 segundos en condiciones ideales; agrega tiempo en condiciones adversas.",
+        "tags": ["cojin_espacio", "tiempo"]
+      },
+      {
+        "id": "U5Q5",
+        "skill": "following_distance",
+        "difficulty": 2,
+        "stem": "¿Cuál situación exige aumentar tu distancia de seguimiento?",
+        "choices": [
+          "Lluvia o visibilidad reducida",
+          "Autopista despejada y seca",
+          "Día soleado en camino recto",
+          "Tráfico lento sin peatones"
+        ],
+        "answer": "Lluvia o visibilidad reducida",
+        "explanation": "Clima adverso y poca visibilidad incrementan distancia de frenado y riesgo.",
+        "tags": ["clima", "distancia"]
+      },
+      {
+        "id": "U5Q6",
+        "skill": "tailgating",
+        "difficulty": 2,
+        "stem": "Si un conductor te sigue de cerca (tailgating), lo mejor es:",
+        "choices": [
+          "Crear más espacio adelante y evitar frenar de golpe.",
+          "Frenar fuerte para que retroceda.",
+          "Acelerar para aumentar la distancia.",
+          "Zigzaguear para desanimarlo."
+        ],
+        "answer": "Crear más espacio adelante y evitar frenar de golpe.",
+        "explanation": "Suavizar tu conducción y aumentar el espacio delante reduce el riesgo de choque trasero.",
+        "tags": ["seguimiento_cercano", "gestion_espacio"]
+      },
+      {
+        "id": "U5Q7",
+        "skill": "speed_law",
+        "difficulty": 1,
+        "stem": "La ley básica de velocidad de California exige:",
+        "choices": [
+          "Nunca conducir más rápido de lo que es seguro para las condiciones.",
+          "Conducir siempre al menos al límite señalado.",
+          "Igualar la velocidad del tráfico más rápido.",
+          "Usar control de crucero en todas las condiciones."
+        ],
+        "answer": "Nunca conducir más rápido de lo que es seguro para las condiciones.",
+        "explanation": "Los límites no sustituyen la necesidad de reducir por tráfico, clima o visibilidad.",
+        "tags": ["ley_velocidad", "gestion_velocidad"]
+      },
+      {
+        "id": "U5Q8",
+        "skill": "vision",
+        "difficulty": 2,
+        "stem": "Un buen tiempo de anticipación visual en ciudad es:",
+        "choices": ["12–15 segundos", "3–4 segundos", "5–7 segundos", "20–30 segundos"],
+        "answer": "12–15 segundos",
+        "explanation": "Mirar con anticipación ayuda a prever intersecciones y peligros.",
+        "tags": ["vision", "anticipo"]
+      },
+      {
+        "id": "U5Q9",
+        "skill": "communication",
+        "difficulty": 2,
+        "stem": "Antes de cambiar de carril en autopista en California, debes señalizar por aproximadamente:",
+        "choices": ["Unos 5 segundos", "Al menos 1 segundo", "Solo después de comenzar el cambio", "No es necesario señalizar en autopistas"],
+        "answer": "Unos 5 segundos",
+        "explanation": "Señalizar por más tiempo da oportunidad a los demás de ver tu intención.",
+        "tags": ["direccionales", "autopista"]
+      },
+      {
+        "id": "U5Q10",
+        "skill": "communication",
+        "difficulty": 1,
+        "stem": "En general, debes señalizar un giro en California como mínimo:",
+        "choices": ["100 pies antes del giro", "25 pies antes del giro", "Después de iniciar el giro", "Solo si hay otros conductores cerca"],
+        "answer": "100 pies antes del giro",
+        "explanation": "Señalizar con anticipación reduce conflictos y sorpresas.",
+        "tags": ["direccionales", "giros"]
+      },
+      {
+        "id": "U5Q11",
+        "skill": "blind_spots",
+        "difficulty": 1,
+        "stem": "Para revisar puntos ciegos antes de cambiar de carril debes:",
+        "choices": [
+          "Girar la cabeza sobre el hombro correspondiente.",
+          "Confiar solo en los espejos laterales.",
+          "Mirar dos veces el espejo retrovisor.",
+          "Tocar el claxon para advertir."
+        ],
+        "answer": "Girar la cabeza sobre el hombro correspondiente.",
+        "explanation": "La revisión de hombro muestra lo que los espejos no cubren.",
+        "tags": ["puntos_ciegos", "cambio_carril"]
+      },
+      {
+        "id": "U5Q12",
+        "skill": "ABS",
+        "difficulty": 2,
+        "stem": "Con frenos ABS en una detención de emergencia, debes:",
+        "choices": [
+          "Presionar el freno con firmeza y dirigir hacia donde quieres ir.",
+          "Bombear los frenos rápidamente.",
+          "Aplicar de inmediato el freno de estacionamiento.",
+          "Apagar el motor para detenerte más rápido."
+        ],
+        "answer": "Presionar el freno con firmeza y dirigir hacia donde quieres ir.",
+        "explanation": "El ABS evita el bloqueo; mantén presión firme y control de la dirección.",
+        "tags": ["ABS", "emergencia"]
+      },
+      {
+        "id": "U5Q13",
+        "skill": "skid_control",
+        "difficulty": 2,
+        "stem": "Si tu vehículo comienza a derrapar, primero debes:",
+        "choices": [
+          "Soltar el acelerador y mirar/dirigir hacia la trayectoria deseada.",
+          "Frenar lo más fuerte posible de inmediato.",
+          "Girar el volante al lado opuesto de tu trayectoria deseada.",
+          "Acelerar para recuperar tracción."
+        ],
+        "answer": "Soltar el acelerador y mirar/dirigir hacia la trayectoria deseada.",
+        "explanation": "Reducir la potencia ayuda a recuperar agarre; dirige hacia donde quieres ir.",
+        "tags": ["derrape", "control"]
+      },
+      {
+        "id": "U5Q14",
+        "skill": "blowout",
+        "difficulty": 2,
+        "stem": "Si se te revienta una llanta, debes:",
+        "choices": [
+          "Sujetar el volante, soltar el acelerador, evitar frenar fuerte y dirigirte a un lugar seguro.",
+          "Frenar fuerte de inmediato y girar bruscamente al acotamiento.",
+          "Acelerar para mantener el auto recto.",
+          "Apagar el encendido y dejar que ruede hasta detenerse."
+        ],
+        "answer": "Sujetar el volante, soltar el acelerador, evitar frenar fuerte y dirigirte a un lugar seguro.",
+        "explanation": "El control suave evita pérdida de control tras un reventón.",
+        "tags": ["reventon", "emergencia"]
+      },
+      {
+        "id": "U5Q15",
+        "skill": "off_road_recovery",
+        "difficulty": 2,
+        "stem": "Si tus ruedas derechas salen de la calzada, debes:",
+        "choices": [
+          "Mantener recto el volante, reducir velocidad y volver suavemente cuando sea seguro.",
+          "Girar bruscamente a la izquierda de inmediato.",
+          "Acelerar fuerte para volver al carril.",
+          "Frenar fuerte mientras giras bruscamente."
+        ],
+        "answer": "Mantener recto el volante, reducir velocidad y volver suavemente cuando sea seguro.",
+        "explanation": "Los giros bruscos pueden causar pérdida de control o volcadura.",
+        "tags": ["recuperacion", "acotamiento"]
+      },
+      {
+        "id": "U5Q16",
+        "skill": "time_gap",
+        "difficulty": 1,
+        "stem": "La distancia de seguimiento debe medirse usando:",
+        "choices": [
+          "Un objeto fijo adelante y contando segundos.",
+          "La cantidad de largos de auto entre vehículos.",
+          "La lectura del velocímetro.",
+          "Un cálculo ‘a ojo’."
+        ],
+        "answer": "Un objeto fijo adelante y contando segundos.",
+        "explanation": "Contar segundos se ajusta a la velocidad y es más confiable que ‘largos de auto’.",
+        "tags": ["tiempo", "medicion"]
+      },
+      {
+        "id": "U5Q17",
+        "skill": "reaction_time",
+        "difficulty": 2,
+        "stem": "El tiempo típico de reacción del conductor es aproximadamente:",
+        "choices": ["Alrededor de 1 segundo", "Alrededor de 0.1 segundos", "Alrededor de 3 segundos", "Alrededor de 5 segundos"],
+        "answer": "Alrededor de 1 segundo",
+        "explanation": "Planea cerca de un segundo antes de que inicie el frenado—más si hay distracción o cansancio.",
+        "tags": ["reaccion", "frenado"]
+      },
+      {
+        "id": "U5Q18",
+        "skill": "lane_position",
+        "difficulty": 1,
+        "stem": "Para conducción general, la mejor posición por defecto en el carril es:",
+        "choices": ["Centrado en el carril", "Pegado a la línea izquierda", "Pegado a la línea derecha", "Cambiar de posición constantemente"],
+        "answer": "Centrado en el carril",
+        "explanation": "Centrarse maximiza el espacio a ambos lados y reduce el desvío.",
+        "tags": ["posicion_carril", "estabilidad"]
+      },
+      {
+        "id": "U5Q19",
+        "skill": "stale_green",
+        "difficulty": 2,
+        "stem": "Al acercarte a una luz verde ‘vieja’, debes:",
+        "choices": [
+          "Cubrir el freno, observar el entorno y estar listo para detenerte.",
+          "Acelerar para ‘ganarle’ al amarillo.",
+          "Ignorar el cruce peatonal si no hay peatones.",
+          "Cambiar de carril al más rápido."
+        ],
+        "answer": "Cubrir el freno, observar el entorno y estar listo para detenerte.",
+        "explanation": "Una luz verde vieja puede cambiar; la preparación temprana evita decisiones de último momento.",
+        "tags": ["intersecciones", "anticipacion"]
+      },
+      {
+        "id": "U5Q20",
+        "skill": "being_passed",
+        "difficulty": 1,
+        "stem": "Cuando otro vehículo te está rebasando, debes:",
+        "choices": [
+          "Mantener carril y velocidad y permitir espacio.",
+          "Acelerar para impedir el rebase.",
+          "Moverte al acotamiento para bloquear.",
+          "Tocar el claxon y cambiar de carril de inmediato."
+        ],
+        "answer": "Mantener carril y velocidad y permitir espacio.",
+        "explanation": "Mantenerse estable ayuda a que el otro conductor complete el rebase con seguridad.",
+        "tags": ["rebase", "cortesia"]
+      }
+    ]
+  }

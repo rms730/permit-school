@@ -1,1 +1,299 @@
-{}
+{
+    "meta": {
+      "j_code": "CA",
+      "course_code": "DE-ONLINE",
+      "unit_no": 4,
+      "lang": "es",
+      "count": 24
+    },
+    "translations": [
+      {
+        "ref_id": "u4-q01",
+        "stem": "Cuando un peatón entra en un cruce peatonal marcado en tu carril, debes:",
+        "choices": [
+          { "key": "A", "text": "Tocar la bocina y pasar con cuidado." },
+          { "key": "B", "text": "Cambiar de carril rápidamente para evitar detenerte." },
+          { "key": "C", "text": "Detenerte y ceder el paso hasta que el cruce esté despejado." },
+          { "key": "D", "text": "Continuar a la velocidad permitida si el semáforo está en verde." }
+        ],
+        "explanation": "Los conductores deben ceder el paso a los peatones en cruces, marcados y no marcados, y esperar hasta que el cruce esté despejado.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 31, "section": "Peatones" }]
+      },
+      {
+        "ref_id": "u4-q02",
+        "stem": "Giras a la derecha en una intersección. Un peatón comienza a cruzar en el cruce que vas a atravesar. ¿Qué debes hacer?",
+        "choices": [
+          { "key": "A", "text": "Tocar la bocina para advertir y avanzar." },
+          { "key": "B", "text": "Detenerte y permitir que termine de cruzar." },
+          { "key": "C", "text": "Girar dentro del cruce si hay espacio." },
+          { "key": "D", "text": "Entrar al carril para bicicletas para rodearlo." }
+        ],
+        "explanation": "Al girar, debes ceder a los peatones en el cruce que vas a atravesar.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 32, "section": "Cruces peatonales e intersecciones" }]
+      },
+      {
+        "ref_id": "u4-q03",
+        "stem": "Una persona con bastón blanco espera en la esquina. ¿Cuál es la acción más segura?",
+        "choices": [
+          { "key": "A", "text": "Detenerte dentro del cruce para que sienta tu auto." },
+          { "key": "B", "text": "Detenerte bien antes del cruce y esperar; no tocar la bocina." },
+          { "key": "C", "text": "Hacerle señas para que cruce mientras avanzas." },
+          { "key": "D", "text": "Parpadear las luces para indicarle que pase." }
+        ],
+        "explanation": "Los peatones ciegos con bastón blanco o perro guía tienen el derecho de paso. Detente antes del cruce y espera en silencio.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 33, "section": "Peatones ciegos" }]
+      },
+      {
+        "ref_id": "u4-q04",
+        "stem": "¿Cuál es el espacio mínimo que debes dejar al rebasar a un ciclista?",
+        "choices": [
+          { "key": "A", "text": "1 pie" },
+          { "key": "B", "text": "2 pies" },
+          { "key": "C", "text": "3 pies" },
+          { "key": "D", "text": "6 pies" }
+        ],
+        "explanation": "La regla de Tres Pies por Seguridad exige al menos 3 pies de separación al rebasar a ciclistas.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 35, "section": "Ciclistas" }]
+      },
+      {
+        "ref_id": "u4-q05",
+        "stem": "Antes de un giro a la derecha donde hay carril para bicicletas, debes:",
+        "choices": [
+          { "key": "A", "text": "Girar directamente cruzando el carril para bicicletas sin incorporarte." },
+          { "key": "B", "text": "Incorporarte al carril para bicicletas a unos 200 pies del giro y ceder a los ciclistas." },
+          { "key": "C", "text": "Detenerte en el carril para bicicletas para bloquear a las bicis y poder girar." },
+          { "key": "D", "text": "Acelerar para adelantarte a los ciclistas y luego girar." }
+        ],
+        "explanation": "Puedes entrar al carril para bicicletas cerca de la intersección para girar a la derecha, pero debes ceder a los ciclistas que ya están en el carril.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 34, "section": "Carriles para bicicletas" }]
+      },
+      {
+        "ref_id": "u4-q06",
+        "stem": "Abrir la puerta de tu auto junto al tránsito solo es legal cuando:",
+        "choices": [
+          { "key": "A", "text": "La abres rápido y sales de inmediato." },
+          { "key": "B", "text": "No afectará a vehículos ni ciclistas." },
+          { "key": "C", "text": "La dejas abierta para que te vean." },
+          { "key": "D", "text": "Hay carril para bicicletas." }
+        ],
+        "explanation": "Es ilegal abrir una puerta si no es razonablemente seguro o si interfiere con el tránsito, incluidas las bicicletas.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 64, "section": "Estacionamiento y apertura de puertas" }]
+      },
+      {
+        "ref_id": "u4-q07",
+        "stem": "¿Cuál afirmación es verdadera sobre las motocicletas?",
+        "choices": [
+          { "key": "A", "text": "Frenan igual de rápido que los camiones grandes." },
+          { "key": "B", "text": "Son pequeñas y más difíciles de ver; mira dos veces antes de girar." },
+          { "key": "C", "text": "Puedes compartir un carril con una motocicleta." },
+          { "key": "D", "text": "Siempre deben circular en el carril derecho." }
+        ],
+        "explanation": "Las motocicletas son pequeñas y fáciles de pasar por alto, especialmente en giros a la izquierda.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 40, "section": "Compartir la vía con motociclistas" }]
+      },
+      {
+        "ref_id": "u4-q08",
+        "stem": "En California, circular entre carriles (lane splitting) por parte de motociclistas es:",
+        "choices": [
+          { "key": "A", "text": "Ilegal siempre." },
+          { "key": "B", "text": "Legal; los conductores no deben bloquear ni interferir." },
+          { "key": "C", "text": "Permitido solo de noche." },
+          { "key": "D", "text": "Permitido solo en zonas escolares." }
+        ],
+        "explanation": "El lane splitting por parte de motociclistas es legal. Los conductores no deben bloquear ni desalentar y deben mantener una trayectoria estable.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 41, "section": "Motociclistas y uso del carril" }]
+      },
+      {
+        "ref_id": "u4-q09",
+        "stem": "¿Qué distancia de seguimiento debes usar detrás de una motocicleta en buenas condiciones?",
+        "choices": [
+          { "key": "A", "text": "1 segundo" },
+          { "key": "B", "text": "2 segundos" },
+          { "key": "C", "text": "4 segundos o más" },
+          { "key": "D", "text": "No se necesita una brecha específica" }
+        ],
+        "explanation": "Aumenta el espacio detrás de las motos; una separación de 4 segundos brinda un margen de seguridad.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 41, "section": "Motociclistas y uso del carril" }]
+      },
+      {
+        "ref_id": "u4-q10",
+        "stem": "Las luces amarillas intermitentes de un autobús escolar indican que debes:",
+        "choices": [
+          { "key": "A", "text": "Acelerar para rebasarlo antes de que se detenga." },
+          { "key": "B", "text": "Prepararte para detenerte; el autobús está por detenerse." },
+          { "key": "C", "text": "Ignorarlas si vas en el lado opuesto." },
+          { "key": "D", "text": "Tocar la bocina para advertir a los niños." }
+        ],
+        "explanation": "Las luces amarillas avisan que el autobús se prepara para detenerse para subir o bajar niños.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 46, "section": "Autobuses escolares" }]
+      },
+      {
+        "ref_id": "u4-q11",
+        "stem": "Un autobús escolar tiene luces rojas intermitentes y paleta de ALTO. Debes:",
+        "choices": [
+          { "key": "A", "text": "Detenerte solo si vas detrás del autobús." },
+          { "key": "B", "text": "Detenerte desde cualquier dirección hasta que las luces dejen de parpadear." },
+          { "key": "C", "text": "Avanzar a 15 mph con precaución." },
+          { "key": "D", "text": "Pasar con cuidado si no ves niños." }
+        ],
+        "explanation": "Debes detenerte desde cualquier dirección por las luces rojas intermitentes del autobús hasta que se apaguen.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 46, "section": "Autobuses escolares" }]
+      },
+      {
+        "ref_id": "u4-q12",
+        "stem": "¿Cuándo NO estás obligado a detenerte por un autobús escolar con luces rojas intermitentes?",
+        "choices": [
+          { "key": "A", "text": "Cuando estás al otro lado de una autopista dividida con camellón físico." },
+          { "key": "B", "text": "En una carretera de dos carriles en zona rural." },
+          { "key": "C", "text": "Cuando no ves niños cerca." },
+          { "key": "D", "text": "Cuando vas tarde a la escuela." }
+        ],
+        "explanation": "Los vehículos al lado opuesto de una vía dividida o con camellón físico por lo general no tienen que detenerse.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 46, "section": "Autobuses escolares" }]
+      },
+      {
+        "ref_id": "u4-q13",
+        "stem": "Se acerca un vehículo de emergencia con luces rojas y sirena. Debes:",
+        "choices": [
+          { "key": "A", "text": "Detenerte de inmediato dentro de la intersección." },
+          { "key": "B", "text": "Orillarte a la derecha y detenerte después de despejar cualquier intersección." },
+          { "key": "C", "text": "Acelerar para apartarte, incluso con luz roja." },
+          { "key": "D", "text": "Seguir conduciendo hasta que te rebase." }
+        ],
+        "explanation": "Cede orillándote a la derecha y deteniéndote. No te detengas dentro de una intersección; primero libérala.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 48, "section": "Vehículos de emergencia" }]
+      },
+      {
+        "ref_id": "u4-q14",
+        "stem": "En una glorieta, un vehículo de emergencia con sirena viene detrás de ti. ¿Qué debes hacer?",
+        "choices": [
+          { "key": "A", "text": "Detenerte dentro de la glorieta para ceder de inmediato." },
+          { "key": "B", "text": "Salir de la glorieta y luego orillarte a la derecha y detente." },
+          { "key": "C", "text": "Cambiar de carril dentro de la glorieta." },
+          { "key": "D", "text": "Acelerar para mantenerte delante." }
+        ],
+        "explanation": "No te detengas en una intersección o glorieta. Sal primero, luego oríllate y detente para ceder el paso.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 48, "section": "Vehículos de emergencia" }]
+      },
+      {
+        "ref_id": "u4-q15",
+        "stem": "La ley de moverse a otro carril exige que:",
+        "choices": [
+          { "key": "A", "text": "Te detengas en tu carril cuando veas luces intermitentes en el acotamiento." },
+          { "key": "B", "text": "Te cambies a un carril no adyacente o reduzcas a una velocidad segura al pasar vehículos detenidos con luces intermitentes." },
+          { "key": "C", "text": "Enciendas las intermitentes y sigas a la misma velocidad." },
+          { "key": "D", "text": "Toques la bocina para advertir a los trabajadores." }
+        ],
+        "explanation": "Debes cambiarte de carril o reducir la velocidad al pasar vehículos de emergencia o servicio detenidos con luces intermitentes.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 49, "section": "Moverse/Reducir la velocidad" }]
+      },
+      {
+        "ref_id": "u4-q16",
+        "stem": "El No‑Zone de un camión se refiere a:",
+        "choices": [
+          { "key": "A", "text": "Un lugar donde los camiones no pueden circular legalmente." },
+          { "key": "B", "text": "Los puntos ciegos del camión donde tu auto no es visible." },
+          { "key": "C", "text": "Un área solo para estacionamiento de camiones." },
+          { "key": "D", "text": "El acotamiento junto a un camión." }
+        ],
+        "explanation": "Los No‑Zones son puntos ciegos de vehículos grandes al frente, lados y parte trasera donde puedes no ser visto.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 70, "section": "No‑Zones (puntos ciegos)" }]
+      },
+      {
+        "ref_id": "u4-q17",
+        "stem": "Después de rebasar a un camión por la izquierda, debes volver al carril solo cuando:",
+        "choices": [
+          { "key": "A", "text": "Ves todo el frente del camión en tu espejo." },
+          { "key": "B", "text": "Estás a una longitud de auto por delante." },
+          { "key": "C", "text": "El camión te toca la bocina para que te muevas." },
+          { "key": "D", "text": "Llegas a la rueda delantera del camión." }
+        ],
+        "explanation": "Vuelve al carril solo cuando haya amplio espacio y veas el frente del camión en tu espejo.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 71, "section": "Rebasar vehículos grandes" }]
+      },
+      {
+        "ref_id": "u4-q18",
+        "stem": "¿Por qué es especialmente peligroso cortarle el paso a un camión?",
+        "choices": [
+          { "key": "A", "text": "Los camiones frenan mejor que los autos." },
+          { "key": "B", "text": "Los camiones tardan más en detenerse por su tamaño y peso." },
+          { "key": "C", "text": "El conductor va más alto y siempre puede verte." },
+          { "key": "D", "text": "Solo es arriesgado de noche." }
+        ],
+        "explanation": "Los vehículos grandes necesitan mayores distancias de frenado, por lo que cortarles el paso puede causar alcances.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 69, "section": "Compartir la vía con vehículos grandes" }]
+      },
+      {
+        "ref_id": "u4-q19",
+        "stem": "Señales y conos naranjas adelante significan que debes:",
+        "choices": [
+          { "key": "A", "text": "Mantener la velocidad para salir rápido del área." },
+          { "key": "B", "text": "Reducir la velocidad, prepararte para incorporarte y vigilar a los trabajadores." },
+          { "key": "C", "text": "Cambiarte de carril al último segundo para adelantarte." },
+          { "key": "D", "text": "Encender las luces altas para ver mejor." }
+        ],
+        "explanation": "Las zonas de trabajo requieren velocidades reducidas, incorporación anticipada y atención adicional a trabajadores y equipo.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 55, "section": "Zonas de trabajo" }]
+      },
+      {
+        "ref_id": "u4-q20",
+        "stem": "Los bandereros en zonas de trabajo tienen autoridad para:",
+        "choices": [
+          { "key": "A", "text": "Dar sugerencias que puedes ignorar." },
+          { "key": "B", "text": "Dirigir el tránsito con la misma autoridad que señales y semáforos." },
+          { "key": "C", "text": "Expedir multas por exceso de velocidad." },
+          { "key": "D", "text": "Cerrar carreteras solo por la noche." }
+        ],
+        "explanation": "Debes obedecer a los bandereros; su autoridad es equivalente a la de señales y semáforos.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 55, "section": "Zonas de trabajo" }]
+      },
+      {
+        "ref_id": "u4-q21",
+        "stem": "En un cruce ferroviario activo con luces rojas intermitentes, debes:",
+        "choices": [
+          { "key": "A", "text": "Avanzar si no ves tren." },
+          { "key": "B", "text": "Rodear la pluma solo si vas tarde." },
+          { "key": "C", "text": "Detenerte y esperar hasta que las luces se apaguen y las plumas suban." },
+          { "key": "D", "text": "Detenerte sobre las vías para mirar a ambos lados." }
+        ],
+        "explanation": "Nunca rodees plumas abajo. Detente y espera hasta que terminen las señales y el cruce esté despejado.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 52, "section": "Cruces de ferrocarril" }]
+      },
+      {
+        "ref_id": "u4-q22",
+        "stem": "Tu vehículo se apaga sobre las vías y se acerca un tren. ¿Qué debes hacer primero?",
+        "choices": [
+          { "key": "A", "text": "Intentar encender el motor." },
+          { "key": "B", "text": "Quedarte adentro y llamar a una grúa." },
+          { "key": "C", "text": "Sacar a todos y correr en dirección al tren en un ángulo lejos de las vías." },
+          { "key": "D", "text": "Empujar el auto fuera de las vías." }
+        ],
+        "explanation": "Saca a todos de inmediato y aléjate en un ángulo hacia el tren para evitar escombros.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 53, "section": "Letrero de notificación de emergencia (ENS)" }]
+      },
+      {
+        "ref_id": "u4-q23",
+        "stem": "Al acercarte a un jinete a caballo en la vía, debes:",
+        "choices": [
+          { "key": "A", "text": "Tocar la bocina para alertar al jinete." },
+          { "key": "B", "text": "Pasar muy cerca para acortar el tiempo junto al animal." },
+          { "key": "C", "text": "Reducir la velocidad, dar espacio adicional y seguir las señales del jinete." },
+          { "key": "D", "text": "Circular por el acotamiento para pasar." }
+        ],
+        "explanation": "Reduce, da espacio y sigue las señales del jinete o las instrucciones de los encargados. Evita usar la bocina de forma repentina.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 57, "section": "Animales y jinetes" }]
+      },
+      {
+        "ref_id": "u4-q24",
+        "stem": "Un vehículo con un triángulo naranja adelante circula despacio. Debes:",
+        "choices": [
+          { "key": "A", "text": "Esperar que circule a unas 25 mph o menos y rebasar solo cuando sea legal y seguro." },
+          { "key": "B", "text": "Tocar la bocina y seguirlo de cerca para que acelere." },
+          { "key": "C", "text": "Circular por el acotamiento para rebasarlo de inmediato." },
+          { "key": "D", "text": "Suponer que pronto se saldrá de la vía." }
+        ],
+        "explanation": "El emblema de vehículo lento indica 25 mph o menos. Rebasar solo cuando sea legal y puedas dejar amplio espacio.",
+        "citations": [{ "source": "DL-600-ES-2025", "page": 58, "section": "Vehículos de movimiento lento" }]
+      }
+    ]
+  }

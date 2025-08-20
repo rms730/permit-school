@@ -1,1 +1,356 @@
-{}
+{
+    "unitId": "U08",
+    "title": "CA DE-ONLINE – Unidad 8: Choques, Responsabilidad Financiera y Conceptos Básicos de Propiedad",
+    "minutes": 75,
+    "sections": [
+      {
+        "id": "U08-S01",
+        "title": "Los primeros minutos después de un choque",
+        "lessons": [
+          {
+            "id": "U08-L01",
+            "title": "Detenerse, asegurar la zona y revisar lesiones",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "Los choques generan estrés. Su primera tarea es proteger a las personas y evitar un segundo choque. Mantenga la calma y actúe paso a paso."
+              },
+              {
+                "type": "list",
+                "style": "ordered",
+                "items": [
+                  "Deténgase de inmediato y encienda las intermitentes. Nunca abandone la escena: irse se considera darse a la fuga y el castigo es severo.  [oai_citation:22‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+                  "Revise si hay lesiones. Si alguien pudiera estar herido, llame al 911 de inmediato y siga las instrucciones.  [oai_citation:23‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+                  "Si es seguro y no hay lesiones aparentes, mueva los vehículos fuera del flujo de tráfico para evitar otro choque. Luego llame al 911.  [oai_citation:24‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "Coloque conos/triángulos si los tiene y si es seguro. No se pare en los carriles. Mantenga a niños y mascotas fuera de la vía."
+              },
+              {
+                "type": "paragraph",
+                "content": "Si un animal resulta lesionado o muere, llame al albergue de animales más cercano o a la policía. No intente moverlo.  [oai_citation:25‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+              }
+            ]
+          },
+          {
+            "id": "U08-L02",
+            "title": "Evitar choques secundarios y pedir ayuda",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Estaciónese en un lugar seguro fuera de la calzada cuando sea posible.",
+                  "Use bengalas solo si sabe cómo hacerlo y es seguro; nunca cerca de fugas de combustible.",
+                  "Comparta al 911 la ubicación exacta (calle, referencia cercana y sentido de circulación).",
+                  "Siga las instrucciones del operador y no cuelgue hasta que se lo indiquen."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "Si el tráfico ya está bloqueado y los servicios van en camino, evite quedarse entre vehículos. Mantenga el cinturón puesto si se detiene en el acotamiento de una vía rápida."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U08-S02",
+        "title": "Intercambio de información y reportes",
+        "lessons": [
+          {
+            "id": "U08-L03",
+            "title": "Intercambiar la información correcta",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "Una vez a salvo, intercambie información con calma. Tome fotos antes de mover los vehículos si es seguro."
+              },
+              {
+                "type": "list",
+                "style": "ordered",
+                "items": [
+                  "Muestre su licencia de manejar, tarjeta de registro del vehículo, comprobante de seguro y domicilio actual a los involucrados y a la policía.  [oai_citation:26‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+                  "Anote el nombre completo, contacto, placas, compañía/póliza de seguro y marca/modelo/VIN del otro vehículo si es posible.",
+                  "Documente detalles: posiciones, daños, clima, estado del camino y cualquier lesión."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "Sea objetivo. No discuta sobre la culpa ni haga promesas. Permita que los seguros y, si aplica, las autoridades determinen la responsabilidad."
+              }
+            ]
+          },
+          {
+            "id": "U08-L04",
+            "title": "Cuándo y cómo reportar",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "Reporte con prontitud según las reglas vigentes del manual. Si hay personas lesionadas o fallecidas, debe reportar a las autoridades dentro del plazo indicado por el manual actual. Su agente/corredor/representante legal también puede presentar ese reporte.  [oai_citation:27‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+              },
+              {
+                "type": "paragraph",
+                "content": "También debe reportar ciertos choques al DMV con el formulario SR 1 dentro del plazo y según los umbrales indicados en el manual vigente (por ejemplo, lesiones/muerte o daños por encima del umbral del DMV). La policía no presentará el SR 1 por usted.  [oai_citation:28‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Guarde el enlace del SR 1 para acceso rápido.",
+                  "Presente el SR 1 aunque el choque sea en propiedad privada o usted no tenga la culpa; la obligación depende de las condiciones del choque.  [oai_citation:29‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U08-S03",
+        "title": "Seguro y responsabilidad financiera",
+        "lessons": [
+          {
+            "id": "U08-L05",
+            "title": "Comprobante de seguro y quién responde",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "California exige comprobante de responsabilidad financiera (seguro) cuando maneja y en el examen de manejo. Debe mostrarlo después de un choque.  [oai_citation:30‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Lleve comprobante de seguro válido y preséntelo cuando se le solicite.",
+                  "Los padres/tutores asumen la responsabilidad financiera de los conductores menores de 18; al cumplir 18, usted asume la suya.  [oai_citation:31‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+                  "Verifique que su agente/corredor/aseguradora estén autorizados por el Departamento de Seguros de California.  [oai_citation:32‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "La ley estatal establece montos mínimos de cobertura. Use al menos los mínimos vigentes indicados en el manual del DMV y en su póliza.  [oai_citation:33‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+              }
+            ]
+          },
+          {
+            "id": "U08-L06",
+            "title": "Si no tiene comprobante — consecuencias y opciones",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "Si se ve involucrado en un choque sin la cobertura apropiada, se puede suspender su privilegio de manejar, sin importar de quién sea la culpa, según las reglas vigentes.  [oai_citation:34‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+              },
+              {
+                "type": "paragraph",
+                "content": "Para restituir durante el periodo permitido, quizá deba presentar y mantener un SR 22/SR 1P.  [oai_citation:35‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+              },
+              {
+                "type": "paragraph",
+                "content": "Si el costo es una barrera, consulte el Programa de Seguro de Auto a Bajo Costo de California para ver si califica.  [oai_citation:36‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U08-S04",
+        "title": "Situaciones especiales",
+        "lessons": [
+          {
+            "id": "U08-L07",
+            "title": "Propiedad estacionada y animales",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "list",
+                "style": "ordered",
+                "items": [
+                  "Si golpea un auto estacionado u otra propiedad, intente localizar al dueño. Si no puede, deje una nota con su nombre, teléfono y domicilio bien sujeta, y reporte el choque a la policía.  [oai_citation:37‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)",
+                  "Si hiere o mata a un animal, llame al albergue de animales más cercano o a la policía. No lo mueva.  [oai_citation:38‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "Documente la escena con fotos y notas de hora/lugar. Esto protege a todos y facilita los reclamos."
+              }
+            ]
+          },
+          {
+            "id": "U08-L08",
+            "title": "Darse a la fuga: qué es y por qué nunca hacerlo",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "No detenerse después de un choque es darse a la fuga y el castigo es severo. Siempre deténgase, asegure la zona e intercambie información o reporte según corresponda.  [oai_citation:39‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "No persiga a otro conductor. Anote placas, color/modelo, dirección de viaje y llame al 911.",
+                  "Pida datos de testigos y observe si hay cámaras cercanas."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U08-S05",
+        "title": "Conceptos básicos de propiedad del vehículo",
+        "lessons": [
+          {
+            "id": "U08-L09",
+            "title": "Traspasos de título, compra y venta",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "Al comprar o vender un vehículo en California, debe traspasar la propiedad y notificar al DMV dentro de los plazos indicados en el manual vigente. El vendedor debe presentar el Aviso de traspaso y relevo de responsabilidad (NRL).  [oai_citation:40‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Verifique el VIN en el título y en el vehículo.",
+                  "Guarde una copia del contrato de compraventa y del odómetro (si aplica).",
+                  "Confirme que no existan gravámenes salvo que se informen."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "U08-L10",
+            "title": "Matriculación y requisitos de emisiones",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "Para usar su vehículo en California, debe matricularlo en California. Siga los pasos y plazos del DMV cuando se convierta en residente o empiece a trabajar aquí.  [oai_citation:41‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+              },
+              {
+                "type": "paragraph",
+                "content": "Todos los vehículos matriculados en California deben cumplir con los requisitos del estado, incluidos los controles de emisiones. El DMV no puede matricular un vehículo que no califique.  [oai_citation:42‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Lleve en el vehículo el registro vigente y el comprobante de seguro.",
+                  "Mantenga placas, calcomanías y domicilio al día."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U08-S06",
+        "title": "Después de la grúa: reparaciones y cómo evitar fraudes",
+        "lessons": [
+          {
+            "id": "U08-L11",
+            "title": "Grúa, presupuestos y sus decisiones",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "Usted decide a dónde llevar su vehículo. Si es seguro, pida remolque a su casa o al taller que prefiera. Pida el nombre, domicilio y tarifas de la grúa."
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Solicite un presupuesto por escrito antes de autorizar reparaciones.",
+                  "Aclare el tipo de piezas (nuevas, OEM, remanufacturadas, de repuesto) y cualquier garantía.",
+                  "No firme documentos en blanco o incompletos."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "Su aseguradora puede recomendar talleres, pero en general usted puede elegir un centro de reparación calificado."
+              }
+            ]
+          },
+          {
+            "id": "U08-L12",
+            "title": "Señales de alerta",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "“Caza-accidentes” con presión para llevarlo a un taller o clínica específicos.",
+                  "Solicitudes de anticipos elevados en efectivo o de firmar el título.",
+                  "Promesas irreales o instrucciones para dar información falsa al seguro."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "Controle sus documentos. Fotografie daños y piezas sustituidas. Guarde facturas y comunicaciones."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U08-S07",
+        "title": "Registros, reclamos y responsabilidades de adolescentes/padres",
+        "lessons": [
+          {
+            "id": "U08-L13",
+            "title": "Cree su expediente del choque",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "list",
+                "style": "ordered",
+                "items": [
+                  "Haga una carpeta (digital o en papel) con fotos, notas y una línea de tiempo.",
+                  "Guarde nombres/contactos de conductores, dueños, testigos y primeros respondedores.",
+                  "Conserve copias de reportes (policial y confirmación del SR 1 cuando aplique), formularios del reclamo, presupuestos, facturas y notas médicas."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": "Videos de cámara de tablero, marcas de tiempo y mapas anotados aceleran los reclamos. Respalde sus archivos en la nube."
+              }
+            ]
+          },
+          {
+            "id": "U08-L14",
+            "title": "Informe a su aseguradora y, si es menor, a su padre/tutor",
+            "durationMinutes": 5,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": "Avise pronto a su aseguradora. Comparta hechos, fotos y números de reporte. Pregunte cómo proceder con reparaciones, autos de alquiler y cuentas médicas."
+              },
+              {
+                "type": "paragraph",
+                "content": "En menores con licencia provisional, choques e infracciones pueden resultar en restricciones, periodo de prueba o suspensión según las reglas vigentes. Mantenga informados a sus padres/tutores; ellos asumen la responsabilidad financiera de los menores de 18.  [oai_citation:43‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+              },
+              {
+                "type": "list",
+                "style": "unordered",
+                "items": [
+                  "Nunca ignore avisos del DMV o de la corte.",
+                  "Mantenga vigente el comprobante de seguro y cualquier certificado requerido (por ejemplo, SR 22/SR 1P tras ciertas suspensiones).  [oai_citation:44‡DriverHandbook_CA_ES.pdf](file-service://file-L3SKtUFV4THR1UvvTd2Ui8)"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

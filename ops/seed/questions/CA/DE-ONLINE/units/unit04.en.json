@@ -1,1 +1,395 @@
-{}
+{
+    "meta": {
+      "j_code": "CA",
+      "course_code": "DE-ONLINE",
+      "unit_no": 4,
+      "lang": "en",
+      "count": 24
+    },
+    "questions": [
+      {
+        "id": "u4-q01",
+        "skill": "Pedestrians",
+        "difficulty": 2,
+        "stem": "When a pedestrian steps into a marked crosswalk in your lane, you should:",
+        "choices": [
+          { "key": "A", "text": "Sound your horn and pass carefully." },
+          { "key": "B", "text": "Change lanes quickly to avoid stopping." },
+          { "key": "C", "text": "Stop and yield the right-of-way until the crosswalk is clear." },
+          { "key": "D", "text": "Continue at the speed limit if the light is green." }
+        ],
+        "answer": "C",
+        "explanation": "Drivers must yield to pedestrians in marked and unmarked crosswalks and wait until the crosswalk is clear.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 32, "section": "Pedestrians" }],
+        "tags": ["right-of-way", "crosswalk", "stopping"]
+      },
+      {
+        "id": "u4-q02",
+        "skill": "Pedestrians",
+        "difficulty": 3,
+        "stem": "You are turning right at an intersection. A pedestrian begins crossing in the crosswalk you will enter. What must you do?",
+        "choices": [
+          { "key": "A", "text": "Honk to warn and proceed." },
+          { "key": "B", "text": "Stop and let the pedestrian finish crossing." },
+          { "key": "C", "text": "Turn into the crosswalk if there is room." },
+          { "key": "D", "text": "Move into the bike lane to go around." }
+        ],
+        "answer": "B",
+        "explanation": "When turning, you must yield to pedestrians in the crosswalk you are crossing.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 33, "section": "Crosswalks & Intersections" }],
+        "tags": ["turning", "right-of-way", "crosswalk"]
+      },
+      {
+        "id": "u4-q03",
+        "skill": "Pedestrians",
+        "difficulty": 3,
+        "stem": "A person with a white cane is waiting at the corner. What is the safest action?",
+        "choices": [
+          { "key": "A", "text": "Stop in the crosswalk so they can feel your car." },
+          { "key": "B", "text": "Stop well before the crosswalk and wait; do not honk." },
+          { "key": "C", "text": "Wave them to cross while you roll forward." },
+          { "key": "D", "text": "Flash your headlights to signal them to go." }
+        ],
+        "answer": "B",
+        "explanation": "Blind pedestrians with a white cane or guide dog have the right-of-way. Stop before the crosswalk and wait quietly.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 34, "section": "Blind Pedestrians" }],
+        "tags": ["white-cane", "right-of-way", "crosswalk"]
+      },
+      {
+        "id": "u4-q04",
+        "skill": "Bicyclists",
+        "difficulty": 2,
+        "stem": "What is the minimum space you must give when passing a bicyclist?",
+        "choices": [
+          { "key": "A", "text": "1 foot" },
+          { "key": "B", "text": "2 feet" },
+          { "key": "C", "text": "3 feet" },
+          { "key": "D", "text": "6 feet" }
+        ],
+        "answer": "C",
+        "explanation": "California’s Three Feet for Safety rule requires at least 3 feet of clearance when passing bicyclists.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 36, "section": "Bicyclists" }],
+        "tags": ["passing", "space-cushion", "three-feet"]
+      },
+      {
+        "id": "u4-q05",
+        "skill": "Bicyclists",
+        "difficulty": 3,
+        "stem": "Before a right turn where there is a bike lane, you should:",
+        "choices": [
+          { "key": "A", "text": "Turn directly across the bike lane without merging." },
+          { "key": "B", "text": "Merge into the bike lane about 200 feet before the turn and yield to bicyclists." },
+          { "key": "C", "text": "Stop in the bike lane to block bikes so you can turn." },
+          { "key": "D", "text": "Speed up to get ahead of bicyclists and then turn." }
+        ],
+        "answer": "B",
+        "explanation": "You may enter the bike lane near the intersection to turn right, but you must yield to bicyclists already in the lane.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 35, "section": "Bicycle Lanes" }],
+        "tags": ["bike-lane", "right-turn", "yield"]
+      },
+      {
+        "id": "u4-q06",
+        "skill": "Bicyclists",
+        "difficulty": 3,
+        "stem": "Opening your car door next to traffic is only legal when:",
+        "choices": [
+          { "key": "A", "text": "You open it quickly and step out fast." },
+          { "key": "B", "text": "No traffic or bicyclists will be affected." },
+          { "key": "C", "text": "You leave it open so others can see you." },
+          { "key": "D", "text": "The bike lane is present." }
+        ],
+        "answer": "B",
+        "explanation": "It is illegal to open a door unless it is reasonably safe and does not interfere with traffic, including bicyclists.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 66, "section": "Parking and Opening Doors" }],
+        "tags": ["dooring", "bicyclists", "parking"]
+      },
+      {
+        "id": "u4-q07",
+        "skill": "Motorcyclists",
+        "difficulty": 2,
+        "stem": "Which statement is true about motorcycles?",
+        "choices": [
+          { "key": "A", "text": "They can stop as quickly as large trucks." },
+          { "key": "B", "text": "They are small and harder to see; look twice before turning." },
+          { "key": "C", "text": "You may share a lane with a motorcycle." },
+          { "key": "D", "text": "They must always ride in the far right lane." }
+        ],
+        "answer": "B",
+        "explanation": "Motorcycles are smaller and easy to overlook, especially at left turns.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 40, "section": "Sharing the Road with Motorcyclists" }],
+        "tags": ["visibility", "left-turn", "scanning"]
+      },
+      {
+        "id": "u4-q08",
+        "skill": "Motorcyclists",
+        "difficulty": 3,
+        "stem": "In California, lane splitting by motorcyclists is:",
+        "choices": [
+          { "key": "A", "text": "Illegal at all times." },
+          { "key": "B", "text": "Legal; drivers should not block or interfere." },
+          { "key": "C", "text": "Allowed only at night." },
+          { "key": "D", "text": "Allowed only in school zones." }
+        ],
+        "answer": "B",
+        "explanation": "Lane splitting by riders is legal. Drivers must not block or discourage it and should hold a steady path.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 41, "section": "Motorcyclists and Lane Sharing" }],
+        "tags": ["lane-splitting", "courtesy", "law"]
+      },
+      {
+        "id": "u4-q09",
+        "skill": "Motorcyclists",
+        "difficulty": 4,
+        "stem": "What following distance should you use behind a motorcycle in good conditions?",
+        "choices": [
+          { "key": "A", "text": "1 second" },
+          { "key": "B", "text": "2 seconds" },
+          { "key": "C", "text": "4 seconds or more" },
+          { "key": "D", "text": "No specific gap is needed" }
+        ],
+        "answer": "C",
+        "explanation": "Increase space behind motorcycles; a 4‑second following distance provides a safety buffer.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 41, "section": "Motorcyclists and Lane Sharing" }],
+        "tags": ["following-distance", "motorcycles", "space-cushion"]
+      },
+      {
+        "id": "u4-q10",
+        "skill": "SchoolBuses",
+        "difficulty": 2,
+        "stem": "Flashing yellow lights on a school bus mean you should:",
+        "choices": [
+          { "key": "A", "text": "Speed up to pass before it stops." },
+          { "key": "B", "text": "Prepare to stop; the bus is about to stop." },
+          { "key": "C", "text": "Ignore them if you are on the opposite side." },
+          { "key": "D", "text": "Honk to warn children." }
+        ],
+        "answer": "B",
+        "explanation": "Yellow flashing lights warn the bus is preparing to stop to load or unload children.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 47, "section": "School Buses" }],
+        "tags": ["school-bus", "signals", "stopping"]
+      },
+      {
+        "id": "u4-q11",
+        "skill": "SchoolBuses",
+        "difficulty": 3,
+        "stem": "A school bus has flashing red lights and a stop arm extended. You must:",
+        "choices": [
+          { "key": "A", "text": "Stop only if following the bus." },
+          { "key": "B", "text": "Stop from either direction until the lights stop flashing." },
+          { "key": "C", "text": "Proceed at 15 mph with caution." },
+          { "key": "D", "text": "Pass carefully if no children are visible." }
+        ],
+        "answer": "B",
+        "explanation": "You must stop from either direction for flashing red school bus lights until the lights stop.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 47, "section": "School Buses" }],
+        "tags": ["right-of-way", "stopping", "children"]
+      },
+      {
+        "id": "u4-q12",
+        "skill": "SchoolBuses",
+        "difficulty": 4,
+        "stem": "When are you NOT required to stop for a school bus with flashing red lights?",
+        "choices": [
+          { "key": "A", "text": "On the opposite side of a divided highway with a physical median." },
+          { "key": "B", "text": "On a two‑lane road in a rural area." },
+          { "key": "C", "text": "When you do not see children nearby." },
+          { "key": "D", "text": "When you are late for school." }
+        ],
+        "answer": "A",
+        "explanation": "Vehicles on the opposite side of a divided highway or road with a physical median are generally not required to stop.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 47, "section": "School Buses" }],
+        "tags": ["divided-highway", "school-bus", "exceptions"]
+      },
+      {
+        "id": "u4-q13",
+        "skill": "EmergencyVehicles",
+        "difficulty": 2,
+        "stem": "An emergency vehicle with red lights and a siren approaches. You should:",
+        "choices": [
+          { "key": "A", "text": "Stop in the intersection immediately." },
+          { "key": "B", "text": "Pull to the right edge and stop after clearing any intersection." },
+          { "key": "C", "text": "Speed up to get out of the way, even through red lights." },
+          { "key": "D", "text": "Continue driving until it passes you." }
+        ],
+        "answer": "B",
+        "explanation": "Yield by pulling to the right and stopping. Do not stop in an intersection; clear it first.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 49, "section": "Emergency Vehicles" }],
+        "tags": ["yield", "intersections", "sirens"]
+      },
+      {
+        "id": "u4-q14",
+        "skill": "EmergencyVehicles",
+        "difficulty": 3,
+        "stem": "At a roundabout, an emergency vehicle with siren is behind you. What should you do?",
+        "choices": [
+          { "key": "A", "text": "Stop in the roundabout to yield immediately." },
+          { "key": "B", "text": "Exit the roundabout, then pull to the right and stop." },
+          { "key": "C", "text": "Change lanes inside the roundabout." },
+          { "key": "D", "text": "Accelerate to stay ahead." }
+        ],
+        "answer": "B",
+        "explanation": "Do not stop in an intersection or roundabout. Exit first, then pull over and stop to yield.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 49, "section": "Emergency Vehicles" }],
+        "tags": ["roundabout", "yield", "right-of-way"]
+      },
+      {
+        "id": "u4-q15",
+        "skill": "EmergencyVehicles",
+        "difficulty": 3,
+        "stem": "The Move Over law requires you to:",
+        "choices": [
+          { "key": "A", "text": "Stop in your lane whenever you see flashing lights on the shoulder." },
+          { "key": "B", "text": "Move to a non-adjacent lane or slow to a safe speed when passing stationary emergency or service vehicles with flashing lights." },
+          { "key": "C", "text": "Turn on your hazard lights and continue at the same speed." },
+          { "key": "D", "text": "Honk to warn workers as you pass." }
+        ],
+        "answer": "B",
+        "explanation": "You must move over or slow down for stopped emergency or roadside service vehicles with flashing lights.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 50, "section": "Move Over/Slow Down" }],
+        "tags": ["move-over", "work-zones", "law"]
+      },
+      {
+        "id": "u4-q16",
+        "skill": "LargeTrucks",
+        "difficulty": 2,
+        "stem": "A truck’s No‑Zone refers to:",
+        "choices": [
+          { "key": "A", "text": "A place where trucks cannot legally drive." },
+          { "key": "B", "text": "The truck’s blind spots where your car is not visible." },
+          { "key": "C", "text": "An area for truck-only parking." },
+          { "key": "D", "text": "The shoulder next to a truck." }
+        ],
+        "answer": "B",
+        "explanation": "No‑Zones are large vehicle blind spots to the front, sides, and rear where you may not be seen.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 71, "section": "No‑Zones (Blind Spots)" }],
+        "tags": ["blind-spots", "trucks", "awareness"]
+      },
+      {
+        "id": "u4-q17",
+        "skill": "LargeTrucks",
+        "difficulty": 3,
+        "stem": "After passing a large truck on the left, you should move back into the lane only when:",
+        "choices": [
+          { "key": "A", "text": "You can see the truck’s entire front in your mirror." },
+          { "key": "B", "text": "You are one car length ahead." },
+          { "key": "C", "text": "The truck honks for you to move." },
+          { "key": "D", "text": "You reach the truck’s front wheel." }
+        ],
+        "answer": "A",
+        "explanation": "Return to the lane only when there is ample space and you can see the truck’s front in your mirror.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 72, "section": "Passing Large Vehicles" }],
+        "tags": ["passing", "merge", "space-cushion"]
+      },
+      {
+        "id": "u4-q18",
+        "skill": "LargeTrucks",
+        "difficulty": 4,
+        "stem": "Why is cutting in front of a truck especially dangerous?",
+        "choices": [
+          { "key": "A", "text": "Trucks have better brakes than cars." },
+          { "key": "B", "text": "Trucks take longer to stop due to size and weight." },
+          { "key": "C", "text": "Truck drivers sit higher and can always see you." },
+          { "key": "D", "text": "It is only risky at night." }
+        ],
+        "answer": "B",
+        "explanation": "Large vehicles need longer stopping distances, so cutting in can cause a rear‑end crash.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 70, "section": "Sharing the Road with Large Vehicles" }],
+        "tags": ["stopping-distance", "trucks", "merging"]
+      },
+      {
+        "id": "u4-q19",
+        "skill": "WorkZones",
+        "difficulty": 2,
+        "stem": "Orange signs and cones ahead mean you should:",
+        "choices": [
+          { "key": "A", "text": "Maintain speed to clear the area quickly." },
+          { "key": "B", "text": "Slow down, be ready to merge, and watch for workers." },
+          { "key": "C", "text": "Change lanes at the last second to get ahead." },
+          { "key": "D", "text": "Turn on high beams to see better." }
+        ],
+        "answer": "B",
+        "explanation": "Work zones require reduced speeds, early merging, and extra attention for workers and equipment.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 56, "section": "Work Zones" }],
+        "tags": ["work-zones", "merging", "speed"]
+      },
+      {
+        "id": "u4-q20",
+        "skill": "WorkZones",
+        "difficulty": 3,
+        "stem": "Flaggers in work zones have authority to:",
+        "choices": [
+          { "key": "A", "text": "Give suggestions you may ignore." },
+          { "key": "B", "text": "Direct traffic with the same authority as signs and signals." },
+          { "key": "C", "text": "Write speeding tickets." },
+          { "key": "D", "text": "Close roads only at night." }
+        ],
+        "answer": "B",
+        "explanation": "You must follow flagger directions; they carry the same authority as signs and signals.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 56, "section": "Work Zones" }],
+        "tags": ["flagger", "right-of-way", "obedience"]
+      },
+      {
+        "id": "u4-q21",
+        "skill": "RailroadCrossings",
+        "difficulty": 3,
+        "stem": "At an active railroad crossing with flashing red lights, you must:",
+        "choices": [
+          { "key": "A", "text": "Proceed if no train is visible." },
+          { "key": "B", "text": "Drive around the gate only if you are late." },
+          { "key": "C", "text": "Stop and wait until the lights stop and gates rise." },
+          { "key": "D", "text": "Stop on the tracks to look both ways." }
+        ],
+        "answer": "C",
+        "explanation": "Never go around lowered gates. Stop and wait until signals end and the crossing is clear.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 53, "section": "Railroad Crossings" }],
+        "tags": ["railroad", "signals", "stopping"]
+      },
+      {
+        "id": "u4-q22",
+        "skill": "RailroadCrossings",
+        "difficulty": 4,
+        "stem": "Your vehicle stalls on the tracks and a train is approaching. What should you do first?",
+        "choices": [
+          { "key": "A", "text": "Try to restart the engine." },
+          { "key": "B", "text": "Stay inside and call a tow truck." },
+          { "key": "C", "text": "Exit everyone and run toward the train at an angle away from the tracks." },
+          { "key": "D", "text": "Push the car off the tracks." }
+        ],
+        "answer": "C",
+        "explanation": "Get everyone out immediately and move away at an angle toward the train to avoid debris.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 54, "section": "Emergency Notification Sign (ENS)" }],
+        "tags": ["emergency", "railroad", "evacuation"]
+      },
+      {
+        "id": "u4-q23",
+        "skill": "Animals",
+        "difficulty": 3,
+        "stem": "When approaching a horseback rider on the road, you should:",
+        "choices": [
+          { "key": "A", "text": "Honk to alert the rider." },
+          { "key": "B", "text": "Pass closely to shorten time near the animal." },
+          { "key": "C", "text": "Slow down, give extra space, and follow the rider’s hand signals." },
+          { "key": "D", "text": "Drive on the shoulder to pass." }
+        ],
+        "answer": "C",
+        "explanation": "Slow, give space, and follow the rider’s signals or handlers’ instructions. Avoid sudden horn use.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 58, "section": "Animals and Horseback Riders" }],
+        "tags": ["animals", "right-of-way", "speed-control"]
+      },
+      {
+        "id": "u4-q24",
+        "skill": "Animals",
+        "difficulty": 4,
+        "stem": "A vehicle with an orange triangular emblem ahead is moving slowly. You should:",
+        "choices": [
+          { "key": "A", "text": "Expect it to travel about 25 mph or less and pass only when legal and safe." },
+          { "key": "B", "text": "Honk and tailgate to prompt them to speed up." },
+          { "key": "C", "text": "Drive on the shoulder to pass immediately." },
+          { "key": "D", "text": "Assume it will pull off the road quickly." }
+        ],
+        "answer": "A",
+        "explanation": "The slow‑moving vehicle emblem means 25 mph or less. Pass only when it is legal and you can leave plenty of space.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 59, "section": "Slow‑Moving Vehicles" }],
+        "tags": ["farm-vehicles", "passing", "speed"]
+      }
+    ]
+  }

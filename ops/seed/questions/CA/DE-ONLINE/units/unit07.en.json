@@ -1,1 +1,341 @@
-{}
+{
+    "unitId": "U07",
+    "questions": [
+      {
+        "id": "U07-Q-001",
+        "lessonId": "U07-L07",
+        "difficulty": 2,
+        "prompt": "You’re 17 and your mom calls while you’re driving. What’s the best legal choice?",
+        "options": [
+          "Answer on speaker while holding the phone low.",
+          "Tap your mounted phone once to answer and talk normally.",
+          "Do not use the phone; stop in a safe, legal place if you must call back.",
+          "Text her that you’re driving."
+        ],
+        "answerIndex": 2,
+        "explanation": "Minors may not use a phone or wireless device while driving except for emergencies. Safest option is to stop in a legal place first."
+      },
+      {
+        "id": "U07-Q-002",
+        "lessonId": "U07-L03",
+        "difficulty": 3,
+        "prompt": "Which statement best reflects California’s Zero Tolerance policy for drivers under 21?",
+        "options": [
+          "Under 21 may drive if they feel sober.",
+          "Under 21 must have 0.00% BAC when driving; very low levels can trigger license actions.",
+          "Under 21 can carry opened alcohol in the glove box if no one drinks it.",
+          "Zero Tolerance applies only on highways."
+        ],
+        "answerIndex": 1,
+        "explanation": "California’s under‑21 Zero Tolerance requires no alcohol in the system when driving; even very low levels can lead to penalties."
+      },
+      {
+        "id": "U07-Q-003",
+        "lessonId": "U07-L04",
+        "difficulty": 3,
+        "prompt": "By driving in California, you agree to chemical testing if lawfully requested. What is this called?",
+        "options": [
+          "Administrative per se",
+          "Implied consent",
+          "Open container",
+          "Primary enforcement"
+        ],
+        "answerIndex": 1,
+        "explanation": "Implied consent means licensed drivers agree to chemical testing when lawfully requested; refusing can lead to license suspension."
+      },
+      {
+        "id": "U07-Q-004",
+        "lessonId": "U07-L07",
+        "difficulty": 2,
+        "prompt": "Where may an adult driver mount a phone to use hands‑free legally?",
+        "options": [
+          "Anywhere as long as it’s not in the mirror area.",
+          "Windshield, dashboard, or center console without blocking view.",
+          "On the steering wheel for easy access.",
+          "On the driver’s door window away from airbags."
+        ],
+        "answerIndex": 1,
+        "explanation": "Adults must use hands‑free and mount the device on the windshield, dashboard, or center console without obstructing view."
+      },
+      {
+        "id": "U07-Q-005",
+        "lessonId": "U07-L06",
+        "difficulty": 3,
+        "prompt": "Which is true about driving with cannabis products?",
+        "options": [
+          "It’s legal to smoke cannabis as a passenger.",
+          "Open cannabis products can be kept on the seat as long as they’re not used.",
+          "It’s illegal to smoke/ingest while driving or riding; opened products must be stored as required (e.g., in the trunk).",
+          "Cannabis doesn’t impair driving like alcohol does."
+        ],
+        "answerIndex": 2,
+        "explanation": "California law prohibits smoking or ingesting cannabis while driving or riding; opened products must be secured per rules."
+      },
+      {
+        "id": "U07-Q-006",
+        "lessonId": "U07-L01",
+        "difficulty": 2,
+        "prompt": "After one drink, your friend says they are fine to drive. A ball rolls into the road. What risk increases most with alcohol?",
+        "options": [
+          "Quicker hazard detection",
+          "Shorter braking distance",
+          "Slower reaction time and poor judgment",
+          "Better focus in low light"
+        ],
+        "answerIndex": 2,
+        "explanation": "Alcohol slows reaction time and harms decision‑making, increasing crash risk even at low levels."
+      },
+      {
+        "id": "U07-Q-007",
+        "lessonId": "U07-L05",
+        "difficulty": 3,
+        "prompt": "Your new allergy medicine says ‘may cause drowsiness; do not operate a vehicle or machinery.’ What should you do?",
+        "options": [
+          "Drive if you feel alert after coffee.",
+          "Try a short drive to see how you react.",
+          "Don’t drive until you know it won’t impair you; choose another ride.",
+          "Only avoid night driving."
+        ],
+        "answerIndex": 2,
+        "explanation": "Labels warning of drowsiness indicate a driving risk. Choose an alternative until you know it’s safe."
+      },
+      {
+        "id": "U07-Q-008",
+        "lessonId": "U07-L09",
+        "difficulty": 2,
+        "prompt": "Which sign suggests you’re too drowsy to drive?",
+        "options": [
+          "Singing along to music",
+          "Yawning, heavy eyelids, drifting over lane lines",
+          "Feeling hungry",
+          "Noticing bright sunlight"
+        ],
+        "answerIndex": 1,
+        "explanation": "Yawning, heavy eyelids, and drifting are key warning signs. Stop driving."
+      },
+      {
+        "id": "U07-Q-009",
+        "lessonId": "U07-L10",
+        "difficulty": 3,
+        "prompt": "Best strategy to prevent drowsy driving on a 3‑hour trip after school?",
+        "options": [
+          "Rely on an energy drink and loud music.",
+          "Share driving or postpone; take breaks every 1–2 hours.",
+          "Open the windows fully and keep going.",
+          "Skip breaks to arrive sooner."
+        ],
+        "answerIndex": 1,
+        "explanation": "Plan rest, share the wheel, and take regular breaks. Caffeine and noise are not reliable."
+      },
+      {
+        "id": "U07-Q-010",
+        "lessonId": "U07-L03",
+        "difficulty": 4,
+        "prompt": "You are 20. An officer suspects alcohol use and requests screening. You refuse. What is a likely outcome under California law?",
+        "options": [
+          "No consequence if you weren’t over the adult legal limit.",
+          "A warning only, since you’re not 21 yet.",
+          "License suspension/revocation under implied‑consent rules.",
+          "Vehicle impounded but your license is unaffected."
+        ],
+        "answerIndex": 2,
+        "explanation": "Refusing lawful testing can trigger license suspension/revocation under implied‑consent and zero‑tolerance frameworks."
+      },
+      {
+        "id": "U07-Q-011",
+        "lessonId": "U07-L08",
+        "difficulty": 3,
+        "prompt": "Your map app needs a new destination. What’s the best practice?",
+        "options": [
+          "Enter it while rolling slowly.",
+          "Let a passenger handle it or park before changing it.",
+          "Hold the phone low and type with one hand.",
+          "Wait for a long red light to edit it."
+        ],
+        "answerIndex": 1,
+        "explanation": "Set navigation before driving or have a passenger manage it. Don’t enter addresses while moving."
+      },
+      {
+        "id": "U07-Q-012",
+        "lessonId": "U07-L06",
+        "difficulty": 3,
+        "prompt": "Which combination most increases crash risk?",
+        "options": [
+          "Caffeine and water",
+          "Alcohol and cannabis together",
+          "Sugar and music",
+          "Cold air and podcasts"
+        ],
+        "answerIndex": 1,
+        "explanation": "Mixing alcohol with cannabis compounds impairment and greatly raises crash risk."
+      },
+      {
+        "id": "U07-Q-013",
+        "lessonId": "U07-L13",
+        "difficulty": 3,
+        "prompt": "Which consequence can follow a DUI conviction in California?",
+        "options": [
+          "No record after 6 months if you apologize.",
+          "Possible requirement to complete a DUI program and show high‑risk insurance proof.",
+          "Only a verbal warning for first offenses.",
+          "Community service only, no license impact."
+        ],
+        "answerIndex": 1,
+        "explanation": "DUI consequences can include education programs, proof of insurance, and other penalties."
+      },
+      {
+        "id": "U07-Q-014",
+        "lessonId": "U07-L02",
+        "difficulty": 3,
+        "prompt": "Which statement is most accurate about BAC and safety?",
+        "options": [
+          "If you’re below the adult per‑se limit, you are safe to drive.",
+          "Only large people can drive safely after drinking.",
+          "Any alcohol can impair driving; plan not to drive if you drink.",
+          "Coffee cancels the effects of alcohol quickly."
+        ],
+        "answerIndex": 2,
+        "explanation": "Even low BAC can impair driving. Plan a sober ride whenever alcohol is involved."
+      },
+      {
+        "id": "U07-Q-015",
+        "lessonId": "U07-L11",
+        "difficulty": 2,
+        "prompt": "Your friends are being loud and asking you to speed up. What should you do first?",
+        "options": [
+          "Turn up the music so you can’t hear them.",
+          "Tell them you need quiet to focus and keep your pace.",
+          "Speed briefly to calm them down.",
+          "Hand your phone back so they can record you."
+        ],
+        "answerIndex": 1,
+        "explanation": "Set expectations and keep control. Don’t change speed or use a phone to appease passengers."
+      },
+      {
+        "id": "U07-Q-016",
+        "lessonId": "U07-L12",
+        "difficulty": 2,
+        "prompt": "Which item is most likely to become a dangerous distraction?",
+        "options": [
+          "A sealed water bottle in a cup holder",
+          "An open bowl of noodles on your lap",
+          "A mounted phone running audio only",
+          "A coat folded on the back seat"
+        ],
+        "answerIndex": 1,
+        "explanation": "Hot, spillable food on a lap can trigger sudden, unsafe reactions."
+      },
+      {
+        "id": "U07-Q-017",
+        "lessonId": "U07-L07",
+        "difficulty": 4,
+        "prompt": "Which is legally correct for adult drivers using phones?",
+        "options": [
+          "Holding the phone briefly at a red light is fine.",
+          "Hands‑free is allowed when necessary with a properly mounted device; don’t obstruct your view.",
+          "It’s legal to type while stopped in traffic.",
+          "Adults may video‑chat if they look up every few seconds."
+        ],
+        "answerIndex": 1,
+        "explanation": "Adults may use hands‑free with a properly mounted device and minimal interaction; hand‑held use is illegal."
+      },
+      {
+        "id": "U07-Q-018",
+        "lessonId": "U07-L03",
+        "difficulty": 3,
+        "prompt": "Under‑21 transporting alcohol in a vehicle: which is most accurate?",
+        "options": [
+          "Allowed if the bottle is in the glove box.",
+          "Allowed only under specific conditions in the handbook (e.g., sealed and with a 21+ adult in certain situations).",
+          "Always allowed if the driver is sober.",
+          "Never allowed under any condition."
+        ],
+        "answerIndex": 1,
+        "explanation": "There are narrow conditions for transporting sealed alcohol with a 21+ adult; otherwise it’s prohibited."
+      },
+      {
+        "id": "U07-Q-019",
+        "lessonId": "U07-L04",
+        "difficulty": 3,
+        "prompt": "After a DUI arrest, which administrative step may occur even before court outcomes?",
+        "options": [
+          "Automatic dismissal of charges",
+          "DMV administrative license action",
+          "Free car‑insurance upgrade",
+          "Record removed after 30 days"
+        ],
+        "answerIndex": 1,
+        "explanation": "An administrative DMV action can apply separate from the court process."
+      },
+      {
+        "id": "U07-Q-020",
+        "lessonId": "U07-L14",
+        "difficulty": 2,
+        "prompt": "Your designated driver ends up drinking. What’s the best next step?",
+        "options": [
+          "Wait a few minutes and then drive slowly.",
+          "You drive because you had only one drink.",
+          "Use your backup plan: rideshare, taxi, call a parent/guardian.",
+          "Ask the least‑impaired friend to drive."
+        ],
+        "answerIndex": 2,
+        "explanation": "Use the sober backup plan—rideshare, taxi, or a trusted adult. Do not drive impaired."
+      },
+      {
+        "id": "U07-Q-021",
+        "lessonId": "U07-L01",
+        "difficulty": 4,
+        "prompt": "Which is the safest interpretation of BAC limits in California?",
+        "options": [
+          "If you’re 21+, any BAC under the legal per‑se number guarantees safe driving.",
+          "Even under per‑se limits, you can be unsafe or face consequences if impaired.",
+          "Only CDL drivers face consequences for low BAC.",
+          "BAC limits don’t apply if you’re driving slowly."
+        ],
+        "answerIndex": 1,
+        "explanation": "Below per‑se limits doesn’t guarantee safety; impairment can still be illegal and dangerous."
+      },
+      {
+        "id": "U07-Q-022",
+        "lessonId": "U07-L05",
+        "difficulty": 3,
+        "prompt": "You took a muscle relaxant that causes drowsiness. What should you do about your planned drive?",
+        "options": [
+          "Open the windows and drive anyway.",
+          "Only avoid the freeway.",
+          "Delay the trip or get a different ride.",
+          "Drink coffee every 30 minutes."
+        ],
+        "answerIndex": 2,
+        "explanation": "Don’t drive when a medication causes drowsiness. Choose an alternative."
+      },
+      {
+        "id": "U07-Q-023",
+        "lessonId": "U07-L11",
+        "difficulty": 3,
+        "prompt": "Friends ask you to go live on social media while driving. What’s the best action?",
+        "options": [
+          "Hold the phone low and stream with one hand.",
+          "Let a passenger hold the phone while you drive.",
+          "Park legally first or refuse; driving comes first.",
+          "Stream only on quiet neighborhood streets."
+        ],
+        "answerIndex": 2,
+        "explanation": "Filming/streaming while driving is dangerous and can be illegal. Park first or say no."
+      },
+      {
+        "id": "U07-Q-024",
+        "lessonId": "U07-L10",
+        "difficulty": 5,
+        "prompt": "You begin ‘micro‑sleeping’ (brief head‑nods) on a late‑night highway. What is the BEST response?",
+        "options": [
+          "Turn up the music and pinch yourself.",
+          "Chew gum and open the window.",
+          "Exit and stop in a safe, legal place to rest; consider switching drivers or delaying travel.",
+          "Keep going to the next city where hotels are cheaper."
+        ],
+        "answerIndex": 2,
+        "explanation": "Micro‑sleeps mean you’re already unsafe. Stop now in a safe place, rest, or switch drivers."
+      }
+    ]
+  }

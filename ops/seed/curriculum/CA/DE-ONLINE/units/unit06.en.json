@@ -1,1 +1,276 @@
-{}
+{
+    "unitNumber": 6,
+    "title": "Freeway & Urban Driving Strategies",
+    "minutesRequired": 85,
+    "objectives": [
+      "Merge smoothly using acceleration lanes without stopping unless required.",
+      "Select the correct freeway lane and use the left lane mainly for passing.",
+      "Identify and follow HOV (carpool) and express-lane rules and markings.",
+      "Manage speed under California’s basic speed law and changing conditions.",
+      "Maintain a safe following distance at freeway speeds and increase it in poor conditions.",
+      "Plan exits early, read interchange signs, and handle weaving areas safely.",
+      "Scan for urban hazards including intersections, frequent stops, and pedestrians.",
+      "Share the road with vulnerable users: bikes, scooters, buses, and light rail.",
+      "Apply city parking rules: curb colors, meters, time limits, and hill parking.",
+      "Handle special conditions: night glare, rain spray, hydroplaning, wind, and large-vehicle turbulence."
+    ],
+    "sections": [
+      {
+        "id": "U06-S01",
+        "title": "Freeway Basics: Ramps & Merging",
+        "lessons": [
+          {
+            "id": "U06-L01",
+            "title": "Acceleration Lanes & Ramp Meters",
+            "minutes": 5,
+            "content": [
+              { "type": "paragraph", "text": "On-ramps and acceleration lanes exist to help you reach freeway speed before merging. Look far ahead and match the speed of traffic as you approach the merge area." },
+              { "type": "paragraph", "text": "Use the entire acceleration lane. Do not stop on the ramp unless traffic or a signal requires it. Freeway traffic has the right of way." },
+              { "type": "paragraph", "text": "Ramp meters are small signals that control how quickly vehicles enter. Obey the posted sign—often it is one vehicle per green per lane. Follow posted signs and local rules." },
+              { "type": "bulleted-list", "items": ["Signal early and check mirrors and over-the-shoulder blind spots.", "Choose a gap that does not force others to brake hard.", "Merge one lane at a time—do not cross solid lines.", "After merging, leave at least a 3‑second following distance."] }
+            ]
+          },
+          {
+            "id": "U06-L02",
+            "title": "Merging Etiquette & Choosing a Gap",
+            "minutes": 5,
+            "content": [
+              { "type": "paragraph", "text": "Use SMOG: Signal, Mirrors, Over‑the‑shoulder, Go when clear. Enter at or near traffic speed so others do not have to slow suddenly." },
+              { "type": "paragraph", "text": "If a driver speeds up to block you, keep signaling and adjust to the next gap. Do not stop on the ramp unless a signal or stopped traffic requires it." },
+              { "type": "paragraph", "text": "When two streams merge, be courteous and take turns if needed. Maintain lane position and communicate with your indicators." },
+              { "type": "bulleted-list", "items": ["Common teen mistakes: stopping on the acceleration lane, looking only in mirrors, entering too slowly, drifting across multiple lanes at once."] }
+            ]
+          },
+          {
+            "id": "U06-L03",
+            "title": "Freeway Exits: Off‑ramps, Signals & Shoulder Use",
+            "minutes": 4,
+            "content": [
+              { "type": "paragraph", "text": "Know your exit early. Move to the proper lane one at a time and signal for at least five seconds (about 400 ft) before exiting." },
+              { "type": "paragraph", "text": "Follow any exit‑ramp signals and advisory speeds. Do not cross solid lines or the gore area to make a last‑second exit." },
+              { "type": "paragraph", "text": "If you miss an exit, keep going to the next one. Never back up on the freeway." },
+              { "type": "bulleted-list", "items": ["Breakdown? Move to the right shoulder, turn on hazards, and stay in the vehicle until help arrives.", "Use roadside assistance/FSP where available."] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U06-S02",
+        "title": "Lane Use, Passing & HOV",
+        "lessons": [
+          {
+            "id": "U06-L04",
+            "title": "Lane Numbers & Right vs. Left",
+            "minutes": 5,
+            "content": [
+              { "type": "paragraph", "text": "On multilane roads, the leftmost lane is lane 1, then numbers increase to the right." },
+              { "type": "paragraph", "text": "Use the left lane mainly for passing or left turns. Use right lanes for entering/exiting and for slower traffic." },
+              { "type": "paragraph", "text": "Solid white lines mean do not change lanes; broken white lines allow a lane change when safe." },
+              { "type": "bulleted-list", "items": ["Signal, check mirrors, and look over your shoulder.", "Change one lane at a time; avoid weaving.", "Do not slow unnecessarily before a lane change."] }
+            ]
+          },
+          {
+            "id": "U06-L05",
+            "title": "Passing & ‘Keep Right’ Habits",
+            "minutes": 4,
+            "content": [
+              { "type": "paragraph", "text": "Pass on the left and return only when you can see the vehicle’s headlights in your rearview mirror." },
+              { "type": "paragraph", "text": "Passing on the right is allowed only in specific situations (e.g., multiple same‑direction lanes or the other driver turning left). Never drive off the paved roadway to pass." },
+              { "type": "paragraph", "text": "Do not linger in the left lane. If faster traffic approaches from behind, move right when safe." },
+              { "type": "bulleted-list", "items": ["If being passed, maintain speed and lane position.", "Do not speed up to prevent someone from passing."] }
+            ]
+          },
+          {
+            "id": "U06-L06",
+            "title": "Carpool (HOV) & Express Lanes",
+            "minutes": 5,
+            "content": [
+              { "type": "paragraph", "text": "HOV lanes are marked with a diamond symbol and signs. They are for vehicles that meet posted occupancy, eligible clean‑air vehicles with DMV decals, and motorcycles (unless posted otherwise)." },
+              { "type": "paragraph", "text": "Never cross double‑solid white lines to enter or exit an HOV lane. Use designated entry/exit areas with broken lines." },
+              { "type": "paragraph", "text": "Some corridors use express lanes with tolls or transponders. Follow posted signs and local rules." },
+              { "type": "bulleted-list", "items": ["Check posted HOV hours and minimum occupants.", "Watch for left‑side HOV ramps and special separators.", "Avoid last‑second moves across the buffer."] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U06-S03",
+        "title": "Speed, Distance & Space",
+        "lessons": [
+          {
+            "id": "U06-L07",
+            "title": "California’s Basic Speed Law",
+            "minutes": 5,
+            "content": [
+              { "type": "paragraph", "text": "Never drive faster than is safe for current conditions, regardless of the posted limit." },
+              { "type": "paragraph", "text": "Typical maximum freeway speed is 65 mph unless posted otherwise. Slow for traffic, weather, visibility, and roadway surfaces." },
+              { "type": "paragraph", "text": "Do not impede traffic by driving far below the flow; move right if needed and safe." },
+              { "type": "bulleted-list", "items": ["Be alert for special limits near schools, alleys, and blind intersections.", "Always follow posted signs and local rules."] }
+            ]
+          },
+          {
+            "id": "U06-L08",
+            "title": "Following Distance at Freeway Speeds",
+            "minutes": 4,
+            "content": [
+              { "type": "paragraph", "text": "Use the three‑second rule at a minimum. Increase following distance at higher speeds and in rain, darkness, or heavy spray." },
+              { "type": "paragraph", "text": "If you are tailgated, keep your pace, then change to a right lane when safe to let the driver pass." },
+              { "type": "paragraph", "text": "Avoid squeezing into small gaps. After merging, rebuild your space cushion." },
+              { "type": "bulleted-list", "items": ["Pick a fixed point ahead.", "When the vehicle ahead passes it, count ‘one‑thousand‑one, two‑three’.", "If you reach the point sooner than three, you are following too closely."] }
+            ]
+          },
+          {
+            "id": "U06-L09",
+            "title": "Sight Distance, Escape Routes & Space Cushion",
+            "minutes": 4,
+            "content": [
+              { "type": "paragraph", "text": "Scan at least 10 seconds ahead to spot slowdowns, debris, and lane drops early." },
+              { "type": "paragraph", "text": "Avoid driving in other drivers’ blind spots. Create space on both sides whenever possible." },
+              { "type": "paragraph", "text": "If you cannot see around a large vehicle, increase following distance or change lanes when safe." },
+              { "type": "bulleted-list", "items": ["When hazards are on both sides, handle one at a time—slow down for oncoming traffic, then pass a cyclist with extra room.", "Keep an ‘out’—know where you can safely go if the lane ahead closes."] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U06-S04",
+        "title": "Interchanges & Exiting Strategy",
+        "lessons": [
+          {
+            "id": "U06-L10",
+            "title": "Interchange Types & Signs",
+            "minutes": 5,
+            "content": [
+              { "type": "paragraph", "text": "Interchanges (cloverleaf, diamond, trumpet) connect roads using ramps with curves and changing speeds. Expect limited sight distance on ramps." },
+              { "type": "paragraph", "text": "Large broken lines often mark lane ends and exits. Watch for ‘EXIT ONLY’ and lane‑drop signs." },
+              { "type": "paragraph", "text": "Weaving areas occur where entering and exiting paths cross. Look ahead, communicate with signals, and be patient." },
+              { "type": "bulleted-list", "items": ["Read guide signs early.", "Adjust speed before the curve.", "Stay in your lane through ramps; avoid last‑second moves."] }
+            ]
+          },
+          {
+            "id": "U06-L11",
+            "title": "Exit Planning, Lane Drops & Weaving",
+            "minutes": 4,
+            "content": [
+              { "type": "paragraph", "text": "Move to the proper lane well before your exit. Signal for at least five seconds (about 400 ft) to communicate your intent." },
+              { "type": "paragraph", "text": "Respect solid lines and gore areas. If you miss the exit, continue to the next one—never back up." },
+              { "type": "paragraph", "text": "In weaving segments, take turns (‘zipper’) and avoid accelerating to block others." },
+              { "type": "bulleted-list", "items": ["Check blind spots before lane changes.", "Watch for trucks and give them extra room to exit or merge."] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U06-S05",
+        "title": "Urban Driving Hazards",
+        "lessons": [
+          {
+            "id": "U06-L12",
+            "title": "Intersections & Frequent Stops",
+            "minutes": 5,
+            "content": [
+              { "type": "paragraph", "text": "City streets have many close intersections. Expect frequent red lights and stop‑and‑go traffic." },
+              { "type": "paragraph", "text": "Pedestrians have the right of way in marked and unmarked crosswalks. Yield and scan both sides." },
+              { "type": "paragraph", "text": "Treat dark signals as all‑way stops. Do not enter an intersection unless you can fully clear it." },
+              { "type": "bulleted-list", "items": ["Cover the brake near crosswalks.", "Check left‑right‑left before moving.", "Watch for turning vehicles and cyclists."] }
+            ]
+          },
+          {
+            "id": "U06-L13",
+            "title": "Lane Blockages: Double‑Parked, Deliveries, Rideshare",
+            "minutes": 4,
+            "content": [
+              { "type": "paragraph", "text": "Expect delivery trucks, buses, and ride‑share vehicles to stop at curbs. People may walk out between vehicles." },
+              { "type": "paragraph", "text": "Double‑parking is illegal. Never stop in a travel lane to load/unload." },
+              { "type": "paragraph", "text": "Leave extra space on the right side of your lane and be ready to stop. Doors can open suddenly." },
+              { "type": "bulleted-list", "items": ["If a bike lane is blocked, merge out carefully and yield to cyclists.", "You may enter a bike lane within 200 ft of a right turn; check blind spots first."] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U06-S06",
+        "title": "Vulnerable Users & Transit",
+        "lessons": [
+          {
+            "id": "U06-L14",
+            "title": "Bicycles, Scooters & the Door Zone",
+            "minutes": 5,
+            "content": [
+              { "type": "paragraph", "text": "Bicycles share the road and may use the full lane when needed. Give them space and expect speed changes." },
+              { "type": "paragraph", "text": "Leave at least three feet when passing. Change lanes to pass when necessary and safe." },
+              { "type": "paragraph", "text": "The ‘door zone’ is hazardous. Check mirrors and over your shoulder before opening doors near traffic or bike lanes." },
+              { "type": "bulleted-list", "items": ["Never park in a bike lane.", "Enter the bike lane within 200 ft of a right turn and yield to cyclists.", "Watch for e‑scooters and slow riders near curbs."] }
+            ]
+          },
+          {
+            "id": "U06-L15",
+            "title": "Bus‑Only Lanes, Light Rail & Transit Stops",
+            "minutes": 4,
+            "content": [
+              { "type": "paragraph", "text": "Do not drive, stop, or park in a bus‑only lane. You may cross it to turn right where permitted." },
+              { "type": "paragraph", "text": "At marked safety zones for streetcars or trolleys, pass at no more than 10 mph and watch for people." },
+              { "type": "paragraph", "text": "Do not pass light rail on the left unless directed. Look for trains before crossing tracks." },
+              { "type": "bulleted-list", "items": ["Yield to buses reentering traffic when safe.", "Follow posted transit signals and local rules."] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U06-S07",
+        "title": "City Parking Rules",
+        "lessons": [
+          {
+            "id": "U06-L16",
+            "title": "Curb Colors, Meters & Time Limits",
+            "minutes": 5,
+            "content": [
+              { "type": "paragraph", "text": "Curb colors: white = pick up/drop‑off, green = time‑limited, yellow = loading/commercial, red = no stopping, blue = disabled parking with placard/plates." },
+              { "type": "paragraph", "text": "Read signs and meters for hours and time limits. Always follow posted signs and local rules." },
+              { "type": "paragraph", "text": "Park within 18 inches of the curb when parallel parking." },
+              { "type": "bulleted-list", "items": ["Watch for tow‑away or street‑cleaning restrictions.", "Stop only briefly in white zones, and load/unload only as allowed in yellow zones."] }
+            ]
+          },
+          {
+            "id": "U06-L17",
+            "title": "Hills, Parallel Parking & No‑Parking Zones",
+            "minutes": 4,
+            "content": [
+              { "type": "paragraph", "text": "On hills: turn wheels toward the curb when facing downhill; away from the curb when uphill; with no curb, turn toward the edge." },
+              { "type": "paragraph", "text": "Parallel park by aligning, backing at ~45°, straightening, and ending within 18 inches of the curb." },
+              { "type": "paragraph", "text": "Never park in crosswalks, in front of driveways, too close to hydrants, or in double‑parked positions." },
+              { "type": "bulleted-list", "items": ["Blue spaces require a placard/plate.", "Red curbs and bus zones prohibit stopping."] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "U06-S08",
+        "title": "Special Conditions",
+        "lessons": [
+          {
+            "id": "U06-L18",
+            "title": "Night Glare, Rain Spray & Hydroplaning",
+            "minutes": 4,
+            "content": [
+              { "type": "paragraph", "text": "Use low beams in rain or fog and whenever wipers are on. Never drive with only parking lights." },
+              { "type": "paragraph", "text": "At night, look to the right edge to avoid glare and slow so you can stop within the distance you can see." },
+              { "type": "paragraph", "text": "In heavy rain, reduce speed and watch for standing water. If you begin to hydroplane, ease off the accelerator and avoid hard braking or sudden turns." },
+              { "type": "bulleted-list", "items": ["If you cannot see 100 ft ahead in heavy rain or snow, it is not safe to drive faster than about 30 mph."] }
+            ]
+          },
+          {
+            "id": "U06-L19",
+            "title": "Wind, Big‑Rig Turbulence & Emergencies",
+            "minutes": 4,
+            "content": [
+              { "type": "paragraph", "text": "Large vehicles create wind turbulence and have big blind spots. Do not linger beside them. Pass on the left and do not cut in." },
+              { "type": "paragraph", "text": "Strong winds: slow down, grip the wheel, and be alert for debris. Avoid cruise control in gusty conditions." },
+              { "type": "paragraph", "text": "If your vehicle breaks down, move to the right shoulder, turn on hazards, call for help (511/FSP where available), and stay in the vehicle with your seat belt fastened." },
+              { "type": "bulleted-list", "items": ["During a traffic break, turn on hazards and slow to the patrol car’s speed until the lights turn off."] }
+            ]
+          }
+        ]
+      }
+    ]
+  }

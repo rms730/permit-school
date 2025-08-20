@@ -1,1 +1,753 @@
-{}
+{
+    "unit": 11,
+    "lang": "en",
+    "course": {
+      "j_code": "CA",
+      "course_code": "DE-ONLINE"
+    },
+    "questions": [
+      {
+        "id": "u11-q01",
+        "skill": "Parking_rules",
+        "difficulty": 2,
+        "stem": "What does a red curb in California mean?",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Stopping only"
+          },
+          {
+            "key": "B",
+            "text": "Loading zone only"
+          },
+          {
+            "key": "C",
+            "text": "No stopping, standing, or parking"
+          },
+          {
+            "key": "D",
+            "text": "Passenger loading only"
+          }
+        ],
+        "answer": "C",
+        "explanation": "A red curb means no stopping, standing, or parking.",
+        "tags": [
+          "parking",
+          "curb_colors"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Parking — Colored Curbs"
+        }
+      },
+      {
+        "id": "u11-q02",
+        "skill": "Parking_rules",
+        "difficulty": 2,
+        "stem": "A white curb indicates you may:",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Park all day if you stay in the vehicle"
+          },
+          {
+            "key": "B",
+            "text": "Stop only to pick up or drop off passengers (or mail)"
+          },
+          {
+            "key": "C",
+            "text": "Load or unload freight as long as needed"
+          },
+          {
+            "key": "D",
+            "text": "Park with a disabled placard only"
+          }
+        ],
+        "answer": "B",
+        "explanation": "White curbs are for short passenger (or mail) stops only.",
+        "tags": [
+          "parking",
+          "curb_colors"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Parking — Colored Curbs"
+        }
+      },
+      {
+        "id": "u11-q03",
+        "skill": "Parking_rules",
+        "difficulty": 2,
+        "stem": "Green curbs mean:",
+        "choices": [
+          {
+            "key": "A",
+            "text": "No stopping"
+          },
+          {
+            "key": "B",
+            "text": "Limited-time parking as posted"
+          },
+          {
+            "key": "C",
+            "text": "Commercial loading only"
+          },
+          {
+            "key": "D",
+            "text": "Disabled parking only"
+          }
+        ],
+        "answer": "B",
+        "explanation": "A green curb allows limited-time parking; the time limit is posted on signs or the curb.",
+        "tags": [
+          "parking",
+          "curb_colors"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Parking — Colored Curbs"
+        }
+      },
+      {
+        "id": "u11-q04",
+        "skill": "Parking_rules",
+        "difficulty": 2,
+        "stem": "Yellow curbs are primarily for:",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Emergency vehicles only"
+          },
+          {
+            "key": "B",
+            "text": "Passenger or freight loading for the posted time"
+          },
+          {
+            "key": "C",
+            "text": "Employee parking only"
+          },
+          {
+            "key": "D",
+            "text": "Bicycle parking"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Yellow curbs are loading zones for passengers or freight for the time shown; noncommercial drivers usually must stay with the vehicle.",
+        "tags": [
+          "parking",
+          "curb_colors",
+          "loading"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Parking — Colored Curbs"
+        }
+      },
+      {
+        "id": "u11-q05",
+        "skill": "Disabled_parking",
+        "difficulty": 2,
+        "stem": "Who may park at a blue curb?",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Anyone for 5 minutes or less"
+          },
+          {
+            "key": "B",
+            "text": "Vehicles with disabled person placards or plates"
+          },
+          {
+            "key": "C",
+            "text": "Commercial vehicles only"
+          },
+          {
+            "key": "D",
+            "text": "Residents only"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Blue zones are reserved for vehicles displaying valid disabled person placards or plates.",
+        "tags": [
+          "disabled_parking"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Parking — Disabled Parking"
+        }
+      },
+      {
+        "id": "u11-q06",
+        "skill": "Disabled_parking",
+        "difficulty": 2,
+        "stem": "Parking in the cross‑hatched access aisle next to a disabled space is:",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Allowed for loading only"
+          },
+          {
+            "key": "B",
+            "text": "Allowed with a placard"
+          },
+          {
+            "key": "C",
+            "text": "Never allowed"
+          },
+          {
+            "key": "D",
+            "text": "Allowed at night only"
+          }
+        ],
+        "answer": "C",
+        "explanation": "The cross‑hatched area next to a disabled parking space is an access aisle and is not for stopping or parking.",
+        "tags": [
+          "disabled_parking",
+          "access_aisle"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Illegal Parking — Access Aisles"
+        }
+      },
+      {
+        "id": "u11-q07",
+        "skill": "Parking_rules",
+        "difficulty": 2,
+        "stem": "After parallel parking, your wheels must be:",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Touching the curb"
+          },
+          {
+            "key": "B",
+            "text": "Within 18 inches of the curb"
+          },
+          {
+            "key": "C",
+            "text": "At least 2 feet from the curb"
+          },
+          {
+            "key": "D",
+            "text": "Turned away from the curb"
+          }
+        ],
+        "answer": "B",
+        "explanation": "California requires your wheels be within 18 inches of the curb.",
+        "tags": [
+          "parallel_parking"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Parking — Parallel Parking"
+        }
+      },
+      {
+        "id": "u11-q08",
+        "skill": "Parking_rules",
+        "difficulty": 2,
+        "stem": "When parking **downhill** with a curb, turn your front wheels:",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Away from the curb"
+          },
+          {
+            "key": "B",
+            "text": "Toward the curb"
+          },
+          {
+            "key": "C",
+            "text": "Straight ahead"
+          },
+          {
+            "key": "D",
+            "text": "Either direction"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Downhill: turn the wheels toward the curb.",
+        "tags": [
+          "hill_parking"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Parking — Hill Parking"
+        }
+      },
+      {
+        "id": "u11-q09",
+        "skill": "Parking_rules",
+        "difficulty": 2,
+        "stem": "When parking **uphill** with a curb, you should:",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Turn wheels toward the curb"
+          },
+          {
+            "key": "B",
+            "text": "Leave wheels straight"
+          },
+          {
+            "key": "C",
+            "text": "Turn wheels away from the curb and allow the vehicle to roll back until the tire touches the curb"
+          },
+          {
+            "key": "D",
+            "text": "Set the wheels to any direction"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Uphill with a curb: turn wheels away from the curb and let the tire gently touch the curb.",
+        "tags": [
+          "hill_parking"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Parking — Hill Parking"
+        }
+      },
+      {
+        "id": "u11-q10",
+        "skill": "Parking_rules",
+        "difficulty": 2,
+        "stem": "How close to a fire hydrant is it illegal to park?",
+        "choices": [
+          {
+            "key": "A",
+            "text": "10 feet"
+          },
+          {
+            "key": "B",
+            "text": "12 feet"
+          },
+          {
+            "key": "C",
+            "text": "15 feet or less"
+          },
+          {
+            "key": "D",
+            "text": "25 feet"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Do not park within 15 feet of a fire hydrant.",
+        "tags": [
+          "illegal_parking",
+          "distances"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Illegal Parking — Distances"
+        }
+      },
+      {
+        "id": "u11-q11",
+        "skill": "Parking_rules",
+        "difficulty": 3,
+        "stem": "How far from a crosswalk (marked or unmarked) must you avoid parking?",
+        "choices": [
+          {
+            "key": "A",
+            "text": "10 feet"
+          },
+          {
+            "key": "B",
+            "text": "15 feet"
+          },
+          {
+            "key": "C",
+            "text": "20 feet"
+          },
+          {
+            "key": "D",
+            "text": "30 feet"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Do not park within 20 feet of a crosswalk (marked or unmarked). Where the curb extends into the street, the distance is 15 feet.",
+        "tags": [
+          "illegal_parking",
+          "distances"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Illegal Parking — Distances"
+        }
+      },
+      {
+        "id": "u11-q12",
+        "skill": "Parking_rules",
+        "difficulty": 2,
+        "stem": "When warning devices or a person indicate a train is coming, you must stop at least how far from the nearest rail?",
+        "choices": [
+          {
+            "key": "A",
+            "text": "5 feet"
+          },
+          {
+            "key": "B",
+            "text": "10 feet"
+          },
+          {
+            "key": "C",
+            "text": "15 feet"
+          },
+          {
+            "key": "D",
+            "text": "25 feet"
+          }
+        ],
+        "answer": "C",
+        "explanation": "Stop at least 15 feet from the nearest rail when warned at a railroad crossing.",
+        "tags": [
+          "railroad_crossing",
+          "stopping_distance"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Near Railroad or Light Rail Tracks"
+        }
+      },
+      {
+        "id": "u11-q13",
+        "skill": "Parking_rules",
+        "difficulty": 3,
+        "stem": "When may you park in a bicycle lane?",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Never"
+          },
+          {
+            "key": "B",
+            "text": "Only if no curb color is present"
+          },
+          {
+            "key": "C",
+            "text": "Where parking is permitted by signs/markings"
+          },
+          {
+            "key": "D",
+            "text": "Only at night"
+          }
+        ],
+        "answer": "C",
+        "explanation": "You may drive in a bike lane to park where parking is permitted; obey posted signs.",
+        "tags": [
+          "bike_lane",
+          "parking"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Bicycle Lanes"
+        }
+      },
+      {
+        "id": "u11-q14",
+        "skill": "Provisional_restrictions",
+        "difficulty": 2,
+        "stem": "For the first 12 months with a provisional license, you may not drive between:",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Midnight and 6 a.m."
+          },
+          {
+            "key": "B",
+            "text": "11 p.m. and 5 a.m."
+          },
+          {
+            "key": "C",
+            "text": "10 p.m. and 4 a.m."
+          },
+          {
+            "key": "D",
+            "text": "9 p.m. and 5 a.m."
+          }
+        ],
+        "answer": "B",
+        "explanation": "Provisional curfew is 11 p.m.–5 a.m. during the first 12 months.",
+        "tags": [
+          "provisional",
+          "curfew"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Minor’s Restrictions and Exceptions"
+        }
+      },
+      {
+        "id": "u11-q15",
+        "skill": "Provisional_restrictions",
+        "difficulty": 2,
+        "stem": "During the first year, you may not carry passengers under 20 unless:",
+        "choices": [
+          {
+            "key": "A",
+            "text": "You have a note from a friend"
+          },
+          {
+            "key": "B",
+            "text": "A California‑licensed driver age 25 or older is with you"
+          },
+          {
+            "key": "C",
+            "text": "It is daytime"
+          },
+          {
+            "key": "D",
+            "text": "You drive under 35 mph"
+          }
+        ],
+        "answer": "B",
+        "explanation": "A licensed driver who is 25 or older must be present to carry under‑20 passengers during the first 12 months.",
+        "tags": [
+          "provisional",
+          "passengers"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Minor’s Restrictions and Exceptions"
+        }
+      },
+      {
+        "id": "u11-q16",
+        "skill": "Provisional_restrictions",
+        "difficulty": 3,
+        "stem": "Which is an allowed exception to provisional restrictions if you carry the required signed note?",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Social events with friends"
+          },
+          {
+            "key": "B",
+            "text": "Medical necessity"
+          },
+          {
+            "key": "C",
+            "text": "Vacation travel"
+          },
+          {
+            "key": "D",
+            "text": "Practice driving"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Exceptions include medical need, school or school activity, employment, or transporting an immediate family member with a signed note.",
+        "tags": [
+          "provisional",
+          "exceptions"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Minor’s Restrictions and Exceptions"
+        }
+      },
+      {
+        "id": "u11-q17",
+        "skill": "NOTS_points",
+        "difficulty": 3,
+        "stem": "Which of the following is a NOTS point threshold for adults that can trigger DMV action?",
+        "choices": [
+          {
+            "key": "A",
+            "text": "3 points in 12 months"
+          },
+          {
+            "key": "B",
+            "text": "4 points in 12 months"
+          },
+          {
+            "key": "C",
+            "text": "5 points in 12 months"
+          },
+          {
+            "key": "D",
+            "text": "10 points in 24 months"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Adult thresholds are 4 points in 12 months, 6 in 24, or 8 in 36 months.",
+        "tags": [
+          "NOTS",
+          "points"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Points on Your Driver’s Record"
+        }
+      },
+      {
+        "id": "u11-q18",
+        "skill": "NOTS_points",
+        "difficulty": 3,
+        "stem": "Within the first 12 months, what happens after two at‑fault collisions, two convictions, or one of each for a minor?",
+        "choices": [
+          {
+            "key": "A",
+            "text": "License canceled permanently"
+          },
+          {
+            "key": "B",
+            "text": "Six‑month suspension immediately"
+          },
+          {
+            "key": "C",
+            "text": "30‑day restriction; you may only drive with a licensed 25+ adult"
+          },
+          {
+            "key": "D",
+            "text": "No consequence if you attend traffic school"
+          }
+        ],
+        "answer": "C",
+        "explanation": "DMV may restrict a minor’s driving for 30 days, requiring a 25+ licensed driver to accompany them.",
+        "tags": [
+          "provisional",
+          "NOTS"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Maintaining Your Minor’s (Provisional) License"
+        }
+      },
+      {
+        "id": "u11-q19",
+        "skill": "Enforcement_basics",
+        "difficulty": 2,
+        "stem": "If you are cited and sign the ticket, your signature means:",
+        "choices": [
+          {
+            "key": "A",
+            "text": "You admit guilt"
+          },
+          {
+            "key": "B",
+            "text": "A promise to appear in traffic court"
+          },
+          {
+            "key": "C",
+            "text": "You can ignore the ticket"
+          },
+          {
+            "key": "D",
+            "text": "You must pay on the spot"
+          }
+        ],
+        "answer": "B",
+        "explanation": "Signing a citation is a promise to appear, not an admission of guilt.",
+        "tags": [
+          "citations"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Points on Your Driver’s Record — Promise to Appear"
+        }
+      },
+      {
+        "id": "u11-q20",
+        "skill": "Enforcement_basics",
+        "difficulty": 2,
+        "stem": "How often can eligible drivers use Traffic Violator School to keep a one‑point violation from being reported to insurance?",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Once every 6 months"
+          },
+          {
+            "key": "B",
+            "text": "Once every 12 months"
+          },
+          {
+            "key": "C",
+            "text": "Once every 18 months"
+          },
+          {
+            "key": "D",
+            "text": "Unlimited times"
+          }
+        ],
+        "answer": "C",
+        "explanation": "TVS may be used once during any 18‑month period for eligible one‑point violations.",
+        "tags": [
+          "traffic_school"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Traffic Violator School"
+        }
+      },
+      {
+        "id": "u11-q21",
+        "skill": "Enforcement_basics",
+        "difficulty": 2,
+        "stem": "If you fail to appear (FTA) in court for a traffic ticket:",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Nothing happens"
+          },
+          {
+            "key": "B",
+            "text": "DMV may suspend your driving privilege until you appear, and the FTA goes on your record"
+          },
+          {
+            "key": "C",
+            "text": "You automatically win the case"
+          },
+          {
+            "key": "D",
+            "text": "The ticket is dismissed"
+          }
+        ],
+        "answer": "B",
+        "explanation": "An FTA can lead to suspension until you appear and is recorded on your driver record.",
+        "tags": [
+          "citations",
+          "FTA"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Points on Your Driver’s Record"
+        }
+      },
+      {
+        "id": "u11-q22",
+        "skill": "Parking_rules",
+        "difficulty": 3,
+        "stem": "Which situation is illegal?",
+        "choices": [
+          {
+            "key": "A",
+            "text": "Parking 19 feet from a crosswalk with no curb extension"
+          },
+          {
+            "key": "B",
+            "text": "Stopping in a yellow zone for the posted time to load a package"
+          },
+          {
+            "key": "C",
+            "text": "Parking less than 3 feet from a curb ramp"
+          },
+          {
+            "key": "D",
+            "text": "Parking uphill with wheels turned away from the curb"
+          }
+        ],
+        "answer": "C",
+        "explanation": "It is illegal to park within 3 feet of a curb ramp for disabled access.",
+        "tags": [
+          "illegal_parking",
+          "distances"
+        ],
+        "source_ref": {
+          "source": "DL-600-EN-2025",
+          "section": "Illegal Parking — Curb Ramps"
+        }
+      }
+    ]
+  }

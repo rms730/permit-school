@@ -1,1 +1,467 @@
-{}
+{
+    "meta": {
+      "j_code": "CA",
+      "course_code": "DE-ONLINE",
+      "unit_no": 4,
+      "lang": "en",
+      "title": "Sharing the Road & Special Situations",
+      "minutes_required": 15
+    },
+    "sections": [
+      {
+        "id": "u4-s1",
+        "title": "Pedestrians & Crosswalks",
+        "lessons": [
+          {
+            "id": "u4-s1-l1",
+            "title": "Crosswalks & Right-of-Way",
+            "minutes": 3,
+            "paragraphs": [
+              "Pedestrians have the right-of-way at marked and unmarked crosswalks. An unmarked crosswalk is the area across an intersection where sidewalks would meet. Always scan both sides for people stepping off the curb.",
+              "When turning, yield to people in the crosswalk you will cross. Do not pass a vehicle stopped at a crosswalk because a person you cannot see may be crossing.",
+              "Stop before the crosswalk and wait until it is fully clear. Keep crosswalks and sidewalks open for people using wheelchairs, strollers, or walkers."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Yield to pedestrians at marked and unmarked crosswalks, and do not pass a vehicle stopped at a crosswalk." },
+              { "type": "TIP", "text": "Cover the brake and be ready to stop when you see a person near the curb." },
+              { "type": "WARNING", "text": "Rolling into a crosswalk blocks people and can lead to a citation and crash." }
+            ],
+            "key_points": [
+              "Crosswalks exist at most intersections even without paint.",
+              "Yield and wait until the crosswalk is clear before moving."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 32, "section": "Pedestrians" },
+              { "source": "DL-600-EN-2025", "page": 33, "section": "Crosswalks & Intersections" }
+            ]
+          },
+          {
+            "id": "u4-s1-l2",
+            "title": "Blind Pedestrians & School Zones",
+            "minutes": 2,
+            "paragraphs": [
+              "Blind pedestrians using a white cane or guide dog have the absolute right-of-way. Stop well before the crosswalk so they can hear your engine and judge your position.",
+              "Do not honk, rev the engine, or wave them to cross. Wait until they have safely finished crossing.",
+              "Near schools, slow down, follow crossing guard directions, and watch for kids who may move unpredictably."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Stop for a person with a white cane or guide dog and do not stop in the crosswalk." },
+              { "type": "TIP", "text": "Stop about 5 feet before the crosswalk to give space and sound cues to a blind pedestrian." },
+              { "type": "WARNING", "text": "Never honk at a blind pedestrian; it can startle and confuse them." }
+            ],
+            "key_points": [
+              "White cane/guide dog = stop and yield until they finish crossing.",
+              "Crossing guards’ hand signals carry legal authority—obey them."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 34, "section": "Blind Pedestrians" },
+              { "source": "DL-600-EN-2025", "page": 31, "section": "School Zones" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "u4-s2",
+        "title": "Bicyclists & Bike Lanes",
+        "lessons": [
+          {
+            "id": "u4-s2-l1",
+            "title": "Passing Bicyclists & the 3‑Foot Rule",
+            "minutes": 3,
+            "paragraphs": [
+              "Give bicyclists at least 3 feet when passing. If you cannot give 3 feet, slow down and wait until it is safe to pass.",
+              "Increase space at higher speeds or with wind blasts from large vehicles. Treat bicyclists as you would a slow-moving car.",
+              "Check mirrors and blind spots before returning to your lane to avoid cutting off the bicyclist."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Drivers must give at least 3 feet when passing a bicyclist." },
+              { "type": "TIP", "text": "If the lane is narrow, wait for a larger gap to change lanes and pass safely." },
+              { "type": "WARNING", "text": "Close passes cause crashes and can lead to citations under the Three Feet for Safety law." }
+            ],
+            "key_points": [
+              "3 feet minimum clearance; more at higher speeds.",
+              "Return to lane only when you can see the bicyclist in your mirror."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 36, "section": "Bicyclists" }
+            ]
+          },
+          {
+            "id": "u4-s2-l2",
+            "title": "Bike Lanes & Right Turns",
+            "minutes": 3,
+            "paragraphs": [
+              "Bike lanes are for bicyclists. You may enter a bike lane only to park (where allowed), to enter or leave the roadway, or to make a right turn.",
+              "Merge into the bike lane no more than about 200 feet before your right turn. Yield to any bicyclist in the bike lane before crossing it.",
+              "Signal early, check over your right shoulder, and look for fast-moving bikes before turning."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "You may drive in a bike lane within the last ~200 feet before a right turn, but you must yield to bicyclists." },
+              { "type": "TIP", "text": "Aim to merge behind, not ahead of, a bicyclist near the intersection." },
+              { "type": "WARNING", "text": "Do not turn right across a bike lane immediately after passing a bicyclist—this is a common cause of crashes." }
+            ],
+            "key_points": [
+              "Enter the bike lane near the turn and yield to bikes.",
+              "Signal and shoulder check before crossing a bike lane."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 35, "section": "Bicycle Lanes" },
+              { "source": "DL-600-EN-2025", "page": 36, "section": "Bicyclists" }
+            ]
+          },
+          {
+            "id": "u4-s2-l3",
+            "title": "Dooring & Shared Lanes",
+            "minutes": 2,
+            "paragraphs": [
+              "Before opening your door, check mirrors and look over your shoulder for bicyclists. Opening a door into moving traffic is dangerous and illegal if it interferes with others.",
+              "Bicyclists may use the full lane when it is too narrow to share safely or to avoid hazards. Do not squeeze or crowd them.",
+              "Slow down and give space when bicyclists must ride around parked cars, potholes, or debris."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Do not open a vehicle door unless it is safe and will not interfere with traffic, including bicyclists." },
+              { "type": "TIP", "text": "Use the \"Dutch Reach\": open the driver door with your right hand so your body turns and you look back for bikes." },
+              { "type": "WARNING", "text": "Crowding a bicyclist can force them into traffic or a door zone." }
+            ],
+            "key_points": [
+              "Look for bikes before opening doors.",
+              "Bicyclists may take the lane to stay safe."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 37, "section": "Sharing the Road with Bicyclists" },
+              { "source": "DL-600-EN-2025", "page": 66, "section": "Parking and Opening Doors" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "u4-s3",
+        "title": "Motorcycles & Scooters",
+        "lessons": [
+          {
+            "id": "u4-s3-l1",
+            "title": "See and Be Seen",
+            "minutes": 3,
+            "paragraphs": [
+              "Motorcycles are smaller and can be hard to judge for speed and distance. Look twice at left turns and before changing lanes.",
+              "Most motorcycle crashes with cars happen when a driver turns left in front of a motorcycle. Yield until you are certain the way is clear.",
+              "Use mirrors and check blind spots. Signal early so riders know your plan."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Give motorcycles a full lane width. Do not crowd or pass in the same lane." },
+              { "type": "TIP", "text": "Pause an extra moment at left turns to recheck for an oncoming motorcycle." },
+              { "type": "WARNING", "text": "Small profiles make motorcycles easy to miss—assume one may be hidden." }
+            ],
+            "key_points": [
+              "Look twice—especially before left turns.",
+              "Motorcycles get a full lane. Do not share it."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 40, "section": "Sharing the Road with Motorcyclists" }
+            ]
+          },
+          {
+            "id": "u4-s3-l2",
+            "title": "Lane Sharing Awareness & Following Distance",
+            "minutes": 2,
+            "paragraphs": [
+              "Motorcyclists may legally lane split in California. Do not block or discourage a rider who is lane splitting.",
+              "Allow more space behind motorcycles. Keep at least a 4‑second following distance and increase space in poor weather.",
+              "Check mirrors before lane changes and avoid sudden moves that could surprise a rider."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Do not intentionally block a motorcyclist. Leave extra following distance for riders." },
+              { "type": "TIP", "text": "If a rider is lane splitting, hold a steady path—do not drift or change lanes suddenly." },
+              { "type": "WARNING", "text": "Tailgating a motorcycle can cause a serious rear‑end crash." }
+            ],
+            "key_points": [
+              "Lane splitting by riders is legal; drivers must not interfere.",
+              "Use a 4‑second following gap behind motorcycles."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 41, "section": "Motorcyclists and Lane Sharing" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "u4-s4",
+        "title": "School Buses & Emergency Vehicles",
+        "lessons": [
+          {
+            "id": "u4-s4-l1",
+            "title": "School Bus Lights & Stops",
+            "minutes": 3,
+            "paragraphs": [
+              "Flashing yellow lights on a school bus mean it is preparing to stop. Slow down and prepare to stop.",
+              "Flashing red lights and a stop arm mean you must stop from either direction until the lights stop flashing and children are safe. Remain stopped even if you are in a hurry.",
+              "If the bus is on the other side of a divided highway or a multilane road with a physical median, you do not have to stop. Still use caution for children near the roadway."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Stop for flashing red lights on a school bus from either direction, unless on the opposite side of a divided highway/median." },
+              { "type": "TIP", "text": "Scan for children who may run from between parked cars or in front of the bus." },
+              { "type": "WARNING", "text": "Never drive around a stopped school bus with red lights flashing." }
+            ],
+            "key_points": [
+              "Yellow = prepare to stop; Red = stop and wait.",
+              "Opposite side of a divided highway is the main exception."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 47, "section": "School Buses" }
+            ]
+          },
+          {
+            "id": "u4-s4-l2",
+            "title": "Yielding to Emergency Vehicles",
+            "minutes": 3,
+            "paragraphs": [
+              "When you see red lights and hear a siren, pull to the right edge of the road and stop. Do not stop in an intersection.",
+              "If you are in an intersection when the vehicle approaches, finish crossing, then pull to the right and stop. Keep crosswalks clear.",
+              "Do not follow within a close distance behind an emergency vehicle using lights and siren."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Yield the right‑of‑way to emergency vehicles by pulling to the right and stopping." },
+              { "type": "TIP", "text": "Turn down music and crack a window in traffic so you can hear sirens sooner." },
+              { "type": "WARNING", "text": "Blocking an intersection or stopping in it can delay responders and is illegal." }
+            ],
+            "key_points": [
+              "Pull right and stop; never stop in an intersection.",
+              "After it passes, merge back only when safe."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 49, "section": "Emergency Vehicles" }
+            ]
+          },
+          {
+            "id": "u4-s4-l3",
+            "title": "Move Over Law & Intersections",
+            "minutes": 2,
+            "paragraphs": [
+              "When approaching a stopped emergency, law enforcement, tow, or Caltrans vehicle with flashing lights, move to a non‑adjacent lane when safe or slow down. This is the Move Over/Slow Down requirement.",
+              "Watch for workers on the shoulder and be ready for sudden stops. Keep intersections and crosswalks clear for emergency movements.",
+              "On multilane roads, signal early and change lanes smoothly. If you cannot change lanes, slow to a safe speed."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Move over or slow down for stationary emergency/roadside service vehicles with flashing lights." },
+              { "type": "TIP", "text": "Plan your lane change early so you are not making a last‑second swerve near workers." },
+              { "type": "WARNING", "text": "Do not stop in crosswalks or block intersection paths needed by emergency responders." }
+            ],
+            "key_points": [
+              "Move over or slow down near flashing lights and workers.",
+              "Keep intersections and crosswalks clear."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 50, "section": "Move Over/Slow Down" },
+              { "source": "DL-600-EN-2025", "page": 56, "section": "Work Zones" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "u4-s5",
+        "title": "Large Trucks & Work Zones",
+        "lessons": [
+          {
+            "id": "u4-s5-l1",
+            "title": "No‑Zones & Wide Turns",
+            "minutes": 3,
+            "paragraphs": [
+              "Large trucks and buses have big blind spots called No‑Zones on all four sides. If you cannot see the driver’s mirrors, they cannot see you.",
+              "Give extra room because trucks need more space to turn and stop. Expect wide right turns that begin from the left lane.",
+              "Never squeeze between a turning truck and the curb. Stay back and let the truck complete the turn."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Do not drive for long in a truck’s blind spots. Yield space for wide turns." },
+              { "type": "TIP", "text": "If a truck signals a right turn, do not pass on the right." },
+              { "type": "WARNING", "text": "Lingering next to a truck or stopping close behind hides you in a No‑Zone." }
+            ],
+            "key_points": [
+              "Avoid truck blind spots—front, sides, and rear.",
+              "Expect and allow wide turns."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 70, "section": "Sharing the Road with Large Vehicles" },
+              { "source": "DL-600-EN-2025", "page": 71, "section": "No‑Zones (Blind Spots)" }
+            ]
+          },
+          {
+            "id": "u4-s5-l2",
+            "title": "Passing & Merging Around Trucks",
+            "minutes": 3,
+            "paragraphs": [
+              "Pass trucks quickly on the left and do not linger beside them. Make sure you can see the entire front of the truck in your mirror before moving back in.",
+              "Do not cut in front of a truck or merge at a slow speed. Trucks take longer to stop due to size and weight.",
+              "Give trucks room on downgrades and in rain or wind. Leave more following distance behind them."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Do not return to the lane until there is plenty of space ahead of a truck." },
+              { "type": "TIP", "text": "If a truck passes you, slow slightly to give it space and reduce wind buffeting." },
+              { "type": "WARNING", "text": "Cutting off a truck can cause rear‑end crashes because of longer stopping distances." }
+            ],
+            "key_points": [
+              "Pass on the left; do not linger in blind spots.",
+              "Leave extra space—trucks stop slowly."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 72, "section": "Passing Large Vehicles" }
+            ]
+          },
+          {
+            "id": "u4-s5-l3",
+            "title": "Work Zones & Flaggers",
+            "minutes": 3,
+            "paragraphs": [
+              "Orange signs, cones, and arrow boards mean a work zone. Slow down and be ready for lane shifts and sudden stops.",
+              "Obey flaggers; their directions have the same authority as signs and signals. Fines and penalties can increase for violations in work zones.",
+              "Merge early and leave extra space around workers and equipment. Avoid distractions."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Obey flaggers and reduced speed limits in work zones. Expect increased fines for violations." },
+              { "type": "TIP", "text": "Scan high to read signs early so you can merge smoothly." },
+              { "type": "WARNING", "text": "Last‑second lane changes near cones cause crashes." }
+            ],
+            "key_points": [
+              "Slow down and follow flagger directions.",
+              "Merge early and give workers space."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 56, "section": "Work Zones" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "u4-s6",
+        "title": "Railroad Crossings & Animals",
+        "lessons": [
+          {
+            "id": "u4-s6-l1",
+            "title": "Active vs. Passive Crossings",
+            "minutes": 3,
+            "paragraphs": [
+              "Active crossings have gates, bells, or flashing red lights. Obey all signals and never drive around lowered gates.",
+              "Passive crossings may have only a crossbuck or sign. Slow, look both ways, listen, and be sure there is room on the far side before crossing.",
+              "Never stop on the tracks. If traffic backs up, wait before the tracks until you can fully clear."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Stop when red lights flash or gates lower at railroad crossings. Do not go around the gate." },
+              { "type": "TIP", "text": "Roll down a window, turn down music, and listen for trains—especially at passive crossings." },
+              { "type": "WARNING", "text": "Trains are wider than the tracks and need long distances to stop." }
+            ],
+            "key_points": [
+              "Active = obey signals; Passive = slow, look, and listen.",
+              "Make sure there is space beyond the tracks before crossing."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 53, "section": "Railroad Crossings" }
+            ]
+          },
+          {
+            "id": "u4-s6-l2",
+            "title": "If You Are Stuck on the Tracks",
+            "minutes": 2,
+            "paragraphs": [
+              "If your vehicle stalls or gets stuck on the tracks, get everyone out immediately. If a train is coming, run toward the train at an angle away from the tracks.",
+              "Use the blue Emergency Notification System (ENS) sign at the crossing to call for help. Give the operator the crossing ID number.",
+              "Call 9‑1‑1 and the railroad number on the sign. Only try to push the vehicle if there is no train in sight and it is safe."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Use the ENS sign to report emergencies at railroad crossings and follow instructions from authorities." },
+              { "type": "TIP", "text": "Identify where the blue ENS sign is located on crossings you use often." },
+              { "type": "WARNING", "text": "Do not waste time trying to move belongings—get out first." }
+            ],
+            "key_points": [
+              "Exit the vehicle and move away at an angle toward the train.",
+              "Call using the ENS sign and 9‑1‑1."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 54, "section": "Emergency Notification Sign (ENS)" }
+            ]
+          },
+          {
+            "id": "u4-s6-l3",
+            "title": "Animals & Slow‑Moving/Farm Vehicles",
+            "minutes": 3,
+            "paragraphs": [
+              "Watch for animal crossings and horseback riders. Slow down and follow a rider’s hand signals or the instructions of animal handlers.",
+              "Do not honk near horses or livestock. Give them extra space and be prepared to stop if they appear spooked.",
+              "Slow‑moving vehicles display an orange triangle and usually travel 25 mph or less. Pass only when legal and safe, and leave plenty of room."
+            ],
+            "callouts": [
+              { "type": "LAW", "text": "Yield to animal riders and handlers when they signal you to stop or slow." },
+              { "type": "TIP", "text": "Anticipate tractors or farm equipment entering the road near fields and driveways." },
+              { "type": "WARNING", "text": "Sudden horn use can startle animals and cause crashes." }
+            ],
+            "key_points": [
+              "Give animals and handlers extra space; avoid loud sounds.",
+              "Slow‑moving vehicle emblem = expect 25 mph or less."
+            ],
+            "citations": [
+              { "source": "DL-600-EN-2025", "page": 58, "section": "Animals and Horseback Riders" },
+              { "source": "DL-600-EN-2025", "page": 59, "section": "Slow‑Moving Vehicles" }
+            ]
+          }
+        ]
+      }
+    ],
+    "glossary": [
+      {
+        "term": "No‑Zone",
+        "definition": "Large vehicle blind spots where your car may be hidden from the truck or bus driver.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 71, "section": "No‑Zones (Blind Spots)" }]
+      },
+      {
+        "term": "Three Feet for Safety",
+        "definition": "California rule requiring at least 3 feet of clearance when passing a bicyclist.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 36, "section": "Bicyclists" }]
+      },
+      {
+        "term": "ENS Sign",
+        "definition": "Blue Emergency Notification System sign at railroad crossings with a crossing ID and phone number.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 54, "section": "Emergency Notification Sign (ENS)" }]
+      },
+      {
+        "term": "Move Over Law",
+        "definition": "Requirement to change lanes or slow for stopped emergency or roadside vehicles with flashing lights.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 50, "section": "Move Over/Slow Down" }]
+      },
+      {
+        "term": "Passive Railroad Crossing",
+        "definition": "A crossing without gates or flashing lights; drivers must look and listen for trains.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 53, "section": "Railroad Crossings" }]
+      },
+      {
+        "term": "Slow‑Moving Vehicle Emblem",
+        "definition": "Orange triangle on vehicles that travel 25 mph or less, such as farm equipment.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 59, "section": "Slow‑Moving Vehicles" }]
+      },
+      {
+        "term": "Lane Splitting",
+        "definition": "A motorcyclist riding between lanes of traffic; legal in California when done safely.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 41, "section": "Motorcyclists and Lane Sharing" }]
+      },
+      {
+        "term": "Crosswalk",
+        "definition": "The part of the roadway set aside for people to cross, marked or unmarked at intersections.",
+        "citations": [{ "source": "DL-600-EN-2025", "page": 33, "section": "Crosswalks & Intersections" }]
+      }
+    ],
+    "review": {
+      "summary": [
+        "Yield to pedestrians at crosswalks, including unmarked ones, and stop for those with a white cane or guide dog.",
+        "Give bicyclists at least 3 feet, merge into bike lanes before right turns, and check for bikes before opening doors.",
+        "See and respect motorcycles: give them a full lane and a 4‑second following gap; do not block lane splitting.",
+        "Stop for school bus red lights; pull right and stop for emergency vehicles; move over or slow for flashing lights on the shoulder.",
+        "Avoid truck No‑Zones, slow in work zones, and use extra caution at railroad crossings and around animals or farm vehicles."
+      ],
+      "flashcards": [
+        { "front": "How much space must you give a bicyclist when passing?", "back": "At least 3 feet; more at higher speeds.", "citations": [{ "source": "DL-600-EN-2025", "page": 36, "section": "Bicyclists" }] },
+        { "front": "What should you do when a school bus has flashing red lights?", "back": "Stop from either direction until the lights stop flashing, unless you are on the opposite side of a divided highway.", "citations": [{ "source": "DL-600-EN-2025", "page": 47, "section": "School Buses" }] },
+        { "front": "How far should you follow behind a motorcycle?", "back": "Leave at least a 4‑second following distance.", "citations": [{ "source": "DL-600-EN-2025", "page": 41, "section": "Motorcyclists and Lane Sharing" }] },
+        { "front": "What is a No‑Zone?", "back": "A large vehicle blind spot where your car may not be seen.", "citations": [{ "source": "DL-600-EN-2025", "page": 71, "section": "No‑Zones (Blind Spots)" }] },
+        { "front": "What do you do at a passive railroad crossing?", "back": "Slow, look, and listen, and cross only if there is space beyond the tracks.", "citations": [{ "source": "DL-600-EN-2025", "page": 53, "section": "Railroad Crossings" }] },
+        { "front": "What does the Move Over law require?", "back": "Change lanes away from the incident or slow to a safe speed when approaching flashing lights on the shoulder.", "citations": [{ "source": "DL-600-EN-2025", "page": 50, "section": "Move Over/Slow Down" }] },
+        { "front": "What does the orange triangle on the back of a vehicle mean?", "back": "It is a slow‑moving vehicle (about 25 mph or less).", "citations": [{ "source": "DL-600-EN-2025", "page": 59, "section": "Slow‑Moving Vehicles" }] }
+      ]
+    }
+  }

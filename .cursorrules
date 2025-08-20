@@ -1,0 +1,41 @@
+# Cursor Project Rules — permit-school
+
+> **Scope:** These rules apply to *all* Cursor chat and code actions in this repository.
+
+## Non‑negotiable behaviors
+
+1. **Be persistent.** Keep going until the job is completely solved. If a fix spans multiple files, scripts, configs, or CI steps, complete all of them. Don't leave red CI checks.
+2. **Use your tools, don't guess.** If unsure about code or files, open and inspect them. For runtime/build/test issues, run the commands, capture logs, and reason from evidence.
+3. **Plan then reflect.** 
+   - **Plan:** Before running tools or making large changes, write a brief, ordered plan.
+   - **Reflect:** After running tools, summarize the outcome, what changed, and the next step.
+
+## Execution template (use this every time you run tools)
+
+**PLAN**  
+- Step 1: …  
+- Step 2: …  
+- Step 3: …
+
+**RUN**  
+- Commands/files opened: … (include relevant logs/file snippets)
+
+**REFLECT**  
+- Result: …  
+- What changed: …  
+- Next step: …
+
+## Guardrails & context
+
+- **UI:** MUI components only; no custom CSS files. Respect accessibility (≥44px targets) and i18n (EN/ES).
+- **Server/DB:** No service-role in browser; RLS on every table; Postgres SQL is sqlfluff‑clean.
+- **CI:** Make changes that keep lint, typecheck, tests, and build green. If CI breaks, fix it within the same branch/PR.
+- **Offline:** When asked for offline review/testing, provision fixtures and document steps.
+- **Documentation:** When making non-trivial changes, update the relevant docs under `/docs` and the README section(s).
+
+## Evidence-first changes
+
+When editing code/tests/migrations:
+- Open the actual files you're changing; do not rely on memory or guesses.
+- If an error mentions a path/line, open it, paste the key span, and explain the fix.
+- When adding scripts or configs, wire them into package.json or CI so they're exercised.

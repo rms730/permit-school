@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Verify Cursor rules present
+        run: |
+          test -f .cursorrules -o -f cursor.rules.md || (echo "Missing .cursorrules/cursor.rules.md" && exit 1)
       - name: Prettier check (md/yaml/json)
         run: |
           FILES=$(git ls-files '**/*.md' '**/*.mdx' '**/*.yml' '**/*.yaml' '**/*.json')

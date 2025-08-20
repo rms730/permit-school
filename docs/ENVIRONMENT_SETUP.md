@@ -275,6 +275,42 @@ The application uses environment variables at **two distinct levels**:
 
 ## Setup Instructions
 
+### Interactive Setup (Recommended)
+
+For the easiest setup experience, use our interactive environment configuration script:
+
+```bash
+# Interactive setup with masked input for secrets
+npm run env:setup
+
+# Dry run to preview changes without writing files
+npm run env:setup:dry
+```
+
+**Features:**
+- **Environment Selection**: Choose which environments to configure (local, development, production)
+- **Masked Input**: Secret values are hidden during input
+- **Prefill Current Values**: Existing values are shown as defaults
+- **Strong Validation**: Provider-specific validation (Stripe, Supabase, Resend, etc.)
+- **Security Warnings**: Alerts if sensitive values are being written to `NEXT_PUBLIC_` variables
+- **Automatic Backups**: Creates `.bak` files before making changes
+- **File Creation**: Automatically creates missing `.env` files from `.example` templates
+- **CRLF/LF Preservation**: Maintains original line endings
+- **Dry Run Mode**: Preview changes without writing files
+
+**File Mapping:**
+- **local**: `.env.local` (root), `web/.env.local` (web)
+- **development**: `.env.dev` (root), `web/.env.development` (web)  
+- **production**: `.env.prod` (root), `web/.env.production` (web)
+
+**Security Notes:**
+- The script warns if you attempt to write sensitive secrets to `NEXT_PUBLIC_` variables
+- Server-only variables are automatically scoped to root files
+- Client-safe variables are automatically scoped to web files
+- All changes are backed up before writing
+
+### Manual Setup
+
 ### Quick Start (Local Development)
 
 1. **Copy example files**:

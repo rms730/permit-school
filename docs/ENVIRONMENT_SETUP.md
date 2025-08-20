@@ -12,299 +12,95 @@ related:
 
 # Environment Setup
 
-**Purpose & Outcome**  
-Complete development environment setup for Permit School. After following this guide, you'll have a fully functional local development environment with all services running and ready for development.
+This document describes how to set up and validate environment variables for the Permit School application.
 
-## Prerequisites
+## Environment Files
 
-### Required Software
+The application uses environment files at two levels:
 
-- **Node.js 20+** - [Download](https://nodejs.org/)
-- **Git** - [Download](https://git-scm.com/)
-- **Supabase CLI** - [Install](https://supabase.com/docs/guides/cli)
-- **Docker Desktop** - [Download](https://www.docker.com/products/docker-desktop/)
+### Root Level (for scripts/tools)
+- `.env.local` - Local development
+- `.env.dev` - Development environment
+- `.env.prod` - Production environment
 
-### Optional Software
+### Web Level (for Next.js app)
+- `web/.env.local` - Local development
+- `web/.env.development` - Development environment
+- `web/.env.production` - Production environment
 
-- **VS Code** - Recommended editor with extensions
-- **Postman** - API testing (optional)
-- **TablePlus** - Database GUI (optional)
+## Required Environment Variables
 
-### Accounts & API Keys
+### Root Environment Variables
+- `SUPABASE_URL` - Supabase project URL
+- `SUPABASE_SERVICE_ROLE_KEY` - Supabase service role key (server-only)
+- `SUPABASE_ANON_KEY` - Supabase anonymous key
+- `OPENAI_API_KEY` - OpenAI API key for content generation
+- `BASE_URL` - Base URL for the application
+- `TESTKIT_ON` - Enable testkit mode (optional)
+- `TESTKIT_TOKEN` - Testkit token (required when TESTKIT_ON=true)
 
-- **Supabase** - [Sign up](https://supabase.com/) for free tier
-- **Stripe** - [Sign up](https://stripe.com/) for test account
-- **Resend** - [Sign up](https://resend.com/) for email service
-- **GitHub** - For repository access
+### Web Environment Variables
+- `NEXT_PUBLIC_SUPABASE_URL` - Supabase URL (client-safe)
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Supabase anonymous key (client-safe)
+- `NEXT_PUBLIC_ENV` - Environment identifier (local/development/production)
 
-## Steps
+## Environment Validation
 
-### 1. Clone Repository
+We validate environment variables at **two layers**:
 
-```bash
-git clone https://github.com/rms730/permit-school.git
-cd permit-school
-```
+1. **Root (Node scripts)** – `tools/env/check.mjs` using Zod
+   - Run locally: `npm run env:check:local`
+   - CI (dev): `npm run env:check:dev`
+   - CI (prod): `npm run env:check:prod`
 
-### 2. Install Dependencies
+2. **Web (Next.js)** – `web/src/env.ts` using `@t3-oss/env-nextjs`
+   - Evaluated at build-time via side-effect import in `web/src/app/layout.tsx`.
+   - Fails the build if required variables are missing or invalid.
+   - Enforces that only `NEXT_PUBLIC_*` vars are exposed to the client.
 
-```bash
-# Install web app dependencies
-npm --prefix web ci
+## Setup Instructions
 
-# Install Supabase CLI (if not already installed)
-npm install -g supabase
-```
+1. **Copy environment files from examples:**
+   ```bash
+   npm run env:copy
+   ```
 
-### 3. Set Up Supabase Project
-
-```bash
-# Login to Supabase
-supabase login
-
-# Create new project (or use existing)
-supabase projects create permit-school-dev
+2. **Fill in the required values** in the copied `.env.local` files.
 
-# Link to your project
-supabase link --project-ref YOUR_PROJECT_REF
-```
+3. **Validate your setup:**
+   ```bash
+   # Validate root environment
+   npm run env:check:local
+   
+   # Validate web environment
+   npm run -w web env:check
+   ```
 
-### 4. Configure Environment Variables
+## Common Errors
 
-```bash
-# Copy environment templates (creates both root and web env files)
-npm run env:copy
+- **Missing `NEXT_PUBLIC_SUPABASE_URL` or `NEXT_PUBLIC_SUPABASE_ANON_KEY`** → Add them to `/web/.env.*`.
+- **Accidentally using a server secret on the client** → The validator will throw with a helpful message.
+- **`TESTKIT_ON=true` without `TESTKIT_TOKEN`** → Root validator requires a token in that case.
+- **Production environment using HTTP instead of HTTPS** → Root validator enforces HTTPS for production.
 
-# Edit with your values
-nano .env.local          # Root-level variables for scripts/tools
-nano web/.env.local      # Web app variables
-```
+## Security Notes
 
-**Environment Structure**:
+- Never commit `.env.*` files to version control
+- Only variables prefixed with `NEXT_PUBLIC_` are exposed to the client
+- Server-only variables (like `SUPABASE_SERVICE_ROLE_KEY`) are never exposed to the client
+- Environment validation runs in CI to catch configuration errors early
 
-We use a multi-environment setup with separate files for different contexts:
+## Development Workflow
 
-- **Root level** (`.env.local`, `.env.dev`, `.env.prod`) - For scripts, tools, and CI (this step)
-- **Web level** (`web/.env.local`, `web/.env.development`, `web/.env.production`) - For Next.js app (handled separately)
+1. Set up environment variables using the copy commands
+2. Run validation to ensure everything is configured correctly
+3. Start development server: `npm run dev`
+4. Environment validation will run automatically during builds
 
-**Required environment variables**:
+## CI/CD Integration
 
-**Root-level variables** (`.env.local`):
-```bash
-# Supabase (get from your project dashboard)
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-SUPABASE_ANON_KEY=your-anon-key
-SUPABASE_PUBLISHABLE_KEY=${SUPABASE_ANON_KEY}
-
-# OpenAI (for AI features)
-OPENAI_API_KEY=sk-your-openai-key
-
-# Base URL
-BASE_URL=http://localhost:3000
-
-# Test Configuration
-TESTKIT_ON=true
-TESTKIT_TOKEN=your-testkit-token
-```
-
-**Web-level variables** (`web/.env.local`):
-```bash
-# Client-exposed (safe for browser)
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-
-# Server-only (never exposed to browser)
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-
-# Optional functions URL
-SUPABASE_FUNCTIONS_URL=https://your-project.supabase.co/functions/v1
-```
-
-**Verify your setup**:
-```bash
-npm run env:check:local
-```
-
-### Environment Management Tools
-
-**Available commands**:
-```bash
-# Copy environment files from examples
-npm run env:copy                    # Creates both root and web .env.local files
-npm run env:copy:root              # Creates only root .env.local
-npm run env:copy:web               # Creates only web .env.local
-
-# Verify environment variables
-npm run env:check:local            # Check local environment
-npm run env:check:dev              # Check development environment  
-npm run env:check:prod             # Check production environment
-```
-
-**Environment files structure**:
-```
-permit-school/
-├── .env.example                   # Root base template
-├── .env.local.example            # Root local development
-├── .env.dev.example              # Root cloud development
-├── .env.prod.example             # Root production
-├── web/
-│   ├── .env.example              # Web base template
-│   ├── .env.local.example        # Web local development
-│   ├── .env.development.example  # Web cloud development
-│   └── .env.production.example   # Web production
-└── tools/
-    └── check-env.mjs             # Environment verification utility
-```
-
-**Security notes**:
-- Never commit real `.env` files (only `.example` files are tracked)
-- Server-only secrets (like `SUPABASE_SERVICE_ROLE_KEY`) are never exposed to the browser
-- Client-safe variables use `NEXT_PUBLIC_` prefix
-- Use GitHub Secrets for CI/CD environment variables
-
-### 5. Start Local Development
-
-```bash
-# Terminal 1: Start Supabase
-supabase start
-
-# Terminal 2: Start web app
-npm --prefix web run dev
-
-# Terminal 3: Apply migrations
-supabase db push
-```
-
-### 6. Seed Initial Data
-
-```bash
-# Seed handbook content
-npm --prefix web run seed:handbooks
-
-# Create admin user
-node web/scripts/make_admin.mjs your-email@example.com
-```
-
-## Verify
-
-### Check Services
-
-```bash
-# Web app health
-curl http://localhost:3000/api/health
-# Expected: {"status":"healthy","environment":"development"}
-
-# Supabase status
-supabase status
-# Should show all services running
-
-# Database connection
-supabase db reset
-# Should complete without errors
-```
-
-### Test Core Functionality
-
-1. **Visit the app**: http://localhost:3000
-2. **Sign up**: Create a test account
-3. **Admin access**: Login with your admin email
-4. **Course access**: Visit http://localhost:3000/courses
-5. **Tutor test**: Try asking a question on the home page
-
-### Expected URLs
-
-| Service                | URL                              | Purpose           |
-| ---------------------- | -------------------------------- | ----------------- |
-| **Web App**            | http://localhost:3000            | Main application  |
-| **Supabase Dashboard** | http://localhost:54323           | Local database UI |
-| **Admin Interface**    | http://localhost:3000/admin      | Admin dashboard   |
-| **API Health**         | http://localhost:3000/api/health | System status     |
-| **Course Catalog**     | http://localhost:3000/courses    | Public courses    |
-
-## Troubleshoot
-
-### Common Issues
-
-**Port already in use**:
-
-```bash
-# Find process using port 3000
-lsof -i :3000
-# Kill process
-kill -9 <PID>
-```
-
-**Supabase won't start**:
-
-```bash
-# Check Docker is running
-docker ps
-# Reset Supabase
-supabase stop
-supabase start
-```
-
-**Database connection errors**:
-
-```bash
-# Reset database
-supabase db reset
-# Re-apply migrations
-supabase db push
-```
-
-**Environment variables not loading**:
-
-```bash
-# Verify file location
-ls -la web/.env.local
-# Check variable names (no spaces around =)
-cat web/.env.local
-```
-
-### Reset Everything
-
-```bash
-# Stop all services
-supabase stop
-npm --prefix web run build
-
-# Reset database
-supabase db reset
-
-# Restart
-supabase start
-npm --prefix web run dev
-```
-
-## Rollback
-
-If something goes wrong:
-
-```bash
-# Stop all services
-supabase stop
-pkill -f "next dev"
-
-# Reset to clean state
-supabase db reset
-rm -rf web/.next
-npm --prefix web ci
-
-# Restart
-supabase start
-npm --prefix web run dev
-```
-
-## References
-
-- [Supabase CLI Documentation](https://supabase.com/docs/guides/cli)
-- [Next.js Environment Variables](https://nextjs.org/docs/basic-features/environment-variables)
-- [Stripe Test Mode](https://stripe.com/docs/testing)
-- [Resend API Documentation](https://resend.com/docs/api-reference)
-
----
-
-**Next**: [Local Development](LOCAL_DEVELOPMENT.md) - Running the app and development workflow
+The CI pipeline automatically:
+1. Creates environment files from examples
+2. Overrides with GitHub secrets when available
+3. Validates both root and web environments
+4. Fails the build if validation fails

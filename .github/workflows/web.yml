@@ -61,8 +61,13 @@ jobs:
           [ -n "${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}" ] && sed -i 's|^NEXT_PUBLIC_SUPABASE_ANON_KEY=.*|NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}|' web/.env.development
           [ -n "${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" ] && sed -i 's|^SUPABASE_SERVICE_ROLE_KEY=.*|SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}|' web/.env.development
 
-      - name: Verify env (development)
+      - name: Verify root environment (development)
+        working-directory: .
         run: npm run env:check:dev
+
+      - name: Verify web environment (development)
+        working-directory: web
+        run: npm run env:check
 
       - name: Dependency sanity check (rollup)
         run: |

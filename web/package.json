@@ -22,7 +22,8 @@
     "test:e2e:debug": "playwright test --debug",
     "test:e2e:install": "playwright install",
     "seed:handbooks": "tsx ops/seed/seed-handbooks.ts",
-    "lhci": "lhci autorun"
+    "lhci": "lhci autorun",
+    "env:check": "tsx -e \"import('./src/env.ts').then(()=>console.log('web env ok'))\""
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -49,13 +50,13 @@
     "react-dom": "18.3.1",
     "resend": "^6.0.1",
     "stripe": "^18.4.0",
-    "swr": "^2.2.5",
-    "zod": "^3.23.8"
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "@axe-core/cli": "^4.8.4",
     "@axe-core/playwright": "^4.10.2",
     "@playwright/test": "^1.42.1",
+    "@t3-oss/env-nextjs": "^0.13.8",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
@@ -77,6 +78,7 @@
     "tsx": "^4.19.2",
     "typescript": "^5.5.4",
     "vite-tsconfig-paths": "^5.1.2",
-    "vitest": "^2.0.5"
+    "vitest": "^2.0.5",
+    "zod": "^4.0.17"
   }
 }

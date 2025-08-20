@@ -14,14 +14,12 @@ jobs:
       - name: Verify Cursor rules present
         run: |
           test -f .cursorrules -o -f cursor.rules.md || (echo "Missing .cursorrules/cursor.rules.md" && exit 1)
+      - name: Install dependencies
+        run: npm ci
       - name: Prettier check (md/yaml/json)
-        run: |
-          FILES=$(git ls-files '**/*.md' '**/*.mdx' '**/*.yml' '**/*.yaml' '**/*.json')
-          if [ -n "$FILES" ]; then
-            npx --yes prettier@3.3.3 -c $FILES
-          else
-            echo "No files to check."
-          fi
+        run: npm run format:check
+      - name: Environment validation
+        run: npm run env:check:dev
       - name: ShellCheck scripts
         run: |
           sudo apt-get update

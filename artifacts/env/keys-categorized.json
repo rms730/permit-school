@@ -51,9 +51,7 @@
       "key": "SUPABASE_FUNCTIONS_URL",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/tutor/route.ts"
-      ],
+      "paths": ["./web/src/app/api/tutor/route.ts"],
       "usageCount": 1
     },
     {
@@ -115,18 +113,14 @@
       "key": "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY",
       "nextPublic": true,
       "scope": "root",
-      "paths": [
-        "./web/src/env.ts"
-      ],
+      "paths": ["./web/src/env.ts"],
       "usageCount": 1
     },
     {
       "key": "STRIPE_PRICE_ID",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/billing/checkout/route.ts"
-      ],
+      "paths": ["./web/src/app/api/billing/checkout/route.ts"],
       "usageCount": 1
     },
     {
@@ -149,9 +143,7 @@
       "key": "STRIPE_WEBHOOK_SECRET",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/billing/webhook/route.ts"
-      ],
+      "paths": ["./web/src/app/api/billing/webhook/route.ts"],
       "usageCount": 1
     }
   ],
@@ -160,18 +152,14 @@
       "key": "FROM_EMAIL",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/lib/email.ts"
-      ],
+      "paths": ["./web/src/lib/email.ts"],
       "usageCount": 1
     },
     {
       "key": "NEXT_PUBLIC_SUPPORT_EMAIL",
       "nextPublic": true,
       "scope": "root",
-      "paths": [
-        "./web/src/app/accessibility/page.tsx"
-      ],
+      "paths": ["./web/src/app/accessibility/page.tsx"],
       "usageCount": 1
     },
     {
@@ -205,10 +193,7 @@
       "key": "NEXT_PUBLIC_SENTRY_DSN",
       "nextPublic": true,
       "scope": "root",
-      "paths": [
-        "./web/src/env.ts",
-        "./web/src/lib/offline.ts"
-      ],
+      "paths": ["./web/src/env.ts", "./web/src/lib/offline.ts"],
       "usageCount": 2
     },
     {
@@ -242,9 +227,7 @@
       "key": "APP_ORIGIN",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/admin/certificates/issue/route.ts"
-      ],
+      "paths": ["./web/src/app/api/admin/certificates/issue/route.ts"],
       "usageCount": 1
     },
     {
@@ -347,9 +330,7 @@
       "key": "DUNNING_DAILY_ENABLED",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/admin/jobs/dunning-daily/route.ts"
-      ],
+      "paths": ["./web/src/app/api/admin/jobs/dunning-daily/route.ts"],
       "usageCount": 1
     },
     {
@@ -369,18 +350,14 @@
       "key": "REGULATORY_MONTHLY_ENABLED",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/admin/jobs/regulatory-monthly/route.ts"
-      ],
+      "paths": ["./web/src/app/api/admin/jobs/regulatory-monthly/route.ts"],
       "usageCount": 1
     },
     {
       "key": "REGULATORY_SIGNING_SECRET",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/lib/regulatory/generateReport.ts"
-      ],
+      "paths": ["./web/src/lib/regulatory/generateReport.ts"],
       "usageCount": 1
     }
   ],
@@ -504,120 +481,91 @@
       "key": "BILLING_CANCEL_URL",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/billing/checkout/route.ts"
-      ],
+      "paths": ["./web/src/app/api/billing/checkout/route.ts"],
       "usageCount": 1
     },
     {
       "key": "BILLING_SUCCESS_URL",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/billing/checkout/route.ts"
-      ],
+      "paths": ["./web/src/app/api/billing/checkout/route.ts"],
       "usageCount": 1
     },
     {
       "key": "CERT_ISSUER_LICENSE",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/admin/certificates/issue/route.ts"
-      ],
+      "paths": ["./web/src/app/api/admin/certificates/issue/route.ts"],
       "usageCount": 1
     },
     {
       "key": "CERT_ISSUER_NAME",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/admin/certificates/issue/route.ts"
-      ],
+      "paths": ["./web/src/app/api/admin/certificates/issue/route.ts"],
       "usageCount": 1
     },
     {
       "key": "CI",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/playwright.config.ts"
-      ],
+      "paths": ["./web/playwright.config.ts"],
       "usageCount": 1
     },
     {
       "key": "FULFILLMENT_HMAC_SECRET",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/admin/fulfillment/run/route.ts"
-      ],
+      "paths": ["./web/src/app/api/admin/fulfillment/run/route.ts"],
       "usageCount": 1
     },
     {
       "key": "FULFILLMENT_ON",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/admin/fulfillment/run/route.ts"
-      ],
+      "paths": ["./web/src/app/api/admin/fulfillment/run/route.ts"],
       "usageCount": 1
     },
     {
       "key": "MFA_SECRET",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/admin/security/mfa/verify/route.ts"
-      ],
+      "paths": ["./web/src/app/api/admin/security/mfa/verify/route.ts"],
       "usageCount": 1
     },
     {
       "key": "NEXT_PUBLIC_BUILD_AT",
       "nextPublic": true,
       "scope": "root",
-      "paths": [
-        "./web/src/env.ts",
-        "./web/src/lib/version.ts"
-      ],
+      "paths": ["./web/src/env.ts", "./web/src/lib/version.ts"],
       "usageCount": 2
     },
     {
       "key": "NEXT_PUBLIC_COMMIT_SHA",
       "nextPublic": true,
       "scope": "root",
-      "paths": [
-        "./web/src/env.ts",
-        "./web/src/lib/version.ts"
-      ],
+      "paths": ["./web/src/env.ts", "./web/src/lib/version.ts"],
       "usageCount": 2
     },
     {
       "key": "NEXT_PUBLIC_ENV",
       "nextPublic": true,
       "scope": "root",
-      "paths": [
-        "./web/src/env.ts",
-        "./web/src/lib/version.ts"
-      ],
+      "paths": ["./web/src/env.ts", "./web/src/lib/version.ts"],
       "usageCount": 2
     },
     {
       "key": "NEXT_PUBLIC_FULFILLMENT_LOW_STOCK_THRESHOLD",
       "nextPublic": true,
       "scope": "root",
-      "paths": [
-        "./web/src/app/admin/fulfillment/page.tsx"
-      ],
+      "paths": ["./web/src/app/admin/fulfillment/page.tsx"],
       "usageCount": 1
     },
     {
       "key": "NEXT_PUBLIC_GOOGLE_CLIENT_ID",
       "nextPublic": true,
       "scope": "root",
-      "paths": [
-        "./web/src/components/auth/GoogleOneTap.tsx"
-      ],
+      "paths": ["./web/src/components/auth/GoogleOneTap.tsx"],
       "usageCount": 1
     },
     {
@@ -636,9 +584,7 @@
       "key": "NEXT_PUBLIC_SUPPORT_PHONE",
       "nextPublic": true,
       "scope": "root",
-      "paths": [
-        "./web/src/app/accessibility/page.tsx"
-      ],
+      "paths": ["./web/src/app/accessibility/page.tsx"],
       "usageCount": 1
     },
     {
@@ -655,19 +601,14 @@
       "key": "NODE_ENV",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./tools/env/check.mjs",
-        "./web/src/env.ts"
-      ],
+      "paths": ["./tools/env/check.mjs", "./web/src/env.ts"],
       "usageCount": 2
     },
     {
       "key": "OFFLINE_DEV",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/lib/offline.ts"
-      ],
+      "paths": ["./web/src/lib/offline.ts"],
       "usageCount": 1
     },
     {
@@ -723,9 +664,7 @@
       "key": "TRIAL_REMINDERS_ENABLED",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/admin/jobs/trial-reminders/route.ts"
-      ],
+      "paths": ["./web/src/app/api/admin/jobs/trial-reminders/route.ts"],
       "usageCount": 1
     },
     {
@@ -742,9 +681,7 @@
       "key": "WEEKLY_DIGEST_ENABLED",
       "nextPublic": false,
       "scope": "root",
-      "paths": [
-        "./web/src/app/api/admin/jobs/weekly-digest/route.ts"
-      ],
+      "paths": ["./web/src/app/api/admin/jobs/weekly-digest/route.ts"],
       "usageCount": 1
     }
   ]

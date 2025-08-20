@@ -48,7 +48,7 @@ jobs:
           # Create development environment files from examples
           cp .env.dev.example .env.dev
           cp web/.env.development.example web/.env.development
-          
+
           # Root overrides from GitHub Secrets (optional)
           [ -n "${{ secrets.SUPABASE_URL }}" ] && sed -i 's|^SUPABASE_URL=.*|SUPABASE_URL=${{ secrets.SUPABASE_URL }}|' .env.dev
           [ -n "${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" ] && sed -i 's|^SUPABASE_SERVICE_ROLE_KEY=.*|SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}|' .env.dev

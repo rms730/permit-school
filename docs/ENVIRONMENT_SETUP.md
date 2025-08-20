@@ -1,13 +1,14 @@
-<!-- markdownlint-disable MD025 MD031 MD032 -->
----
+## <!-- markdownlint-disable MD025 MD031 MD032 -->
+
 title: "Environment Setup"
 owner: "Engineering"
 last_reviewed: "2025-01-27"
 status: "authoritative"
 related:
 
-  - </docs/LOCAL_DEVELOPMENT.md>
-  - </docs/TESTING.md>
+- </docs/LOCAL_DEVELOPMENT.md>
+- </docs/TESTING.md>
+
 ---
 
 # Environment Setup
@@ -19,11 +20,13 @@ This document describes how to set up and validate environment variables for the
 The application uses environment files at two levels:
 
 ### Root Level (for scripts/tools)
+
 - `.env.local` - Local development
 - `.env.dev` - Development environment
 - `.env.prod` - Production environment
 
 ### Web Level (for Next.js app)
+
 - `web/.env.local` - Local development
 - `web/.env.development` - Development environment
 - `web/.env.production` - Production environment
@@ -31,6 +34,7 @@ The application uses environment files at two levels:
 ## Required Environment Variables
 
 ### Root Environment Variables
+
 - `SUPABASE_URL` - Supabase project URL
 - `SUPABASE_SERVICE_ROLE_KEY` - Supabase service role key (server-only)
 - `SUPABASE_ANON_KEY` - Supabase anonymous key
@@ -40,6 +44,7 @@ The application uses environment files at two levels:
 - `TESTKIT_TOKEN` - Testkit token (required when TESTKIT_ON=true)
 
 ### Web Environment Variables
+
 - `NEXT_PUBLIC_SUPABASE_URL` - Supabase URL (client-safe)
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Supabase anonymous key (client-safe)
 - `NEXT_PUBLIC_ENV` - Environment identifier (local/development/production)
@@ -49,6 +54,7 @@ The application uses environment files at two levels:
 We validate environment variables at **two layers**:
 
 1. **Root (Node scripts)** – `tools/env/check.mjs` using Zod
+
    - Run locally: `npm run env:check:local`
    - CI (dev): `npm run env:check:dev`
    - CI (prod): `npm run env:check:prod`
@@ -61,6 +67,7 @@ We validate environment variables at **two layers**:
 ## Setup Instructions
 
 1. **Copy environment files from examples:**
+
    ```bash
    npm run env:copy
    ```
@@ -68,10 +75,11 @@ We validate environment variables at **two layers**:
 2. **Fill in the required values** in the copied `.env.local` files.
 
 3. **Validate your setup:**
+
    ```bash
    # Validate root environment
    npm run env:check:local
-   
+
    # Validate web environment
    npm run -w web env:check
    ```
@@ -100,6 +108,7 @@ We validate environment variables at **two layers**:
 ## CI/CD Integration
 
 The CI pipeline automatically:
+
 1. Creates environment files from examples
 2. Overrides with GitHub secrets when available
 3. Validates both root and web environments

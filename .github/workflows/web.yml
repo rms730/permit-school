@@ -46,8 +46,8 @@ jobs:
         working-directory: .
         run: |
           # Create development environment files from examples
-          cp .env.dev.example .env.dev
-          cp web/.env.development.example web/.env.development
+          cp env-examples/root.env.dev.example .env.dev
+          cp env-examples/web.env.development.example web/.env.development
 
           # Root overrides from GitHub Secrets (optional)
           [ -n "${{ secrets.SUPABASE_URL }}" ] && sed -i 's|^SUPABASE_URL=.*|SUPABASE_URL=${{ secrets.SUPABASE_URL }}|' .env.dev

@@ -121,8 +121,8 @@ node web/scripts/make_admin.mjs email  # Create admin user
 
 1. Copy example envs:
 
-   - Root: `cp .env.local.example .env.local` (fill values) - for scripts/tools
-   - Web: `cp web/.env.local.example web/.env.local` (fill values) - for Next.js app
+   - Root: `cp env-examples/root.env.local.example .env.local` (fill values) - for scripts/tools
+   - Web: `cp env-examples/web.env.local.example web/.env.local` (fill values) - for Next.js app
 
 2. Verify:
 
@@ -133,7 +133,7 @@ node web/scripts/make_admin.mjs email  # Create admin user
 
 **Never commit real secrets**. Use `.example` files and GitHub Secrets in CI.
 
-**Required environment variables** (see [setup guide](docs/ENVIRONMENT_SETUP.md)):
+**Required environment variables** (see [complete reference](docs/ENVIRONMENT_VARIABLES.md)):
 
 ```bash
 # Supabase (required)

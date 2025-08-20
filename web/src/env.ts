@@ -17,15 +17,24 @@ export const env = createEnv({
     NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
     NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(10),
     NEXT_PUBLIC_ENV: z.enum(['local', 'development', 'production']).default('local'),
-    // Add other client-safe vars here, e.g.:
-    // NEXT_PUBLIC_GOOGLE_CLIENT_ID: z.string().min(10).optional(),
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string().min(10).optional(),
+    NEXT_PUBLIC_SENTRY_DSN: z.string().url().optional(),
+    NEXT_PUBLIC_SITE_URL: z.string().url().optional(),
+    NEXT_PUBLIC_GOOGLE_ONE_TAP: z.string().optional(),
+    NEXT_PUBLIC_COMMIT_SHA: z.string().optional(),
+    NEXT_PUBLIC_BUILD_AT: z.string().optional(),
   },
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     NEXT_PUBLIC_ENV: process.env.NEXT_PUBLIC_ENV,
-    // NEXT_PUBLIC_GOOGLE_CLIENT_ID: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+    NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
+    NEXT_PUBLIC_GOOGLE_ONE_TAP: process.env.NEXT_PUBLIC_GOOGLE_ONE_TAP,
+    NEXT_PUBLIC_COMMIT_SHA: process.env.NEXT_PUBLIC_COMMIT_SHA,
+    NEXT_PUBLIC_BUILD_AT: process.env.NEXT_PUBLIC_BUILD_AT,
   },
   /**
    * We want validation in CI and during builds.

@@ -7,10 +7,23 @@
     "env:copy": "npm run env:copy:root && npm run env:copy:web",
     "env:check:local": "node tools/env/check.mjs --env=local",
     "env:check:dev": "node tools/env/check.mjs --env=development",
-    "env:check:prod": "node tools/env/check.mjs --env=production"
+    "env:check:prod": "node tools/env/check.mjs --env=production",
+    "seed:unit1": "tsx ops/seed/seed-unit.ts",
+    "seed:curriculum:unit1": "tsx ops/seed/seed-curriculum.ts",
+    "seed:questions:unit1": "tsx ops/seed/seed-questions.ts",
+    "seed:blueprint:unit1": "tsx ops/seed/seed-blueprint.ts",
+    "seed:verify": "tsx ops/seed/verify-seed.ts",
+    "seed:unit2": "tsx ops/seed/seed-unit.ts --unit=02 --lang=en,es --j=CA --course=DE-ONLINE",
+    "seed:curriculum:unit2": "tsx ops/seed/seed-curriculum.ts --unit=02 --lang=en,es --j=CA --course=DE-ONLINE",
+    "seed:questions:unit2": "tsx ops/seed/seed-questions.ts --unit=02 --lang=en,es --j=CA --course=DE-ONLINE",
+    "seed:blueprint:unit2": "tsx ops/seed/seed-blueprint.ts --unit=02 --j=CA --course=DE-ONLINE",
+    "seed:verify:unit2": "tsx ops/seed/verify-seed.ts --unit=02 --lang=en,es --j=CA --course=DE-ONLINE",
+    "seed:make-empty-units": "node ops/seed/scripts/make-empty-units.mjs"
   },
   "devDependencies": {
     "dotenv-flow": "^4.1.0",
-    "zod": "^4.0.17"
+    "zod": "^4.0.17",
+    "tsx": "^4.15.7",
+    "@supabase/supabase-js": "^2.47.0"
   }
 }

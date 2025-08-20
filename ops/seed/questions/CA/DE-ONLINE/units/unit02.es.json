@@ -1,0 +1,550 @@
+{
+  "meta": {
+    "j_code": "CA",
+    "course_code": "DE-ONLINE",
+    "unit_no": 2,
+    "lang": "es"
+  },
+  "questions": [
+    {
+      "id": "U2-Q1",
+      "skill": "Seguridad Previa al Viaje",
+      "difficulty": 1,
+      "stem": "¿Qué debes revisar durante una inspección previa al viaje del vehículo?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Solo los neumáticos y luces"
+        },
+        {
+          "key": "B",
+          "text": "Neumáticos, luces, parabrisas, escobillas del limpiaparabrisas y fugas de fluidos"
+        },
+        {
+          "key": "C",
+          "text": "Solo el nivel de combustible y la radio"
+        },
+        {
+          "key": "D",
+          "text": "Solo la posición del asiento y espejos"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Una inspección exhaustiva previa al viaje incluye revisar los neumáticos para verificar la inflación adecuada y daños, todas las luces (faros, luces traseras, luces de freno, direccionales), parabrisas y ventanas por grietas o suciedad, condición de las escobillas del limpiaparabrisas, y buscar fugas de fluidos debajo del vehículo.",
+      "tags": ["pre-viaje", "seguridad", "verificaciones-vehiculo"]
+    },
+    {
+      "id": "U2-Q2",
+      "skill": "Posición de Asiento",
+      "difficulty": 2,
+      "stem": "¿Cuál es la posición correcta de las manos en el volante para máximo control?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "10 y 2 en punto"
+        },
+        {
+          "key": "B",
+          "text": "9 y 3 en punto"
+        },
+        {
+          "key": "C",
+          "text": "Tanto A como B son correctas"
+        },
+        {
+          "key": "D",
+          "text": "Solo 12 en punto"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Tanto las posiciones de 9 y 3 en punto como 10 y 2 en punto son correctas para máximo control de dirección. Estas posiciones permiten movimientos rápidos de dirección y mantienen control apropiado del vehículo.",
+      "tags": ["direccion", "control", "posicionamiento"]
+    },
+    {
+      "id": "U2-Q3",
+      "skill": "Lista de Verificación de Arranque",
+      "difficulty": 1,
+      "stem": "Antes de arrancar el motor, ¿qué debes asegurar?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "El freno de estacionamiento está engranado y el selector de marchas está en Park/Neutral"
+        },
+        {
+          "key": "B",
+          "text": "La radio está encendida"
+        },
+        {
+          "key": "C",
+          "text": "Las ventanas están bajadas"
+        },
+        {
+          "key": "D",
+          "text": "El aire acondicionado está configurado"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Antes de arrancar el motor, asegúrate de que el freno de estacionamiento esté engranado y el selector de marchas esté en Park (automático) o Neutral (manual). Esto previene que el vehículo se mueva inesperadamente al arrancar.",
+      "tags": ["arranque", "seguridad", "lista-verificacion"]
+    },
+    {
+      "id": "U2-Q4",
+      "skill": "Técnicas de Dirección",
+      "difficulty": 3,
+      "stem": "¿Cuándo debes usar la dirección mano sobre mano?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Para todos los giros y maniobras"
+        },
+        {
+          "key": "B",
+          "text": "Solo para giros cerrados y maniobras de estacionamiento"
+        },
+        {
+          "key": "C",
+          "text": "Nunca - es peligroso"
+        },
+        {
+          "key": "D",
+          "text": "Solo en autopistas"
+        }
+      ],
+      "answer": "B",
+      "explanation": "La dirección mano sobre mano se usa para giros cerrados y maniobras de estacionamiento donde necesitas máximo control de dirección. Para la conducción normal y giros graduales, la dirección empujar-jalar es más eficiente.",
+      "tags": ["direccion", "tecnicas", "control"]
+    },
+    {
+      "id": "U2-Q5",
+      "skill": "Control de Velocidad",
+      "difficulty": 2,
+      "stem": "¿Qué es la aceleración progresiva?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Comenzar con acelerador completo inmediatamente"
+        },
+        {
+          "key": "B",
+          "text": "Comenzar suavemente y aumentar la presión gradualmente"
+        },
+        {
+          "key": "C",
+          "text": "Usar solo control de crucero"
+        },
+        {
+          "key": "D",
+          "text": "Acelerar solo en colinas"
+        }
+      ],
+      "answer": "B",
+      "explanation": "La aceleración progresiva significa comenzar suavemente y aumentar la presión gradualmente. Esto ahorra combustible, proporciona mejor control, y es más seguro que la aceleración repentina.",
+      "tags": ["control-velocidad", "aceleracion", "seguridad"]
+    },
+    {
+      "id": "U2-Q6",
+      "skill": "Distancia de Parada",
+      "difficulty": 3,
+      "stem": "¿Cuánta distancia de parada necesitas a 40 mph en pavimento seco?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Aproximadamente 60 pies"
+        },
+        {
+          "key": "B",
+          "text": "Aproximadamente 120 pies"
+        },
+        {
+          "key": "C",
+          "text": "Aproximadamente 200 pies"
+        },
+        {
+          "key": "D",
+          "text": "Aproximadamente 80 pies"
+        }
+      ],
+      "answer": "B",
+      "explanation": "A 40 mph, necesitas aproximadamente 120 pies para detenerte en pavimento seco. Esto incluye tanto el tiempo de reacción como la distancia de frenado. La distancia aumenta significativamente en condiciones climáticas pobres.",
+      "tags": ["distancia-parada", "velocidad", "seguridad"]
+    },
+    {
+      "id": "U2-Q7",
+      "skill": "Distancia de Seguimiento",
+      "difficulty": 2,
+      "stem": "¿Cómo aplicas la regla de 3 segundos?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Contar hasta 3 rápidamente"
+        },
+        {
+          "key": "B",
+          "text": "Elegir un objeto fijo adelante y contar 'mil-uno, mil-dos, mil-tres' cuando el vehículo adelante lo pase"
+        },
+        {
+          "key": "C",
+          "text": "Mantenerte 3 longitudes de carro detrás"
+        },
+        {
+          "key": "D",
+          "text": "Conducir 3 mph más lento que el vehículo adelante"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Elige un objeto fijo adelante (como una señal o árbol). Cuando el vehículo frente a ti lo pase, cuenta 'mil-uno, mil-dos, mil-tres.' Si llegas al objeto antes de terminar, estás siguiendo muy de cerca.",
+      "tags": ["distancia-seguimiento", "regla-3-segundos", "seguridad"]
+    },
+    {
+      "id": "U2-Q8",
+      "skill": "Revisiones de Espejos",
+      "difficulty": 2,
+      "stem": "¿Con qué frecuencia debes revisar tus espejos mientras conduces?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Solo al cambiar de carril"
+        },
+        {
+          "key": "B",
+          "text": "Cada 5-8 segundos y antes de cualquier maniobra"
+        },
+        {
+          "key": "C",
+          "text": "Solo al retroceder"
+        },
+        {
+          "key": "D",
+          "text": "Una vez cada minuto"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Revisa tus espejos cada 5-8 segundos y antes de cualquier maniobra. Esto te mantiene consciente de lo que está sucediendo alrededor de tu vehículo y ayuda a mantener conciencia situacional.",
+      "tags": ["espejos", "escaneo", "conciencia"]
+    },
+    {
+      "id": "U2-Q9",
+      "skill": "Puntos Ciegos",
+      "difficulty": 3,
+      "stem": "¿Qué debes hacer para revisar tu punto ciego antes de cambiar de carril?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Solo revisar tus espejos laterales"
+        },
+        {
+          "key": "B",
+          "text": "Girar tu cabeza y mirar por encima de tu hombro"
+        },
+        {
+          "key": "C",
+          "text": "Solo usar tu espejo retrovisor"
+        },
+        {
+          "key": "D",
+          "text": "Confiar en tu visión periférica"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Siempre gira tu cabeza y mira por encima de tu hombro para revisar tu punto ciego antes de cambiar de carril. Esto se llama revisión de hombro y es crucial porque los espejos no pueden mostrarte todo.",
+      "tags": ["puntos-ciegos", "cambios-carril", "seguridad"]
+    },
+    {
+      "id": "U2-Q10",
+      "skill": "Cojines de Espacio",
+      "difficulty": 2,
+      "stem": "¿Qué es un cojín de espacio?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Un cojín de asiento cómodo"
+        },
+        {
+          "key": "B",
+          "text": "El área alrededor de tu vehículo que mantienes libre de otros vehículos"
+        },
+        {
+          "key": "C",
+          "text": "Espacio extra en tu maletero"
+        },
+        {
+          "key": "D",
+          "text": "Un espacio de estacionamiento"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Un cojín de espacio es el área alrededor de tu vehículo que mantienes libre de otros vehículos. Esto te da espacio para maniobrar si algo inesperado sucede y proporciona una zona de seguridad.",
+      "tags": ["cojines-espacio", "seguridad", "posicionamiento"]
+    },
+    {
+      "id": "U2-Q11",
+      "skill": "Giros Derechos",
+      "difficulty": 1,
+      "stem": "¿Qué tipo de giro es generalmente más fácil y seguro?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Giros izquierdos"
+        },
+        {
+          "key": "B",
+          "text": "Giros derechos"
+        },
+        {
+          "key": "C",
+          "text": "Giros en U"
+        },
+        {
+          "key": "D",
+          "text": "Giros de tres puntos"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Los giros derechos son generalmente más fáciles y seguros que los giros izquierdos porque no necesitas cruzar el tránsito que viene de frente. Solo necesitas ceder el paso a peatones y ciclistas.",
+      "tags": ["giros", "giros-derechos", "seguridad"]
+    },
+    {
+      "id": "U2-Q12",
+      "skill": "Señalización",
+      "difficulty": 2,
+      "stem": "En California, ¿qué tan lejos debes señalizar antes de girar si viajas a menos de 35 mph?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "50 pies"
+        },
+        {
+          "key": "B",
+          "text": "100 pies"
+        },
+        {
+          "key": "C",
+          "text": "150 pies"
+        },
+        {
+          "key": "D",
+          "text": "200 pies"
+        }
+      ],
+      "answer": "B",
+      "explanation": "En California, debes señalizar al menos 100 pies antes de girar si viajas a menos de 35 mph, o 200 pies si viajas a 35 mph o más rápido. Esto le da a otros conductores aviso adecuado de tus intenciones.",
+      "tags": ["señalizacion", "ley-california", "giros"]
+    },
+    {
+      "id": "U2-Q13",
+      "skill": "Señales de Alto",
+      "difficulty": 1,
+      "stem": "¿Qué significa una parada completa en una señal de alto?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Reducir la velocidad a 5 mph"
+        },
+        {
+          "key": "B",
+          "text": "Tus ruedas deben realmente dejar de moverse"
+        },
+        {
+          "key": "C",
+          "text": "Solo mirar en ambas direcciones"
+        },
+        {
+          "key": "D",
+          "text": "Tocar los frenos"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Una parada completa significa que tus ruedas deben realmente dejar de moverse. Rodar a través de una señal de alto es ilegal y peligroso. Debes detenerte completamente antes de proceder.",
+      "tags": ["señales-alto", "parada-completa", "ley"]
+    },
+    {
+      "id": "U2-Q14",
+      "skill": "Estacionamiento en Colina",
+      "difficulty": 4,
+      "stem": "Al estacionarte cuesta arriba con bordillo, ¿en qué dirección debes girar tus ruedas?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Hacia el bordillo (derecha)"
+        },
+        {
+          "key": "B",
+          "text": "Lejos del bordillo (izquierda)"
+        },
+        {
+          "key": "C",
+          "text": "Recto hacia adelante"
+        },
+        {
+          "key": "D",
+          "text": "No importa"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Al estacionarte cuesta arriba con bordillo, gira tus ruedas lejos del bordillo (izquierda). De esta manera, si tu vehículo rueda, rodará hacia el bordillo y se detendrá, en lugar de hacia el tránsito.",
+      "tags": ["estacionamiento-colina", "bordillo", "seguridad"]
+    },
+    {
+      "id": "U2-Q15",
+      "skill": "Estacionamiento Paralelo",
+      "difficulty": 4,
+      "stem": "¿Cuál es el espacio mínimo necesario para estacionamiento paralelo?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "La misma longitud que tu carro"
+        },
+        {
+          "key": "B",
+          "text": "Al menos 1.5 veces la longitud de tu carro"
+        },
+        {
+          "key": "C",
+          "text": "Dos veces la longitud de tu carro"
+        },
+        {
+          "key": "D",
+          "text": "Mitad de la longitud de tu carro"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Para el estacionamiento paralelo, necesitas un espacio que sea al menos 1.5 veces la longitud de tu carro. Esto te da suficiente espacio para maniobrar dentro del espacio de manera segura.",
+      "tags": ["estacionamiento-paralelo", "requisitos-espacio", "estacionamiento"]
+    },
+    {
+      "id": "U2-Q16",
+      "skill": "Retroceso",
+      "difficulty": 3,
+      "stem": "¿Qué debes hacer antes de retroceder?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Solo revisar tus espejos"
+        },
+        {
+          "key": "B",
+          "text": "Caminar alrededor de tu vehículo para revisar obstáculos, niños o animales"
+        },
+        {
+          "key": "C",
+          "text": "Tocar la bocina e ir"
+        },
+        {
+          "key": "D",
+          "text": "Solo mirar detrás de ti"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Antes de retroceder, camina alrededor de tu vehículo para revisar obstáculos, niños o animales. Usa tus espejos y gira tu cabeza para mirar detrás de ti. Retroceder es peligroso debido a la visibilidad limitada.",
+      "tags": ["retroceso", "seguridad", "visibilidad"]
+    },
+    {
+      "id": "U2-Q17",
+      "skill": "Técnica SMOG",
+      "difficulty": 3,
+      "stem": "¿Qué significa la 'S' en SMOG?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Stop (Parar)"
+        },
+        {
+          "key": "B",
+          "text": "Señalizar"
+        },
+        {
+          "key": "C",
+          "text": "Scan (Escanear)"
+        },
+        {
+          "key": "D",
+          "text": "Speed (Velocidad)"
+        }
+      ],
+      "answer": "B",
+      "explanation": "SMOG significa Señalizar, Mirar espejos, Mirar por encima del hombro, Ir. La 'S' significa Señalizar - enciende tu direccional para que otros conductores sepan tu intención de cambiar de carril.",
+      "tags": ["smog", "cambios-carril", "tecnica"]
+    },
+    {
+      "id": "U2-Q18",
+      "skill": "Incorporación a Autopista",
+      "difficulty": 4,
+      "stem": "Al incorporarte a una autopista, ¿qué debes hacer?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Esperar que otros conductores reduzcan la velocidad por ti"
+        },
+        {
+          "key": "B",
+          "text": "Acelerar para igualar la velocidad del tránsito en la autopista"
+        },
+        {
+          "key": "C",
+          "text": "Detenerte en el carril de aceleración"
+        },
+        {
+          "key": "D",
+          "text": "Incorporarte a una velocidad mucho más lenta"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Al incorporarte a una autopista, acelera para igualar la velocidad del tránsito en la autopista. No te incorpores a una velocidad mucho más lenta - esto crea una situación peligrosa. Debes ceder el paso al tránsito que ya está en la autopista.",
+      "tags": ["autopista", "incorporacion", "igualar-velocidad"]
+    },
+    {
+      "id": "U2-Q19",
+      "skill": "Cambios de Carril",
+      "difficulty": 3,
+      "stem": "¿Qué debes hacer si ves un vehículo en tu punto ciego al intentar cambiar de carril?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "Acelerar y cambiar de carril rápidamente"
+        },
+        {
+          "key": "B",
+          "text": "Esperar hasta que el vehículo pase"
+        },
+        {
+          "key": "C",
+          "text": "Forzar tu camino en el carril"
+        },
+        {
+          "key": "D",
+          "text": "Tocar la bocina y proceder"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Si ves un vehículo en tu punto ciego, espera hasta que pase antes de cambiar de carril. No fuerces tu camino en el tránsito. Solo cambia de carril cuando sea seguro hacerlo.",
+      "tags": ["cambios-carril", "puntos-ciegos", "seguridad"]
+    },
+    {
+      "id": "U2-Q20",
+      "skill": "Salidas de Autopista",
+      "difficulty": 2,
+      "stem": "Al salir de una autopista, ¿cuándo debes moverte al carril derecho?",
+      "choices": [
+        {
+          "key": "A",
+          "text": "En el último minuto"
+        },
+        {
+          "key": "B",
+          "text": "Bien antes de tu salida"
+        },
+        {
+          "key": "C",
+          "text": "Solo si el tránsito es ligero"
+        },
+        {
+          "key": "D",
+          "text": "Después de ver la señal de salida"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Al salir de una autopista, señaliza temprano y muévete al carril derecho bien antes de tu salida. No cruces múltiples carriles en el último minuto, lo cual es peligroso e ilegal.",
+      "tags": ["salidas-autopista", "posicionamiento-carril", "seguridad"]
+    }
+  ]
+}

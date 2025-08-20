@@ -1,0 +1,514 @@
+{
+  "meta": {
+    "j_code": "CA",
+    "course_code": "DE-ONLINE",
+    "unit_no": 2,
+    "lang": "es",
+    "unit_title": "Control del Vehículo y Maniobras Seguras",
+    "minutes_required": 75,
+    "objectives": [
+      "Dominar las verificaciones de seguridad previas al viaje y procedimientos de configuración del vehículo",
+      "Aprender técnicas apropiadas de dirección y fundamentos de control de velocidad",
+      "Entender las reglas de distancia de seguimiento y técnicas de escaneo",
+      "Practicar giros seguros y navegación básica de intersecciones",
+      "Desarrollar habilidades de estacionamiento y retroceso para varios escenarios",
+      "Aprender procedimientos de cambio de carril y incorporación con técnica SMOG",
+      "Desarrollar confianza en el control del vehículo antes de situaciones complejas de tránsito"
+    ],
+    "source": "Manual del Conductor de California 2024"
+  },
+  "sections": [
+    {
+      "id": "U2-S1",
+      "title": "Seguridad Previa al Viaje y Configuración",
+      "lessons": [
+        {
+          "id": "U2-L1",
+          "title": "Verificaciones de Seguridad del Vehículo",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "Antes de comenzar a conducir, siempre realiza una verificación exhaustiva de seguridad de tu vehículo. Esto toma solo unos minutos pero puede prevenir accidentes y averías. Comienza con una inspección caminando alrededor del vehículo."
+            },
+            {
+              "type": "p",
+              "text": "Revisa tus neumáticos para verificar la inflación adecuada y cualquier daño visible. Los neumáticos con poca presión reducen la eficiencia del combustible y pueden causar reventones. Busca cortes, protuberancias u objetos atascados en la banda de rodamiento."
+            },
+            {
+              "type": "p",
+              "text": "Inspecciona todas las luces: faros, luces traseras, luces de freno, direccionales y luces de emergencia. Asegúrate de que estén limpias y funcionando correctamente. Las luces rotas o sucias pueden hacerte invisible para otros conductores."
+            },
+            {
+              "type": "li",
+              "text": "Revisa el parabrisas y ventanas por grietas o suciedad excesiva"
+            },
+            {
+              "type": "li",
+              "text": "Asegúrate de que las escobillas del limpiaparabrisas estén en buen estado"
+            },
+            {
+              "type": "li",
+              "text": "Busca cualquier fuga de fluidos debajo del vehículo"
+            }
+          ]
+        },
+        {
+          "id": "U2-L2",
+          "title": "Posición de Asiento y Dirección",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "La posición correcta del asiento es crucial para conducir de manera segura. Ajusta tu asiento para que puedas alcanzar todos los controles cómodamente mientras mantienes buena visibilidad. Tus pies deben alcanzar fácilmente los pedales sin estirarte."
+            },
+            {
+              "type": "p",
+              "text": "Posiciona tus manos en el volante a las 9 y 3 en punto o 10 y 2 en punto. Esto te da control máximo y permite movimientos rápidos de dirección cuando sea necesario."
+            },
+            {
+              "type": "p",
+              "text": "Ajusta tus espejos antes de arrancar el motor. El espejo retrovisor debe mostrar toda la ventana trasera. Los espejos laterales deben eliminar los puntos ciegos - no debes ver tu propio carro en ellos."
+            },
+            {
+              "type": "p",
+              "text": "Siempre usa tu cinturón de seguridad correctamente. El cinturón de regazo debe ajustarse cómodamente a través de tus caderas, no tu estómago. El cinturón de hombro debe cruzar tu pecho y hombro, no tu cuello o cara."
+            }
+          ]
+        },
+        {
+          "id": "U2-L3",
+          "title": "Lista de Verificación de Arranque",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "Una vez que estés correctamente posicionado, revisa tu lista de verificación de arranque. Asegúrate de que el freno de estacionamiento esté engranado y el selector de marchas esté en Park (automático) o Neutral (manual)."
+            },
+            {
+              "type": "p",
+              "text": "Verifica que todas las puertas estén cerradas y bloqueadas. Asegúrate de que todos los pasajeros usen cinturones de seguridad. En California, todos en el vehículo deben estar correctamente sujetos."
+            },
+            {
+              "type": "p",
+              "text": "Arranca el motor y déjalo calentar por un momento. Verifica que todas las luces de advertencia se apaguen después del arranque. Si alguna luz de advertencia permanece encendida, aborda el problema antes de conducir."
+            },
+            {
+              "type": "li",
+              "text": "Verifica que el nivel de combustible sea adecuado para tu viaje"
+            },
+            {
+              "type": "li",
+              "text": "Revisa que los controles climáticos estén configurados apropiadamente"
+            },
+            {
+              "type": "li",
+              "text": "Asegúrate de que tu teléfono esté asegurado y no distrayendo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "U2-S2",
+      "title": "Dirección y Control de Velocidad",
+      "lessons": [
+        {
+          "id": "U2-L4",
+          "title": "Técnicas de Dirección",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "Hay dos técnicas principales de dirección: mano sobre mano y empujar-jalar. La dirección mano sobre mano se usa para giros cerrados y maniobras de estacionamiento. La dirección empujar-jalar es mejor para la conducción normal y giros graduales."
+            },
+            {
+              "type": "p",
+              "text": "Para la dirección mano sobre mano, comienza con tus manos a las 9 y 3 en punto. Mientras giras, deja que una mano se deslice hacia arriba mientras la otra mano cruza para mantener el control. Esta técnica te da control máximo de dirección."
+            },
+            {
+              "type": "p",
+              "text": "La dirección empujar-jalar es más suave y eficiente para la mayoría de situaciones de conducción. Empuja hacia arriba con una mano mientras jalas hacia abajo con la otra. Esto mantiene tus manos en la posición óptima para reacciones rápidas."
+            },
+            {
+              "type": "p",
+              "text": "Nunca conduzcas con una mano o dejes que el volante gire de vuelta por sí solo. Siempre mantén control firme y guía el volante de vuelta al centro suavemente."
+            }
+          ]
+        },
+        {
+          "id": "U2-L5",
+          "title": "Fundamentos de Control de Velocidad",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "El control suave de la velocidad es esencial para conducir de manera segura. Usa aceleración progresiva - comienza suavemente y aumenta la presión gradualmente. Esto ahorra combustible y proporciona mejor control."
+            },
+            {
+              "type": "p",
+              "text": "Para el frenado, usa la técnica de frenado progresivo. Comienza con presión ligera y aumenta según sea necesario. Esto le da tiempo a otros conductores para reaccionar y proporciona paradas más suaves."
+            },
+            {
+              "type": "p",
+              "text": "Anticipa las paradas mirando adelante y soltando el acelerador temprano. Esto te permite reducir la velocidad gradualmente usando el frenado del motor, que es más eficiente y seguro."
+            },
+            {
+              "type": "li",
+              "text": "Usa el control de crucero en autopistas para mantener velocidad consistente"
+            },
+            {
+              "type": "li",
+              "text": "Ajusta la velocidad para condiciones climáticas y de carretera"
+            },
+            {
+              "type": "li",
+              "text": "Nunca excedas los límites de velocidad publicados"
+            }
+          ]
+        },
+        {
+          "id": "U2-L6",
+          "title": "Factores de Distancia de Parada",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "Tu distancia de parada depende de varios factores: tu velocidad, condiciones de la carretera, condición del vehículo y tu tiempo de reacción. Mientras más rápido vayas, más tiempo toma detenerte."
+            },
+            {
+              "type": "p",
+              "text": "A 20 mph, necesitas aproximadamente 40 pies para detenerte. A 40 mph, necesitas aproximadamente 120 pies. A 60 mph, necesitas aproximadamente 240 pies. Estas distancias aumentan significativamente en mal tiempo."
+            },
+            {
+              "type": "p",
+              "text": "Tu tiempo de reacción también afecta la distancia de parada. Si estás distraído, cansado o deteriorado, tu tiempo de reacción aumenta dramáticamente. Siempre mantente alerta y enfocado en conducir."
+            },
+            {
+              "type": "p",
+              "text": "La condición del vehículo también importa. Frenos desgastados, neumáticos lisos o suspensión pobre pueden duplicar tu distancia de parada. Mantén tu vehículo bien mantenido por seguridad."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "U2-S3",
+      "title": "Distancia de Seguimiento y Escaneo",
+      "lessons": [
+        {
+          "id": "U2-L7",
+          "title": "La Regla de 3 Segundos",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "La regla de 3 segundos es una forma simple de mantener una distancia de seguimiento segura. Elige un objeto fijo adelante, como una señal o árbol. Cuando el vehículo frente a ti lo pase, cuenta 'mil-uno, mil-dos, mil-tres.'"
+            },
+            {
+              "type": "p",
+              "text": "Si llegas al objeto antes de terminar la cuenta, estás siguiendo muy de cerca. Retrocede e intenta de nuevo. Esta regla funciona a cualquier velocidad y te da tiempo para reaccionar si el vehículo adelante se detiene repentinamente."
+            },
+            {
+              "type": "p",
+              "text": "Aumenta tu distancia de seguimiento a 4-5 segundos en condiciones climáticas pobres como lluvia, nieve o niebla. También aumenta la distancia cuando sigues motocicletas, camiones grandes o vehículos remolcando trailers."
+            },
+            {
+              "type": "p",
+              "text": "Recuerda, la regla de 3 segundos es un mínimo. Más distancia siempre es más seguro, especialmente en autopistas o cuando el tránsito es pesado."
+            }
+          ]
+        },
+        {
+          "id": "U2-L8",
+          "title": "Revisiones de Espejos y Puntos Ciegos",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "Revisa tus espejos cada 5-8 segundos y antes de cualquier maniobra. Esto te mantiene consciente de lo que está sucediendo alrededor de tu vehículo. No solo mires - realmente mira y procesa lo que ves."
+            },
+            {
+              "type": "p",
+              "text": "Tus espejos laterales deben ajustarse para eliminar los puntos ciegos. No debes ver tu propio carro en los espejos laterales. Esto te da una vista más amplia del tránsito al lado y detrás de ti."
+            },
+            {
+              "type": "p",
+              "text": "Incluso con espejos correctamente ajustados, aún tienes puntos ciegos. Siempre gira tu cabeza y mira por encima de tu hombro antes de cambiar de carril o hacer giros. Esto se llama revisión de hombro."
+            },
+            {
+              "type": "li",
+              "text": "Revisa espejos antes de frenar o girar"
+            },
+            {
+              "type": "li",
+              "text": "Busca motocicletas en tus puntos ciegos"
+            },
+            {
+              "type": "li",
+              "text": "Ten mucho cuidado al retroceder"
+            }
+          ]
+        },
+        {
+          "id": "U2-L9",
+          "title": "Cojines de Espacio",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "Un cojín de espacio es el área alrededor de tu vehículo que mantienes libre de otros vehículos. Esto te da espacio para maniobrar si algo inesperado sucede. Piensa en ello como tu zona de seguridad."
+            },
+            {
+              "type": "p",
+              "text": "Mantén cojines de espacio en todos los lados: frente, atrás, izquierda y derecha. No conduzcas en grupos de vehículos. Si es posible, posiciónate para que tengas una ruta de escape."
+            },
+            {
+              "type": "p",
+              "text": "Cuando el tránsito es pesado, trata de mantenerte en el centro de tu carril y mantener velocidad consistente. Evita zigzaguear entre carriles o pegarse a otros vehículos."
+            },
+            {
+              "type": "p",
+              "text": "Ten mucho cuidado alrededor de camiones grandes y autobuses. Tienen puntos ciegos más grandes y necesitan más espacio para detenerse. Nunca te metas delante de un vehículo grande."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "U2-S4",
+      "title": "Giros e Intersecciones (Básicos)",
+      "lessons": [
+        {
+          "id": "U2-L10",
+          "title": "Giros Derechos e Izquierdos",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "Los giros derechos son generalmente más fáciles y seguros que los giros izquierdos. Para un giro derecho, posiciona tu vehículo en el carril derecho y señaliza al menos 100 pies antes del giro. Busca peatones y ciclistas antes de girar."
+            },
+            {
+              "type": "p",
+              "text": "Para giros izquierdos, posiciona tu vehículo en el carril izquierdo y señaliza temprano. Espera un espacio seguro en el tránsito que viene de frente. En California, debes ceder el paso al tránsito que viene de frente yendo derecho o girando a la derecha."
+            },
+            {
+              "type": "p",
+              "text": "Haz tus giros suavemente y a velocidad apropiada. No cortes esquinas o gires muy amplio. Mantente en tu carril durante todo el giro y completa el giro en el carril apropiado."
+            },
+            {
+              "type": "li",
+              "text": "Siempre detente completamente en las señales de alto"
+            },
+            {
+              "type": "li",
+              "text": "Mira en ambas direcciones antes de proceder"
+            },
+            {
+              "type": "li",
+              "text": "Cede el paso a peatones en cruces peatonales"
+            }
+          ]
+        },
+        {
+          "id": "U2-L11",
+          "title": "Carriles de Giro y Señalización",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "Muchas intersecciones tienen carriles dedicados para giros. Usa el carril correcto para tu giro previsto. No cambies de carril en una intersección - decide tu dirección antes de entrar."
+            },
+            {
+              "type": "p",
+              "text": "Señaliza tus intenciones temprano y claramente. En California, debes señalizar al menos 100 pies antes de girar si viajas a menos de 35 mph, o 200 pies si viajas a 35 mph o más rápido."
+            },
+            {
+              "type": "p",
+              "text": "Las direccionales ayudan a otros conductores, ciclistas y peatones a entender tus intenciones. Siempre úsalas, incluso si crees que no hay nadie alrededor. Es un buen hábito que podría prevenir accidentes."
+            },
+            {
+              "type": "p",
+              "text": "No confíes únicamente en tu direccional. Asegúrate de que el camino esté despejado antes de girar. Otros conductores pueden no ver tu señal o pueden no ceder el derecho de paso."
+            }
+          ]
+        },
+        {
+          "id": "U2-L12",
+          "title": "Parada Completa y Avance Cauteloso",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "En las señales de alto, debes detenerte completamente. Rodar a través de una señal de alto es ilegal y peligroso. Tus ruedas deben realmente dejar de moverse."
+            },
+            {
+              "type": "p",
+              "text": "Después de detenerte, si tu vista está bloqueada, puede que necesites avanzar lentamente para ver alrededor de obstáculos. Esto se llama 'avance cauteloso' y debe hacerse con mucho cuidado."
+            },
+            {
+              "type": "p",
+              "text": "Al avanzar cautelosamente, muévete hacia adelante solo lo suficiente para ver claramente. Detente de nuevo si aún no puedes ver. No salgas al tránsito hasta que tengas una vista clara de todos los vehículos que se acercan."
+            },
+            {
+              "type": "p",
+              "text": "En intersecciones con semáforos, espera la luz verde y asegúrate de que la intersección esté despejada antes de proceder. No asumas que otros conductores se detendrán en luces rojas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "U2-S5",
+      "title": "Estacionamiento y Retroceso",
+      "lessons": [
+        {
+          "id": "U2-L13",
+          "title": "Estacionamiento en Curb",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "Al estacionarte en una colina, siempre gira tus ruedas en la dirección correcta para prevenir que tu carro ruede hacia el tránsito. La dirección depende de si estás mirando hacia arriba o hacia abajo de la colina y si hay un bordillo."
+            },
+            {
+              "type": "p",
+              "text": "Mirando hacia arriba de la colina con bordillo: gira las ruedas lejos del bordillo (izquierda). Mirando hacia arriba de la colina sin bordillo: gira las ruedas hacia el bordillo (derecha). Mirando hacia abajo de la colina: siempre gira las ruedas hacia el bordillo (derecha)."
+            },
+            {
+              "type": "p",
+              "text": "Siempre activa tu freno de estacionamiento al estacionarte en una colina. Esto proporciona una capa extra de seguridad en caso de que tus ruedas no sostengan el vehículo."
+            },
+            {
+              "type": "li",
+              "text": "Revisa las restricciones de estacionamiento antes de dejar tu carro"
+            },
+            {
+              "type": "li",
+              "text": "Deja suficiente espacio para que otros vehículos se estacionen"
+            },
+            {
+              "type": "li",
+              "text": "Bloquea tu vehículo y toma tus llaves"
+            }
+          ]
+        },
+        {
+          "id": "U2-L14",
+          "title": "Pasos de Estacionamiento Paralelo",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "El estacionamiento paralelo puede ser intimidante, pero es más fácil con práctica. Encuentra un espacio que sea al menos 1.5 veces la longitud de tu carro. Señaliza tu intención de estacionarte y posiciona tu carro al lado del carro frente al espacio."
+            },
+            {
+              "type": "p",
+              "text": "Gira tu volante completamente hacia la derecha y retrocede lentamente hasta que tu carro esté en un ángulo de 45 grados. Luego gira el volante completamente hacia la izquierda y continúa retrocediendo."
+            },
+            {
+              "type": "p",
+              "text": "Endereza tus ruedas y tira hacia adelante o hacia atrás según sea necesario para centrar tu carro en el espacio. Debes estar dentro de 12 pulgadas del bordillo y no bloqueando el tránsito."
+            },
+            {
+              "type": "p",
+              "text": "Practica el estacionamiento paralelo en un estacionamiento vacío antes de intentarlo en la calle. Tómate tu tiempo y no te apresures en el proceso."
+            }
+          ]
+        },
+        {
+          "id": "U2-L15",
+          "title": "Retroceso Controlado",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "Retroceder es una de las maniobras más peligrosas en la conducción. Tienes visibilidad y control limitados. Siempre retrocede lentamente y ten mucho cuidado."
+            },
+            {
+              "type": "p",
+              "text": "Antes de retroceder, camina alrededor de tu vehículo para revisar obstáculos, niños o animales. Usa tus espejos y gira tu cabeza para mirar detrás de ti."
+            },
+            {
+              "type": "p",
+              "text": "Retrocede en línea recta cuando sea posible. Si necesitas girar mientras retrocedes, haz ajustes pequeños de dirección. No sobre-dirijas o hagas movimientos repentinos."
+            },
+            {
+              "type": "p",
+              "text": "Si estás retrocediendo de un espacio de estacionamiento, retrocede lentamente y detente si ves cualquier movimiento. Toca la bocina si es necesario para alertar a otros de tu presencia."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "U2-S6",
+      "title": "Cambios de Carril e Incorporación (Intro)",
+      "lessons": [
+        {
+          "id": "U2-L16",
+          "title": "Técnica SMOG",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "SMOG es un acrónimo que te ayuda a recordar los pasos para cambios de carril seguros: Señalizar, Mirar espejos, Mirar por encima del hombro, Ir. Sigue estos pasos cada vez que cambies de carril."
+            },
+            {
+              "type": "p",
+              "text": "Señalizar: Enciende tu direccional para que otros conductores sepan tu intención. Señaliza al menos 100 pies antes de cambiar de carril en conducción urbana, o 200 pies en autopistas."
+            },
+            {
+              "type": "p",
+              "text": "Mirar espejos: Revisa tus espejos retrovisor y laterales para ver qué hay detrás y al lado de ti. Busca vehículos en tus puntos ciegos y revisa su velocidad."
+            },
+            {
+              "type": "p",
+              "text": "Mirar por encima del hombro: Gira tu cabeza y mira por encima de tu hombro para revisar tu punto ciego. Esto es crucial porque los espejos no pueden mostrarte todo."
+            },
+            {
+              "type": "p",
+              "text": "Ir: Solo cambia de carril si es seguro. Si ves un vehículo en tu punto ciego, espera hasta que pase. No fuerces tu camino en el tránsito."
+            }
+          ]
+        },
+        {
+          "id": "U2-L17",
+          "title": "Rampas de Entrada y Salida",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "Al entrar a una autopista vía una rampa de entrada, acelera para igualar la velocidad del tránsito en la autopista. No te incorpores a una velocidad mucho más lenta - esto crea una situación peligrosa."
+            },
+            {
+              "type": "p",
+              "text": "Usa el carril de aceleración para aumentar la velocidad. Busca un espacio en el tránsito y señaliza tu intención de incorporarte. No te detengas en el carril de aceleración a menos que sea absolutamente necesario."
+            },
+            {
+              "type": "p",
+              "text": "Al salir de una autopista, señaliza temprano y muévete al carril derecho bien antes de tu salida. No cruces múltiples carriles en el último minuto."
+            },
+            {
+              "type": "p",
+              "text": "Presta atención a las señales de salida y marcadores de milla. Conoce tu número de salida y prepárate para salir cuando veas la señal."
+            }
+          ]
+        },
+        {
+          "id": "U2-L18",
+          "title": "Ceder el Paso a Autopistas",
+          "paragraphs": [
+            {
+              "type": "p",
+              "text": "Al incorporarte a una autopista, debes ceder el paso al tránsito que ya está en la autopista. Ellos tienen el derecho de paso. No esperes que reduzcan la velocidad o cambien de carril por ti."
+            },
+            {
+              "type": "p",
+              "text": "Busca un espacio en el tránsito y ajusta tu velocidad para encajar en ese espacio. Si el tránsito es pesado, puede que necesites esperar un espacio más grande o usar la siguiente rampa de entrada."
+            },
+            {
+              "type": "p",
+              "text": "Una vez que estés en la autopista, mantén una distancia de seguimiento segura y quédate en el carril derecho a menos que estés pasando. No zigzaguees entre carriles innecesariamente."
+            },
+            {
+              "type": "li",
+              "text": "Sé paciente al incorporarte en tránsito pesado"
+            },
+            {
+              "type": "li",
+              "text": "No te detengas en el carril de aceleración"
+            },
+            {
+              "type": "li",
+              "text": "Usa tus direccionales al cambiar de carril"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "meta": {
+    "j_code": "CA",
+    "course_code": "DE-ONLINE",
+    "unit_no": 1,
+    "lang": "es"
+  },
+  "questions": [
+    {
+      "id": "U1-Q1",
+      "skill": "Señales de Tránsito",
+      "difficulty": 1,
+      "stem": "¿Qué significa una señal roja octagonal?",
+      "choices": [
+        {"key": "A", "text": "Ceder el paso a otro tránsito"},
+        {"key": "B", "text": "Detenerse completamente"},
+        {"key": "C", "text": "Reducir la velocidad y proceder con precaución"},
+        {"key": "D", "text": "Límite de velocidad adelante"}
+      ],
+      "answer": "B",
+      "explanation": "Una señal roja octagonal es una señal de alto. Debes detenerte completamente antes de la línea de alto o el cruce peatonal, o antes de entrar a la intersección si no hay línea de alto.",
+      "tags": ["unit:1", "topic:signs", "type:regulatory"]
+    },
+    {
+      "id": "U1-Q2",
+      "skill": "Señales de Tránsito",
+      "difficulty": 2,
+      "stem": "¿De qué color y forma son las señales de advertencia?",
+      "choices": [
+        {"key": "A", "text": "Rojas y triangulares"},
+        {"key": "B", "text": "Amarillas y en forma de diamante"},
+        {"key": "C", "text": "Verdes y rectangulares"},
+        {"key": "D", "text": "Azules y circulares"}
+      ],
+      "answer": "B",
+      "explanation": "Las señales de advertencia son en forma de diamante con letras o símbolos negros sobre fondo amarillo. Te alertan sobre peligros potenciales adelante.",
+      "tags": ["unit:1", "topic:signs", "type:warning"]
+    },
+    {
+      "id": "U1-Q3",
+      "skill": "Semáforos",
+      "difficulty": 1,
+      "stem": "¿Qué debes hacer cuando ves una luz amarilla de tránsito?",
+      "choices": [
+        {"key": "A", "text": "Acelerar para pasar por la intersección"},
+        {"key": "B", "text": "Detenerte si puedes hacerlo de manera segura"},
+        {"key": "C", "text": "Ignorarla y continuar conduciendo normalmente"},
+        {"key": "D", "text": "Girar solo a la derecha"}
+      ],
+      "answer": "B",
+      "explanation": "Una luz amarilla significa precaución. Si puedes detenerte de manera segura, debes hacerlo. Si estás demasiado cerca para detenerte de manera segura, puedes continuar a través de la intersección.",
+      "tags": ["unit:1", "topic:signals", "type:traffic_lights"]
+    },
+    {
+      "id": "U1-Q4",
+      "skill": "Derecho de Paso",
+      "difficulty": 3,
+      "stem": "En un alto de cuatro direcciones, ¿quién tiene el derecho de paso?",
+      "choices": [
+        {"key": "A", "text": "El vehículo a la izquierda"},
+        {"key": "B", "text": "El primer vehículo en llegar"},
+        {"key": "C", "text": "El vehículo que gira a la izquierda"},
+        {"key": "D", "text": "El vehículo con más pasajeros"}
+      ],
+      "answer": "B",
+      "explanation": "En un alto de cuatro direcciones, el primer vehículo en llegar tiene el derecho de paso. Si dos vehículos llegan al mismo tiempo, el vehículo a la derecha va primero.",
+      "tags": ["unit:1", "topic:right_of_way", "type:intersection"]
+    },
+    {
+      "id": "U1-Q5",
+      "skill": "Vehículos de Emergencia",
+      "difficulty": 2,
+      "stem": "¿Qué debes hacer cuando se acerca un vehículo de emergencia con luces y sirenas?",
+      "choices": [
+        {"key": "A", "text": "Acelerar para salir del camino rápidamente"},
+        {"key": "B", "text": "Orillarte a la derecha y detenerte"},
+        {"key": "C", "text": "Seguir el vehículo de emergencia de cerca"},
+        {"key": "D", "text": "Tocar la bocina para alertar a otros conductores"}
+      ],
+      "answer": "B",
+      "explanation": "Cuando se acerca un vehículo de emergencia con luces y sirenas, oríllate al lado derecho de la carretera y detente. Permanece detenido hasta que el vehículo de emergencia pase.",
+      "tags": ["unit:1", "topic:emergency_vehicles", "type:safety"]
+    },
+    {
+      "id": "U1-Q6",
+      "skill": "Autobuses Escolares",
+      "difficulty": 2,
+      "stem": "¿Cuándo debes detenerte para un autobús escolar?",
+      "choices": [
+        {"key": "A", "text": "Solo cuando los niños son visibles"},
+        {"key": "B", "text": "Cuando el autobús muestra luces rojas parpadeantes"},
+        {"key": "C", "text": "Solo en días escolares"},
+        {"key": "D", "text": "Solo cuando el autobús está en movimiento"}
+      ],
+      "answer": "B",
+      "explanation": "Debes detenerte cuando un autobús escolar se detiene y muestra luces rojas parpadeantes. Esto se aplica en todas las carreteras excepto autopistas divididas con un medianil.",
+      "tags": ["unit:1", "topic:school_buses", "type:safety"]
+    },
+    {
+      "id": "U1-Q7",
+      "skill": "Límites de Velocidad",
+      "difficulty": 1,
+      "stem": "¿Qué indican las señales de límite de velocidad?",
+      "choices": [
+        {"key": "A", "text": "La velocidad mínima que debes viajar"},
+        {"key": "B", "text": "La velocidad máxima legal bajo condiciones ideales"},
+        {"key": "C", "text": "La velocidad recomendada para la carretera"},
+        {"key": "D", "text": "El límite de velocidad solo por la noche"}
+      ],
+      "answer": "B",
+      "explanation": "Las señales de límite de velocidad muestran la velocidad máxima legal permitida bajo condiciones ideales. Nunca debes exceder el límite de velocidad publicado.",
+      "tags": ["unit:1", "topic:speed_limits", "type:regulatory"]
+    },
+    {
+      "id": "U1-Q8",
+      "skill": "Señales de Tránsito",
+      "difficulty": 2,
+      "stem": "¿Qué significa una señal de ceder el paso?",
+      "choices": [
+        {"key": "A", "text": "Detenerse completamente"},
+        {"key": "B", "text": "Reducir la velocidad y estar listo para detenerse si es necesario"},
+        {"key": "C", "text": "Acelerar para incorporarse rápidamente"},
+        {"key": "D", "text": "Girar solo a la derecha"}
+      ],
+      "answer": "B",
+      "explanation": "Una señal de ceder el paso significa que debes reducir la velocidad y estar listo para detenerte si es necesario. Deja que otro tránsito pase primero si hay un conflicto.",
+      "tags": ["unit:1", "topic:signs", "type:regulatory"]
+    },
+    {
+      "id": "U1-Q9",
+      "skill": "Derecho de Paso",
+      "difficulty": 3,
+      "stem": "Al girar a la izquierda en una intersección, ¿a quién debes ceder el paso?",
+      "choices": [
+        {"key": "A", "text": "Solo a peatones"},
+        {"key": "B", "text": "Al tránsito que viene de frente yendo derecho o girando a la derecha"},
+        {"key": "C", "text": "A nadie - tienes el derecho de paso"},
+        {"key": "D", "text": "Solo a vehículos de emergencia"}
+      ],
+      "answer": "B",
+      "explanation": "Al girar a la izquierda en una intersección, debes ceder el paso al tránsito que viene de frente yendo derecho o girando a la derecha. Espera un espacio seguro antes de hacer tu giro.",
+      "tags": ["unit:1", "topic:right_of_way", "type:intersection"]
+    },
+    {
+      "id": "U1-Q10",
+      "skill": "Semáforos",
+      "difficulty": 2,
+      "stem": "¿Qué significa una señal de flecha verde?",
+      "choices": [
+        {"key": "A", "text": "Puedes girar en esa dirección"},
+        {"key": "B", "text": "No puedes girar en esa dirección"},
+        {"key": "C", "text": "Proceder con precaución"},
+        {"key": "D", "text": "Detenerte y esperar"}
+      ],
+      "answer": "A",
+      "explanation": "Una flecha verde significa que puedes girar en esa dirección. Esto permite movimientos específicos cuando la luz principal podría estar roja.",
+      "tags": ["unit:1", "topic:signals", "type:arrows"]
+    },
+    {
+      "id": "U1-Q11",
+      "skill": "Conducción Segura",
+      "difficulty": 2,
+      "stem": "¿Cuál es la regla general para la distancia de seguimiento?",
+      "choices": [
+        {"key": "A", "text": "Mantenerte 1-2 segundos detrás del vehículo frente a ti"},
+        {"key": "B", "text": "Mantenerte 3-4 segundos detrás del vehículo frente a ti"},
+        {"key": "C", "text": "Mantenerte lo más cerca posible para ahorrar espacio"},
+        {"key": "D", "text": "Mantenerte 10 segundos detrás del vehículo frente a ti"}
+      ],
+      "answer": "B",
+      "explanation": "La regla general es mantenerte al menos 3-4 segundos detrás del vehículo frente a ti. En mal tiempo, aumenta esta distancia.",
+      "tags": ["unit:1", "topic:safe_driving", "type:following_distance"]
+    },
+    {
+      "id": "U1-Q12",
+      "skill": "Violaciones de Tránsito",
+      "difficulty": 2,
+      "stem": "¿Cuál es una de las violaciones de tránsito más comunes?",
+      "choices": [
+        {"key": "A", "text": "Usar señales de giro"},
+        {"key": "B", "text": "Exceder la velocidad"},
+        {"key": "C", "text": "Usar cinturón de seguridad"},
+        {"key": "D", "text": "Seguir las leyes de tránsito"}
+      ],
+      "answer": "B",
+      "explanation": "Exceder la velocidad es una de las violaciones más comunes. Incluso ir 5 mph por encima del límite puede resultar en una multa y puntos en tu licencia.",
+      "tags": ["unit:1", "topic:violations", "type:speed"]
+    },
+    {
+      "id": "U1-Q13",
+      "skill": "Señales de Tránsito",
+      "difficulty": 1,
+      "stem": "¿De qué color son las señales informativas que proporcionan información direccional?",
+      "choices": [
+        {"key": "A", "text": "Rojo"},
+        {"key": "B", "text": "Amarillo"},
+        {"key": "C", "text": "Verde"},
+        {"key": "D", "text": "Naranja"}
+      ],
+      "answer": "C",
+      "explanation": "Las señales verdes proporcionan información direccional para autopistas y carreteras principales. Muestran números de ruta, destinos y distancias.",
+      "tags": ["unit:1", "topic:signs", "type:guide"]
+    },
+    {
+      "id": "U1-Q14",
+      "skill": "Derecho de Paso",
+      "difficulty": 3,
+      "stem": "En una intersección en T, ¿quién tiene el derecho de paso?",
+      "choices": [
+        {"key": "A", "text": "Los vehículos que giran hacia la carretera principal"},
+        {"key": "B", "text": "Los vehículos en la carretera principal"},
+        {"key": "C", "text": "El vehículo a la izquierda"},
+        {"key": "D", "text": "El vehículo con más pasajeros"}
+      ],
+      "answer": "B",
+      "explanation": "En una intersección en T, los vehículos en la carretera principal tienen el derecho de paso sobre los vehículos que giran hacia la carretera principal.",
+      "tags": ["unit:1", "topic:right_of_way", "type:intersection"]
+    },
+    {
+      "id": "U1-Q15",
+      "skill": "Zonas Escolares",
+      "difficulty": 2,
+      "stem": "¿Cuál es el límite de velocidad típico en una zona escolar cuando los niños están presentes?",
+      "choices": [
+        {"key": "A", "text": "35-45 mph"},
+        {"key": "B", "text": "15-25 mph"},
+        {"key": "C", "text": "55-65 mph"},
+        {"key": "D", "text": "45-55 mph"}
+      ],
+      "answer": "B",
+      "explanation": "Las zonas escolares tienen límites de velocidad reducidos cuando los niños están presentes. Estos límites generalmente son de 15-25 mph para proteger la seguridad de los niños.",
+      "tags": ["unit:1", "topic:speed_limits", "type:school_zones"]
+    },
+    {
+      "id": "U1-Q16",
+      "skill": "Semáforos",
+      "difficulty": 2,
+      "stem": "¿Qué debes hacer cuando ves una luz roja parpadeante?",
+      "choices": [
+        {"key": "A", "text": "Acelerar para pasar rápidamente"},
+        {"key": "B", "text": "Detenerte, luego proceder cuando sea seguro"},
+        {"key": "C", "text": "Ignorarla y continuar conduciendo"},
+        {"key": "D", "text": "Girar solo a la derecha"}
+      ],
+      "answer": "B",
+      "explanation": "Las luces rojas parpadeantes significan detenerte, luego proceder cuando sea seguro. Trátalas como una señal de alto.",
+      "tags": ["unit:1", "topic:signals", "type:flashing"]
+    },
+    {
+      "id": "U1-Q17",
+      "skill": "Conducción Segura",
+      "difficulty": 2,
+      "stem": "¿Con cuánta anticipación debes señalizar antes de girar o cambiar de carril?",
+      "choices": [
+        {"key": "A", "text": "Al menos 50 pies"},
+        {"key": "B", "text": "Al menos 100 pies"},
+        {"key": "C", "text": "Al menos 200 pies"},
+        {"key": "D", "text": "Justo antes de girar"}
+      ],
+      "answer": "B",
+      "explanation": "Señaliza al menos 100 pies antes de girar o cambiar de carril. Esto le da tiempo a otros conductores para reaccionar a tus intenciones.",
+      "tags": ["unit:1", "topic:safe_driving", "type:signaling"]
+    },
+    {
+      "id": "U1-Q18",
+      "skill": "Violaciones de Tránsito",
+      "difficulty": 3,
+      "stem": "¿Cuántos puntos pueden llevar a la suspensión de licencia en California?",
+      "choices": [
+        {"key": "A", "text": "2 puntos en 12 meses"},
+        {"key": "B", "text": "4 puntos en 12 meses"},
+        {"key": "C", "text": "6 puntos en 12 meses"},
+        {"key": "D", "text": "8 puntos en 12 meses"}
+      ],
+      "answer": "B",
+      "explanation": "En California, obtener 4 puntos en 12 meses, 6 puntos en 24 meses, o 8 puntos en 36 meses puede resultar en suspensión de licencia.",
+      "tags": ["unit:1", "topic:violations", "type:consequences"]
+    },
+    {
+      "id": "U1-Q19",
+      "skill": "Vehículos de Emergencia",
+      "difficulty": 2,
+      "stem": "¿Qué debes hacer si estás en una intersección cuando se acerca un vehículo de emergencia?",
+      "choices": [
+        {"key": "A", "text": "Quedarte en la intersección y esperar"},
+        {"key": "B", "text": "Despejar la intersección primero, luego orillarte"},
+        {"key": "C", "text": "Acelerar para salir del camino"},
+        {"key": "D", "text": "Tocar la bocina para alertar al vehículo de emergencia"}
+      ],
+      "answer": "B",
+      "explanation": "Si estás en una intersección cuando se acerca un vehículo de emergencia, despeja la intersección primero, luego oríllate al lado de la carretera.",
+      "tags": ["unit:1", "topic:emergency_vehicles", "type:safety"]
+    },
+    {
+      "id": "U1-Q20",
+      "skill": "Señales de Tránsito",
+      "difficulty": 1,
+      "stem": "¿Qué indican las señales de tránsito azules?",
+      "choices": [
+        {"key": "A", "text": "Información regulatoria"},
+        {"key": "B", "text": "Servicios como gasolineras y hospitales"},
+        {"key": "C", "text": "Advertencia de peligros"},
+        {"key": "D", "text": "Límites de velocidad"}
+      ],
+      "answer": "B",
+      "explanation": "Las señales azules indican servicios como gasolineras, restaurantes y hospitales. Te ayudan a encontrar servicios necesarios mientras conduces.",
+      "tags": ["unit:1", "topic:signs", "type:guide"]
+    }
+  ]
+}

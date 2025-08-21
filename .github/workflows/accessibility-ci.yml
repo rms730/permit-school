@@ -155,6 +155,10 @@ jobs:
           # Kill any existing process on port 4330
           npx kill-port 4330 || true
 
+          # Check if standalone server exists
+          echo "Checking standalone server files..."
+          ls -la .next/standalone/ || echo "Standalone directory not found"
+          
           # Start the standalone server
           nohup npm run start:ci > .next_start.log 2>&1 &
 
@@ -164,10 +168,18 @@ jobs:
               echo "✅ server ready"
               break
             fi
+            if [ $i -eq 30 ]; then
+              echo "⚠️  Server not ready after 30s, checking logs..."
+              cat .next_start.log || echo "No log file found"
+            fi
             sleep 1
           done
         working-directory: web
         env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon-placeholder' }}
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || 'service-role-placeholder' }}
           NEXT_PUBLIC_SITE_URL: http://127.0.0.1:4330
           TESTKIT_ON: true
           TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}

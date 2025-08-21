@@ -106,10 +106,13 @@ RATE_LIMIT_MAX=60
 
 ### Final Exam Configuration
 
+> **Note**: These variables are now managed in the database via the `jurisdiction_configs` table. Each jurisdiction can have different values configured through the admin interface at `/admin/jurisdictions`.
+
 ```bash
-FINAL_EXAM_NUM_QUESTIONS=30
-FINAL_EXAM_PASS_PCT=0.8
-FINAL_EXAM_MINUTES_REQUIRED=150
+# These are now managed in the database via jurisdiction_configs table
+# FINAL_EXAM_NUM_QUESTIONS=30
+# FINAL_EXAM_PASS_PCT=0.8
+# FINAL_EXAM_MINUTES_REQUIRED=150
 ```
 
 ### Offline Development
@@ -197,10 +200,13 @@ RATE_LIMIT_MAX=60
 
 ### Final Exam Configuration
 
+> **Note**: These variables are now managed in the database via the `jurisdiction_configs` table. Each jurisdiction can have different values configured through the admin interface at `/admin/jurisdictions`.
+
 ```bash
-FINAL_EXAM_NUM_QUESTIONS=30
-FINAL_EXAM_PASS_PCT=0.8
-FINAL_EXAM_MINUTES_REQUIRED=150
+# These are now managed in the database via jurisdiction_configs table
+# FINAL_EXAM_NUM_QUESTIONS=30
+# FINAL_EXAM_PASS_PCT=0.8
+# FINAL_EXAM_MINUTES_REQUIRED=150
 ```
 
 ### Regulatory

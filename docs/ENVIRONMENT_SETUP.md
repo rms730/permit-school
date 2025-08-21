@@ -91,15 +91,11 @@ The application uses environment variables at **two distinct levels**:
 | `NEXT_PUBLIC_GOOGLE_CLIENT_ID`                | web        | client (public)                                  | local, dev, prod            | none                                           | Google auth                                                 |
 | `NEXT_PUBLIC_SUPPORT_EMAIL`                   | web        | client (public)                                  | local, dev, prod            | none                                           | contact info                                                |
 | `NEXT_PUBLIC_SUPPORT_PHONE`                   | web        | client (public)                                  | local, dev, prod            | none                                           | contact info                                                |
-| `NEXT_PUBLIC_FULFILLMENT_LOW_STOCK_THRESHOLD` | web        | client (public)                                  | local, dev, prod            | `200`                                          | admin UI                                                    |
 | `ADMIN_JOB_TOKEN`                             | root       | server-only                                      | local, dev, prod            | none                                           | admin job security                                          |
 | `DUNNING_DAILY_ENABLED`                       | root       | server-only                                      | local, dev, prod            | `true`                                         | billing automation                                          |
 | `TRIAL_REMINDERS_ENABLED`                     | root       | server-only                                      | local, dev, prod            | `true`                                         | trial management                                            |
 | `REGULATORY_SIGNING_SECRET`                   | root + web | server-only                                      | local, dev, prod            | none                                           | regulatory compliance                                       |
 | `REGULATORY_MONTHLY_ENABLED`                  | root       | server-only                                      | local, dev, prod            | `true`                                         | regulatory automation                                       |
-| `FINAL_EXAM_NUM_QUESTIONS`                    | root + web | server-only                                      | local, dev, prod            | `30`                                           | exam configuration                                          |
-| `FINAL_EXAM_PASS_PCT`                         | root + web | server-only                                      | local, dev, prod            | `0.8`                                          | exam configuration                                          |
-| `FINAL_EXAM_MINUTES_REQUIRED`                 | root + web | server-only                                      | local, dev, prod            | `150`                                          | exam configuration                                          |
 | `RATE_LIMIT_MAX`                              | root + web | server-only                                      | local, dev, prod            | `60`                                           | API rate limiting                                           |
 | `RATE_LIMIT_ON`                               | root + web | server-only                                      | local, dev, prod            | `true`                                         | API rate limiting                                           |
 | `RATE_LIMIT_WINDOW_MS`                        | root + web | server-only                                      | local, dev, prod            | `60000`                                        | API rate limiting                                           |
@@ -119,10 +115,18 @@ The application uses environment variables at **two distinct levels**:
 | `FULFILLMENT_ON`                              | root       | server-only                                      | local, dev, prod            | `true`                                         | fulfillment system                                          |
 | `FULFILLMENT_HMAC_SECRET`                     | root       | server-only                                      | local, dev, prod            | none                                           | fulfillment security                                        |
 | `MFA_SECRET`                                  | root       | server-only                                      | local, dev, prod            | none                                           | MFA configuration                                           |
-| `CERT_ISSUER_NAME`                            | root       | server-only                                      | local, dev, prod            | none                                           | certificate generation                                      |
-| `CERT_ISSUER_LICENSE`                         | root       | server-only                                      | local, dev, prod            | none                                           | certificate generation                                      |
+
 | `APP_ORIGIN`                                  | root       | server-only                                      | local, dev, prod            | none                                           | app origin                                                  |
 | `BACKGROUND_WORKER_TOKEN`                     | root       | server-only                                      | local, dev, prod            | none                                           | background jobs                                             |
+
+> **Note**: The following configuration variables are now managed in the database via the `jurisdiction_configs` table and can be configured through the admin interface at `/admin/jurisdictions`:
+> - `final_exam_questions` (was `FINAL_EXAM_NUM_QUESTIONS`)
+> - `final_exam_pass_pct` (was `FINAL_EXAM_PASS_PCT`) 
+> - `seat_time_required_minutes` (was `FINAL_EXAM_MINUTES_REQUIRED`)
+> - `certificate_issuer_name` (was `CERT_ISSUER_NAME`)
+> - `certificate_issuer_license` (was `CERT_ISSUER_LICENSE`)
+> - `fulfillment_low_stock_threshold` (was `NEXT_PUBLIC_FULFILLMENT_LOW_STOCK_THRESHOLD`)
+> - `regulatory_signing_secret` (was `REGULATORY_SIGNING_SECRET`)
 
 ## Third-Party Integration Checklists
 

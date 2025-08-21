@@ -47,7 +47,7 @@ jobs:
         run: |
           # Create development environment files from examples
           cp env-examples/root.env.dev.example .env.dev
-          
+
           # Create a clean web environment file with only client-safe variables
           cat > web/.env.development << 'EOF'
           # Client-exposed (safe):

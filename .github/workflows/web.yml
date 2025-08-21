@@ -43,13 +43,12 @@ jobs:
           npm install --no-audit --prefer-online
 
       - name: Prepare env files
-        working-directory: .
         run: |
           # Create development environment files from examples
-          cp env-examples/root.env.dev.example .env.dev
+          cp ../env-examples/root.env.dev.example ../.env.dev
 
           # Create a clean web environment file with only client-safe variables
-          cat > web/.env.development << 'EOF'
+          cat > .env.development << 'EOF'
           # Client-exposed (safe):
           NEXT_PUBLIC_SUPABASE_URL=https://example.supabase.co
           NEXT_PUBLIC_SUPABASE_ANON_KEY=anon-placeholder-key
@@ -60,15 +59,15 @@ jobs:
           EOF
 
           # Root overrides from GitHub Secrets (optional)
-          [ -n "${{ secrets.SUPABASE_URL }}" ] && sed -i 's|^SUPABASE_URL=.*|SUPABASE_URL=${{ secrets.SUPABASE_URL }}|' .env.dev
-          [ -n "${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" ] && sed -i 's|^SUPABASE_SERVICE_ROLE_KEY=.*|SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}|' .env.dev
-          [ -n "${{ secrets.SUPABASE_ANON_KEY }}" ] && sed -i 's|^SUPABASE_ANON_KEY=.*|SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}|' .env.dev
-          [ -n "${{ secrets.OPENAI_API_KEY }}" ] && sed -i 's|^OPENAI_API_KEY=.*|OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}|' .env.dev
-          [ -n "${{ secrets.BASE_URL }}" ] && sed -i 's|^BASE_URL=.*|BASE_URL=${{ secrets.BASE_URL }}|' .env.dev
+          [ -n "${{ secrets.SUPABASE_URL }}" ] && sed -i 's|^SUPABASE_URL=.*|SUPABASE_URL=${{ secrets.SUPABASE_URL }}|' ../.env.dev
+          [ -n "${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" ] && sed -i 's|^SUPABASE_SERVICE_ROLE_KEY=.*|SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}|' ../.env.dev
+          [ -n "${{ secrets.SUPABASE_ANON_KEY }}" ] && sed -i 's|^SUPABASE_ANON_KEY=.*|SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}|' ../.env.dev
+          [ -n "${{ secrets.OPENAI_API_KEY }}" ] && sed -i 's|^OPENAI_API_KEY=.*|OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}|' ../.env.dev
+          [ -n "${{ secrets.BASE_URL }}" ] && sed -i 's|^BASE_URL=.*|BASE_URL=${{ secrets.BASE_URL }}|' ../.env.dev
 
           # Web overrides
-          [ -n "${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}" ] && sed -i 's|^NEXT_PUBLIC_SUPABASE_URL=.*|NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}|' web/.env.development
-          [ -n "${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}" ] && sed -i 's|^NEXT_PUBLIC_SUPABASE_ANON_KEY=.*|NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}|' web/.env.development
+          [ -n "${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}" ] && sed -i 's|^NEXT_PUBLIC_SUPABASE_URL=.*|NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}|' .env.development
+          [ -n "${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}" ] && sed -i 's|^NEXT_PUBLIC_SUPABASE_ANON_KEY=.*|NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}|' .env.development
 
       - name: Verify root environment (development)
         working-directory: .

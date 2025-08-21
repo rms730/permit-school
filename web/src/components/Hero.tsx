@@ -8,7 +8,6 @@ import {
   Typography,
   Chip,
   useTheme,
-  useMediaQuery,
 } from '@mui/material';
 import { CheckCircle } from '@mui/icons-material';
 import {useTranslations} from 'next-intl';
@@ -17,7 +16,18 @@ import { Button } from './Button';
 export function Hero() {
   const t = useTranslations('Home');
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < theme.breakpoints.values.md);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, [theme.breakpoints.values.md]);
 
   return (
     <Box

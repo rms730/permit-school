@@ -12,6 +12,7 @@ import { getDictionary } from "@/lib/i18n";
 import { I18nProvider } from "@/lib/i18n/I18nProvider";
 import { SkipLink } from "@/components/SkipLink";
 import OfflineModeIndicator from "@/components/OfflineModeIndicator";
+import ConsoleTap from "@/components/dev/ConsoleTap";
 
 // Load Google Fonts
 const inter = Inter({
@@ -92,6 +93,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${inter.variable} ${rubik.variable}`}>
       <body>
+        {process.env.NEXT_PUBLIC_DEV_CONSOLE_TAP === '1' ? <ConsoleTap /> : null}
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <MuiProvider>
             <I18nProvider locale={locale} dict={dict}>

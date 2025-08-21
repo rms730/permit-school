@@ -4,25 +4,25 @@ import * as React from 'react';
 import {
   AppBar,
   Toolbar,
-  IconButton,
+  Typography,
+  Box,
   Drawer,
   List,
   ListItem,
   ListItemText,
-  Typography,
-  Stack,
-  Box,
   useTheme,
-  useMediaQuery,
+  IconButton,
+  Stack,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useTranslations, useLocale } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import {useTranslations, useLocale} from 'next-intl';
 import { Button } from './Button';
 
 const navigationItems = [
   { label: 'How it works', href: '#how-it-works' },
-  { label: 'Practice tests', href: '#practice-tests' },
+  { label: 'Practice tests', href: '/practice' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
 ];
@@ -30,18 +30,36 @@ const navigationItems = [
 export function Header() {
   const t = useTranslations('Header');
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [isMobile, setIsMobile] = React.useState(false);
   const locale = useLocale();
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < theme.breakpoints.values.md);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, [theme.breakpoints.values.md]);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const handleNavClick = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (href.startsWith('#')) {
+      // Handle anchor links
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Handle page navigation
+      router.push(href);
     }
     setMobileOpen(false);
   };

@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from 'react';
 import {
   Container,
@@ -6,7 +8,6 @@ import {
   Typography,
   Grid,
   useTheme,
-  useMediaQuery,
 } from '@mui/material';
 import {
   PersonAdd,
@@ -115,7 +116,18 @@ const steps = [
 
 export function HowItWorks() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < theme.breakpoints.values.md);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, [theme.breakpoints.values.md]);
 
   return (
     <Box

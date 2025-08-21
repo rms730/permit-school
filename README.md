@@ -106,6 +106,10 @@ npm run env:seed:prod            # Setup production environment
 
 # Core development
 npm --prefix web run dev          # Start development server
+
+# Development tools
+NEXT_PUBLIC_DEV_CONSOLE_TAP=1 npm --prefix web run dev  # Start with console tap enabled
+```
 npm --prefix web run build        # Build for production
 npm --prefix web run start        # Start production server
 

@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
-import { defaultLocale } from '../../i18n/request';
+import { DEFAULT_LOCALE } from '../lib/i18n/locales';
 
 export default function Page() {
-  redirect(`/${defaultLocale}`);
+  redirect(`/${DEFAULT_LOCALE}`);
 }

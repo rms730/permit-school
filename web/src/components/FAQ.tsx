@@ -10,7 +10,6 @@ import {
   AccordionSummary,
   AccordionDetails,
   useTheme,
-  useMediaQuery,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -43,7 +42,18 @@ const faqs = [
 
 export function FAQ() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < theme.breakpoints.values.md);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, [theme.breakpoints.values.md]);
 
   return (
     <Box

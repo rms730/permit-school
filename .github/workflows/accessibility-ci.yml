@@ -158,7 +158,7 @@ jobs:
           # Check if standalone server exists
           echo "Checking standalone server files..."
           ls -la .next/standalone/ || echo "Standalone directory not found"
-          
+
           # Start the standalone server
           nohup npm run start:ci > .next_start.log 2>&1 &
 

@@ -73,7 +73,7 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
-  webServer: process.env.CI ? undefined : {
+  webServer: process.env.PLAYWRIGHT_EXTERNAL_SERVER === '1' ? undefined : {
     command: 'TESTKIT_ON=true TESTKIT_TOKEN=test-token-12345 npm run start:ci',
     url: 'http://localhost:4330',
     reuseExistingServer: true,

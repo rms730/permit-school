@@ -288,6 +288,7 @@ npm run env:setup:dry
 ```
 
 **Features:**
+
 - **Environment Selection**: Choose which environments to configure (local, development, production)
 - **Masked Input**: Secret values are hidden during input
 - **Prefill Current Values**: Existing values are shown as defaults
@@ -299,11 +300,13 @@ npm run env:setup:dry
 - **Dry Run Mode**: Preview changes without writing files
 
 **File Mapping:**
+
 - **local**: `.env.local` (root), `web/.env.local` (web)
-- **development**: `.env.dev` (root), `web/.env.development` (web)  
+- **development**: `.env.dev` (root), `web/.env.development` (web)
 - **production**: `.env.prod` (root), `web/.env.production` (web)
 
 **Security Notes:**
+
 - The script warns if you attempt to write sensitive secrets to `NEXT_PUBLIC_` variables
 - Server-only variables are automatically scoped to root files
 - Client-safe variables are automatically scoped to web files

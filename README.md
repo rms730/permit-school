@@ -22,11 +22,14 @@ cd permit-school
 # 2. Install dependencies
 npm --prefix web ci
 
-# 3. Start development environment
+# 3. Setup environment (automated)
+npm run env:seed
+
+# 4. Start development environment
 npm --prefix web run dev
 # In another terminal: supabase start
 
-# 4. Verify setup
+# 5. Verify setup
 curl http://localhost:3000/api/health
 # Should return: {"status":"healthy","environment":"development"}
 ```
@@ -95,6 +98,12 @@ curl http://localhost:3000/api/health
 ## Development Commands
 
 ```bash
+# Environment setup
+npm run env:seed                  # Setup local environment (interactive)
+npm run env:seed:all             # Setup all environments (local, dev, prod)
+npm run env:seed:dry             # Preview changes without applying
+npm run env:seed:prod            # Setup production environment
+
 # Core development
 npm --prefix web run dev          # Start development server
 npm --prefix web run build        # Build for production

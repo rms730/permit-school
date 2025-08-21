@@ -29,18 +29,63 @@ The application uses environment variables at **two distinct levels**:
 - **Purpose**: Local development and testing
 - **Files**: `.env.local` (root), `web/.env.local` (web)
 - **Services**: Local Supabase, test Stripe keys, local URLs
+- **Setup**: `npm run env:seed` or `node scripts/seed-env.mjs --env local`
 
 ### Development/Preview
 
 - **Purpose**: Cloud development and staging environments
 - **Files**: `.env.dev` (root), `web/.env.development` (web)
 - **Services**: Cloud Supabase, test Stripe keys, preview URLs
+- **Setup**: `node scripts/seed-env.mjs --env dev`
 
 ### Production
 
 - **Purpose**: Live production environment
 - **Files**: `.env.prod` (root), `web/.env.production` (web)
 - **Services**: Production Supabase, live Stripe keys, production URLs
+- **Setup**: `npm run env:seed:prod` or `node scripts/seed-env.mjs --env prod --non-interactive`
+
+## Quick Setup with Environment Seeding
+
+The easiest way to set up your environment is using the automated seeding script:
+
+```bash
+# Local development (interactive)
+npm run env:seed
+
+# Preview all changes before applying
+npm run env:seed:dry
+
+# All environments (local, dev, prod)
+npm run env:seed:all
+
+# Production setup (non-interactive)
+npm run env:seed:prod
+```
+
+The seeding script will:
+- ✅ Auto-generate secure tokens and secrets
+- ✅ Copy example files if targets don't exist
+- ✅ Sync related variables across files
+- ✅ Validate API keys and URLs
+- ✅ Create backups before making changes
+- ✅ Preserve existing real values
+
+### Advanced Usage
+
+```bash
+# Custom file paths
+node scripts/seed-env.mjs --files ".env.custom,web/.env.custom"
+
+# Dry run with JSON output
+node scripts/seed-env.mjs --env all --dry-run --json
+
+# Force overwrite validation warnings
+node scripts/seed-env.mjs --env local --force
+
+# Show help
+node scripts/seed-env.mjs --help
+```
 
 ## Root vs Web Environment Separation
 

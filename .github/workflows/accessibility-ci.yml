@@ -154,10 +154,10 @@ jobs:
         run: |
           # Kill any existing process on port 4330
           npx kill-port 4330 || true
-          
+
           # Start the standalone server
           nohup npm run start:ci > .next_start.log 2>&1 &
-          
+
           echo "Waiting for http://127.0.0.1:4330 ..."
           for i in {1..60}; do
             if curl -fsS http://127.0.0.1:4330 >/dev/null; then

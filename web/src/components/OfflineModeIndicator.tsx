@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from 'react';
+
 import { logOfflineStatus } from '@/lib/offline';
 
 export default function OfflineModeIndicator() {

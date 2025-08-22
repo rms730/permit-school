@@ -1,6 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
 import crypto from 'crypto';
+
+import { NextRequest, NextResponse } from 'next/server';
+
+import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
 
 interface GuardianRequestOptions {
   user_id: string;

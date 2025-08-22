@@ -1,10 +1,11 @@
 'use client';
 
-import * as React from 'react';
-import { useParams, usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { IconButton, Menu, MenuItem, ListItemIcon, ListItemText, Avatar, Tooltip } from '@mui/material';
-import TranslateIcon from '@mui/icons-material/Translate';
 import CheckIcon from '@mui/icons-material/Check';
+import TranslateIcon from '@mui/icons-material/Translate';
+import { IconButton, Menu, MenuItem, ListItemIcon, ListItemText, Avatar, Tooltip } from '@mui/material';
+import { useParams, usePathname, useRouter, useSearchParams } from 'next/navigation';
+import * as React from 'react';
+
 import { buildLocaleHref } from '@/lib/i18n/switchLocale';
 
 type Locale = 'en' | 'es';
@@ -13,7 +14,6 @@ const languages: { code: Locale; label: string; emoji: string }[] = [
   { code: 'en', label: 'English',  emoji: '🇺🇸' },
   { code: 'es', label: 'Español',  emoji: '🇲🇽' },
 ];
-
 export default function LanguageSwitcher() {
   const router = useRouter();
   const params = useParams<{ locale?: string }>();

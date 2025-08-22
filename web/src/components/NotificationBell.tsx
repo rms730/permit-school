@@ -1,7 +1,6 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect } from "react";
+import { Notifications as NotificationsIcon } from "@mui/icons-material";
 import {
   IconButton,
   Badge,
@@ -12,7 +11,9 @@ import {
   Button,
   Divider,
 } from "@mui/material";
-import { Notifications as NotificationsIcon } from "@mui/icons-material";
+import * as React from "react";
+import { useState, useEffect } from "react";
+
 import { useI18n } from "@/lib/i18n/I18nProvider";
 
 interface Notification {

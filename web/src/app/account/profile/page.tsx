@@ -1,7 +1,9 @@
-import { Suspense } from 'react';
-import { getRouteClient } from '@/lib/supabaseRoute';
 import { redirect } from 'next/navigation';
+import { Suspense } from 'react';
+
 import AppShell from '@/components/layout/AppShell';
+import { getRouteClient } from '@/lib/supabaseRoute';
+
 import ProfileEditForm from './ProfileEditForm';
 
 export default async function ProfileEditPage() {

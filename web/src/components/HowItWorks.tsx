@@ -1,6 +1,10 @@
 "use client";
 
-import * as React from 'react';
+import {
+  PersonAdd,
+  Quiz,
+  CheckCircle,
+} from '@mui/icons-material';
 import {
   Container,
   Box,
@@ -8,12 +12,9 @@ import {
   Typography,
   Grid,
   useTheme,
+  useMediaQuery,
 } from '@mui/material';
-import {
-  PersonAdd,
-  Quiz,
-  CheckCircle,
-} from '@mui/icons-material';
+import * as React from 'react';
 
 const steps = [
   {
@@ -238,6 +239,7 @@ export function HowItWorks() {
                 backgroundColor: 'primary.main',
                 transform: 'translateY(-50%)',
                 zIndex: 0,
+                pointerEvents: 'none',
               },
             }}
           >

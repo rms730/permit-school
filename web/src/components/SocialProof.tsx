@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Shield, CheckCircle, Smartphone } from '@mui/icons-material';
 import {
   Container,
   Box,
@@ -7,7 +7,7 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import { Shield, CheckCircle, Smartphone } from '@mui/icons-material';
+import * as React from 'react';
 
 const trustBadges = [
   {

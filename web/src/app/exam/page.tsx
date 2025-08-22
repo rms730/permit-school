@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Container,
   Paper,
@@ -9,10 +8,12 @@ import {
   Box,
   LinearProgress,
 } from "@mui/material";
-import { getServerClient } from "@/lib/supabaseServer";
-import { getEntitlementForUser } from "@/lib/entitlements";
 import Link from "next/link";
+import * as React from "react";
+
 import AppBar from "@/components/AppBar";
+import { getEntitlementForUser } from "@/lib/entitlements";
+import { getServerClient } from "@/lib/supabaseServer";
 
 export default async function ExamPage() {
   const supabase = getServerClient();

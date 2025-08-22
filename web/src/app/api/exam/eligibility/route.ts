@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getRouteClient } from '@/lib/supabaseRoute';
+
 import { getJurisdictionConfig } from '@/lib/jurisdictionConfig';
+import { getRouteClient } from '@/lib/supabaseRoute';
 
 export const dynamic = 'force-dynamic';
 

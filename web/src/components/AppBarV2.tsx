@@ -1,6 +1,14 @@
 "use client";
 
-import * as React from 'react';
+import {
+  Menu as MenuIcon,
+  Dashboard,
+  School,
+  Receipt,
+  ExitToApp,
+  Notifications,
+  Close,
+} from '@mui/icons-material';
 import {
   AppBar,
   Toolbar,
@@ -12,7 +20,6 @@ import {
   MenuItem,
   Box,
   Chip,
-  useTheme,
   useMediaQuery,
   Drawer,
   List,
@@ -21,22 +28,15 @@ import {
   ListItemText,
   Divider,
 } from '@mui/material';
-import {
-  Menu as MenuIcon,
-  AccountCircle,
-  Dashboard,
-  School,
-  Receipt,
-  ExitToApp,
-  Notifications,
-  Language,
-  Close,
-} from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
-import { signInWithGoogle } from '@/lib/auth';
-import { supabase } from '@/lib/supabaseClient';
-import { getOfflineBadgeText, isFeatureDisabled } from '@/lib/offline';
+import * as React from 'react';
 import { useState } from 'react';
+import LanguageSwitcher from './LanguageSwitcher';
+
+import { signInWithGoogle } from '@/lib/auth';
+import { getOfflineBadgeText, isFeatureDisabled } from '@/lib/offline';
+import { supabase } from '@/lib/supabaseClient';
+
 import LanguageSwitcher from './LanguageSwitcher';
 
 interface AppBarV2Props {
@@ -60,13 +60,12 @@ interface AppBarV2Props {
 }
 
 export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props) {
-  const theme = useTheme();
   const isMobile = useMediaQuery('(max-width:900px)');
   const router = useRouter();
   
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [notificationsAnchor, setNotificationsAnchor] = useState<null | HTMLElement>(null);
+  const [_mobileOpen, _setMobileOpen] = useState(false);
+  const [_notificationsAnchor, _setNotificationsAnchor] = useState<null | HTMLElement>(null);
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -77,7 +76,7 @@ export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props)
   };
 
   const handleMobileDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    _setMobileOpen(!_mobileOpen);
   };
 
   const handleSignInWithGoogle = async () => {

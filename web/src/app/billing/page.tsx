@@ -1,7 +1,5 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect } from "react";
 import {
   Container,
   Paper,
@@ -24,9 +22,14 @@ import {
   Divider,
   Link,
 } from "@mui/material";
-import { getEntitlementForUserClient } from "@/lib/entitlementsClient";
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
+import * as React from "react";
+import { useState, useEffect } from "react";
+
 import AppBar from "@/components/AppBar";
+import { getEntitlementForUserClient } from "@/lib/entitlementsClient";
+
+
 
 interface Subscription {
   status: string;

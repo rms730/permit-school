@@ -1,4 +1,10 @@
-import React from 'react';
+import {
+  EmojiEvents as EmojiEventsIcon,
+  Timer as TimerIcon,
+  Assessment as AssessmentIcon,
+  CheckCircle as CheckCircleIcon,
+  Warning as WarningIcon,
+} from '@mui/icons-material';
 import {
   Box,
   Container,
@@ -15,13 +21,7 @@ import {
   Alert,
 } from '@mui/material';
 import Link from 'next/link';
-import {
-  EmojiEvents as EmojiEventsIcon,
-  Timer as TimerIcon,
-  Assessment as AssessmentIcon,
-  CheckCircle as CheckCircleIcon,
-  Warning as WarningIcon,
-} from '@mui/icons-material';
+import React from 'react';
 
 export const metadata = {
   title: 'Mock Test | College Test Prep | Permit School',

@@ -1,6 +1,11 @@
 "use client";
 
-import * as React from 'react';
+import {
+  Home as HomeIcon,
+  School as LearnIcon,
+  Notifications as NotificationsIcon,
+  AccountCircle as ProfileIcon,
+} from '@mui/icons-material';
 import {
   Box,
   BottomNavigation,
@@ -9,15 +14,12 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import {
-  Home as HomeIcon,
-  School as LearnIcon,
-  Notifications as NotificationsIcon,
-  AccountCircle as ProfileIcon,
-} from '@mui/icons-material';
 import { useRouter, usePathname } from 'next/navigation';
-import AppBarV2 from '@/components/AppBarV2';
+import * as React from 'react';
 import { useState } from 'react';
+
+import AppBarV2 from '@/components/AppBarV2';
+
 
 interface AppShellProps {
   children: React.ReactNode;

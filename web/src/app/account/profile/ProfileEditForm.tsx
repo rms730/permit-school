@@ -1,6 +1,11 @@
 "use client";
 
 import {
+  PhotoCamera as PhotoCameraIcon,
+  Save as SaveIcon,
+  ArrowBack as ArrowBackIcon,
+} from '@mui/icons-material';
+import {
   Box,
   Card,
   CardContent,
@@ -19,13 +24,9 @@ import {
   CircularProgress,
   IconButton,
 } from '@mui/material';
-import {
-  PhotoCamera as PhotoCameraIcon,
-  Save as SaveIcon,
-  ArrowBack as ArrowBackIcon,
-} from '@mui/icons-material';
-import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+
 import { createAvatarSignedUrl } from '@/lib/storage/signedUrl';
 import { supabase } from '@/lib/supabaseClient';
 

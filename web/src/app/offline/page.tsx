@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { WifiOff, Refresh } from "@mui/icons-material";
 import {
   Container,
   Typography,
@@ -10,7 +10,8 @@ import {
   Alert,
   AlertTitle,
 } from "@mui/material";
-import { WifiOff, Refresh } from "@mui/icons-material";
+import * as React from "react";
+
 import { useI18n } from "@/lib/i18n/I18nProvider";
 
 export default function OfflinePage() {

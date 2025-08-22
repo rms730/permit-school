@@ -1,6 +1,11 @@
 "use client";
 
-import React from 'react';
+import {
+  PlayArrow as PlayIcon,
+  MenuBook as BookIcon,
+  Timer as TimerIcon,
+  TrendingUp as ProgressIcon,
+} from '@mui/icons-material';
 import {
   Box,
   Card,
@@ -13,13 +18,8 @@ import {
   useMediaQuery,
   Fade,
 } from '@mui/material';
-import {
-  PlayArrow as PlayIcon,
-  MenuBook as BookIcon,
-  Timer as TimerIcon,
-  TrendingUp as ProgressIcon,
-} from '@mui/icons-material';
 import Link from 'next/link';
+import React from 'react';
 
 interface ResumeHelperProps {
   lastUnit?: {

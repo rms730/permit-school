@@ -1,9 +1,67 @@
 {
   "parser": "@typescript-eslint/parser",
-  "extends": ["next/core-web-vitals", "plugin:jsx-a11y/recommended"],
+  "extends": [
+    "next/core-web-vitals", 
+    "plugin:jsx-a11y/recommended"
+  ],
   "plugins": ["jsx-a11y", "@typescript-eslint"],
   "rules": {
     "@next/next/no-html-link-for-pages": "off",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    
+    // Import rules
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external", 
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    
+    // Unused variables and imports
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "no-unused-vars": "off", // Use TypeScript version instead
+    
+    // Import organization
+    "import/no-unresolved": "off", // Next.js handles this
+    "import/no-duplicates": "error",
+    
+    // Code quality
+    "prefer-const": "error",
+    "no-console": "warn",
+    "no-debugger": "error",
+    
+    // React specific
+    "react/jsx-uses-react": "off", // Not needed in React 17+
+    "react/react-in-jsx-scope": "off", // Not needed in React 17+
+    "react/prop-types": "off", // Using TypeScript instead
+    
+    // Accessibility
+    "jsx-a11y/anchor-is-valid": "off" // Next.js Link handles this
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
   }
 }

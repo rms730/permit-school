@@ -1,6 +1,6 @@
-import { Metadata } from 'next';
-import { Box, Container, Typography, Button, Grid, Card, CardContent, Chip } from '@mui/material';
 import { CheckCircle, School, Timer, TrendingUp } from '@mui/icons-material';
+import { Box, Container, Typography, Button, Grid, Card, CardContent, Chip } from '@mui/material';
+import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {

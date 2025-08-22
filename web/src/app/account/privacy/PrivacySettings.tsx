@@ -1,6 +1,13 @@
 "use client";
 
 import {
+  Notifications as NotificationsIcon,
+  Security as SecurityIcon,
+  DataUsage as DataUsageIcon,
+  Email as EmailIcon,
+  ArrowBack as ArrowBackIcon,
+} from '@mui/icons-material';
+import {
   Box,
   Card,
   CardContent,
@@ -16,17 +23,10 @@ import {
   ListItemText,
   Alert,
   Link,
-} from '@mui/material';
-import {
-  Notifications as NotificationsIcon,
-  Security as SecurityIcon,
-  DataUsage as DataUsageIcon,
-  Email as EmailIcon,
-  ArrowBack as ArrowBackIcon,
-} from '@mui/icons-material';
-import { IconButton } from '@mui/material';
-import { useState } from 'react';
+ IconButton } from '@mui/material';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
 import { supabase } from '@/lib/supabaseClient';
 
 interface PrivacySettingsProps {

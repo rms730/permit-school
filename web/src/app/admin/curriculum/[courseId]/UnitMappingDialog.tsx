@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { Delete, Add } from "@mui/icons-material";
 import {
   Dialog,
   DialogTitle,
@@ -20,7 +20,7 @@ import {
   Divider,
   Box,
 } from "@mui/material";
-import { Delete, Add } from "@mui/icons-material";
+import * as React from "react";
 
 interface ChunkMapping {
   ord: number;

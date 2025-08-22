@@ -1,6 +1,14 @@
 "use client";
 
-import React from 'react';
+import {
+  NavigateBefore as PrevIcon,
+  NavigateNext as NextIcon,
+  PlayArrow as PlayIcon,
+  Pause as PauseIcon,
+  VolumeUp as VolumeIcon,
+  VolumeOff as VolumeOffIcon,
+  Fullscreen as FullscreenIcon,
+} from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -11,15 +19,7 @@ import {
   Fade,
   Slide,
 } from '@mui/material';
-import {
-  NavigateBefore as PrevIcon,
-  NavigateNext as NextIcon,
-  PlayArrow as PlayIcon,
-  Pause as PauseIcon,
-  VolumeUp as VolumeIcon,
-  VolumeOff as VolumeOffIcon,
-  Fullscreen as FullscreenIcon,
-} from '@mui/icons-material';
+import React from 'react';
 
 interface StickyActionsProps {
   onPrevious?: () => void;

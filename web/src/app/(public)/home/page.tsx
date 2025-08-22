@@ -1,5 +1,5 @@
-import { Metadata } from 'next';
 import { Box, Container, Typography } from '@mui/material';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Pass Your California Permit Test | Permit School',

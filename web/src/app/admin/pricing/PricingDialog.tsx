@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { Delete as DeleteIcon, Edit as EditIcon } from "@mui/icons-material";
 import {
   Dialog,
   DialogTitle,
@@ -21,8 +21,8 @@ import {
   IconButton,
   Chip,
 } from "@mui/material";
+import * as React from "react";
 import { useState } from "react";
-import { Delete as DeleteIcon, Edit as EditIcon } from "@mui/icons-material";
 
 interface BillingPrice {
   id: string;

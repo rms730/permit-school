@@ -1,18 +1,21 @@
 // Ensure env schema is evaluated during build/CI (fails fast on misconfig)
 import '@/env';
 
-import * as React from "react";
-import type { Metadata } from "next";
+// import { esES } from "@mui/material/locale"; // Unused - removed
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-import { esES } from "@mui/material/locale";
+import type { Metadata } from "next";
 import { Inter, Rubik } from 'next/font/google';
-import MuiProvider from "./providers/MuiProvider";
-import { getLocaleFromRequest } from "@/lib/i18n/server";
+import * as React from "react";
+
+
+import ConsoleTap from "@/components/dev/ConsoleTap";
+import OfflineModeIndicator from "@/components/OfflineModeIndicator";
+import { SkipLink } from "@/components/SkipLink";
 import { getDictionary } from "@/lib/i18n";
 import { I18nProvider } from "@/lib/i18n/I18nProvider";
-import { SkipLink } from "@/components/SkipLink";
-import OfflineModeIndicator from "@/components/OfflineModeIndicator";
-import ConsoleTap from "@/components/dev/ConsoleTap";
+import { getLocaleFromRequest } from "@/lib/i18n/server";
+
+import MuiProvider from "./providers/MuiProvider";
 
 // Load Google Fonts
 const inter = Inter({
@@ -84,13 +87,15 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport = {
-  themeColor: '#1976d2',
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-};
+export function generateViewport() {
+  return {
+    themeColor: '#1976d2',
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -104,7 +109,7 @@ export default async function RootLayout({
     <html lang={locale} className={`${inter.variable} ${rubik.variable}`}>
       <body>
         {process.env.NEXT_PUBLIC_DEV_CONSOLE_TAP === '1' ? <ConsoleTap /> : null}
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+        <AppRouterCacheProvider options={{ enableCssLayer: false }}>
           <MuiProvider>
             <I18nProvider locale={locale} dict={dict}>
                 <SkipLink />

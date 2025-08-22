@@ -1,11 +1,12 @@
-import { Header } from '../../components/Header';
 import { Container, Stack, Typography, Button } from '@mui/material';
 import Link from 'next/link';
-import { Hero } from '../../components/Hero';
+
+import { FAQ } from '../../components/FAQ';
 import { FeatureGrid } from '../../components/FeatureGrid';
+import { Header } from '../../components/Header';
+import { Hero } from '../../components/Hero';
 import { HowItWorks } from '../../components/HowItWorks';
 import { Pricing } from '../../components/Pricing';
-import { FAQ } from '../../components/FAQ';
 
 export default async function Page() {
   return (

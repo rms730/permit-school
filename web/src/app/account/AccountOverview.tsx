@@ -1,6 +1,15 @@
 "use client";
 
 import {
+  Person as PersonIcon,
+  Language as LanguageIcon,
+  Palette as ThemeIcon,
+  Notifications as NotificationsIcon,
+  Settings as SettingsIcon,
+  Security as SecurityIcon,
+  ArrowForward as ArrowForwardIcon,
+} from '@mui/icons-material';
+import {
   Box,
   Card,
   CardContent,
@@ -16,18 +25,10 @@ import {
   ListItemText,
   ListItemSecondaryAction,
 } from '@mui/material';
-import {
-  Person as PersonIcon,
-  Language as LanguageIcon,
-  Palette as ThemeIcon,
-  Notifications as NotificationsIcon,
-  Settings as SettingsIcon,
-  Security as SecurityIcon,
-  ArrowForward as ArrowForwardIcon,
-} from '@mui/icons-material';
 import Link from 'next/link';
-import { createAvatarSignedUrl } from '@/lib/storage/signedUrl';
 import { useEffect, useState } from 'react';
+
+import { createAvatarSignedUrl } from '@/lib/storage/signedUrl';
 
 interface AccountOverviewProps {
   user: any;

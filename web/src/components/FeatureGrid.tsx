@@ -1,4 +1,11 @@
-import * as React from 'react';
+import {
+  Quiz,
+  Bolt,
+  Insights,
+  OndemandVideo,
+  Timer,
+  SupportAgent,
+} from '@mui/icons-material';
 import {
   Grid,
   Card,
@@ -8,15 +15,8 @@ import {
   Box,
   Container,
 } from '@mui/material';
-import {
-  Quiz,
-  Bolt,
-  Insights,
-  OndemandVideo,
-  Timer,
-  SupportAgent,
-} from '@mui/icons-material';
 import {useTranslations} from 'next-intl';
+import * as React from 'react';
 
 const features = [
   {

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { CheckCircle } from '@mui/icons-material';
 import {
   Container,
   Box,
@@ -7,7 +7,8 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import { CheckCircle } from '@mui/icons-material';
+import * as React from 'react';
+
 import { Button } from './Button';
 
 const valuePoints = [

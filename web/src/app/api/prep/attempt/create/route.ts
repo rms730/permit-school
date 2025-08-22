@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
-import { getRouteClient } from "@/lib/supabaseRoute";
-import { rateLimit, getRateLimitHeaders, getRateLimitKey } from '@/lib/ratelimit';
+
 import { getLocaleFromRequest } from '@/lib/i18n/server';
+import { rateLimit, getRateLimitHeaders, getRateLimitKey } from '@/lib/ratelimit';
+import { getRouteClient } from "@/lib/supabaseRoute";
 
 export async function POST(req: Request) {
   // Rate limiting

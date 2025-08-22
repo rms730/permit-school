@@ -1,7 +1,6 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect } from "react";
+import { Refresh as RefreshIcon } from "@mui/icons-material";
 import {
   Container,
   Paper,
@@ -23,7 +22,9 @@ import {
   Tooltip,
   IconButton,
 } from "@mui/material";
-import { Refresh as RefreshIcon } from "@mui/icons-material";
+import * as React from "react";
+import { useState, useEffect } from "react";
+
 import AppShell from "@/components/layout/AppShell";
 
 interface BillingKPI {

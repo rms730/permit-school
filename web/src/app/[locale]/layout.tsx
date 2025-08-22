@@ -1,9 +1,14 @@
-import * as React from 'react';
-import {NextIntlClientProvider} from 'next-intl';
+import fs from 'fs';
+import path from 'path';
+
 import {notFound} from 'next/navigation';
+import {NextIntlClientProvider} from 'next-intl';
+import * as React from 'react';
+
 import {locales, type Locale} from '../../../i18n/request';
 import fs from 'fs';
 import path from 'path';
+
 
 export function generateStaticParams() {
   return locales.map((locale) => ({locale}));

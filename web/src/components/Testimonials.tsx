@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {
   Container,
   Box,
@@ -11,6 +10,7 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
+import * as React from 'react';
 
 const testimonials = [
   {

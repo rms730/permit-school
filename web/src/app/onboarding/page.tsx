@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { CheckCircle, Error, Send } from "@mui/icons-material";
 import {
   Container,
   Paper,
@@ -19,7 +19,7 @@ import {
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useRouter } from "next/navigation";
-import { CheckCircle, Error, Send } from "@mui/icons-material";
+import React, { useState, useEffect } from "react";
 
 interface ProfileData {
   first_name: string;
@@ -243,11 +243,11 @@ export default function OnboardingPage() {
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   
   // Guardian consent state
-  const [guardianName, setGuardianName] = useState("");
-  const [guardianEmail, setGuardianEmail] = useState("");
-  const [guardianStatus, setGuardianStatus] = useState<any>(null);
-  const [sendingRequest, setSendingRequest] = useState(false);
-  const [guardianError, setGuardianError] = useState<string | null>(null);
+  const [_guardianName, _setGuardianName] = useState("");
+  const [_guardianEmail, _setGuardianEmail] = useState("");
+  const [_guardianStatus, _setGuardianStatus] = useState<any>(null);
+  const [_sendingRequest, _setSendingRequest] = useState(false);
+  const [_guardianError, _setGuardianError] = useState<string | null>(null);
   
   const router = useRouter();
 
@@ -330,8 +330,8 @@ export default function OnboardingPage() {
       }
 
       router.push("/dashboard");
-    } catch (err) {
-      setError((err as any) instanceof Error ? (err as any).message : "An error occurred");
+    } catch (_err) {
+      setError((_err as any) instanceof Error ? (_err as any).message : "An error occurred");
     } finally {
       setLoading(false);
     }

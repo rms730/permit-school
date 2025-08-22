@@ -1,8 +1,8 @@
 "use client";
 
+import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import * as React from "react";
 import { useEffect } from "react";
-import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 
 export const dynamic = "force-dynamic";
 

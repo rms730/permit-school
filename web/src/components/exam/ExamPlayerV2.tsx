@@ -1,6 +1,20 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
+import {
+  NavigateBefore as PrevIcon,
+  NavigateNext as NextIcon,
+  CheckCircle as CorrectIcon,
+  Cancel as IncorrectIcon,
+  QuestionMark as UnansweredIcon,
+  Flag as FlagIcon,
+  OutlinedFlag as OutlinedFlagIcon,
+  Timer as TimerIcon,
+  Visibility as ReviewIcon,
+  PlayArrow as ResumeIcon,
+  Pause as PauseIcon,
+  Fullscreen as FullscreenIcon,
+  FullscreenExit as FullscreenExitIcon,
+} from '@mui/icons-material';
 import {
   Box,
   Typography,
@@ -33,21 +47,8 @@ import {
   ListItemIcon,
   Divider,
 } from '@mui/material';
-import {
-  NavigateBefore as PrevIcon,
-  NavigateNext as NextIcon,
-  CheckCircle as CorrectIcon,
-  Cancel as IncorrectIcon,
-  QuestionMark as UnansweredIcon,
-  Flag as FlagIcon,
-  OutlinedFlag as OutlinedFlagIcon,
-  Timer as TimerIcon,
-  Visibility as ReviewIcon,
-  PlayArrow as ResumeIcon,
-  Pause as PauseIcon,
-  Fullscreen as FullscreenIcon,
-  FullscreenExit as FullscreenExitIcon,
-} from '@mui/icons-material';
+import React, { useState, useEffect, useCallback } from 'react';
+
 import { useConfetti } from '@/lib/confetti';
 
 interface ExamItem {

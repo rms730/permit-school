@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
+
+import { getLocaleFromRequest } from '@/lib/i18n/server';
+import { rateLimit, getRateLimitHeaders, getRateLimitKey } from '@/lib/ratelimit';
 import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 import { getRouteClient } from "@/lib/supabaseRoute";
-import { rateLimit, getRateLimitHeaders, getRateLimitKey } from '@/lib/ratelimit';
-import { getLocaleFromRequest } from '@/lib/i18n/server';
 
 function getFunctionsBase() {
   const explicit = process.env.SUPABASE_FUNCTIONS_URL;

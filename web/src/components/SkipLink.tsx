@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
 import { Box } from "@mui/material";
+import * as React from "react";
 
 export function SkipLink() {
   return (

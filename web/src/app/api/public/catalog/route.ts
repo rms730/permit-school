@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+
 import { getRouteClient } from "@/lib/supabaseRoute";
 
 export const dynamic = 'force-dynamic';

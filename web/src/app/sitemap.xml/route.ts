@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://permit-school.com';
   const currentDate = new Date().toISOString();
 

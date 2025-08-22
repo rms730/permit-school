@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getRouteClient } from '@/lib/supabaseRoute';
-import { generateReport } from '@/lib/regulatory/generateReport';
+
 import { rateLimit, getRateLimitKey, getRateLimitHeaders } from '@/lib/ratelimit';
+import { generateReport } from '@/lib/regulatory/generateReport';
+import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function POST(request: NextRequest) {
   try {

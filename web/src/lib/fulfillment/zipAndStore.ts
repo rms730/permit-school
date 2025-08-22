@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import JSZip from 'jszip';
+
 import { Manifest } from './buildManifest';
 
 const supabase = createClient(

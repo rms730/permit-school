@@ -1,6 +1,8 @@
-import { getRouteClient } from '@/lib/supabaseRoute';
 import { redirect } from 'next/navigation';
+
 import AppShell from '@/components/layout/AppShell';
+import { getRouteClient } from '@/lib/supabaseRoute';
+
 import PrivacySettings from './PrivacySettings';
 
 export default async function PrivacyPage() {

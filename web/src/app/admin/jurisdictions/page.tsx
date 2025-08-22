@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Container,
   Paper,
@@ -14,8 +13,11 @@ import {
   Chip,
   Box,
 } from "@mui/material";
-import { getServerClient } from "@/lib/supabaseServer";
+import * as React from "react";
+
 import AppBar from "@/components/AppBar";
+import { getServerClient } from "@/lib/supabaseServer";
+
 import JurisdictionConfigDialog from "./JurisdictionConfigDialog";
 
 export default async function JurisdictionsPage() {

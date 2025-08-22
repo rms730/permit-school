@@ -1,9 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { createAuthClient } from '@/lib/auth';
 import { Box, CircularProgress, Typography } from '@mui/material';
+import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+
+import { createAuthClient } from '@/lib/auth';
+
 
 export default function AuthCallbackPage() {
   const router = useRouter();

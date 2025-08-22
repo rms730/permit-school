@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
   Toolbar,
@@ -13,11 +13,12 @@ import {
   useTheme,
   IconButton,
   Stack,
+  useMediaQuery,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useTranslations, useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
+import * as React from 'react';
 import { Button } from './Button';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -30,24 +31,13 @@ const navigationItems = [
 
 export function Header() {
   const theme = useTheme();
-  const [isMobile, setIsMobile] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   
   // Use hooks normally - they should work in client components
   const t = useTranslations('Header');
   const locale = useLocale();
   const router = useRouter();
-
-  React.useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < theme.breakpoints.values.md);
-    };
-    
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-    
-    return () => window.removeEventListener('resize', checkIsMobile);
-  }, [theme.breakpoints.values.md]);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);

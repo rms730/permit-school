@@ -1,7 +1,5 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect } from "react";
 import {
   Container,
   Paper,
@@ -22,6 +20,9 @@ import {
   Chip,
   Divider,
 } from "@mui/material";
+import * as React from "react";
+import { useState, useEffect } from "react";
+
 import AppBar from "@/components/AppBar";
 
 interface MFASetup {

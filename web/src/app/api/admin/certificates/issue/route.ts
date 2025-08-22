@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getRouteClient } from '@/lib/supabaseRoute';
+
 import { renderCertificatePDF } from '@/lib/certPdf';
 import { uploadCertificatePdf } from '@/lib/certStorage';
 import { sendCertificateIssuedEmail } from '@/lib/email';
 import { notifyStudentAndGuardians } from '@/lib/notify';
+import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function POST(request: NextRequest) {
   try {

@@ -1,4 +1,3 @@
-const { withSentryConfig } = require("@sentry/nextjs");
 const withNextIntl = require('next-intl/plugin')('./i18n/request.ts');
 const withPWA = require("next-pwa")({
   dest: "public",
@@ -65,7 +64,7 @@ const withPWA = require("next-pwa")({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: { forceSwcTransforms: true },
+  // experimental: { forceSwcTransforms: true }, // Temporarily disabled to fix MUI vendor chunk issue
   output: "standalone",
   headers: async () => {
     return [
@@ -110,10 +109,17 @@ const nextConfig = {
   },
 };
 
-const sentryWebpackPluginOptions = {
-  silent: true,
-  org: "permit-school",
-  project: "permit-school-web",
-};
+// Conditionally enable Sentry only when explicitly enabled and DSN is provided
+let config = withNextIntl(withPWA(nextConfig));
 
-module.exports = withNextIntl(withPWA(withSentryConfig(nextConfig, sentryWebpackPluginOptions)));
+if (process.env.SENTRY_ENABLED === '1' && process.env.SENTRY_DSN) {
+  const { withSentryConfig } = require("@sentry/nextjs");
+  const sentryWebpackPluginOptions = {
+    silent: true,
+    org: "permit-school",
+    project: "permit-school-web",
+  };
+  config = withSentryConfig(config, sentryWebpackPluginOptions);
+}
+
+module.exports = config;

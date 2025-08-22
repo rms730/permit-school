@@ -1,6 +1,16 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import {
+  NavigateBefore as PrevIcon,
+  NavigateNext as NextIcon,
+  CheckCircle as CorrectIcon,
+  Cancel as IncorrectIcon,
+  KeyboardArrowUp as UpIcon,
+  KeyboardArrowDown as DownIcon,
+  VolumeUp as VolumeIcon,
+  VolumeOff as VolumeOffIcon,
+  Accessibility as AccessibilityIcon,
+} from '@mui/icons-material';
 import {
   Box,
   Typography,
@@ -23,17 +33,8 @@ import {
   Snackbar,
   LinearProgress,
 } from '@mui/material';
-import {
-  NavigateBefore as PrevIcon,
-  NavigateNext as NextIcon,
-  CheckCircle as CorrectIcon,
-  Cancel as IncorrectIcon,
-  KeyboardArrowUp as UpIcon,
-  KeyboardArrowDown as DownIcon,
-  VolumeUp as VolumeIcon,
-  VolumeOff as VolumeOffIcon,
-  Accessibility as AccessibilityIcon,
-} from '@mui/icons-material';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+
 import { useConfetti } from '@/lib/confetti';
 
 interface QuizItem {

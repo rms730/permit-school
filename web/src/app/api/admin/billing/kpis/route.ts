@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
+
 import { getRouteClient } from '@/lib/supabaseRoute';
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     const supabase = getRouteClient();
     const { data: { user }, error: authError } = await supabase.auth.getUser();

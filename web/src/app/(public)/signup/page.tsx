@@ -1,6 +1,10 @@
 "use client";
 
-import * as React from 'react';
+import {
+  Google as GoogleIcon,
+  Email as EmailIcon,
+  ArrowForward,
+} from '@mui/icons-material';
 import {
   Container,
   Box,
@@ -15,15 +19,12 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import {
-  Google as GoogleIcon,
-  Email as EmailIcon,
-  ArrowForward,
-} from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
+import * as React from 'react';
+
+import AppBarV2 from '@/components/AppBarV2';
 import { signInWithGoogle } from '@/lib/auth';
 import { supabase } from '@/lib/supabaseClient';
-import AppBarV2 from '@/components/AppBarV2';
 
 export default function SignupPage() {
   const theme = useTheme();

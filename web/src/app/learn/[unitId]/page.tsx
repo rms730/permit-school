@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Container,
   Paper,
@@ -15,12 +14,14 @@ import {
   CardContent,
   Alert,
 } from "@mui/material";
-import { getServerClient } from "@/lib/supabaseServer";
-import { getEntitlementForUser } from "@/lib/entitlements";
-import { redirect } from "next/navigation";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import * as React from "react";
+
 import AppBar from "@/components/AppBar";
+import { getEntitlementForUser } from "@/lib/entitlements";
 import { getLocaleFromRequest } from "@/lib/i18n/server";
+import { getServerClient } from "@/lib/supabaseServer";
 
 interface Chunk {
   id: number;

@@ -1,6 +1,7 @@
 "use client";
 
 import { Chip } from '@mui/material';
+
 import { getOfflineBadgeText } from '@/lib/offline';
 
 interface OfflineModeBadgeProps {

@@ -1,7 +1,5 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect, useCallback } from "react";
 import {
   Container,
   Paper,
@@ -21,6 +19,9 @@ import {
   Box,
   CircularProgress,
 } from "@mui/material";
+import * as React from "react";
+import { useState, useEffect, useCallback } from "react";
+
 import AppBar from "@/components/AppBar";
 
 interface HealthStatus {

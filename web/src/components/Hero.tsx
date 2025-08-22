@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from 'react';
+import { CheckCircle } from '@mui/icons-material';
 import {
   Container,
   Box,
@@ -8,26 +8,17 @@ import {
   Typography,
   Chip,
   useTheme,
+  useMediaQuery,
 } from '@mui/material';
-import { CheckCircle } from '@mui/icons-material';
 import {useTranslations} from 'next-intl';
+import * as React from 'react';
+
 import { Button } from './Button';
 
 export function Hero() {
   const t = useTranslations('Home');
   const theme = useTheme();
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  React.useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < theme.breakpoints.values.md);
-    };
-    
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-    
-    return () => window.removeEventListener('resize', checkIsMobile);
-  }, [theme.breakpoints.values.md]);
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box
@@ -51,6 +42,7 @@ export function Hero() {
             radial-gradient(circle at 40% 40%, rgba(14, 165, 233, 0.1) 0%, transparent 50%)
           `,
           pointerEvents: 'none',
+          zIndex: 0,
         },
       }}
     >

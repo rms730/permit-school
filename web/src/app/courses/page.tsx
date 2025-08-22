@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Container,
   Paper,
@@ -14,10 +13,12 @@ import {
   Chip,
   Box,
 } from "@mui/material";
-import { getServerClient } from "@/lib/supabaseServer";
-import AppShell from "@/components/layout/AppShell";
 import Link from "next/link";
 import Script from "next/script";
+import * as React from "react";
+
+import AppShell from "@/components/layout/AppShell";
+import { getServerClient } from "@/lib/supabaseServer";
 
 export default async function CoursesPage() {
   const supabase = getServerClient();

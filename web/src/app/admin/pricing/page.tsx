@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Container,
   Paper,
@@ -18,8 +17,11 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import { getServerClient } from "@/lib/supabaseServer";
+import * as React from "react";
+
 import AppBar from "@/components/AppBar";
+import { getServerClient } from "@/lib/supabaseServer";
+
 import PricingDialog from "./PricingDialog";
 
 export default async function PricingPage() {

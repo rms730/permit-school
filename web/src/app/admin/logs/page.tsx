@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Container,
   Paper,
@@ -11,6 +10,8 @@ import {
   TableRow,
   Chip,
 } from "@mui/material";
+import * as React from "react";
+
 import { getServerClient } from "@/lib/supabaseServer";
 
 export const dynamic = "force-dynamic";

@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+
 import { getTestkitAPI, getTestUser } from './utils/testkit';
 
 test.describe('Final Exam → Draft Certificate', () => {

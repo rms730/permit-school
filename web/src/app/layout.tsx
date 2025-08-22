@@ -87,13 +87,15 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport = {
-  themeColor: '#1976d2',
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-};
+export function generateViewport() {
+  return {
+    themeColor: '#1976d2',
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -107,7 +109,7 @@ export default async function RootLayout({
     <html lang={locale} className={`${inter.variable} ${rubik.variable}`}>
       <body>
         {process.env.NEXT_PUBLIC_DEV_CONSOLE_TAP === '1' ? <ConsoleTap /> : null}
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+        <AppRouterCacheProvider options={{ enableCssLayer: false }}>
           <MuiProvider>
             <I18nProvider locale={locale} dict={dict}>
                 <SkipLink />

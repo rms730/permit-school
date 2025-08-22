@@ -9,6 +9,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   useTheme,
+  useMediaQuery,
 } from '@mui/material';
 import * as React from 'react';
 
@@ -41,19 +42,8 @@ const faqs = [
 
 export function FAQ() {
   const theme = useTheme();
-  const [_isMobile, _setIsMobile] = React.useState(false);
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [expanded, setExpanded] = React.useState<string | false>(false);
-
-  React.useEffect(() => {
-    const checkIsMobile = () => {
-      _setIsMobile(window.innerWidth < theme.breakpoints.values.md);
-    };
-    
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-    
-    return () => window.removeEventListener('resize', checkIsMobile);
-  }, [theme.breakpoints.values.md]);
 
   const handleAccordionChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);

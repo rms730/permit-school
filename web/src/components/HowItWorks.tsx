@@ -12,6 +12,7 @@ import {
   Typography,
   Grid,
   useTheme,
+  useMediaQuery,
 } from '@mui/material';
 import * as React from 'react';
 
@@ -116,18 +117,7 @@ const steps = [
 
 export function HowItWorks() {
   const theme = useTheme();
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  React.useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < theme.breakpoints.values.md);
-    };
-    
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-    
-    return () => window.removeEventListener('resize', checkIsMobile);
-  }, [theme.breakpoints.values.md]);
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box
@@ -238,6 +228,7 @@ export function HowItWorks() {
                 backgroundColor: 'primary.main',
                 transform: 'translateY(-50%)',
                 zIndex: 0,
+                pointerEvents: 'none',
               },
             }}
           >

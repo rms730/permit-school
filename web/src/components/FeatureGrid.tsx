@@ -106,7 +106,7 @@ export function FeatureGrid() {
                     </Box>
                     
                     <Stack spacing={1}>
-                      <Typography variant="h6" component="h3" fontWeight={700}>
+                      <Typography variant="h4" component="h4" fontWeight={700}>
                         {feature.title}
                       </Typography>
                       <Typography color="text.secondary" sx={{ lineHeight: 1.6 }}>

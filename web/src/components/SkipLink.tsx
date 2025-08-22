@@ -10,37 +10,26 @@ export function SkipLink() {
       href="#main"
       sx={{
         position: 'absolute',
-        left: -10000,
+        left: '-10000px',
         top: 'auto',
-        width: 1,
-        height: 1,
+        width: '1px',
+        height: '1px',
         overflow: 'hidden',
         zIndex: 9999,
         backgroundColor: 'primary.main',
         color: 'white',
         textDecoration: 'none',
-        padding: 2,
+        padding: '8px 16px',
+        borderRadius: '4px',
+        fontSize: '14px',
+        fontWeight: 600,
         '&:focus': {
-          left: 'auto',
-          top: 0,
+          left: '16px',
+          top: '16px',
           width: 'auto',
           height: 'auto',
           overflow: 'visible',
         },
-      }}
-      onFocus={(e) => {
-        e.currentTarget.style.left = 'auto';
-        e.currentTarget.style.top = '0';
-        e.currentTarget.style.width = 'auto';
-        e.currentTarget.style.height = 'auto';
-        e.currentTarget.style.overflow = 'visible';
-      }}
-      onBlur={(e) => {
-        e.currentTarget.style.left = '-10000px';
-        e.currentTarget.style.top = 'auto';
-        e.currentTarget.style.width = '1px';
-        e.currentTarget.style.height = '1px';
-        e.currentTarget.style.overflow = 'hidden';
       }}
     >
       Skip to main content

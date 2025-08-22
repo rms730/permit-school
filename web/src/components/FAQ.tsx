@@ -116,7 +116,7 @@ export function FAQ() {
                   },
                 }}
               >
-                <Typography variant="h6" component="h3" fontWeight={600}>
+                <Typography variant="h4" component="h4" fontWeight={600}>
                   {faq.question}
                 </Typography>
               </AccordionSummary>

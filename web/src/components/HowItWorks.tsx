@@ -211,7 +211,7 @@ export function HowItWorks() {
 
                 {/* Content */}
                 <Stack spacing={2}>
-                  <Typography variant="h5" component="h3" fontWeight={700}>
+                  <Typography variant="h4" component="h4" fontWeight={700}>
                     {step.title}
                   </Typography>
                   <Typography color="text.secondary" sx={{ lineHeight: 1.6 }}>

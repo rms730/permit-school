@@ -220,12 +220,13 @@ export function Hero() {
                     mb: 2,
                   }}
                 >
-                  <Typography variant="h4" sx={{ color: 'white', fontWeight: 700 }}>
+                  <Typography variant="h4" component="span" sx={{ color: 'white', fontWeight: 700 }}>
                     ✓
                   </Typography>
                 </Box>
                 <Typography
                   variant="h6"
+                  component="p"
                   sx={{
                     color: 'rgba(255, 255, 255, 0.9)',
                     textAlign: 'center',

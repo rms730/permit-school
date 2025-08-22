@@ -1,7 +1,7 @@
 // Ensure env schema is evaluated during build/CI (fails fast on misconfig)
 import '@/env';
 
-import { esES } from "@mui/material/locale";
+// import { esES } from "@mui/material/locale"; // Unused - removed
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import type { Metadata } from "next";
 import { Inter, Rubik } from 'next/font/google';

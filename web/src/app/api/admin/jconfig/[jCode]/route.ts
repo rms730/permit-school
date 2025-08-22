@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
+// import { getSupabaseAdmin } from "@/lib/supabaseAdmin"; // Unused
 import { getRouteClient } from "@/lib/supabaseRoute";
 
 export async function GET(

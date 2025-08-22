@@ -2,13 +2,11 @@
 
 import {
   Menu as MenuIcon,
-  AccountCircle,
   Dashboard,
   School,
   Receipt,
   ExitToApp,
   Notifications,
-  Language,
   Close,
 } from '@mui/icons-material';
 import {
@@ -22,7 +20,6 @@ import {
   MenuItem,
   Box,
   Chip,
-  useTheme,
   useMediaQuery,
   Drawer,
   List,
@@ -62,13 +59,12 @@ interface AppBarV2Props {
 }
 
 export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props) {
-  const theme = useTheme();
   const isMobile = useMediaQuery('(max-width:900px)');
   const router = useRouter();
   
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [notificationsAnchor, setNotificationsAnchor] = useState<null | HTMLElement>(null);
+  const [_mobileOpen, _setMobileOpen] = useState(false);
+  const [_notificationsAnchor, _setNotificationsAnchor] = useState<null | HTMLElement>(null);
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -79,7 +75,7 @@ export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props)
   };
 
   const handleMobileDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    _setMobileOpen(!_mobileOpen);
   };
 
   const handleSignInWithGoogle = async () => {

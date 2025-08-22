@@ -21,7 +21,7 @@ export function Button({
   icon,
   iconPosition = 'start',
   fullWidth = false,
-  asChild = false,
+  asChild: _asChild = false,
   disabled,
   sx,
   ...props

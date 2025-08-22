@@ -4,7 +4,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Container,
   Box,
-  Stack,
   Typography,
   Accordion,
   AccordionSummary,
@@ -42,12 +41,12 @@ const faqs = [
 
 export function FAQ() {
   const theme = useTheme();
-  const [isMobile, setIsMobile] = React.useState(false);
+  const [_isMobile, _setIsMobile] = React.useState(false);
   const [expanded, setExpanded] = React.useState<string | false>(false);
 
   React.useEffect(() => {
     const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < theme.breakpoints.values.md);
+      _setIsMobile(window.innerWidth < theme.breakpoints.values.md);
     };
     
     checkIsMobile();

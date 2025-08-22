@@ -6,8 +6,6 @@ import {NextIntlClientProvider} from 'next-intl';
 import * as React from 'react';
 
 import {locales, type Locale} from '../../../i18n/request';
-import fs from 'fs';
-import path from 'path';
 
 
 export function generateStaticParams() {

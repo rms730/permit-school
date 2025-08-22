@@ -36,7 +36,15 @@ export function useI18n(): I18nContextType {
         dict: {} as Dictionary
       };
     }
-    throw new Error('useI18n must be used within an I18nProvider');
+    // In development, provide a more helpful error
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('useI18n must be used within an I18nProvider');
+    }
+    // Return fallback for runtime
+    return {
+      locale: 'en' as SupportedLocale,
+      dict: {} as Dictionary
+    };
   }
   return context;
 }

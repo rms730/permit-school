@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import * as React from "react";
 
 export default function MuiProvider({ children }: { children: React.ReactNode }) {
   // Keep deterministic for now; you can extend palette/typography later.

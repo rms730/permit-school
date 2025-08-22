@@ -1,3 +1,6 @@
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import SchoolIcon from '@mui/icons-material/School';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import {
   Container,
   Paper,
@@ -11,11 +14,9 @@ import {
   Grid,
 } from "@mui/material";
 import Link from "next/link";
-import { SimpleHeader } from "@/components/SimpleHeader";
+
 import { Container as ContainerComponent } from "@/components/Container";
-import SchoolIcon from '@mui/icons-material/School';
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import { SimpleHeader } from "@/components/SimpleHeader";
 
 export default function PracticePage() {
   return (

@@ -1,7 +1,5 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect } from "react";
 import {
   AppBar as MuiAppBar,
   Toolbar,
@@ -10,8 +8,12 @@ import {
   Link,
   Button,
 } from "@mui/material";
+import * as React from "react";
+import { useState, useEffect } from "react";
+
 import { getEntitlementForUserClient } from "@/lib/entitlementsClient";
 import { useI18n } from "@/lib/i18n/I18nProvider";
+
 import LanguageSwitcher from "./LanguageSwitcher";
 import NotificationBell from "./NotificationBell";
 

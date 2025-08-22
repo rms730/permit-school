@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from 'react';
 import {
   AppBar,
   Toolbar,
@@ -10,6 +9,8 @@ import {
   Stack,
 } from '@mui/material';
 import Link from 'next/link';
+import * as React from 'react';
+
 import { Button } from './Button';
 import LanguageSwitcher from './LanguageSwitcher';
 

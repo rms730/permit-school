@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from 'react';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Container,
   Box,
@@ -11,7 +11,7 @@ import {
   AccordionDetails,
   useTheme,
 } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import * as React from 'react';
 
 const faqs = [
   {

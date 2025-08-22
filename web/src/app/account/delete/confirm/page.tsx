@@ -1,8 +1,12 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { 
+  Warning, 
+  CheckCircle, 
+  Error,
+  Delete,
+  Security
+} from "@mui/icons-material";
 import {
   Container,
   Paper,
@@ -16,13 +20,10 @@ import {
   CircularProgress,
   Divider,
 } from "@mui/material";
-import { 
-  Warning, 
-  CheckCircle, 
-  Error,
-  Delete,
-  Security
-} from "@mui/icons-material";
+import { useSearchParams } from "next/navigation";
+import * as React from "react";
+import { useState, useEffect } from "react";
+
 import AppBar from "@/components/AppBar";
 
 export default function DeletionConfirmationPage() {

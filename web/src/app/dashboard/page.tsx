@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import {
+  School,
+  TrendingUp,
+  Receipt,
+  Person,
+  ArrowForward,
+} from '@mui/icons-material';
 import {
   Container,
   Paper,
@@ -15,14 +21,9 @@ import {
   Grid,
   Stack,
 } from "@mui/material";
-import {
-  School,
-  TrendingUp,
-  Receipt,
-  Person,
-  ArrowForward,
-} from '@mui/icons-material';
 import { useRouter } from "next/navigation";
+import React, { useState, useEffect } from "react";
+
 import AppShell from '@/components/layout/AppShell';
 
 interface ProfileData {

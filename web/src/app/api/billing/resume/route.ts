@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+
 import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function POST(request: NextRequest) {

@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+
 import { getTestkitAPI, getTestMinorUser } from './utils/testkit';
 
 test.describe('Guardian e-sign (Minor)', () => {

@@ -1,4 +1,9 @@
-import React from 'react';
+import {
+  Assessment as AssessmentIcon,
+  Timer as TimerIcon,
+  TrendingUp as TrendingUpIcon,
+  CheckCircle as CheckCircleIcon,
+} from '@mui/icons-material';
 import {
   Box,
   Container,
@@ -14,12 +19,7 @@ import {
   ListItemText,
 } from '@mui/material';
 import Link from 'next/link';
-import {
-  Assessment as AssessmentIcon,
-  Timer as TimerIcon,
-  TrendingUp as TrendingUpIcon,
-  CheckCircle as CheckCircleIcon,
-} from '@mui/icons-material';
+import React from 'react';
 
 export const metadata = {
   title: 'Diagnostic Test | College Test Prep | Permit School',

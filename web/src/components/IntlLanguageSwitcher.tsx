@@ -1,10 +1,11 @@
 "use client";
 
-import * as React from 'react';
 import {FormControl, InputLabel, Select, MenuItem, SelectChangeEvent} from '@mui/material';
+import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useLocale} from 'next-intl';
-import Link from 'next/link';
+import * as React from 'react';
+
 import {locales, type Locale} from '../../i18n/request';
 
 export default function IntlLanguageSwitcher() {

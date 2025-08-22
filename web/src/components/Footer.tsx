@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Accessibility } from '@mui/icons-material';
 import {
   Container,
   Box,
@@ -8,7 +8,7 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import { Accessibility } from '@mui/icons-material';
+import * as React from 'react';
 
 const footerLinks = {
   product: [

@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { getPathWithoutLocale, buildLocaleHref } from '../i18n/switchLocale';
 
 describe('switchLocale utilities', () => {

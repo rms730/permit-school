@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
+
 import { sendTrialReminderEmail } from '@/lib/email';
 import { notifyStudent } from '@/lib/notify';
+import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
 
 export async function POST(request: NextRequest) {
   try {

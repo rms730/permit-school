@@ -1,8 +1,5 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import {
   Container,
   Paper,
@@ -13,9 +10,13 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
-import { getEntitlementForUserClient } from "@/lib/entitlementsClient";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import * as React from "react";
+
 import AppBar from "@/components/AppBar";
+import { getEntitlementForUserClient } from "@/lib/entitlementsClient";
 
 interface PageProps {
   params: {

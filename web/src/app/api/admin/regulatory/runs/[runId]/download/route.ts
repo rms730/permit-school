@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getRouteClient } from '@/lib/supabaseRoute';
+
 import { downloadZip } from '@/lib/regulatory/downloadZip';
+import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function GET(
   request: NextRequest,

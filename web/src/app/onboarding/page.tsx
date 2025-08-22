@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { CheckCircle, Error, Send } from "@mui/icons-material";
 import {
   Container,
   Paper,
@@ -19,7 +19,7 @@ import {
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useRouter } from "next/navigation";
-import { CheckCircle, Error, Send } from "@mui/icons-material";
+import React, { useState, useEffect } from "react";
 
 interface ProfileData {
   first_name: string;

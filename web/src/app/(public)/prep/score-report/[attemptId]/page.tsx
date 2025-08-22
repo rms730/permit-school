@@ -1,4 +1,9 @@
-import React from 'react';
+import {
+  TrendingUp as TrendingUpIcon,
+  Download as DownloadIcon,
+  Refresh as RefreshIcon,
+  School as SchoolIcon,
+} from '@mui/icons-material';
 import {
   Box,
   Container,
@@ -16,12 +21,7 @@ import {
   Alert,
 } from '@mui/material';
 import Link from 'next/link';
-import {
-  TrendingUp as TrendingUpIcon,
-  Download as DownloadIcon,
-  Refresh as RefreshIcon,
-  School as SchoolIcon,
-} from '@mui/icons-material';
+import React from 'react';
 
 interface ScoreReportPageProps {
   params: {

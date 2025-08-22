@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Container,
   Paper,
@@ -14,9 +13,12 @@ import {
   Chip,
   Box,
 } from "@mui/material";
-import { getServerClient } from "@/lib/supabaseServer";
-import AppBar from "@/components/AppBar";
 import Link from "next/link";
+import * as React from "react";
+
+import AppBar from "@/components/AppBar";
+import { getServerClient } from "@/lib/supabaseServer";
+
 
 export default async function AdminCurriculumPage() {
   const supabase = getServerClient();

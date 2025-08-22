@@ -1,8 +1,5 @@
 "use client";
 
-import * as React from "react";
-import { useState } from "react";
-import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import {
   Container,
   Paper,
@@ -12,6 +9,9 @@ import {
   Typography,
   Alert,
 } from "@mui/material";
+import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
+import * as React from "react";
+import { useState } from "react";
 
 export const dynamic = "force-dynamic";
 

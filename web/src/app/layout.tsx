@@ -1,18 +1,21 @@
 // Ensure env schema is evaluated during build/CI (fails fast on misconfig)
 import '@/env';
 
-import * as React from "react";
-import type { Metadata } from "next";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { esES } from "@mui/material/locale";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import type { Metadata } from "next";
 import { Inter, Rubik } from 'next/font/google';
-import MuiProvider from "./providers/MuiProvider";
-import { getLocaleFromRequest } from "@/lib/i18n/server";
+import * as React from "react";
+
+
+import ConsoleTap from "@/components/dev/ConsoleTap";
+import OfflineModeIndicator from "@/components/OfflineModeIndicator";
+import { SkipLink } from "@/components/SkipLink";
 import { getDictionary } from "@/lib/i18n";
 import { I18nProvider } from "@/lib/i18n/I18nProvider";
-import { SkipLink } from "@/components/SkipLink";
-import OfflineModeIndicator from "@/components/OfflineModeIndicator";
-import ConsoleTap from "@/components/dev/ConsoleTap";
+import { getLocaleFromRequest } from "@/lib/i18n/server";
+
+import MuiProvider from "./providers/MuiProvider";
 
 // Load Google Fonts
 const inter = Inter({

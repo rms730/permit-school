@@ -1,5 +1,7 @@
 import { cookies, headers } from 'next/headers';
+
 import { DEFAULT_LOCALE, type SupportedLocale, isValidLocale } from './locales';
+
 import { getDictionary } from './index';
 
 export async function getLocaleFromRequest(): Promise<SupportedLocale> {

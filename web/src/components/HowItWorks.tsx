@@ -1,6 +1,10 @@
 "use client";
 
-import * as React from 'react';
+import {
+  PersonAdd,
+  Quiz,
+  CheckCircle,
+} from '@mui/icons-material';
 import {
   Container,
   Box,
@@ -9,11 +13,7 @@ import {
   Grid,
   useTheme,
 } from '@mui/material';
-import {
-  PersonAdd,
-  Quiz,
-  CheckCircle,
-} from '@mui/icons-material';
+import * as React from 'react';
 
 const steps = [
   {

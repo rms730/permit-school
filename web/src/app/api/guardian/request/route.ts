@@ -1,8 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import { generateToken, hashToken } from '@/lib/tokens';
+import { NextRequest, NextResponse } from 'next/server';
+
 import { sendGuardianRequestEmail } from '@/lib/email';
+import { generateToken, hashToken } from '@/lib/tokens';
 
 export async function POST(request: NextRequest) {
   try {

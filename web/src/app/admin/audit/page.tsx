@@ -1,7 +1,6 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect } from "react";
+import { Visibility, CheckCircle, Error } from "@mui/icons-material";
 import {
   Container,
   Paper,
@@ -35,7 +34,9 @@ import {
   Tooltip,
   Divider,
 } from "@mui/material";
-import { Visibility, CheckCircle, Error } from "@mui/icons-material";
+import * as React from "react";
+import { useState, useEffect } from "react";
+
 import AppBar from "@/components/AppBar";
 
 interface AuditLog {

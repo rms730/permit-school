@@ -1,6 +1,9 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from 'react';
+import {
+  Visibility as VisibilityIcon,
+  Timer as TimerIcon,
+} from '@mui/icons-material';
 import {
   Box,
   Typography,
@@ -10,10 +13,7 @@ import {
   useMediaQuery,
   Fade,
 } from '@mui/material';
-import {
-  Visibility as VisibilityIcon,
-  Timer as TimerIcon,
-} from '@mui/icons-material';
+import React, { useEffect, useState, useRef } from 'react';
 
 interface ReadingProgressProps {
   currentSection: number;

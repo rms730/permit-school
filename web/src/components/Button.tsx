@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Button as MUIButton, ButtonProps as MUIButtonProps, CircularProgress } from '@mui/material';
+import * as React from 'react';
 
 export interface ButtonProps extends Omit<MUIButtonProps, 'variant' | 'size'> {
   variant?: 'primary' | 'secondary' | 'ghost' | 'link';

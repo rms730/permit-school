@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
   Toolbar,
@@ -14,10 +14,11 @@ import {
   IconButton,
   Stack,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useTranslations, useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
+import * as React from 'react';
+
 import { Button } from './Button';
 import LanguageSwitcher from './LanguageSwitcher';
 

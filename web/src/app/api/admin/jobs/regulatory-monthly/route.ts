@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
+
 import { generateReport } from '@/lib/regulatory/generateReport';
+import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
 
 export async function POST(request: NextRequest) {
   try {

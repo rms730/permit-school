@@ -1,8 +1,5 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import {
   Container,
   Paper,
@@ -20,6 +17,9 @@ import {
   Chip,
 } from "@mui/material";
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
+import * as React from "react";
+import { useState, useEffect } from "react";
 
 interface QuizItem {
   id: string;

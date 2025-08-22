@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Container,
   Typography,
@@ -9,6 +8,8 @@ import {
   Divider,
   Box,
 } from "@mui/material";
+import * as React from "react";
+
 import AppBar from "@/components/AppBar";
 
 export default function PrivacyPage() {

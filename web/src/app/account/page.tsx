@@ -1,4 +1,10 @@
-import { Suspense } from 'react';
+import {
+  Person as PersonIcon,
+  Language as LanguageIcon,
+  Palette as ThemeIcon,
+  Notifications as NotificationsIcon,
+  Settings as SettingsIcon,
+} from '@mui/icons-material';
 import {
   Box,
   Card,
@@ -10,17 +16,13 @@ import {
   Divider,
   Skeleton,
 } from '@mui/material';
-import {
-  Person as PersonIcon,
-  Language as LanguageIcon,
-  Palette as ThemeIcon,
-  Notifications as NotificationsIcon,
-  Settings as SettingsIcon,
-} from '@mui/icons-material';
 import Link from 'next/link';
-import { getRouteClient } from '@/lib/supabaseRoute';
 import { redirect } from 'next/navigation';
+import { Suspense } from 'react';
+
 import AppShell from '@/components/layout/AppShell';
+import { getRouteClient } from '@/lib/supabaseRoute';
+
 import AccountOverview from './AccountOverview';
 
 export default async function AccountPage() {

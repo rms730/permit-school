@@ -1,6 +1,16 @@
 "use client";
 
-import * as React from 'react';
+import {
+  Menu as MenuIcon,
+  AccountCircle,
+  Dashboard,
+  School,
+  Receipt,
+  ExitToApp,
+  Notifications,
+  Language,
+  Close,
+} from '@mui/icons-material';
 import {
   AppBar,
   Toolbar,
@@ -21,22 +31,14 @@ import {
   ListItemText,
   Divider,
 } from '@mui/material';
-import {
-  Menu as MenuIcon,
-  AccountCircle,
-  Dashboard,
-  School,
-  Receipt,
-  ExitToApp,
-  Notifications,
-  Language,
-  Close,
-} from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
-import { signInWithGoogle } from '@/lib/auth';
-import { supabase } from '@/lib/supabaseClient';
-import { getOfflineBadgeText, isFeatureDisabled } from '@/lib/offline';
+import * as React from 'react';
 import { useState } from 'react';
+
+import { signInWithGoogle } from '@/lib/auth';
+import { getOfflineBadgeText, isFeatureDisabled } from '@/lib/offline';
+import { supabase } from '@/lib/supabaseClient';
+
 import LanguageSwitcher from './LanguageSwitcher';
 
 interface AppBarV2Props {

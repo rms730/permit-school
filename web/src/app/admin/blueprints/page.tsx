@@ -1,6 +1,13 @@
 "use client";
 
-import * as React from "react";
+import {
+  Add as AddIcon,
+  Edit as EditIcon,
+  PlayArrow as ActivateIcon,
+  ContentCopy as DuplicateIcon,
+  Delete as DeleteIcon,
+  CheckCircle as ActiveIcon,
+} from "@mui/icons-material";
 import {
   Container,
   Paper,
@@ -32,15 +39,9 @@ import {
   ListItemSecondaryAction,
   Skeleton,
 } from "@mui/material";
-import {
-  Add as AddIcon,
-  Edit as EditIcon,
-  PlayArrow as ActivateIcon,
-  ContentCopy as DuplicateIcon,
-  Delete as DeleteIcon,
-  CheckCircle as ActiveIcon,
-} from "@mui/icons-material";
 import { useRouter } from "next/navigation";
+import * as React from "react";
+
 import AppShell from "@/components/layout/AppShell";
 
 interface BlueprintRule {

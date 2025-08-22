@@ -1,6 +1,14 @@
 "use client";
 
-import * as React from "react";
+import {
+  Add as AddIcon,
+  Edit as EditIcon,
+  Delete as DeleteIcon,
+  Visibility as ViewIcon,
+  School as SchoolIcon,
+  DriveEta as DriveEtaIcon,
+  Assessment as AssessmentIcon,
+} from "@mui/icons-material";
 import {
   Container,
   Paper,
@@ -33,16 +41,9 @@ import {
   Switch,
   FormControlLabel,
 } from "@mui/material";
-import {
-  Add as AddIcon,
-  Edit as EditIcon,
-  Delete as DeleteIcon,
-  Visibility as ViewIcon,
-  School as SchoolIcon,
-  DriveEta as DriveEtaIcon,
-  Assessment as AssessmentIcon,
-} from "@mui/icons-material";
 import { useRouter } from "next/navigation";
+import * as React from "react";
+
 import AppShell from "@/components/layout/AppShell";
 
 interface Program {

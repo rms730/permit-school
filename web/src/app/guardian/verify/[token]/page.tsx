@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import { useParams } from 'next/navigation';
+import { CheckCircle, Error, Warning } from '@mui/icons-material';
 import {
   Box,
   Card,
@@ -22,7 +21,8 @@ import {
   Container,
   Paper
 } from '@mui/material';
-import { CheckCircle, Error, Warning } from '@mui/icons-material';
+import { useParams } from 'next/navigation';
+import { useState, useEffect, useCallback } from 'react';
 
 interface GuardianVerifyData {
   student_initials: string;

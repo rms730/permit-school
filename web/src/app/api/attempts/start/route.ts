@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { getRouteClient } from "@/lib/supabaseRoute";
+
 import { getLocaleFromRequest } from '@/lib/i18n/server';
+import { getRouteClient } from "@/lib/supabaseRoute";
 
 export async function POST(req: Request) {
   try {

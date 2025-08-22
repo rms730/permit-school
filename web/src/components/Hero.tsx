@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from 'react';
+import { CheckCircle } from '@mui/icons-material';
 import {
   Container,
   Box,
@@ -9,8 +9,9 @@ import {
   Chip,
   useTheme,
 } from '@mui/material';
-import { CheckCircle } from '@mui/icons-material';
 import {useTranslations} from 'next-intl';
+import * as React from 'react';
+
 import { Button } from './Button';
 
 export function Hero() {

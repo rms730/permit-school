@@ -1,8 +1,5 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import {
   Container,
   Paper,
@@ -12,6 +9,10 @@ import {
   Alert,
   CircularProgress,
 } from "@mui/material";
+import { useRouter } from "next/navigation";
+import * as React from "react";
+import { useState, useEffect } from "react";
+
 import AppBar from "@/components/AppBar";
 
 export default function ExamStartPage() {

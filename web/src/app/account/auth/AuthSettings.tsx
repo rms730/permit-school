@@ -1,6 +1,15 @@
 "use client";
 
 import {
+  Google as GoogleIcon,
+  Email as EmailIcon,
+  Security as SecurityIcon,
+  ArrowBack as ArrowBackIcon,
+  CheckCircle as CheckCircleIcon,
+  Link as LinkIcon,
+  Logout as LogoutIcon,
+} from '@mui/icons-material';
+import {
   Box,
   Card,
   CardContent,
@@ -16,17 +25,9 @@ import {
   Alert,
   IconButton,
 } from '@mui/material';
-import {
-  Google as GoogleIcon,
-  Email as EmailIcon,
-  Security as SecurityIcon,
-  ArrowBack as ArrowBackIcon,
-  CheckCircle as CheckCircleIcon,
-  Link as LinkIcon,
-  Logout as LogoutIcon,
-} from '@mui/icons-material';
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
 import { signInWithGoogle } from '@/lib/auth';
 import { supabase } from '@/lib/supabaseClient';
 

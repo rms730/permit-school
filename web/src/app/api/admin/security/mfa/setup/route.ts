@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getRouteClient } from '@/lib/supabaseRoute';
 import { authenticator } from 'otplib';
 import QRCode from 'qrcode';
+
+import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function POST() {
   try {

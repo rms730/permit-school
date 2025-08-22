@@ -1,7 +1,6 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect } from "react";
+import { Check as CheckIcon } from "@mui/icons-material";
 import {
   Container,
   Typography,
@@ -22,9 +21,11 @@ import {
   MenuItem,
   SelectChangeEvent,
 } from "@mui/material";
-import { Check as CheckIcon } from "@mui/icons-material";
-import { useI18n } from "@/lib/i18n/I18nProvider";
+import * as React from "react";
+import { useState, useEffect } from "react";
+
 import AppShell from "@/components/layout/AppShell";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 
 interface Notification {
   id: string;

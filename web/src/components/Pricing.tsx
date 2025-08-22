@@ -1,7 +1,7 @@
 "use client";
 
-import { Box, Typography, Grid, Card, CardContent, Stack, Chip, Button, Container } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
+import { Box, Typography, Grid, Card, CardContent, Stack, Chip, Button, Container } from '@mui/material';
 
 const plans = [
   {

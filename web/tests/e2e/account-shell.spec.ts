@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+
 import { TestkitAPI } from './utils/testkit';
 
 test.describe('Account & Shell Functionality', () => {

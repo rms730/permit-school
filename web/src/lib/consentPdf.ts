@@ -183,7 +183,7 @@ export async function renderGuardianConsentPDF(data: GuardianConsentData): Promi
   const maxWidth = width - 144; // 72px margins on each side
   const words = consentText.split(' ');
   let line = '';
-  let lines: string[] = [];
+  const lines: string[] = [];
 
   for (const word of words) {
     const testLine = line + (line ? ' ' : '') + word;
@@ -228,7 +228,7 @@ export async function renderGuardianConsentPDF(data: GuardianConsentData): Promi
     for (const disclaimer of data.jurisdictionDisclaimers) {
       const disclaimerWords = disclaimer.split(' ');
       let disclaimerLine = '';
-      let disclaimerLines: string[] = [];
+      const disclaimerLines: string[] = [];
 
       for (const word of disclaimerWords) {
         const testLine = disclaimerLine + (disclaimerLine ? ' ' : '') + word;

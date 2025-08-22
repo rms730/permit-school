@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Container,
   Paper,
@@ -9,9 +8,11 @@ import {
   Box,
   Alert,
 } from "@mui/material";
-import { getServerClient } from "@/lib/supabaseServer";
 import Link from "next/link";
+import * as React from "react";
+
 import AppBar from "@/components/AppBar";
+import { getServerClient } from "@/lib/supabaseServer";
 
 interface PageProps {
   params: {

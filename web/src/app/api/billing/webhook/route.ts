@@ -1,13 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
-import { rateLimit, getRateLimitHeaders, getRateLimitKey } from '@/lib/ratelimit';
+
 import { 
   sendSubscriptionActiveEmail, 
   sendPaymentFailedEmail, 
   sendPaymentSucceededEmail 
 } from '@/lib/email';
 import { notifyStudent } from '@/lib/notify';
+import { rateLimit, getRateLimitHeaders, getRateLimitKey } from '@/lib/ratelimit';
+import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
 
 export async function POST(request: NextRequest) {
   // Rate limiting (skip for Stripe webhooks)

@@ -1,6 +1,6 @@
-import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type SupportedLocale, isValidLocale } from './locales';
 import { en } from './dictionaries/en';
 import { es } from './dictionaries/es';
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type SupportedLocale, isValidLocale } from './locales';
 
 // Re-export types for convenience
 export type { SupportedLocale } from './locales';

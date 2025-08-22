@@ -78,12 +78,20 @@ jobs:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY || 'anon-placeholder' }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'sk-placeholder' }}
           BASE_URL: ${{ secrets.BASE_URL || 'https://example.com' }}
+          TESTKIT_ON: false
+          TESTKIT_TOKEN: dev-super-secret
         run: npm run env:check:dev
 
       - name: Verify web environment (development)
         working-directory: web
         env:
           NODE_ENV: development
+          NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: anon-placeholder-key
+          NEXT_PUBLIC_ENV: development
+          NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: pk_test_placeholder
+          NEXT_PUBLIC_SENTRY_DSN: https://placeholder.sentry.io
+          NEXT_PUBLIC_SITE_URL: https://example.com
         run: npm run env:check
 
       - name: Dependency sanity check (rollup)

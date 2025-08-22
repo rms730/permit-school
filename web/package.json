@@ -21,6 +21,7 @@
     "axe:ci": "axe http://localhost:4330/ http://localhost:4330/courses http://localhost:4330/signin --exit 1 || true",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
+    "test:e2e:report": "npm run test:e2e && node ../tools/report/open-report.mjs",
     "test:e2e:debug": "playwright test --debug",
     "test:e2e:install": "playwright install",
     "seed:handbooks": "tsx ops/seed/seed-handbooks.ts",

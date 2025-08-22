@@ -336,7 +336,7 @@ export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props)
                     size="large"
                     aria-label="notifications"
                     color="inherit"
-                    onClick={(e) => setNotificationsAnchor(e.currentTarget)}
+                    onClick={(e) => _setNotificationsAnchor(e.currentTarget)}
                   >
                     <Notifications />
                   </IconButton>

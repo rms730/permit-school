@@ -65,7 +65,7 @@ const withPWA = require("next-pwa")({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: { forceSwcTransforms: true },
+  // experimental: { forceSwcTransforms: true }, // Temporarily disabled to fix MUI vendor chunk issue
   output: "standalone",
   headers: async () => {
     return [

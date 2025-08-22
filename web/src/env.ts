@@ -18,7 +18,7 @@ export const env = createEnv({
     NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(10),
     NEXT_PUBLIC_ENV: z.enum(['local', 'development', 'production']).default('local'),
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string().min(10).optional(),
-    NEXT_PUBLIC_SENTRY_DSN: z.string().url().optional(),
+    NEXT_PUBLIC_SENTRY_DSN: z.string().url().optional().or(z.literal('')),
     NEXT_PUBLIC_SITE_URL: z.string().url().optional(),
     NEXT_PUBLIC_GOOGLE_ONE_TAP: z.string().optional(),
     NEXT_PUBLIC_COMMIT_SHA: z.string().optional(),

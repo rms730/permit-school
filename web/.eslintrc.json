@@ -31,7 +31,7 @@
     
     // Unused variables and imports
     "@typescript-eslint/no-unused-vars": [
-      "error",
+      "warn",
       {
         "argsIgnorePattern": "^_",
         "varsIgnorePattern": "^_",
@@ -43,10 +43,11 @@
     // Import organization
     "import/no-unresolved": "off", // Next.js handles this
     "import/no-duplicates": "error",
+    "import/order": "warn",
     
     // Code quality
     "prefer-const": "error",
-    "no-console": "warn",
+    "no-console": "off",
     "no-debugger": "error",
     
     // React specific

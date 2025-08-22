@@ -154,7 +154,7 @@ export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props)
     <Drawer
       variant="temporary"
       anchor="left"
-      open={mobileOpen}
+      open={_mobileOpen}
       onClose={handleMobileDrawerToggle}
       ModalProps={{
         keepMounted: true, // Better open performance on mobile.

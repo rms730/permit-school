@@ -28,6 +28,14 @@ export function I18nProvider({ children, locale, dict }: I18nProviderProps) {
 export function useI18n(): I18nContextType {
   const context = useContext(I18nContext);
   if (context === undefined) {
+    // During build time or when context is not available, return a fallback
+    if (typeof window === 'undefined') {
+      // Server-side rendering or build time
+      return {
+        locale: 'en' as SupportedLocale,
+        dict: {} as Dictionary
+      };
+    }
     throw new Error('useI18n must be used within an I18nProvider');
   }
   return context;

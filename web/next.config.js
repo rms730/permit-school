@@ -66,6 +66,11 @@ const nextConfig = {
   reactStrictMode: true,
   // experimental: { forceSwcTransforms: true }, // Temporarily disabled to fix MUI vendor chunk issue
   output: "standalone",
+  // Disable static generation for pages that use React context
+  trailingSlash: false,
+  generateBuildId: async () => {
+    return 'build-' + Date.now();
+  },
   headers: async () => {
     return [
       // Disable static generation for API routes that use dynamic features

@@ -13,7 +13,7 @@
       "framework": "Vitest",
       "files": [
         "src/lib/__tests__/confetti.test.ts (14 tests)",
-        "src/lib/__tests__/idleTracker.test.ts (11 tests)", 
+        "src/lib/__tests__/idleTracker.test.ts (11 tests)",
         "src/lib/__tests__/switchLocale.test.ts (9 tests)"
       ]
     },
@@ -25,7 +25,13 @@
       "skipped": 195,
       "duration": "1.2m",
       "framework": "Playwright",
-      "browsers": ["chromium", "firefox", "webkit", "Mobile Chrome", "Mobile Safari"],
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit",
+        "Mobile Chrome",
+        "Mobile Safari"
+      ],
       "failed_test": {
         "name": "FAQ accordions expand and collapse correctly",
         "browser": "Mobile Chrome",
@@ -39,7 +45,7 @@
           "description": "Ensure the order of headings is semantically correct"
         },
         {
-          "id": "skip-link", 
+          "id": "skip-link",
           "impact": "moderate",
           "description": "Ensure all skip links have a focusable target"
         }
@@ -60,7 +66,7 @@
       "Fixed 170+ failing E2E tests",
       "Fixed test infrastructure issues (TESTKIT_TOKEN handling)",
       "Fixed SSR hydration issues in FAQ component",
-      "Fixed language switcher test issues", 
+      "Fixed language switcher test issues",
       "Fixed AppBar visibility issues",
       "Fixed hover/interaction test issues",
       "Fixed timeout and networkidle issues",
@@ -86,16 +92,12 @@
       "Accessibility violations (heading-order, skip-link)",
       "195 skipped tests due to missing environment variables"
     ],
-    "lint": [
-      "190 ESLint warnings (all unused variables, prefixed with _)"
-    ],
-    "build": [
-      "Dynamic server usage warnings for API routes (expected)"
-    ]
+    "lint": ["190 ESLint warnings (all unused variables, prefixed with _)"],
+    "build": ["Dynamic server usage warnings for API routes (expected)"]
   },
   "ci_status": {
     "build": "GREEN",
-    "type_check": "GREEN", 
+    "type_check": "GREEN",
     "unit_tests": "GREEN",
     "e2e_tests": "AMBER",
     "lint": "AMBER",

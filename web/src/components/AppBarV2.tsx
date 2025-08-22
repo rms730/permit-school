@@ -37,8 +37,6 @@ import { signInWithGoogle } from '@/lib/auth';
 import { getOfflineBadgeText, isFeatureDisabled } from '@/lib/offline';
 import { supabase } from '@/lib/supabaseClient';
 
-import LanguageSwitcher from './LanguageSwitcher';
-
 interface AppBarV2Props {
   user?: any;
   onSignOut?: () => void;

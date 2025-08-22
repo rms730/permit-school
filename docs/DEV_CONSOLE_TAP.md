@@ -82,6 +82,7 @@ The console tap sends data to `/api/dev/log` which:
 If you're getting too many logs, you can:
 
 1. **Filter in Terminal**: Use `grep` to filter specific log types:
+
    ```bash
    npm run dev | grep "\[DEV LOG\]"
    ```

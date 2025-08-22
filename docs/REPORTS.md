@@ -17,6 +17,7 @@ npm run -w web test:e2e:report
 ### Viewing Reports
 
 #### Option 1: Open as File (Recommended)
+
 Opens the report directly as a file URL - no server needed:
 
 ```bash
@@ -26,6 +27,7 @@ npm run reports:open
 This is the fastest option and works well for most browsers.
 
 #### Option 2: Serve with Auto-Close
+
 Serves the report on a local server and automatically closes after a timeout:
 
 ```bash
@@ -37,6 +39,7 @@ npm run reports:serve -- --port 8080 --timeout 30000 --no-open
 ```
 
 **Available options:**
+
 - `--port <number>`: Port to serve on (default: 9323)
 - `--timeout <number>`: Auto-close timeout in milliseconds (default: 20000)
 - `--no-open`: Don't automatically open browser
@@ -44,6 +47,7 @@ npm run reports:serve -- --port 8080 --timeout 30000 --no-open
 - `--dir <path>`: Custom report directory
 
 #### Option 3: CI Mode
+
 For CI environments - validates report exists without opening browser:
 
 ```bash
@@ -61,12 +65,13 @@ npm run reports:ci
 In CI environments, reports are automatically uploaded as artifacts:
 
 - **Playwright Report**: Available as `playwright-report` artifact
-- **Test Results**: Available as `test-results` artifact  
+- **Test Results**: Available as `test-results` artifact
 - **Traces**: Available as `playwright-traces` artifact
 
 ## Troubleshooting
 
 ### Report Not Found
+
 If you see "Report not found", run the tests first:
 
 ```bash
@@ -74,6 +79,7 @@ npm run -w web test:e2e
 ```
 
 ### Browser Blocks File Access
+
 Some browsers block local file access for security. Use the serve option instead:
 
 ```bash
@@ -81,6 +87,7 @@ npm run reports:serve
 ```
 
 ### Port Already in Use
+
 The serve script automatically finds an available port. If you need a specific port:
 
 ```bash
@@ -92,7 +99,7 @@ npm run reports:serve -- --port 8080
 The i18n middleware is configured to exclude static assets from locale routing:
 
 - `/favicon.ico`
-- `/manifest.webmanifest` 
+- `/manifest.webmanifest`
 - `/icons/*`
 - `/robots.txt`
 - `/sitemap.xml`

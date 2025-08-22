@@ -8,7 +8,7 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
   }, [error]);
 
   return (
-    <html>
+    <html lang="en">
       <body>
         <div role="alert" style={{ padding: 24 }}>
           <h1>Something went wrong</h1>

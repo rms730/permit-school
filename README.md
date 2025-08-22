@@ -110,25 +110,30 @@ npm --prefix web run dev          # Start development server
 # Development tools
 NEXT_PUBLIC_DEV_CONSOLE_TAP=1 npm --prefix web run dev  # Start with console tap enabled
 ```
-npm --prefix web run build        # Build for production
-npm --prefix web run start        # Start production server
+
+npm --prefix web run build # Build for production
+npm --prefix web run start # Start production server
 
 # Testing & quality
-npm --prefix web run lint         # ESLint with accessibility rules
-npm --prefix web run typecheck    # TypeScript type checking
-npm --prefix web test             # Unit tests
-npm --prefix web run test:e2e     # End-to-end tests
-npm --prefix web run axe:ci       # Accessibility testing
+
+npm --prefix web run lint # ESLint with accessibility rules
+npm --prefix web run typecheck # TypeScript type checking
+npm --prefix web test # Unit tests
+npm --prefix web run test:e2e # End-to-end tests
+npm --prefix web run axe:ci # Accessibility testing
 
 # Database operations
-supabase start                    # Start local Supabase
-supabase db push                  # Apply migrations
-supabase db reset                 # Reset local database
+
+supabase start # Start local Supabase
+supabase db push # Apply migrations
+supabase db reset # Reset local database
 
 # Operations
-npm --prefix web run seed:handbooks  # Seed handbook content
-node web/scripts/make_admin.mjs email  # Create admin user
-```
+
+npm --prefix web run seed:handbooks # Seed handbook content
+node web/scripts/make_admin.mjs email # Create admin user
+
+````
 
 ## Environment Setup
 
@@ -160,7 +165,7 @@ STRIPE_PUBLISHABLE_KEY=
 
 # Email (required for notifications)
 RESEND_API_KEY=
-```
+````
 
 ## Documentation
 

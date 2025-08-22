@@ -19,13 +19,12 @@ import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from './Button';
-import LanguageSwitcher from './LanguageSwitcher';
 
 const navigationItems = [
-  { label: 'How it works', href: '#how-it-works', type: 'anchor' },
-  { label: 'Practice tests', href: '/practice', type: 'external' },
-  { label: 'Pricing', href: '#pricing', type: 'anchor' },
-  { label: 'FAQ', href: '#faq', type: 'anchor' },
+  { label: 'How it works', href: '#how-it-works' },
+  { label: 'Practice tests', href: '/practice' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'FAQ', href: '#faq' },
 ];
 
 export function Header() {
@@ -53,18 +52,17 @@ export function Header() {
     setMobileOpen(!mobileOpen);
   };
 
-  const handleNavClick = (href: string, type: string) => {
-    if (type === 'anchor') {
-      // Handle anchor links - add slight delay to ensure page is ready
-      setTimeout(() => {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('#')) {
+      // Handle anchor links
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     } else {
-      // Handle external navigation - don't add locale prefix for external routes
-      router.push(href);
+      // Handle page navigation with locale
+      const pathWithLocale = href.startsWith('/') ? `/${locale}${href}` : `/${locale}/${href}`;
+      router.push(pathWithLocale);
     }
     setMobileOpen(false);
   };
@@ -76,29 +74,14 @@ export function Header() {
       </Typography>
       <List>
         {navigationItems.map((item) => (
-          <ListItem key={item.label} sx={{ px: 0 }}>
-            <Button
-              fullWidth
-              variant="ghost"
-              component={item.type === 'anchor' ? 'button' : Link}
-              href={item.type === 'anchor' ? undefined : item.href}
-              onClick={item.type === 'anchor' ? () => handleNavClick(item.href, item.type) : undefined}
-              sx={{ 
-                justifyContent: 'center',
-                py: 1.5,
-                '&:hover': {
-                  backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                },
-              }}
-            >
-              {item.label}
-            </Button>
+          <ListItem key={item.label} onClick={() => handleNavClick(item.href)}>
+            <ListItemText 
+              primary={item.label} 
+              sx={{ textAlign: 'center' }}
+            />
           </ListItem>
         ))}
         <ListItem sx={{ flexDirection: 'column', gap: 2, mt: 2 }}>
-          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 1 }}>
-            <LanguageSwitcher />
-          </Box>
           <Button
             variant="ghost"
             fullWidth
@@ -180,9 +163,9 @@ export function Header() {
                 <Button
                   key={item.label}
                   variant="ghost"
-                  component={item.type === 'anchor' ? 'button' : Link}
-                  href={item.type === 'anchor' ? undefined : item.href}
-                  onClick={item.type === 'anchor' ? () => handleNavClick(item.href, item.type) : undefined}
+                  component={item.href.startsWith('#') ? 'button' : Link}
+                  href={item.href.startsWith('#') ? undefined : `/${locale}${item.href}`}
+                  onClick={item.href.startsWith('#') ? () => handleNavClick(item.href) : undefined}
                   sx={{ 
                     color: 'text.primary',
                     fontWeight: 500,
@@ -200,7 +183,6 @@ export function Header() {
           <Stack direction="row" spacing={2} alignItems="center">
             {!isMobile && (
               <>
-                <LanguageSwitcher />
                 <Button
                   variant="ghost"
                   component={Link}

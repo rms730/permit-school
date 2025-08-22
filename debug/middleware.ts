@@ -25,8 +25,8 @@ export default async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  // Apply i18n to all routes except API, static files, and specific assets
-  matcher: ['/((?!api|_next|_vercel|favicon.ico|manifest.webmanifest|robots.txt|sitemap.xml|icons/|.*\\..*).*)', '/']
+  // Apply i18n to all routes except API and static files
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
 };
 
 

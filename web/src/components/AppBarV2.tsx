@@ -37,6 +37,7 @@ import { signInWithGoogle } from '@/lib/auth';
 import { supabase } from '@/lib/supabaseClient';
 import { getOfflineBadgeText, isFeatureDisabled } from '@/lib/offline';
 import { useState } from 'react';
+import LanguageSwitcher from './LanguageSwitcher';
 
 interface AppBarV2Props {
   user?: any;
@@ -302,6 +303,7 @@ export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props)
           {/* Desktop Navigation */}
           {!isMobile && (
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              <LanguageSwitcher />
               {user ? (
                 <>
                   {resumeData?.lastUnit ? (

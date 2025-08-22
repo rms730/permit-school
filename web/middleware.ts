@@ -10,7 +10,24 @@ const intlMiddleware = createIntlMiddleware({
 });
 
 export default async function middleware(req: NextRequest) {
-  // First apply locale routing
+  const { pathname } = req.nextUrl;
+  
+  // Skip middleware for static assets and PWA files
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/static') ||
+    pathname === '/favicon.ico' ||
+    pathname === '/manifest.webmanifest' ||
+    pathname.startsWith('/icons/') ||
+    pathname === '/robots.txt' ||
+    pathname === '/sitemap.xml' ||
+    pathname.startsWith('/sw.js') ||
+    pathname.startsWith('/workbox-')
+  ) {
+    return NextResponse.next();
+  }
+
+  // Apply locale routing for other requests
   const res = intlMiddleware(req);
 
   // Preserve existing Supabase session refresh
@@ -25,8 +42,12 @@ export default async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  // Only apply i18n to root and localized marketing routes; skip API and assets
-  matcher: ['/', '/(en|es)/:path*']
+  /*
+   * Exclude Next.js internals, static files, and PWA assets from locale routing
+   */
+  matcher: [
+    '/((?!_next|static|favicon\\.ico|manifest\\.webmanifest|icons/.*|robots\\.txt|sitemap\\.xml|sw\\.js|workbox-.*).*)'
+  ]
 };
 
 

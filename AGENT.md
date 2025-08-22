@@ -7,6 +7,7 @@
 1. **Be persistent** — keep going until the job is fully solved.
 2. **Use tools, don't guess** — open files, run commands, capture logs.
 3. **Plan then reflect** — write a short plan first; reflect after each run.
+4. **Never override existing .env files** — if .env.local, .env.development, or .env.production exist, ask user to handle environment setup manually. Only copy example files if no actual env files exist.
 
 **Template to use in every tool run:**
 
@@ -46,3 +47,9 @@ Iteratively scaffold a multi-state permit-prep platform. California (CA) first, 
 
 - Each cycle: pick ONE 1–2 hour task (from PLAN.md).
 - Leave acceptance tests or scriptable verification in the PR body.
+
+## Environment Setup
+
+- **NEVER override existing .env files** — if .env.local, .env.development, or .env.production exist, ask user to handle environment setup manually
+- Only copy example files if no actual env files exist
+- When environment setup is needed, provide clear instructions for user to copy and configure files themselves

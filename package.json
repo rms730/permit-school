@@ -5,6 +5,10 @@
     "env:copy:root": "node -e \"const fs=require('fs'); if(!fs.existsSync('.env.local')) fs.copyFileSync('env-examples/root.env.local.example','.env.local'); if(!fs.existsSync('.env.dev')) fs.copyFileSync('env-examples/root.env.dev.example','.env.dev'); if(!fs.existsSync('.env.prod')) fs.copyFileSync('env-examples/root.env.prod.example','.env.prod')\"",
     "env:copy:web": "node -e \"const fs=require('fs'); if(!fs.existsSync('web/.env.local')) fs.copyFileSync('env-examples/web.env.local.example','web/.env.local'); if(!fs.existsSync('web/.env.development')) fs.copyFileSync('env-examples/web.env.development.example','web/.env.development'); if(!fs.existsSync('web/.env.production')) fs.copyFileSync('env-examples/web.env.production.example','web/.env.production')\"",
     "env:copy": "npm run env:copy:root && npm run env:copy:web",
+    "env:seed": "node scripts/seed-env.mjs --env local",
+    "env:seed:all": "node scripts/seed-env.mjs --env all",
+    "env:seed:dry": "node scripts/seed-env.mjs --env all --dry-run",
+    "env:seed:prod": "node scripts/seed-env.mjs --env prod --non-interactive",
     "env:check:local": "npx tsx tools/env/validate.ts local",
     "env:check:dev": "npx tsx tools/env/validate.ts development",
     "env:check:prod": "npx tsx tools/env/validate.ts production",
@@ -56,11 +60,19 @@
     "seed:make-empty-units": "node ops/seed/scripts/make-empty-units.mjs",
     "seed:all": "tsx ops/seed/seed-all.ts",
     "seed:curriculum": "tsx ops/seed/seed-curriculum.ts",
-    "seed:questions": "tsx ops/seed/seed-questions.ts"
+    "seed:questions": "tsx ops/seed/seed-questions.ts",
+    "icons:make-favicon": "node tools/images/make-favicon.mjs",
+    "reports:open": "node tools/report/open-report.mjs",
+    "reports:serve": "node tools/report/serve-report.mjs --dir web/playwright-report --port 9323 --timeout 20000",
+    "reports:ci": "node tools/report/serve-report.mjs --dir web/playwright-report --ci --no-open --timeout 0"
   },
   "devDependencies": {
     "@supabase/supabase-js": "^2.47.0",
     "dotenv-flow": "^4.1.0",
+    "get-port": "^7.1.0",
+    "open": "^10.2.0",
+    "to-ico": "^1.1.5",
+    "tree-kill": "^1.2.2",
     "tsx": "^4.15.7",
     "zod": "^4.0.17"
   },

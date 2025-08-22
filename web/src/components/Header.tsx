@@ -4,44 +4,67 @@ import * as React from 'react';
 import {
   AppBar,
   Toolbar,
-  IconButton,
+  Typography,
+  Box,
   Drawer,
   List,
   ListItem,
   ListItemText,
-  Typography,
-  Stack,
-  Box,
   useTheme,
-  useMediaQuery,
+  IconButton,
+  Stack,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useTranslations, useLocale } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import {useTranslations, useLocale} from 'next-intl';
 import { Button } from './Button';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const navigationItems = [
-  { label: 'How it works', href: '#how-it-works' },
-  { label: 'Practice tests', href: '#practice-tests' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'How it works', href: '#how-it-works', type: 'anchor' },
+  { label: 'Practice tests', href: '/practice', type: 'external' },
+  { label: 'Pricing', href: '#pricing', type: 'anchor' },
+  { label: 'FAQ', href: '#faq', type: 'anchor' },
 ];
 
 export function Header() {
-  const t = useTranslations('Header');
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const locale = useLocale();
+  const [isMobile, setIsMobile] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  
+  // Use hooks normally - they should work in client components
+  const t = useTranslations('Header');
+  const locale = useLocale();
+  const router = useRouter();
+
+  React.useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < theme.breakpoints.values.md);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, [theme.breakpoints.values.md]);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  const handleNavClick = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (href: string, type: string) => {
+    if (type === 'anchor') {
+      // Handle anchor links - add slight delay to ensure page is ready
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      // Handle external navigation - don't add locale prefix for external routes
+      router.push(href);
     }
     setMobileOpen(false);
   };
@@ -53,18 +76,34 @@ export function Header() {
       </Typography>
       <List>
         {navigationItems.map((item) => (
-          <ListItem key={item.label} onClick={() => handleNavClick(item.href)}>
-            <ListItemText 
-              primary={item.label} 
-              sx={{ textAlign: 'center' }}
-            />
+          <ListItem key={item.label} sx={{ px: 0 }}>
+            <Button
+              fullWidth
+              variant="ghost"
+              component={item.type === 'anchor' ? 'button' : Link}
+              href={item.type === 'anchor' ? undefined : item.href}
+              onClick={item.type === 'anchor' ? () => handleNavClick(item.href, item.type) : undefined}
+              sx={{ 
+                justifyContent: 'center',
+                py: 1.5,
+                '&:hover': {
+                  backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                },
+              }}
+            >
+              {item.label}
+            </Button>
           </ListItem>
         ))}
         <ListItem sx={{ flexDirection: 'column', gap: 2, mt: 2 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 1 }}>
+            <LanguageSwitcher />
+          </Box>
           <Button
             variant="ghost"
             fullWidth
-            href="/login"
+            component={Link}
+            href={`/${locale}/login`}
             size="lg"
           >
             Sign in
@@ -72,7 +111,8 @@ export function Header() {
           <Button
             variant="primary"
             fullWidth
-            href="/practice"
+            component={Link}
+            href={`/${locale}/practice`}
             size="lg"
             data-cta="header-start-free"
           >
@@ -118,8 +158,8 @@ export function Header() {
         }}
       >
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Typography 
-            variant="h6" 
+                    <Typography
+            variant="h6"
             component={Link}
             href={`/${locale}`}
             sx={{ 
@@ -140,7 +180,9 @@ export function Header() {
                 <Button
                   key={item.label}
                   variant="ghost"
-                  onClick={() => handleNavClick(item.href)}
+                  component={item.type === 'anchor' ? 'button' : Link}
+                  href={item.type === 'anchor' ? undefined : item.href}
+                  onClick={item.type === 'anchor' ? () => handleNavClick(item.href, item.type) : undefined}
                   sx={{ 
                     color: 'text.primary',
                     fontWeight: 500,
@@ -158,8 +200,10 @@ export function Header() {
           <Stack direction="row" spacing={2} alignItems="center">
             {!isMobile && (
               <>
+                <LanguageSwitcher />
                 <Button
                   variant="ghost"
+                  component={Link}
                   href={`/${locale}/login`}
                   size="md"
                 >
@@ -167,6 +211,7 @@ export function Header() {
                 </Button>
                 <Button
                   variant="primary"
+                  component={Link}
                   href={`/${locale}/practice`}
                   size="md"
                   data-cta="header-start-free"

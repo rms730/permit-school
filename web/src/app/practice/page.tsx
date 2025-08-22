@@ -11,7 +11,7 @@ import {
   Grid,
 } from "@mui/material";
 import Link from "next/link";
-import { Header } from "@/components/Header";
+import { SimpleHeader } from "@/components/SimpleHeader";
 import { Container as ContainerComponent } from "@/components/Container";
 import SchoolIcon from '@mui/icons-material/School';
 import AssignmentIcon from '@mui/icons-material/Assignment';
@@ -20,7 +20,7 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 export default function PracticePage() {
   return (
     <>
-      <Header />
+      <SimpleHeader />
       <ContainerComponent>
         <Box sx={{ py: { xs: 4, md: 8 } }}>
           <Box sx={{ textAlign: 'center', mb: 6 }}>

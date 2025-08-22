@@ -12,6 +12,7 @@ import { getDictionary } from "@/lib/i18n";
 import { I18nProvider } from "@/lib/i18n/I18nProvider";
 import { SkipLink } from "@/components/SkipLink";
 import OfflineModeIndicator from "@/components/OfflineModeIndicator";
+import ConsoleTap from "@/components/dev/ConsoleTap";
 
 // Load Google Fonts
 const inter = Inter({
@@ -43,12 +44,14 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   manifest: '/manifest.webmanifest',
-  themeColor: '#1976d2',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' }
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+    other: [{ rel: 'mask-icon', url: '/icons/maskable-512.png', color: '#1976d2' }]
   },
   appleWebApp: {
     capable: true,
@@ -81,6 +84,14 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  themeColor: '#1976d2',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default async function RootLayout({
   children,
 }: {
@@ -92,6 +103,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${inter.variable} ${rubik.variable}`}>
       <body>
+        {process.env.NEXT_PUBLIC_DEV_CONSOLE_TAP === '1' ? <ConsoleTap /> : null}
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <MuiProvider>
             <I18nProvider locale={locale} dict={dict}>

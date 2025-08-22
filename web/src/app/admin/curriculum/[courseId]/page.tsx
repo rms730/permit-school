@@ -19,12 +19,12 @@ import {
 import Link from "next/link";
 import * as React from "react";
 
+import UnitEditDialog from "./UnitEditDialog";
+import UnitMappingDialog from "./UnitMappingDialog";
 import AppBar from "@/components/AppBar";
 import { getServerClient } from "@/lib/supabaseServer";
 
 
-import UnitEditDialog from "./UnitEditDialog";
-import UnitMappingDialog from "./UnitMappingDialog";
 
 export default async function AdminCourseUnitsPage({
   params,

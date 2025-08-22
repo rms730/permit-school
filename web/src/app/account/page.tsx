@@ -20,10 +20,10 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { Suspense } from 'react';
 
+import AccountOverview from './AccountOverview';
 import AppShell from '@/components/layout/AppShell';
 import { getRouteClient } from '@/lib/supabaseRoute';
 
-import AccountOverview from './AccountOverview';
 
 export default async function AccountPage() {
   const supabase = getRouteClient();

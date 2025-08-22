@@ -11,11 +11,11 @@ import {
 import * as React from "react";
 import { useState, useEffect } from "react";
 
+import LanguageSwitcher from "./LanguageSwitcher";
+import NotificationBell from "./NotificationBell";
 import { getEntitlementForUserClient } from "@/lib/entitlementsClient";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 
-import LanguageSwitcher from "./LanguageSwitcher";
-import NotificationBell from "./NotificationBell";
 
 interface AppBarProps {
   title?: string;

@@ -76,8 +76,9 @@ describe('IdleTracker', () => {
   it('should not start tracking multiple times', () => {
     idleTracker.start();
     idleTracker.start();
-    // Should only add event listeners once
-    expect(document.addEventListener).toHaveBeenCalledTimes(1);
+    // Should only add event listeners once (6 document events + 2 window events)
+    expect(document.addEventListener).toHaveBeenCalledTimes(7); // 6 activity events + 1 visibility change
+    expect(window.addEventListener).toHaveBeenCalledTimes(2); // focus + blur
   });
 
   it('should handle activity events', () => {

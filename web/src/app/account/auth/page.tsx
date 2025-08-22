@@ -1,9 +1,9 @@
 import { redirect } from 'next/navigation';
 
+import AuthSettings from './AuthSettings';
 import AppShell from '@/components/layout/AppShell';
 import { getRouteClient } from '@/lib/supabaseRoute';
 
-import AuthSettings from './AuthSettings';
 
 export default async function AuthPage() {
   const supabase = getRouteClient();

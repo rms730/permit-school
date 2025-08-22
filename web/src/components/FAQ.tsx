@@ -9,7 +9,6 @@ import {
   AccordionSummary,
   AccordionDetails,
   useTheme,
-  useMediaQuery,
 } from '@mui/material';
 import * as React from 'react';
 
@@ -42,8 +41,20 @@ const faqs = [
 
 export function FAQ() {
   const theme = useTheme();
-  const _isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [expanded, setExpanded] = React.useState<string | false>(false);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  // Handle responsive behavior on client side to avoid SSR hydration issues
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < theme.breakpoints.values.md);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, [theme.breakpoints.values.md]);
+
   const handleAccordionChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
   };

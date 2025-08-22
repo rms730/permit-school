@@ -1,123 +1,132 @@
-import { CheckCircle } from '@mui/icons-material';
+"use client";
+
 import {
-  Container,
   Box,
-  Stack,
+  Container,
   Typography,
+  Button,
+  Card,
+  CardContent,
   useTheme,
-  useMediaQuery,
 } from '@mui/material';
-import * as React from 'react';
+import CheckIcon from '@mui/icons-material/Check';
 
-import { Button } from './Button';
-
-const valuePoints = [
-  'Start free. Upgrade when you\'re ready.',
-  'No credit card required for free plan',
-  'Cancel anytime, no questions asked',
-  'Money-back guarantee if not satisfied',
+const features = [
+  'Unlimited practice tests',
+  'Real-time feedback',
+  'Progress tracking',
+  'Mobile-friendly',
+  '24/7 support',
+  'Money-back guarantee',
 ];
 
 export function PricingCTA() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box
       component="section"
+      id="section-pricing"
       sx={{
         py: { xs: 8, md: 12 },
-        backgroundColor: 'grey.50',
-        borderTop: '1px solid',
-        borderColor: 'divider',
+        backgroundColor: 'background.default',
       }}
     >
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}>
+        <Box sx={{ textAlign: 'center', mb: 8 }}>
           <Typography
             variant="h2"
             component="h2"
             sx={{
-              mb: 3,
+              mb: 2,
               fontWeight: 700,
             }}
           >
-                         Start free. Upgrade when you&apos;re ready.
+            Start learning today
           </Typography>
-          
           <Typography
             variant="h5"
             color="text.secondary"
-            sx={{ mb: 6, lineHeight: 1.5 }}
+            sx={{ maxWidth: 600, mx: 'auto', lineHeight: 1.5 }}
           >
-            Try our free practice test today. No credit card required, no commitment.
+            Get unlimited access to all our practice tests and study materials
           </Typography>
+        </Box>
 
-          <Stack
-            direction={{ xs: 'column', sm: 'row' }}
-            spacing={3}
-            justifyContent="center"
-            sx={{ mb: 6 }}
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Card
+            sx={{
+              maxWidth: 400,
+              width: '100%',
+              textAlign: 'center',
+              position: 'relative',
+              overflow: 'visible',
+            }}
           >
-            <Button
-              variant="primary"
-              size="lg"
-              href="/practice"
-              data-cta="pricing-start-free"
-              sx={{
-                background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
-                '&:hover': {
-                  background: 'linear-gradient(135deg, #16a34a 0%, #15803d 100%)',
-                },
-              }}
-            >
-              Start free practice
-            </Button>
-            <Button
-              variant="secondary"
-              size="lg"
-              href="#pricing"
-              data-cta="pricing-view-pricing"
-            >
-              View pricing
-            </Button>
-          </Stack>
-
-          <Stack
-            direction={{ xs: 'column', sm: 'row' }}
-            spacing={{ xs: 2, sm: 4 }}
-            justifyContent="center"
-            flexWrap="wrap"
-            useFlexGap
-          >
-            {valuePoints.map((point, index) => (
-              <Stack
-                key={index}
-                direction="row"
-                spacing={1}
-                alignItems="center"
+            <CardContent sx={{ p: 4 }}>
+              <Typography
+                variant="h3"
+                component="h3"
                 sx={{
-                  backgroundColor: 'rgba(34, 197, 94, 0.1)',
-                  padding: '8px 16px',
-                  borderRadius: 2,
-                  border: '1px solid',
-                  borderColor: 'rgba(34, 197, 94, 0.2)',
+                  fontWeight: 700,
+                  mb: 1,
                 }}
               >
-                <CheckCircle sx={{ fontSize: 20, color: '#22c55e' }} />
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontWeight: 600,
-                    color: 'text.primary',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {point}
-                </Typography>
-              </Stack>
-            ))}
-          </Stack>
+                $29.99
+              </Typography>
+              <Typography
+                variant="h6"
+                color="text.secondary"
+                sx={{ mb: 3 }}
+              >
+                One-time payment
+              </Typography>
+
+              <Box sx={{ mb: 4 }}>
+                {features.map((feature, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      mb: 2,
+                      textAlign: 'left',
+                    }}
+                  >
+                    <CheckIcon
+                      sx={{
+                        color: 'success.main',
+                        mr: 2,
+                        fontSize: 20,
+                      }}
+                    />
+                    <Typography variant="body1">{feature}</Typography>
+                  </Box>
+                ))}
+              </Box>
+
+              <Button
+                variant="contained"
+                size="large"
+                fullWidth
+                sx={{
+                  py: 2,
+                  fontSize: '1.1rem',
+                  fontWeight: 600,
+                }}
+              >
+                Get Started Now
+              </Button>
+
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ mt: 2 }}
+              >
+                30-day money-back guarantee
+              </Typography>
+            </CardContent>
+          </Card>
         </Box>
       </Container>
     </Box>

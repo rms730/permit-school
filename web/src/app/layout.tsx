@@ -114,7 +114,7 @@ export default async function RootLayout({
             <I18nProvider locale={locale} dict={dict}>
                 <SkipLink />
                 <OfflineModeIndicator />
-                <main id="main" role="main">
+                <main id="main" role="main" tabIndex={-1}>
                   {children}
                 </main>
                 <footer role="contentinfo" style={{ marginTop: 'auto', padding: '2rem 0', textAlign: 'center', borderTop: '1px solid #e0e0e0' }}>

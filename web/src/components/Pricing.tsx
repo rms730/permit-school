@@ -64,7 +64,7 @@ export function Pricing() {
     >
       <Container maxWidth="lg">
         <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography variant="h2" sx={{ mb: 2, fontWeight: 700 }}>
+          <Typography variant="h2" component="h3" sx={{ mb: 2, fontWeight: 700 }}>
             Simple, Transparent Pricing
           </Typography>
           <Typography variant="h5" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>

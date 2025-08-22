@@ -3,8 +3,8 @@ import { test, expect } from '@playwright/test';
 test('FAQ accordion expands and collapses correctly', async ({ page }) => {
   await page.goto('/en');
   
-  // Find FAQ buttons
-  const faqButtons = page.locator('[role="button"][aria-expanded]');
+  // Find FAQ accordion summaries (MUI AccordionSummary components)
+  const faqButtons = page.locator('[id^="faq-header-"]');
   const buttonCount = await faqButtons.count();
   
   if (buttonCount > 0) {
@@ -16,13 +16,9 @@ test('FAQ accordion expands and collapses correctly', async ({ page }) => {
     // Check that aria-expanded is true
     await expect(firstFaqButton).toHaveAttribute('aria-expanded', 'true');
     
-    // Check that the accordion content is visible (if it exists)
-    const faqContent = page.locator('[role="region"], [data-testid="faq-content"]');
-    const contentExists = await faqContent.count() > 0;
-    
-    if (contentExists) {
-      await expect(faqContent.first()).toBeVisible();
-    }
+    // Check that the accordion content is visible
+    const faqContent = page.locator('[id^="faq-content-"]');
+    await expect(faqContent.first()).toBeVisible();
     
     // Click to collapse
     await firstFaqButton.click();

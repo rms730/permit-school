@@ -99,7 +99,8 @@ export async function POST(req: NextRequest) {
         const sectionRules = [
           {
             blueprint_id: blueprint.id,
-            rule_no: ruleNo++,
+            rule_no: ruleNo,
+            rule_order: ruleNo++,
             skill: 'grammar',
             count: 5,
             min_difficulty: 1,
@@ -109,7 +110,8 @@ export async function POST(req: NextRequest) {
           },
           {
             blueprint_id: blueprint.id,
-            rule_no: ruleNo++,
+            rule_no: ruleNo,
+            rule_order: ruleNo++,
             skill: 'comprehension',
             count: 5,
             min_difficulty: 1,
@@ -119,7 +121,8 @@ export async function POST(req: NextRequest) {
           },
           {
             blueprint_id: blueprint.id,
-            rule_no: ruleNo++,
+            rule_no: ruleNo,
+            rule_order: ruleNo++,
             skill: 'problem_solving',
             count: 5,
             min_difficulty: 1,
@@ -129,7 +132,8 @@ export async function POST(req: NextRequest) {
           },
           {
             blueprint_id: blueprint.id,
-            rule_no: ruleNo++,
+            rule_no: ruleNo,
+            rule_order: ruleNo++,
             skill: 'vocabulary',
             count: 5,
             min_difficulty: 1,

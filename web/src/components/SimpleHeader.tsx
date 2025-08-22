@@ -4,17 +4,17 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Box,
   useTheme,
   Stack,
 } from '@mui/material';
+
 import Link from 'next/link';
 import * as React from 'react';
 import { Button } from './Button';
 import LanguageSwitcher from './LanguageSwitcher';
 
 export function SimpleHeader() {
-  const theme = useTheme();
+  const _theme = useTheme();
 
   return (
     <AppBar 

@@ -18,7 +18,7 @@ import { Button } from './Button';
 export function Hero() {
   const t = useTranslations('Home');
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const _isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box

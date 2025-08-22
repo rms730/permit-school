@@ -9,12 +9,12 @@ import {
   Drawer,
   List,
   ListItem,
-  ListItemText,
   useTheme,
   IconButton,
   Stack,
   useMediaQuery,
 } from '@mui/material';
+
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';

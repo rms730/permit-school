@@ -60,11 +60,13 @@
     "seed:make-empty-units": "node ops/seed/scripts/make-empty-units.mjs",
     "seed:all": "tsx ops/seed/seed-all.ts",
     "seed:curriculum": "tsx ops/seed/seed-curriculum.ts",
-    "seed:questions": "tsx ops/seed/seed-questions.ts"
+    "seed:questions": "tsx ops/seed/seed-questions.ts",
+    "icons:make-favicon": "node tools/images/make-favicon.mjs"
   },
   "devDependencies": {
     "@supabase/supabase-js": "^2.47.0",
     "dotenv-flow": "^4.1.0",
+    "to-ico": "^1.1.5",
     "tsx": "^4.15.7",
     "zod": "^4.0.17"
   },

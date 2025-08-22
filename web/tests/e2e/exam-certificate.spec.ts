@@ -4,11 +4,6 @@ import { getTestkitAPI, getTestUser } from './utils/testkit';
 
 test.describe('Final Exam → Draft Certificate', () => {
   test('should complete final exam and create draft certificate', async ({ page }) => {
-    // Skip if TESTKIT_TOKEN is not available
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
-    }
 
     try {
       const testkit = await getTestkitAPI(page);
@@ -61,11 +56,6 @@ test.describe('Final Exam → Draft Certificate', () => {
   });
 
   test('should issue certificate as admin', async ({ page }) => {
-    // Skip if TESTKIT_TOKEN is not available
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
-    }
 
     try {
       const testkit = await getTestkitAPI(page);

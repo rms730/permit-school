@@ -7,11 +7,6 @@ test.describe('Guardian Portal & Notifications', () => {
   let studentUser: any;
 
   test.beforeAll(async () => {
-    // Skip if TESTKIT_TOKEN is not available
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
-    }
 
     try {
       // Create test users

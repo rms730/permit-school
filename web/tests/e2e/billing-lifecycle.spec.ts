@@ -4,11 +4,6 @@ import { getTestkitAPI, getTestUser } from './utils/testkit';
 
 test.describe('Billing Lifecycle', () => {
   test('should show subscription status when user has active subscription', async ({ page }) => {
-    // Skip if TESTKIT_TOKEN is not available
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
-    }
 
     try {
       const testkit = await getTestkitAPI(page);

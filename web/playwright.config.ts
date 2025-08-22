@@ -36,6 +36,10 @@ export default defineConfig({
 
     /* Record video on failure */
     video: 'retain-on-failure',
+
+    /* CI-specific settings */
+    headless: true,
+    ignoreHTTPSErrors: true,
   },
 
   /* Configure projects for major browsers */

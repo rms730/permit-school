@@ -4,11 +4,6 @@ import { getTestkitAPI, getTestUser } from './utils/testkit';
 
 test.describe('Final Exam (CA/DE-ONLINE)', () => {
   test('fail then pass flow with certificate eligibility', async ({ page }) => {
-    // Skip if TESTKIT_TOKEN is not available
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
-    }
 
     try {
       const testkit = await getTestkitAPI(page);
@@ -91,11 +86,6 @@ test.describe('Final Exam (CA/DE-ONLINE)', () => {
   });
 
   test('exam blueprint validation', async ({ page }) => {
-    // Skip if TESTKIT_TOKEN is not available
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
-    }
 
     try {
       const testkit = await getTestkitAPI(page);

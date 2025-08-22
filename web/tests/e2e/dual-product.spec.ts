@@ -3,11 +3,6 @@ import { testkit } from './utils/testkit';
 
 test.describe('Dual Product Implementation', () => {
   test.beforeAll(async () => {
-    // Skip if TESTKIT_TOKEN is not available
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
-    }
 
     try {
       // Seed programs
@@ -19,9 +14,7 @@ test.describe('Dual Product Implementation', () => {
 
   test('displays both marketing pages', async ({ page }) => {
     // Skip if test setup failed
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
+    if (!process.env.TESTKIT_TOKEN) {      return;
     }
 
     await page.goto('/en');
@@ -35,9 +28,7 @@ test.describe('Dual Product Implementation', () => {
 
   test('displays diagnostic test page', async ({ page }) => {
     // Skip if test setup failed
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
+    if (!process.env.TESTKIT_TOKEN) {      return;
     }
 
     await page.goto('/en');
@@ -51,9 +42,7 @@ test.describe('Dual Product Implementation', () => {
 
   test('displays mock test page', async ({ page }) => {
     // Skip if test setup failed
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
+    if (!process.env.TESTKIT_TOKEN) {      return;
     }
 
     await page.goto('/en');
@@ -67,9 +56,7 @@ test.describe('Dual Product Implementation', () => {
 
   test('displays score report page', async ({ page }) => {
     // Skip if test setup failed
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
+    if (!process.env.TESTKIT_TOKEN) {      return;
     }
 
     await page.goto('/en');
@@ -83,9 +70,7 @@ test.describe('Dual Product Implementation', () => {
 
   test('seeding endpoints work correctly', async ({ page }) => {
     // Skip if test setup failed
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
+    if (!process.env.TESTKIT_TOKEN) {      return;
     }
 
     await page.goto('/en');

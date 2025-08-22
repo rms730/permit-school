@@ -14,6 +14,24 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      NODE_ENV: development
+      NEXT_TELEMETRY_DISABLED: '1'
+      # Map GitHub Secrets/Vars → process.env
+      SUPABASE_URL: ${{ secrets.CI_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.CI_SUPABASE_SERVICE_ROLE_KEY }}
+      SUPABASE_ANON_KEY: ${{ secrets.CI_SUPABASE_ANON_KEY }}
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.CI_SUPABASE_URL }}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.CI_SUPABASE_ANON_KEY }}
+      OPENAI_API_KEY: ${{ secrets.CI_OPENAI_API_KEY }}
+      STRIPE_SECRET_KEY: ${{ secrets.CI_STRIPE_SECRET_KEY }}
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.CI_STRIPE_PUBLISHABLE_KEY }}
+      RESEND_API_KEY: ${{ secrets.CI_RESEND_API_KEY }}
+      TESTKIT_ON: 'true'
+      TESTKIT_TOKEN: ${{ secrets.CI_TESTKIT_TOKEN }}
+      BASE_URL: 'http://localhost:4330'
+      NEXT_PUBLIC_ENV: 'ci'
+      NEXT_PUBLIC_SITE_URL: 'http://localhost:4330'
     defaults:
       run:
         working-directory: web
@@ -42,62 +60,19 @@ jobs:
           npm cache clean --force
           npm install --no-audit --prefer-online
 
-      - name: Prepare env files
-        run: |
-          # Create development environment files from examples
-          cp ../env-examples/root.env.dev.example ../.env.dev
+      - name: Write .env files from secrets
+        run: node ../tools/env/ci-setup.mjs
 
-          # Create a clean web environment file with only client-safe variables
-          cat > .env.development << 'EOF'
-          # Client-exposed (safe):
-          NEXT_PUBLIC_SUPABASE_URL=https://example.supabase.co
-          NEXT_PUBLIC_SUPABASE_ANON_KEY=anon-placeholder-key
-          NEXT_PUBLIC_ENV=development
-          NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_placeholder
-          NEXT_PUBLIC_SENTRY_DSN=https://placeholder.sentry.io
-          NEXT_PUBLIC_SITE_URL=https://example.com
-          EOF
+      - name: Build
+        run: npm run build:ci
 
-          # Root overrides from GitHub Secrets (optional)
-          [ -n "${{ secrets.SUPABASE_URL }}" ] && sed -i 's|^SUPABASE_URL=.*|SUPABASE_URL=${{ secrets.SUPABASE_URL }}|' ../.env.dev
-          [ -n "${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" ] && sed -i 's|^SUPABASE_SERVICE_ROLE_KEY=.*|SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}|' ../.env.dev
-          [ -n "${{ secrets.SUPABASE_ANON_KEY }}" ] && sed -i 's|^SUPABASE_ANON_KEY=.*|SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}|' ../.env.dev
-          [ -n "${{ secrets.OPENAI_API_KEY }}" ] && sed -i 's|^OPENAI_API_KEY=.*|OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}|' ../.env.dev
-          [ -n "${{ secrets.BASE_URL }}" ] && sed -i 's|^BASE_URL=.*|BASE_URL=${{ secrets.BASE_URL }}|' ../.env.dev
-
-          # Web overrides
-          [ -n "${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}" ] && sed -i 's|^NEXT_PUBLIC_SUPABASE_URL=.*|NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}|' .env.development
-          [ -n "${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}" ] && sed -i 's|^NEXT_PUBLIC_SUPABASE_ANON_KEY=.*|NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}|' .env.development
-
-      - name: Verify root environment (development)
-        working-directory: .
+      - name: Start web server (background)
+        run: npm run start:ci &
         env:
-          NODE_ENV: development
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL || 'https://example.supabase.co' }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || 'service-role-placeholder' }}
-          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY || 'anon-placeholder' }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'sk-placeholder' }}
-          BASE_URL: ${{ secrets.BASE_URL || 'https://example.com' }}
-          TESTKIT_ON: false
-          TESTKIT_TOKEN: dev-super-secret
-        run: npm run env:check:dev
+          PORT: 4330
 
-      - name: Verify web environment (development)
-        working-directory: web
-        env:
-          NODE_ENV: development
-          NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: anon-placeholder-key
-          NEXT_PUBLIC_ENV: development
-          NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: pk_test_placeholder
-          NEXT_PUBLIC_SENTRY_DSN: https://placeholder.sentry.io
-          NEXT_PUBLIC_SITE_URL: https://example.com
-        run: npm run env:check
-
-      - name: Dependency sanity check (rollup)
-        run: |
-          node -e "try{const r=require('rollup');console.log('rollup ok:', typeof r==='object');}catch(e){console.error('rollup not resolvable');process.exit(1)}"
-          node -e "try{require.resolve('@rollup/rollup-linux-x64-gnu');console.log('linux-x64-gnu pkg present');}catch{console.log('linux-x64-gnu pkg NOT present (ok if not needed on this runner)');}"
+      - name: Wait for /en to be ready
+        run: npx wait-on -t 120000 http-get://localhost:4330/en
 
       - name: Lint
         run: npm run lint
@@ -105,13 +80,19 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
-      - name: Build
+      - name: Unit tests
+        run: npm run test -- --run
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: E2E tests
+        run: npx playwright test --reporter=line --project=chromium
+
+      - name: Lighthouse CI
+        run: npx lhci autorun --config=.lighthouserc.cjs
         env:
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon-placeholder' }}
-          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || 'service-role-placeholder' }}
-          NEXT_PUBLIC_COMMIT_SHA: ${{ github.sha }}
-          NEXT_PUBLIC_BUILD_AT: ${{ github.run_started_at }}
-          SENTRY_SUPPRESS_GLOBAL_ERROR_HANDLER_FILE_WARNING: 1
-        run: npm run build:ci
+          PORT: 4330
+
+      - name: Accessibility tests
+        run: npm run axe:ci

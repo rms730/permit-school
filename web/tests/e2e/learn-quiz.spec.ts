@@ -4,11 +4,6 @@ import { getTestkitAPI, getTestUser } from './utils/testkit';
 
 test.describe('Learn → Seat-time Gating → Unit Quiz', () => {
   test('should gate quiz behind seat-time requirements', async ({ page }) => {
-    // Skip if TESTKIT_TOKEN is not available
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
-    }
 
     try {
       const testkit = await getTestkitAPI(page);
@@ -40,11 +35,6 @@ test.describe('Learn → Seat-time Gating → Unit Quiz', () => {
   });
 
   test('should enable quiz after sufficient seat-time', async ({ page }) => {
-    // Skip if TESTKIT_TOKEN is not available
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
-    }
 
     try {
       const testkit = await getTestkitAPI(page);

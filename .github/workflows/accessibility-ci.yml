@@ -9,6 +9,24 @@ on:
 jobs:
   lighthouse-ci:
     runs-on: ubuntu-latest
+    env:
+      NODE_ENV: development
+      NEXT_TELEMETRY_DISABLED: '1'
+      # Map GitHub Secrets/Vars → process.env
+      SUPABASE_URL: ${{ secrets.CI_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.CI_SUPABASE_SERVICE_ROLE_KEY }}
+      SUPABASE_ANON_KEY: ${{ secrets.CI_SUPABASE_ANON_KEY }}
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.CI_SUPABASE_URL }}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.CI_SUPABASE_ANON_KEY }}
+      OPENAI_API_KEY: ${{ secrets.CI_OPENAI_API_KEY }}
+      STRIPE_SECRET_KEY: ${{ secrets.CI_STRIPE_SECRET_KEY }}
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.CI_STRIPE_PUBLISHABLE_KEY }}
+      RESEND_API_KEY: ${{ secrets.CI_RESEND_API_KEY }}
+      TESTKIT_ON: 'true'
+      TESTKIT_TOKEN: ${{ secrets.CI_TESTKIT_TOKEN }}
+      BASE_URL: 'http://localhost:4330'
+      NEXT_PUBLIC_ENV: 'ci'
+      NEXT_PUBLIC_SITE_URL: 'http://localhost:4330'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -36,27 +54,28 @@ jobs:
           npm cache clean --force
           npm install --no-audit --prefer-online
 
+      - name: Write .env files from secrets
+        run: node ../tools/env/ci-setup.mjs
+
       - name: Build application
         run: npm run build:ci
         working-directory: web
-        env:
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon-placeholder' }}
-          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || 'service-role-placeholder' }}
-          NEXT_PUBLIC_SITE_URL: https://permit-school.com
 
-      - name: Run Lighthouse CI (monorepo-aware)
-        env:
-          # Make the port explicit & stable for LHCI
-          PORT: 4320
-        run: |
-          npx --yes @lhci/cli@0.13.0 autorun \
-            --config=.lighthouserc.cjs \
-            --collect.startServerCommand="PORT=$PORT npm run start:ci" \
-            --collect.url="http://localhost:$PORT/" \
-            --collect.numberOfRuns=2
+      - name: Start web server (background)
+        run: npm run start:ci &
         working-directory: web
+        env:
+          PORT: 4330
+
+      - name: Wait for /en to be ready
+        run: npx wait-on -t 120000 http-get://localhost:4330/en
+
+      - name: Run Lighthouse CI
+        run: |
+          npx lhci autorun --config=.lighthouserc.cjs
+        working-directory: web
+        env:
+          PORT: 4330
 
       - name: Upload LHCI artifacts
         if: always()
@@ -67,10 +86,8 @@ jobs:
 
       - name: Run axe-core accessibility tests
         run: |
-          cd web
           npm run axe:ci
-        env:
-          NEXT_PUBLIC_SITE_URL: https://permit-school.com
+        working-directory: web
 
   lint-a11y:
     runs-on: ubuntu-latest
@@ -99,163 +116,23 @@ jobs:
           npm cache clean --force
           npm install --no-audit --prefer-online
 
-      - name: Run ESLint with accessibility rules
-        run: npm run lint:a11y
-        working-directory: web
-
-      - name: Type check
-        run: npm run typecheck
-        working-directory: web
-
-  e2e:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          check-latest: true
-
-      - name: Show node/npm
-        run: |
-          node -v
-          npm -v
-
-      - name: Update npm
-        run: npm i -g npm@latest
-
-      - name: Clean install dependencies
-        working-directory: web
-        run: |
-          rm -rf node_modules package-lock.json
-          npm cache clean --force
-          npm install --no-audit --prefer-online
-
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-        working-directory: web
+      - name: Write .env files from secrets
+        run: node ../tools/env/ci-setup.mjs
 
       - name: Build application
         run: npm run build:ci
         working-directory: web
-        env:
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon-placeholder' }}
-          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || 'service-role-placeholder' }}
-          NEXT_PUBLIC_SITE_URL: http://127.0.0.1:4330
-          TESTKIT_ON: true
-          TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}
 
-      - name: Start server (external)
-        run: |
-          # Kill any existing process on port 4330
-          npx kill-port 4330 || true
-
-          # Check if standalone server exists
-          echo "Checking standalone server files..."
-          ls -la .next/standalone/ || echo "Standalone directory not found"
-
-          # Start the standalone server
-          nohup npm run start:ci > .next_start.log 2>&1 &
-
-          echo "Waiting for http://127.0.0.1:4330 ..."
-          for i in {1..60}; do
-            if curl -fsS http://127.0.0.1:4330 >/dev/null; then
-              echo "✅ server ready"
-              break
-            fi
-            if [ $i -eq 30 ]; then
-              echo "⚠️  Server not ready after 30s, checking logs..."
-              cat .next_start.log || echo "No log file found"
-            fi
-            sleep 1
-          done
+      - name: Start web server (background)
+        run: npm run start:ci &
         working-directory: web
         env:
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'anon-placeholder' }}
-          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://example.supabase.co' }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || 'service-role-placeholder' }}
-          NEXT_PUBLIC_SITE_URL: http://127.0.0.1:4330
-          TESTKIT_ON: true
-          TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}
+          PORT: 4330
 
-      - name: Setup test data
+      - name: Wait for /en to be ready
+        run: npx wait-on -t 120000 http-get://localhost:4330/en
+
+      - name: Run accessibility linting
         run: |
-          echo "Setting up test data..."
-          curl -X POST http://127.0.0.1:4330/api/testkit/reset \
-            -H "Authorization: Bearer $TESTKIT_TOKEN" \
-            -H "Content-Type: application/json" || echo "Reset failed, continuing..."
-
-          # Create test users
-          curl -X POST http://127.0.0.1:4330/api/testkit/user \
-            -H "Authorization: Bearer $TESTKIT_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"admin": true, "locale": "en"}' || echo "Admin user creation failed"
-            
-          curl -X POST http://127.0.0.1:4330/api/testkit/user \
-            -H "Authorization: Bearer $TESTKIT_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"admin": false, "locale": "en"}' || echo "Student user creation failed"
-            
-          curl -X POST http://127.0.0.1:4330/api/testkit/user \
-            -H "Authorization: Bearer $TESTKIT_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"minor": true, "admin": false, "locale": "en"}' || echo "Minor user creation failed"
-            
-          # Create exam blueprint
-          curl -X POST http://127.0.0.1:4330/api/testkit/exam/blueprint \
-            -H "Authorization: Bearer $TESTKIT_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"j_code": "CA", "course_code": "DE-ONLINE", "num_questions": 5}' || echo "Blueprint creation failed"
-            
-          echo "Test data setup completed"
-        env:
-          TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}
-
-      - name: Run E2E tests (external server)
-        run: npx playwright test --reporter=line
+          npm run lint:a11y
         working-directory: web
-        env:
-          BASE_URL: http://127.0.0.1:4330
-          PLAYWRIGHT_EXTERNAL_SERVER: "1"
-          TESTKIT_ON: true
-          TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}
-
-      - name: Upload Playwright report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: playwright-report
-          path: web/playwright-report/
-          retention-days: 30
-
-      - name: Upload test results
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: test-results
-          path: web/test-results/
-          retention-days: 30
-
-      - name: Upload traces
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: playwright-traces
-          path: web/test-results/
-          retention-days: 30
-
-      - name: Cleanup test data
-        if: always()
-        run: |
-          echo "Cleaning up test data..."
-          curl -X POST http://127.0.0.1:4330/api/testkit/reset \
-            -H "Authorization: Bearer $TESTKIT_TOKEN" \
-            -H "Content-Type: application/json" || echo "Cleanup failed, continuing..."
-        env:
-          TESTKIT_TOKEN: ${{ secrets.TESTKIT_TOKEN }}

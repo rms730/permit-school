@@ -12,12 +12,6 @@ test.describe('Account & Shell Functionality', () => {
     const context = await browser.newContext();
     const page = await context.newPage();
     
-    // Skip if TESTKIT_TOKEN is not available
-    if (!process.env.TESTKIT_TOKEN) {
-      test.skip(true, 'TESTKIT_TOKEN not available');
-      return;
-    }
-    
     try {
       testkit = new TestkitAPI('http://localhost:3000', process.env.TESTKIT_TOKEN || '');
       

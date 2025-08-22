@@ -8,6 +8,7 @@ import { Inter, Rubik } from 'next/font/google';
 import * as React from "react";
 
 
+import MuiProvider from "./providers/MuiProvider";
 import ConsoleTap from "@/components/dev/ConsoleTap";
 import OfflineModeIndicator from "@/components/OfflineModeIndicator";
 import { SkipLink } from "@/components/SkipLink";
@@ -15,7 +16,6 @@ import { getDictionary } from "@/lib/i18n";
 import { I18nProvider } from "@/lib/i18n/I18nProvider";
 import { getLocaleFromRequest } from "@/lib/i18n/server";
 
-import MuiProvider from "./providers/MuiProvider";
 
 // Load Google Fonts
 const inter = Inter({

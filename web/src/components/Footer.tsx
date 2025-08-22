@@ -1,223 +1,155 @@
-import { Accessibility } from '@mui/icons-material';
+"use client";
+
 import {
   Container,
   Box,
-  Stack,
   Typography,
   Link,
+  Grid,
+  IconButton,
   useTheme,
-  useMediaQuery,
 } from '@mui/material';
-import * as React from 'react';
-
-const footerLinks = {
-  product: [
-    { label: 'How it works', href: '#how-it-works' },
-    { label: 'Practice tests', href: '#practice-tests' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'FAQ', href: '#faq' },
-  ],
-  support: [
-    { label: 'Help Center', href: '/help' },
-    { label: 'Contact Us', href: '/contact' },
-    { label: 'Privacy Policy', href: '/privacy' },
-    { label: 'Terms of Service', href: '/terms' },
-  ],
-  company: [
-    { label: 'About Us', href: '/about' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Careers', href: '/careers' },
-    { label: 'Press', href: '/press' },
-  ],
-};
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 export function Footer() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box
       component="footer"
       sx={{
-        backgroundColor: 'grey.900',
-        color: 'white',
-        py: { xs: 6, md: 8 },
-        borderTop: '1px solid',
-        borderColor: 'divider',
+        backgroundColor: 'primary.main',
+        color: 'primary.contrastText',
+        py: 6,
+        mt: 'auto',
       }}
     >
       <Container maxWidth="lg">
-        <Stack spacing={6}>
-          {/* Main footer content */}
-          <Stack
-            direction={{ xs: 'column', md: 'row' }}
-            spacing={{ xs: 4, md: 8 }}
-            justifyContent="space-between"
-          >
-            {/* Brand section */}
-            <Box sx={{ maxWidth: 300 }}>
-              <Typography
-                variant="h5"
-                component="h2"
-                sx={{
-                  fontWeight: 700,
-                  mb: 2,
-                }}
-              >
-                Permit School
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{
-                  color: 'grey.400',
-                  lineHeight: 1.6,
-                  mb: 3,
-                }}
-              >
-                Helping new drivers pass their permit test with confidence through smart practice and personalized learning.
-              </Typography>
-              
-              {/* Accessibility badge */}
-              <Stack
-                direction="row"
-                spacing={1}
-                alignItems="center"
-                sx={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  padding: '8px 12px',
-                  borderRadius: 2,
-                  width: 'fit-content',
-                }}
-              >
-                <Accessibility sx={{ fontSize: 20, color: '#22c55e' }} />
-                <Typography
-                  variant="caption"
-                  sx={{
-                    fontWeight: 600,
-                    color: 'grey.300',
-                  }}
-                >
-                  Built with accessibility in mind
-                </Typography>
-              </Stack>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6" gutterBottom>
+              Permit School
+            </Typography>
+            <Typography variant="body2" sx={{ mb: 2 }}>
+              Your trusted partner in driver education. We help you prepare for your permit test with confidence.
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 1 }}>
+              <IconButton color="inherit" size="small">
+                <FacebookIcon />
+              </IconButton>
+              <IconButton color="inherit" size="small">
+                <TwitterIcon />
+              </IconButton>
+              <IconButton color="inherit" size="small">
+                <InstagramIcon />
+              </IconButton>
+              <IconButton color="inherit" size="small">
+                <LinkedInIcon />
+              </IconButton>
             </Box>
-
-            {/* Links sections */}
-            <Stack
-              direction={{ xs: 'column', sm: 'row' }}
-              spacing={{ xs: 4, sm: 6, md: 8 }}
-            >
-              {Object.entries(footerLinks).map(([category, links]) => (
-                <Box key={category}>
-                  <Typography
-                    variant="subtitle1"
-                    component="h3"
-                    sx={{
-                      fontWeight: 600,
-                      mb: 2,
-                      textTransform: 'capitalize',
-                    }}
-                  >
-                    {category}
-                  </Typography>
-                  <Stack spacing={1}>
-                    {links.map((link) => (
-                      <Link
-                        key={link.label}
-                        href={link.href}
-                        variant="body2"
-                        sx={{
-                          color: 'grey.400',
-                          textDecoration: 'none',
-                          '&:hover': {
-                            color: 'white',
-                            textDecoration: 'underline',
-                          },
-                        }}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </Stack>
-                </Box>
-              ))}
-            </Stack>
-          </Stack>
-
-          {/* Bottom section */}
-          <Box
-            sx={{
-              borderTop: '1px solid',
-              borderColor: 'grey.800',
-              pt: 4,
-            }}
-          >
-            <Stack
-              direction={{ xs: 'column', sm: 'row' }}
-              spacing={{ xs: 2, sm: 4 }}
-              justifyContent="space-between"
-              alignItems={{ xs: 'flex-start', sm: 'center' }}
-            >
-              <Typography
-                variant="body2"
-                sx={{
-                  color: 'grey.400',
-                }}
-              >
-                © 2024 Permit School. All rights reserved.
-              </Typography>
-              
-              <Stack
-                direction="row"
-                spacing={3}
-                alignItems="center"
-              >
-                <Link
-                  href="/privacy"
-                  variant="body2"
-                  sx={{
-                    color: 'grey.400',
-                    textDecoration: 'none',
-                    '&:hover': {
-                      color: 'white',
-                      textDecoration: 'underline',
-                    },
-                  }}
-                >
-                  Privacy
+          </Grid>
+          
+          <Grid item xs={12} md={2}>
+            <Typography variant="h6" gutterBottom>
+              Learn
+            </Typography>
+            <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
+              <Box component="li" sx={{ mb: 1 }}>
+                <Link href="/courses" color="inherit" underline="hover">
+                  Courses
                 </Link>
-                <Link
-                  href="/terms"
-                  variant="body2"
-                  sx={{
-                    color: 'grey.400',
-                    textDecoration: 'none',
-                    '&:hover': {
-                      color: 'white',
-                      textDecoration: 'underline',
-                    },
-                  }}
-                >
-                  Terms
+              </Box>
+              <Box component="li" sx={{ mb: 1 }}>
+                <Link href="/practice" color="inherit" underline="hover">
+                  Practice Tests
                 </Link>
-                <Link
-                  href="/accessibility"
-                  variant="body2"
-                  sx={{
-                    color: 'grey.400',
-                    textDecoration: 'none',
-                    '&:hover': {
-                      color: 'white',
-                      textDecoration: 'underline',
-                    },
-                  }}
-                >
+              </Box>
+              <Box component="li" sx={{ mb: 1 }}>
+                <Link href="/exam" color="inherit" underline="hover">
+                  Final Exam
+                </Link>
+              </Box>
+            </Box>
+          </Grid>
+          
+          <Grid item xs={12} md={2}>
+            <Typography variant="h6" gutterBottom>
+              Support
+            </Typography>
+            <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
+              <Box component="li" sx={{ mb: 1 }}>
+                <Link href="/help" color="inherit" underline="hover">
+                  Help Center
+                </Link>
+              </Box>
+              <Box component="li" sx={{ mb: 1 }}>
+                <Link href="/contact" color="inherit" underline="hover">
+                  Contact Us
+                </Link>
+              </Box>
+              <Box component="li" sx={{ mb: 1 }}>
+                <Link href="/faq" color="inherit" underline="hover">
+                  FAQ
+                </Link>
+              </Box>
+            </Box>
+          </Grid>
+          
+          <Grid item xs={12} md={2}>
+            <Typography variant="h6" gutterBottom>
+              Company
+            </Typography>
+            <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
+              <Box component="li" sx={{ mb: 1 }}>
+                <Link href="/about" color="inherit" underline="hover">
+                  About Us
+                </Link>
+              </Box>
+              <Box component="li" sx={{ mb: 1 }}>
+                <Link href="/careers" color="inherit" underline="hover">
+                  Careers
+                </Link>
+              </Box>
+              <Box component="li" sx={{ mb: 1 }}>
+                <Link href="/press" color="inherit" underline="hover">
+                  Press
+                </Link>
+              </Box>
+            </Box>
+          </Grid>
+          
+          <Grid item xs={12} md={2}>
+            <Typography variant="h6" gutterBottom>
+              Legal
+            </Typography>
+            <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
+              <Box component="li" sx={{ mb: 1 }}>
+                <Link href="/privacy" color="inherit" underline="hover">
+                  Privacy Policy
+                </Link>
+              </Box>
+              <Box component="li" sx={{ mb: 1 }}>
+                <Link href="/terms" color="inherit" underline="hover">
+                  Terms of Service
+                </Link>
+              </Box>
+              <Box component="li" sx={{ mb: 1 }}>
+                <Link href="/accessibility" color="inherit" underline="hover">
                   Accessibility
                 </Link>
-              </Stack>
-            </Stack>
-          </Box>
-        </Stack>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
+        
+        <Box sx={{ borderTop: 1, borderColor: 'rgba(255,255,255,0.1)', pt: 3, mt: 4, textAlign: 'center' }}>
+          <Typography variant="body2">
+            © {new Date().getFullYear()} Permit School. All rights reserved.
+          </Typography>
+        </Box>
       </Container>
     </Box>
   );

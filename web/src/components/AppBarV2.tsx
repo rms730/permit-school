@@ -32,11 +32,11 @@ import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import { useState } from 'react';
 
+import LanguageSwitcher from './LanguageSwitcher';
 import { signInWithGoogle } from '@/lib/auth';
 import { getOfflineBadgeText, isFeatureDisabled } from '@/lib/offline';
 import { supabase } from '@/lib/supabaseClient';
 
-import LanguageSwitcher from './LanguageSwitcher';
 
 interface AppBarV2Props {
   user?: any;

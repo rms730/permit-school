@@ -431,10 +431,7 @@
           "target": "docs/ENVIRONMENT_SETUP.md"
         }
       ],
-      "commands": [
-        "npm run --prefix",
-        "tsx import"
-      ],
+      "commands": ["npm run --prefix", "tsx import"],
       "envVars": [
         "ENVIRONMENT_SETUP",
         "LOCAL_DEVELOPMENT",
@@ -723,9 +720,7 @@
         }
       ],
       "links": [],
-      "commands": [
-        "npm run packages"
-      ],
+      "commands": ["npm run packages"],
       "envVars": [
         "ACT",
         "SAT",
@@ -1258,10 +1253,7 @@
         "owner": "Operations",
         "last_reviewed": "2025-01-27",
         "status": "authoritative",
-        "related": [
-          "</docs/RUNBOOKS.md>",
-          "</docs/SECURITY_COMPLIANCE.md>"
-        ]
+        "related": ["</docs/RUNBOOKS.md>", "</docs/SECURITY_COMPLIANCE.md>"]
       }
     },
     {
@@ -1393,12 +1385,7 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": [
-        "RLS",
-        "RAG",
-        "PII",
-        "DMV"
-      ],
+      "envVars": ["RLS", "RAG", "PII", "DMV"],
       "filePaths": [],
       "frontmatter": null
     },
@@ -1888,9 +1875,7 @@
           "target": "url-to-after-screenshot"
         }
       ],
-      "commands": [
-        "npm run --prefix"
-      ],
+      "commands": ["npm run --prefix"],
       "envVars": [
         "E2E",
         "WCAG",
@@ -2486,10 +2471,7 @@
         "owner": "Engineering",
         "last_reviewed": "2025-01-27",
         "status": "authoritative",
-        "related": [
-          "</docs/README.md>",
-          "</CONTRIBUTING.md>"
-        ]
+        "related": ["</docs/README.md>", "</CONTRIBUTING.md>"]
       }
     },
     {
@@ -3081,10 +3063,7 @@
         }
       ],
       "links": [],
-      "commands": [
-        "npm run env:seed",
-        "npm run env:seed:auto"
-      ],
+      "commands": ["npm run env:seed", "npm run env:seed:auto"],
       "envVars": [
         "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY",
         "STRIPE_PUBLISHABLE_KEY",
@@ -3982,10 +3961,7 @@
         "owner": "Operations",
         "last_reviewed": "2025-01-27",
         "status": "authoritative",
-        "related": [
-          "</docs/RUNBOOKS.md>",
-          "</docs/DMV_REPORTING.md>"
-        ]
+        "related": ["</docs/RUNBOOKS.md>", "</docs/DMV_REPORTING.md>"]
       }
     },
     {
@@ -4397,13 +4373,7 @@
         "npx playwright",
         "npx @lhci"
       ],
-      "envVars": [
-        "E2E",
-        "NODE_ENV",
-        "BASE_URL",
-        "TESTKIT_ON",
-        "TESTKIT_TOKEN"
-      ],
+      "envVars": ["E2E", "NODE_ENV", "BASE_URL", "TESTKIT_ON", "TESTKIT_TOKEN"],
       "filePaths": [],
       "frontmatter": null
     },
@@ -4876,9 +4846,7 @@
         }
       ],
       "links": [],
-      "commands": [
-        "tsx --"
-      ],
+      "commands": ["tsx --"],
       "envVars": [
         "SHA",
         "API",
@@ -5764,9 +5732,7 @@
         }
       ],
       "links": [],
-      "commands": [
-        "npm run dev"
-      ],
+      "commands": ["npm run dev"],
       "envVars": [
         "NEXT_PUBLIC_DEV_CONSOLE_TAP",
         "DEV",
@@ -6495,10 +6461,7 @@
         "owner": "Operations",
         "last_reviewed": "2025-01-27",
         "status": "authoritative",
-        "related": [
-          "</docs/RUNBOOKS.md>",
-          "</docs/FULFILLMENT_CA.md>"
-        ]
+        "related": ["</docs/RUNBOOKS.md>", "</docs/FULFILLMENT_CA.md>"]
       }
     },
     {
@@ -7205,10 +7168,7 @@
           "target": "https://supabase.com"
         }
       ],
-      "commands": [
-        "npm run env:check:local",
-        "npm run -w"
-      ],
+      "commands": ["npm run env:check:local", "npm run -w"],
       "envVars": [
         "SUPABASE_URL",
         "SUPABASE_SERVICE_ROLE_KEY",
@@ -7546,9 +7506,7 @@
         "API",
         "JSON"
       ],
-      "filePaths": [
-        "ops/seed/questions/CA/DE-ONLINE/final.blueprint.json"
-      ],
+      "filePaths": ["ops/seed/questions/CA/DE-ONLINE/final.blueprint.json"],
       "frontmatter": null
     },
     {
@@ -8361,10 +8319,7 @@
         "owner": "Operations",
         "last_reviewed": "2025-01-27",
         "status": "authoritative",
-        "related": [
-          "</docs/DMV_REPORTING.md>",
-          "</docs/RUNBOOKS.md>"
-        ]
+        "related": ["</docs/DMV_REPORTING.md>", "</docs/RUNBOOKS.md>"]
       }
     },
     {
@@ -8515,10 +8470,7 @@
         "CSS",
         "RLS"
       ],
-      "filePaths": [
-        "en.ts",
-        "es.ts"
-      ],
+      "filePaths": ["en.ts", "es.ts"],
       "frontmatter": null
     },
     {
@@ -8554,9 +8506,7 @@
         }
       ],
       "links": [],
-      "commands": [
-        "npm run --prefix"
-      ],
+      "commands": ["npm run --prefix"],
       "envVars": [
         "SUPABASE_URL",
         "SUPABASE_SERVICE_ROLE_KEY",
@@ -9737,9 +9687,7 @@
         "NEXT_PUBLIC_SUPABASE_URL",
         "NEXT_PUBLIC_SUPABASE_ANON_KEY"
       ],
-      "filePaths": [
-        ".vscode/settings.json"
-      ],
+      "filePaths": [".vscode/settings.json"],
       "frontmatter": null
     },
     {
@@ -9771,14 +9719,7 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": [
-        "CLI",
-        "CTE",
-        "RLS",
-        "NOT",
-        "EXISTS",
-        "UID"
-      ],
+      "envVars": ["CLI", "CTE", "RLS", "NOT", "EXISTS", "UID"],
       "filePaths": [
         "0011a_auth_compat_local.sql",
         "0014_question_bank_admin.sql",
@@ -10280,14 +10221,7 @@
         "npm run test:e2e",
         "npm run test:e2e:ui"
       ],
-      "envVars": [
-        "CLI",
-        "API",
-        "CA_DL_BASIC",
-        "OFFLINE",
-        "PID",
-        "E2E"
-      ],
+      "envVars": ["CLI", "API", "CA_DL_BASIC", "OFFLINE", "PID", "E2E"],
       "filePaths": [
         "users.json",
         "enrollments.json",
@@ -10535,9 +10469,7 @@
         }
       ],
       "links": [],
-      "commands": [
-        "npm run dependencies"
-      ],
+      "commands": ["npm run dependencies"],
       "envVars": [
         "PII",
         "JSON",
@@ -10590,11 +10522,7 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": [
-        "RAG",
-        "RPC",
-        "RLS"
-      ],
+      "envVars": ["RAG", "RPC", "RLS"],
       "filePaths": [],
       "frontmatter": null
     },
@@ -10900,9 +10828,7 @@
           "target": "MIGRATION_STRUCTURE.md"
         }
       ],
-      "commands": [
-        "npm run --prefix"
-      ],
+      "commands": ["npm run --prefix"],
       "envVars": [
         "ENVIRONMENT_SETUP",
         "LOCAL_DEVELOPMENT",
@@ -10948,10 +10874,7 @@
         "owner": "Engineering",
         "last_reviewed": "2025-01-27",
         "status": "authoritative",
-        "related": [
-          "</README.md>",
-          "</CONTRIBUTING.md>"
-        ]
+        "related": ["</README.md>", "</CONTRIBUTING.md>"]
       }
     },
     {
@@ -11058,15 +10981,8 @@
         "npm run reports:serve",
         "npm run reports:ci"
       ],
-      "envVars": [
-        "E2E",
-        "HTML",
-        "URL",
-        "PWA"
-      ],
-      "filePaths": [
-        "/workbox-*.js"
-      ],
+      "envVars": ["E2E", "HTML", "URL", "PWA"],
+      "filePaths": ["/workbox-*.js"],
       "frontmatter": null
     },
     {
@@ -11868,9 +11784,7 @@
           "target": "INCIDENT_RESPONSE.md"
         }
       ],
-      "commands": [
-        "npm run --prefix"
-      ],
+      "commands": ["npm run --prefix"],
       "envVars": [
         "SUPABASE_ANON_KEY",
         "SELECT",
@@ -11935,12 +11849,7 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": [
-        "RLS",
-        "INSERT",
-        "UPDATE",
-        "SELECT"
-      ],
+      "envVars": ["RLS", "INSERT", "UPDATE", "SELECT"],
       "filePaths": [],
       "frontmatter": null
     },
@@ -12320,11 +12229,7 @@
           "target": "WEB_ARCHITECTURE.md"
         }
       ],
-      "commands": [
-        "npm run --prefix",
-        "npx playwright",
-        "npx axe"
-      ],
+      "commands": ["npm run --prefix", "npx playwright", "npx axe"],
       "envVars": [
         "E2E",
         "LOCAL_DEVELOPMENT",
@@ -12916,10 +12821,7 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": [
-        "DMV",
-        "PDF"
-      ],
+      "envVars": ["DMV", "PDF"],
       "filePaths": [],
       "frontmatter": null
     },
@@ -12937,10 +12839,7 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": [
-        "DMV",
-        "SHA256"
-      ],
+      "envVars": ["DMV", "SHA256"],
       "filePaths": [],
       "frontmatter": null
     },
@@ -12998,10 +12897,7 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": [
-        "JSON",
-        "API"
-      ],
+      "envVars": ["JSON", "API"],
       "filePaths": [
         "users.json",
         "enrollments.json",
@@ -13209,14 +13105,7 @@
         "npx tsx",
         "tsx ops/seed/normalize/cli.ts"
       ],
-      "envVars": [
-        "JSON",
-        "CLI",
-        "README",
-        "ONLINE",
-        "MCQ",
-        "NPM"
-      ],
+      "envVars": ["JSON", "CLI", "README", "ONLINE", "MCQ", "NPM"],
       "filePaths": [],
       "frontmatter": null
     },
@@ -13234,9 +13123,7 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": [
-        "RPC"
-      ],
+      "envVars": ["RPC"],
       "filePaths": [],
       "frontmatter": null
     },
@@ -13289,11 +13176,7 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": [
-        "E2E",
-        "ARIA",
-        "README"
-      ],
+      "envVars": ["E2E", "ARIA", "README"],
       "filePaths": [
         "auth-ui.spec.ts",
         "learner-features.spec.ts",

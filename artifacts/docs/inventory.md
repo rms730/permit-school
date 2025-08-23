@@ -17,6 +17,7 @@ Generated: 2025-08-23T19:23:49.741Z
 ### .
 
 #### [Agent Playbook](AGENT.md)
+
 - **Path**: `AGENT.md`
 - **Last Modified**: 2025-08-22T04:59:43.860Z
 - **Size**: 1713 bytes
@@ -24,6 +25,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: PLAN, RUN, REFLECT, MUI, SQL...
 
 #### [Contributing to Permit School](CONTRIBUTING.md)
+
 - **Path**: `CONTRIBUTING.md`
 - **Last Modified**: 2025-08-18T17:24:10.765Z
 - **Size**: 12530 bytes
@@ -33,6 +35,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: ENVIRONMENT_SETUP, LOCAL_DEVELOPMENT, TESTING, API, ALTER...
 
 #### [Dual Product Lines Implementation](DUAL_PRODUCT_IMPLEMENTATION.md)
+
 - **Path**: `DUAL_PRODUCT_IMPLEMENTATION.md`
 - **Last Modified**: 2025-08-19T14:20:34.976Z
 - **Size**: 8310 bytes
@@ -41,6 +44,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: ACT, SAT, GMAT, GRE, PERMIT...
 
 #### [Incident Response Runbook](INCIDENT_RESPONSE.md)
+
 - **Path**: `INCIDENT_RESPONSE.md`
 - **Last Modified**: 2025-08-18T17:24:10.765Z
 - **Size**: 10331 bytes
@@ -49,6 +53,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: CTO, SLA, API, RLS, SUPABASE_ANON_KEY...
 
 #### [Migration Structure Summary](MIGRATION_SUMMARY.md)
+
 - **Path**: `MIGRATION_SUMMARY.md`
 - **Last Modified**: 2025-08-22T05:04:16.750Z
 - **Size**: 5777 bytes
@@ -56,6 +61,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: RLS, RAG, PII, DMV
 
 #### [PLAN](PLAN.md)
+
 - **Path**: `PLAN.md`
 - **Last Modified**: 2025-08-16T13:46:49.009Z
 - **Size**: 3134 bytes
@@ -63,6 +69,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: PLAN, RLS, MVP, RAG, CMS...
 
 #### [Privacy Runbook](PRIVACY_RUNBOOK.md)
+
 - **Path**: `PRIVACY_RUNBOOK.md`
 - **Last Modified**: 2025-08-16T13:46:49.009Z
 - **Size**: 9589 bytes
@@ -70,6 +77,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: DSAR, PII, RLS, GDPR, COPPA...
 
 #### [Pull Request Template](PR_BODY.md)
+
 - **Path**: `PR_BODY.md`
 - **Last Modified**: 2025-08-18T17:24:10.765Z
 - **Size**: 6583 bytes
@@ -79,6 +87,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: E2E, WCAG, RLS, SQL, XSS...
 
 #### [Documentation Refresh: Complete, Accurate, Actionable](PR_SUMMARY.md)
+
 - **Path**: `PR_SUMMARY.md`
 - **Last Modified**: 2025-08-18T17:24:10.766Z
 - **Size**: 9093 bytes
@@ -86,6 +95,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: README, CONTRIBUTING, INVENTORY, ENVIRONMENT_SETUP, LOCAL_DEVELOPMENT...
 
 #### [1. Clone and setup](README.md)
+
 - **Path**: `README.md`
 - **Last Modified**: 2025-08-23T19:19:15.397Z
 - **Size**: 7598 bytes
@@ -95,6 +105,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: LOCAL_DEVELOPMENT, DMV, MUI, RLS, PWA...
 
 #### [Security & Compliance Overview](SECURITY_COMPLIANCE.md)
+
 - **Path**: `SECURITY_COMPLIANCE.md`
 - **Last Modified**: 2025-08-18T17:24:10.766Z
 - **Size**: 12105 bytes
@@ -105,6 +116,7 @@ Generated: 2025-08-23T19:23:49.741Z
 ### docs
 
 #### [Adding a New State](docs/ADDING_A_NEW_STATE.md)
+
 - **Path**: `docs/ADDING_A_NEW_STATE.md`
 - **Last Modified**: 2025-08-16T13:46:49.010Z
 - **Size**: 8370 bytes
@@ -112,6 +124,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: INSERT, INTO, VALUES, URL, ONLINE...
 
 #### [Billing Lifecycle Management](docs/BILLING_LIFECYCLE.md)
+
 - **Path**: `docs/BILLING_LIFECYCLE.md`
 - **Last Modified**: 2025-08-18T17:24:10.766Z
 - **Size**: 11280 bytes
@@ -120,6 +133,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: API, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, BILLING_SUCCESS_URL...
 
 #### [Branding Guide — Permit School](docs/BRANDING_GUIDE.md)
+
 - **Path**: `docs/BRANDING_GUIDE.md`
 - **Last Modified**: 2025-08-16T13:46:49.010Z
 - **Size**: 10074 bytes
@@ -127,6 +141,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: SVG, PNG, B388FF, FF9800, F44336...
 
 #### [Running CI Checks Locally](docs/CI-LOCAL.md)
+
 - **Path**: `docs/CI-LOCAL.md`
 - **Last Modified**: 2025-08-22T17:34:18.614Z
 - **Size**: 3554 bytes
@@ -135,6 +150,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: E2E, NODE_ENV, BASE_URL, TESTKIT_ON, TESTKIT_TOKEN
 
 #### [CI Setup Guide](docs/CI-SETUP.md)
+
 - **Path**: `docs/CI-SETUP.md`
 - **Last Modified**: 2025-08-23T00:33:53.031Z
 - **Size**: 2891 bytes
@@ -143,6 +159,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: CI_SUPABASE_URL, URL, CI_SUPABASE_SERVICE_ROLE_KEY, CI_SUPABASE_ANON_KEY, CI_TESTKIT_TOKEN...
 
 #### [CI/CD Pipeline](docs/CI.md)
+
 - **Path**: `docs/CI.md`
 - **Last Modified**: 2025-08-23T19:20:08.783Z
 - **Size**: 3982 bytes
@@ -152,6 +169,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: SQL, E2E, SUPABASE_SERVICE_ROLE_KEY, STRIPE_SECRET_KEY, API...
 
 #### [Configuration Strategy](docs/CONFIGURATION_STRATEGY.md)
+
 - **Path**: `docs/CONFIGURATION_STRATEGY.md`
 - **Last Modified**: 2025-08-16T13:46:49.010Z
 - **Size**: 5346 bytes
@@ -160,6 +178,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: SHA, API, DSN, URL, ALTER...
 
 #### [Curriculum and Exam Seeding Documentation](docs/CURRICULUM_AND_EXAMS_SEEDING.md)
+
 - **Path**: `docs/CURRICULUM_AND_EXAMS_SEEDING.md`
 - **Last Modified**: 2025-08-19T14:20:34.977Z
 - **Size**: 14755 bytes
@@ -168,6 +187,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: ONLINE, API, RPC, CASCADE, WHERE...
 
 #### [Design System — Permit School](docs/DESIGN_SYSTEM.md)
+
 - **Path**: `docs/DESIGN_SYSTEM.md`
 - **Last Modified**: 2025-08-16T13:46:49.010Z
 - **Size**: 8839 bytes
@@ -175,6 +195,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: WCAG, B388FF, FF9800, FFB74D, F57C00...
 
 #### [Dev Console Tap](docs/DEV_CONSOLE_TAP.md)
+
 - **Path**: `docs/DEV_CONSOLE_TAP.md`
 - **Last Modified**: 2025-08-22T04:59:43.865Z
 - **Size**: 3722 bytes
@@ -183,6 +204,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: NEXT_PUBLIC_DEV_CONSOLE_TAP, DEV, LOG, NODE_ENV, API...
 
 #### [DMV Reporting & Compliance](docs/DMV_REPORTING.md)
+
 - **Path**: `docs/DMV_REPORTING.md`
 - **Last Modified**: 2025-08-18T17:24:10.766Z
 - **Size**: 11812 bytes
@@ -191,6 +213,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: DMV, YYYY, XXXXXX, DOB, CSV...
 
 #### [Environment Setup Guide](docs/ENVIRONMENT_SETUP.md)
+
 - **Path**: `docs/ENVIRONMENT_SETUP.md`
 - **Last Modified**: 2025-08-22T04:59:43.865Z
 - **Size**: 25855 bytes
@@ -200,6 +223,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: MD025, MD031, MD032, LOCAL_DEVELOPMENT, TESTING...
 
 #### [Environment Variables Reference](docs/ENVIRONMENT_VARIABLES.md)
+
 - **Path**: `docs/ENVIRONMENT_VARIABLES.md`
 - **Last Modified**: 2025-08-21T03:27:09.397Z
 - **Size**: 6388 bytes
@@ -209,6 +233,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, SUPABASE_ANON_KEY, SUPABASE_PUBLISHABLE_KEY, OPENAI_API_KEY...
 
 #### [Final Exams](docs/EXAMS.md)
+
 - **Path**: `docs/EXAMS.md`
 - **Last Modified**: 2025-08-20T17:29:12.885Z
 - **Size**: 8542 bytes
@@ -217,6 +242,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: ONLINE, DUI, INSERT, INTO, VALUES...
 
 #### [Certificate Fulfillment Operations](docs/FULFILLMENT_CA.md)
+
 - **Path**: `docs/FULFILLMENT_CA.md`
 - **Last Modified**: 2025-08-18T17:24:10.766Z
 - **Size**: 12035 bytes
@@ -225,6 +251,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: PDF, URL, API, INSERT, INTO...
 
 #### [Internationalization (i18n) Setup](docs/I18N_SETUP.md)
+
 - **Path**: `docs/I18N_SETUP.md`
 - **Last Modified**: 2025-08-16T13:46:49.010Z
 - **Size**: 5040 bytes
@@ -232,6 +259,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: ALTER, TABLE, ADD, COLUMN, NOT...
 
 #### [Handbook Ingestion](docs/INGESTION.md)
+
 - **Path**: `docs/INGESTION.md`
 - **Last Modified**: 2025-08-10T05:11:20.025Z
 - **Size**: 536 bytes
@@ -240,6 +268,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, NEVER, OPENAI_API_KEY, PDF...
 
 #### [Documentation Inventory](docs/INVENTORY.md)
+
 - **Path**: `docs/INVENTORY.md`
 - **Last Modified**: 2025-08-19T14:20:34.977Z
 - **Size**: 13985 bytes
@@ -247,6 +276,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: README, CONTRIBUTING, AGENT, INCIDENT_RESPONSE, MIGRATION_SUMMARY...
 
 #### [Learner Experience - Sprint 23](docs/LEARNER_EXPERIENCE.md)
+
 - **Path**: `docs/LEARNER_EXPERIENCE.md`
 - **Last Modified**: 2025-08-16T13:46:49.010Z
 - **Size**: 8981 bytes
@@ -254,6 +284,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: API, ARIA, HTML, CTA, ALTER...
 
 #### [Local Development](docs/LOCAL_DEVELOPMENT.md)
+
 - **Path**: `docs/LOCAL_DEVELOPMENT.md`
 - **Last Modified**: 2025-08-20T17:45:08.876Z
 - **Size**: 7874 bytes
@@ -263,6 +294,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: MD025, MD031, MD032, ENVIRONMENT_SETUP, TESTING...
 
 #### [Local Migrations: Full Chain](docs/MIGRATIONS_LOCAL.md)
+
 - **Path**: `docs/MIGRATIONS_LOCAL.md`
 - **Last Modified**: 2025-08-16T13:46:49.010Z
 - **Size**: 989 bytes
@@ -270,6 +302,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: CLI, CTE, RLS, NOT, EXISTS...
 
 #### [Migration Structure](docs/MIGRATION_STRUCTURE.md)
+
 - **Path**: `docs/MIGRATION_STRUCTURE.md`
 - **Last Modified**: 2025-08-16T13:46:49.011Z
 - **Size**: 6141 bytes
@@ -277,6 +310,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: EXISTS, NOT, CREATE, TABLE, PRIMARY...
 
 #### [Offline Review Kit](docs/OFFLINE_REVIEW.md)
+
 - **Path**: `docs/OFFLINE_REVIEW.md`
 - **Last Modified**: 2025-08-16T13:46:49.011Z
 - **Size**: 4570 bytes
@@ -285,6 +319,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: CLI, API, CA_DL_BASIC, OFFLINE, PID...
 
 #### [PII and Compliance Guide](docs/PII_AND_COMPLIANCE.md)
+
 - **Path**: `docs/PII_AND_COMPLIANCE.md`
 - **Last Modified**: 2025-08-16T13:46:49.011Z
 - **Size**: 14266 bytes
@@ -293,6 +328,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: PII, JSON, SHA, PDF, RLS...
 
 #### [RAG RPC (match_content_chunks)](docs/RAG.md)
+
 - **Path**: `docs/RAG.md`
 - **Last Modified**: 2025-08-10T05:11:20.025Z
 - **Size**: 400 bytes
@@ -300,6 +336,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: RAG, RPC, RLS
 
 #### [Permit School Documentation](docs/README.md)
+
 - **Path**: `docs/README.md`
 - **Last Modified**: 2025-08-18T17:24:10.767Z
 - **Size**: 6576 bytes
@@ -309,6 +346,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: ENVIRONMENT_SETUP, LOCAL_DEVELOPMENT, TESTING, E2E, WEB_ARCHITECTURE...
 
 #### [Test Reports](docs/REPORTS.md)
+
 - **Path**: `docs/REPORTS.md`
 - **Last Modified**: 2025-08-22T04:59:43.865Z
 - **Size**: 2470 bytes
@@ -317,6 +355,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: E2E, HTML, URL, PWA
 
 #### [Operational Runbooks](docs/RUNBOOKS.md)
+
 - **Path**: `docs/RUNBOOKS.md`
 - **Last Modified**: 2025-08-18T17:24:10.767Z
 - **Size**: 10593 bytes
@@ -326,6 +365,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: SUPABASE_ANON_KEY, SELECT, FROM, WHERE, PDF...
 
 #### [Security Notes (RLS & Server-only Writes)](docs/SECURITY_NOTES.md)
+
 - **Path**: `docs/SECURITY_NOTES.md`
 - **Last Modified**: 2025-08-10T05:11:20.026Z
 - **Size**: 1251 bytes
@@ -333,6 +373,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: RLS, INSERT, UPDATE, SELECT
 
 #### [Testing Guide](docs/TESTING.md)
+
 - **Path**: `docs/TESTING.md`
 - **Last Modified**: 2025-08-18T17:24:10.767Z
 - **Size**: 12002 bytes
@@ -342,6 +383,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: E2E, LOCAL_DEVELOPMENT, API, WCAG, CSS...
 
 #### [Troubleshooting Guide](docs/TROUBLESHOOTING.md)
+
 - **Path**: `docs/TROUBLESHOOTING.md`
 - **Last Modified**: 2025-08-23T19:23:31.040Z
 - **Size**: 6484 bytes
@@ -353,6 +395,7 @@ Generated: 2025-08-23T19:23:49.741Z
 ### docs/sources/dmv
 
 #### [DMV Handbook Attribution](docs/sources/dmv/ATTRIBUTION.md)
+
 - **Path**: `docs/sources/dmv/ATTRIBUTION.md`
 - **Last Modified**: 2025-08-12T05:38:54.468Z
 - **Size**: 571 bytes
@@ -360,6 +403,7 @@ Generated: 2025-08-23T19:23:49.741Z
 - **Env Vars**: DMV, PDF
 
 #### [DMV Handbook License Notice](docs/sources/dmv/NOTICE-LICENSE.md)
+
 - **Path**: `docs/sources/dmv/NOTICE-LICENSE.md`
 - **Last Modified**: 2025-08-16T13:46:49.011Z
 - **Size**: 321 bytes
@@ -369,6 +413,7 @@ Generated: 2025-08-23T19:23:49.741Z
 ### ops/fixtures/offline
 
 #### [Offline Review Kit Fixtures](ops/fixtures/offline/README.md)
+
 - **Path**: `ops/fixtures/offline/README.md`
 - **Last Modified**: 2025-08-16T13:46:49.011Z
 - **Size**: 1513 bytes
@@ -378,6 +423,7 @@ Generated: 2025-08-23T19:23:49.741Z
 ### ops/seed
 
 #### [Seeding (Canonical)](ops/seed/README.md)
+
 - **Path**: `ops/seed/README.md`
 - **Last Modified**: 2025-08-20T17:29:13.204Z
 - **Size**: 7314 bytes
@@ -388,6 +434,7 @@ Generated: 2025-08-23T19:23:49.741Z
 ### ops/seed/normalize
 
 #### [JSON Normalization Toolchain](ops/seed/normalize/README.md)
+
 - **Path**: `ops/seed/normalize/README.md`
 - **Last Modified**: 2025-08-20T17:29:13.119Z
 - **Size**: 7478 bytes
@@ -398,6 +445,7 @@ Generated: 2025-08-23T19:23:49.741Z
 ### scripts
 
 #### [Scripts](scripts/README.md)
+
 - **Path**: `scripts/README.md`
 - **Last Modified**: 2025-08-22T04:59:43.867Z
 - **Size**: 2684 bytes
@@ -408,6 +456,7 @@ Generated: 2025-08-23T19:23:49.741Z
 ### states/ca
 
 #### [California (CA)](states/ca/README.md)
+
 - **Path**: `states/ca/README.md`
 - **Last Modified**: 2025-08-10T05:11:20.027Z
 - **Size**: 68 bytes
@@ -416,6 +465,7 @@ Generated: 2025-08-23T19:23:49.741Z
 ### states/tx
 
 #### [Texas (TX)](states/tx/README.md)
+
 - **Path**: `states/tx/README.md`
 - **Last Modified**: 2025-08-10T05:11:20.027Z
 - **Size**: 69 bytes
@@ -424,6 +474,7 @@ Generated: 2025-08-23T19:23:49.741Z
 ### supabase/functions/tutor
 
 #### [Tutor Edge Function](supabase/functions/tutor/README.md)
+
 - **Path**: `supabase/functions/tutor/README.md`
 - **Last Modified**: 2025-08-10T05:11:20.027Z
 - **Size**: 464 bytes
@@ -433,6 +484,7 @@ Generated: 2025-08-23T19:23:49.741Z
 ### web/tests/e2e
 
 #### [E2E Test Organization Guide](web/tests/e2e/README.md)
+
 - **Path**: `web/tests/e2e/README.md`
 - **Last Modified**: 2025-08-18T17:23:50.513Z
 - **Size**: 3518 bytes
@@ -815,4 +867,3 @@ Generated: 2025-08-23T19:23:49.741Z
 - `YOUR_JWT`
 - `YYYY`
 - `ZIP`
-

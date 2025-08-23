@@ -13,7 +13,7 @@ The project uses GitHub Actions for CI/CD with multiple workflows that ensure co
 Runs on every push to `main` and pull requests:
 
 - **Linting**: Code formatting, environment validation, shell script checking, SQL linting
-- **Testing**: Smoke tests and budget sanity checks  
+- **Testing**: Smoke tests and budget sanity checks
 - **Build**: Basic build verification
 
 ### Web Application Workflow (`.github/workflows/web.yml`)

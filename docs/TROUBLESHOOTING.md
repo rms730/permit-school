@@ -9,6 +9,7 @@ Common issues and solutions for the Permit School application.
 **Problem**: Missing dependencies or incorrect installation.
 
 **Solution**:
+
 ```bash
 # Clean install dependencies
 rm -rf node_modules package-lock.json
@@ -16,7 +17,7 @@ npm ci
 
 # For web directory
 cd web
-rm -rf node_modules package-lock.json  
+rm -rf node_modules package-lock.json
 npm ci
 ```
 
@@ -25,6 +26,7 @@ npm ci
 **Problem**: Missing required environment variables.
 
 **Solution**:
+
 ```bash
 # Check environment validation
 npm run env:check:local
@@ -35,6 +37,7 @@ cp env-examples/web.env.local.example web/.env.local
 ```
 
 **Required variables** (see [Environment Setup](ENVIRONMENT_SETUP.md)):
+
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_ROLE_KEY`
@@ -46,11 +49,12 @@ cp env-examples/web.env.local.example web/.env.local
 **Problem**: Next.js 15 requires awaiting the `cookies()` function.
 
 **Solution**:
+
 ```typescript
 // ❌ Wrong (Next.js 14 style)
 const cookieStore = cookies();
 
-// ✅ Correct (Next.js 15 style)  
+// ✅ Correct (Next.js 15 style)
 const cookieStore = await cookies();
 ```
 
@@ -59,16 +63,17 @@ const cookieStore = await cookies();
 **Problem**: Server and client rendering different content.
 
 **Solution**:
+
 1. Use `useEffect` for client-only code
 2. Guard browser APIs with `typeof window !== 'undefined'`
 3. Use `dynamic` imports with `ssr: false` for client-only components
 
 ```typescript
 // Client-only component
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-const ClientComponent = dynamic(() => import('./ClientComponent'), {
-  ssr: false
+const ClientComponent = dynamic(() => import("./ClientComponent"), {
+  ssr: false,
 });
 ```
 
@@ -79,6 +84,7 @@ const ClientComponent = dynamic(() => import('./ClientComponent'), {
 **Problem**: Supabase not running or incorrect configuration.
 
 **Solution**:
+
 ```bash
 # Start Supabase locally
 supabase start
@@ -95,6 +101,7 @@ supabase db reset
 **Problem**: RLS policies blocking database access.
 
 **Solution**:
+
 1. Check user authentication status
 2. Verify RLS policies in Supabase dashboard
 3. Ensure service role key is used for admin operations
@@ -106,6 +113,7 @@ supabase db reset
 **Problem**: Type checking failures.
 
 **Solution**:
+
 ```bash
 # Check types locally
 npm --prefix web run typecheck
@@ -121,6 +129,7 @@ npm --prefix web run typecheck
 **Problem**: Linting failures preventing build.
 
 **Solution**:
+
 ```bash
 # Run linting
 npm --prefix web run lint
@@ -139,6 +148,7 @@ npm --prefix web run lint:a11y
 **Problem**: Playwright tests failing intermittently.
 
 **Solution**:
+
 ```bash
 # Run tests with debug mode
 npm --prefix web run test:e2e:debug
@@ -151,6 +161,7 @@ npm --prefix web run test:e2e:install
 ```
 
 **Common fixes**:
+
 1. Increase timeout values
 2. Add proper wait conditions
 3. Use stable selectors (data-testid)
@@ -161,6 +172,7 @@ npm --prefix web run test:e2e:install
 **Problem**: Vitest tests failing.
 
 **Solution**:
+
 ```bash
 # Run tests in watch mode
 npm --prefix web run test:watch
@@ -179,6 +191,7 @@ npm --prefix web run test -- --coverage
 **Problem**: Another process using the port.
 
 **Solution**:
+
 ```bash
 # Find and kill process
 lsof -ti:3000 | xargs kill -9
@@ -192,6 +205,7 @@ npm --prefix web run dev -- --port 3001
 **Problem**: File watching issues.
 
 **Solution**:
+
 1. Check file system limits (Linux)
 2. Restart development server
 3. Clear Next.js cache: `rm -rf web/.next`
@@ -203,6 +217,7 @@ npm --prefix web run dev -- --port 3001
 **Problem**: Authentication state issues.
 
 **Solution**:
+
 1. Clear browser storage and cookies
 2. Check Supabase Auth configuration
 3. Verify JWT settings and expiration
@@ -212,6 +227,7 @@ npm --prefix web run dev -- --port 3001
 **Problem**: Token validation failing.
 
 **Solution**:
+
 1. Check system clock synchronization
 2. Verify Supabase project settings
 3. Clear authentication state and re-login
@@ -223,6 +239,7 @@ npm --prefix web run dev -- --port 3001
 **Problem**: Performance bottlenecks.
 
 **Solution**:
+
 1. Run Lighthouse audit: `npm --prefix web run lhci`
 2. Check Network tab in DevTools
 3. Optimize images and assets
@@ -233,6 +250,7 @@ npm --prefix web run dev -- --port 3001
 **Problem**: High memory usage or leaks.
 
 **Solution**:
+
 1. Monitor with Chrome DevTools Performance tab
 2. Check for unclosed database connections
 3. Review component re-renders with React DevTools
@@ -244,6 +262,7 @@ npm --prefix web run dev -- --port 3001
 **Problem**: SQL migration errors.
 
 **Solution**:
+
 ```bash
 # Check migration syntax
 python -m pip install sqlfluff
@@ -259,6 +278,7 @@ supabase db push
 **Problem**: Row Level Security policy errors.
 
 **Solution**:
+
 1. Review policy logic in migration files
 2. Test policies with different user roles
 3. Check for policy conflicts or gaps

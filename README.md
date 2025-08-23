@@ -165,7 +165,7 @@ STRIPE_PUBLISHABLE_KEY=
 
 # Email (required for notifications)
 RESEND_API_KEY=
-````
+```
 
 ## Documentation
 
@@ -179,13 +179,13 @@ RESEND_API_KEY=
 
 ## Quick Links
 
-| Purpose         | URL                              | Description        |
-| --------------- | -------------------------------- | ------------------ |
-| **Development** | [http://localhost:3000](http://localhost:3000)            | Main application   |
-| **Admin**       | [http://localhost:3000/admin](http://localhost:3000/admin)      | Admin dashboard    |
-| **Supabase**    | [http://localhost:54323](http://localhost:54323)           | Database dashboard |
+| Purpose         | URL                                                                  | Description        |
+| --------------- | -------------------------------------------------------------------- | ------------------ |
+| **Development** | [http://localhost:3000](http://localhost:3000)                       | Main application   |
+| **Admin**       | [http://localhost:3000/admin](http://localhost:3000/admin)           | Admin dashboard    |
+| **Supabase**    | [http://localhost:54323](http://localhost:54323)                     | Database dashboard |
 | **Health**      | [http://localhost:3000/api/health](http://localhost:3000/api/health) | System status      |
-| **Courses**     | [http://localhost:3000/courses](http://localhost:3000/courses)    | Public catalog     |
+| **Courses**     | [http://localhost:3000/courses](http://localhost:3000/courses)       | Public catalog     |
 
 ## Support
 

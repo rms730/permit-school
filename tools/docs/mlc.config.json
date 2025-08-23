@@ -1,0 +1,55 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^https://github.com/rms730/permit-school"
+    },
+    {
+      "pattern": "^https://stripe.com"
+    },
+    {
+      "pattern": "^https://resend.com"
+    },
+    {
+      "pattern": "^https://sentry.io"
+    },
+    {
+      "pattern": "^https://supabase.com"
+    },
+    {
+      "pattern": "^https://nextjs.org"
+    },
+    {
+      "pattern": "^https://mui.com"
+    },
+    {
+      "pattern": "^https://playwright.dev"
+    },
+    {
+      "pattern": "^https://vitest.dev"
+    },
+    {
+      "pattern": "^https://eslint.org"
+    },
+    {
+      "pattern": "^https://typescript-eslint.io"
+    },
+    {
+      "pattern": "^https://markdownlint.github.io"
+    },
+    {
+      "pattern": "^https://github.com/tcort/markdown-link-check"
+    }
+  ],
+  "httpHeaders": [
+    {
+      "urls": ["https://github.com"],
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (compatible; markdown-link-check/3.12.2)"
+      }
+    }
+  ],
+  "retryOn429": true,
+  "retryCount": 3,
+  "timeout": "10s",
+  "aliveStatusCodes": [200, 206, 403, 405, 429]
+}

@@ -1,0 +1,95 @@
+name: Documentation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate documentation inventory
+        run: npm run docs:inventory
+
+      - name: Validate referenced commands
+        run: npm run docs:validate-commands
+
+      - name: Lint markdown files
+        run: npm run docs:lint
+
+      - name: Check internal links
+        run: npm run docs:links
+
+      - name: Upload documentation artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: docs-reports
+          path: |
+            artifacts/docs/
+          retention-days: 7
+
+      - name: Comment PR with docs status
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            
+            // Read inventory report
+            let inventoryData = {};
+            try {
+              const inventoryFile = fs.readFileSync('artifacts/docs/inventory.json', 'utf8');
+              inventoryData = JSON.parse(inventoryFile);
+            } catch (error) {
+              console.log('Could not read inventory report');
+            }
+            
+            // Read command validation report  
+            let commandData = {};
+            try {
+              const commandFile = fs.readFileSync('artifacts/docs/cmd-report.json', 'utf8');
+              commandData = JSON.parse(commandFile);
+            } catch (error) {
+              console.log('Could not read command report');
+            }
+            
+            const summary = `## 📚 Documentation Report
+            
+            ### Inventory Summary
+            - **Total Files**: ${inventoryData.summary?.totalFiles || 'N/A'}
+            - **Total Links**: ${inventoryData.summary?.totalLinks || 'N/A'}
+            - **Internal Links**: ${inventoryData.summary?.internalLinks || 'N/A'}
+            - **External Links**: ${inventoryData.summary?.externalLinks || 'N/A'}
+            - **Referenced Scripts**: ${inventoryData.summary?.uniqueScripts?.length || 'N/A'}
+            
+            ### Command Validation
+            - **Root Scripts**: ${commandData.summary?.totalRootScripts || 'N/A'}
+            - **Web Scripts**: ${commandData.summary?.totalWebScripts || 'N/A'}
+            - **Referenced Commands**: ${commandData.summary?.totalReferencedCommands || 'N/A'}
+            - **Validation Errors**: ${commandData.summary?.errors || 'N/A'}
+            
+            ${commandData.summary?.errors > 0 ? '⚠️ **Command validation failed** - Some referenced commands do not exist' : '✅ **All referenced commands are valid**'}
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });

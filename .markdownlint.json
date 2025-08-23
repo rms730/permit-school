@@ -1,0 +1,45 @@
+{
+  "default": true,
+  "MD013": {
+    "line_length": 120,
+    "code_blocks": false,
+    "tables": false,
+    "headings": false
+  },
+  "MD024": {
+    "siblings_only": true
+  },
+  "MD025": false,
+  "MD033": false,
+  "MD041": false,
+  "MD002": false,
+  "MD034": false,
+  "MD036": false,
+  "MD026": {
+    "punctuation": ".,;:!"
+  },
+  "MD029": {
+    "style": "ordered"
+  },
+  "MD030": {
+    "ul_single": 1,
+    "ol_single": 1,
+    "ul_multi": 1,
+    "ol_multi": 1
+  },
+  "MD007": {
+    "indent": 2
+  },
+  "MD012": {
+    "maximum": 2
+  },
+  "MD022": true,
+  "MD040": true,
+  "MD046": {
+    "style": "fenced"
+  },
+  "MD047": true,
+  "MD048": {
+    "style": "backtick"
+  }
+}

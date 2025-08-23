@@ -8,7 +8,7 @@ related:
   - </CONTRIBUTING.md>
 ---
 
-# Permit School
+## Permit School
 
 **Multi-state driver education platform** — California first, Texas next. Complete learning experience from enrollment to certificate issuance with regulatory compliance.
 
@@ -48,7 +48,7 @@ curl http://localhost:3000/api/health
 
 ## Architecture Overview
 
-```
+```text
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   Next.js App   │    │   Supabase      │    │   External      │
 │   (React + MUI) │◄──►│   (Postgres +   │◄──►│   Services      │
@@ -111,6 +111,7 @@ npm --prefix web run dev          # Start development server
 NEXT_PUBLIC_DEV_CONSOLE_TAP=1 npm --prefix web run dev  # Start with console tap enabled
 ```
 
+```bash
 npm --prefix web run build # Build for production
 npm --prefix web run start # Start production server
 
@@ -132,8 +133,7 @@ supabase db reset # Reset local database
 
 npm --prefix web run seed:handbooks # Seed handbook content
 node web/scripts/make_admin.mjs email # Create admin user
-
-````
+```
 
 ## Environment Setup
 
@@ -181,11 +181,11 @@ RESEND_API_KEY=
 
 | Purpose         | URL                              | Description        |
 | --------------- | -------------------------------- | ------------------ |
-| **Development** | http://localhost:3000            | Main application   |
-| **Admin**       | http://localhost:3000/admin      | Admin dashboard    |
-| **Supabase**    | http://localhost:54323           | Database dashboard |
-| **Health**      | http://localhost:3000/api/health | System status      |
-| **Courses**     | http://localhost:3000/courses    | Public catalog     |
+| **Development** | [http://localhost:3000](http://localhost:3000)            | Main application   |
+| **Admin**       | [http://localhost:3000/admin](http://localhost:3000/admin)      | Admin dashboard    |
+| **Supabase**    | [http://localhost:54323](http://localhost:54323)           | Database dashboard |
+| **Health**      | [http://localhost:3000/api/health](http://localhost:3000/api/health) | System status      |
+| **Courses**     | [http://localhost:3000/courses](http://localhost:3000/courses)    | Public catalog     |
 
 ## Support
 

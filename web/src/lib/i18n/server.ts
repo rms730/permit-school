@@ -16,8 +16,8 @@ export async function getLocaleFromRequest(): Promise<SupportedLocale> {
   
   // 2. Check user profile locale (if authenticated)
   try {
-    const { createRouteHandlerClient } = await import('@supabase/auth-helpers-nextjs');
-    const supabase = createRouteHandlerClient({ cookies });
+    const { getRouteClient } = await import('@/lib/supabaseRoute');
+    const supabase = await getRouteClient();
     const { data: { user } } = await supabase.auth.getUser();
     
     if (user) {

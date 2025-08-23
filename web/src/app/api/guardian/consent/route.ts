@@ -3,8 +3,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { renderGuardianConsentPDF } from '@/lib/consentPdf';
 import { sendGuardianReceiptEmail } from '@/lib/email';
 import { notifyStudentAndGuardians } from '@/lib/notify';
-import { getRouteClient } from '@/lib/supabaseRoute';
 import { createSignedUrl } from '@/lib/storageSignedUrl';
+import { getRouteClient } from '@/lib/supabaseRoute';
 import { hashToken } from '@/lib/tokens';
 
 export async function POST(request: NextRequest) {

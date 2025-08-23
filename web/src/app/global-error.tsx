@@ -8,14 +8,10 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
   }, [error]);
 
   return (
-    <html lang="en">
-      <body>
-        <div role="alert" style={{ padding: 24 }}>
-          <h1>Something went wrong</h1>
-          <p>{error?.message ?? "Unknown error"}</p>
-          <button onClick={() => reset()}>Try again</button>
-        </div>
-      </body>
-    </html>
+    <div role="alert" style={{ padding: 24 }}>
+      <h1>Something went wrong</h1>
+      <p>{error?.message ?? "Unknown error"}</p>
+      <button onClick={() => reset()}>Try again</button>
+    </div>
   );
 }

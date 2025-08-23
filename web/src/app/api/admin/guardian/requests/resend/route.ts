@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 import { sendGuardianRequestEmail } from '@/lib/email';
-import { generateToken, hashToken } from '@/lib/tokens';
 import { getRouteClient } from '@/lib/supabaseRoute';
+import { generateToken, hashToken } from '@/lib/tokens';
 
 export async function POST(request: NextRequest) {
   try {

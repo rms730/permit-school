@@ -9,9 +9,13 @@ export async function getLocaleFromRequest(): Promise<SupportedLocale> {
   const headersList = await headers();
   
   // 1. Check cookie first
-  const cookieLang = cookieStore.get('lang')?.value;
-  if (cookieLang && isValidLocale(cookieLang)) {
-    return cookieLang;
+  try {
+    const cookieLang = cookieStore.get('lang')?.value;
+    if (cookieLang && isValidLocale(cookieLang)) {
+      return cookieLang;
+    }
+  } catch (error) {
+    console.warn('Error reading cookie:', error);
   }
   
   // 2. Check user profile locale (if authenticated)

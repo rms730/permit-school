@@ -7,7 +7,6 @@ import {
   SupportAgent,
 } from '@mui/icons-material';
 import {
-  Grid,
   Card,
   CardContent,
   Stack,
@@ -15,6 +14,7 @@ import {
   Box,
   Container,
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import {useTranslations} from 'next-intl';
 import * as React from 'react';
 
@@ -78,7 +78,12 @@ export function FeatureGrid() {
 
         <Grid container spacing={3} id="features" role="list">
           {features.map((feature, index) => (
-            <Grid key={feature.title} item xs={12} sm={6} md={4} role="listitem">
+            <Grid
+              key={feature.title}
+              role="listitem"
+              xs={12}
+              sm={6}
+              md={4}>
               <Card
                 sx={{
                   height: '100%',

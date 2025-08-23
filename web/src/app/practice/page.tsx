@@ -8,8 +8,9 @@ import {
   Box,
   Card,
   CardContent,
-  Grid,
+
 } from "@mui/material";
+import Grid from '@mui/material/GridLegacy';
 import Link from "next/link";
 
 import { Container as ContainerComponent } from "@/components/Container";
@@ -46,7 +47,9 @@ export default function PracticePage() {
           </Box>
 
           <Grid container spacing={4} justifyContent="center">
-            <Grid item xs={12} md={4}>
+            <Grid
+              xs={12}
+              md={4}>
               <Card
                 sx={{
                   height: '100%',
@@ -88,7 +91,9 @@ export default function PracticePage() {
               </Card>
             </Grid>
 
-            <Grid item xs={12} md={4}>
+            <Grid
+              xs={12}
+              md={4}>
               <Card
                 sx={{
                   height: '100%',
@@ -132,7 +137,9 @@ export default function PracticePage() {
               </Card>
             </Grid>
 
-            <Grid item xs={12} md={4}>
+            <Grid
+              xs={12}
+              md={4}>
               <Card
                 sx={{
                   height: '100%',

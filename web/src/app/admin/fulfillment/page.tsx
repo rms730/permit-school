@@ -34,8 +34,9 @@ import {
   DialogContent,
   DialogActions,
   TextField,
-  Grid
+
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
@@ -212,7 +213,6 @@ export default function FulfillmentPage() {
       <Typography variant="h4" gutterBottom>
         Certificate Fulfillment
       </Typography>
-
       {/* Export Controls */}
       <Card sx={{ mb: 3 }}>
         <CardContent>
@@ -221,7 +221,9 @@ export default function FulfillmentPage() {
           </Typography>
           
           <Grid container spacing={2} alignItems="center">
-            <Grid item xs={12} sm={3}>
+            <Grid
+              xs={12}
+              sm={3}>
               <FormControl fullWidth>
                 <InputLabel>Jurisdiction</InputLabel>
                 <Select
@@ -234,7 +236,9 @@ export default function FulfillmentPage() {
               </FormControl>
             </Grid>
             
-            <Grid item xs={12} sm={3}>
+            <Grid
+              xs={12}
+              sm={3}>
               <FormControl fullWidth>
                 <InputLabel>Course (Optional)</InputLabel>
                 <Select
@@ -252,7 +256,9 @@ export default function FulfillmentPage() {
               </FormControl>
             </Grid>
             
-            <Grid item xs={12} sm={3}>
+            <Grid
+              xs={12}
+              sm={3}>
               <FormControlLabel
                 control={
                   <Switch
@@ -264,7 +270,9 @@ export default function FulfillmentPage() {
               />
             </Grid>
             
-            <Grid item xs={12} sm={3}>
+            <Grid
+              xs={12}
+              sm={3}>
               <Button
                 variant="contained"
                 onClick={handleExport}
@@ -287,7 +295,6 @@ export default function FulfillmentPage() {
           )}
         </CardContent>
       </Card>
-
       {/* Inventory Widget */}
       <Card sx={{ mb: 3 }}>
         <CardContent>
@@ -318,7 +325,6 @@ export default function FulfillmentPage() {
           )}
         </CardContent>
       </Card>
-
       {/* Recent Batches */}
       <Card>
         <CardContent>
@@ -406,7 +412,6 @@ export default function FulfillmentPage() {
           </TableContainer>
         </CardContent>
       </Card>
-
       {/* Reconcile Dialog */}
       <Dialog 
         open={reconcileDialogOpen} 

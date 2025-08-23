@@ -21,6 +21,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import * as React from 'react';
 import { Button } from './Button';
 import LanguageSwitcher from './LanguageSwitcher';
+import { scrollToAnchor } from '../lib/scrollToAnchor';
 
 const navigationItems = [
   { label: 'How it works', href: '#how-it-works', type: 'anchor' },
@@ -47,10 +48,7 @@ export function Header() {
     if (type === 'anchor') {
       // Handle anchor links - add slight delay to ensure page is ready
       setTimeout(() => {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        scrollToAnchor(href);
       }, 100);
     } else {
       // Handle external navigation - don't add locale prefix for external routes
@@ -139,6 +137,7 @@ export function Header() {
       </Box>
 
       <AppBar 
+        component="header"
         position="sticky" 
         elevation={0}
         sx={{

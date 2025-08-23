@@ -53,8 +53,8 @@ export default function AuthCallbackPage() {
             // Don't fail the auth flow if profile upsert fails
           }
 
-          // Redirect to dashboard
-          router.push('/dashboard');
+          // Redirect to dashboard with locale
+          router.push('/en/dashboard');
         } else {
           setError('No session found. Please try signing in again.');
         }
@@ -70,7 +70,7 @@ export default function AuthCallbackPage() {
   // Handle error redirect
   React.useEffect(() => {
     if (error) {
-      const timer = setTimeout(() => router.push('/signin'), 3000);
+      const timer = setTimeout(() => router.push('/en/signin'), 3000);
       return () => clearTimeout(timer);
     }
   }, [error, router]);

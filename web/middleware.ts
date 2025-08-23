@@ -44,10 +44,10 @@ export default async function middleware(req: NextRequest) {
 
 export const config = {
   /*
-   * Exclude Next.js internals, static files, and PWA assets from locale routing
+   * Exclude Next.js internals, static files, PWA assets, and API routes from locale routing
    */
   matcher: [
-    '/((?!_next|static|favicon\\.ico|manifest\\.webmanifest|icons/.*|robots\\.txt|sitemap\\.xml|sw\\.js|workbox-.*).*)'
+    '/((?!api|_next|static|favicon\\.ico|manifest\\.webmanifest|icons/.*|robots\\.txt|sitemap\\.xml|sw\\.js|workbox-.*).*)'
   ]
 };
 

@@ -16,7 +16,7 @@ import {
   Typography,
   Avatar,
   Chip,
-  Grid,
+
   Divider,
   Button,
   List,
@@ -25,6 +25,7 @@ import {
   ListItemText,
   ListItemSecondaryAction,
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -106,7 +107,7 @@ export default function AccountOverview({ user, profile }: AccountOverviewProps)
   return (
     <Grid container spacing={3}>
       {/* Profile Overview Card */}
-      <Grid item xs={12} md={6}>
+      <Grid xs={12} md={6}>
         <Card>
           <CardContent>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
@@ -164,9 +165,8 @@ export default function AccountOverview({ user, profile }: AccountOverviewProps)
           </CardContent>
         </Card>
       </Grid>
-
       {/* Settings Navigation */}
-      <Grid item xs={12} md={6}>
+      <Grid xs={12} md={6}>
         <Card>
           <CardContent>
             <Typography variant="h6" fontWeight={600} gutterBottom>

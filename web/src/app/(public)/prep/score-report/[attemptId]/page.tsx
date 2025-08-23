@@ -10,7 +10,7 @@ import {
   Typography,
   Card,
   CardContent,
-  Grid,
+
   LinearProgress,
   Chip,
   Divider,
@@ -20,6 +20,7 @@ import {
   Button,
   Alert,
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import Link from 'next/link';
 import React from 'react';
 
@@ -140,12 +141,11 @@ export default async function ScoreReportPage({ params }: ScoreReportPageProps) 
           Test completed on {testDate}
         </Typography>
       </Box>
-
       {/* Overall Score Card */}
       <Card sx={{ mb: 4, background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white' }}>
         <CardContent sx={{ p: 4 }}>
           <Grid container alignItems="center" spacing={3}>
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <Typography variant="h2" component="div" sx={{ fontWeight: 700, mb: 1 }}>
                 {attempt.scaled_score}
                 <Typography component="span" variant="h4" sx={{ opacity: 0.8, ml: 1 }}>
@@ -163,7 +163,7 @@ export default async function ScoreReportPage({ params }: ScoreReportPageProps) 
                 }}
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <Box sx={{ textAlign: { xs: 'left', md: 'right' } }}>
                 <Button
                   variant="outlined"
@@ -201,10 +201,9 @@ export default async function ScoreReportPage({ params }: ScoreReportPageProps) 
           </Grid>
         </CardContent>
       </Card>
-
       <Grid container spacing={4}>
         {/* Section Scores */}
-        <Grid item xs={12} md={8}>
+        <Grid xs={12} md={8}>
           <Card sx={{ mb: 4 }}>
             <CardContent>
               <Typography variant="h5" component="h2" sx={{ fontWeight: 600, mb: 3 }}>
@@ -226,7 +225,7 @@ export default async function ScoreReportPage({ params }: ScoreReportPageProps) 
                     />
                   </Box>
                   <Grid container spacing={2} sx={{ mb: 2 }}>
-                    <Grid item xs={4}>
+                    <Grid xs={4}>
                       <Typography variant="body2" color="text.secondary">
                         Accuracy
                       </Typography>
@@ -234,7 +233,7 @@ export default async function ScoreReportPage({ params }: ScoreReportPageProps) 
                         {Math.round(section.accuracy * 100)}%
                       </Typography>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid xs={4}>
                       <Typography variant="body2" color="text.secondary">
                         Questions
                       </Typography>
@@ -242,7 +241,7 @@ export default async function ScoreReportPage({ params }: ScoreReportPageProps) 
                         {section.raw_score}/{section.total_questions}
                       </Typography>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid xs={4}>
                       <Typography variant="body2" color="text.secondary">
                         Time Used
                       </Typography>
@@ -304,7 +303,7 @@ export default async function ScoreReportPage({ params }: ScoreReportPageProps) 
         </Grid>
 
         {/* Recommendations & Actions */}
-        <Grid item xs={12} md={4}>
+        <Grid xs={12} md={4}>
           <Card sx={{ mb: 4 }}>
             <CardContent>
               <Typography variant="h6" component="h2" sx={{ fontWeight: 600, mb: 2 }}>

@@ -25,7 +25,7 @@ interface ProfileData {
   first_name: string;
   last_name: string;
   middle_name?: string;
-  dob: Date | null;
+  dob: Date | null | undefined;
   phone?: string;
   address_line1: string;
   address_line2?: string;
@@ -370,8 +370,8 @@ export default function OnboardingPage() {
             />
             <DatePicker
               label="Date of Birth *"
-              value={profileData.dob}
-              onChange={(date: Date | null) => setProfileData({ ...profileData, dob: date })}
+              value={profileData.dob instanceof Date ? profileData.dob : null as any}
+              onChange={(date: Date | null | undefined) => setProfileData({ ...profileData, dob: date })}
               slotProps={{
                 textField: {
                   fullWidth: true,

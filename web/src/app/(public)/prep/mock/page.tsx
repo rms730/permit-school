@@ -12,7 +12,7 @@ import {
   Button,
   Card,
   CardContent,
-  Grid,
+
   Chip,
   List,
   ListItem,
@@ -20,6 +20,7 @@ import {
   ListItemText,
   Alert,
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import Link from 'next/link';
 import React from 'react';
 
@@ -127,7 +128,6 @@ export default function MockTestPage() {
           </Box>
         </Container>
       </Box>
-
       {/* Test Warning */}
       <Box sx={{ py: 4, backgroundColor: '#fef3c7' }}>
         <Container maxWidth="lg">
@@ -153,7 +153,6 @@ export default function MockTestPage() {
           </Alert>
         </Container>
       </Box>
-
       {/* Test Features Section */}
       <Box sx={{ py: 8, backgroundColor: '#f8fafc' }}>
         <Container maxWidth="lg">
@@ -171,7 +170,7 @@ export default function MockTestPage() {
             Authentic Test Experience
           </Typography>
           <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card
                 sx={{
                   height: '100%',
@@ -200,7 +199,7 @@ export default function MockTestPage() {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card
                 sx={{
                   height: '100%',
@@ -229,7 +228,7 @@ export default function MockTestPage() {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card
                 sx={{
                   height: '100%',
@@ -261,7 +260,6 @@ export default function MockTestPage() {
           </Grid>
         </Container>
       </Box>
-
       {/* Test Formats Section */}
       <Box sx={{ py: 8, backgroundColor: 'white' }}>
         <Container maxWidth="lg">
@@ -279,7 +277,7 @@ export default function MockTestPage() {
             Choose Your Test
           </Typography>
           <Grid container spacing={4} justifyContent="center">
-            <Grid item xs={12} sm={6} md={5}>
+            <Grid xs={12} sm={6} md={5}>
               <Card
                 sx={{
                   height: '100%',
@@ -389,7 +387,7 @@ export default function MockTestPage() {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={5}>
+            <Grid xs={12} sm={6} md={5}>
               <Card
                 sx={{
                   height: '100%',
@@ -494,7 +492,6 @@ export default function MockTestPage() {
           </Grid>
         </Container>
       </Box>
-
       {/* CTA Section */}
       <Box
         sx={{
@@ -550,7 +547,6 @@ export default function MockTestPage() {
           </Box>
         </Container>
       </Box>
-
       {/* Disclaimer */}
       <Box sx={{ py: 4, backgroundColor: '#f1f5f9', borderTop: '1px solid #e2e8f0' }}>
         <Container maxWidth="lg">

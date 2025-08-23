@@ -9,8 +9,8 @@ import {
   TextField,
   Alert,
   CircularProgress,
-  Grid,
 } from "@mui/material";
+import Grid from '@mui/material/GridLegacy';
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
@@ -134,29 +134,28 @@ export default function ProfilePage() {
       <Typography variant="h4" gutterBottom>
         Edit Profile
       </Typography>
-
       {error && (
         <Alert severity="error" sx={{ mb: 3 }}>
           {error}
         </Alert>
       )}
-
       {success && (
         <Alert severity="success" sx={{ mb: 3 }}>
           {success}
         </Alert>
       )}
-
       <Paper sx={{ p: 3 }}>
         <Grid container spacing={3}>
           {/* Personal Information */}
-          <Grid item xs={12}>
+          <Grid xs={12}>
             <Typography variant="h6" gutterBottom>
               Personal Information
             </Typography>
           </Grid>
           
-          <Grid item xs={12} sm={6}>
+          <Grid
+            xs={12}
+            sm={6}>
             <TextField
               fullWidth
               label="First Name *"
@@ -165,7 +164,9 @@ export default function ProfilePage() {
             />
           </Grid>
           
-          <Grid item xs={12} sm={6}>
+          <Grid
+            xs={12}
+            sm={6}>
             <TextField
               fullWidth
               label="Last Name *"
@@ -174,7 +175,7 @@ export default function ProfilePage() {
             />
           </Grid>
           
-          <Grid item xs={12}>
+          <Grid xs={12}>
             <TextField
               fullWidth
               label="Middle Name"
@@ -183,11 +184,13 @@ export default function ProfilePage() {
             />
           </Grid>
           
-          <Grid item xs={12} sm={6}>
+          <Grid
+            xs={12}
+            sm={6}>
             <DatePicker
               label="Date of Birth *"
-              value={profile.dob ? new Date(profile.dob) : null}
-              onChange={(date: Date | null) => handleInputChange("dob", date ? date.toISOString().split("T")[0] : "")}
+              value={profile.dob ? new Date(profile.dob) : null as any}
+              onChange={(date: Date | null | undefined) => handleInputChange("dob", date ? date.toISOString().split("T")[0] : "")}
               slotProps={{
                 textField: {
                   fullWidth: true,
@@ -196,7 +199,9 @@ export default function ProfilePage() {
             />
           </Grid>
           
-          <Grid item xs={12} sm={6}>
+          <Grid
+            xs={12}
+            sm={6}>
             <TextField
               fullWidth
               label="Phone Number"
@@ -206,13 +211,13 @@ export default function ProfilePage() {
           </Grid>
 
           {/* Address */}
-          <Grid item xs={12}>
+          <Grid xs={12}>
             <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
               Address
             </Typography>
           </Grid>
           
-          <Grid item xs={12}>
+          <Grid xs={12}>
             <TextField
               fullWidth
               label="Address Line 1 *"
@@ -221,7 +226,7 @@ export default function ProfilePage() {
             />
           </Grid>
           
-          <Grid item xs={12}>
+          <Grid xs={12}>
             <TextField
               fullWidth
               label="Address Line 2"
@@ -230,7 +235,9 @@ export default function ProfilePage() {
             />
           </Grid>
           
-          <Grid item xs={12} sm={6}>
+          <Grid
+            xs={12}
+            sm={6}>
             <TextField
               fullWidth
               label="City *"
@@ -239,7 +246,9 @@ export default function ProfilePage() {
             />
           </Grid>
           
-          <Grid item xs={12} sm={3}>
+          <Grid
+            xs={12}
+            sm={3}>
             <TextField
               fullWidth
               label="State *"
@@ -248,7 +257,9 @@ export default function ProfilePage() {
             />
           </Grid>
           
-          <Grid item xs={12} sm={3}>
+          <Grid
+            xs={12}
+            sm={3}>
             <TextField
               fullWidth
               label="ZIP Code *"
@@ -260,13 +271,13 @@ export default function ProfilePage() {
           {/* Guardian Information (if minor) */}
           {isMinor && (
             <>
-              <Grid item xs={12}>
+              <Grid xs={12}>
                 <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
                   Guardian Information (Required for students under 18)
                 </Typography>
               </Grid>
               
-              <Grid item xs={12}>
+              <Grid xs={12}>
                 <TextField
                   fullWidth
                   label="Guardian Name *"
@@ -275,7 +286,9 @@ export default function ProfilePage() {
                 />
               </Grid>
               
-              <Grid item xs={12} sm={6}>
+              <Grid
+                xs={12}
+                sm={6}>
                 <TextField
                   fullWidth
                   label="Guardian Email *"
@@ -285,7 +298,9 @@ export default function ProfilePage() {
                 />
               </Grid>
               
-              <Grid item xs={12} sm={6}>
+              <Grid
+                xs={12}
+                sm={6}>
                 <TextField
                   fullWidth
                   label="Guardian Phone *"

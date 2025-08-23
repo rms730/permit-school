@@ -15,7 +15,7 @@ import {
   Switch,
   FormControlLabel,
   Button,
-  Grid,
+
   Divider,
   List,
   ListItem,
@@ -24,6 +24,7 @@ import {
   Alert,
   Link,
  IconButton } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -110,16 +111,14 @@ export default function PrivacySettings({ user, profile }: PrivacySettingsProps)
           Privacy & Security
         </Typography>
       </Box>
-
       {message && (
         <Alert severity={message.type} sx={{ mb: 3 }}>
           {message.text}
         </Alert>
       )}
-
       <Grid container spacing={3}>
         {/* Communication Preferences */}
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <Card>
             <CardContent>
               <Typography variant="h6" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -148,7 +147,7 @@ export default function PrivacySettings({ user, profile }: PrivacySettingsProps)
         </Grid>
 
         {/* Privacy Links */}
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <Card>
             <CardContent>
               <Typography variant="h6" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -189,7 +188,7 @@ export default function PrivacySettings({ user, profile }: PrivacySettingsProps)
         </Grid>
 
         {/* Data Information */}
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <Card>
             <CardContent>
               <Typography variant="h6" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>

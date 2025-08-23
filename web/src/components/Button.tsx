@@ -1,5 +1,6 @@
 import { Button as MUIButton, ButtonProps as MUIButtonProps, CircularProgress } from '@mui/material';
 import * as React from 'react';
+import { scrollToAnchor } from '../lib/scrollToAnchor';
 
 export interface ButtonProps extends Omit<MUIButtonProps, 'variant' | 'size'> {
   variant?: 'primary' | 'secondary' | 'ghost' | 'link';
@@ -24,6 +25,8 @@ export function Button({
   asChild: _asChild = false,
   disabled,
   sx,
+  href,
+  onClick,
   ...props
 }: ButtonProps) {
   const muiVariant = variant === 'primary' ? 'contained' : 
@@ -39,6 +42,17 @@ export function Button({
                    icon && iconPosition === 'start' ? icon : undefined;
   
   const endIcon = icon && iconPosition === 'end' ? icon : undefined;
+
+  // Handle anchor link clicks
+  const handleClick = React.useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
+    if (href && href.startsWith('#')) {
+      event.preventDefault();
+      scrollToAnchor(href);
+    }
+    if (onClick) {
+      onClick(event);
+    }
+  }, [href, onClick]);
 
   // Custom styles for ghost and link variants
   const customSx = {
@@ -73,6 +87,8 @@ export function Button({
       startIcon={startIcon}
       endIcon={endIcon}
       sx={customSx}
+      href={href}
+      onClick={handleClick}
       {...props}
     >
       {children}

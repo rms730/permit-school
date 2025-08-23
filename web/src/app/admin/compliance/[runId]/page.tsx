@@ -20,7 +20,7 @@ import {
   Alert,
   Box,
   CircularProgress,
-  Grid,
+
   Chip,
   Table,
   TableBody,
@@ -32,6 +32,7 @@ import {
   Breadcrumbs,
   Link as MuiLink,
 } from "@mui/material";
+import Grid from '@mui/material/GridLegacy';
 import Link from "next/link";
 import * as React from "react";
 import { useState, useEffect, useCallback } from "react";
@@ -256,7 +257,9 @@ export default function AdminComplianceRunDetailsPage({
 
         <Grid container spacing={3}>
           {/* Run Details Card */}
-          <Grid item xs={12} md={6}>
+          <Grid
+            xs={12}
+            md={6}>
             <Card>
               <CardContent>
                 <Typography variant="h6" gutterBottom>
@@ -329,7 +332,9 @@ export default function AdminComplianceRunDetailsPage({
           </Grid>
 
           {/* Summary Card */}
-          <Grid item xs={12} md={6}>
+          <Grid
+            xs={12}
+            md={6}>
             <Card>
               <CardContent>
                 <Typography variant="h6" gutterBottom>
@@ -337,7 +342,7 @@ export default function AdminComplianceRunDetailsPage({
                 </Typography>
                 
                 <Grid container spacing={2}>
-                  <Grid item xs={6}>
+                  <Grid xs={6}>
                     <Card variant="outlined">
                       <CardContent sx={{ textAlign: 'center', py: 2 }}>
                         <Typography variant="h4" color="primary">
@@ -350,7 +355,7 @@ export default function AdminComplianceRunDetailsPage({
                     </Card>
                   </Grid>
                   
-                  <Grid item xs={6}>
+                  <Grid xs={6}>
                     <Card variant="outlined">
                       <CardContent sx={{ textAlign: 'center', py: 2 }}>
                         <Typography variant="h4" color="primary">
@@ -363,7 +368,7 @@ export default function AdminComplianceRunDetailsPage({
                     </Card>
                   </Grid>
                   
-                  <Grid item xs={6}>
+                  <Grid xs={6}>
                     <Card variant="outlined">
                       <CardContent sx={{ textAlign: 'center', py: 2 }}>
                         <Typography variant="h4" color="primary">
@@ -376,7 +381,7 @@ export default function AdminComplianceRunDetailsPage({
                     </Card>
                   </Grid>
                   
-                  <Grid item xs={6}>
+                  <Grid xs={6}>
                     <Card variant="outlined">
                       <CardContent sx={{ textAlign: 'center', py: 2 }}>
                         <Typography variant="h4" color="primary">
@@ -408,7 +413,7 @@ export default function AdminComplianceRunDetailsPage({
           </Grid>
 
           {/* Artifacts Table */}
-          <Grid item xs={12}>
+          <Grid xs={12}>
             <Card>
               <CardContent>
                 <Typography variant="h6" gutterBottom>

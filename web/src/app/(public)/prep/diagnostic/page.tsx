@@ -11,13 +11,13 @@ import {
   Button,
   Card,
   CardContent,
-  Grid,
   Chip,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import Link from 'next/link';
 import React from 'react';
 
@@ -125,7 +125,6 @@ export default function DiagnosticPage() {
           </Box>
         </Container>
       </Box>
-
       {/* What You'll Get Section */}
       <Box sx={{ py: 8, backgroundColor: '#f8fafc' }}>
         <Container maxWidth="lg">
@@ -143,7 +142,7 @@ export default function DiagnosticPage() {
               What You&apos;ll Get
             </Typography>
           <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card
                 sx={{
                   height: '100%',
@@ -172,7 +171,7 @@ export default function DiagnosticPage() {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card
                 sx={{
                   height: '100%',
@@ -201,7 +200,7 @@ export default function DiagnosticPage() {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card
                 sx={{
                   height: '100%',
@@ -233,12 +232,11 @@ export default function DiagnosticPage() {
           </Grid>
         </Container>
       </Box>
-
       {/* Test Details Section */}
       <Box sx={{ py: 8, backgroundColor: 'white' }}>
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <Typography
                 variant="h2"
                 component="h2"
@@ -290,7 +288,7 @@ export default function DiagnosticPage() {
                 </ListItem>
               </List>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <Box
                 sx={{
                   backgroundColor: '#f1f5f9',
@@ -341,7 +339,6 @@ export default function DiagnosticPage() {
           </Grid>
         </Container>
       </Box>
-
       {/* CTA Section */}
       <Box
         sx={{

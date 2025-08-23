@@ -17,7 +17,7 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  Grid,
+
   Chip,
   Table,
   TableBody,
@@ -34,6 +34,7 @@ import {
   Tooltip,
   Divider,
 } from "@mui/material";
+import Grid from '@mui/material/GridLegacy';
 import * as React from "react";
 import { useState, useEffect } from "react";
 
@@ -202,7 +203,10 @@ export default function AdminAuditPage() {
                 Filters
               </Typography>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}>
                   <TextField
                     label="Action"
                     value={filters.action}
@@ -211,7 +215,10 @@ export default function AdminAuditPage() {
                     size="small"
                   />
                 </Grid>
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}>
                   <TextField
                     label="Object Table"
                     value={filters.object_table}
@@ -220,7 +227,10 @@ export default function AdminAuditPage() {
                     size="small"
                   />
                 </Grid>
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}>
                   <TextField
                     label="Actor User ID"
                     value={filters.actor_user_id}
@@ -229,7 +239,10 @@ export default function AdminAuditPage() {
                     size="small"
                   />
                 </Grid>
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}>
                   <TextField
                     label="Start Date"
                     type="date"
@@ -240,7 +253,10 @@ export default function AdminAuditPage() {
                     InputLabelProps={{ shrink: true }}
                   />
                 </Grid>
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}>
                   <TextField
                     label="End Date"
                     type="date"
@@ -251,7 +267,10 @@ export default function AdminAuditPage() {
                     InputLabelProps={{ shrink: true }}
                   />
                 </Grid>
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}>
                   <Button 
                     variant="outlined" 
                     onClick={() => {
@@ -391,7 +410,9 @@ export default function AdminAuditPage() {
             {selectedLog && (
               <Stack spacing={3}>
                 <Grid container spacing={2}>
-                  <Grid item xs={12} md={6}>
+                  <Grid
+                    xs={12}
+                    md={6}>
                     <Typography variant="h6">Before</Typography>
                     <Box 
                       component="pre" 
@@ -407,7 +428,9 @@ export default function AdminAuditPage() {
                       {formatJson(selectedLog.before)}
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={6}>
+                  <Grid
+                    xs={12}
+                    md={6}>
                     <Typography variant="h6">After</Typography>
                     <Box 
                       component="pre" 
@@ -429,25 +452,33 @@ export default function AdminAuditPage() {
                 
                 <Typography variant="h6">Metadata</Typography>
                 <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid
+                    xs={12}
+                    sm={6}>
                     <Typography variant="body2" color="text.secondary">Actor Role</Typography>
                     <Typography variant="body1">{selectedLog.actor_role}</Typography>
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid
+                    xs={12}
+                    sm={6}>
                     <Typography variant="body2" color="text.secondary">Actor User ID</Typography>
                     <Typography variant="body1">{selectedLog.actor_user_id}</Typography>
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid
+                    xs={12}
+                    sm={6}>
                     <Typography variant="body2" color="text.secondary">IP Address</Typography>
                     <Typography variant="body1">{selectedLog.ip || 'N/A'}</Typography>
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid
+                    xs={12}
+                    sm={6}>
                     <Typography variant="body2" color="text.secondary">User Agent</Typography>
                     <Typography variant="body1" sx={{ wordBreak: 'break-word' }}>
                       {selectedLog.user_agent || 'N/A'}
                     </Typography>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid xs={12}>
                     <Typography variant="body2" color="text.secondary">Signature</Typography>
                     <Typography variant="body1" sx={{ wordBreak: 'break-all', fontSize: '0.75rem' }}>
                       {selectedLog.signature}

@@ -284,7 +284,7 @@ export default function BillingPage() {
 
           {!isEntitled ? (
             // Not subscribed - show upgrade option
-            <Card variant="outlined">
+            (<Card variant="outlined">
               <CardContent>
                 <Stack spacing={2}>
                   <Typography variant="h6">
@@ -325,10 +325,10 @@ export default function BillingPage() {
                   {checkoutLoading ? 'Processing...' : 'Subscribe Now'}
                 </Button>
               </CardActions>
-            </Card>
+            </Card>)
           ) : (
             // Subscribed - show status and management
-            <Card variant="outlined">
+            (<Card variant="outlined">
               <CardContent>
                 <Stack spacing={2}>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
@@ -412,7 +412,7 @@ export default function BillingPage() {
                   )}
                 </Stack>
               </CardActions>
-                          </Card>
+            </Card>)
             )}
 
             {/* Invoices Section */}

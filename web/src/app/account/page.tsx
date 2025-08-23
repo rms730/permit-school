@@ -12,10 +12,11 @@ import {
   Typography,
   Avatar,
   Chip,
-  Grid,
+
   Divider,
   Skeleton,
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { Suspense } from 'react';
@@ -57,7 +58,7 @@ export default async function AccountPage() {
 function AccountSkeleton() {
   return (
     <Grid container spacing={3}>
-      <Grid item xs={12} md={6}>
+      <Grid xs={12} md={6}>
         <Card>
           <CardContent>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
@@ -72,7 +73,7 @@ function AccountSkeleton() {
           </CardContent>
         </Card>
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid xs={12} md={6}>
         <Card>
           <CardContent>
             <Skeleton variant="text" width={150} height={32} />

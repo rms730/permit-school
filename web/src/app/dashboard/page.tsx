@@ -18,9 +18,9 @@ import {
   Chip,
   Alert,
   CircularProgress,
-  Grid,
   Stack,
 } from "@mui/material";
+import Grid from '@mui/material/GridLegacy';
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
@@ -181,7 +181,9 @@ export default function DashboardPage() {
 
       <Grid container spacing={3}>
         {/* Progress Summary */}
-        <Grid item xs={12} md={6}>
+        <Grid
+          xs={12}
+          md={6}>
           <Card sx={{ height: '100%' }}>
             <CardContent>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
@@ -221,7 +223,9 @@ export default function DashboardPage() {
         </Grid>
 
         {/* Exam Eligibility */}
-        <Grid item xs={12} md={6}>
+        <Grid
+          xs={12}
+          md={6}>
           <Card sx={{ height: '100%' }}>
             <CardContent>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
@@ -263,14 +267,17 @@ export default function DashboardPage() {
         </Grid>
 
         {/* Quick Actions */}
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <Card>
             <CardContent>
               <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, mb: 3 }}>
                 Quick Actions
               </Typography>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}>
                   <Button 
                     variant="contained" 
                     fullWidth
@@ -281,7 +288,10 @@ export default function DashboardPage() {
                     Browse Courses
                   </Button>
                 </Grid>
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}>
                   <Button 
                     variant="outlined" 
                     fullWidth
@@ -292,7 +302,10 @@ export default function DashboardPage() {
                     Edit Profile
                   </Button>
                 </Grid>
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}>
                   <Button 
                     variant="outlined" 
                     fullWidth
@@ -303,7 +316,10 @@ export default function DashboardPage() {
                     Manage Billing
                   </Button>
                 </Grid>
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}>
                   <Button 
                     variant="outlined" 
                     fullWidth

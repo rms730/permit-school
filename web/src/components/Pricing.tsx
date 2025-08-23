@@ -1,7 +1,8 @@
 "use client";
 
 import CheckIcon from '@mui/icons-material/Check';
-import { Box, Typography, Grid, Card, CardContent, Stack, Chip, Button, Container } from '@mui/material';
+import { Box, Typography, Card, CardContent, Stack, Chip, Button, Container } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 
 const plans = [
   {
@@ -74,7 +75,10 @@ export function Pricing() {
 
         <Grid container spacing={4} id="pricing">
           {plans.map((plan) => (
-            <Grid key={plan.name} item xs={12} md={4}>
+            <Grid
+              key={plan.name}
+              xs={12}
+              md={4}>
               <Card
                 sx={{
                   height: '100%',

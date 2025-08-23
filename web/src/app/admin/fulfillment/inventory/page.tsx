@@ -32,8 +32,9 @@ import {
   DialogContent,
   DialogActions,
   TextField,
-  Grid
+
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import { useState, useEffect } from 'react';
 
 interface InventoryStatus {
@@ -166,7 +167,6 @@ export default function InventoryPage() {
       <Typography variant="h4" gutterBottom>
         Certificate Inventory Management
       </Typography>
-
       {/* Inventory Summary */}
       <Card sx={{ mb: 3 }}>
         <CardContent>
@@ -181,28 +181,36 @@ export default function InventoryPage() {
           
           {currentInventory && (
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={3}>
+              <Grid
+                xs={12}
+                sm={3}>
                 <Chip 
                   label={`Total: ${currentInventory.total}`}
                   color="primary"
                   variant="outlined"
                 />
               </Grid>
-              <Grid item xs={12} sm={3}>
+              <Grid
+                xs={12}
+                sm={3}>
                 <Chip 
                   label={`Available: ${currentInventory.available}`}
                   color="success"
                   variant="outlined"
                 />
               </Grid>
-              <Grid item xs={12} sm={3}>
+              <Grid
+                xs={12}
+                sm={3}>
                 <Chip 
                   label={`Used: ${currentInventory.used}`}
                   color="info"
                   variant="outlined"
                 />
               </Grid>
-              <Grid item xs={12} sm={3}>
+              <Grid
+                xs={12}
+                sm={3}>
                 <Chip 
                   label={`Last Used: ${currentInventory.last_used_at ? 
                     new Date(currentInventory.last_used_at).toLocaleDateString() : 'Never'}`}
@@ -214,7 +222,6 @@ export default function InventoryPage() {
           )}
         </CardContent>
       </Card>
-
       {/* Upload Controls */}
       <Card sx={{ mb: 3 }}>
         <CardContent>
@@ -236,7 +243,6 @@ export default function InventoryPage() {
           </Typography>
         </CardContent>
       </Card>
-
       {/* Stock Table */}
       <Card>
         <CardContent>
@@ -317,7 +323,6 @@ export default function InventoryPage() {
           </TableContainer>
         </CardContent>
       </Card>
-
       {/* Upload Dialog */}
       <Dialog 
         open={uploadDialogOpen} 

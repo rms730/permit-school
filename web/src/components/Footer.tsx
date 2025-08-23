@@ -5,10 +5,10 @@ import {
   Box,
   Typography,
   Link,
-  Grid,
   IconButton,
   useTheme,
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -29,7 +29,7 @@ export function Footer() {
     >
       <Container maxWidth="lg">
         <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
+          <Grid xs={12} md={4}>
             <Typography variant="h6" gutterBottom>
               Permit School
             </Typography>
@@ -52,7 +52,7 @@ export function Footer() {
             </Box>
           </Grid>
           
-          <Grid item xs={12} md={2}>
+          <Grid xs={12} md={2}>
             <Typography variant="h6" gutterBottom>
               Learn
             </Typography>
@@ -75,7 +75,7 @@ export function Footer() {
             </Box>
           </Grid>
           
-          <Grid item xs={12} md={2}>
+          <Grid xs={12} md={2}>
             <Typography variant="h6" gutterBottom>
               Support
             </Typography>
@@ -98,7 +98,7 @@ export function Footer() {
             </Box>
           </Grid>
           
-          <Grid item xs={12} md={2}>
+          <Grid xs={12} md={2}>
             <Typography variant="h6" gutterBottom>
               Company
             </Typography>
@@ -121,7 +121,9 @@ export function Footer() {
             </Box>
           </Grid>
           
-          <Grid item xs={12} md={2}>
+          <Grid
+            xs={12}
+            md={2}>
             <Typography variant="h6" gutterBottom>
               Legal
             </Typography>

@@ -10,10 +10,11 @@ import {
   Box,
   Stack,
   Typography,
-  Grid,
+
   useTheme,
 
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import * as React from 'react';
 
 const steps = [
@@ -162,7 +163,10 @@ export function HowItWorks() {
 
         <Grid container spacing={4} id="how-it-works">
           {steps.map((step, index) => (
-            <Grid key={step.title} item xs={12} md={4}>
+            <Grid
+              key={step.title}
+              xs={12}
+              md={4}>
               <Stack
                 spacing={3}
                 alignItems="center"
@@ -245,7 +249,10 @@ export function HowItWorks() {
           >
             <Grid container spacing={4}>
               {steps.map((_, index) => (
-                <Grid key={index} item xs={12} md={4}>
+                <Grid
+                  key={index}
+                  xs={12}
+                  md={4}>
                   <Box
                     sx={{
                       width: 20,

@@ -15,7 +15,7 @@ import {
   CardContent,
   Typography,
   Button,
-  Grid,
+
   Chip,
   List,
   ListItem,
@@ -25,6 +25,7 @@ import {
   Alert,
   IconButton,
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -102,16 +103,14 @@ export default function AuthSettings({ user, profile }: AuthSettingsProps) {
           Authentication
         </Typography>
       </Box>
-
       {message && (
         <Alert severity={message.type} sx={{ mb: 3 }}>
           {message.text}
         </Alert>
       )}
-
       <Grid container spacing={3}>
         {/* Sign-in Methods */}
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <Card>
             <CardContent>
               <Typography variant="h6" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -170,7 +169,7 @@ export default function AuthSettings({ user, profile }: AuthSettingsProps) {
         </Grid>
 
         {/* Account Security */}
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <Card>
             <CardContent>
               <Typography variant="h6" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -198,7 +197,7 @@ export default function AuthSettings({ user, profile }: AuthSettingsProps) {
         </Grid>
 
         {/* Security Information */}
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <Card>
             <CardContent>
               <Typography variant="h6" gutterBottom>

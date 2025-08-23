@@ -25,7 +25,7 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  Grid,
+
   Chip,
   Table,
   TableBody,
@@ -45,9 +45,10 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import Grid from '@mui/material/GridLegacy';
+// import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import Link from "next/link";
 import * as React from "react";
 import { useState, useEffect, useCallback } from "react";
@@ -336,8 +337,7 @@ export default function AdminCompliancePage() {
 
   return (
     <AppShell>
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
+      <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
         <Typography variant="h4" gutterBottom>
           Regulatory Compliance
         </Typography>
@@ -350,7 +350,9 @@ export default function AdminCompliancePage() {
 
         <Grid container spacing={3}>
           {/* Generate Report Card */}
-          <Grid item xs={12} md={6}>
+          <Grid
+            xs={12}
+            md={6}>
             <Card>
               <CardContent>
                 <Typography variant="h6" gutterBottom>
@@ -390,18 +392,22 @@ export default function AdminCompliancePage() {
                     </Select>
                   </FormControl>
 
-                  <DatePicker
+                  <TextField
                     label="Period Start"
-                    value={formData.periodStart}
-                    onChange={(date) => date && setFormData({ ...formData, periodStart: date })}
-                    slotProps={{ textField: { fullWidth: true } }}
+                    type="date"
+                    value={formData.periodStart ? formData.periodStart.toISOString().split('T')[0] : ''}
+                    onChange={(e) => setFormData({ ...formData, periodStart: new Date(e.target.value) })}
+                    fullWidth
+                    InputLabelProps={{ shrink: true }}
                   />
 
-                  <DatePicker
+                  <TextField
                     label="Period End"
-                    value={formData.periodEnd}
-                    onChange={(date) => date && setFormData({ ...formData, periodEnd: date })}
-                    slotProps={{ textField: { fullWidth: true } }}
+                    type="date"
+                    value={formData.periodEnd ? formData.periodEnd.toISOString().split('T')[0] : ''}
+                    onChange={(e) => setFormData({ ...formData, periodEnd: new Date(e.target.value) })}
+                    fullWidth
+                    InputLabelProps={{ shrink: true }}
                   />
 
                   <Stack direction="row" spacing={2}>
@@ -429,7 +435,9 @@ export default function AdminCompliancePage() {
           </Grid>
 
           {/* Filters Card */}
-          <Grid item xs={12} md={6}>
+          <Grid
+            xs={12}
+            md={6}>
             <Card>
               <CardContent>
                 <Typography variant="h6" gutterBottom>
@@ -476,7 +484,7 @@ export default function AdminCompliancePage() {
           </Grid>
 
           {/* Runs Table */}
-          <Grid item xs={12}>
+                          <Grid xs={12}>
             <Card>
               <CardContent>
                 <Typography variant="h6" gutterBottom>
@@ -572,16 +580,16 @@ export default function AdminCompliancePage() {
                 <Divider />
                 <Typography variant="h6">Summary Counts:</Typography>
                 <Grid container spacing={2}>
-                  <Grid item xs={6}>
+                  <Grid xs={6}>
                     <Typography>Students: {dryRunResult.summary.roster}</Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid xs={6}>
                     <Typography>Exam Attempts: {dryRunResult.summary.exams}</Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid xs={6}>
                     <Typography>Certificates: {dryRunResult.summary.certs}</Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid xs={6}>
                     <Typography>Seat Time Records: {dryRunResult.summary.seatTime}</Typography>
                   </Grid>
                 </Grid>
@@ -623,7 +631,6 @@ export default function AdminCompliancePage() {
           </MenuItem>
         </Menu>
         </Container>
-      </LocalizationProvider>
     </AppShell>
   );
 }

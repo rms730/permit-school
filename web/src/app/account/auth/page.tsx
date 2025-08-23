@@ -10,7 +10,7 @@ export default async function AuthPage() {
   
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (authError || !user) {
-    redirect('/login');
+    redirect('/en/login');
   }
 
   const { data: profile } = await supabase

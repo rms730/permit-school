@@ -6,12 +6,13 @@ import {
   Typography,
   Card,
   CardContent,
-  Grid,
+
   Box,
   Chip,
   Avatar,
   Button,
 } from "@mui/material";
+import Grid from '@mui/material/GridLegacy';
 import { useRouter } from "next/navigation";
 import * as React from "react";
 import { useState, useEffect } from "react";
@@ -118,7 +119,11 @@ export default function GuardianPage() {
       ) : (
         <Grid container spacing={3}>
           {children.map((child) => (
-            <Grid item xs={12} sm={6} md={4} key={child.student_id}>
+            <Grid
+              key={child.student_id}
+              xs={12}
+              sm={6}
+              md={4}>
               <Card 
                 sx={{ 
                   cursor: 'pointer',

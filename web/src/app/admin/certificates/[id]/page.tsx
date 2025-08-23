@@ -6,9 +6,10 @@ import {
   Chip,
   Button,
   Box,
-  Grid,
+
   Divider,
 } from "@mui/material";
+import Grid from '@mui/material/GridLegacy';
 import Link from "next/link";
 import * as React from "react";
 
@@ -108,7 +109,9 @@ export default async function CertificateDetailPage({ params }: PageProps) {
             <Divider />
 
             <Grid container spacing={3}>
-              <Grid item xs={12} md={6}>
+              <Grid
+                xs={12}
+                md={6}>
                 <Box>
                   <Typography variant="h6" gutterBottom>
                     Certificate Information
@@ -156,7 +159,9 @@ export default async function CertificateDetailPage({ params }: PageProps) {
                 </Box>
               </Grid>
 
-              <Grid item xs={12} md={6}>
+              <Grid
+                xs={12}
+                md={6}>
                 <Box>
                   <Typography variant="h6" gutterBottom>
                     Student Information

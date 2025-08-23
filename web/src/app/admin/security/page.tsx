@@ -16,10 +16,11 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  Grid,
+
   Chip,
   Divider,
 } from "@mui/material";
+import Grid from '@mui/material/GridLegacy';
 import * as React from "react";
 import { useState, useEffect } from "react";
 
@@ -225,7 +226,9 @@ export default function AdminSecurityPage() {
           )}
 
           <Grid container spacing={3}>
-            <Grid item xs={12} md={6}>
+            <Grid
+              xs={12}
+              md={6}>
               <Card>
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
@@ -266,7 +269,9 @@ export default function AdminSecurityPage() {
               </Card>
             </Grid>
 
-            <Grid item xs={12} md={6}>
+            <Grid
+              xs={12}
+              md={6}>
               <Card>
                 <CardContent>
                   <Typography variant="h6" gutterBottom>

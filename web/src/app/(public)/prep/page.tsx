@@ -1,5 +1,6 @@
 import { School, Timer, TrendingUp, Assessment, Psychology, EmojiEvents } from '@mui/icons-material';
-import { Box, Container, Typography, Button, Grid, Card, CardContent, Chip, Divider } from '@mui/material';
+import { Box, Container, Typography, Button, Card, CardContent, Chip, Divider } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -130,7 +131,6 @@ export default function PrepPage() {
           </Box>
         </Container>
       </Box>
-
       {/* Tests Section */}
       <Box sx={{ py: 8, backgroundColor: '#f8fafc' }}>
         <Container maxWidth="lg">
@@ -149,7 +149,7 @@ export default function PrepPage() {
           </Typography>
 
           <Grid container spacing={4} justifyContent="center">
-            <Grid item xs={12} sm={6} md={5}>
+            <Grid xs={12} sm={6} md={5}>
               <Card sx={{ 
                 height: '100%', 
                 border: '2px solid #e2e8f0',
@@ -193,7 +193,7 @@ export default function PrepPage() {
               </Card>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={5}>
+            <Grid xs={12} sm={6} md={5}>
               <Card sx={{ 
                 height: '100%', 
                 border: '2px solid #e2e8f0',
@@ -239,7 +239,6 @@ export default function PrepPage() {
           </Grid>
         </Container>
       </Box>
-
       {/* Features Section */}
       <Box sx={{ py: 8, backgroundColor: 'white' }}>
         <Container maxWidth="lg">
@@ -258,7 +257,7 @@ export default function PrepPage() {
           </Typography>
 
           <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card sx={{ height: '100%', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
                 <CardContent sx={{ textAlign: 'center', p: 4 }}>
                   <Assessment sx={{ fontSize: 48, color: '#f59e0b', mb: 2 }} />
@@ -272,7 +271,7 @@ export default function PrepPage() {
               </Card>
             </Grid>
 
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card sx={{ height: '100%', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
                 <CardContent sx={{ textAlign: 'center', p: 4 }}>
                   <TrendingUp sx={{ fontSize: 48, color: '#f59e0b', mb: 2 }} />
@@ -286,7 +285,7 @@ export default function PrepPage() {
               </Card>
             </Grid>
 
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card sx={{ height: '100%', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
                 <CardContent sx={{ textAlign: 'center', p: 4 }}>
                   <Psychology sx={{ fontSize: 48, color: '#f59e0b', mb: 2 }} />
@@ -302,7 +301,6 @@ export default function PrepPage() {
           </Grid>
         </Container>
       </Box>
-
       {/* Test Types Section */}
       <Box sx={{ py: 8, backgroundColor: '#f8fafc' }}>
         <Container maxWidth="lg">
@@ -321,7 +319,7 @@ export default function PrepPage() {
           </Typography>
 
           <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card sx={{ height: '100%', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
                 <CardContent sx={{ textAlign: 'center', p: 4 }}>
                   <EmojiEvents sx={{ fontSize: 48, color: '#f59e0b', mb: 2 }} />
@@ -343,7 +341,7 @@ export default function PrepPage() {
               </Card>
             </Grid>
 
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card sx={{ height: '100%', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
                 <CardContent sx={{ textAlign: 'center', p: 4 }}>
                   <School sx={{ fontSize: 48, color: '#f59e0b', mb: 2 }} />
@@ -365,7 +363,7 @@ export default function PrepPage() {
               </Card>
             </Grid>
 
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
               <Card sx={{ height: '100%', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
                 <CardContent sx={{ textAlign: 'center', p: 4 }}>
                   <Timer sx={{ fontSize: 48, color: '#f59e0b', mb: 2 }} />
@@ -389,7 +387,6 @@ export default function PrepPage() {
           </Grid>
         </Container>
       </Box>
-
       {/* CTA Section */}
       <Box sx={{ py: 8, backgroundColor: '#1e1b4b', color: 'white' }}>
         <Container maxWidth="lg">
@@ -441,7 +438,6 @@ export default function PrepPage() {
           </Box>
         </Container>
       </Box>
-
       {/* Disclaimer Footer */}
       <Box sx={{ py: 4, backgroundColor: '#f1f5f9', borderTop: '1px solid #e2e8f0' }}>
         <Container maxWidth="lg">

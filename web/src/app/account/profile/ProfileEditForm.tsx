@@ -13,7 +13,7 @@ import {
   TextField,
   Button,
   Avatar,
-  Grid,
+
   FormControl,
   InputLabel,
   Select,
@@ -24,6 +24,7 @@ import {
   CircularProgress,
   IconButton,
 } from '@mui/material';
+import Grid from '@mui/material/GridLegacy';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
@@ -152,16 +153,14 @@ export default function ProfileEditForm({ user, profile }: ProfileEditFormProps)
           Edit Profile
         </Typography>
       </Box>
-
       {message && (
         <Alert severity={message.type} sx={{ mb: 3 }}>
           {message.text}
         </Alert>
       )}
-
       <Grid container spacing={3}>
         {/* Avatar Section */}
-        <Grid item xs={12} md={4}>
+        <Grid xs={12} md={4}>
           <Card>
             <CardContent sx={{ textAlign: 'center' }}>
               <Typography variant="h6" gutterBottom>
@@ -215,7 +214,7 @@ export default function ProfileEditForm({ user, profile }: ProfileEditFormProps)
         </Grid>
 
         {/* Profile Form */}
-        <Grid item xs={12} md={8}>
+        <Grid xs={12} md={8}>
           <Card>
             <CardContent>
               <Typography variant="h6" gutterBottom>
@@ -223,7 +222,7 @@ export default function ProfileEditForm({ user, profile }: ProfileEditFormProps)
               </Typography>
 
               <Grid container spacing={3}>
-                <Grid item xs={12}>
+                <Grid xs={12}>
                   <TextField
                     fullWidth
                     label="Preferred Name"
@@ -233,7 +232,7 @@ export default function ProfileEditForm({ user, profile }: ProfileEditFormProps)
                   />
                 </Grid>
 
-                <Grid item xs={12} sm={6}>
+                <Grid xs={12} sm={6}>
                   <FormControl fullWidth>
                     <InputLabel>Language</InputLabel>
                     <Select
@@ -247,7 +246,7 @@ export default function ProfileEditForm({ user, profile }: ProfileEditFormProps)
                   </FormControl>
                 </Grid>
 
-                <Grid item xs={12} sm={6}>
+                <Grid xs={12} sm={6}>
                   <FormControl fullWidth>
                     <InputLabel>Theme</InputLabel>
                     <Select
@@ -262,7 +261,7 @@ export default function ProfileEditForm({ user, profile }: ProfileEditFormProps)
                   </FormControl>
                 </Grid>
 
-                <Grid item xs={12}>
+                <Grid xs={12}>
                   <FormControlLabel
                     control={
                       <Switch

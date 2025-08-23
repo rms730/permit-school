@@ -31,7 +31,7 @@ import {
   DialogContent,
   DialogActions,
   TextField,
-  Grid,
+
   Divider,
   List,
   ListItem,
@@ -39,6 +39,7 @@ import {
   ListItemSecondaryAction,
   Skeleton,
 } from "@mui/material";
+import Grid from '@mui/material/GridLegacy';
 import { useRouter } from "next/navigation";
 import * as React from "react";
 
@@ -290,7 +291,11 @@ export default function AdminBlueprintsPage() {
           <Grid container spacing={3}>
             {loading ? (
               Array.from({ length: 3 }).map((_, index) => (
-                <Grid item xs={12} md={6} lg={4} key={index}>
+                <Grid
+                  key={index}
+                  xs={12}
+                  md={6}
+                  lg={4}>
                   <Card>
                     <CardContent>
                       <Typography variant="h6" gutterBottom>
@@ -305,7 +310,11 @@ export default function AdminBlueprintsPage() {
               ))
             ) : (
               blueprints.map((blueprint) => (
-                <Grid item xs={12} md={6} lg={4} key={blueprint.id}>
+                <Grid
+                  key={blueprint.id}
+                  xs={12}
+                  md={6}
+                  lg={4}>
                   <Card>
                     <CardContent>
                       <Stack direction="row" justifyContent="space-between" alignItems="flex-start">

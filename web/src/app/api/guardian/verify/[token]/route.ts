@@ -1,7 +1,6 @@
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
+import { getRouteClient } from '@/lib/supabaseRoute';
 import { hashToken } from '@/lib/tokens';
 
 export async function GET(
@@ -9,7 +8,7 @@ export async function GET(
   { params }: { params: Promise<{ token: string }> }
 ) {
   try {
-    const supabase = createRouteHandlerClient({ cookies });
+    const supabase = await getRouteClient();
     const { token } = await params;
 
     if (!token) {

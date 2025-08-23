@@ -1,15 +1,14 @@
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { createClient } from '@supabase/supabase-js';
-import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { buildCsv, generateQrUrl, generateBarcodeValue , CertificateData } from '@/lib/fulfillment/buildCsv';
 import { buildManifest, calculateCsvHash } from '@/lib/fulfillment/buildManifest';
 import { fetchPending } from '@/lib/fulfillment/fetchPending';
 import { zipAndStore } from '@/lib/fulfillment/zipAndStore';
+import { getRouteClient } from '@/lib/supabaseRoute';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -19,7 +18,7 @@ const supabase = createClient(
 export async function POST(request: NextRequest) {
   try {
     // Check admin authentication
-    const supabase = createRouteHandlerClient({ cookies });
+    const supabase = await getRouteClient();
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     
     if (authError || !user) {

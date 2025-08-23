@@ -1,13 +1,12 @@
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { sendGuardianRequestEmail } from '@/lib/email';
 import { generateToken, hashToken } from '@/lib/tokens';
+import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createRouteHandlerClient({ cookies });
+    const supabase = await getRouteClient();
     
     // Get current user
     const { data: { user }, error: authError } = await supabase.auth.getUser();

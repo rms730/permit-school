@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NODE_ENV: development
-      NEXT_TELEMETRY_DISABLED: '1'
+      NEXT_TELEMETRY_DISABLED: "1"
       # Map GitHub Secrets/Vars → process.env
       SUPABASE_URL: ${{ secrets.CI_SUPABASE_URL }}
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.CI_SUPABASE_SERVICE_ROLE_KEY }}
@@ -27,11 +27,11 @@ jobs:
       STRIPE_SECRET_KEY: ${{ secrets.CI_STRIPE_SECRET_KEY }}
       NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.CI_STRIPE_PUBLISHABLE_KEY }}
       RESEND_API_KEY: ${{ secrets.CI_RESEND_API_KEY }}
-      TESTKIT_ON: 'true'
+      TESTKIT_ON: "true"
       TESTKIT_TOKEN: ${{ secrets.CI_TESTKIT_TOKEN }}
-      BASE_URL: 'http://localhost:4330'
-      NEXT_PUBLIC_ENV: 'ci'
-      NEXT_PUBLIC_SITE_URL: 'http://localhost:4330'
+      BASE_URL: "http://localhost:4330"
+      NEXT_PUBLIC_ENV: "ci"
+      NEXT_PUBLIC_SITE_URL: "http://localhost:4330"
     defaults:
       run:
         working-directory: web

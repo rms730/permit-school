@@ -1,5 +1,4 @@
 import { Box, Typography, Stack, Paper, Container } from '@mui/material';
-
 const stats = [
   { label: 'Questions', value: '500+', description: 'Real DMV questions' },
   { label: 'Pass Rate', value: '94%', description: 'Average success rate' },

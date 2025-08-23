@@ -5,7 +5,7 @@ import { getRouteClient } from "@/lib/supabaseRoute";
 
 export async function POST(req: Request) {
   try {
-    const supabase = getRouteClient();
+    const supabase = await getRouteClient();
     const body = await req.json();
     const { attemptId, answers } = body;
 

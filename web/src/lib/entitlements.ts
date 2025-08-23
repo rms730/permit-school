@@ -1,7 +1,7 @@
 import { getServerClient } from './supabaseServer';
 
 export async function getEntitlementForUser(j_code: string = 'CA') {
-  const supabase = getServerClient();
+  const supabase = await getServerClient();
   
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   

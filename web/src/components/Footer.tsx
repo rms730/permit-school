@@ -1,5 +1,9 @@
 "use client";
 
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import {
   Container,
   Box,
@@ -8,11 +12,7 @@ import {
   IconButton,
   useTheme,
 } from '@mui/material';
-import Grid from '@mui/material/GridLegacy';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import Grid from '@mui/material/Grid';
 
 export function Footer() {
   const theme = useTheme();

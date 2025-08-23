@@ -2,7 +2,7 @@
 
 import CheckIcon from '@mui/icons-material/Check';
 import { Box, Typography, Card, CardContent, Stack, Chip, Button, Container } from '@mui/material';
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 
 const plans = [
   {

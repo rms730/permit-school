@@ -4,7 +4,7 @@ import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function GET() {
   try {
-    const supabase = getRouteClient();
+    const supabase = await getRouteClient();
 
     // Get user from session
     const { data: { user }, error: authError } = await supabase.auth.getUser();

@@ -15,14 +15,14 @@ import AppBar from "@/components/AppBar";
 import { getServerClient } from "@/lib/supabaseServer";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     number: string;
-  };
+  }>;
 }
 
 export default async function VerifyPage({ params }: PageProps) {
-  const { number } = params;
-  const supabase = getServerClient();
+  const { number } = await params;
+  const supabase = await getServerClient();
 
   // Find certificate by number
   const { data: certificate, error: certError } = await supabase

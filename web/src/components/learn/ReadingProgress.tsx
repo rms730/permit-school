@@ -13,7 +13,7 @@ import {
   useMediaQuery,
   Fade,
 } from '@mui/material';
-import React, { useEffect, useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface ReadingProgressProps {
   currentSection: number;

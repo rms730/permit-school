@@ -10,8 +10,6 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import * as React from 'react';
-
 const testimonials = [
   {
     quote: "I was so nervous about the permit test, but Permit School made it feel easy. The questions were exactly like the real thing!",

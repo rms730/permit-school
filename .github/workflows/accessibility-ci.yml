@@ -55,7 +55,8 @@ jobs:
           npm install --no-audit --prefer-online
 
       - name: Write .env files from secrets
-        run: node ../tools/env/ci-setup.mjs
+        working-directory: .
+        run: node tools/env/ci-setup.mjs
 
       - name: Build application
         run: npm run build:ci
@@ -117,7 +118,8 @@ jobs:
           npm install --no-audit --prefer-online
 
       - name: Write .env files from secrets
-        run: node ../tools/env/ci-setup.mjs
+        working-directory: .
+        run: node tools/env/ci-setup.mjs
 
       - name: Build application
         run: npm run build:ci

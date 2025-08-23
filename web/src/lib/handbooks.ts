@@ -1,7 +1,7 @@
 import { getServerClient } from '@/lib/supabaseServer';
 
 export async function getHandbookSignedUrl(id: string, expiresIn = 3600) {
-  const supabase = getServerClient();
+  const supabase = await getServerClient();
   const { data, error } = await supabase
     .from('handbook_sources')
     .select('storage_path, filename')

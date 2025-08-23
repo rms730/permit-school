@@ -19,19 +19,21 @@ import {
 import Link from "next/link";
 import * as React from "react";
 
-import UnitEditDialog from "./UnitEditDialog";
-import UnitMappingDialog from "./UnitMappingDialog";
 import AppBar from "@/components/AppBar";
 import { getServerClient } from "@/lib/supabaseServer";
+
+import UnitEditDialog from "./UnitEditDialog";
+import UnitMappingDialog from "./UnitMappingDialog";
 
 
 
 export default async function AdminCourseUnitsPage({
   params,
 }: {
-  params: { courseId: string };
+  params: Promise<{ courseId: string }>;
 }) {
-  const supabase = getServerClient();
+  const { courseId } = await params;
+  const supabase = await getServerClient();
 
   // Get user from session
   const {
@@ -60,7 +62,7 @@ export default async function AdminCourseUnitsPage({
       title,
       jurisdictions(name, code)
     `)
-    .eq("id", params.courseId)
+    .eq("id", courseId)
     .single();
 
   if (courseError || !course) {
@@ -88,7 +90,7 @@ export default async function AdminCourseUnitsPage({
       is_published,
       updated_at
     `)
-    .eq("course_id", params.courseId)
+    .eq("course_id", courseId)
     .order("unit_no", { ascending: true });
 
   if (unitsError) {

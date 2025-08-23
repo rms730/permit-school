@@ -19,13 +19,14 @@ import {
 } from "@mui/material";
 import * as React from "react";
 
-import PricingDialog from "./PricingDialog";
 import AppBar from "@/components/AppBar";
 import { getServerClient } from "@/lib/supabaseServer";
 
+import PricingDialog from "./PricingDialog";
+
 
 export default async function PricingPage() {
-  const supabase = getServerClient();
+  const supabase = await getServerClient();
 
   // Get courses with their pricing
   const { data: courses, error: coursesError } = await supabase

@@ -32,7 +32,7 @@ import {
   Breadcrumbs,
   Link as MuiLink,
 } from "@mui/material";
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 import Link from "next/link";
 import * as React from "react";
 import { useState, useEffect, useCallback } from "react";
@@ -74,13 +74,18 @@ interface RegulatoryArtifact {
 export default function AdminComplianceRunDetailsPage({ 
   params 
 }: { 
-  params: { runId: string } 
+  params: Promise<{ runId: string }> 
 }) {
+  const [runId, setRunId] = useState<string>("");
   const [run, setRun] = useState<RegulatoryRun | null>(null);
   const [artifacts, setArtifacts] = useState<RegulatoryArtifact[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [downloading, setDownloading] = useState(false);
+
+  useEffect(() => {
+    params.then(({ runId }) => setRunId(runId));
+  }, [params]);
 
   const fetchRunDetails = useCallback(async () => {
     try {
@@ -88,13 +93,13 @@ export default function AdminComplianceRunDetailsPage({
       setError(null);
 
       // Fetch run details
-      const runResponse = await fetch(`/api/admin/regulatory/runs?runId=${params.runId}`);
+      const runResponse = await fetch(`/api/admin/regulatory/runs?runId=${runId}`);
       if (!runResponse.ok) {
         throw new Error('Failed to fetch run details');
       }
 
       const runData = await runResponse.json();
-      const runDetails = runData.runs?.find((r: any) => r.id === params.runId);
+      const runDetails = runData.runs?.find((r: any) => r.id === runId);
       
       if (!runDetails) {
         throw new Error('Run not found');
@@ -103,7 +108,7 @@ export default function AdminComplianceRunDetailsPage({
       setRun(runDetails);
 
       // Fetch artifacts
-      const artifactsResponse = await fetch(`/api/admin/regulatory/runs/${params.runId}/artifacts`);
+      const artifactsResponse = await fetch(`/api/admin/regulatory/runs/${runId}/artifacts`);
       if (artifactsResponse.ok) {
         const artifactsData = await artifactsResponse.json();
         setArtifacts(artifactsData.artifacts || []);
@@ -114,7 +119,7 @@ export default function AdminComplianceRunDetailsPage({
     } finally {
       setLoading(false);
     }
-  }, [params.runId]);
+  }, [runId]);
 
   useEffect(() => {
     fetchRunDetails();
@@ -125,7 +130,7 @@ export default function AdminComplianceRunDetailsPage({
       setDownloading(true);
       setError(null);
 
-      const response = await fetch(`/api/admin/regulatory/runs/${params.runId}/download`);
+      const response = await fetch(`/api/admin/regulatory/runs/${runId}/download`);
       if (!response.ok) {
         throw new Error('Failed to download report');
       }
@@ -134,7 +139,7 @@ export default function AdminComplianceRunDetailsPage({
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `regulatory-report-${params.runId}.zip`;
+      a.download = `regulatory-report-${runId}.zip`;
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);

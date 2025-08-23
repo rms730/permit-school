@@ -30,6 +30,7 @@ import {
   Chip,
   useTheme,
   useMediaQuery,
+  
   Fade,
   Slide,
   IconButton,
@@ -47,7 +48,8 @@ import {
   ListItemIcon,
   Divider,
 } from '@mui/material';
-import React, { useState, useEffect, useCallback } from 'react';
+import * as React from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 import { useConfetti } from '@/lib/confetti';
 

@@ -19,13 +19,17 @@ import AppBar from "@/components/AppBar";
 import { getEntitlementForUserClient } from "@/lib/entitlementsClient";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     unitId: string;
-  };
+  }>;
 }
 
 export default function QuizStartPage({ params }: PageProps) {
-  const { unitId } = params;
+  const [unitId, setUnitId] = useState<string>("");
+  
+  useEffect(() => {
+    params.then(({ unitId }) => setUnitId(unitId));
+  }, [params]);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

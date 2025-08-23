@@ -4,10 +4,11 @@ import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { runId: string } }
+  { params }: { params: Promise<{ runId: string }> }
 ) {
   try {
-    const supabase = getRouteClient();
+    const { runId } = await params;
+    const supabase = await getRouteClient();
     
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     if (authError || !user) {
@@ -20,7 +21,7 @@ export async function GET(
       return NextResponse.json({ error: "Admin access required" }, { status: 403 });
     }
 
-    const { runId } = params;
+
 
     if (!runId) {
       return NextResponse.json({ error: "Run ID is required" }, { status: 400 });

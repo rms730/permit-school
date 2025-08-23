@@ -19,15 +19,15 @@ const supabase = createClient(
 export async function POST(request: NextRequest) {
   try {
     // Check admin authentication
-    const supabaseAuth = createRouteHandlerClient({ cookies });
-    const { data: { user }, error: authError } = await supabaseAuth.auth.getUser();
+    const supabase = createRouteHandlerClient({ cookies });
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
     
     if (authError || !user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     // Check if user is admin
-    const { data: profile } = await supabaseAuth
+    const { data: profile } = await supabase
       .from('profiles')
       .select('role')
       .eq('id', user.id)

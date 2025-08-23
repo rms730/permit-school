@@ -6,19 +6,20 @@ import { downloadZip } from '@/lib/fulfillment/zipAndStore';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { batchId: string } }
+  { params }: { params: Promise<{ batchId: string }> }
 ) {
   try {
+    const { batchId } = await params;
     // Check admin authentication
-    const supabaseAuth = createRouteHandlerClient({ cookies });
-    const { data: { user }, error: authError } = await supabaseAuth.auth.getUser();
+    const supabase = createRouteHandlerClient({ cookies });
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
     
     if (authError || !user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     // Check if user is admin
-    const { data: profile } = await supabaseAuth
+    const { data: profile } = await supabase
       .from('profiles')
       .select('role')
       .eq('id', user.id)
@@ -28,14 +29,14 @@ export async function GET(
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
-    const { batchId } = params;
+
 
     if (!batchId) {
       return NextResponse.json({ error: 'Batch ID is required' }, { status: 400 });
     }
 
     // Get batch details to find export path
-    const { data: batch, error: batchError } = await supabaseAuth
+    const { data: batch, error: batchError } = await supabase
       .from('fulfillment_batches')
       .select('export_path, status')
       .eq('id', batchId)

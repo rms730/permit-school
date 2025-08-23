@@ -20,22 +20,24 @@ import {
   MenuItem,
   Box,
   Chip,
-  useMediaQuery,
+  
   Drawer,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
   Divider,
+  useMediaQuery,
 } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import { useState } from 'react';
 
-import LanguageSwitcher from './LanguageSwitcher';
 import { signInWithGoogle } from '@/lib/auth';
 import { getOfflineBadgeText, isFeatureDisabled } from '@/lib/offline';
 import { supabase } from '@/lib/supabaseClient';
+
+import LanguageSwitcher from './LanguageSwitcher';
 
 
 interface AppBarV2Props {

@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    const supabase = getRouteClient();
+    const supabase = await getRouteClient();
 
     // Get course catalog from view
     const { data: catalog, error } = await supabase

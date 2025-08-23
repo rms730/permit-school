@@ -4,10 +4,10 @@ import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { number: string } }
+  { params }: { params: Promise<{ number: string }> }
 ) {
   try {
-    const { number } = params;
+    const { number } = await params;
 
     if (!number) {
       return NextResponse.json(
@@ -16,7 +16,7 @@ export async function GET(
       );
     }
 
-    const supabase = getRouteClient();
+    const supabase = await getRouteClient();
 
     // Find certificate by number
     const { data: certificate, error: certError } = await supabase

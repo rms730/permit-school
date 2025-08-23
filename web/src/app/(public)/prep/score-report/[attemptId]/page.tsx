@@ -20,14 +20,14 @@ import {
   Button,
   Alert,
 } from '@mui/material';
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 import Link from 'next/link';
 import React from 'react';
 
 interface ScoreReportPageProps {
-  params: {
+  params: Promise<{
     attemptId: string;
-  };
+  }>;
 }
 
 // This would normally fetch data from the API
@@ -118,7 +118,8 @@ function getScoreColor(score: number, testType: 'ACT' | 'SAT' = 'ACT'): string {
 }
 
 export default async function ScoreReportPage({ params }: ScoreReportPageProps) {
-  const scoreReport = await getScoreReport(params.attemptId);
+  const { attemptId } = await params;
+  const scoreReport = await getScoreReport(attemptId);
   const { attempt, sections, skillAnalysis, recommendations } = scoreReport;
 
   const testDate = new Date(attempt.completed_at).toLocaleDateString('en-US', {
@@ -400,8 +401,9 @@ export default async function ScoreReportPage({ params }: ScoreReportPageProps) 
 }
 
 export async function generateMetadata({ params }: ScoreReportPageProps) {
+  const { attemptId } = await params;
   return {
-    title: `Score Report - ${params.attemptId} | College Test Prep | Permit School`,
+    title: `Score Report - ${attemptId} | College Test Prep | Permit School`,
     description: 'View your detailed test score report with section breakdowns, skill analysis, and personalized recommendations.',
   };
 }

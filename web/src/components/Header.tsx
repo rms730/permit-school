@@ -10,18 +10,19 @@ import {
   List,
   ListItem,
   useTheme,
+  useMediaQuery,
   IconButton,
   Stack,
-  useMediaQuery,
 } from '@mui/material';
-
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import * as React from 'react';
+
+import { scrollToAnchor } from '../lib/scrollToAnchor';
+
 import { Button } from './Button';
 import LanguageSwitcher from './LanguageSwitcher';
-import { scrollToAnchor } from '../lib/scrollToAnchor';
 
 const navigationItems = [
   { label: 'How it works', href: '#how-it-works', type: 'anchor' },

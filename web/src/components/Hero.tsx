@@ -10,7 +10,7 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import {useTranslations} from 'next-intl';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Button } from './Button';

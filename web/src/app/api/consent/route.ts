@@ -4,7 +4,7 @@ import { getRouteClient } from "@/lib/supabaseRoute";
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = getRouteClient();
+    const supabase = await getRouteClient();
     
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     if (authError || !user) {
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
 
     // Get IP and user agent
     const forwarded = request.headers.get("x-forwarded-for");
-    const ip = forwarded ? forwarded.split(",")[0] : request.ip || "unknown";
+    const ip = forwarded ? forwarded.split(",")[0] : "unknown";
     const userAgent = request.headers.get("user-agent") || "unknown";
 
     // Record consent

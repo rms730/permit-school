@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Confirmation token is required" }, { status: 400 });
     }
 
-    const supabase = getRouteClient();
+    const supabase = await getRouteClient();
 
     // Find the deletion request with this token
     const { data: deletionRequest, error: findError } = await supabase

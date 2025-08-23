@@ -77,8 +77,9 @@ const nextConfig = {
     workerThreads: false,
     cpus: 1
   },
-  // Force all pages to be server-side rendered
-  staticPageGenerationTimeout: 0,
+  // Set a reasonable timeout for static generation
+  staticPageGenerationTimeout: 120,
+  outputFileTracingRoot: __dirname,
   headers: async () => {
     return [
       // Disable static generation for API routes that use dynamic features

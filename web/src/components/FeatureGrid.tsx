@@ -14,7 +14,7 @@ import {
   Box,
   Container,
 } from '@mui/material';
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 import {useTranslations} from 'next-intl';
 import * as React from 'react';
 

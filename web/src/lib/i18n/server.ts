@@ -5,8 +5,8 @@ import { DEFAULT_LOCALE, type SupportedLocale, isValidLocale } from './locales';
 import { getDictionary } from './index';
 
 export async function getLocaleFromRequest(): Promise<SupportedLocale> {
-  const cookieStore = cookies();
-  const headersList = headers();
+  const cookieStore = await cookies();
+  const headersList = await headers();
   
   // 1. Check cookie first
   const cookieLang = cookieStore.get('lang')?.value;

@@ -5,7 +5,7 @@ import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = getRouteClient();
+    const supabase = await getRouteClient();
     
     // Verify admin access (this endpoint should be called by background workers)
     const authHeader = request.headers.get('authorization');

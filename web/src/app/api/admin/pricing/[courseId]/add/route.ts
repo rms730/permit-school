@@ -4,10 +4,11 @@ import { getRouteClient } from "@/lib/supabaseRoute";
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { courseId: string } }
+  { params }: { params: Promise<{ courseId: string }> }
 ) {
   try {
-    const supabase = getRouteClient();
+    const { courseId } = await params;
+    const supabase = await getRouteClient();
     const { data: { user }, error: authError } = await supabase.auth.getUser();
 
     if (authError || !user) {
@@ -36,7 +37,7 @@ export async function POST(
     const { data: price, error: priceError } = await supabase
       .from("billing_prices")
       .insert({
-        course_id: params.courseId,
+        course_id: courseId,
         stripe_price_id,
         active: true,
       })

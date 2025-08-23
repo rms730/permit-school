@@ -16,18 +16,19 @@ import {
   Divider,
   Skeleton,
 } from '@mui/material';
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { Suspense } from 'react';
 
-import AccountOverview from './AccountOverview';
 import AppShell from '@/components/layout/AppShell';
 import { getRouteClient } from '@/lib/supabaseRoute';
 
+import AccountOverview from './AccountOverview';
+
 
 export default async function AccountPage() {
-  const supabase = getRouteClient();
+  const supabase = await getRouteClient();
   
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (authError || !user) {

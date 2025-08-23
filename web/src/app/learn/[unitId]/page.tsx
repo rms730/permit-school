@@ -40,14 +40,14 @@ interface Unit {
 }
 
 interface PageProps {
-  params: {
+  params: Promise<{
     unitId: string;
-  };
+  }>;
 }
 
 export default async function LessonPlayerPage({ params }: PageProps) {
-  const { unitId } = params;
-  const supabase = getServerClient();
+  const { unitId } = await params;
+  const supabase = await getServerClient();
   const locale = await getLocaleFromRequest();
 
   // Get unit details including unit_no

@@ -20,7 +20,7 @@ import {
   Chip,
   Divider,
 } from "@mui/material";
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 import * as React from "react";
 import { useState, useEffect } from "react";
 
@@ -342,7 +342,7 @@ export default function AdminSecurityPage() {
                 </Typography>
                 
                 <Box display="flex" justifyContent="center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  { }
                   <img 
                     src={mfaSetup.qr_code} 
                     alt="MFA QR Code" 

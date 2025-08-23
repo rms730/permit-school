@@ -16,7 +16,7 @@ import { getEntitlementForUser } from "@/lib/entitlements";
 import { getServerClient } from "@/lib/supabaseServer";
 
 export default async function ExamPage() {
-  const supabase = getServerClient();
+  const supabase = await getServerClient();
 
   // Get user from session
   const {

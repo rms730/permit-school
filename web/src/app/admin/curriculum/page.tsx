@@ -21,7 +21,7 @@ import { getServerClient } from "@/lib/supabaseServer";
 
 
 export default async function AdminCurriculumPage() {
-  const supabase = getServerClient();
+  const supabase = await getServerClient();
 
   // Get user from session
   const {

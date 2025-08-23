@@ -39,7 +39,7 @@ import {
   ListItemSecondaryAction,
   Skeleton,
 } from "@mui/material";
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 import { useRouter } from "next/navigation";
 import * as React from "react";
 

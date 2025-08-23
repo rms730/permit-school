@@ -13,7 +13,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: "Course ID is required" }, { status: 400 });
     }
 
-    const supabase = getServerClient();
+    const supabase = await getServerClient();
 
     // Get user from session
     const {

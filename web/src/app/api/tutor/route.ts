@@ -40,7 +40,7 @@ export async function POST(req: Request) {
   let lang = "en";
 
   // read user from cookies/session (if present)
-  const supaRoute = getRouteClient();
+  const supaRoute = await getRouteClient();
   const { data: userData } = await supaRoute.auth.getUser();
   const userId = userData?.user?.id ?? null;
 
@@ -106,7 +106,9 @@ export async function POST(req: Request) {
           error: String(err?.message ?? err),
         },
       ]);
-    } catch {}
+    } catch {
+      // swallow logging errors
+    }
 
     return NextResponse.json(
       { error: "Tutor proxy failed", detail: String(err?.message ?? err) },

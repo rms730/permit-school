@@ -4,7 +4,7 @@ import { getServerClient } from "@/lib/supabaseServer";
 
 export async function GET() {
   try {
-    const supabase = getServerClient();
+    const supabase = await getServerClient();
 
     // Get user from session
     const {

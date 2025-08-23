@@ -7,8 +7,6 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import * as React from 'react';
-
 const trustBadges = [
   {
     icon: <Shield sx={{ fontSize: 24, color: '#22c55e' }} />,

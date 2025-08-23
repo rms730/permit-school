@@ -5,7 +5,7 @@ import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = getRouteClient();
+    const supabase = await getRouteClient();
     
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     if (authError || !user) {
@@ -88,7 +88,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
-    const supabase = getRouteClient();
+    const supabase = await getRouteClient();
     
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     if (authError || !user) {

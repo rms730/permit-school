@@ -18,11 +18,11 @@ Object.defineProperty(window, 'matchMedia', {
 
 // requestAnimationFrame stubs (for animation-based utilities)
 if (!('requestAnimationFrame' in window)) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   
   (window as any).requestAnimationFrame = (cb: FrameRequestCallback) =>
     setTimeout(() => cb(performance.now()), 0) as unknown as number;
 }
 if (!('cancelAnimationFrame' in window)) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   
   (window as any).cancelAnimationFrame = (id: number) => clearTimeout(id);
 }

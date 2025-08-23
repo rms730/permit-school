@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
 
     // Get client IP and user agent
     const forwarded = request.headers.get('x-forwarded-for');
-    const ip = forwarded ? forwarded.split(',')[0] : request.ip || 'unknown';
+    const ip = forwarded ? forwarded.split(',')[0] : 'unknown';
     const userAgent = request.headers.get('user-agent') || 'unknown';
 
     // Create consent record

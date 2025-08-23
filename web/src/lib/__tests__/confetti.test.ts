@@ -75,6 +75,10 @@ describe('Confetti', () => {
   });
 
   afterEach(() => {
+    // Stop any running confetti animation
+    if (typeof window !== 'undefined') {
+      stopConfetti();
+    }
     vi.clearAllMocks();
     vi.restoreAllMocks();
   });

@@ -15,13 +15,14 @@ import {
 } from "@mui/material";
 import * as React from "react";
 
-import JurisdictionConfigDialog from "./JurisdictionConfigDialog";
 import AppBar from "@/components/AppBar";
 import { getServerClient } from "@/lib/supabaseServer";
 
+import JurisdictionConfigDialog from "./JurisdictionConfigDialog";
+
 
 export default async function JurisdictionsPage() {
-  const supabase = getServerClient();
+  const supabase = await getServerClient();
 
   // Get jurisdictions with their configs
   const { data: jurisdictions, error: jurisdictionsError } = await supabase

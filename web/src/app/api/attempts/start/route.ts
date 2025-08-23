@@ -15,7 +15,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const supabase = getRouteClient();
+    const supabase = await getRouteClient();
 
     // Get user from session
     const {

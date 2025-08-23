@@ -1,13 +1,14 @@
 import { redirect } from 'next/navigation';
 import { Suspense } from 'react';
 
-import ProfileEditForm from './ProfileEditForm';
 import AppShell from '@/components/layout/AppShell';
 import { getRouteClient } from '@/lib/supabaseRoute';
 
+import ProfileEditForm from './ProfileEditForm';
+
 
 export default async function ProfileEditPage() {
-  const supabase = getRouteClient();
+  const supabase = await getRouteClient();
   
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (authError || !user) {

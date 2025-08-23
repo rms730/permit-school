@@ -34,13 +34,17 @@ interface QuizItem {
 }
 
 interface PageProps {
-  params: {
+  params: Promise<{
     attemptId: string;
-  };
+  }>;
 }
 
 export default function ExamPage({ params }: PageProps) {
-  const { attemptId } = params;
+  const [attemptId, setAttemptId] = useState<string>("");
+  
+  useEffect(() => {
+    params.then(({ attemptId }) => setAttemptId(attemptId));
+  }, [params]);
   const router = useRouter();
   const [items, setItems] = useState<QuizItem[]>([]);
   const [currentItemIndex, setCurrentItemIndex] = useState(0);

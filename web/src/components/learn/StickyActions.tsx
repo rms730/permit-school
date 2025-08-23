@@ -19,8 +19,6 @@ import {
   Fade,
   Slide,
 } from '@mui/material';
-import React from 'react';
-
 interface StickyActionsProps {
   onPrevious?: () => void;
   onNext?: () => void;

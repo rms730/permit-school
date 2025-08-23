@@ -4,14 +4,15 @@ import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const adminSupabase = getSupabaseAdmin();
     const body = await request.json();
     
     const { code, kind, title_i18n, active } = body;
-    const programId = params.id;
+    const programId = id;
 
     // Validate required fields
     if (!code || !kind || !title_i18n?.en) {
@@ -107,11 +108,12 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const adminSupabase = getSupabaseAdmin();
-    const programId = params.id;
+    const programId = id;
 
     // Check if program has associated courses or tests
     const { data: courses, error: coursesError } = await adminSupabase

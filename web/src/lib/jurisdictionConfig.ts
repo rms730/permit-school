@@ -20,7 +20,7 @@ export async function getJurisdictionConfig(
   jCode: string
 ): Promise<JurisdictionConfig> {
   try {
-    const supabase = getRouteClient();
+    const supabase = await getRouteClient();
     // Get config from database by joining with jurisdictions
     const { data: config, error } = await supabase
       .from('jurisdiction_configs')

@@ -1,5 +1,6 @@
 "use client";
 
+import CheckIcon from '@mui/icons-material/Check';
 import {
   Box,
   Container,
@@ -9,7 +10,6 @@ import {
   CardContent,
   useTheme,
 } from '@mui/material';
-import CheckIcon from '@mui/icons-material/Check';
 
 const features = [
   'Unlimited practice tests',

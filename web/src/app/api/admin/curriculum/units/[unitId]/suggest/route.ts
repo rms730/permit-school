@@ -4,10 +4,11 @@ import { getServerClient } from "@/lib/supabaseServer";
 
 export async function POST(
   request: Request,
-  { params }: { params: { unitId: string } }
+  { params }: { params: Promise<{ unitId: string }> }
 ) {
   try {
-    const supabase = getServerClient();
+    const { unitId } = await params;
+    const supabase = await getServerClient();
 
     // Get user from session
     const {
@@ -37,7 +38,7 @@ export async function POST(
         objectives,
         courses(jurisdictions(code))
       `)
-      .eq("id", params.unitId)
+      .eq("id", unitId)
       .single();
 
     if (unitError || !unit) {

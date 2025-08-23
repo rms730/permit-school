@@ -20,7 +20,7 @@ export function useSeatTime({
   const [timeMs, setTimeMs] = useState(0);
   const [isTracking, setIsTracking] = useState(false);
   const lastActivityRef = useRef<number>(Date.now());
-  const intervalRef = useRef<NodeJS.Timeout>();
+  const intervalRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const inFlightRef = useRef<Promise<void> | null>(null);
 
   // Check if user is active (visible tab and recent interaction)

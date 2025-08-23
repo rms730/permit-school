@@ -1,6 +1,6 @@
 import { CheckCircle, School, Timer, TrendingUp } from '@mui/icons-material';
 import { Box, Container, Typography, Button, Card, CardContent, Chip } from '@mui/material';
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 import { Metadata } from 'next';
 import Link from 'next/link';
 

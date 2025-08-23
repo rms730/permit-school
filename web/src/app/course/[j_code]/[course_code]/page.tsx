@@ -30,17 +30,17 @@ interface UnitProgress {
 }
 
 interface PageProps {
-  params: {
+  params: Promise<{
     j_code: string;
     course_code: string;
-  };
+  }>;
 }
 
 export const dynamic = "force-dynamic";
 
 export default async function CourseOutlinePage({ params }: PageProps) {
-  const supabase = getServerClient();
-  const { j_code, course_code } = params;
+  const supabase = await getServerClient();
+  const { j_code, course_code } = await params;
 
   // Get user from session
   const {

@@ -25,7 +25,7 @@ import {
   ListItemText,
   ListItemSecondaryAction,
 } from '@mui/material';
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 

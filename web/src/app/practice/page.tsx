@@ -10,7 +10,7 @@ import {
   CardContent,
 
 } from "@mui/material";
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 import Link from "next/link";
 
 import { Container as ContainerComponent } from "@/components/Container";

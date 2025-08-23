@@ -6,7 +6,7 @@ import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = getRouteClient();
+    const supabase = await getRouteClient();
     
     // Rate limiting
     const rateLimitEnabled = process.env.RATE_LIMIT_ON === 'true';

@@ -17,7 +17,7 @@ import { getServerClient } from "@/lib/supabaseServer";
 export const dynamic = "force-dynamic";
 
 export default async function AdminLogsPage() {
-  const supabase = getServerClient();
+  const supabase = await getServerClient();
 
   const {
     data: { user },

@@ -5,11 +5,11 @@ import { getRouteClient } from '@/lib/supabaseRoute';
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { attemptId: string } }
+  { params }: { params: Promise<{ attemptId: string }> }
 ) {
   try {
-    const { attemptId } = params;
-    const supabase = getRouteClient();
+    const { attemptId } = await params;
+    const supabase = await getRouteClient();
 
     // Get user from session
     const {

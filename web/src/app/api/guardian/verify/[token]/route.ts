@@ -6,11 +6,11 @@ import { hashToken } from '@/lib/tokens';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { token: string } }
+  { params }: { params: Promise<{ token: string }> }
 ) {
   try {
     const supabase = createRouteHandlerClient({ cookies });
-    const { token } = params;
+    const { token } = await params;
 
     if (!token) {
       return NextResponse.json({ code: 'validation_error', message: 'Token is required' }, { status: 400 });

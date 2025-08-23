@@ -5,10 +5,11 @@ import { getRouteClient } from "@/lib/supabaseRoute";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { jCode: string } }
+  { params }: { params: Promise<{ jCode: string }> }
 ) {
   try {
-    const supabase = getRouteClient();
+    const { jCode } = await params;
+    const supabase = await getRouteClient();
     const { data: { user }, error: authError } = await supabase.auth.getUser();
 
     if (authError || !user) {
@@ -30,7 +31,7 @@ export async function GET(
     const { data: config, error: configError } = await supabase
       .from("jurisdiction_configs")
       .select("*")
-      .eq("jurisdictions.code", params.jCode)
+      .eq("jurisdictions.code", jCode)
       .single();
 
     if (configError && configError.code !== "PGRST116") {
@@ -46,10 +47,11 @@ export async function GET(
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { jCode: string } }
+  { params }: { params: Promise<{ jCode: string }> }
 ) {
   try {
-    const supabase = getRouteClient();
+    const { jCode } = await params;
+    const supabase = await getRouteClient();
     const { data: { user }, error: authError } = await supabase.auth.getUser();
 
     if (authError || !user) {
@@ -103,7 +105,7 @@ export async function POST(
     const { data: jurisdiction, error: jurisdictionError } = await supabase
       .from("jurisdictions")
       .select("id")
-      .eq("code", params.jCode)
+      .eq("code", jCode)
       .single();
 
     if (jurisdictionError || !jurisdiction) {

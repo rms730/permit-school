@@ -21,7 +21,7 @@ import AppShell from "@/components/layout/AppShell";
 import { getServerClient } from "@/lib/supabaseServer";
 
 export default async function CoursesPage() {
-  const supabase = getServerClient();
+  const supabase = await getServerClient();
 
   // Get course catalog
   const { data: catalog, error: catalogError } = await supabase

@@ -33,7 +33,7 @@ import {
   Snackbar,
   LinearProgress,
 } from '@mui/material';
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 import { useConfetti } from '@/lib/confetti';
 

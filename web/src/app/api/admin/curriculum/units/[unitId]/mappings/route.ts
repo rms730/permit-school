@@ -4,10 +4,11 @@ import { getServerClient } from "@/lib/supabaseServer";
 
 export async function GET(
   request: Request,
-  { params }: { params: { unitId: string } }
+  { params }: { params: Promise<{ unitId: string }> }
 ) {
   try {
-    const supabase = getServerClient();
+    const { unitId } = await params;
+    const supabase = await getServerClient();
 
     // Get user from session
     const {
@@ -37,7 +38,7 @@ export async function GET(
         chunk_id,
         content_chunks(chunk)
       `)
-      .eq("unit_id", params.unitId)
+      .eq("unit_id", unitId)
       .order("ord", { ascending: true });
 
     if (mappingsError) {

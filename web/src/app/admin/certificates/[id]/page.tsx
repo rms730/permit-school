@@ -9,7 +9,7 @@ import {
 
   Divider,
 } from "@mui/material";
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 import Link from "next/link";
 import * as React from "react";
 
@@ -18,14 +18,14 @@ import CertificateActions from "@/components/CertificateActions";
 import { getServerClient } from "@/lib/supabaseServer";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function CertificateDetailPage({ params }: PageProps) {
-  const { id } = params;
-  const supabase = getServerClient();
+  const { id } = await params;
+  const supabase = await getServerClient();
 
   // Get user from session
   const {

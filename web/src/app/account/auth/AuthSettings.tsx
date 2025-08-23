@@ -25,7 +25,7 @@ import {
   Alert,
   IconButton,
 } from '@mui/material';
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 

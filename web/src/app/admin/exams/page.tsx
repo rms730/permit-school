@@ -17,7 +17,7 @@ import AppBar from "@/components/AppBar";
 import { getServerClient } from "@/lib/supabaseServer";
 
 export default async function AdminExamsPage() {
-  const supabase = getServerClient();
+  const supabase = await getServerClient();
 
   // Get user from session
   const {

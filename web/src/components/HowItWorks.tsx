@@ -14,7 +14,7 @@ import {
   useTheme,
 
 } from '@mui/material';
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 import * as React from 'react';
 
 const steps = [

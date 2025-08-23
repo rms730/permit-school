@@ -10,7 +10,7 @@ import {
   Alert,
   CircularProgress,
 } from "@mui/material";
-import Grid from '@mui/material/GridLegacy';
+import Grid from '@mui/material/Grid';
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";

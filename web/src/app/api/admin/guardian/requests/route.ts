@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   try {
     const supabase = createRouteHandlerClient({ cookies });
     
-    // Check admin role
+    // Check admin authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     if (authError || !user) {
       return NextResponse.json({ code: 'unauthorized', message: 'Authentication required' }, { status: 401 });

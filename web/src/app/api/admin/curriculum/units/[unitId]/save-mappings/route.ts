@@ -4,10 +4,11 @@ import { getServerClient } from "@/lib/supabaseServer";
 
 export async function POST(
   request: Request,
-  { params }: { params: { unitId: string } }
+  { params }: { params: Promise<{ unitId: string }> }
 ) {
   try {
-    const supabase = getServerClient();
+    const { unitId } = await params;
+    const supabase = await getServerClient();
 
     // Get user from session
     const {
@@ -53,7 +54,7 @@ export async function POST(
         const { error: deleteError } = await supabase
           .from("unit_chunks")
           .delete()
-          .eq("unit_id", params.unitId);
+          .eq("unit_id", unitId);
 
         if (deleteError) {
           throw deleteError;
@@ -63,7 +64,7 @@ export async function POST(
       // Insert new mappings
       if (mappings.length > 0) {
         const mappingData = mappings.map((mapping: any) => ({
-          unit_id: params.unitId,
+          unit_id: unitId,
           chunk_id: mapping.chunk_id,
           ord: mapping.ord,
         }));

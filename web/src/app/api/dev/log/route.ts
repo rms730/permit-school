@@ -6,11 +6,11 @@ export async function POST(req: NextRequest) {
   }
   try {
     const body = await req.json();
-    // eslint-disable-next-line no-console
+     
     console.log('[DEV LOG]', JSON.stringify(body));
     return NextResponse.json({ ok: true });
   } catch (e: any) {
-    // eslint-disable-next-line no-console
+     
     console.error('[DEV LOG ERROR]', e?.message);
     return NextResponse.json({ ok: false }, { status: 400 });
   }

@@ -1,0 +1,75 @@
+permit-school-web@ /Users/rsternke/Developer/valleyApps/permit-school/web
+├─┬ @emotion/react@11.14.0
+│ ├─┬ @emotion/use-insertion-effect-with-fallbacks@1.2.0
+│ │ └── react@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @emotion/styled@11.14.1
+│ ├── @emotion/react@11.14.0 deduped
+│ └── react@18.3.1 deduped
+├─┬ @mui/icons-material@6.5.0
+│ ├── @mui/material@6.5.0 deduped
+│ └── react@18.3.1 deduped
+├─┬ @mui/material-nextjs@6.5.0
+│ ├── @emotion/react@11.14.0 deduped
+│ ├── next@15.3.4 deduped
+│ └── react@18.3.1 deduped
+├─┬ @mui/material@6.5.0
+│ ├── @emotion/react@11.14.0 deduped
+│ ├── @emotion/styled@11.14.1 deduped
+│ ├─┬ @mui/system@6.5.0
+│ │ ├── @emotion/react@11.14.0 deduped
+│ │ ├── @emotion/styled@11.14.1 deduped
+│ │ ├─┬ @mui/private-theming@6.4.9
+│ │ │ └── react@18.3.1 deduped
+│ │ ├─┬ @mui/styled-engine@6.5.0
+│ │ │ ├── @emotion/react@11.14.0 deduped
+│ │ │ ├── @emotion/styled@11.14.1 deduped
+│ │ │ └── react@18.3.1 deduped
+│ │ └── react@18.3.1 deduped
+│ ├─┬ @mui/utils@6.4.9
+│ │ └── react@18.3.1 deduped
+│ ├── react-dom@18.3.1 deduped
+│ ├─┬ react-transition-group@4.4.5
+│ │ ├── react-dom@18.3.1 deduped
+│ │ └── react@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @mui/x-date-pickers@8.10.2
+│ ├── @emotion/react@11.14.0 deduped
+│ ├── @emotion/styled@11.14.1 deduped
+│ ├── @mui/material@6.5.0 deduped
+│ ├── @mui/system@6.5.0 deduped
+│ ├─┬ @mui/utils@7.3.1
+│ │ └── react@18.3.1 deduped
+│ ├─┬ @mui/x-internals@8.10.2
+│ │ ├─┬ @mui/utils@7.3.1
+│ │ │ └── react@18.3.1 deduped
+│ │ └── react@18.3.1 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @sentry/nextjs@10.5.0
+│ ├─┬ @sentry/react@10.5.0
+│ │ └── react@18.3.1 deduped
+│ └── next@15.3.4 deduped
+├─┬ @testing-library/react@16.3.0
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ next-intl@4.3.5
+│ ├── next@15.3.4 deduped
+│ ├── react@18.3.1 deduped
+│ └─┬ use-intl@4.3.5
+│   └── react@18.3.1 deduped
+├─┬ next-pwa@5.6.0
+│ └── next@15.3.4 deduped
+├─┬ next@15.3.4
+│ ├── react-dom@18.3.1 deduped
+│ ├── react@18.3.1 deduped
+│ └─┬ styled-jsx@5.1.6
+│   └── react@18.3.1 deduped
+├─┬ react-dom@18.3.1
+│ └── react@18.3.1 deduped
+├── react@18.3.1
+└─┬ swr@2.3.6
+  ├── react@18.3.1 deduped
+  └─┬ use-sync-external-store@1.5.0
+    └── react@18.3.1 deduped
+

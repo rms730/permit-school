@@ -1,0 +1,167 @@
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+npm warn deprecated @npmcli/move-file@2.0.1: This functionality has been moved to @npmcli/fs
+npm warn deprecated read-package-json@6.0.4: This package is no longer supported. Please use @npmcli/package-json instead.
+npm warn deprecated gauge@5.0.2: This package is no longer supported.
+npm warn deprecated are-we-there-yet@4.0.2: This package is no longer supported.
+npm warn deprecated npmlog@7.0.1: This package is no longer supported.
+npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+npm warn deprecated gauge@4.0.4: This package is no longer supported.
+npm warn deprecated are-we-there-yet@3.0.1: This package is no longer supported.
+npm warn deprecated npmlog@6.0.2: This package is no longer supported.
+
+  Who required [34mreact[39m:
+
+  [34mweb[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@emotion/styled[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@emotion/styled[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@emotion/styled[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@emotion/styled[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/private-theming[39m > [34m@mui/utils[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/private-theming[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/utils[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34m@mui/utils[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34mreact-transition-group[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34m@mui/material[39m > [34mreact-transition-group[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/icons-material[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@emotion/styled[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@emotion/styled[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/private-theming[39m > [34m@mui/utils[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/private-theming[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/utils[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34m@mui/utils[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34mreact-transition-group[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material[39m > [34mreact-transition-group[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material-nextjs[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material-nextjs[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material-nextjs[39m > [34mnext[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material-nextjs[39m > [34mnext[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material-nextjs[39m > [34mnext[39m > [34mstyled-jsx[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/material-nextjs[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@emotion/styled[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@emotion/styled[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@emotion/styled[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@emotion/styled[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/private-theming[39m > [34m@mui/utils[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/private-theming[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34m@mui/utils[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/system[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34m@mui/utils[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34mreact-transition-group[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/material[39m > [34mreact-transition-group[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@emotion/styled[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@mui/private-theming[39m > [34m@mui/utils[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@mui/private-theming[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34m@emotion/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34m@emotion/use-insertion-effect-with-fallbacks[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34m@emotion/styled[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@mui/styled-engine[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34m@mui/utils[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/system[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/utils[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/x-internals[39m > [34m@mui/utils[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/x-internals[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34m@mui/x-internals[39m > [34muse-sync-external-store[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34mreact-transition-group[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@mui/x-date-pickers[39m > [34mreact-transition-group[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@sentry/nextjs[39m > [34m@sentry/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@sentry/nextjs[39m > [34mnext[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@sentry/nextjs[39m > [34mnext[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@sentry/nextjs[39m > [34mnext[39m > [34mstyled-jsx[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@testing-library/react[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34m@testing-library/react[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mnext[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mnext[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mnext[39m > [34mstyled-jsx[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mnext-intl[39m > [34mnext[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mnext-intl[39m > [34mnext[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mnext-intl[39m > [34mnext[39m > [34mstyled-jsx[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mnext-intl[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mnext-intl[39m > [34muse-intl[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mnext-pwa[39m > [34mnext[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mnext-pwa[39m > [34mnext[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mnext-pwa[39m > [34mnext[39m > [34mstyled-jsx[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mreact-dom[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mswr[39m > [34mreact[39m[2m@18.3.1[22m
+  [34mweb[39m > [34mswr[39m > [34muse-sync-external-store[39m > [34mreact[39m[2m@18.3.1[22m
+
+

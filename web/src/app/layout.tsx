@@ -1,22 +1,14 @@
 // Ensure env schema is evaluated during build/CI (fails fast on misconfig)
 import '@/env';
 
-// import { esES } from "@mui/material/locale"; // Unused - removed
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import type { Metadata } from "next";
 import { Inter, Rubik } from 'next/font/google';
 import * as React from "react";
 
-
-import ConsoleTap from "@/components/dev/ConsoleTap";
-import OfflineModeIndicator from "@/components/OfflineModeIndicator";
-import { SkipLink } from "@/components/SkipLink";
 import { getDictionary } from "@/lib/i18n";
-import { I18nProvider } from "@/lib/i18n/I18nProvider";
 import { getLocaleFromRequest } from "@/lib/i18n/server";
 
-import MuiProvider from "./providers/MuiProvider";
-
+import ClientProviders from "./ClientProviders";
 
 // Load Google Fonts
 const inter = Inter({
@@ -109,26 +101,19 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${inter.variable} ${rubik.variable}`}>
       <body>
-        {process.env.NEXT_PUBLIC_DEV_CONSOLE_TAP === '1' ? <ConsoleTap /> : null}
-        <AppRouterCacheProvider options={{ enableCssLayer: false }}>
-          <MuiProvider>
-            <I18nProvider locale={locale} dict={dict}>
-                <SkipLink />
-                <OfflineModeIndicator />
-                <main id="main" role="main" tabIndex={-1}>
-                  {children}
-                </main>
-                <footer role="contentinfo" style={{ marginTop: 'auto', padding: '2rem 0', textAlign: 'center', borderTop: '1px solid #e0e0e0' }}>
-                  <p>&copy; {new Date().getFullYear()} Permit School. All rights reserved.</p>
-                  <nav aria-label="Footer navigation">
-                    <a href="/privacy" style={{ margin: '0 1rem', color: '#666', textDecoration: 'none' }}>Privacy</a>
-                    <a href="/terms" style={{ margin: '0 1rem', color: '#666', textDecoration: 'none' }}>Terms</a>
-                    <a href="/accessibility" style={{ margin: '0 1rem', color: '#666', textDecoration: 'none' }}>Accessibility</a>
-                  </nav>
-                </footer>
-              </I18nProvider>
-          </MuiProvider>
-        </AppRouterCacheProvider>
+        <ClientProviders locale={locale} dict={dict}>
+          <main id="main" role="main" tabIndex={-1}>
+            {children}
+          </main>
+          <footer role="contentinfo" style={{ marginTop: 'auto', padding: '2rem 0', textAlign: 'center', borderTop: '1px solid #e0e0e0' }}>
+            <p>&copy; {new Date().getFullYear()} Permit School. All rights reserved.</p>
+            <nav aria-label="Footer navigation">
+              <a href="/privacy" style={{ margin: '0 1rem', color: '#666', textDecoration: 'none' }}>Privacy</a>
+              <a href="/terms" style={{ margin: '0 1rem', color: '#666', textDecoration: 'none' }}>Terms</a>
+              <a href="/accessibility" style={{ margin: '0 1rem', color: '#666', textDecoration: 'none' }}>Accessibility</a>
+            </nav>
+          </footer>
+        </ClientProviders>
       </body>
     </html>
   );

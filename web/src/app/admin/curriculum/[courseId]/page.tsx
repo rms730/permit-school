@@ -25,8 +25,6 @@ import { getServerClient } from "@/lib/supabaseServer";
 import UnitEditDialog from "./UnitEditDialog";
 import UnitMappingDialog from "./UnitMappingDialog";
 
-
-
 export default async function AdminCourseUnitsPage({
   params,
 }: {

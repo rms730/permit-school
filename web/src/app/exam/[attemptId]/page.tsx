@@ -17,6 +17,7 @@ import {
   Chip,
 } from "@mui/material";
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import * as React from "react";
 import { useState, useEffect } from "react";

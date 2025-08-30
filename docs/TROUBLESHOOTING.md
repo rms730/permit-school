@@ -1,328 +1,739 @@
 # Troubleshooting Guide
 
-Common issues and solutions for the Permit School application.
+This document provides solutions for common issues encountered when working with the permit-school platform, including development, deployment, and production problems.
 
-## Environment Setup Issues
+## Overview
 
-### Error: "Cannot find module" or "Module not found"
+This troubleshooting guide covers:
 
-**Problem**: Missing dependencies or incorrect installation.
+- **Development Issues**: Local development problems and solutions
+- **Build & Deployment**: Build failures and deployment issues
+- **Runtime Errors**: Application errors and performance problems
+- **Database Issues**: Database connection and query problems
+- **Authentication Issues**: Login and authorization problems
+- **External Service Issues**: Third-party service integration problems
 
-**Solution**:
+## Development Issues
 
-```bash
-# Clean install dependencies
-rm -rf node_modules package-lock.json
-npm ci
+### Local Development Setup
 
-# For web directory
-cd web
-rm -rf node_modules package-lock.json
-npm ci
+#### Node.js Version Issues
+
+**Problem**: Incompatible Node.js version
+
+**Symptoms**:
+```
+Error: Node.js version 18.x is required, but 16.x is installed
 ```
 
-### Error: "Environment variable not defined"
+**Solution**:
+```bash
+# Check current version
+node --version
 
-**Problem**: Missing required environment variables.
+# Install correct version (use nvm)
+nvm install 20
+nvm use 20
+
+# Or use Node Version Manager
+n 20
+```
+
+#### Package Installation Issues
+
+**Problem**: Failed npm install
+
+**Symptoms**:
+```
+npm ERR! code ENOENT
+npm ERR! syscall open
+npm ERR! path /path/to/package.json
+npm ERR! errno -2
+npm ERR! enoent Could not read package.json
+```
 
 **Solution**:
-
 ```bash
-# Check environment validation
+# Clear npm cache
+npm cache clean --force
+
+# Delete node_modules and package-lock.json
+rm -rf node_modules package-lock.json
+
+# Reinstall dependencies
+npm install
+
+# If using workspaces
+npm install --workspaces
+```
+
+#### Environment Variable Issues
+
+**Problem**: Missing or incorrect environment variables
+
+**Symptoms**:
+```
+Error: Missing required environment variable NEXT_PUBLIC_SUPABASE_URL
+```
+
+**Solution**:
+```bash
+# Copy environment templates
+npm run env:copy
+
+# Check environment configuration
 npm run env:check:local
 
-# Copy example files and fill values
-cp env-examples/root.env.local.example .env.local
-cp env-examples/web.env.local.example web/.env.local
+# Verify environment variables
+npm run env:validate
 ```
 
-**Required variables** (see [Environment Setup](ENVIRONMENT_SETUP.md)):
+### Development Server Issues
 
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-- `SUPABASE_SERVICE_ROLE_KEY`
+#### Port Already in Use
 
-## Next.js 15 Issues
+**Problem**: Development server can't start due to port conflict
 
-### Error: "cookies() used in Server Component"
-
-**Problem**: Next.js 15 requires awaiting the `cookies()` function.
-
-**Solution**:
-
-```typescript
-// ❌ Wrong (Next.js 14 style)
-const cookieStore = cookies();
-
-// ✅ Correct (Next.js 15 style)
-const cookieStore = await cookies();
+**Symptoms**:
+```
+Error: listen EADDRINUSE: address already in use :::3000
 ```
 
-### Hydration Mismatch Errors
+**Solution**:
+```bash
+# Find process using port 3000
+lsof -i :3000
 
-**Problem**: Server and client rendering different content.
+# Kill the process
+kill -9 <PID>
+
+# Or use a different port
+npm run dev -- -p 3001
+```
+
+#### Hot Reload Not Working
+
+**Problem**: Changes not reflected in browser
+
+**Symptoms**: Code changes don't trigger browser refresh
 
 **Solution**:
+```bash
+# Clear Next.js cache
+rm -rf .next
 
-1. Use `useEffect` for client-only code
-2. Guard browser APIs with `typeof window !== 'undefined'`
-3. Use `dynamic` imports with `ssr: false` for client-only components
+# Restart development server
+npm run dev
 
+# Check file watchers
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+```
+
+#### TypeScript Errors
+
+**Problem**: TypeScript compilation errors
+
+**Symptoms**:
+```
+Type error: Property 'x' does not exist on type 'y'
+```
+
+**Solution**:
+```bash
+# Check TypeScript configuration
+npm run typecheck
+
+# Fix type errors
+npm run typecheck -- --fix
+
+# Check specific file
+npx tsc --noEmit src/components/Component.tsx
+```
+
+## Build & Deployment Issues
+
+### Build Failures
+
+#### Memory Issues During Build
+
+**Problem**: Build fails due to insufficient memory
+
+**Symptoms**:
+```
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed
+```
+
+**Solution**:
+```bash
+# Increase Node.js memory limit
+export NODE_OPTIONS="--max-old-space-size=4096"
+
+# Or in package.json
+{
+  "scripts": {
+    "build": "NODE_OPTIONS='--max-old-space-size=4096' next build"
+  }
+}
+```
+
+#### Dependency Conflicts
+
+**Problem**: Conflicting package versions
+
+**Symptoms**:
+```
+npm ERR! ERESOLVE overriding peer dependency
+```
+
+**Solution**:
+```bash
+# Check dependency tree
+npm ls
+
+# Resolve conflicts
+npm install --legacy-peer-deps
+
+# Or use yarn
+yarn install
+```
+
+#### Environment Variable Issues in Build
+
+**Problem**: Build fails due to missing environment variables
+
+**Symptoms**:
+```
+Error: Missing required environment variable
+```
+
+**Solution**:
+```bash
+# Check build-time environment variables
+npm run env:check:prod
+
+# Set required variables
+export NEXT_PUBLIC_SUPABASE_URL="https://..."
+export NEXT_PUBLIC_SUPABASE_ANON_KEY="..."
+
+# Build with environment
+npm run build
+```
+
+### Deployment Issues
+
+#### Vercel Deployment Failures
+
+**Problem**: Deployment fails on Vercel
+
+**Symptoms**:
+```
+Build failed: Command "npm run build" exited with code 1
+```
+
+**Solution**:
+```bash
+# Check build logs
+vercel logs
+
+# Test build locally
+npm run build
+
+# Check environment variables in Vercel
+vercel env ls
+
+# Redeploy
+vercel --prod
+```
+
+#### Database Migration Issues
+
+**Problem**: Database migrations fail during deployment
+
+**Symptoms**:
+```
+Error: migration failed: relation already exists
+```
+
+**Solution**:
+```bash
+# Check migration status
+npm run db:migrations:status
+
+# Reset database (development only)
+npm run db:reset
+
+# Run migrations manually
+npm run db:migrations:up
+```
+
+## Runtime Errors
+
+### Application Errors
+
+#### Hydration Errors
+
+**Problem**: Server/client mismatch causing hydration errors
+
+**Symptoms**:
+```
+Warning: Text content did not match. Server: "Hello" Client: "Hello World"
+```
+
+**Solution**:
 ```typescript
-// Client-only component
-import dynamic from "next/dynamic";
+// Use useEffect for client-only code
+import { useEffect, useState } from 'react';
 
-const ClientComponent = dynamic(() => import("./ClientComponent"), {
-  ssr: false,
-});
+function Component() {
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  
+  if (!mounted) {
+    return <div>Loading...</div>;
+  }
+  
+  return <div>Client content</div>;
+}
+```
+
+#### API Route Errors
+
+**Problem**: API routes returning errors
+
+**Symptoms**:
+```
+500 Internal Server Error
+```
+
+**Solution**:
+```bash
+# Check API logs
+npm run logs:api
+
+# Test API endpoint
+curl -v http://localhost:3000/api/health
+
+# Check API route implementation
+// Ensure proper error handling
+export async function GET(request: Request) {
+  try {
+    // API logic
+    return Response.json({ success: true });
+  } catch (error) {
+    console.error('API Error:', error);
+    return Response.json({ error: 'Internal server error' }, { status: 500 });
+  }
+}
+```
+
+#### Authentication Errors
+
+**Problem**: Authentication not working
+
+**Symptoms**:
+```
+Error: Invalid JWT token
+```
+
+**Solution**:
+```bash
+# Check authentication configuration
+npm run auth:verify
+
+# Check Supabase connection
+npm run supabase:status
+
+# Verify environment variables
+npm run env:check:local
+```
+
+### Performance Issues
+
+#### Slow Page Loads
+
+**Problem**: Pages loading slowly
+
+**Symptoms**: Long loading times, poor user experience
+
+**Solution**:
+```bash
+# Check bundle size
+npm run bundle:analyze
+
+# Run performance audit
+npm run lhci
+
+# Check Core Web Vitals
+npm run perf:web-vitals
+
+# Optimize images
+npm run images:optimize
+```
+
+#### Memory Leaks
+
+**Problem**: Application memory usage increasing over time
+
+**Symptoms**: High memory usage, application crashes
+
+**Solution**:
+```bash
+# Monitor memory usage
+npm run perf:memory
+
+# Check for memory leaks
+npm run perf:leak-check
+
+# Profile application
+npm run perf:profile
 ```
 
 ## Database Issues
 
-### Error: "Connection to Supabase failed"
+### Connection Problems
 
-**Problem**: Supabase not running or incorrect configuration.
+#### Database Connection Failed
 
-**Solution**:
+**Problem**: Can't connect to Supabase database
 
-```bash
-# Start Supabase locally
-supabase start
-
-# Check status
-supabase status
-
-# Reset if needed
-supabase db reset
+**Symptoms**:
+```
+Error: connect ECONNREFUSED
 ```
 
-### Error: "Row Level Security policy violation"
-
-**Problem**: RLS policies blocking database access.
-
 **Solution**:
-
-1. Check user authentication status
-2. Verify RLS policies in Supabase dashboard
-3. Ensure service role key is used for admin operations
-
-## Build Issues
-
-### Error: "Build failed with TypeScript errors"
-
-**Problem**: Type checking failures.
-
-**Solution**:
-
 ```bash
-# Check types locally
-npm --prefix web run typecheck
+# Check Supabase status
+npm run supabase:status
 
-# Common fixes
-# 1. Update type definitions
-# 2. Add proper type annotations
-# 3. Fix import/export statements
+# Test database connection
+npm run db:test
+
+# Check environment variables
+npm run env:check:local
+
+# Verify network connectivity
+curl https://your-project.supabase.co/rest/v1/
 ```
 
-### Error: "ESLint errors in build"
+#### Connection Pool Exhausted
 
-**Problem**: Linting failures preventing build.
+**Problem**: Too many database connections
 
-**Solution**:
-
-```bash
-# Run linting
-npm --prefix web run lint
-
-# Fix auto-fixable issues
-npm --prefix web run lint -- --fix
-
-# Check accessibility rules
-npm --prefix web run lint:a11y
+**Symptoms**:
+```
+Error: connection pool exhausted
 ```
 
-## Test Issues
-
-### E2E Test Failures
-
-**Problem**: Playwright tests failing intermittently.
-
 **Solution**:
-
 ```bash
-# Run tests with debug mode
-npm --prefix web run test:e2e:debug
+# Check connection pool status
+npm run db:connections
 
-# Run tests with UI mode
-npm --prefix web run test:e2e:ui
+# Monitor active connections
+npm run db:monitor
 
-# Install browsers if missing
-npm --prefix web run test:e2e:install
+# Optimize connection usage
+// Use connection pooling in your code
 ```
 
-**Common fixes**:
+### Query Issues
 
-1. Increase timeout values
-2. Add proper wait conditions
-3. Use stable selectors (data-testid)
-4. Check test isolation
+#### Slow Queries
 
-### Unit Test Failures
+**Problem**: Database queries taking too long
 
-**Problem**: Vitest tests failing.
+**Symptoms**: Slow page loads, timeout errors
 
 **Solution**:
-
 ```bash
-# Run tests in watch mode
-npm --prefix web run test:watch
+# Check slow queries
+npm run db:slow-queries
 
-# Run specific test file
-npm --prefix web run test -- specific-test.test.ts
+# Analyze query performance
+npm run db:analyze-queries
 
-# Check coverage
-npm --prefix web run test -- --coverage
+# Optimize queries
+// Add proper indexes
+// Use query optimization techniques
 ```
 
-## Development Server Issues
+#### Query Errors
 
-### Error: "Port 3000 already in use"
+**Problem**: Database queries failing
 
-**Problem**: Another process using the port.
-
-**Solution**:
-
-```bash
-# Find and kill process
-lsof -ti:3000 | xargs kill -9
-
-# Or use different port
-npm --prefix web run dev -- --port 3001
+**Symptoms**:
+```
+Error: relation "table_name" does not exist
 ```
 
-### Error: "Hot reload not working"
-
-**Problem**: File watching issues.
-
 **Solution**:
-
-1. Check file system limits (Linux)
-2. Restart development server
-3. Clear Next.js cache: `rm -rf web/.next`
-
-## Authentication Issues
-
-### Error: "Session not found" or "User not authenticated"
-
-**Problem**: Authentication state issues.
-
-**Solution**:
-
-1. Clear browser storage and cookies
-2. Check Supabase Auth configuration
-3. Verify JWT settings and expiration
-
-### Error: "Invalid JWT token"
-
-**Problem**: Token validation failing.
-
-**Solution**:
-
-1. Check system clock synchronization
-2. Verify Supabase project settings
-3. Clear authentication state and re-login
-
-## Performance Issues
-
-### Slow Page Loads
-
-**Problem**: Performance bottlenecks.
-
-**Solution**:
-
-1. Run Lighthouse audit: `npm --prefix web run lhci`
-2. Check Network tab in DevTools
-3. Optimize images and assets
-4. Review database queries and RLS policies
-
-### Memory Issues
-
-**Problem**: High memory usage or leaks.
-
-**Solution**:
-
-1. Monitor with Chrome DevTools Performance tab
-2. Check for unclosed database connections
-3. Review component re-renders with React DevTools
-
-## Database Migration Issues
-
-### Error: "Migration failed"
-
-**Problem**: SQL migration errors.
-
-**Solution**:
-
 ```bash
-# Check migration syntax
-python -m pip install sqlfluff
-sqlfluff lint --dialect postgres supabase/migrations/*.sql
+# Check database schema
+npm run db:schema
 
-# Reset and reapply
-supabase db reset
-supabase db push
+# Verify table exists
+npm run db:tables
+
+# Run migrations
+npm run db:migrations:up
 ```
 
-### Error: "RLS policy conflicts"
+## External Service Issues
 
-**Problem**: Row Level Security policy errors.
+### Stripe Integration
+
+#### Payment Processing Errors
+
+**Problem**: Stripe payments failing
+
+**Symptoms**:
+```
+Error: No such payment_intent: pi_xxx
+```
 
 **Solution**:
+```bash
+# Check Stripe configuration
+npm run stripe:verify
 
-1. Review policy logic in migration files
-2. Test policies with different user roles
-3. Check for policy conflicts or gaps
+# Test Stripe connection
+npm run stripe:test
+
+# Check webhook configuration
+npm run stripe:webhooks
+```
+
+#### Webhook Issues
+
+**Problem**: Stripe webhooks not working
+
+**Symptoms**: Payments not updating in database
+
+**Solution**:
+```bash
+# Check webhook logs
+npm run logs:webhooks
+
+# Verify webhook endpoint
+npm run stripe:webhook-endpoint
+
+# Test webhook locally
+npm run stripe:webhook-test
+```
+
+### Email Service Issues
+
+#### Email Delivery Problems
+
+**Problem**: Emails not being sent
+
+**Symptoms**: Users not receiving emails
+
+**Solution**:
+```bash
+# Check email service status
+npm run email:status
+
+# Test email sending
+npm run email:test
+
+# Check email logs
+npm run logs:email
+```
+
+### Sentry Integration
+
+#### Error Tracking Issues
+
+**Problem**: Errors not appearing in Sentry
+
+**Symptoms**: No error reports in Sentry dashboard
+
+**Solution**:
+```bash
+# Check Sentry configuration
+npm run sentry:verify
+
+# Test error reporting
+npm run sentry:test
+
+# Check Sentry DSN
+npm run env:check:sentry
+```
+
+## Common Error Messages
+
+### Next.js Errors
+
+#### "cookies() must be awaited"
+
+**Problem**: Using cookies() without await
+
+**Solution**:
+```typescript
+// Incorrect
+const cookies = cookies();
+
+// Correct
+const cookies = await cookies();
+```
+
+#### "use client" directive missing
+
+**Problem**: Client component without "use client" directive
+
+**Solution**:
+```typescript
+'use client';
+
+import { useState } from 'react';
+
+export default function ClientComponent() {
+  const [state, setState] = useState();
+  // ...
+}
+```
+
+### Supabase Errors
+
+#### "JWT expired"
+
+**Problem**: Authentication token expired
+
+**Solution**:
+```typescript
+// Refresh token automatically
+const { data: { session }, error } = await supabase.auth.getSession();
+
+if (error) {
+  await supabase.auth.refreshSession();
+}
+```
+
+#### "Row Level Security policy violation"
+
+**Problem**: RLS policy blocking access
+
+**Solution**:
+```sql
+-- Check RLS policies
+SELECT * FROM pg_policies WHERE tablename = 'your_table';
+
+-- Verify user permissions
+SELECT auth.uid() as current_user;
+```
+
+### TypeScript Errors
+
+#### "Property does not exist on type"
+
+**Problem**: Type definition missing property
+
+**Solution**:
+```typescript
+// Add type definition
+interface User {
+  id: string;
+  email: string;
+  name?: string; // Optional property
+}
+
+// Or use type assertion
+const user = data as User;
+```
+
+## Debugging Tools
+
+### Development Tools
+
+#### React Developer Tools
+
+```bash
+# Install React Developer Tools
+npm install -g react-devtools
+
+# Start React Developer Tools
+react-devtools
+```
+
+#### Next.js Debug Mode
+
+```bash
+# Enable Next.js debug mode
+DEBUG=* npm run dev
+
+# Enable specific debug
+DEBUG=next:* npm run dev
+```
+
+#### Database Debugging
+
+```bash
+# Enable Supabase debug mode
+SUPABASE_DEBUG=1 npm run dev
+
+# Check database logs
+npm run db:logs
+```
+
+### Production Debugging
+
+#### Error Monitoring
+
+```bash
+# Check Sentry for errors
+npm run sentry:errors
+
+# Check application logs
+npm run logs:app
+
+# Check performance metrics
+npm run perf:metrics
+```
+
+#### Performance Profiling
+
+```bash
+# Run performance audit
+npm run perf:audit
+
+# Check Core Web Vitals
+npm run perf:web-vitals
+
+# Analyze bundle size
+npm run bundle:analyze
+```
 
 ## Getting Help
 
-### Debug Information to Collect
+### Internal Resources
 
-When reporting issues, include:
+- **Documentation**: Check the `/docs` directory
+- **Code Examples**: Look at existing implementations
+- **Test Files**: Review test cases for usage examples
 
-1. **Environment**: OS, Node.js version, npm version
-2. **Error logs**: Complete error messages and stack traces
-3. **Steps to reproduce**: Exact sequence that causes the issue
-4. **Configuration**: Relevant env vars (redacted), package.json info
+### External Resources
 
-### Useful Commands for Debugging
-
-```bash
-# System information
-node --version
-npm --version
-npm list --depth=0
-
-# Application health
-curl http://localhost:3000/api/health
-
-# Database status
-supabase status
-
-# Environment validation
-npm run env:check:local
-npm --prefix web run env:check
-```
-
-### Log Files
-
-- **Next.js**: Console output and `.next/trace`
-- **Supabase**: Local logs in `supabase/logs/`
-- **Playwright**: Test results in `web/test-results/`
-- **CI**: GitHub Actions logs in repository Actions tab
+- **Next.js Documentation**: https://nextjs.org/docs
+- **Supabase Documentation**: https://supabase.com/docs
+- **Stripe Documentation**: https://stripe.com/docs
+- **TypeScript Documentation**: https://www.typescriptlang.org/docs
 
 ### Support Channels
 
-1. **Documentation**: Check relevant docs in `/docs` directory
-2. **Issues**: Search GitHub issues for similar problems
-3. **Discussions**: Use GitHub Discussions for questions
-4. **Code Review**: Request review for complex issues
+- **GitHub Issues**: Create an issue in the repository
+- **Team Chat**: Use team communication channels
+- **Documentation**: Update this troubleshooting guide
+
+## Related Documentation
+
+- [Architecture](./ARCHITECTURE.md) - System architecture overview
+- [Runbooks](./RUNBOOKS.md) - Operational procedures
+- [Performance](./PERFORMANCE.md) - Performance optimization
+- [Security & Privacy](./SECURITY_PRIVACY.md) - Security troubleshooting
+- [Testing Strategy](./testing/STRATEGY.md) - Testing and debugging

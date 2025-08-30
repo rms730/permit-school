@@ -9,509 +9,695 @@ related:
   - </docs/DMV_REPORTING.md>
 ---
 
-# Operational Runbooks
+# Runbooks
 
-**Purpose & Outcome**  
-Complete operational procedures for Permit School platform management. This runbook provides step-by-step guidance for daily operations, maintenance tasks, and emergency procedures to ensure platform reliability and compliance.
+This document provides step-by-step procedures for common operational tasks, troubleshooting, and maintenance activities for the permit-school platform.
 
-## Prerequisites
+## Overview
 
-- ✅ Admin access to all systems
-- ✅ Production environment credentials
-- ✅ Communication channels established
-- ✅ Monitoring tools configured
+Runbooks are organized by category and provide detailed procedures for:
+
+- **Daily Operations**: Routine tasks and monitoring
+- **Deployment**: Application deployment and rollback procedures
+- **Troubleshooting**: Common issues and resolution steps
+- **Maintenance**: Regular maintenance tasks
+- **Emergency Procedures**: Incident response and recovery
 
 ## Daily Operations
 
-### Health Check Routine
+### Health Check Monitoring
 
-**Morning Health Check** (9:00 AM daily):
+#### Check Application Health
 
 ```bash
-# 1. Application health
-curl https://your-domain.com/api/health
-# Expected: {"status":"healthy","environment":"production"}
+# Check application status
+curl -f http://localhost:3000/api/health
 
-# 2. Database connectivity
-curl -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
-  https://your-project.supabase.co/rest/v1/profiles?select=count
-
-# 3. Payment processing
-# Stripe Dashboard → Events → Recent events
-
-# 4. Email delivery
-# Resend Dashboard → Activity → Recent sends
+# Expected response
+{
+  "status": "healthy",
+  "timestamp": "2024-01-01T00:00:00Z",
+  "version": "1.0.0",
+  "environment": "production"
+}
 ```
 
-**Key Metrics to Monitor**:
+#### Monitor Key Metrics
 
-- Response time < 2 seconds
-- Error rate < 1%
-- Database connection pool < 80%
-- Payment success rate > 99%
+1. **Response Times**: Check API response times
+2. **Error Rates**: Monitor error rates in Sentry
+3. **Database Performance**: Check Supabase dashboard
+4. **User Activity**: Monitor active users and sessions
 
-### User Support Procedures
+### Log Monitoring
 
-**Common Issues**:
-
-1. **User can't log in**:
-
-   ```bash
-   # Check user in Supabase
-   # Supabase Dashboard → Authentication → Users
-   # Search by email and check status
-
-   # Reset password if needed
-   # Supabase Dashboard → Authentication → Users → Reset password
-   ```
-
-2. **Course access issues**:
-
-   ```bash
-   # Check enrollment status
-   # Database → enrollments table
-   SELECT * FROM enrollments WHERE user_id = 'user-uuid';
-
-   # Check entitlement status
-   # Database → billing_subscriptions table
-   SELECT * FROM billing_subscriptions WHERE user_id = 'user-uuid';
-   ```
-
-3. **Certificate problems**:
-
-   ```bash
-   # Check certificate status
-   # Database → certificates table
-   SELECT * FROM certificates WHERE user_id = 'user-uuid';
-
-   # Verify certificate PDF
-   # Supabase Storage → certificates bucket
-   ```
-
-## Weekly Maintenance
-
-### Database Maintenance
-
-**Sunday 2:00 AM**:
+#### Application Logs
 
 ```bash
-# 1. Check database performance
-# Supabase Dashboard → Database → Performance
+# Check application logs
+npm run logs:app
 
-# 2. Review slow queries
-# Supabase Dashboard → Database → Logs
+# Check error logs
+npm run logs:errors
 
-# 3. Check storage usage
-# Supabase Dashboard → Storage → Usage
-
-# 4. Backup verification
-# Supabase Dashboard → Database → Backups
+# Check performance logs
+npm run logs:performance
 ```
 
-### Security Review
-
-**Monday 10:00 AM**:
+#### Database Logs
 
 ```bash
-# 1. Review admin access logs
-# Supabase Dashboard → Logs → Filter by admin actions
+# Check database connection
+npm run db:status
 
-# 2. Check failed login attempts
-# Supabase Dashboard → Authentication → Users → Failed attempts
+# Check slow queries
+npm run db:slow-queries
 
-# 3. Review audit log signatures
-# Database → audit_logs table
-SELECT COUNT(*) FROM audit_logs WHERE NOT verify_audit_signature(id);
-```
-
-### Performance Monitoring
-
-**Wednesday 2:00 PM**:
-
-```bash
-# 1. Check Vercel performance
-# Vercel Dashboard → Analytics → Performance
-
-# 2. Review error rates
-# Sentry Dashboard → Issues → Performance
-
-# 3. Monitor external services
-curl https://api.openai.com/v1/models
-curl https://api.stripe.com/v1/account
-```
-
-## Monthly Procedures
-
-### Regulatory Reporting
-
-**First Monday of each month**:
-
-```bash
-# 1. Generate DMV reports
-# Admin Dashboard → Compliance → Generate Reports
-
-# 2. Verify report integrity
-# Check manifest signatures and file hashes
-
-# 3. Submit to regulatory bodies
-# Follow jurisdiction-specific submission procedures
-```
-
-### Billing Reconciliation
-
-**First Tuesday of each month**:
-
-```bash
-# 1. Reconcile Stripe transactions
-# Stripe Dashboard → Reports → Transactions
-
-# 2. Verify subscription status
-# Database → billing_subscriptions table
-
-# 3. Process dunning escalations
-# Check for overdue payments and escalate
-```
-
-### Certificate Audit
-
-**First Wednesday of each month**:
-
-```bash
-# 1. Audit certificate issuance
-# Database → certificates table
-SELECT COUNT(*), status FROM certificates
-WHERE created_at >= date_trunc('month', now())
-GROUP BY status;
-
-# 2. Verify certificate integrity
-# Check PDF signatures and QR codes
-
-# 3. Review voided certificates
-# Database → certificates table
-SELECT * FROM certificates WHERE status = 'voided';
-```
-
-## Emergency Procedures
-
-### Database Recovery
-
-**If database becomes unavailable**:
-
-```bash
-# 1. Check Supabase status
-# https://status.supabase.com/
-
-# 2. Verify connection
-supabase status
-
-# 3. Check recent migrations
-supabase migration list
-
-# 4. Restore from backup if needed
-# Supabase Dashboard → Database → Backups → Restore
-```
-
-### Payment System Failure
-
-**If Stripe integration fails**:
-
-```bash
-# 1. Check Stripe status
-# https://status.stripe.com/
-
-# 2. Verify webhook configuration
-# Stripe Dashboard → Developers → Webhooks
-
-# 3. Check webhook logs
-# Vercel Dashboard → Functions → Logs
-
-# 4. Manual payment processing if needed
-# Stripe Dashboard → Payments → Manual processing
-```
-
-### Certificate System Failure
-
-**If certificate generation fails**:
-
-```bash
-# 1. Check PDF generation service
-# Verify pdf-lib and qrcode dependencies
-
-# 2. Check storage bucket access
-# Supabase Dashboard → Storage → certificates bucket
-
-# 3. Manual certificate generation
-# Use admin interface to generate certificates manually
-
-# 4. Verify certificate numbers
-# Check certificate numbering sequence
+# Check connection pool
+npm run db:connections
 ```
 
 ## Deployment Procedures
 
 ### Production Deployment
 
-**Pre-deployment checklist**:
+#### Pre-Deployment Checklist
+
+- [ ] All tests passing (`npm run test`)
+- [ ] E2E tests passing (`npm run test:e2e`)
+- [ ] Performance tests passing (`npm run lhci`)
+- [ ] Security scan completed
+- [ ] Database migrations ready
+- [ ] Environment variables updated
+
+#### Deployment Steps
+
+1. **Create Release Branch**:
+   ```bash
+   git checkout -b release/v1.0.0
+   git push origin release/v1.0.0
+   ```
+
+2. **Run Pre-Deployment Tests**:
+   ```bash
+   npm run ci:all
+   ```
+
+3. **Deploy to Staging**:
+   ```bash
+   npm run deploy:staging
+   ```
+
+4. **Verify Staging**:
+   ```bash
+   npm run verify:staging
+   ```
+
+5. **Deploy to Production**:
+   ```bash
+   npm run deploy:production
+   ```
+
+6. **Verify Production**:
+   ```bash
+   npm run verify:production
+   ```
+
+#### Rollback Procedure
+
+If deployment fails:
+
+1. **Identify Issue**:
+   ```bash
+   npm run logs:deployment
+   ```
+
+2. **Rollback to Previous Version**:
+   ```bash
+   npm run rollback:production
+   ```
+
+3. **Verify Rollback**:
+   ```bash
+   npm run verify:production
+   ```
+
+4. **Investigate and Fix**:
+   - Check logs for errors
+   - Review configuration changes
+   - Test fixes in staging
+
+### Database Migrations
+
+#### Run Migrations
 
 ```bash
-# 1. Run all tests
-npm --prefix web run lint
-npm --prefix web run typecheck
-npm --prefix web test
-npm --prefix web run test:e2e
+# Check pending migrations
+npm run db:migrations:status
 
-# 2. Check environment variables
-# Vercel Dashboard → Settings → Environment Variables
+# Run migrations
+npm run db:migrations:up
 
-# 3. Verify database migrations
-supabase migration list
-
-# 4. Check feature flags
-# Database → jurisdiction_configs table
+# Verify migrations
+npm run db:migrations:verify
 ```
 
-**Deployment steps**:
+#### Rollback Migrations
 
 ```bash
-# 1. Deploy to staging
-# Vercel Dashboard → Deployments → Deploy
+# Rollback last migration
+npm run db:migrations:down
 
-# 2. Run smoke tests
-curl https://staging.your-domain.com/api/health
-
-# 3. Deploy to production
-# Vercel Dashboard → Deployments → Promote to Production
-
-# 4. Verify deployment
-curl https://your-domain.com/api/health
+# Rollback specific migration
+npm run db:migrations:down --version=20240101000000
 ```
-
-### Database Migration
-
-**Safe migration procedure**:
-
-```bash
-# 1. Create migration
-supabase migration new migration_name
-
-# 2. Test locally
-supabase db reset
-supabase db push
-
-# 3. Test on staging
-supabase db push --linked
-
-# 4. Deploy to production
-supabase db push --linked
-```
-
-## Monitoring & Alerting
-
-### Key Metrics
-
-**Application Metrics**:
-
-- Response time: < 2 seconds
-- Error rate: < 1%
-- Uptime: > 99.9%
-- User registration rate: Monitor for anomalies
-
-**Database Metrics**:
-
-- Connection pool utilization: < 80%
-- Query response time: < 500ms
-- Active connections: < 100
-- Storage usage: < 80%
-
-**Business Metrics**:
-
-- Course completion rate: Monitor trends
-- Payment success rate: > 99%
-- Certificate issuance rate: Monitor for spikes
-- User engagement: Daily active users
-
-### Alert Thresholds
-
-**Critical Alerts** (P0):
-
-- Application down
-- Database unavailable
-- Payment processing failed
-- Certificate generation failed
-
-**Warning Alerts** (P1):
-
-- High error rate (>5%)
-- Slow response time (>5s)
-- Database performance degradation
-- Payment failure rate > 1%
-
-**Info Alerts** (P2/P3):
-
-- Unusual traffic patterns
-- Feature usage anomalies
-- Security events
-- Performance degradation
 
 ## Troubleshooting
 
 ### Common Issues
 
-**High Error Rates**:
+#### Application Won't Start
 
+**Symptoms**: Application fails to start, port already in use
+
+**Resolution**:
 ```bash
-# 1. Check Sentry for error details
-# Sentry Dashboard → Issues
+# Check for running processes
+lsof -i :3000
 
-# 2. Review application logs
-# Vercel Dashboard → Functions → Logs
+# Kill existing process
+kill -9 <PID>
 
-# 3. Check database performance
-# Supabase Dashboard → Database → Performance
-
-# 4. Verify external service status
-# Check OpenAI, Stripe, Resend status pages
+# Restart application
+npm run dev
 ```
 
-**Slow Response Times**:
+#### Database Connection Issues
 
+**Symptoms**: Database connection errors, timeout errors
+
+**Resolution**:
 ```bash
-# 1. Check Vercel performance
-# Vercel Dashboard → Analytics → Performance
+# Check database status
+npm run db:status
 
-# 2. Review database queries
-# Supabase Dashboard → Database → Logs
+# Test connection
+npm run db:test
 
-# 3. Check external API calls
-# Monitor OpenAI API response times
+# Check environment variables
+npm run env:check:prod
 
-# 4. Verify CDN performance
-# Check Vercel edge network status
+# Restart database connection
+npm run db:restart
 ```
 
-**Database Connection Issues**:
+#### API Endpoint Errors
 
+**Symptoms**: 500 errors, API timeouts
+
+**Resolution**:
 ```bash
-# 1. Check Supabase status
-supabase status
+# Check API logs
+npm run logs:api
 
-# 2. Verify connection pool
-# Supabase Dashboard → Database → Connection Pool
+# Test specific endpoint
+curl -v http://localhost:3000/api/health
 
-# 3. Check for long-running queries
-# Supabase Dashboard → Database → Logs
+# Check rate limiting
+npm run logs:rate-limit
 
-# 4. Restart connection pool if needed
-# Supabase Dashboard → Database → Connection Pool → Restart
+# Verify authentication
+npm run auth:verify
 ```
 
-## Backup & Recovery
+#### Performance Issues
+
+**Symptoms**: Slow response times, high CPU usage
+
+**Resolution**:
+```bash
+# Check performance metrics
+npm run perf:check
+
+# Analyze bundle size
+npm run bundle:analyze
+
+# Check database queries
+npm run db:slow-queries
+
+# Monitor memory usage
+npm run perf:memory
+```
+
+### Error Investigation
+
+#### Check Error Logs
+
+```bash
+# Check Sentry for errors
+npm run logs:sentry
+
+# Check application logs
+npm run logs:app --level=error
+
+# Check database errors
+npm run logs:db --level=error
+```
+
+#### Debug Mode
+
+```bash
+# Enable debug logging
+DEBUG=* npm run dev
+
+# Enable specific debug
+DEBUG=app:*,db:* npm run dev
+```
+
+## Maintenance Tasks
+
+### Regular Maintenance
+
+#### Weekly Tasks
+
+1. **Security Updates**:
+   ```bash
+   # Update dependencies
+   npm run deps:update
+   
+   # Check for vulnerabilities
+   npm run security:scan
+   
+   # Update security patches
+   npm run security:update
+   ```
+
+2. **Performance Monitoring**:
+   ```bash
+   # Run performance tests
+   npm run perf:test
+   
+   # Check Core Web Vitals
+   npm run lhci
+   
+   # Analyze bundle size
+   npm run bundle:analyze
+   ```
+
+3. **Database Maintenance**:
+   ```bash
+   # Check database health
+   npm run db:health
+   
+   # Optimize queries
+   npm run db:optimize
+   
+   # Check storage usage
+   npm run db:storage
+   ```
+
+#### Monthly Tasks
+
+1. **Backup Verification**:
+   ```bash
+   # Verify backups
+   npm run backup:verify
+   
+   # Test restore procedure
+   npm run backup:test-restore
+   ```
+
+2. **Compliance Check**:
+   ```bash
+   # Check privacy compliance
+   npm run compliance:check
+   
+   # Verify data retention
+   npm run compliance:retention
+   ```
+
+3. **Security Audit**:
+   ```bash
+   # Run security audit
+   npm run security:audit
+   
+   # Check access logs
+   npm run security:access-logs
+   ```
+
+### Data Management
+
+#### Data Cleanup
+
+```bash
+# Clean old logs
+npm run logs:cleanup
+
+# Clean temporary files
+npm run temp:cleanup
+
+# Clean old backups
+npm run backup:cleanup
+```
+
+#### Data Export
+
+```bash
+# Export user data
+npm run data:export --user=<user-id>
+
+# Export course data
+npm run data:export --type=courses
+
+# Export analytics data
+npm run data:export --type=analytics
+```
+
+## Emergency Procedures
+
+### Incident Response
+
+#### Critical Incident
+
+1. **Immediate Response**:
+   ```bash
+   # Stop affected services
+   npm run service:stop --service=<service-name>
+   
+   # Enable maintenance mode
+   npm run maintenance:enable
+   
+   # Notify team
+   npm run notify:incident --severity=critical
+   ```
+
+2. **Investigation**:
+   ```bash
+   # Collect logs
+   npm run logs:collect
+   
+   # Check system status
+   npm run system:status
+   
+   # Analyze metrics
+   npm run metrics:analyze
+   ```
+
+3. **Recovery**:
+   ```bash
+   # Apply fixes
+   npm run fix:apply
+   
+   # Restart services
+   npm run service:restart
+   
+   # Verify recovery
+   npm run verify:recovery
+   ```
+
+#### Data Breach Response
+
+1. **Containment**:
+   ```bash
+   # Isolate affected systems
+   npm run security:isolate
+   
+   # Preserve evidence
+   npm run security:preserve-evidence
+   
+   # Notify authorities
+   npm run security:notify-authorities
+   ```
+
+2. **Investigation**:
+   ```bash
+   # Analyze breach scope
+   npm run security:analyze-breach
+   
+   # Identify affected users
+   npm run security:affected-users
+   
+   # Document incident
+   npm run security:document-incident
+   ```
+
+3. **Recovery**:
+   ```bash
+   # Patch vulnerabilities
+   npm run security:patch
+   
+   # Restore from backup
+   npm run backup:restore
+   
+   # Notify users
+   npm run security:notify-users
+   ```
+
+### Disaster Recovery
+
+#### System Recovery
+
+```bash
+# Check system status
+npm run system:status
+
+# Restore from backup
+npm run backup:restore --type=full
+
+# Verify system integrity
+npm run system:verify
+
+# Restart services
+npm run service:restart --all
+```
+
+#### Database Recovery
+
+```bash
+# Check database status
+npm run db:status
+
+# Restore database
+npm run db:restore --backup=<backup-id>
+
+# Verify data integrity
+npm run db:verify
+
+# Reindex database
+npm run db:reindex
+```
+
+## Monitoring and Alerting
+
+### Health Checks
+
+#### Application Health
+
+```bash
+# Run health checks
+npm run health:check
+
+# Check all services
+npm run health:check --all
+
+# Check specific service
+npm run health:check --service=api
+```
+
+#### Database Health
+
+```bash
+# Check database health
+npm run db:health
+
+# Check connection pool
+npm run db:connections
+
+# Check query performance
+npm run db:performance
+```
+
+### Alerting
+
+#### Configure Alerts
+
+```bash
+# Set up monitoring alerts
+npm run monitoring:setup
+
+# Configure alert thresholds
+npm run monitoring:thresholds
+
+# Test alert system
+npm run monitoring:test
+```
+
+#### Respond to Alerts
+
+```bash
+# Acknowledge alert
+npm run alert:acknowledge --id=<alert-id>
+
+# Investigate alert
+npm run alert:investigate --id=<alert-id>
+
+# Resolve alert
+npm run alert:resolve --id=<alert-id>
+```
+
+## Backup and Recovery
 
 ### Backup Procedures
 
-**Daily Backups**:
+#### Create Backup
 
-- Automatic Supabase backups
-- Vercel deployment snapshots
-- Environment variable backups
+```bash
+# Create full backup
+npm run backup:create --type=full
 
-**Weekly Backups**:
+# Create incremental backup
+npm run backup:create --type=incremental
 
-- Manual database export
-- Configuration backup
-- Certificate backup
+# Create database backup
+npm run backup:create --type=database
+```
 
-**Monthly Backups**:
+#### Verify Backup
 
-- Full system backup
-- Disaster recovery test
-- Backup integrity verification
+```bash
+# Verify backup integrity
+npm run backup:verify --id=<backup-id>
+
+# Test backup restore
+npm run backup:test-restore --id=<backup-id>
+
+# Check backup size
+npm run backup:size --id=<backup-id>
+```
 
 ### Recovery Procedures
 
-**Database Recovery**:
+#### Full System Recovery
 
 ```bash
-# 1. Identify backup point
-# Supabase Dashboard → Database → Backups
+# Stop all services
+npm run service:stop --all
 
-# 2. Restore database
-# Supabase Dashboard → Database → Backups → Restore
+# Restore from backup
+npm run backup:restore --id=<backup-id>
 
-# 3. Verify data integrity
-# Run data validation queries
+# Verify system integrity
+npm run system:verify
 
-# 4. Update application if needed
-# Deploy any required code changes
+# Restart services
+npm run service:restart --all
 ```
 
-**Application Recovery**:
+#### Partial Recovery
 
 ```bash
-# 1. Rollback to previous deployment
-# Vercel Dashboard → Deployments → Rollback
+# Restore specific component
+npm run backup:restore --component=<component> --id=<backup-id>
 
-# 2. Verify application health
-curl https://your-domain.com/api/health
+# Verify component
+npm run component:verify --name=<component>
 
-# 3. Check functionality
-# Test critical user flows
-
-# 4. Monitor for issues
-# Watch error rates and performance
+# Restart component
+npm run service:restart --service=<component>
 ```
 
-## Compliance Procedures
+## Performance Optimization
 
-### Data Retention
+### Performance Monitoring
 
-**User Data**:
+#### Monitor Performance
 
-- Active users: Retain indefinitely
-- Inactive users: Retain for 7 years
-- Deleted users: Retain certificate numbers only
+```bash
+# Check Core Web Vitals
+npm run perf:web-vitals
 
-**Audit Logs**:
+# Monitor API performance
+npm run perf:api
 
-- Retain for 7 years
-- Tamper-evident signatures
-- Immutable storage
+# Check database performance
+npm run perf:database
+```
 
-**Financial Records**:
+#### Performance Optimization
 
-- Retain for 7 years
-- Stripe transaction history
-- Billing audit trail
+```bash
+# Optimize bundle size
+npm run bundle:optimize
 
-### Privacy Compliance
+# Optimize images
+npm run images:optimize
 
-**DSAR Processing**:
+# Optimize database queries
+npm run db:optimize-queries
+```
 
-- Export user data within 30 days
-- Delete user data within 30 days
-- Maintain audit trail of all requests
+### Load Testing
 
-**Data Minimization**:
+#### Run Load Tests
 
-- Only collect necessary data
-- Regular data cleanup
-- PII scrubbing in logs
+```bash
+# Run load test
+npm run load:test --users=100 --duration=300
 
-**Security Measures**:
+# Run stress test
+npm run load:stress --users=1000 --duration=600
 
-- RLS policies on all tables
-- Encrypted data at rest
-- Secure data transmission
+# Run spike test
+npm run load:spike --users=500 --duration=60
+```
 
-## References
+#### Analyze Results
 
-- [Supabase Documentation](https://supabase.com/docs)
-- [Vercel Documentation](https://vercel.com/docs)
-- [Stripe Documentation](https://stripe.com/docs)
-- [Resend Documentation](https://resend.com/docs)
-- [Incident Response Runbook](INCIDENT_RESPONSE.md)
+```bash
+# Analyze load test results
+npm run load:analyze --test=<test-id>
 
----
+# Generate report
+npm run load:report --test=<test-id>
 
-**Last updated**: 2025-01-27  
-**Next review**: 2025-02-27
+# Compare with baseline
+npm run load:compare --baseline=<baseline-id>
+```
+
+## Security Procedures
+
+### Security Monitoring
+
+#### Monitor Security
+
+```bash
+# Check security logs
+npm run security:logs
+
+# Monitor access attempts
+npm run security:access
+
+# Check for vulnerabilities
+npm run security:scan
+```
+
+#### Security Response
+
+```bash
+# Block suspicious IP
+npm run security:block --ip=<ip-address>
+
+# Investigate security event
+npm run security:investigate --event=<event-id>
+
+# Update security rules
+npm run security:update-rules
+```
+
+## Related Documentation
+
+- [Architecture](./ARCHITECTURE.md) - System architecture overview
+- [Troubleshooting](./TROUBLESHOOTING.md) - Common issues and solutions
+- [Security & Privacy](./SECURITY_PRIVACY.md) - Security procedures
+- [Performance](./PERFORMANCE.md) - Performance optimization
+- [Incident Response](./INCIDENT_RESPONSE.md) - Emergency procedures

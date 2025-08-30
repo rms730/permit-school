@@ -31,7 +31,7 @@ npm --prefix web run dev
 
 # 5. Verify setup
 curl http://localhost:3000/api/health
-# Should return: {"status":"healthy","environment":"development"}
+# Should return: {"status":"ok","environment":"development"}
 ```
 
 **Next**: Visit [http://localhost:3000](http://localhost:3000) and complete the [setup guide](docs/LOCAL_DEVELOPMENT.md).
@@ -87,7 +87,7 @@ curl http://localhost:3000/api/health
 
 | Component      | Technology              | Purpose                                       |
 | -------------- | ----------------------- | --------------------------------------------- |
-| **Frontend**   | Next.js 14 + MUI 6      | React app with App Router and Material Design |
+| **Frontend**   | Next.js 15 + MUI 6      | React app with App Router and Material Design |
 | **Backend**    | Supabase                | PostgreSQL + RLS + Auth + Edge Functions      |
 | **Payments**   | Stripe                  | Subscription management and billing           |
 | **Email**      | Resend                  | Transactional emails and notifications        |
@@ -112,27 +112,25 @@ NEXT_PUBLIC_DEV_CONSOLE_TAP=1 npm --prefix web run dev  # Start with console tap
 ```
 
 ```bash
-npm --prefix web run build # Build for production
-npm --prefix web run start # Start production server
+# Production
+npm --prefix web run build        # Build for production
+npm --prefix web run start        # Start production server
 
 # Testing & quality
-
-npm --prefix web run lint # ESLint with accessibility rules
-npm --prefix web run typecheck # TypeScript type checking
-npm --prefix web test # Unit tests
-npm --prefix web run test:e2e # End-to-end tests
-npm --prefix web run axe:ci # Accessibility testing
+npm --prefix web run lint         # ESLint with accessibility rules
+npm --prefix web run typecheck    # TypeScript type checking
+npm --prefix web test             # Unit tests
+npm --prefix web run test:e2e     # End-to-end tests
+npm --prefix web run axe:ci       # Accessibility testing
 
 # Database operations
-
-supabase start # Start local Supabase
-supabase db push # Apply migrations
-supabase db reset # Reset local database
+supabase start                    # Start local Supabase
+supabase db push                  # Apply migrations
+supabase db reset                 # Reset local database
 
 # Operations
-
-npm --prefix web run seed:handbooks # Seed handbook content
-node web/scripts/make_admin.mjs email # Create admin user
+npm --prefix web run seed:handbooks  # Seed handbook content
+node web/scripts/make_admin.mjs email  # Create admin user
 ```
 
 ## Environment Setup
@@ -171,11 +169,22 @@ RESEND_API_KEY=
 
 - **[📚 Complete Documentation](docs/README.md)** - Everything you need to know
 - **[🚀 Getting Started](docs/LOCAL_DEVELOPMENT.md)** - Environment setup and first run
-- **[🏗️ Architecture](docs/WEB_ARCHITECTURE.md)** - System design and data flows
+- **[🏗️ Architecture](docs/ARCHITECTURE.md)** - System design and data flows
 - **[🔧 Operations](docs/RUNBOOKS.md)** - Admin procedures and runbooks
 - **[🔒 Security](docs/SECURITY_COMPLIANCE.md)** - RLS, audit logs, and compliance
 - **[🏛️ Multi-State](docs/ADDING_A_NEW_STATE.md)** - Adding new jurisdictions
 - **[📖 Contributing](CONTRIBUTING.md)** - Development standards and PR process
+
+### Technical Reference
+
+- **[🔌 API Reference](docs/api/ROUTES.md)** - Complete API endpoint documentation
+- **[🌍 Environment Variables](docs/ENVIRONMENT_VARIABLES.md)** - All configuration options
+- **[🧪 Testing Strategy](docs/testing/STRATEGY.md)** - Testing approach and best practices
+- **[📊 Testing Coverage](docs/testing/COVERAGE.md)** - Current test coverage and metrics
+- **[🎭 Playwright E2E](docs/testing/PLAYWRIGHT.md)** - End-to-end testing guide
+- **[♿ Accessibility](docs/ACCESSIBILITY.md)** - WCAG compliance and testing
+- **[⚡ Performance](docs/PERFORMANCE.md)** - Performance monitoring and optimization
+- **[🔧 Troubleshooting](docs/TROUBLESHOOTING.md)** - Common issues and solutions
 
 ## Quick Links
 

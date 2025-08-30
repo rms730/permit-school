@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2025-08-23T19:23:49.741Z",
+  "generatedAt": "2025-08-30T04:08:11.362Z",
   "stats": {
-    "totalFiles": 52,
-    "totalLinks": 109,
-    "internalLinks": 59,
-    "externalLinks": 50,
+    "totalFiles": 63,
+    "totalLinks": 168,
+    "internalLinks": 109,
+    "externalLinks": 59,
     "brokenLinks": 0,
     "referencedScripts": {},
     "referencedEnvVars": {},
@@ -431,7 +431,10 @@
           "target": "docs/ENVIRONMENT_SETUP.md"
         }
       ],
-      "commands": ["npm run --prefix", "tsx import"],
+      "commands": [
+        "npm run --prefix",
+        "tsx import"
+      ],
       "envVars": [
         "ENVIRONMENT_SETUP",
         "LOCAL_DEVELOPMENT",
@@ -720,7 +723,9 @@
         }
       ],
       "links": [],
-      "commands": ["npm run packages"],
+      "commands": [
+        "npm run packages"
+      ],
       "envVars": [
         "ACT",
         "SAT",
@@ -1253,7 +1258,10 @@
         "owner": "Operations",
         "last_reviewed": "2025-01-27",
         "status": "authoritative",
-        "related": ["</docs/RUNBOOKS.md>", "</docs/SECURITY_COMPLIANCE.md>"]
+        "related": [
+          "</docs/RUNBOOKS.md>",
+          "</docs/SECURITY_COMPLIANCE.md>"
+        ]
       }
     },
     {
@@ -1385,7 +1393,12 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": ["RLS", "RAG", "PII", "DMV"],
+      "envVars": [
+        "RLS",
+        "RAG",
+        "PII",
+        "DMV"
+      ],
       "filePaths": [],
       "frontmatter": null
     },
@@ -1875,7 +1888,9 @@
           "target": "url-to-after-screenshot"
         }
       ],
-      "commands": ["npm run --prefix"],
+      "commands": [
+        "npm run --prefix"
+      ],
       "envVars": [
         "E2E",
         "WCAG",
@@ -2175,8 +2190,8 @@
     {
       "path": "README.md",
       "title": "1. Clone and setup",
-      "lastModified": "2025-08-23T19:19:15.397Z",
-      "size": 7598,
+      "lastModified": "2025-08-30T03:46:43.621Z",
+      "size": 8524,
       "headings": [
         {
           "level": 2,
@@ -2220,8 +2235,8 @@
         },
         {
           "level": 1,
-          "text": "Should return: {\"status\":\"healthy\",\"environment\":\"development\"}",
-          "id": "should-return-status-healthy-environment-development-"
+          "text": "Should return: {\"status\":\"ok\",\"environment\":\"development\"}",
+          "id": "should-return-status-ok-environment-development-"
         },
         {
           "level": 2,
@@ -2280,6 +2295,11 @@
         },
         {
           "level": 1,
+          "text": "Production",
+          "id": "production"
+        },
+        {
+          "level": 1,
           "text": "Testing & quality",
           "id": "testing-quality"
         },
@@ -2317,6 +2337,11 @@
           "level": 2,
           "text": "Documentation",
           "id": "documentation"
+        },
+        {
+          "level": 3,
+          "text": "Technical Reference",
+          "id": "technical-reference"
         },
         {
           "level": 2,
@@ -2367,9 +2392,9 @@
         },
         {
           "text": "🏗️ Architecture",
-          "url": "docs/WEB_ARCHITECTURE.md",
+          "url": "docs/ARCHITECTURE.md",
           "type": "internal",
-          "target": "docs/WEB_ARCHITECTURE.md"
+          "target": "docs/ARCHITECTURE.md"
         },
         {
           "text": "🔧 Operations",
@@ -2394,6 +2419,54 @@
           "url": "CONTRIBUTING.md",
           "type": "internal",
           "target": "CONTRIBUTING.md"
+        },
+        {
+          "text": "🔌 API Reference",
+          "url": "docs/api/ROUTES.md",
+          "type": "internal",
+          "target": "docs/api/ROUTES.md"
+        },
+        {
+          "text": "🌍 Environment Variables",
+          "url": "docs/ENVIRONMENT_VARIABLES.md",
+          "type": "internal",
+          "target": "docs/ENVIRONMENT_VARIABLES.md"
+        },
+        {
+          "text": "🧪 Testing Strategy",
+          "url": "docs/testing/STRATEGY.md",
+          "type": "internal",
+          "target": "docs/testing/STRATEGY.md"
+        },
+        {
+          "text": "📊 Testing Coverage",
+          "url": "docs/testing/COVERAGE.md",
+          "type": "internal",
+          "target": "docs/testing/COVERAGE.md"
+        },
+        {
+          "text": "🎭 Playwright E2E",
+          "url": "docs/testing/PLAYWRIGHT.md",
+          "type": "internal",
+          "target": "docs/testing/PLAYWRIGHT.md"
+        },
+        {
+          "text": "♿ Accessibility",
+          "url": "docs/ACCESSIBILITY.md",
+          "type": "internal",
+          "target": "docs/ACCESSIBILITY.md"
+        },
+        {
+          "text": "⚡ Performance",
+          "url": "docs/PERFORMANCE.md",
+          "type": "internal",
+          "target": "docs/PERFORMANCE.md"
+        },
+        {
+          "text": "🔧 Troubleshooting",
+          "url": "docs/TROUBLESHOOTING.md",
+          "type": "internal",
+          "target": "docs/TROUBLESHOOTING.md"
         },
         {
           "text": "http://localhost:3000",
@@ -2457,11 +2530,21 @@
         "STRIPE_PUBLISHABLE_KEY",
         "RESEND_API_KEY",
         "README",
-        "WEB_ARCHITECTURE",
+        "ARCHITECTURE",
         "RUNBOOKS",
         "SECURITY_COMPLIANCE",
         "ADDING_A_NEW_STATE",
         "CONTRIBUTING",
+        "API",
+        "ROUTES",
+        "ENVIRONMENT_VARIABLES",
+        "STRATEGY",
+        "COVERAGE",
+        "PLAYWRIGHT",
+        "ACCESSIBILITY",
+        "WCAG",
+        "PERFORMANCE",
+        "TROUBLESHOOTING",
         "URL",
         "LICENSE"
       ],
@@ -2471,7 +2554,10 @@
         "owner": "Engineering",
         "last_reviewed": "2025-01-27",
         "status": "authoritative",
-        "related": ["</docs/README.md>", "</CONTRIBUTING.md>"]
+        "related": [
+          "</docs/README.md>",
+          "</CONTRIBUTING.md>"
+        ]
       }
     },
     {
@@ -3063,7 +3149,10 @@
         }
       ],
       "links": [],
-      "commands": ["npm run env:seed", "npm run env:seed:auto"],
+      "commands": [
+        "npm run env:seed",
+        "npm run env:seed:auto"
+      ],
       "envVars": [
         "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY",
         "STRIPE_PUBLISHABLE_KEY",
@@ -3094,6 +3183,413 @@
       ],
       "filePaths": [],
       "frontmatter": null
+    },
+    {
+      "path": "docs/ACCESSIBILITY.md",
+      "title": "Accessibility",
+      "lastModified": "2025-08-30T03:46:43.621Z",
+      "size": 16358,
+      "headings": [
+        {
+          "level": 1,
+          "text": "Accessibility",
+          "id": "accessibility"
+        },
+        {
+          "level": 2,
+          "text": "Accessibility Standards",
+          "id": "accessibility-standards"
+        },
+        {
+          "level": 3,
+          "text": "WCAG 2.2 AA Compliance",
+          "id": "wcag-2-2-aa-compliance"
+        },
+        {
+          "level": 3,
+          "text": "Key Requirements",
+          "id": "key-requirements"
+        },
+        {
+          "level": 2,
+          "text": "Testing Strategy",
+          "id": "testing-strategy"
+        },
+        {
+          "level": 3,
+          "text": "Automated Testing",
+          "id": "automated-testing"
+        },
+        {
+          "level": 4,
+          "text": "ESLint Accessibility Rules",
+          "id": "eslint-accessibility-rules"
+        },
+        {
+          "level": 4,
+          "text": "Playwright Accessibility Testing",
+          "id": "playwright-accessibility-testing"
+        },
+        {
+          "level": 4,
+          "text": "axe-core CLI Testing",
+          "id": "axe-core-cli-testing"
+        },
+        {
+          "level": 1,
+          "text": "Run accessibility tests",
+          "id": "run-accessibility-tests"
+        },
+        {
+          "level": 1,
+          "text": "Test specific URLs",
+          "id": "test-specific-urls"
+        },
+        {
+          "level": 1,
+          "text": "Generate detailed report",
+          "id": "generate-detailed-report"
+        },
+        {
+          "level": 3,
+          "text": "Manual Testing Checklist",
+          "id": "manual-testing-checklist"
+        },
+        {
+          "level": 4,
+          "text": "Keyboard Navigation",
+          "id": "keyboard-navigation"
+        },
+        {
+          "level": 4,
+          "text": "Screen Reader Testing",
+          "id": "screen-reader-testing"
+        },
+        {
+          "level": 4,
+          "text": "Visual Design",
+          "id": "visual-design"
+        },
+        {
+          "level": 2,
+          "text": "Implementation Guidelines",
+          "id": "implementation-guidelines"
+        },
+        {
+          "level": 3,
+          "text": "Semantic HTML",
+          "id": "semantic-html"
+        },
+        {
+          "level": 4,
+          "text": "Proper Heading Structure",
+          "id": "proper-heading-structure"
+        },
+        {
+          "level": 4,
+          "text": "Form Accessibility",
+          "id": "form-accessibility"
+        },
+        {
+          "level": 3,
+          "text": "ARIA Implementation",
+          "id": "aria-implementation"
+        },
+        {
+          "level": 4,
+          "text": "Custom Components",
+          "id": "custom-components"
+        },
+        {
+          "level": 4,
+          "text": "Interactive Elements",
+          "id": "interactive-elements"
+        },
+        {
+          "level": 3,
+          "text": "Color and Contrast",
+          "id": "color-and-contrast"
+        },
+        {
+          "level": 4,
+          "text": "Color Contrast Requirements",
+          "id": "color-contrast-requirements"
+        },
+        {
+          "level": 4,
+          "text": "Color Independence",
+          "id": "color-independence"
+        },
+        {
+          "level": 3,
+          "text": "Focus Management",
+          "id": "focus-management"
+        },
+        {
+          "level": 4,
+          "text": "Skip Links",
+          "id": "skip-links"
+        },
+        {
+          "level": 4,
+          "text": "Focus Trapping",
+          "id": "focus-trapping"
+        },
+        {
+          "level": 2,
+          "text": "Component Accessibility",
+          "id": "component-accessibility"
+        },
+        {
+          "level": 3,
+          "text": "Button Components",
+          "id": "button-components"
+        },
+        {
+          "level": 3,
+          "text": "Form Components",
+          "id": "form-components"
+        },
+        {
+          "level": 3,
+          "text": "Navigation Components",
+          "id": "navigation-components"
+        },
+        {
+          "level": 2,
+          "text": "Testing and Validation",
+          "id": "testing-and-validation"
+        },
+        {
+          "level": 3,
+          "text": "Automated Testing Commands",
+          "id": "automated-testing-commands"
+        },
+        {
+          "level": 1,
+          "text": "Run ESLint accessibility rules",
+          "id": "run-eslint-accessibility-rules"
+        },
+        {
+          "level": 1,
+          "text": "Run axe-core tests",
+          "id": "run-axe-core-tests"
+        },
+        {
+          "level": 1,
+          "text": "Run Playwright accessibility tests",
+          "id": "run-playwright-accessibility-tests"
+        },
+        {
+          "level": 1,
+          "text": "Test specific pages",
+          "id": "test-specific-pages"
+        },
+        {
+          "level": 3,
+          "text": "Manual Testing Tools",
+          "id": "manual-testing-tools"
+        },
+        {
+          "level": 4,
+          "text": "Screen Reader Testing",
+          "id": "screen-reader-testing"
+        },
+        {
+          "level": 4,
+          "text": "Keyboard Navigation Testing",
+          "id": "keyboard-navigation-testing"
+        },
+        {
+          "level": 4,
+          "text": "Color Contrast Testing",
+          "id": "color-contrast-testing"
+        },
+        {
+          "level": 3,
+          "text": "Testing Checklist",
+          "id": "testing-checklist"
+        },
+        {
+          "level": 4,
+          "text": "Page-Level Testing",
+          "id": "page-level-testing"
+        },
+        {
+          "level": 4,
+          "text": "Form Testing",
+          "id": "form-testing"
+        },
+        {
+          "level": 4,
+          "text": "Interactive Components",
+          "id": "interactive-components"
+        },
+        {
+          "level": 2,
+          "text": "Common Issues and Solutions",
+          "id": "common-issues-and-solutions"
+        },
+        {
+          "level": 3,
+          "text": "Missing Alt Text",
+          "id": "missing-alt-text"
+        },
+        {
+          "level": 3,
+          "text": "Color-Only Information",
+          "id": "color-only-information"
+        },
+        {
+          "level": 3,
+          "text": "Missing Focus Indicators",
+          "id": "missing-focus-indicators"
+        },
+        {
+          "level": 3,
+          "text": "Improper Heading Structure",
+          "id": "improper-heading-structure"
+        },
+        {
+          "level": 2,
+          "text": "Resources and References",
+          "id": "resources-and-references"
+        },
+        {
+          "level": 3,
+          "text": "WCAG Guidelines",
+          "id": "wcag-guidelines"
+        },
+        {
+          "level": 3,
+          "text": "Testing Tools",
+          "id": "testing-tools"
+        },
+        {
+          "level": 3,
+          "text": "Screen Readers",
+          "id": "screen-readers"
+        },
+        {
+          "level": 3,
+          "text": "ARIA Resources",
+          "id": "aria-resources"
+        }
+      ],
+      "links": [
+        {
+          "text": "WCAG 2.2 Guidelines",
+          "url": "https://www.w3.org/WAI/WCAG22/quickref/",
+          "type": "external",
+          "target": "https://www.w3.org/WAI/WCAG22/quickref/"
+        },
+        {
+          "text": "WCAG 2.2 Success Criteria",
+          "url": "https://www.w3.org/WAI/WCAG22/quickref/#success-criteria",
+          "type": "external",
+          "target": "https://www.w3.org/WAI/WCAG22/quickref/#success-criteria"
+        },
+        {
+          "text": "Understanding WCAG 2.2",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/",
+          "type": "external",
+          "target": "https://www.w3.org/WAI/WCAG22/Understanding/"
+        },
+        {
+          "text": "axe-core",
+          "url": "https://github.com/dequelabs/axe-core",
+          "type": "external",
+          "target": "https://github.com/dequelabs/axe-core"
+        },
+        {
+          "text": "WebAIM Contrast Checker",
+          "url": "https://webaim.org/resources/contrastchecker/",
+          "type": "external",
+          "target": "https://webaim.org/resources/contrastchecker/"
+        },
+        {
+          "text": "WAVE",
+          "url": "https://wave.webaim.org/",
+          "type": "external",
+          "target": "https://wave.webaim.org/"
+        },
+        {
+          "text": "Lighthouse",
+          "url": "https://developers.google.com/web/tools/lighthouse",
+          "type": "external",
+          "target": "https://developers.google.com/web/tools/lighthouse"
+        },
+        {
+          "text": "NVDA",
+          "url": "https://www.nvaccess.org/",
+          "type": "external",
+          "target": "https://www.nvaccess.org/"
+        },
+        {
+          "text": "VoiceOver",
+          "url": "https://www.apple.com/accessibility/vision/",
+          "type": "external",
+          "target": "https://www.apple.com/accessibility/vision/"
+        },
+        {
+          "text": "TalkBack",
+          "url": "https://support.google.com/accessibility/android/answer/6283673",
+          "type": "external",
+          "target": "https://support.google.com/accessibility/android/answer/6283673"
+        },
+        {
+          "text": "ARIA Authoring Practices Guide",
+          "url": "https://www.w3.org/WAI/ARIA/apg/",
+          "type": "external",
+          "target": "https://www.w3.org/WAI/ARIA/apg/"
+        },
+        {
+          "text": "ARIA Labels and Descriptions",
+          "url": "https://www.w3.org/WAI/ARIA/apg/practices/labels-and-descriptions/",
+          "type": "external",
+          "target": "https://www.w3.org/WAI/ARIA/apg/practices/labels-and-descriptions/"
+        },
+        {
+          "text": "ARIA States and Properties",
+          "url": "https://www.w3.org/WAI/ARIA/apg/practices/states-and-properties/",
+          "type": "external",
+          "target": "https://www.w3.org/WAI/ARIA/apg/practices/states-and-properties/"
+        },
+        {
+          "text": "Performance",
+          "url": "PERFORMANCE.md",
+          "type": "internal",
+          "target": "PERFORMANCE.md"
+        }
+      ],
+      "commands": [
+        "npm run --prefix",
+        "npx axe",
+        "tsx //"
+      ],
+      "envVars": [
+        "WCAG",
+        "HTML",
+        "ARIA",
+        "CLI",
+        "NVDA",
+        "JAWS",
+        "WAI",
+        "WCAG22",
+        "WAVE",
+        "PERFORMANCE"
+      ],
+      "filePaths": [],
+      "frontmatter": {
+        "title": "Accessibility",
+        "owner": "Engineering",
+        "last_reviewed": "2025-01-27",
+        "status": "authoritative",
+        "related": [
+          "</docs/testing/STRATEGY.md>",
+          "</docs/DESIGN_SYSTEM.md>"
+        ]
+      }
     },
     {
       "path": "docs/ADDING_A_NEW_STATE.md",
@@ -3216,6 +3712,221 @@
       ],
       "filePaths": [],
       "frontmatter": null
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "title": "System Architecture",
+      "lastModified": "2025-08-30T03:46:43.621Z",
+      "size": 9656,
+      "headings": [
+        {
+          "level": 1,
+          "text": "System Architecture",
+          "id": "system-architecture"
+        },
+        {
+          "level": 2,
+          "text": "Monorepo Structure",
+          "id": "monorepo-structure"
+        },
+        {
+          "level": 2,
+          "text": "Technology Stack",
+          "id": "technology-stack"
+        },
+        {
+          "level": 3,
+          "text": "Frontend",
+          "id": "frontend"
+        },
+        {
+          "level": 3,
+          "text": "Backend",
+          "id": "backend"
+        },
+        {
+          "level": 3,
+          "text": "External Services",
+          "id": "external-services"
+        },
+        {
+          "level": 3,
+          "text": "Development & Testing",
+          "id": "development-testing"
+        },
+        {
+          "level": 2,
+          "text": "System Architecture Diagram",
+          "id": "system-architecture-diagram"
+        },
+        {
+          "level": 2,
+          "text": "Key System Components",
+          "id": "key-system-components"
+        },
+        {
+          "level": 3,
+          "text": "1. Authentication & Authorization",
+          "id": "1-authentication-authorization"
+        },
+        {
+          "level": 3,
+          "text": "2. Learning Management System",
+          "id": "2-learning-management-system"
+        },
+        {
+          "level": 3,
+          "text": "3. Assessment & Certification",
+          "id": "3-assessment-certification"
+        },
+        {
+          "level": 3,
+          "text": "4. Billing & Subscriptions",
+          "id": "4-billing-subscriptions"
+        },
+        {
+          "level": 3,
+          "text": "5. Regulatory Compliance",
+          "id": "5-regulatory-compliance"
+        },
+        {
+          "level": 2,
+          "text": "Data Flows",
+          "id": "data-flows"
+        },
+        {
+          "level": 3,
+          "text": "Student Journey",
+          "id": "student-journey"
+        },
+        {
+          "level": 3,
+          "text": "Guardian Consent Flow",
+          "id": "guardian-consent-flow"
+        },
+        {
+          "level": 2,
+          "text": "Security Architecture",
+          "id": "security-architecture"
+        },
+        {
+          "level": 3,
+          "text": "Authentication Security",
+          "id": "authentication-security"
+        },
+        {
+          "level": 3,
+          "text": "Data Security",
+          "id": "data-security"
+        },
+        {
+          "level": 3,
+          "text": "Application Security",
+          "id": "application-security"
+        },
+        {
+          "level": 2,
+          "text": "Performance Architecture",
+          "id": "performance-architecture"
+        },
+        {
+          "level": 3,
+          "text": "Frontend Performance",
+          "id": "frontend-performance"
+        },
+        {
+          "level": 3,
+          "text": "Backend Performance",
+          "id": "backend-performance"
+        },
+        {
+          "level": 3,
+          "text": "Monitoring & Observability",
+          "id": "monitoring-observability"
+        },
+        {
+          "level": 2,
+          "text": "Scalability Considerations",
+          "id": "scalability-considerations"
+        },
+        {
+          "level": 3,
+          "text": "Horizontal Scaling",
+          "id": "horizontal-scaling"
+        },
+        {
+          "level": 3,
+          "text": "Vertical Scaling",
+          "id": "vertical-scaling"
+        },
+        {
+          "level": 2,
+          "text": "Disaster Recovery",
+          "id": "disaster-recovery"
+        },
+        {
+          "level": 3,
+          "text": "Backup Strategy",
+          "id": "backup-strategy"
+        },
+        {
+          "level": 3,
+          "text": "Recovery Procedures",
+          "id": "recovery-procedures"
+        },
+        {
+          "level": 2,
+          "text": "Compliance & Governance",
+          "id": "compliance-governance"
+        },
+        {
+          "level": 3,
+          "text": "Regulatory Compliance",
+          "id": "regulatory-compliance"
+        },
+        {
+          "level": 3,
+          "text": "Data Governance",
+          "id": "data-governance"
+        }
+      ],
+      "links": [
+        {
+          "text": "Web Architecture",
+          "url": "WEB_ARCHITECTURE.md",
+          "type": "internal",
+          "target": "WEB_ARCHITECTURE.md"
+        }
+      ],
+      "commands": [],
+      "envVars": [
+        "API",
+        "E2E",
+        "MUI",
+        "SWR",
+        "PWA",
+        "RLS",
+        "DMV",
+        "PII",
+        "DSAR",
+        "TLS",
+        "CSRF",
+        "CSP",
+        "CDN",
+        "WEB_ARCHITECTURE"
+      ],
+      "filePaths": [],
+      "frontmatter": {
+        "title": "System Architecture",
+        "owner": "Engineering",
+        "last_reviewed": "2025-01-27",
+        "status": "authoritative",
+        "related": [
+          "</docs/WEB_ARCHITECTURE.md>",
+          "</docs/BACKEND_ARCHITECTURE.md>",
+          "</docs/DATA_FLOWS.md>"
+        ]
+      }
     },
     {
       "path": "docs/BILLING_LIFECYCLE.md",
@@ -3961,7 +4672,10 @@
         "owner": "Operations",
         "last_reviewed": "2025-01-27",
         "status": "authoritative",
-        "related": ["</docs/RUNBOOKS.md>", "</docs/DMV_REPORTING.md>"]
+        "related": [
+          "</docs/RUNBOOKS.md>",
+          "</docs/DMV_REPORTING.md>"
+        ]
       }
     },
     {
@@ -4373,7 +5087,13 @@
         "npx playwright",
         "npx @lhci"
       ],
-      "envVars": ["E2E", "NODE_ENV", "BASE_URL", "TESTKIT_ON", "TESTKIT_TOKEN"],
+      "envVars": [
+        "E2E",
+        "NODE_ENV",
+        "BASE_URL",
+        "TESTKIT_ON",
+        "TESTKIT_TOKEN"
+      ],
       "filePaths": [],
       "frontmatter": null
     },
@@ -4519,8 +5239,8 @@
     {
       "path": "docs/CI.md",
       "title": "CI/CD Pipeline",
-      "lastModified": "2025-08-23T19:20:08.783Z",
-      "size": 3982,
+      "lastModified": "2025-08-23T19:39:45.678Z",
+      "size": 3980,
       "headings": [
         {
           "level": 1,
@@ -4846,7 +5566,9 @@
         }
       ],
       "links": [],
-      "commands": ["tsx --"],
+      "commands": [
+        "tsx --"
+      ],
       "envVars": [
         "SHA",
         "API",
@@ -4862,6 +5584,382 @@
         "RATE_LIMIT_MAX",
         "OFFLINE_DEV",
         "BILLING_"
+      ],
+      "filePaths": [],
+      "frontmatter": null
+    },
+    {
+      "path": "docs/CONTRIBUTING.md",
+      "title": "Contributing Guide",
+      "lastModified": "2025-08-30T04:07:54.669Z",
+      "size": 15401,
+      "headings": [
+        {
+          "level": 1,
+          "text": "Contributing Guide",
+          "id": "contributing-guide"
+        },
+        {
+          "level": 2,
+          "text": "Overview",
+          "id": "overview"
+        },
+        {
+          "level": 2,
+          "text": "Development Setup",
+          "id": "development-setup"
+        },
+        {
+          "level": 3,
+          "text": "Prerequisites",
+          "id": "prerequisites"
+        },
+        {
+          "level": 3,
+          "text": "Initial Setup",
+          "id": "initial-setup"
+        },
+        {
+          "level": 3,
+          "text": "Development Tools",
+          "id": "development-tools"
+        },
+        {
+          "level": 4,
+          "text": "Recommended VS Code Extensions",
+          "id": "recommended-vs-code-extensions"
+        },
+        {
+          "level": 4,
+          "text": "Development Scripts",
+          "id": "development-scripts"
+        },
+        {
+          "level": 1,
+          "text": "Start development server",
+          "id": "start-development-server"
+        },
+        {
+          "level": 1,
+          "text": "Run tests",
+          "id": "run-tests"
+        },
+        {
+          "level": 1,
+          "text": "Run E2E tests",
+          "id": "run-e2e-tests"
+        },
+        {
+          "level": 1,
+          "text": "Check code quality",
+          "id": "check-code-quality"
+        },
+        {
+          "level": 1,
+          "text": "Format code",
+          "id": "format-code"
+        },
+        {
+          "level": 2,
+          "text": "Coding Standards",
+          "id": "coding-standards"
+        },
+        {
+          "level": 3,
+          "text": "TypeScript",
+          "id": "typescript"
+        },
+        {
+          "level": 4,
+          "text": "Type Definitions",
+          "id": "type-definitions"
+        },
+        {
+          "level": 4,
+          "text": "Component Structure",
+          "id": "component-structure"
+        },
+        {
+          "level": 3,
+          "text": "React Best Practices",
+          "id": "react-best-practices"
+        },
+        {
+          "level": 4,
+          "text": "Hooks Usage",
+          "id": "hooks-usage"
+        },
+        {
+          "level": 4,
+          "text": "State Management",
+          "id": "state-management"
+        },
+        {
+          "level": 3,
+          "text": "CSS and Styling",
+          "id": "css-and-styling"
+        },
+        {
+          "level": 4,
+          "text": "Tailwind CSS",
+          "id": "tailwind-css"
+        },
+        {
+          "level": 3,
+          "text": "API Design",
+          "id": "api-design"
+        },
+        {
+          "level": 4,
+          "text": "RESTful Endpoints",
+          "id": "restful-endpoints"
+        },
+        {
+          "level": 4,
+          "text": "Error Handling",
+          "id": "error-handling"
+        },
+        {
+          "level": 2,
+          "text": "Development Workflow",
+          "id": "development-workflow"
+        },
+        {
+          "level": 3,
+          "text": "Git Workflow",
+          "id": "git-workflow"
+        },
+        {
+          "level": 4,
+          "text": "Branching Strategy",
+          "id": "branching-strategy"
+        },
+        {
+          "level": 4,
+          "text": "Commit Messages",
+          "id": "commit-messages"
+        },
+        {
+          "level": 4,
+          "text": "Pull Request Process",
+          "id": "pull-request-process"
+        },
+        {
+          "level": 3,
+          "text": "Code Review Guidelines",
+          "id": "code-review-guidelines"
+        },
+        {
+          "level": 4,
+          "text": "Review Checklist",
+          "id": "review-checklist"
+        },
+        {
+          "level": 4,
+          "text": "Review Comments",
+          "id": "review-comments"
+        },
+        {
+          "level": 2,
+          "text": "Testing Requirements",
+          "id": "testing-requirements"
+        },
+        {
+          "level": 3,
+          "text": "Unit Testing",
+          "id": "unit-testing"
+        },
+        {
+          "level": 4,
+          "text": "Test Structure",
+          "id": "test-structure"
+        },
+        {
+          "level": 4,
+          "text": "Test Coverage",
+          "id": "test-coverage"
+        },
+        {
+          "level": 3,
+          "text": "Integration Testing",
+          "id": "integration-testing"
+        },
+        {
+          "level": 4,
+          "text": "API Testing",
+          "id": "api-testing"
+        },
+        {
+          "level": 3,
+          "text": "E2E Testing",
+          "id": "e2e-testing"
+        },
+        {
+          "level": 4,
+          "text": "Playwright Tests",
+          "id": "playwright-tests"
+        },
+        {
+          "level": 2,
+          "text": "Documentation Standards",
+          "id": "documentation-standards"
+        },
+        {
+          "level": 3,
+          "text": "Code Documentation",
+          "id": "code-documentation"
+        },
+        {
+          "level": 4,
+          "text": "JSDoc Comments",
+          "id": "jsdoc-comments"
+        },
+        {
+          "level": 4,
+          "text": "README Files",
+          "id": "readme-files"
+        },
+        {
+          "level": 3,
+          "text": "Technical Documentation",
+          "id": "technical-documentation"
+        },
+        {
+          "level": 2,
+          "text": "Release Process",
+          "id": "release-process"
+        },
+        {
+          "level": 3,
+          "text": "Version Management",
+          "id": "version-management"
+        },
+        {
+          "level": 4,
+          "text": "Semantic Versioning",
+          "id": "semantic-versioning"
+        },
+        {
+          "level": 4,
+          "text": "Release Branches",
+          "id": "release-branches"
+        },
+        {
+          "level": 3,
+          "text": "Deployment",
+          "id": "deployment"
+        },
+        {
+          "level": 4,
+          "text": "Staging Deployment",
+          "id": "staging-deployment"
+        },
+        {
+          "level": 4,
+          "text": "Production Deployment",
+          "id": "production-deployment"
+        },
+        {
+          "level": 2,
+          "text": "Code of Conduct",
+          "id": "code-of-conduct"
+        },
+        {
+          "level": 3,
+          "text": "Community Guidelines",
+          "id": "community-guidelines"
+        },
+        {
+          "level": 3,
+          "text": "Reporting Issues",
+          "id": "reporting-issues"
+        },
+        {
+          "level": 2,
+          "text": "Getting Help",
+          "id": "getting-help"
+        },
+        {
+          "level": 3,
+          "text": "Resources",
+          "id": "resources"
+        },
+        {
+          "level": 3,
+          "text": "Mentorship",
+          "id": "mentorship"
+        },
+        {
+          "level": 2,
+          "text": "Related Documentation",
+          "id": "related-documentation"
+        }
+      ],
+      "links": [
+        {
+          "text": "Architecture",
+          "url": "./ARCHITECTURE.md",
+          "type": "internal",
+          "target": "./ARCHITECTURE.md"
+        },
+        {
+          "text": "Testing Strategy",
+          "url": "./testing/STRATEGY.md",
+          "type": "internal",
+          "target": "./testing/STRATEGY.md"
+        },
+        {
+          "text": "API Routes",
+          "url": "./api/ROUTES.md",
+          "type": "internal",
+          "target": "./api/ROUTES.md"
+        },
+        {
+          "text": "Environment Setup",
+          "url": "./ENVIRONMENT.md",
+          "type": "internal",
+          "target": "./ENVIRONMENT.md"
+        },
+        {
+          "text": "Troubleshooting",
+          "url": "./TROUBLESHOOTING.md",
+          "type": "internal",
+          "target": "./TROUBLESHOOTING.md"
+        }
+      ],
+      "commands": [
+        "npm run or",
+        "npm run install",
+        "npm run -w",
+        "npm run env:copy",
+        "npm run env:setup",
+        "npm run ci:check:full",
+        "npm run dev",
+        "npm run test",
+        "npm run test:e2e",
+        "npm run lint",
+        "npm run typecheck",
+        "npm run format:fix",
+        "npm run version",
+        "npm run ci:all"
+      ],
+      "envVars": [
+        "CSS",
+        "API",
+        "E2E",
+        "SWR",
+        "URL",
+        "AAA",
+        "JSON",
+        "README",
+        "MAJOR",
+        "MINOR",
+        "PATCH",
+        "ARCHITECTURE",
+        "STRATEGY",
+        "ROUTES",
+        "ENVIRONMENT",
+        "TROUBLESHOOTING"
       ],
       "filePaths": [],
       "frontmatter": null
@@ -5732,7 +6830,9 @@
         }
       ],
       "links": [],
-      "commands": ["npm run dev"],
+      "commands": [
+        "npm run dev"
+      ],
       "envVars": [
         "NEXT_PUBLIC_DEV_CONSOLE_TAP",
         "DEV",
@@ -6461,8 +7561,226 @@
         "owner": "Operations",
         "last_reviewed": "2025-01-27",
         "status": "authoritative",
-        "related": ["</docs/RUNBOOKS.md>", "</docs/FULFILLMENT_CA.md>"]
+        "related": [
+          "</docs/RUNBOOKS.md>",
+          "</docs/FULFILLMENT_CA.md>"
+        ]
       }
+    },
+    {
+      "path": "docs/ENVIRONMENT.md",
+      "title": "Environment Configuration",
+      "lastModified": "2025-08-30T04:04:32.049Z",
+      "size": 6808,
+      "headings": [
+        {
+          "level": 1,
+          "text": "Environment Configuration",
+          "id": "environment-configuration"
+        },
+        {
+          "level": 2,
+          "text": "Overview",
+          "id": "overview"
+        },
+        {
+          "level": 2,
+          "text": "Environment Variables",
+          "id": "environment-variables"
+        },
+        {
+          "level": 3,
+          "text": "Server-Only Variables",
+          "id": "server-only-variables"
+        },
+        {
+          "level": 3,
+          "text": "Client-Exposed Variables",
+          "id": "client-exposed-variables"
+        },
+        {
+          "level": 2,
+          "text": "Environment Configuration",
+          "id": "environment-configuration"
+        },
+        {
+          "level": 3,
+          "text": "Local Development",
+          "id": "local-development"
+        },
+        {
+          "level": 3,
+          "text": "Environment Validation",
+          "id": "environment-validation"
+        },
+        {
+          "level": 1,
+          "text": "Local development",
+          "id": "local-development"
+        },
+        {
+          "level": 1,
+          "text": "Development environment",
+          "id": "development-environment"
+        },
+        {
+          "level": 1,
+          "text": "Production environment",
+          "id": "production-environment"
+        },
+        {
+          "level": 3,
+          "text": "Environment Matrix",
+          "id": "environment-matrix"
+        },
+        {
+          "level": 2,
+          "text": "Environment Setup Scripts",
+          "id": "environment-setup-scripts"
+        },
+        {
+          "level": 3,
+          "text": "Root Level Scripts",
+          "id": "root-level-scripts"
+        },
+        {
+          "level": 3,
+          "text": "CI Environment Setup",
+          "id": "ci-environment-setup"
+        },
+        {
+          "level": 2,
+          "text": "Environment Variable Sources",
+          "id": "environment-variable-sources"
+        },
+        {
+          "level": 3,
+          "text": "Local Development",
+          "id": "local-development"
+        },
+        {
+          "level": 3,
+          "text": "Production",
+          "id": "production"
+        },
+        {
+          "level": 3,
+          "text": "CI/CD",
+          "id": "ci-cd"
+        },
+        {
+          "level": 2,
+          "text": "Security Considerations",
+          "id": "security-considerations"
+        },
+        {
+          "level": 3,
+          "text": "Sensitive Data",
+          "id": "sensitive-data"
+        },
+        {
+          "level": 3,
+          "text": "Environment Variable Validation",
+          "id": "environment-variable-validation"
+        },
+        {
+          "level": 3,
+          "text": "Environment Variable Scoping",
+          "id": "environment-variable-scoping"
+        },
+        {
+          "level": 2,
+          "text": "Troubleshooting",
+          "id": "troubleshooting"
+        },
+        {
+          "level": 3,
+          "text": "Common Issues",
+          "id": "common-issues"
+        },
+        {
+          "level": 3,
+          "text": "Debugging",
+          "id": "debugging"
+        },
+        {
+          "level": 1,
+          "text": "Check environment variable loading",
+          "id": "check-environment-variable-loading"
+        },
+        {
+          "level": 1,
+          "text": "Validate environment configuration",
+          "id": "validate-environment-configuration"
+        },
+        {
+          "level": 2,
+          "text": "Related Documentation",
+          "id": "related-documentation"
+        }
+      ],
+      "links": [
+        {
+          "text": "Architecture",
+          "url": "./ARCHITECTURE.md",
+          "type": "internal",
+          "target": "./ARCHITECTURE.md"
+        },
+        {
+          "text": "API Routes",
+          "url": "./api/ROUTES.md",
+          "type": "internal",
+          "target": "./api/ROUTES.md"
+        },
+        {
+          "text": "Testing Strategy",
+          "url": "./testing/STRATEGY.md",
+          "type": "internal",
+          "target": "./testing/STRATEGY.md"
+        },
+        {
+          "text": "CI/CD",
+          "url": "./CI.md",
+          "type": "internal",
+          "target": "./CI.md"
+        }
+      ],
+      "commands": [
+        "npm run env:copy",
+        "npm run env:seed",
+        "npm run env:check:local",
+        "npm run env:check:dev",
+        "npm run env:check:prod",
+        "npm run ci:env",
+        "npm run env:setup:dry"
+      ],
+      "envVars": [
+        "NEXT_PUBLIC_",
+        "NODE_ENV",
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "URL",
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "NEXT_PUBLIC_ENV",
+        "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY",
+        "NEXT_PUBLIC_SENTRY_DSN",
+        "DSN",
+        "NEXT_PUBLIC_SITE_URL",
+        "NEXT_PUBLIC_GOOGLE_ONE_TAP",
+        "NEXT_PUBLIC_COMMIT_SHA",
+        "SHA",
+        "NEXT_PUBLIC_BUILD_AT",
+        "API",
+        "JWT",
+        "ARCHITECTURE",
+        "ROUTES",
+        "STRATEGY"
+      ],
+      "filePaths": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/docs.yml",
+        "web/src/env.ts"
+      ],
+      "frontmatter": null
     },
     {
       "path": "docs/ENVIRONMENT_SETUP.md",
@@ -7168,7 +8486,10 @@
           "target": "https://supabase.com"
         }
       ],
-      "commands": ["npm run env:check:local", "npm run -w"],
+      "commands": [
+        "npm run env:check:local",
+        "npm run -w"
+      ],
       "envVars": [
         "SUPABASE_URL",
         "SUPABASE_SERVICE_ROLE_KEY",
@@ -7506,7 +8827,9 @@
         "API",
         "JSON"
       ],
-      "filePaths": ["ops/seed/questions/CA/DE-ONLINE/final.blueprint.json"],
+      "filePaths": [
+        "ops/seed/questions/CA/DE-ONLINE/final.blueprint.json"
+      ],
       "frontmatter": null
     },
     {
@@ -8319,8 +9642,280 @@
         "owner": "Operations",
         "last_reviewed": "2025-01-27",
         "status": "authoritative",
-        "related": ["</docs/DMV_REPORTING.md>", "</docs/RUNBOOKS.md>"]
+        "related": [
+          "</docs/DMV_REPORTING.md>",
+          "</docs/RUNBOOKS.md>"
+        ]
       }
+    },
+    {
+      "path": "docs/I18N.md",
+      "title": "Internationalization (i18n)",
+      "lastModified": "2025-08-30T04:05:02.908Z",
+      "size": 9722,
+      "headings": [
+        {
+          "level": 1,
+          "text": "Internationalization (i18n)",
+          "id": "internationalization-i18n-"
+        },
+        {
+          "level": 2,
+          "text": "Overview",
+          "id": "overview"
+        },
+        {
+          "level": 2,
+          "text": "Supported Locales",
+          "id": "supported-locales"
+        },
+        {
+          "level": 2,
+          "text": "Configuration",
+          "id": "configuration"
+        },
+        {
+          "level": 3,
+          "text": "Locale Configuration",
+          "id": "locale-configuration"
+        },
+        {
+          "level": 3,
+          "text": "Middleware Configuration",
+          "id": "middleware-configuration"
+        },
+        {
+          "level": 2,
+          "text": "Message Catalogs",
+          "id": "message-catalogs"
+        },
+        {
+          "level": 3,
+          "text": "Structure",
+          "id": "structure"
+        },
+        {
+          "level": 3,
+          "text": "Message Format",
+          "id": "message-format"
+        },
+        {
+          "level": 3,
+          "text": "Type Safety",
+          "id": "type-safety"
+        },
+        {
+          "level": 2,
+          "text": "Usage",
+          "id": "usage"
+        },
+        {
+          "level": 3,
+          "text": "Server Components",
+          "id": "server-components"
+        },
+        {
+          "level": 3,
+          "text": "Client Components",
+          "id": "client-components"
+        },
+        {
+          "level": 3,
+          "text": "API Routes",
+          "id": "api-routes"
+        },
+        {
+          "level": 2,
+          "text": "Locale Routing",
+          "id": "locale-routing"
+        },
+        {
+          "level": 3,
+          "text": "URL Structure",
+          "id": "url-structure"
+        },
+        {
+          "level": 3,
+          "text": "Navigation",
+          "id": "navigation"
+        },
+        {
+          "level": 3,
+          "text": "Programmatic Navigation",
+          "id": "programmatic-navigation"
+        },
+        {
+          "level": 2,
+          "text": "Language Switcher",
+          "id": "language-switcher"
+        },
+        {
+          "level": 3,
+          "text": "Component Implementation",
+          "id": "component-implementation"
+        },
+        {
+          "level": 3,
+          "text": "Accessibility",
+          "id": "accessibility"
+        },
+        {
+          "level": 2,
+          "text": "Adding a New Language",
+          "id": "adding-a-new-language"
+        },
+        {
+          "level": 3,
+          "text": "1. Update Locale Configuration",
+          "id": "1-update-locale-configuration"
+        },
+        {
+          "level": 3,
+          "text": "2. Create Message Catalog",
+          "id": "2-create-message-catalog"
+        },
+        {
+          "level": 3,
+          "text": "3. Update Type Definitions",
+          "id": "3-update-type-definitions"
+        },
+        {
+          "level": 3,
+          "text": "4. Update Language Switcher",
+          "id": "4-update-language-switcher"
+        },
+        {
+          "level": 3,
+          "text": "5. Test the Implementation",
+          "id": "5-test-the-implementation"
+        },
+        {
+          "level": 2,
+          "text": "Testing",
+          "id": "testing"
+        },
+        {
+          "level": 3,
+          "text": "E2E Testing",
+          "id": "e2e-testing"
+        },
+        {
+          "level": 3,
+          "text": "Unit Testing",
+          "id": "unit-testing"
+        },
+        {
+          "level": 2,
+          "text": "Best Practices",
+          "id": "best-practices"
+        },
+        {
+          "level": 3,
+          "text": "Message Organization",
+          "id": "message-organization"
+        },
+        {
+          "level": 3,
+          "text": "Translation Keys",
+          "id": "translation-keys"
+        },
+        {
+          "level": 3,
+          "text": "Interpolation",
+          "id": "interpolation"
+        },
+        {
+          "level": 3,
+          "text": "Pluralization",
+          "id": "pluralization"
+        },
+        {
+          "level": 2,
+          "text": "Performance Considerations",
+          "id": "performance-considerations"
+        },
+        {
+          "level": 3,
+          "text": "Message Loading",
+          "id": "message-loading"
+        },
+        {
+          "level": 3,
+          "text": "Bundle Size",
+          "id": "bundle-size"
+        },
+        {
+          "level": 2,
+          "text": "Troubleshooting",
+          "id": "troubleshooting"
+        },
+        {
+          "level": 3,
+          "text": "Common Issues",
+          "id": "common-issues"
+        },
+        {
+          "level": 3,
+          "text": "Debugging",
+          "id": "debugging"
+        },
+        {
+          "level": 2,
+          "text": "Related Documentation",
+          "id": "related-documentation"
+        }
+      ],
+      "links": [
+        {
+          "text": "Architecture",
+          "url": "./ARCHITECTURE.md",
+          "type": "internal",
+          "target": "./ARCHITECTURE.md"
+        },
+        {
+          "text": "Testing Strategy",
+          "url": "./testing/STRATEGY.md",
+          "type": "internal",
+          "target": "./testing/STRATEGY.md"
+        },
+        {
+          "text": "Accessibility",
+          "url": "./ACCESSIBILITY.md",
+          "type": "internal",
+          "target": "./ACCESSIBILITY.md"
+        },
+        {
+          "text": "API Routes",
+          "url": "./api/ROUTES.md",
+          "type": "internal",
+          "target": "./api/ROUTES.md"
+        }
+      ],
+      "commands": [
+        "npm run test:e2e",
+        "npm run typecheck"
+      ],
+      "envVars": [
+        "JSON",
+        "URL",
+        "API",
+        "ARIA",
+        "E2E",
+        "ARCHITECTURE",
+        "STRATEGY",
+        "ACCESSIBILITY",
+        "ROUTES"
+      ],
+      "filePaths": [
+        "web/i18n/request.ts",
+        "web/middleware.ts",
+        "./${locale}.json",
+        "web/src/components/LanguageSwitcher.tsx",
+        "web/messages/fr.json",
+        "web/messages/index.ts",
+        "web/tests/e2e/i18n-switcher.spec.ts"
+      ],
+      "frontmatter": null
     },
     {
       "path": "docs/I18N_SETUP.md",
@@ -8470,7 +10065,10 @@
         "CSS",
         "RLS"
       ],
-      "filePaths": ["en.ts", "es.ts"],
+      "filePaths": [
+        "en.ts",
+        "es.ts"
+      ],
       "frontmatter": null
     },
     {
@@ -8506,7 +10104,9 @@
         }
       ],
       "links": [],
-      "commands": ["npm run --prefix"],
+      "commands": [
+        "npm run --prefix"
+      ],
       "envVars": [
         "SUPABASE_URL",
         "SUPABASE_SERVICE_ROLE_KEY",
@@ -9687,7 +11287,9 @@
         "NEXT_PUBLIC_SUPABASE_URL",
         "NEXT_PUBLIC_SUPABASE_ANON_KEY"
       ],
-      "filePaths": [".vscode/settings.json"],
+      "filePaths": [
+        ".vscode/settings.json"
+      ],
       "frontmatter": null
     },
     {
@@ -9719,7 +11321,14 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": ["CLI", "CTE", "RLS", "NOT", "EXISTS", "UID"],
+      "envVars": [
+        "CLI",
+        "CTE",
+        "RLS",
+        "NOT",
+        "EXISTS",
+        "UID"
+      ],
       "filePaths": [
         "0011a_auth_compat_local.sql",
         "0014_question_bank_admin.sql",
@@ -10221,7 +11830,14 @@
         "npm run test:e2e",
         "npm run test:e2e:ui"
       ],
-      "envVars": ["CLI", "API", "CA_DL_BASIC", "OFFLINE", "PID", "E2E"],
+      "envVars": [
+        "CLI",
+        "API",
+        "CA_DL_BASIC",
+        "OFFLINE",
+        "PID",
+        "E2E"
+      ],
       "filePaths": [
         "users.json",
         "enrollments.json",
@@ -10230,6 +11846,336 @@
         "web/src/lib/offline.ts"
       ],
       "frontmatter": null
+    },
+    {
+      "path": "docs/PERFORMANCE.md",
+      "title": "Performance",
+      "lastModified": "2025-08-30T03:46:43.621Z",
+      "size": 16312,
+      "headings": [
+        {
+          "level": 1,
+          "text": "Performance",
+          "id": "performance"
+        },
+        {
+          "level": 2,
+          "text": "Performance Standards",
+          "id": "performance-standards"
+        },
+        {
+          "level": 3,
+          "text": "Core Web Vitals Targets",
+          "id": "core-web-vitals-targets"
+        },
+        {
+          "level": 3,
+          "text": "Performance Budgets",
+          "id": "performance-budgets"
+        },
+        {
+          "level": 2,
+          "text": "Monitoring Strategy",
+          "id": "monitoring-strategy"
+        },
+        {
+          "level": 3,
+          "text": "Lighthouse CI",
+          "id": "lighthouse-ci"
+        },
+        {
+          "level": 4,
+          "text": "Configuration",
+          "id": "configuration"
+        },
+        {
+          "level": 4,
+          "text": "GitHub Actions Integration",
+          "id": "github-actions-integration"
+        },
+        {
+          "level": 1,
+          "text": ".github/workflows/ci.yml",
+          "id": "-github-workflows-ci-yml"
+        },
+        {
+          "level": 3,
+          "text": "Real User Monitoring (RUM)",
+          "id": "real-user-monitoring-rum-"
+        },
+        {
+          "level": 4,
+          "text": "Sentry Performance Monitoring",
+          "id": "sentry-performance-monitoring"
+        },
+        {
+          "level": 4,
+          "text": "Custom Performance Metrics",
+          "id": "custom-performance-metrics"
+        },
+        {
+          "level": 2,
+          "text": "Optimization Strategies",
+          "id": "optimization-strategies"
+        },
+        {
+          "level": 3,
+          "text": "Frontend Optimization",
+          "id": "frontend-optimization"
+        },
+        {
+          "level": 4,
+          "text": "Code Splitting",
+          "id": "code-splitting"
+        },
+        {
+          "level": 4,
+          "text": "Image Optimization",
+          "id": "image-optimization"
+        },
+        {
+          "level": 4,
+          "text": "Bundle Analysis",
+          "id": "bundle-analysis"
+        },
+        {
+          "level": 1,
+          "text": "Analyze bundle size",
+          "id": "analyze-bundle-size"
+        },
+        {
+          "level": 1,
+          "text": "Check for duplicate dependencies",
+          "id": "check-for-duplicate-dependencies"
+        },
+        {
+          "level": 3,
+          "text": "Backend Optimization",
+          "id": "backend-optimization"
+        },
+        {
+          "level": 4,
+          "text": "Database Query Optimization",
+          "id": "database-query-optimization"
+        },
+        {
+          "level": 4,
+          "text": "API Response Caching",
+          "id": "api-response-caching"
+        },
+        {
+          "level": 4,
+          "text": "Connection Pooling",
+          "id": "connection-pooling"
+        },
+        {
+          "level": 3,
+          "text": "Caching Strategies",
+          "id": "caching-strategies"
+        },
+        {
+          "level": 4,
+          "text": "Static Generation",
+          "id": "static-generation"
+        },
+        {
+          "level": 4,
+          "text": "Service Worker Caching",
+          "id": "service-worker-caching"
+        },
+        {
+          "level": 2,
+          "text": "Performance Testing",
+          "id": "performance-testing"
+        },
+        {
+          "level": 3,
+          "text": "Load Testing",
+          "id": "load-testing"
+        },
+        {
+          "level": 4,
+          "text": "API Load Testing",
+          "id": "api-load-testing"
+        },
+        {
+          "level": 4,
+          "text": "Frontend Performance Testing",
+          "id": "frontend-performance-testing"
+        },
+        {
+          "level": 3,
+          "text": "Bundle Size Monitoring",
+          "id": "bundle-size-monitoring"
+        },
+        {
+          "level": 4,
+          "text": "Webpack Bundle Analyzer",
+          "id": "webpack-bundle-analyzer"
+        },
+        {
+          "level": 1,
+          "text": "Analyze bundle size",
+          "id": "analyze-bundle-size"
+        },
+        {
+          "level": 1,
+          "text": "Check for large dependencies",
+          "id": "check-for-large-dependencies"
+        },
+        {
+          "level": 4,
+          "text": "Bundle Size Thresholds",
+          "id": "bundle-size-thresholds"
+        },
+        {
+          "level": 2,
+          "text": "Performance Monitoring",
+          "id": "performance-monitoring"
+        },
+        {
+          "level": 3,
+          "text": "Real-Time Monitoring",
+          "id": "real-time-monitoring"
+        },
+        {
+          "level": 4,
+          "text": "Performance Dashboard",
+          "id": "performance-dashboard"
+        },
+        {
+          "level": 4,
+          "text": "Alerting",
+          "id": "alerting"
+        },
+        {
+          "level": 3,
+          "text": "Performance Budgets",
+          "id": "performance-budgets"
+        },
+        {
+          "level": 4,
+          "text": "Bundle Size Budgets",
+          "id": "bundle-size-budgets"
+        },
+        {
+          "level": 4,
+          "text": "Performance Budgets",
+          "id": "performance-budgets"
+        },
+        {
+          "level": 2,
+          "text": "Optimization Checklist",
+          "id": "optimization-checklist"
+        },
+        {
+          "level": 3,
+          "text": "Frontend Optimization",
+          "id": "frontend-optimization"
+        },
+        {
+          "level": 3,
+          "text": "Backend Optimization",
+          "id": "backend-optimization"
+        },
+        {
+          "level": 3,
+          "text": "Monitoring and Alerting",
+          "id": "monitoring-and-alerting"
+        },
+        {
+          "level": 2,
+          "text": "Performance Tools",
+          "id": "performance-tools"
+        },
+        {
+          "level": 3,
+          "text": "Development Tools",
+          "id": "development-tools"
+        },
+        {
+          "level": 3,
+          "text": "Monitoring Tools",
+          "id": "monitoring-tools"
+        },
+        {
+          "level": 3,
+          "text": "Testing Tools",
+          "id": "testing-tools"
+        },
+        {
+          "level": 2,
+          "text": "Best Practices",
+          "id": "best-practices"
+        },
+        {
+          "level": 3,
+          "text": "Code Optimization",
+          "id": "code-optimization"
+        },
+        {
+          "level": 3,
+          "text": "Database Optimization",
+          "id": "database-optimization"
+        },
+        {
+          "level": 3,
+          "text": "Infrastructure Optimization",
+          "id": "infrastructure-optimization"
+        }
+      ],
+      "links": [
+        {
+          "text": "Troubleshooting",
+          "url": "TROUBLESHOOTING.md",
+          "type": "internal",
+          "target": "TROUBLESHOOTING.md"
+        }
+      ],
+      "commands": [
+        "npm run --prefix",
+        "npm run ls",
+        "npx @next",
+        "tsx //"
+      ],
+      "envVars": [
+        "LCP",
+        "FID",
+        "CLS",
+        "TTFB",
+        "FCP",
+        "API",
+        "LHCI_GITHUB_APP_TOKEN",
+        "RUM",
+        "NEXT_PUBLIC_SENTRY_DSN",
+        "CREATE",
+        "INDEX",
+        "MATERIALIZED",
+        "VIEW",
+        "SELECT",
+        "SUM",
+        "COUNT",
+        "DISTINCT",
+        "FROM",
+        "GROUP",
+        "REFRESH",
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "CACHE_NAME",
+        "CDN",
+        "TROUBLESHOOTING"
+      ],
+      "filePaths": [],
+      "frontmatter": {
+        "title": "Performance",
+        "owner": "Engineering",
+        "last_reviewed": "2025-01-27",
+        "status": "authoritative",
+        "related": [
+          "</docs/testing/STRATEGY.md>",
+          "</docs/ACCESSIBILITY.md>"
+        ]
+      }
     },
     {
       "path": "docs/PII_AND_COMPLIANCE.md",
@@ -10469,7 +12415,9 @@
         }
       ],
       "links": [],
-      "commands": ["npm run dependencies"],
+      "commands": [
+        "npm run dependencies"
+      ],
       "envVars": [
         "PII",
         "JSON",
@@ -10522,15 +12470,19 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": ["RAG", "RPC", "RLS"],
+      "envVars": [
+        "RAG",
+        "RPC",
+        "RLS"
+      ],
       "filePaths": [],
       "frontmatter": null
     },
     {
       "path": "docs/README.md",
       "title": "Permit School Documentation",
-      "lastModified": "2025-08-18T17:24:10.767Z",
-      "size": 6576,
+      "lastModified": "2025-08-30T03:46:43.621Z",
+      "size": 7339,
       "headings": [
         {
           "level": 1,
@@ -10569,8 +12521,8 @@
         },
         {
           "level": 2,
-          "text": "Information Architecture",
-          "id": "information-architecture"
+          "text": "Documentation Table of Contents",
+          "id": "documentation-table-of-contents"
         },
         {
           "level": 3,
@@ -10606,6 +12558,11 @@
           "level": 3,
           "text": "📚 Contributing",
           "id": "-contributing"
+        },
+        {
+          "level": 3,
+          "text": "🔧 Technical Reference",
+          "id": "-technical-reference"
         },
         {
           "level": 2,
@@ -10706,6 +12663,12 @@
           "url": "TESTING.md",
           "type": "internal",
           "target": "TESTING.md"
+        },
+        {
+          "text": "System Architecture",
+          "url": "ARCHITECTURE.md",
+          "type": "internal",
+          "target": "ARCHITECTURE.md"
         },
         {
           "text": "Web Application",
@@ -10826,14 +12789,65 @@
           "url": "MIGRATION_STRUCTURE.md",
           "type": "internal",
           "target": "MIGRATION_STRUCTURE.md"
+        },
+        {
+          "text": "API Reference",
+          "url": "api/ROUTES.md",
+          "type": "internal",
+          "target": "api/ROUTES.md"
+        },
+        {
+          "text": "Environment Variables",
+          "url": "ENVIRONMENT_VARIABLES.md",
+          "type": "internal",
+          "target": "ENVIRONMENT_VARIABLES.md"
+        },
+        {
+          "text": "Testing Strategy",
+          "url": "testing/STRATEGY.md",
+          "type": "internal",
+          "target": "testing/STRATEGY.md"
+        },
+        {
+          "text": "Testing Coverage",
+          "url": "testing/COVERAGE.md",
+          "type": "internal",
+          "target": "testing/COVERAGE.md"
+        },
+        {
+          "text": "Playwright E2E",
+          "url": "testing/PLAYWRIGHT.md",
+          "type": "internal",
+          "target": "testing/PLAYWRIGHT.md"
+        },
+        {
+          "text": "Accessibility",
+          "url": "ACCESSIBILITY.md",
+          "type": "internal",
+          "target": "ACCESSIBILITY.md"
+        },
+        {
+          "text": "Performance",
+          "url": "PERFORMANCE.md",
+          "type": "internal",
+          "target": "PERFORMANCE.md"
+        },
+        {
+          "text": "Troubleshooting",
+          "url": "TROUBLESHOOTING.md",
+          "type": "internal",
+          "target": "TROUBLESHOOTING.md"
         }
       ],
-      "commands": ["npm run --prefix"],
+      "commands": [
+        "npm run --prefix"
+      ],
       "envVars": [
         "ENVIRONMENT_SETUP",
         "LOCAL_DEVELOPMENT",
         "TESTING",
         "E2E",
+        "ARCHITECTURE",
         "WEB_ARCHITECTURE",
         "MUI",
         "BACKEND_ARCHITECTURE",
@@ -10858,6 +12872,16 @@
         "CONTRIBUTING",
         "CONFIGURATION_STRATEGY",
         "MIGRATION_STRUCTURE",
+        "API",
+        "ROUTES",
+        "ENVIRONMENT_VARIABLES",
+        "STRATEGY",
+        "COVERAGE",
+        "PLAYWRIGHT",
+        "ACCESSIBILITY",
+        "WCAG",
+        "PERFORMANCE",
+        "TROUBLESHOOTING",
         "YYYY",
         "I18N",
         "NEXT_PUBLIC_SUPABASE_URL",
@@ -10865,8 +12889,7 @@
         "SUPABASE_SERVICE_ROLE_KEY",
         "STRIPE_SECRET_KEY",
         "STRIPE_PUBLISHABLE_KEY",
-        "RESEND_API_KEY",
-        "API"
+        "RESEND_API_KEY"
       ],
       "filePaths": [],
       "frontmatter": {
@@ -10874,7 +12897,10 @@
         "owner": "Engineering",
         "last_reviewed": "2025-01-27",
         "status": "authoritative",
-        "related": ["</README.md>", "</CONTRIBUTING.md>"]
+        "related": [
+          "</README.md>",
+          "</CONTRIBUTING.md>"
+        ]
       }
     },
     {
@@ -10981,25 +13007,32 @@
         "npm run reports:serve",
         "npm run reports:ci"
       ],
-      "envVars": ["E2E", "HTML", "URL", "PWA"],
-      "filePaths": ["/workbox-*.js"],
+      "envVars": [
+        "E2E",
+        "HTML",
+        "URL",
+        "PWA"
+      ],
+      "filePaths": [
+        "/workbox-*.js"
+      ],
       "frontmatter": null
     },
     {
       "path": "docs/RUNBOOKS.md",
-      "title": "Operational Runbooks",
-      "lastModified": "2025-08-18T17:24:10.767Z",
-      "size": 10593,
+      "title": "Runbooks",
+      "lastModified": "2025-08-30T04:06:20.652Z",
+      "size": 11747,
       "headings": [
         {
           "level": 1,
-          "text": "Operational Runbooks",
-          "id": "operational-runbooks"
+          "text": "Runbooks",
+          "id": "runbooks"
         },
         {
           "level": 2,
-          "text": "Prerequisites",
-          "id": "prerequisites"
+          "text": "Overview",
+          "id": "overview"
         },
         {
           "level": 2,
@@ -11008,403 +13041,73 @@
         },
         {
           "level": 3,
-          "text": "Health Check Routine",
-          "id": "health-check-routine"
+          "text": "Health Check Monitoring",
+          "id": "health-check-monitoring"
+        },
+        {
+          "level": 4,
+          "text": "Check Application Health",
+          "id": "check-application-health"
         },
         {
           "level": 1,
-          "text": "1. Application health",
-          "id": "1-application-health"
+          "text": "Check application status",
+          "id": "check-application-status"
         },
         {
           "level": 1,
-          "text": "Expected: {\"status\":\"healthy\",\"environment\":\"production\"}",
-          "id": "expected-status-healthy-environment-production-"
+          "text": "Expected response",
+          "id": "expected-response"
         },
         {
-          "level": 1,
-          "text": "2. Database connectivity",
-          "id": "2-database-connectivity"
-        },
-        {
-          "level": 1,
-          "text": "3. Payment processing",
-          "id": "3-payment-processing"
-        },
-        {
-          "level": 1,
-          "text": "Stripe Dashboard → Events → Recent events",
-          "id": "stripe-dashboard-events-recent-events"
-        },
-        {
-          "level": 1,
-          "text": "4. Email delivery",
-          "id": "4-email-delivery"
-        },
-        {
-          "level": 1,
-          "text": "Resend Dashboard → Activity → Recent sends",
-          "id": "resend-dashboard-activity-recent-sends"
+          "level": 4,
+          "text": "Monitor Key Metrics",
+          "id": "monitor-key-metrics"
         },
         {
           "level": 3,
-          "text": "User Support Procedures",
-          "id": "user-support-procedures"
+          "text": "Log Monitoring",
+          "id": "log-monitoring"
         },
         {
-          "level": 2,
-          "text": "Weekly Maintenance",
-          "id": "weekly-maintenance"
-        },
-        {
-          "level": 3,
-          "text": "Database Maintenance",
-          "id": "database-maintenance"
+          "level": 4,
+          "text": "Application Logs",
+          "id": "application-logs"
         },
         {
           "level": 1,
-          "text": "1. Check database performance",
-          "id": "1-check-database-performance"
+          "text": "Check application logs",
+          "id": "check-application-logs"
         },
         {
           "level": 1,
-          "text": "Supabase Dashboard → Database → Performance",
-          "id": "supabase-dashboard-database-performance"
+          "text": "Check error logs",
+          "id": "check-error-logs"
         },
         {
           "level": 1,
-          "text": "2. Review slow queries",
-          "id": "2-review-slow-queries"
+          "text": "Check performance logs",
+          "id": "check-performance-logs"
+        },
+        {
+          "level": 4,
+          "text": "Database Logs",
+          "id": "database-logs"
         },
         {
           "level": 1,
-          "text": "Supabase Dashboard → Database → Logs",
-          "id": "supabase-dashboard-database-logs"
+          "text": "Check database connection",
+          "id": "check-database-connection"
         },
         {
           "level": 1,
-          "text": "3. Check storage usage",
-          "id": "3-check-storage-usage"
+          "text": "Check slow queries",
+          "id": "check-slow-queries"
         },
         {
           "level": 1,
-          "text": "Supabase Dashboard → Storage → Usage",
-          "id": "supabase-dashboard-storage-usage"
-        },
-        {
-          "level": 1,
-          "text": "4. Backup verification",
-          "id": "4-backup-verification"
-        },
-        {
-          "level": 1,
-          "text": "Supabase Dashboard → Database → Backups",
-          "id": "supabase-dashboard-database-backups"
-        },
-        {
-          "level": 3,
-          "text": "Security Review",
-          "id": "security-review"
-        },
-        {
-          "level": 1,
-          "text": "1. Review admin access logs",
-          "id": "1-review-admin-access-logs"
-        },
-        {
-          "level": 1,
-          "text": "Supabase Dashboard → Logs → Filter by admin actions",
-          "id": "supabase-dashboard-logs-filter-by-admin-actions"
-        },
-        {
-          "level": 1,
-          "text": "2. Check failed login attempts",
-          "id": "2-check-failed-login-attempts"
-        },
-        {
-          "level": 1,
-          "text": "Supabase Dashboard → Authentication → Users → Failed attempts",
-          "id": "supabase-dashboard-authentication-users-failed-attempts"
-        },
-        {
-          "level": 1,
-          "text": "3. Review audit log signatures",
-          "id": "3-review-audit-log-signatures"
-        },
-        {
-          "level": 1,
-          "text": "Database → audit_logs table",
-          "id": "database-audit-logs-table"
-        },
-        {
-          "level": 3,
-          "text": "Performance Monitoring",
-          "id": "performance-monitoring"
-        },
-        {
-          "level": 1,
-          "text": "1. Check Vercel performance",
-          "id": "1-check-vercel-performance"
-        },
-        {
-          "level": 1,
-          "text": "Vercel Dashboard → Analytics → Performance",
-          "id": "vercel-dashboard-analytics-performance"
-        },
-        {
-          "level": 1,
-          "text": "2. Review error rates",
-          "id": "2-review-error-rates"
-        },
-        {
-          "level": 1,
-          "text": "Sentry Dashboard → Issues → Performance",
-          "id": "sentry-dashboard-issues-performance"
-        },
-        {
-          "level": 1,
-          "text": "3. Monitor external services",
-          "id": "3-monitor-external-services"
-        },
-        {
-          "level": 2,
-          "text": "Monthly Procedures",
-          "id": "monthly-procedures"
-        },
-        {
-          "level": 3,
-          "text": "Regulatory Reporting",
-          "id": "regulatory-reporting"
-        },
-        {
-          "level": 1,
-          "text": "1. Generate DMV reports",
-          "id": "1-generate-dmv-reports"
-        },
-        {
-          "level": 1,
-          "text": "Admin Dashboard → Compliance → Generate Reports",
-          "id": "admin-dashboard-compliance-generate-reports"
-        },
-        {
-          "level": 1,
-          "text": "2. Verify report integrity",
-          "id": "2-verify-report-integrity"
-        },
-        {
-          "level": 1,
-          "text": "Check manifest signatures and file hashes",
-          "id": "check-manifest-signatures-and-file-hashes"
-        },
-        {
-          "level": 1,
-          "text": "3. Submit to regulatory bodies",
-          "id": "3-submit-to-regulatory-bodies"
-        },
-        {
-          "level": 1,
-          "text": "Follow jurisdiction-specific submission procedures",
-          "id": "follow-jurisdiction-specific-submission-procedures"
-        },
-        {
-          "level": 3,
-          "text": "Billing Reconciliation",
-          "id": "billing-reconciliation"
-        },
-        {
-          "level": 1,
-          "text": "1. Reconcile Stripe transactions",
-          "id": "1-reconcile-stripe-transactions"
-        },
-        {
-          "level": 1,
-          "text": "Stripe Dashboard → Reports → Transactions",
-          "id": "stripe-dashboard-reports-transactions"
-        },
-        {
-          "level": 1,
-          "text": "2. Verify subscription status",
-          "id": "2-verify-subscription-status"
-        },
-        {
-          "level": 1,
-          "text": "Database → billing_subscriptions table",
-          "id": "database-billing-subscriptions-table"
-        },
-        {
-          "level": 1,
-          "text": "3. Process dunning escalations",
-          "id": "3-process-dunning-escalations"
-        },
-        {
-          "level": 1,
-          "text": "Check for overdue payments and escalate",
-          "id": "check-for-overdue-payments-and-escalate"
-        },
-        {
-          "level": 3,
-          "text": "Certificate Audit",
-          "id": "certificate-audit"
-        },
-        {
-          "level": 1,
-          "text": "1. Audit certificate issuance",
-          "id": "1-audit-certificate-issuance"
-        },
-        {
-          "level": 1,
-          "text": "Database → certificates table",
-          "id": "database-certificates-table"
-        },
-        {
-          "level": 1,
-          "text": "2. Verify certificate integrity",
-          "id": "2-verify-certificate-integrity"
-        },
-        {
-          "level": 1,
-          "text": "Check PDF signatures and QR codes",
-          "id": "check-pdf-signatures-and-qr-codes"
-        },
-        {
-          "level": 1,
-          "text": "3. Review voided certificates",
-          "id": "3-review-voided-certificates"
-        },
-        {
-          "level": 1,
-          "text": "Database → certificates table",
-          "id": "database-certificates-table"
-        },
-        {
-          "level": 2,
-          "text": "Emergency Procedures",
-          "id": "emergency-procedures"
-        },
-        {
-          "level": 3,
-          "text": "Database Recovery",
-          "id": "database-recovery"
-        },
-        {
-          "level": 1,
-          "text": "1. Check Supabase status",
-          "id": "1-check-supabase-status"
-        },
-        {
-          "level": 1,
-          "text": "https://status.supabase.com/",
-          "id": "https-status-supabase-com-"
-        },
-        {
-          "level": 1,
-          "text": "2. Verify connection",
-          "id": "2-verify-connection"
-        },
-        {
-          "level": 1,
-          "text": "3. Check recent migrations",
-          "id": "3-check-recent-migrations"
-        },
-        {
-          "level": 1,
-          "text": "4. Restore from backup if needed",
-          "id": "4-restore-from-backup-if-needed"
-        },
-        {
-          "level": 1,
-          "text": "Supabase Dashboard → Database → Backups → Restore",
-          "id": "supabase-dashboard-database-backups-restore"
-        },
-        {
-          "level": 3,
-          "text": "Payment System Failure",
-          "id": "payment-system-failure"
-        },
-        {
-          "level": 1,
-          "text": "1. Check Stripe status",
-          "id": "1-check-stripe-status"
-        },
-        {
-          "level": 1,
-          "text": "https://status.stripe.com/",
-          "id": "https-status-stripe-com-"
-        },
-        {
-          "level": 1,
-          "text": "2. Verify webhook configuration",
-          "id": "2-verify-webhook-configuration"
-        },
-        {
-          "level": 1,
-          "text": "Stripe Dashboard → Developers → Webhooks",
-          "id": "stripe-dashboard-developers-webhooks"
-        },
-        {
-          "level": 1,
-          "text": "3. Check webhook logs",
-          "id": "3-check-webhook-logs"
-        },
-        {
-          "level": 1,
-          "text": "Vercel Dashboard → Functions → Logs",
-          "id": "vercel-dashboard-functions-logs"
-        },
-        {
-          "level": 1,
-          "text": "4. Manual payment processing if needed",
-          "id": "4-manual-payment-processing-if-needed"
-        },
-        {
-          "level": 1,
-          "text": "Stripe Dashboard → Payments → Manual processing",
-          "id": "stripe-dashboard-payments-manual-processing"
-        },
-        {
-          "level": 3,
-          "text": "Certificate System Failure",
-          "id": "certificate-system-failure"
-        },
-        {
-          "level": 1,
-          "text": "1. Check PDF generation service",
-          "id": "1-check-pdf-generation-service"
-        },
-        {
-          "level": 1,
-          "text": "Verify pdf-lib and qrcode dependencies",
-          "id": "verify-pdf-lib-and-qrcode-dependencies"
-        },
-        {
-          "level": 1,
-          "text": "2. Check storage bucket access",
-          "id": "2-check-storage-bucket-access"
-        },
-        {
-          "level": 1,
-          "text": "Supabase Dashboard → Storage → certificates bucket",
-          "id": "supabase-dashboard-storage-certificates-bucket"
-        },
-        {
-          "level": 1,
-          "text": "3. Manual certificate generation",
-          "id": "3-manual-certificate-generation"
-        },
-        {
-          "level": 1,
-          "text": "Use admin interface to generate certificates manually",
-          "id": "use-admin-interface-to-generate-certificates-manually"
-        },
-        {
-          "level": 1,
-          "text": "4. Verify certificate numbers",
-          "id": "4-verify-certificate-numbers"
-        },
-        {
-          "level": 1,
-          "text": "Check certificate numbering sequence",
-          "id": "check-certificate-numbering-sequence"
+          "text": "Check connection pool",
+          "id": "check-connection-pool"
         },
         {
           "level": 2,
@@ -11417,104 +13120,59 @@
           "id": "production-deployment"
         },
         {
-          "level": 1,
-          "text": "1. Run all tests",
-          "id": "1-run-all-tests"
+          "level": 4,
+          "text": "Pre-Deployment Checklist",
+          "id": "pre-deployment-checklist"
         },
         {
-          "level": 1,
-          "text": "2. Check environment variables",
-          "id": "2-check-environment-variables"
+          "level": 4,
+          "text": "Deployment Steps",
+          "id": "deployment-steps"
         },
         {
-          "level": 1,
-          "text": "Vercel Dashboard → Settings → Environment Variables",
-          "id": "vercel-dashboard-settings-environment-variables"
-        },
-        {
-          "level": 1,
-          "text": "3. Verify database migrations",
-          "id": "3-verify-database-migrations"
-        },
-        {
-          "level": 1,
-          "text": "4. Check feature flags",
-          "id": "4-check-feature-flags"
-        },
-        {
-          "level": 1,
-          "text": "Database → jurisdiction_configs table",
-          "id": "database-jurisdiction-configs-table"
-        },
-        {
-          "level": 1,
-          "text": "1. Deploy to staging",
-          "id": "1-deploy-to-staging"
-        },
-        {
-          "level": 1,
-          "text": "Vercel Dashboard → Deployments → Deploy",
-          "id": "vercel-dashboard-deployments-deploy"
-        },
-        {
-          "level": 1,
-          "text": "2. Run smoke tests",
-          "id": "2-run-smoke-tests"
-        },
-        {
-          "level": 1,
-          "text": "3. Deploy to production",
-          "id": "3-deploy-to-production"
-        },
-        {
-          "level": 1,
-          "text": "Vercel Dashboard → Deployments → Promote to Production",
-          "id": "vercel-dashboard-deployments-promote-to-production"
-        },
-        {
-          "level": 1,
-          "text": "4. Verify deployment",
-          "id": "4-verify-deployment"
+          "level": 4,
+          "text": "Rollback Procedure",
+          "id": "rollback-procedure"
         },
         {
           "level": 3,
-          "text": "Database Migration",
-          "id": "database-migration"
+          "text": "Database Migrations",
+          "id": "database-migrations"
+        },
+        {
+          "level": 4,
+          "text": "Run Migrations",
+          "id": "run-migrations"
         },
         {
           "level": 1,
-          "text": "1. Create migration",
-          "id": "1-create-migration"
+          "text": "Check pending migrations",
+          "id": "check-pending-migrations"
         },
         {
           "level": 1,
-          "text": "2. Test locally",
-          "id": "2-test-locally"
+          "text": "Run migrations",
+          "id": "run-migrations"
         },
         {
           "level": 1,
-          "text": "3. Test on staging",
-          "id": "3-test-on-staging"
+          "text": "Verify migrations",
+          "id": "verify-migrations"
+        },
+        {
+          "level": 4,
+          "text": "Rollback Migrations",
+          "id": "rollback-migrations"
         },
         {
           "level": 1,
-          "text": "4. Deploy to production",
-          "id": "4-deploy-to-production"
+          "text": "Rollback last migration",
+          "id": "rollback-last-migration"
         },
         {
-          "level": 2,
-          "text": "Monitoring & Alerting",
-          "id": "monitoring-alerting"
-        },
-        {
-          "level": 3,
-          "text": "Key Metrics",
-          "id": "key-metrics"
-        },
-        {
-          "level": 3,
-          "text": "Alert Thresholds",
-          "id": "alert-thresholds"
+          "level": 1,
+          "text": "Rollback specific migration",
+          "id": "rollback-specific-migration"
         },
         {
           "level": 2,
@@ -11527,124 +13185,379 @@
           "id": "common-issues"
         },
         {
-          "level": 1,
-          "text": "1. Check Sentry for error details",
-          "id": "1-check-sentry-for-error-details"
+          "level": 4,
+          "text": "Application Won't Start",
+          "id": "application-won-t-start"
         },
         {
           "level": 1,
-          "text": "Sentry Dashboard → Issues",
-          "id": "sentry-dashboard-issues"
+          "text": "Check for running processes",
+          "id": "check-for-running-processes"
         },
         {
           "level": 1,
-          "text": "2. Review application logs",
-          "id": "2-review-application-logs"
+          "text": "Kill existing process",
+          "id": "kill-existing-process"
         },
         {
           "level": 1,
-          "text": "Vercel Dashboard → Functions → Logs",
-          "id": "vercel-dashboard-functions-logs"
+          "text": "Restart application",
+          "id": "restart-application"
+        },
+        {
+          "level": 4,
+          "text": "Database Connection Issues",
+          "id": "database-connection-issues"
         },
         {
           "level": 1,
-          "text": "3. Check database performance",
-          "id": "3-check-database-performance"
+          "text": "Check database status",
+          "id": "check-database-status"
         },
         {
           "level": 1,
-          "text": "Supabase Dashboard → Database → Performance",
-          "id": "supabase-dashboard-database-performance"
+          "text": "Test connection",
+          "id": "test-connection"
         },
         {
           "level": 1,
-          "text": "4. Verify external service status",
-          "id": "4-verify-external-service-status"
+          "text": "Check environment variables",
+          "id": "check-environment-variables"
         },
         {
           "level": 1,
-          "text": "Check OpenAI, Stripe, Resend status pages",
-          "id": "check-openai-stripe-resend-status-pages"
+          "text": "Restart database connection",
+          "id": "restart-database-connection"
+        },
+        {
+          "level": 4,
+          "text": "API Endpoint Errors",
+          "id": "api-endpoint-errors"
         },
         {
           "level": 1,
-          "text": "1. Check Vercel performance",
-          "id": "1-check-vercel-performance"
+          "text": "Check API logs",
+          "id": "check-api-logs"
         },
         {
           "level": 1,
-          "text": "Vercel Dashboard → Analytics → Performance",
-          "id": "vercel-dashboard-analytics-performance"
+          "text": "Test specific endpoint",
+          "id": "test-specific-endpoint"
         },
         {
           "level": 1,
-          "text": "2. Review database queries",
-          "id": "2-review-database-queries"
+          "text": "Check rate limiting",
+          "id": "check-rate-limiting"
         },
         {
           "level": 1,
-          "text": "Supabase Dashboard → Database → Logs",
-          "id": "supabase-dashboard-database-logs"
+          "text": "Verify authentication",
+          "id": "verify-authentication"
+        },
+        {
+          "level": 4,
+          "text": "Performance Issues",
+          "id": "performance-issues"
         },
         {
           "level": 1,
-          "text": "3. Check external API calls",
-          "id": "3-check-external-api-calls"
+          "text": "Check performance metrics",
+          "id": "check-performance-metrics"
         },
         {
           "level": 1,
-          "text": "Monitor OpenAI API response times",
-          "id": "monitor-openai-api-response-times"
+          "text": "Analyze bundle size",
+          "id": "analyze-bundle-size"
         },
         {
           "level": 1,
-          "text": "4. Verify CDN performance",
-          "id": "4-verify-cdn-performance"
+          "text": "Check database queries",
+          "id": "check-database-queries"
         },
         {
           "level": 1,
-          "text": "Check Vercel edge network status",
-          "id": "check-vercel-edge-network-status"
+          "text": "Monitor memory usage",
+          "id": "monitor-memory-usage"
+        },
+        {
+          "level": 3,
+          "text": "Error Investigation",
+          "id": "error-investigation"
+        },
+        {
+          "level": 4,
+          "text": "Check Error Logs",
+          "id": "check-error-logs"
         },
         {
           "level": 1,
-          "text": "1. Check Supabase status",
-          "id": "1-check-supabase-status"
+          "text": "Check Sentry for errors",
+          "id": "check-sentry-for-errors"
         },
         {
           "level": 1,
-          "text": "2. Verify connection pool",
-          "id": "2-verify-connection-pool"
+          "text": "Check application logs",
+          "id": "check-application-logs"
         },
         {
           "level": 1,
-          "text": "Supabase Dashboard → Database → Connection Pool",
-          "id": "supabase-dashboard-database-connection-pool"
+          "text": "Check database errors",
+          "id": "check-database-errors"
+        },
+        {
+          "level": 4,
+          "text": "Debug Mode",
+          "id": "debug-mode"
         },
         {
           "level": 1,
-          "text": "3. Check for long-running queries",
-          "id": "3-check-for-long-running-queries"
+          "text": "Enable debug logging",
+          "id": "enable-debug-logging"
         },
         {
           "level": 1,
-          "text": "Supabase Dashboard → Database → Logs",
-          "id": "supabase-dashboard-database-logs"
-        },
-        {
-          "level": 1,
-          "text": "4. Restart connection pool if needed",
-          "id": "4-restart-connection-pool-if-needed"
-        },
-        {
-          "level": 1,
-          "text": "Supabase Dashboard → Database → Connection Pool → Restart",
-          "id": "supabase-dashboard-database-connection-pool-restart"
+          "text": "Enable specific debug",
+          "id": "enable-specific-debug"
         },
         {
           "level": 2,
-          "text": "Backup & Recovery",
-          "id": "backup-recovery"
+          "text": "Maintenance Tasks",
+          "id": "maintenance-tasks"
+        },
+        {
+          "level": 3,
+          "text": "Regular Maintenance",
+          "id": "regular-maintenance"
+        },
+        {
+          "level": 4,
+          "text": "Weekly Tasks",
+          "id": "weekly-tasks"
+        },
+        {
+          "level": 4,
+          "text": "Monthly Tasks",
+          "id": "monthly-tasks"
+        },
+        {
+          "level": 3,
+          "text": "Data Management",
+          "id": "data-management"
+        },
+        {
+          "level": 4,
+          "text": "Data Cleanup",
+          "id": "data-cleanup"
+        },
+        {
+          "level": 1,
+          "text": "Clean old logs",
+          "id": "clean-old-logs"
+        },
+        {
+          "level": 1,
+          "text": "Clean temporary files",
+          "id": "clean-temporary-files"
+        },
+        {
+          "level": 1,
+          "text": "Clean old backups",
+          "id": "clean-old-backups"
+        },
+        {
+          "level": 4,
+          "text": "Data Export",
+          "id": "data-export"
+        },
+        {
+          "level": 1,
+          "text": "Export user data",
+          "id": "export-user-data"
+        },
+        {
+          "level": 1,
+          "text": "Export course data",
+          "id": "export-course-data"
+        },
+        {
+          "level": 1,
+          "text": "Export analytics data",
+          "id": "export-analytics-data"
+        },
+        {
+          "level": 2,
+          "text": "Emergency Procedures",
+          "id": "emergency-procedures"
+        },
+        {
+          "level": 3,
+          "text": "Incident Response",
+          "id": "incident-response"
+        },
+        {
+          "level": 4,
+          "text": "Critical Incident",
+          "id": "critical-incident"
+        },
+        {
+          "level": 4,
+          "text": "Data Breach Response",
+          "id": "data-breach-response"
+        },
+        {
+          "level": 3,
+          "text": "Disaster Recovery",
+          "id": "disaster-recovery"
+        },
+        {
+          "level": 4,
+          "text": "System Recovery",
+          "id": "system-recovery"
+        },
+        {
+          "level": 1,
+          "text": "Check system status",
+          "id": "check-system-status"
+        },
+        {
+          "level": 1,
+          "text": "Restore from backup",
+          "id": "restore-from-backup"
+        },
+        {
+          "level": 1,
+          "text": "Verify system integrity",
+          "id": "verify-system-integrity"
+        },
+        {
+          "level": 1,
+          "text": "Restart services",
+          "id": "restart-services"
+        },
+        {
+          "level": 4,
+          "text": "Database Recovery",
+          "id": "database-recovery"
+        },
+        {
+          "level": 1,
+          "text": "Check database status",
+          "id": "check-database-status"
+        },
+        {
+          "level": 1,
+          "text": "Restore database",
+          "id": "restore-database"
+        },
+        {
+          "level": 1,
+          "text": "Verify data integrity",
+          "id": "verify-data-integrity"
+        },
+        {
+          "level": 1,
+          "text": "Reindex database",
+          "id": "reindex-database"
+        },
+        {
+          "level": 2,
+          "text": "Monitoring and Alerting",
+          "id": "monitoring-and-alerting"
+        },
+        {
+          "level": 3,
+          "text": "Health Checks",
+          "id": "health-checks"
+        },
+        {
+          "level": 4,
+          "text": "Application Health",
+          "id": "application-health"
+        },
+        {
+          "level": 1,
+          "text": "Run health checks",
+          "id": "run-health-checks"
+        },
+        {
+          "level": 1,
+          "text": "Check all services",
+          "id": "check-all-services"
+        },
+        {
+          "level": 1,
+          "text": "Check specific service",
+          "id": "check-specific-service"
+        },
+        {
+          "level": 4,
+          "text": "Database Health",
+          "id": "database-health"
+        },
+        {
+          "level": 1,
+          "text": "Check database health",
+          "id": "check-database-health"
+        },
+        {
+          "level": 1,
+          "text": "Check connection pool",
+          "id": "check-connection-pool"
+        },
+        {
+          "level": 1,
+          "text": "Check query performance",
+          "id": "check-query-performance"
+        },
+        {
+          "level": 3,
+          "text": "Alerting",
+          "id": "alerting"
+        },
+        {
+          "level": 4,
+          "text": "Configure Alerts",
+          "id": "configure-alerts"
+        },
+        {
+          "level": 1,
+          "text": "Set up monitoring alerts",
+          "id": "set-up-monitoring-alerts"
+        },
+        {
+          "level": 1,
+          "text": "Configure alert thresholds",
+          "id": "configure-alert-thresholds"
+        },
+        {
+          "level": 1,
+          "text": "Test alert system",
+          "id": "test-alert-system"
+        },
+        {
+          "level": 4,
+          "text": "Respond to Alerts",
+          "id": "respond-to-alerts"
+        },
+        {
+          "level": 1,
+          "text": "Acknowledge alert",
+          "id": "acknowledge-alert"
+        },
+        {
+          "level": 1,
+          "text": "Investigate alert",
+          "id": "investigate-alert"
+        },
+        {
+          "level": 1,
+          "text": "Resolve alert",
+          "id": "resolve-alert"
+        },
+        {
+          "level": 2,
+          "text": "Backup and Recovery",
+          "id": "backup-and-recovery"
         },
         {
           "level": 3,
@@ -11652,154 +13565,389 @@
           "id": "backup-procedures"
         },
         {
+          "level": 4,
+          "text": "Create Backup",
+          "id": "create-backup"
+        },
+        {
+          "level": 1,
+          "text": "Create full backup",
+          "id": "create-full-backup"
+        },
+        {
+          "level": 1,
+          "text": "Create incremental backup",
+          "id": "create-incremental-backup"
+        },
+        {
+          "level": 1,
+          "text": "Create database backup",
+          "id": "create-database-backup"
+        },
+        {
+          "level": 4,
+          "text": "Verify Backup",
+          "id": "verify-backup"
+        },
+        {
+          "level": 1,
+          "text": "Verify backup integrity",
+          "id": "verify-backup-integrity"
+        },
+        {
+          "level": 1,
+          "text": "Test backup restore",
+          "id": "test-backup-restore"
+        },
+        {
+          "level": 1,
+          "text": "Check backup size",
+          "id": "check-backup-size"
+        },
+        {
           "level": 3,
           "text": "Recovery Procedures",
           "id": "recovery-procedures"
         },
         {
-          "level": 1,
-          "text": "1. Identify backup point",
-          "id": "1-identify-backup-point"
+          "level": 4,
+          "text": "Full System Recovery",
+          "id": "full-system-recovery"
         },
         {
           "level": 1,
-          "text": "Supabase Dashboard → Database → Backups",
-          "id": "supabase-dashboard-database-backups"
+          "text": "Stop all services",
+          "id": "stop-all-services"
         },
         {
           "level": 1,
-          "text": "2. Restore database",
-          "id": "2-restore-database"
+          "text": "Restore from backup",
+          "id": "restore-from-backup"
         },
         {
           "level": 1,
-          "text": "Supabase Dashboard → Database → Backups → Restore",
-          "id": "supabase-dashboard-database-backups-restore"
+          "text": "Verify system integrity",
+          "id": "verify-system-integrity"
         },
         {
           "level": 1,
-          "text": "3. Verify data integrity",
-          "id": "3-verify-data-integrity"
+          "text": "Restart services",
+          "id": "restart-services"
+        },
+        {
+          "level": 4,
+          "text": "Partial Recovery",
+          "id": "partial-recovery"
         },
         {
           "level": 1,
-          "text": "Run data validation queries",
-          "id": "run-data-validation-queries"
+          "text": "Restore specific component",
+          "id": "restore-specific-component"
         },
         {
           "level": 1,
-          "text": "4. Update application if needed",
-          "id": "4-update-application-if-needed"
+          "text": "Verify component",
+          "id": "verify-component"
         },
         {
           "level": 1,
-          "text": "Deploy any required code changes",
-          "id": "deploy-any-required-code-changes"
-        },
-        {
-          "level": 1,
-          "text": "1. Rollback to previous deployment",
-          "id": "1-rollback-to-previous-deployment"
-        },
-        {
-          "level": 1,
-          "text": "Vercel Dashboard → Deployments → Rollback",
-          "id": "vercel-dashboard-deployments-rollback"
-        },
-        {
-          "level": 1,
-          "text": "2. Verify application health",
-          "id": "2-verify-application-health"
-        },
-        {
-          "level": 1,
-          "text": "3. Check functionality",
-          "id": "3-check-functionality"
-        },
-        {
-          "level": 1,
-          "text": "Test critical user flows",
-          "id": "test-critical-user-flows"
-        },
-        {
-          "level": 1,
-          "text": "4. Monitor for issues",
-          "id": "4-monitor-for-issues"
-        },
-        {
-          "level": 1,
-          "text": "Watch error rates and performance",
-          "id": "watch-error-rates-and-performance"
+          "text": "Restart component",
+          "id": "restart-component"
         },
         {
           "level": 2,
-          "text": "Compliance Procedures",
-          "id": "compliance-procedures"
+          "text": "Performance Optimization",
+          "id": "performance-optimization"
         },
         {
           "level": 3,
-          "text": "Data Retention",
-          "id": "data-retention"
+          "text": "Performance Monitoring",
+          "id": "performance-monitoring"
+        },
+        {
+          "level": 4,
+          "text": "Monitor Performance",
+          "id": "monitor-performance"
+        },
+        {
+          "level": 1,
+          "text": "Check Core Web Vitals",
+          "id": "check-core-web-vitals"
+        },
+        {
+          "level": 1,
+          "text": "Monitor API performance",
+          "id": "monitor-api-performance"
+        },
+        {
+          "level": 1,
+          "text": "Check database performance",
+          "id": "check-database-performance"
+        },
+        {
+          "level": 4,
+          "text": "Performance Optimization",
+          "id": "performance-optimization"
+        },
+        {
+          "level": 1,
+          "text": "Optimize bundle size",
+          "id": "optimize-bundle-size"
+        },
+        {
+          "level": 1,
+          "text": "Optimize images",
+          "id": "optimize-images"
+        },
+        {
+          "level": 1,
+          "text": "Optimize database queries",
+          "id": "optimize-database-queries"
         },
         {
           "level": 3,
-          "text": "Privacy Compliance",
-          "id": "privacy-compliance"
+          "text": "Load Testing",
+          "id": "load-testing"
+        },
+        {
+          "level": 4,
+          "text": "Run Load Tests",
+          "id": "run-load-tests"
+        },
+        {
+          "level": 1,
+          "text": "Run load test",
+          "id": "run-load-test"
+        },
+        {
+          "level": 1,
+          "text": "Run stress test",
+          "id": "run-stress-test"
+        },
+        {
+          "level": 1,
+          "text": "Run spike test",
+          "id": "run-spike-test"
+        },
+        {
+          "level": 4,
+          "text": "Analyze Results",
+          "id": "analyze-results"
+        },
+        {
+          "level": 1,
+          "text": "Analyze load test results",
+          "id": "analyze-load-test-results"
+        },
+        {
+          "level": 1,
+          "text": "Generate report",
+          "id": "generate-report"
+        },
+        {
+          "level": 1,
+          "text": "Compare with baseline",
+          "id": "compare-with-baseline"
         },
         {
           "level": 2,
-          "text": "References",
-          "id": "references"
+          "text": "Security Procedures",
+          "id": "security-procedures"
+        },
+        {
+          "level": 3,
+          "text": "Security Monitoring",
+          "id": "security-monitoring"
+        },
+        {
+          "level": 4,
+          "text": "Monitor Security",
+          "id": "monitor-security"
+        },
+        {
+          "level": 1,
+          "text": "Check security logs",
+          "id": "check-security-logs"
+        },
+        {
+          "level": 1,
+          "text": "Monitor access attempts",
+          "id": "monitor-access-attempts"
+        },
+        {
+          "level": 1,
+          "text": "Check for vulnerabilities",
+          "id": "check-for-vulnerabilities"
+        },
+        {
+          "level": 4,
+          "text": "Security Response",
+          "id": "security-response"
+        },
+        {
+          "level": 1,
+          "text": "Block suspicious IP",
+          "id": "block-suspicious-ip"
+        },
+        {
+          "level": 1,
+          "text": "Investigate security event",
+          "id": "investigate-security-event"
+        },
+        {
+          "level": 1,
+          "text": "Update security rules",
+          "id": "update-security-rules"
+        },
+        {
+          "level": 2,
+          "text": "Related Documentation",
+          "id": "related-documentation"
         }
       ],
       "links": [
         {
-          "text": "Supabase Documentation",
-          "url": "https://supabase.com/docs",
-          "type": "external",
-          "target": "https://supabase.com/docs"
-        },
-        {
-          "text": "Vercel Documentation",
-          "url": "https://vercel.com/docs",
-          "type": "external",
-          "target": "https://vercel.com/docs"
-        },
-        {
-          "text": "Stripe Documentation",
-          "url": "https://stripe.com/docs",
-          "type": "external",
-          "target": "https://stripe.com/docs"
-        },
-        {
-          "text": "Resend Documentation",
-          "url": "https://resend.com/docs",
-          "type": "external",
-          "target": "https://resend.com/docs"
-        },
-        {
-          "text": "Incident Response Runbook",
-          "url": "INCIDENT_RESPONSE.md",
+          "text": "Architecture",
+          "url": "./ARCHITECTURE.md",
           "type": "internal",
-          "target": "INCIDENT_RESPONSE.md"
+          "target": "./ARCHITECTURE.md"
+        },
+        {
+          "text": "Troubleshooting",
+          "url": "./TROUBLESHOOTING.md",
+          "type": "internal",
+          "target": "./TROUBLESHOOTING.md"
+        },
+        {
+          "text": "Security & Privacy",
+          "url": "./SECURITY_PRIVACY.md",
+          "type": "internal",
+          "target": "./SECURITY_PRIVACY.md"
+        },
+        {
+          "text": "Performance",
+          "url": "./PERFORMANCE.md",
+          "type": "internal",
+          "target": "./PERFORMANCE.md"
+        },
+        {
+          "text": "Incident Response",
+          "url": "./INCIDENT_RESPONSE.md",
+          "type": "internal",
+          "target": "./INCIDENT_RESPONSE.md"
         }
       ],
-      "commands": ["npm run --prefix"],
+      "commands": [
+        "npm run logs:app",
+        "npm run logs:errors",
+        "npm run logs:performance",
+        "npm run db:status",
+        "npm run db:slow-queries",
+        "npm run db:connections",
+        "npm run test",
+        "npm run test:e2e",
+        "npm run lhci",
+        "npm run ci:all",
+        "npm run deploy:staging",
+        "npm run verify:staging",
+        "npm run deploy:production",
+        "npm run verify:production",
+        "npm run logs:deployment",
+        "npm run rollback:production",
+        "npm run db:migrations:status",
+        "npm run db:migrations:up",
+        "npm run db:migrations:verify",
+        "npm run db:migrations:down",
+        "npm run dev",
+        "npm run db:test",
+        "npm run env:check:prod",
+        "npm run db:restart",
+        "npm run logs:api",
+        "npm run logs:rate-limit",
+        "npm run auth:verify",
+        "npm run perf:check",
+        "npm run bundle:analyze",
+        "npm run perf:memory",
+        "npm run logs:sentry",
+        "npm run logs:db",
+        "npm run deps:update",
+        "npm run security:scan",
+        "npm run security:update",
+        "npm run perf:test",
+        "npm run db:health",
+        "npm run db:optimize",
+        "npm run db:storage",
+        "npm run backup:verify",
+        "npm run backup:test-restore",
+        "npm run compliance:check",
+        "npm run compliance:retention",
+        "npm run security:audit",
+        "npm run security:access-logs",
+        "npm run logs:cleanup",
+        "npm run temp:cleanup",
+        "npm run backup:cleanup",
+        "npm run data:export",
+        "npm run service:stop",
+        "npm run maintenance:enable",
+        "npm run notify:incident",
+        "npm run logs:collect",
+        "npm run system:status",
+        "npm run metrics:analyze",
+        "npm run fix:apply",
+        "npm run service:restart",
+        "npm run verify:recovery",
+        "npm run security:isolate",
+        "npm run security:preserve-evidence",
+        "npm run security:notify-authorities",
+        "npm run security:analyze-breach",
+        "npm run security:affected-users",
+        "npm run security:document-incident",
+        "npm run security:patch",
+        "npm run backup:restore",
+        "npm run security:notify-users",
+        "npm run system:verify",
+        "npm run db:restore",
+        "npm run db:verify",
+        "npm run db:reindex",
+        "npm run health:check",
+        "npm run db:performance",
+        "npm run monitoring:setup",
+        "npm run monitoring:thresholds",
+        "npm run monitoring:test",
+        "npm run alert:acknowledge",
+        "npm run alert:investigate",
+        "npm run alert:resolve",
+        "npm run backup:create",
+        "npm run backup:size",
+        "npm run component:verify",
+        "npm run perf:web-vitals",
+        "npm run perf:api",
+        "npm run perf:database",
+        "npm run bundle:optimize",
+        "npm run images:optimize",
+        "npm run db:optimize-queries",
+        "npm run load:test",
+        "npm run load:stress",
+        "npm run load:spike",
+        "npm run load:analyze",
+        "npm run load:report",
+        "npm run load:compare",
+        "npm run security:logs",
+        "npm run security:access",
+        "npm run security:block",
+        "npm run security:investigate",
+        "npm run security:update-rules"
+      ],
       "envVars": [
-        "SUPABASE_ANON_KEY",
-        "SELECT",
-        "FROM",
-        "WHERE",
-        "PDF",
-        "COUNT",
-        "NOT",
-        "DMV",
-        "GROUP",
         "API",
-        "CDN",
-        "DSAR",
-        "PII",
-        "RLS",
+        "E2E",
+        "PID",
+        "CPU",
+        "DEBUG",
+        "ARCHITECTURE",
+        "TROUBLESHOOTING",
+        "SECURITY_PRIVACY",
+        "PERFORMANCE",
         "INCIDENT_RESPONSE"
       ],
       "filePaths": [],
@@ -11849,7 +13997,344 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": ["RLS", "INSERT", "UPDATE", "SELECT"],
+      "envVars": [
+        "RLS",
+        "INSERT",
+        "UPDATE",
+        "SELECT"
+      ],
+      "filePaths": [],
+      "frontmatter": null
+    },
+    {
+      "path": "docs/SECURITY_PRIVACY.md",
+      "title": "Security & Privacy",
+      "lastModified": "2025-08-30T04:05:41.654Z",
+      "size": 12041,
+      "headings": [
+        {
+          "level": 1,
+          "text": "Security & Privacy",
+          "id": "security-privacy"
+        },
+        {
+          "level": 2,
+          "text": "Overview",
+          "id": "overview"
+        },
+        {
+          "level": 2,
+          "text": "Authentication & Authorization",
+          "id": "authentication-authorization"
+        },
+        {
+          "level": 3,
+          "text": "Supabase Auth Integration",
+          "id": "supabase-auth-integration"
+        },
+        {
+          "level": 3,
+          "text": "Authentication Methods",
+          "id": "authentication-methods"
+        },
+        {
+          "level": 3,
+          "text": "Session Management",
+          "id": "session-management"
+        },
+        {
+          "level": 3,
+          "text": "Row Level Security (RLS)",
+          "id": "row-level-security-rls-"
+        },
+        {
+          "level": 2,
+          "text": "Data Protection",
+          "id": "data-protection"
+        },
+        {
+          "level": 3,
+          "text": "Data Encryption",
+          "id": "data-encryption"
+        },
+        {
+          "level": 4,
+          "text": "At Rest",
+          "id": "at-rest"
+        },
+        {
+          "level": 4,
+          "text": "In Transit",
+          "id": "in-transit"
+        },
+        {
+          "level": 3,
+          "text": "Data Classification",
+          "id": "data-classification"
+        },
+        {
+          "level": 3,
+          "text": "Data Minimization",
+          "id": "data-minimization"
+        },
+        {
+          "level": 2,
+          "text": "Privacy Compliance",
+          "id": "privacy-compliance"
+        },
+        {
+          "level": 3,
+          "text": "GDPR Compliance",
+          "id": "gdpr-compliance"
+        },
+        {
+          "level": 4,
+          "text": "Data Subject Rights",
+          "id": "data-subject-rights"
+        },
+        {
+          "level": 4,
+          "text": "Implementation",
+          "id": "implementation"
+        },
+        {
+          "level": 3,
+          "text": "COPPA Compliance",
+          "id": "coppa-compliance"
+        },
+        {
+          "level": 4,
+          "text": "Guardian Consent",
+          "id": "guardian-consent"
+        },
+        {
+          "level": 4,
+          "text": "Implementation",
+          "id": "implementation"
+        },
+        {
+          "level": 3,
+          "text": "State-Specific Requirements",
+          "id": "state-specific-requirements"
+        },
+        {
+          "level": 4,
+          "text": "California (CCPA/CPRA)",
+          "id": "california-ccpa-cpra-"
+        },
+        {
+          "level": 4,
+          "text": "Texas",
+          "id": "texas"
+        },
+        {
+          "level": 2,
+          "text": "Security Headers",
+          "id": "security-headers"
+        },
+        {
+          "level": 3,
+          "text": "Web Security Headers",
+          "id": "web-security-headers"
+        },
+        {
+          "level": 3,
+          "text": "Content Security Policy (CSP)",
+          "id": "content-security-policy-csp-"
+        },
+        {
+          "level": 2,
+          "text": "API Security",
+          "id": "api-security"
+        },
+        {
+          "level": 3,
+          "text": "Authentication Requirements",
+          "id": "authentication-requirements"
+        },
+        {
+          "level": 3,
+          "text": "Rate Limiting",
+          "id": "rate-limiting"
+        },
+        {
+          "level": 3,
+          "text": "Input Validation",
+          "id": "input-validation"
+        },
+        {
+          "level": 2,
+          "text": "Data Breach Response",
+          "id": "data-breach-response"
+        },
+        {
+          "level": 3,
+          "text": "Incident Response Plan",
+          "id": "incident-response-plan"
+        },
+        {
+          "level": 3,
+          "text": "Notification Requirements",
+          "id": "notification-requirements"
+        },
+        {
+          "level": 4,
+          "text": "Timeline",
+          "id": "timeline"
+        },
+        {
+          "level": 4,
+          "text": "Content",
+          "id": "content"
+        },
+        {
+          "level": 2,
+          "text": "Security Monitoring",
+          "id": "security-monitoring"
+        },
+        {
+          "level": 3,
+          "text": "Logging & Monitoring",
+          "id": "logging-monitoring"
+        },
+        {
+          "level": 3,
+          "text": "Alerting",
+          "id": "alerting"
+        },
+        {
+          "level": 3,
+          "text": "Vulnerability Management",
+          "id": "vulnerability-management"
+        },
+        {
+          "level": 4,
+          "text": "Regular Assessments",
+          "id": "regular-assessments"
+        },
+        {
+          "level": 4,
+          "text": "Security Tools",
+          "id": "security-tools"
+        },
+        {
+          "level": 2,
+          "text": "Privacy by Design",
+          "id": "privacy-by-design"
+        },
+        {
+          "level": 3,
+          "text": "Default Privacy Settings",
+          "id": "default-privacy-settings"
+        },
+        {
+          "level": 3,
+          "text": "Privacy Controls",
+          "id": "privacy-controls"
+        },
+        {
+          "level": 2,
+          "text": "Compliance Documentation",
+          "id": "compliance-documentation"
+        },
+        {
+          "level": 3,
+          "text": "Required Documents",
+          "id": "required-documents"
+        },
+        {
+          "level": 3,
+          "text": "Regular Reviews",
+          "id": "regular-reviews"
+        },
+        {
+          "level": 2,
+          "text": "Security Checklist",
+          "id": "security-checklist"
+        },
+        {
+          "level": 3,
+          "text": "Development Security",
+          "id": "development-security"
+        },
+        {
+          "level": 3,
+          "text": "Operational Security",
+          "id": "operational-security"
+        },
+        {
+          "level": 3,
+          "text": "Compliance Security",
+          "id": "compliance-security"
+        },
+        {
+          "level": 2,
+          "text": "Related Documentation",
+          "id": "related-documentation"
+        }
+      ],
+      "links": [
+        {
+          "text": "Architecture",
+          "url": "./ARCHITECTURE.md",
+          "type": "internal",
+          "target": "./ARCHITECTURE.md"
+        },
+        {
+          "text": "API Routes",
+          "url": "./api/ROUTES.md",
+          "type": "internal",
+          "target": "./api/ROUTES.md"
+        },
+        {
+          "text": "Environment Variables",
+          "url": "./ENVIRONMENT.md",
+          "type": "internal",
+          "target": "./ENVIRONMENT.md"
+        },
+        {
+          "text": "Incident Response",
+          "url": "./INCIDENT_RESPONSE.md",
+          "type": "internal",
+          "target": "./INCIDENT_RESPONSE.md"
+        },
+        {
+          "text": "Privacy Runbook",
+          "url": "./PRIVACY_RUNBOOK.md",
+          "type": "internal",
+          "target": "./PRIVACY_RUNBOOK.md"
+        }
+      ],
+      "commands": [],
+      "envVars": [
+        "GDPR",
+        "COPPA",
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "TOTP",
+        "JWT",
+        "RLS",
+        "CREATE",
+        "POLICY",
+        "FOR",
+        "ALL",
+        "USING",
+        "AES",
+        "TLS",
+        "API",
+        "CCPA",
+        "CPRA",
+        "DNS",
+        "XSS",
+        "DENY",
+        "CSP",
+        "DPA",
+        "ARCHITECTURE",
+        "ROUTES",
+        "ENVIRONMENT",
+        "INCIDENT_RESPONSE",
+        "PRIVACY_RUNBOOK"
+      ],
       "filePaths": [],
       "frontmatter": null
     },
@@ -12229,7 +14714,11 @@
           "target": "WEB_ARCHITECTURE.md"
         }
       ],
-      "commands": ["npm run --prefix", "npx playwright", "npx axe"],
+      "commands": [
+        "npm run --prefix",
+        "npx playwright",
+        "npx axe"
+      ],
       "envVars": [
         "E2E",
         "LOCAL_DEVELOPMENT",
@@ -12269,8 +14758,8 @@
     {
       "path": "docs/TROUBLESHOOTING.md",
       "title": "Troubleshooting Guide",
-      "lastModified": "2025-08-23T19:23:31.040Z",
-      "size": 6484,
+      "lastModified": "2025-08-30T04:06:58.657Z",
+      "size": 12639,
       "headings": [
         {
           "level": 1,
@@ -12279,53 +14768,368 @@
         },
         {
           "level": 2,
-          "text": "Environment Setup Issues",
-          "id": "environment-setup-issues"
-        },
-        {
-          "level": 3,
-          "text": "Error: \"Cannot find module\" or \"Module not found\"",
-          "id": "error-cannot-find-module-or-module-not-found-"
-        },
-        {
-          "level": 1,
-          "text": "Clean install dependencies",
-          "id": "clean-install-dependencies"
-        },
-        {
-          "level": 1,
-          "text": "For web directory",
-          "id": "for-web-directory"
-        },
-        {
-          "level": 3,
-          "text": "Error: \"Environment variable not defined\"",
-          "id": "error-environment-variable-not-defined-"
-        },
-        {
-          "level": 1,
-          "text": "Check environment validation",
-          "id": "check-environment-validation"
-        },
-        {
-          "level": 1,
-          "text": "Copy example files and fill values",
-          "id": "copy-example-files-and-fill-values"
+          "text": "Overview",
+          "id": "overview"
         },
         {
           "level": 2,
-          "text": "Next.js 15 Issues",
-          "id": "next-js-15-issues"
+          "text": "Development Issues",
+          "id": "development-issues"
         },
         {
           "level": 3,
-          "text": "Error: \"cookies() used in Server Component\"",
-          "id": "error-cookies-used-in-server-component-"
+          "text": "Local Development Setup",
+          "id": "local-development-setup"
+        },
+        {
+          "level": 4,
+          "text": "Node.js Version Issues",
+          "id": "node-js-version-issues"
+        },
+        {
+          "level": 1,
+          "text": "Check current version",
+          "id": "check-current-version"
+        },
+        {
+          "level": 1,
+          "text": "Install correct version (use nvm)",
+          "id": "install-correct-version-use-nvm-"
+        },
+        {
+          "level": 1,
+          "text": "Or use Node Version Manager",
+          "id": "or-use-node-version-manager"
+        },
+        {
+          "level": 4,
+          "text": "Package Installation Issues",
+          "id": "package-installation-issues"
+        },
+        {
+          "level": 1,
+          "text": "Clear npm cache",
+          "id": "clear-npm-cache"
+        },
+        {
+          "level": 1,
+          "text": "Delete node_modules and package-lock.json",
+          "id": "delete-node-modules-and-package-lock-json"
+        },
+        {
+          "level": 1,
+          "text": "Reinstall dependencies",
+          "id": "reinstall-dependencies"
+        },
+        {
+          "level": 1,
+          "text": "If using workspaces",
+          "id": "if-using-workspaces"
+        },
+        {
+          "level": 4,
+          "text": "Environment Variable Issues",
+          "id": "environment-variable-issues"
+        },
+        {
+          "level": 1,
+          "text": "Copy environment templates",
+          "id": "copy-environment-templates"
+        },
+        {
+          "level": 1,
+          "text": "Check environment configuration",
+          "id": "check-environment-configuration"
+        },
+        {
+          "level": 1,
+          "text": "Verify environment variables",
+          "id": "verify-environment-variables"
         },
         {
           "level": 3,
-          "text": "Hydration Mismatch Errors",
-          "id": "hydration-mismatch-errors"
+          "text": "Development Server Issues",
+          "id": "development-server-issues"
+        },
+        {
+          "level": 4,
+          "text": "Port Already in Use",
+          "id": "port-already-in-use"
+        },
+        {
+          "level": 1,
+          "text": "Find process using port 3000",
+          "id": "find-process-using-port-3000"
+        },
+        {
+          "level": 1,
+          "text": "Kill the process",
+          "id": "kill-the-process"
+        },
+        {
+          "level": 1,
+          "text": "Or use a different port",
+          "id": "or-use-a-different-port"
+        },
+        {
+          "level": 4,
+          "text": "Hot Reload Not Working",
+          "id": "hot-reload-not-working"
+        },
+        {
+          "level": 1,
+          "text": "Clear Next.js cache",
+          "id": "clear-next-js-cache"
+        },
+        {
+          "level": 1,
+          "text": "Restart development server",
+          "id": "restart-development-server"
+        },
+        {
+          "level": 1,
+          "text": "Check file watchers",
+          "id": "check-file-watchers"
+        },
+        {
+          "level": 4,
+          "text": "TypeScript Errors",
+          "id": "typescript-errors"
+        },
+        {
+          "level": 1,
+          "text": "Check TypeScript configuration",
+          "id": "check-typescript-configuration"
+        },
+        {
+          "level": 1,
+          "text": "Fix type errors",
+          "id": "fix-type-errors"
+        },
+        {
+          "level": 1,
+          "text": "Check specific file",
+          "id": "check-specific-file"
+        },
+        {
+          "level": 2,
+          "text": "Build & Deployment Issues",
+          "id": "build-deployment-issues"
+        },
+        {
+          "level": 3,
+          "text": "Build Failures",
+          "id": "build-failures"
+        },
+        {
+          "level": 4,
+          "text": "Memory Issues During Build",
+          "id": "memory-issues-during-build"
+        },
+        {
+          "level": 1,
+          "text": "Increase Node.js memory limit",
+          "id": "increase-node-js-memory-limit"
+        },
+        {
+          "level": 1,
+          "text": "Or in package.json",
+          "id": "or-in-package-json"
+        },
+        {
+          "level": 4,
+          "text": "Dependency Conflicts",
+          "id": "dependency-conflicts"
+        },
+        {
+          "level": 1,
+          "text": "Check dependency tree",
+          "id": "check-dependency-tree"
+        },
+        {
+          "level": 1,
+          "text": "Resolve conflicts",
+          "id": "resolve-conflicts"
+        },
+        {
+          "level": 1,
+          "text": "Or use yarn",
+          "id": "or-use-yarn"
+        },
+        {
+          "level": 4,
+          "text": "Environment Variable Issues in Build",
+          "id": "environment-variable-issues-in-build"
+        },
+        {
+          "level": 1,
+          "text": "Check build-time environment variables",
+          "id": "check-build-time-environment-variables"
+        },
+        {
+          "level": 1,
+          "text": "Set required variables",
+          "id": "set-required-variables"
+        },
+        {
+          "level": 1,
+          "text": "Build with environment",
+          "id": "build-with-environment"
+        },
+        {
+          "level": 3,
+          "text": "Deployment Issues",
+          "id": "deployment-issues"
+        },
+        {
+          "level": 4,
+          "text": "Vercel Deployment Failures",
+          "id": "vercel-deployment-failures"
+        },
+        {
+          "level": 1,
+          "text": "Check build logs",
+          "id": "check-build-logs"
+        },
+        {
+          "level": 1,
+          "text": "Test build locally",
+          "id": "test-build-locally"
+        },
+        {
+          "level": 1,
+          "text": "Check environment variables in Vercel",
+          "id": "check-environment-variables-in-vercel"
+        },
+        {
+          "level": 1,
+          "text": "Redeploy",
+          "id": "redeploy"
+        },
+        {
+          "level": 4,
+          "text": "Database Migration Issues",
+          "id": "database-migration-issues"
+        },
+        {
+          "level": 1,
+          "text": "Check migration status",
+          "id": "check-migration-status"
+        },
+        {
+          "level": 1,
+          "text": "Reset database (development only)",
+          "id": "reset-database-development-only-"
+        },
+        {
+          "level": 1,
+          "text": "Run migrations manually",
+          "id": "run-migrations-manually"
+        },
+        {
+          "level": 2,
+          "text": "Runtime Errors",
+          "id": "runtime-errors"
+        },
+        {
+          "level": 3,
+          "text": "Application Errors",
+          "id": "application-errors"
+        },
+        {
+          "level": 4,
+          "text": "Hydration Errors",
+          "id": "hydration-errors"
+        },
+        {
+          "level": 4,
+          "text": "API Route Errors",
+          "id": "api-route-errors"
+        },
+        {
+          "level": 1,
+          "text": "Check API logs",
+          "id": "check-api-logs"
+        },
+        {
+          "level": 1,
+          "text": "Test API endpoint",
+          "id": "test-api-endpoint"
+        },
+        {
+          "level": 1,
+          "text": "Check API route implementation",
+          "id": "check-api-route-implementation"
+        },
+        {
+          "level": 4,
+          "text": "Authentication Errors",
+          "id": "authentication-errors"
+        },
+        {
+          "level": 1,
+          "text": "Check authentication configuration",
+          "id": "check-authentication-configuration"
+        },
+        {
+          "level": 1,
+          "text": "Check Supabase connection",
+          "id": "check-supabase-connection"
+        },
+        {
+          "level": 1,
+          "text": "Verify environment variables",
+          "id": "verify-environment-variables"
+        },
+        {
+          "level": 3,
+          "text": "Performance Issues",
+          "id": "performance-issues"
+        },
+        {
+          "level": 4,
+          "text": "Slow Page Loads",
+          "id": "slow-page-loads"
+        },
+        {
+          "level": 1,
+          "text": "Check bundle size",
+          "id": "check-bundle-size"
+        },
+        {
+          "level": 1,
+          "text": "Run performance audit",
+          "id": "run-performance-audit"
+        },
+        {
+          "level": 1,
+          "text": "Check Core Web Vitals",
+          "id": "check-core-web-vitals"
+        },
+        {
+          "level": 1,
+          "text": "Optimize images",
+          "id": "optimize-images"
+        },
+        {
+          "level": 4,
+          "text": "Memory Leaks",
+          "id": "memory-leaks"
+        },
+        {
+          "level": 1,
+          "text": "Monitor memory usage",
+          "id": "monitor-memory-usage"
+        },
+        {
+          "level": 1,
+          "text": "Check for memory leaks",
+          "id": "check-for-memory-leaks"
+        },
+        {
+          "level": 1,
+          "text": "Profile application",
+          "id": "profile-application"
         },
         {
           "level": 2,
@@ -12334,208 +15138,343 @@
         },
         {
           "level": 3,
-          "text": "Error: \"Connection to Supabase failed\"",
-          "id": "error-connection-to-supabase-failed-"
+          "text": "Connection Problems",
+          "id": "connection-problems"
+        },
+        {
+          "level": 4,
+          "text": "Database Connection Failed",
+          "id": "database-connection-failed"
         },
         {
           "level": 1,
-          "text": "Start Supabase locally",
-          "id": "start-supabase-locally"
+          "text": "Check Supabase status",
+          "id": "check-supabase-status"
         },
         {
           "level": 1,
-          "text": "Check status",
-          "id": "check-status"
+          "text": "Test database connection",
+          "id": "test-database-connection"
         },
         {
           "level": 1,
-          "text": "Reset if needed",
-          "id": "reset-if-needed"
+          "text": "Check environment variables",
+          "id": "check-environment-variables"
+        },
+        {
+          "level": 1,
+          "text": "Verify network connectivity",
+          "id": "verify-network-connectivity"
+        },
+        {
+          "level": 4,
+          "text": "Connection Pool Exhausted",
+          "id": "connection-pool-exhausted"
+        },
+        {
+          "level": 1,
+          "text": "Check connection pool status",
+          "id": "check-connection-pool-status"
+        },
+        {
+          "level": 1,
+          "text": "Monitor active connections",
+          "id": "monitor-active-connections"
+        },
+        {
+          "level": 1,
+          "text": "Optimize connection usage",
+          "id": "optimize-connection-usage"
         },
         {
           "level": 3,
-          "text": "Error: \"Row Level Security policy violation\"",
-          "id": "error-row-level-security-policy-violation-"
+          "text": "Query Issues",
+          "id": "query-issues"
+        },
+        {
+          "level": 4,
+          "text": "Slow Queries",
+          "id": "slow-queries"
+        },
+        {
+          "level": 1,
+          "text": "Check slow queries",
+          "id": "check-slow-queries"
+        },
+        {
+          "level": 1,
+          "text": "Analyze query performance",
+          "id": "analyze-query-performance"
+        },
+        {
+          "level": 1,
+          "text": "Optimize queries",
+          "id": "optimize-queries"
+        },
+        {
+          "level": 4,
+          "text": "Query Errors",
+          "id": "query-errors"
+        },
+        {
+          "level": 1,
+          "text": "Check database schema",
+          "id": "check-database-schema"
+        },
+        {
+          "level": 1,
+          "text": "Verify table exists",
+          "id": "verify-table-exists"
+        },
+        {
+          "level": 1,
+          "text": "Run migrations",
+          "id": "run-migrations"
         },
         {
           "level": 2,
-          "text": "Build Issues",
-          "id": "build-issues"
+          "text": "External Service Issues",
+          "id": "external-service-issues"
         },
         {
           "level": 3,
-          "text": "Error: \"Build failed with TypeScript errors\"",
-          "id": "error-build-failed-with-typescript-errors-"
+          "text": "Stripe Integration",
+          "id": "stripe-integration"
+        },
+        {
+          "level": 4,
+          "text": "Payment Processing Errors",
+          "id": "payment-processing-errors"
         },
         {
           "level": 1,
-          "text": "Check types locally",
-          "id": "check-types-locally"
+          "text": "Check Stripe configuration",
+          "id": "check-stripe-configuration"
         },
         {
           "level": 1,
-          "text": "Common fixes",
-          "id": "common-fixes"
+          "text": "Test Stripe connection",
+          "id": "test-stripe-connection"
         },
         {
           "level": 1,
-          "text": "1. Update type definitions",
-          "id": "1-update-type-definitions"
+          "text": "Check webhook configuration",
+          "id": "check-webhook-configuration"
+        },
+        {
+          "level": 4,
+          "text": "Webhook Issues",
+          "id": "webhook-issues"
         },
         {
           "level": 1,
-          "text": "2. Add proper type annotations",
-          "id": "2-add-proper-type-annotations"
+          "text": "Check webhook logs",
+          "id": "check-webhook-logs"
         },
         {
           "level": 1,
-          "text": "3. Fix import/export statements",
-          "id": "3-fix-import-export-statements"
+          "text": "Verify webhook endpoint",
+          "id": "verify-webhook-endpoint"
+        },
+        {
+          "level": 1,
+          "text": "Test webhook locally",
+          "id": "test-webhook-locally"
         },
         {
           "level": 3,
-          "text": "Error: \"ESLint errors in build\"",
-          "id": "error-eslint-errors-in-build-"
+          "text": "Email Service Issues",
+          "id": "email-service-issues"
+        },
+        {
+          "level": 4,
+          "text": "Email Delivery Problems",
+          "id": "email-delivery-problems"
         },
         {
           "level": 1,
-          "text": "Run linting",
-          "id": "run-linting"
+          "text": "Check email service status",
+          "id": "check-email-service-status"
         },
         {
           "level": 1,
-          "text": "Fix auto-fixable issues",
-          "id": "fix-auto-fixable-issues"
+          "text": "Test email sending",
+          "id": "test-email-sending"
         },
         {
           "level": 1,
-          "text": "Check accessibility rules",
-          "id": "check-accessibility-rules"
+          "text": "Check email logs",
+          "id": "check-email-logs"
+        },
+        {
+          "level": 3,
+          "text": "Sentry Integration",
+          "id": "sentry-integration"
+        },
+        {
+          "level": 4,
+          "text": "Error Tracking Issues",
+          "id": "error-tracking-issues"
+        },
+        {
+          "level": 1,
+          "text": "Check Sentry configuration",
+          "id": "check-sentry-configuration"
+        },
+        {
+          "level": 1,
+          "text": "Test error reporting",
+          "id": "test-error-reporting"
+        },
+        {
+          "level": 1,
+          "text": "Check Sentry DSN",
+          "id": "check-sentry-dsn"
         },
         {
           "level": 2,
-          "text": "Test Issues",
-          "id": "test-issues"
+          "text": "Common Error Messages",
+          "id": "common-error-messages"
         },
         {
           "level": 3,
-          "text": "E2E Test Failures",
-          "id": "e2e-test-failures"
+          "text": "Next.js Errors",
+          "id": "next-js-errors"
         },
         {
-          "level": 1,
-          "text": "Run tests with debug mode",
-          "id": "run-tests-with-debug-mode"
+          "level": 4,
+          "text": "\"cookies() must be awaited\"",
+          "id": "-cookies-must-be-awaited-"
         },
         {
-          "level": 1,
-          "text": "Run tests with UI mode",
-          "id": "run-tests-with-ui-mode"
-        },
-        {
-          "level": 1,
-          "text": "Install browsers if missing",
-          "id": "install-browsers-if-missing"
+          "level": 4,
+          "text": "\"use client\" directive missing",
+          "id": "-use-client-directive-missing"
         },
         {
           "level": 3,
-          "text": "Unit Test Failures",
-          "id": "unit-test-failures"
+          "text": "Supabase Errors",
+          "id": "supabase-errors"
         },
         {
-          "level": 1,
-          "text": "Run tests in watch mode",
-          "id": "run-tests-in-watch-mode"
+          "level": 4,
+          "text": "\"JWT expired\"",
+          "id": "-jwt-expired-"
         },
         {
-          "level": 1,
-          "text": "Run specific test file",
-          "id": "run-specific-test-file"
+          "level": 4,
+          "text": "\"Row Level Security policy violation\"",
+          "id": "-row-level-security-policy-violation-"
         },
         {
-          "level": 1,
-          "text": "Check coverage",
-          "id": "check-coverage"
+          "level": 3,
+          "text": "TypeScript Errors",
+          "id": "typescript-errors"
+        },
+        {
+          "level": 4,
+          "text": "\"Property does not exist on type\"",
+          "id": "-property-does-not-exist-on-type-"
         },
         {
           "level": 2,
-          "text": "Development Server Issues",
-          "id": "development-server-issues"
+          "text": "Debugging Tools",
+          "id": "debugging-tools"
         },
         {
           "level": 3,
-          "text": "Error: \"Port 3000 already in use\"",
-          "id": "error-port-3000-already-in-use-"
+          "text": "Development Tools",
+          "id": "development-tools"
+        },
+        {
+          "level": 4,
+          "text": "React Developer Tools",
+          "id": "react-developer-tools"
         },
         {
           "level": 1,
-          "text": "Find and kill process",
-          "id": "find-and-kill-process"
+          "text": "Install React Developer Tools",
+          "id": "install-react-developer-tools"
         },
         {
           "level": 1,
-          "text": "Or use different port",
-          "id": "or-use-different-port"
+          "text": "Start React Developer Tools",
+          "id": "start-react-developer-tools"
         },
         {
-          "level": 3,
-          "text": "Error: \"Hot reload not working\"",
-          "id": "error-hot-reload-not-working-"
-        },
-        {
-          "level": 2,
-          "text": "Authentication Issues",
-          "id": "authentication-issues"
-        },
-        {
-          "level": 3,
-          "text": "Error: \"Session not found\" or \"User not authenticated\"",
-          "id": "error-session-not-found-or-user-not-authenticated-"
-        },
-        {
-          "level": 3,
-          "text": "Error: \"Invalid JWT token\"",
-          "id": "error-invalid-jwt-token-"
-        },
-        {
-          "level": 2,
-          "text": "Performance Issues",
-          "id": "performance-issues"
-        },
-        {
-          "level": 3,
-          "text": "Slow Page Loads",
-          "id": "slow-page-loads"
-        },
-        {
-          "level": 3,
-          "text": "Memory Issues",
-          "id": "memory-issues"
-        },
-        {
-          "level": 2,
-          "text": "Database Migration Issues",
-          "id": "database-migration-issues"
-        },
-        {
-          "level": 3,
-          "text": "Error: \"Migration failed\"",
-          "id": "error-migration-failed-"
+          "level": 4,
+          "text": "Next.js Debug Mode",
+          "id": "next-js-debug-mode"
         },
         {
           "level": 1,
-          "text": "Check migration syntax",
-          "id": "check-migration-syntax"
+          "text": "Enable Next.js debug mode",
+          "id": "enable-next-js-debug-mode"
         },
         {
           "level": 1,
-          "text": "Reset and reapply",
-          "id": "reset-and-reapply"
+          "text": "Enable specific debug",
+          "id": "enable-specific-debug"
+        },
+        {
+          "level": 4,
+          "text": "Database Debugging",
+          "id": "database-debugging"
+        },
+        {
+          "level": 1,
+          "text": "Enable Supabase debug mode",
+          "id": "enable-supabase-debug-mode"
+        },
+        {
+          "level": 1,
+          "text": "Check database logs",
+          "id": "check-database-logs"
         },
         {
           "level": 3,
-          "text": "Error: \"RLS policy conflicts\"",
-          "id": "error-rls-policy-conflicts-"
+          "text": "Production Debugging",
+          "id": "production-debugging"
+        },
+        {
+          "level": 4,
+          "text": "Error Monitoring",
+          "id": "error-monitoring"
+        },
+        {
+          "level": 1,
+          "text": "Check Sentry for errors",
+          "id": "check-sentry-for-errors"
+        },
+        {
+          "level": 1,
+          "text": "Check application logs",
+          "id": "check-application-logs"
+        },
+        {
+          "level": 1,
+          "text": "Check performance metrics",
+          "id": "check-performance-metrics"
+        },
+        {
+          "level": 4,
+          "text": "Performance Profiling",
+          "id": "performance-profiling"
+        },
+        {
+          "level": 1,
+          "text": "Run performance audit",
+          "id": "run-performance-audit"
+        },
+        {
+          "level": 1,
+          "text": "Check Core Web Vitals",
+          "id": "check-core-web-vitals"
+        },
+        {
+          "level": 1,
+          "text": "Analyze bundle size",
+          "id": "analyze-bundle-size"
         },
         {
           "level": 2,
@@ -12544,70 +15483,134 @@
         },
         {
           "level": 3,
-          "text": "Debug Information to Collect",
-          "id": "debug-information-to-collect"
+          "text": "Internal Resources",
+          "id": "internal-resources"
         },
         {
           "level": 3,
-          "text": "Useful Commands for Debugging",
-          "id": "useful-commands-for-debugging"
-        },
-        {
-          "level": 1,
-          "text": "System information",
-          "id": "system-information"
-        },
-        {
-          "level": 1,
-          "text": "Application health",
-          "id": "application-health"
-        },
-        {
-          "level": 1,
-          "text": "Database status",
-          "id": "database-status"
-        },
-        {
-          "level": 1,
-          "text": "Environment validation",
-          "id": "environment-validation"
-        },
-        {
-          "level": 3,
-          "text": "Log Files",
-          "id": "log-files"
+          "text": "External Resources",
+          "id": "external-resources"
         },
         {
           "level": 3,
           "text": "Support Channels",
           "id": "support-channels"
+        },
+        {
+          "level": 2,
+          "text": "Related Documentation",
+          "id": "related-documentation"
         }
       ],
       "links": [
         {
-          "text": "Environment Setup",
-          "url": "ENVIRONMENT_SETUP.md",
+          "text": "Architecture",
+          "url": "./ARCHITECTURE.md",
           "type": "internal",
-          "target": "ENVIRONMENT_SETUP.md"
+          "target": "./ARCHITECTURE.md"
+        },
+        {
+          "text": "Runbooks",
+          "url": "./RUNBOOKS.md",
+          "type": "internal",
+          "target": "./RUNBOOKS.md"
+        },
+        {
+          "text": "Performance",
+          "url": "./PERFORMANCE.md",
+          "type": "internal",
+          "target": "./PERFORMANCE.md"
+        },
+        {
+          "text": "Security & Privacy",
+          "url": "./SECURITY_PRIVACY.md",
+          "type": "internal",
+          "target": "./SECURITY_PRIVACY.md"
+        },
+        {
+          "text": "Testing Strategy",
+          "url": "./testing/STRATEGY.md",
+          "type": "internal",
+          "target": "./testing/STRATEGY.md"
         }
       ],
       "commands": [
-        "npm run ci",
+        "npm run install",
+        "npm run ERR",
+        "npm run cache",
+        "npm run env:copy",
         "npm run env:check:local",
-        "npm run --prefix",
-        "npm run version",
-        "npm run --version",
-        "npm run list"
+        "npm run env:validate",
+        "npm run dev",
+        "npm run typecheck",
+        "npm run ls",
+        "npm run env:check:prod",
+        "npm run build",
+        "npm run db:migrations:status",
+        "npm run db:reset",
+        "npm run db:migrations:up",
+        "npm run logs:api",
+        "npm run auth:verify",
+        "npm run supabase:status",
+        "npm run bundle:analyze",
+        "npm run lhci",
+        "npm run perf:web-vitals",
+        "npm run images:optimize",
+        "npm run perf:memory",
+        "npm run perf:leak-check",
+        "npm run perf:profile",
+        "npm run db:test",
+        "npm run db:connections",
+        "npm run db:monitor",
+        "npm run db:slow-queries",
+        "npm run db:analyze-queries",
+        "npm run db:schema",
+        "npm run db:tables",
+        "npm run stripe:verify",
+        "npm run stripe:test",
+        "npm run stripe:webhooks",
+        "npm run logs:webhooks",
+        "npm run stripe:webhook-endpoint",
+        "npm run stripe:webhook-test",
+        "npm run email:status",
+        "npm run email:test",
+        "npm run logs:email",
+        "npm run sentry:verify",
+        "npm run sentry:test",
+        "npm run env:check:sentry",
+        "npm run db:logs",
+        "npm run sentry:errors",
+        "npm run logs:app",
+        "npm run perf:metrics",
+        "npm run perf:audit",
+        "npx tsc"
       ],
       "envVars": [
-        "ENVIRONMENT_SETUP",
+        "ERR",
+        "ENOENT",
         "NEXT_PUBLIC_SUPABASE_URL",
+        "EADDRINUSE",
+        "PID",
+        "FATAL",
+        "ERROR",
+        "NODE_OPTIONS",
+        "ERESOLVE",
         "NEXT_PUBLIC_SUPABASE_ANON_KEY",
-        "SUPABASE_SERVICE_ROLE_KEY",
-        "RLS",
-        "E2E",
+        "API",
         "JWT",
-        "SQL"
+        "ECONNREFUSED",
+        "DSN",
+        "RLS",
+        "SELECT",
+        "FROM",
+        "WHERE",
+        "DEBUG",
+        "SUPABASE_DEBUG",
+        "ARCHITECTURE",
+        "RUNBOOKS",
+        "PERFORMANCE",
+        "SECURITY_PRIVACY",
+        "STRATEGY"
       ],
       "filePaths": [],
       "frontmatter": null
@@ -12808,40 +15811,1223 @@
       "frontmatter": null
     },
     {
-      "path": "docs/sources/dmv/ATTRIBUTION.md",
-      "title": "DMV Handbook Attribution",
-      "lastModified": "2025-08-12T05:38:54.468Z",
-      "size": 571,
+      "path": "docs/api/ROUTES.md",
+      "title": "API Reference",
+      "lastModified": "2025-08-30T03:46:43.629Z",
+      "size": 15415,
       "headings": [
         {
           "level": 1,
-          "text": "DMV Handbook Attribution",
-          "id": "dmv-handbook-attribution"
+          "text": "API Reference",
+          "id": "api-reference"
+        },
+        {
+          "level": 2,
+          "text": "Authentication",
+          "id": "authentication"
+        },
+        {
+          "level": 1,
+          "text": "Using session cookie (automatic with Supabase Auth Helpers)",
+          "id": "using-session-cookie-automatic-with-supabase-auth-helpers-"
+        },
+        {
+          "level": 1,
+          "text": "Using Authorization header",
+          "id": "using-authorization-header"
+        },
+        {
+          "level": 2,
+          "text": "Response Format",
+          "id": "response-format"
+        },
+        {
+          "level": 2,
+          "text": "Health & System",
+          "id": "health-system"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/health",
+          "id": "get-api-health"
+        },
+        {
+          "level": 2,
+          "text": "Authentication & Profile",
+          "id": "authentication-profile"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/profile",
+          "id": "get-api-profile"
+        },
+        {
+          "level": 3,
+          "text": "PUT /api/profile",
+          "id": "put-api-profile"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/account/profile",
+          "id": "get-api-account-profile"
+        },
+        {
+          "level": 3,
+          "text": "PUT /api/account/profile",
+          "id": "put-api-account-profile"
+        },
+        {
+          "level": 2,
+          "text": "Enrollment & Courses",
+          "id": "enrollment-courses"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/enroll",
+          "id": "post-api-enroll"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/enrollments",
+          "id": "get-api-enrollments"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/public/catalog",
+          "id": "get-api-public-catalog"
+        },
+        {
+          "level": 2,
+          "text": "Learning & Progress",
+          "id": "learning-progress"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/progress/seat-time",
+          "id": "post-api-progress-seat-time"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/progress/heartbeat",
+          "id": "post-api-progress-heartbeat"
+        },
+        {
+          "level": 2,
+          "text": "Quizzes & Practice",
+          "id": "quizzes-practice"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/attempts/start",
+          "id": "post-api-attempts-start"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/attempts/answer",
+          "id": "post-api-attempts-answer"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/attempts/complete",
+          "id": "post-api-attempts-complete"
+        },
+        {
+          "level": 2,
+          "text": "Final Exam",
+          "id": "final-exam"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/exam/eligibility",
+          "id": "get-api-exam-eligibility"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/exam/start",
+          "id": "post-api-exam-start"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/exam/answer",
+          "id": "post-api-exam-answer"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/exam/complete",
+          "id": "post-api-exam-complete"
+        },
+        {
+          "level": 2,
+          "text": "Certificates",
+          "id": "certificates"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/certificates/verify/[number]",
+          "id": "get-api-certificates-verify-number-"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/certificates/attempt/[attemptId]",
+          "id": "get-api-certificates-attempt-attemptid-"
+        },
+        {
+          "level": 2,
+          "text": "Guardian Management",
+          "id": "guardian-management"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/guardian/request",
+          "id": "post-api-guardian-request"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/guardian/verify/[token]",
+          "id": "get-api-guardian-verify-token-"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/guardian/consent",
+          "id": "post-api-guardian-consent"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/guardian/children",
+          "id": "get-api-guardian-children"
+        },
+        {
+          "level": 2,
+          "text": "Billing & Payments",
+          "id": "billing-payments"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/billing/checkout",
+          "id": "post-api-billing-checkout"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/billing/summary",
+          "id": "get-api-billing-summary"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/billing/invoices",
+          "id": "get-api-billing-invoices"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/billing/portal",
+          "id": "post-api-billing-portal"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/billing/cancel",
+          "id": "post-api-billing-cancel"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/billing/resume",
+          "id": "post-api-billing-resume"
+        },
+        {
+          "level": 2,
+          "text": "Admin APIs",
+          "id": "admin-apis"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/admin/courses",
+          "id": "get-api-admin-courses"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/admin/blueprints",
+          "id": "get-api-admin-blueprints"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/admin/regulatory/run",
+          "id": "post-api-admin-regulatory-run"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/admin/regulatory/runs",
+          "id": "get-api-admin-regulatory-runs"
+        },
+        {
+          "level": 2,
+          "text": "Tutor AI",
+          "id": "tutor-ai"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/tutor",
+          "id": "post-api-tutor"
+        },
+        {
+          "level": 2,
+          "text": "Notifications",
+          "id": "notifications"
+        },
+        {
+          "level": 3,
+          "text": "GET /api/notifications",
+          "id": "get-api-notifications"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/notifications/read",
+          "id": "post-api-notifications-read"
+        },
+        {
+          "level": 2,
+          "text": "Testkit APIs (Development Only)",
+          "id": "testkit-apis-development-only-"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/testkit/reset",
+          "id": "post-api-testkit-reset"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/testkit/user",
+          "id": "post-api-testkit-user"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/testkit/enroll",
+          "id": "post-api-testkit-enroll"
+        },
+        {
+          "level": 3,
+          "text": "POST /api/testkit/seat-time",
+          "id": "post-api-testkit-seat-time"
+        },
+        {
+          "level": 2,
+          "text": "Error Codes",
+          "id": "error-codes"
+        },
+        {
+          "level": 2,
+          "text": "Rate Limiting",
+          "id": "rate-limiting"
+        },
+        {
+          "level": 2,
+          "text": "Pagination",
+          "id": "pagination"
         }
       ],
-      "links": [],
+      "links": [
+        {
+          "text": "Environment Variables",
+          "url": "ENVIRONMENT_VARIABLES.md",
+          "type": "internal",
+          "target": "ENVIRONMENT_VARIABLES.md"
+        }
+      ],
       "commands": [],
-      "envVars": ["DMV", "PDF"],
+      "envVars": [
+        "API",
+        "ERROR_CODE",
+        "INV",
+        "ONLINE",
+        "UUID",
+        "TESTKIT_ON",
+        "UNAUTHENTICATED",
+        "FORBIDDEN",
+        "NOT_FOUND",
+        "VALIDATION_ERROR",
+        "RATE_LIMIT_EXCEEDED",
+        "INTERNAL_ERROR",
+        "ENVIRONMENT_VARIABLES"
+      ],
       "filePaths": [],
-      "frontmatter": null
+      "frontmatter": {
+        "title": "API Reference",
+        "owner": "Engineering",
+        "last_reviewed": "2025-01-27",
+        "status": "authoritative",
+        "related": [
+          "</docs/ARCHITECTURE.md>",
+          "</web/src/app/api/>"
+        ]
+      }
     },
     {
-      "path": "docs/sources/dmv/NOTICE-LICENSE.md",
-      "title": "DMV Handbook License Notice",
-      "lastModified": "2025-08-16T13:46:49.011Z",
-      "size": 321,
+      "path": "docs/testing/COVERAGE.md",
+      "title": "Testing Coverage",
+      "lastModified": "2025-08-30T03:47:07.000Z",
+      "size": 12835,
       "headings": [
         {
           "level": 1,
-          "text": "DMV Handbook License Notice",
-          "id": "dmv-handbook-license-notice"
+          "text": "Testing Coverage",
+          "id": "testing-coverage"
+        },
+        {
+          "level": 2,
+          "text": "Coverage Summary",
+          "id": "coverage-summary"
+        },
+        {
+          "level": 3,
+          "text": "Overall Coverage Metrics",
+          "id": "overall-coverage-metrics"
+        },
+        {
+          "level": 3,
+          "text": "Coverage by Category",
+          "id": "coverage-by-category"
+        },
+        {
+          "level": 2,
+          "text": "Unit Test Coverage",
+          "id": "unit-test-coverage"
+        },
+        {
+          "level": 3,
+          "text": "Covered Files",
+          "id": "covered-files"
+        },
+        {
+          "level": 4,
+          "text": "Core Libraries (High Coverage)",
+          "id": "core-libraries-high-coverage-"
+        },
+        {
+          "level": 4,
+          "text": "Components (Good Coverage)",
+          "id": "components-good-coverage-"
+        },
+        {
+          "level": 3,
+          "text": "Uncovered Critical Areas",
+          "id": "uncovered-critical-areas"
+        },
+        {
+          "level": 4,
+          "text": "API Routes (0% Coverage)",
+          "id": "api-routes-0-coverage-"
+        },
+        {
+          "level": 4,
+          "text": "Core Pages (0% Coverage)",
+          "id": "core-pages-0-coverage-"
+        },
+        {
+          "level": 4,
+          "text": "Critical Utilities (0% Coverage)",
+          "id": "critical-utilities-0-coverage-"
+        },
+        {
+          "level": 2,
+          "text": "End-to-End Test Coverage",
+          "id": "end-to-end-test-coverage"
+        },
+        {
+          "level": 3,
+          "text": "Test Files and Coverage",
+          "id": "test-files-and-coverage"
+        },
+        {
+          "level": 3,
+          "text": "User Workflow Coverage",
+          "id": "user-workflow-coverage"
+        },
+        {
+          "level": 4,
+          "text": "✅ Fully Covered Workflows",
+          "id": "-fully-covered-workflows"
+        },
+        {
+          "level": 4,
+          "text": "⚠️ Partially Covered Workflows",
+          "id": "-partially-covered-workflows"
+        },
+        {
+          "level": 4,
+          "text": "❌ Missing Coverage",
+          "id": "-missing-coverage"
+        },
+        {
+          "level": 2,
+          "text": "Accessibility Test Coverage",
+          "id": "accessibility-test-coverage"
+        },
+        {
+          "level": 3,
+          "text": "Automated Testing",
+          "id": "automated-testing"
+        },
+        {
+          "level": 3,
+          "text": "Test Coverage Areas",
+          "id": "test-coverage-areas"
+        },
+        {
+          "level": 3,
+          "text": "Manual Testing Checklist",
+          "id": "manual-testing-checklist"
+        },
+        {
+          "level": 2,
+          "text": "Performance Test Coverage",
+          "id": "performance-test-coverage"
+        },
+        {
+          "level": 3,
+          "text": "Lighthouse CI Coverage",
+          "id": "lighthouse-ci-coverage"
+        },
+        {
+          "level": 3,
+          "text": "Core Web Vitals",
+          "id": "core-web-vitals"
+        },
+        {
+          "level": 3,
+          "text": "Bundle Size Monitoring",
+          "id": "bundle-size-monitoring"
+        },
+        {
+          "level": 2,
+          "text": "Coverage Improvement Plan",
+          "id": "coverage-improvement-plan"
+        },
+        {
+          "level": 3,
+          "text": "Phase 1: Critical API Coverage (Priority: High)",
+          "id": "phase-1-critical-api-coverage-priority-high-"
+        },
+        {
+          "level": 3,
+          "text": "Phase 2: Core Utilities Coverage (Priority: High)",
+          "id": "phase-2-core-utilities-coverage-priority-high-"
+        },
+        {
+          "level": 3,
+          "text": "Phase 3: Page Component Coverage (Priority: Medium)",
+          "id": "phase-3-page-component-coverage-priority-medium-"
+        },
+        {
+          "level": 3,
+          "text": "Phase 4: E2E Test Expansion (Priority: Medium)",
+          "id": "phase-4-e2e-test-expansion-priority-medium-"
+        },
+        {
+          "level": 2,
+          "text": "Coverage Monitoring",
+          "id": "coverage-monitoring"
+        },
+        {
+          "level": 3,
+          "text": "Automated Monitoring",
+          "id": "automated-monitoring"
+        },
+        {
+          "level": 1,
+          "text": ".github/workflows/coverage.yml",
+          "id": "-github-workflows-coverage-yml"
+        },
+        {
+          "level": 3,
+          "text": "Manual Monitoring",
+          "id": "manual-monitoring"
+        },
+        {
+          "level": 2,
+          "text": "Coverage Metrics Dashboard",
+          "id": "coverage-metrics-dashboard"
+        },
+        {
+          "level": 3,
+          "text": "Current Status Dashboard",
+          "id": "current-status-dashboard"
+        },
+        {
+          "level": 3,
+          "text": "Coverage Trends",
+          "id": "coverage-trends"
+        },
+        {
+          "level": 2,
+          "text": "Coverage Best Practices",
+          "id": "coverage-best-practices"
+        },
+        {
+          "level": 3,
+          "text": "Writing Effective Tests",
+          "id": "writing-effective-tests"
+        },
+        {
+          "level": 3,
+          "text": "Coverage Maintenance",
+          "id": "coverage-maintenance"
         }
       ],
-      "links": [],
-      "commands": [],
-      "envVars": ["DMV", "SHA256"],
-      "filePaths": [],
-      "frontmatter": null
+      "links": [
+        {
+          "text": "Playwright E2E Testing",
+          "url": "PLAYWRIGHT.md",
+          "type": "internal",
+          "target": "PLAYWRIGHT.md"
+        }
+      ],
+      "commands": [
+        "npm run --prefix",
+        "tsx web/src/app/onboarding/page.tsx",
+        "tsx web/src/app/billing/page.tsx",
+        "tsx web/src/app/learn/useSeatTime.ts",
+        "tsx web/src/app/learn/",
+        "tsx web/src/app/exam/",
+        "tsx web/src/app/quiz/"
+      ],
+      "envVars": [
+        "API",
+        "FAQ",
+        "HTML",
+        "LCP",
+        "FID",
+        "CLS",
+        "E2E",
+        "PLAYWRIGHT"
+      ],
+      "filePaths": [
+        "auth-onboarding.spec.ts",
+        "auth-ui.spec.ts",
+        "billing-lifecycle.spec.ts",
+        "dual-product.spec.ts",
+        "exam-certificate.spec.ts",
+        "final-exam.spec.ts",
+        "guardian-esign.spec.ts",
+        "guardian-notifications.spec.ts",
+        "home-nav-and-faq.spec.ts",
+        "home.spec.ts",
+        "i18n-switcher.spec.ts",
+        "interactivity-fixes.spec.ts",
+        "learn-quiz.spec.ts",
+        "learner-features.spec.ts",
+        "navigation-fixes.spec.ts",
+        "offline-review.spec.ts",
+        "regulatory-reporting.spec.ts"
+      ],
+      "frontmatter": {
+        "title": "Testing Coverage",
+        "owner": "Engineering",
+        "last_reviewed": "2025-01-27",
+        "status": "authoritative",
+        "related": [
+          "</docs/testing/STRATEGY.md>",
+          "</docs/testing/PLAYWRIGHT.md>"
+        ]
+      }
+    },
+    {
+      "path": "docs/testing/PLAYWRIGHT.md",
+      "title": "Playwright E2E Testing",
+      "lastModified": "2025-08-30T03:46:43.633Z",
+      "size": 18393,
+      "headings": [
+        {
+          "level": 1,
+          "text": "Playwright E2E Testing",
+          "id": "playwright-e2e-testing"
+        },
+        {
+          "level": 2,
+          "text": "Overview",
+          "id": "overview"
+        },
+        {
+          "level": 2,
+          "text": "Test Structure",
+          "id": "test-structure"
+        },
+        {
+          "level": 3,
+          "text": "File Organization",
+          "id": "file-organization"
+        },
+        {
+          "level": 3,
+          "text": "Test Categories",
+          "id": "test-categories"
+        },
+        {
+          "level": 2,
+          "text": "Configuration",
+          "id": "configuration"
+        },
+        {
+          "level": 3,
+          "text": "Playwright Config",
+          "id": "playwright-config"
+        },
+        {
+          "level": 3,
+          "text": "Environment Variables",
+          "id": "environment-variables"
+        },
+        {
+          "level": 1,
+          "text": "Required for E2E tests",
+          "id": "required-for-e2e-tests"
+        },
+        {
+          "level": 2,
+          "text": "Writing Tests",
+          "id": "writing-tests"
+        },
+        {
+          "level": 3,
+          "text": "Basic Test Structure",
+          "id": "basic-test-structure"
+        },
+        {
+          "level": 3,
+          "text": "Test Data Management",
+          "id": "test-data-management"
+        },
+        {
+          "level": 4,
+          "text": "Testkit API Usage",
+          "id": "testkit-api-usage"
+        },
+        {
+          "level": 4,
+          "text": "Authentication Helpers",
+          "id": "authentication-helpers"
+        },
+        {
+          "level": 3,
+          "text": "Selector Strategy",
+          "id": "selector-strategy"
+        },
+        {
+          "level": 4,
+          "text": "Preferred Selectors",
+          "id": "preferred-selectors"
+        },
+        {
+          "level": 4,
+          "text": "Avoid These Selectors",
+          "id": "avoid-these-selectors"
+        },
+        {
+          "level": 3,
+          "text": "Waiting Strategies",
+          "id": "waiting-strategies"
+        },
+        {
+          "level": 4,
+          "text": "Best Practices",
+          "id": "best-practices"
+        },
+        {
+          "level": 4,
+          "text": "Auto-waiting",
+          "id": "auto-waiting"
+        },
+        {
+          "level": 2,
+          "text": "Test Examples",
+          "id": "test-examples"
+        },
+        {
+          "level": 3,
+          "text": "Authentication Flow",
+          "id": "authentication-flow"
+        },
+        {
+          "level": 3,
+          "text": "Course Enrollment",
+          "id": "course-enrollment"
+        },
+        {
+          "level": 3,
+          "text": "Quiz Completion",
+          "id": "quiz-completion"
+        },
+        {
+          "level": 3,
+          "text": "Guardian Consent Flow",
+          "id": "guardian-consent-flow"
+        },
+        {
+          "level": 2,
+          "text": "Debugging Tests",
+          "id": "debugging-tests"
+        },
+        {
+          "level": 3,
+          "text": "Running Tests in Debug Mode",
+          "id": "running-tests-in-debug-mode"
+        },
+        {
+          "level": 1,
+          "text": "Debug specific test",
+          "id": "debug-specific-test"
+        },
+        {
+          "level": 1,
+          "text": "Debug with browser UI",
+          "id": "debug-with-browser-ui"
+        },
+        {
+          "level": 1,
+          "text": "Debug with headed browser",
+          "id": "debug-with-headed-browser"
+        },
+        {
+          "level": 3,
+          "text": "Using Traces",
+          "id": "using-traces"
+        },
+        {
+          "level": 3,
+          "text": "Screenshots and Videos",
+          "id": "screenshots-and-videos"
+        },
+        {
+          "level": 3,
+          "text": "Console Logging",
+          "id": "console-logging"
+        },
+        {
+          "level": 2,
+          "text": "CI/CD Integration",
+          "id": "ci-cd-integration"
+        },
+        {
+          "level": 3,
+          "text": "GitHub Actions Configuration",
+          "id": "github-actions-configuration"
+        },
+        {
+          "level": 1,
+          "text": ".github/workflows/ci.yml",
+          "id": "-github-workflows-ci-yml"
+        },
+        {
+          "level": 3,
+          "text": "Parallel Execution",
+          "id": "parallel-execution"
+        },
+        {
+          "level": 2,
+          "text": "Best Practices",
+          "id": "best-practices"
+        },
+        {
+          "level": 3,
+          "text": "Test Organization",
+          "id": "test-organization"
+        },
+        {
+          "level": 3,
+          "text": "Test Data Management",
+          "id": "test-data-management"
+        },
+        {
+          "level": 3,
+          "text": "Selector Strategy",
+          "id": "selector-strategy"
+        },
+        {
+          "level": 3,
+          "text": "Error Handling",
+          "id": "error-handling"
+        },
+        {
+          "level": 3,
+          "text": "Performance",
+          "id": "performance"
+        },
+        {
+          "level": 2,
+          "text": "Common Patterns",
+          "id": "common-patterns"
+        },
+        {
+          "level": 3,
+          "text": "Form Testing",
+          "id": "form-testing"
+        },
+        {
+          "level": 3,
+          "text": "API Testing",
+          "id": "api-testing"
+        },
+        {
+          "level": 3,
+          "text": "Navigation Testing",
+          "id": "navigation-testing"
+        },
+        {
+          "level": 2,
+          "text": "Troubleshooting",
+          "id": "troubleshooting"
+        },
+        {
+          "level": 3,
+          "text": "Common Issues",
+          "id": "common-issues"
+        },
+        {
+          "level": 3,
+          "text": "Debug Commands",
+          "id": "debug-commands"
+        },
+        {
+          "level": 1,
+          "text": "Run specific test with debug",
+          "id": "run-specific-test-with-debug"
+        },
+        {
+          "level": 1,
+          "text": "Run with headed browser",
+          "id": "run-with-headed-browser"
+        },
+        {
+          "level": 1,
+          "text": "Run with UI mode",
+          "id": "run-with-ui-mode"
+        },
+        {
+          "level": 1,
+          "text": "Show test report",
+          "id": "show-test-report"
+        },
+        {
+          "level": 1,
+          "text": "Generate code from actions",
+          "id": "generate-code-from-actions"
+        }
+      ],
+      "links": [
+        {
+          "text": "Testing Strategy",
+          "url": "STRATEGY.md",
+          "type": "internal",
+          "target": "STRATEGY.md"
+        }
+      ],
+      "commands": [
+        "npm run start:ci",
+        "npm run --prefix",
+        "npx playwright"
+      ],
+      "envVars": [
+        "E2E",
+        "API",
+        "FAQ",
+        "TESTKIT_ON",
+        "TESTKIT_TOKEN",
+        "NEXT_PUBLIC_ENV",
+        "SUPABASE_URL",
+        "SUPABASE_SERVICE_ROLE_KEY",
+        "CSS",
+        "STRATEGY"
+      ],
+      "filePaths": [
+        "auth-*.spec.ts",
+        "learn-*.spec.ts",
+        "exam-*.spec.ts",
+        "billing-*.spec.ts",
+        "guardian-*.spec.ts",
+        "regulatory-*.spec.ts",
+        "*-ui.spec.ts",
+        "*-fixes.spec.ts",
+        "i18n-*.spec.ts"
+      ],
+      "frontmatter": {
+        "title": "Playwright E2E Testing",
+        "owner": "Engineering",
+        "last_reviewed": "2025-01-27",
+        "status": "authoritative",
+        "related": [
+          "</docs/testing/STRATEGY.md>",
+          "</docs/testing/COVERAGE.md>",
+          "</web/tests/e2e/>"
+        ]
+      }
+    },
+    {
+      "path": "docs/testing/STRATEGY.md",
+      "title": "Testing Strategy",
+      "lastModified": "2025-08-30T03:46:43.621Z",
+      "size": 12840,
+      "headings": [
+        {
+          "level": 1,
+          "text": "Testing Strategy",
+          "id": "testing-strategy"
+        },
+        {
+          "level": 2,
+          "text": "Testing Philosophy",
+          "id": "testing-philosophy"
+        },
+        {
+          "level": 3,
+          "text": "Test Pyramid",
+          "id": "test-pyramid"
+        },
+        {
+          "level": 3,
+          "text": "Testing Principles",
+          "id": "testing-principles"
+        },
+        {
+          "level": 2,
+          "text": "Testing Tools & Stack",
+          "id": "testing-tools-stack"
+        },
+        {
+          "level": 3,
+          "text": "Unit Testing",
+          "id": "unit-testing"
+        },
+        {
+          "level": 3,
+          "text": "Integration Testing",
+          "id": "integration-testing"
+        },
+        {
+          "level": 3,
+          "text": "End-to-End Testing",
+          "id": "end-to-end-testing"
+        },
+        {
+          "level": 3,
+          "text": "Accessibility Testing",
+          "id": "accessibility-testing"
+        },
+        {
+          "level": 3,
+          "text": "Performance Testing",
+          "id": "performance-testing"
+        },
+        {
+          "level": 2,
+          "text": "Test Categories",
+          "id": "test-categories"
+        },
+        {
+          "level": 3,
+          "text": "1. Unit Tests",
+          "id": "1-unit-tests"
+        },
+        {
+          "level": 3,
+          "text": "2. Integration Tests",
+          "id": "2-integration-tests"
+        },
+        {
+          "level": 3,
+          "text": "3. End-to-End Tests",
+          "id": "3-end-to-end-tests"
+        },
+        {
+          "level": 3,
+          "text": "4. Accessibility Tests",
+          "id": "4-accessibility-tests"
+        },
+        {
+          "level": 3,
+          "text": "5. Performance Tests",
+          "id": "5-performance-tests"
+        },
+        {
+          "level": 2,
+          "text": "Test Data Management",
+          "id": "test-data-management"
+        },
+        {
+          "level": 3,
+          "text": "Testkit API",
+          "id": "testkit-api"
+        },
+        {
+          "level": 3,
+          "text": "Database Seeding",
+          "id": "database-seeding"
+        },
+        {
+          "level": 2,
+          "text": "Test Environment Setup",
+          "id": "test-environment-setup"
+        },
+        {
+          "level": 3,
+          "text": "Local Development",
+          "id": "local-development"
+        },
+        {
+          "level": 1,
+          "text": "Install dependencies",
+          "id": "install-dependencies"
+        },
+        {
+          "level": 1,
+          "text": "Start Supabase",
+          "id": "start-supabase"
+        },
+        {
+          "level": 1,
+          "text": "Run tests",
+          "id": "run-tests"
+        },
+        {
+          "level": 3,
+          "text": "CI Environment",
+          "id": "ci-environment"
+        },
+        {
+          "level": 1,
+          "text": ".github/workflows/ci.yml",
+          "id": "-github-workflows-ci-yml"
+        },
+        {
+          "level": 2,
+          "text": "Testing Best Practices",
+          "id": "testing-best-practices"
+        },
+        {
+          "level": 3,
+          "text": "1. Test Organization",
+          "id": "1-test-organization"
+        },
+        {
+          "level": 3,
+          "text": "2. Test Isolation",
+          "id": "2-test-isolation"
+        },
+        {
+          "level": 3,
+          "text": "3. Selector Strategy",
+          "id": "3-selector-strategy"
+        },
+        {
+          "level": 3,
+          "text": "4. Assertion Strategy",
+          "id": "4-assertion-strategy"
+        },
+        {
+          "level": 3,
+          "text": "5. Error Handling",
+          "id": "5-error-handling"
+        },
+        {
+          "level": 2,
+          "text": "Performance Testing Strategy",
+          "id": "performance-testing-strategy"
+        },
+        {
+          "level": 3,
+          "text": "Core Web Vitals Monitoring",
+          "id": "core-web-vitals-monitoring"
+        },
+        {
+          "level": 3,
+          "text": "Bundle Size Monitoring",
+          "id": "bundle-size-monitoring"
+        },
+        {
+          "level": 2,
+          "text": "Accessibility Testing Strategy",
+          "id": "accessibility-testing-strategy"
+        },
+        {
+          "level": 3,
+          "text": "Automated Testing",
+          "id": "automated-testing"
+        },
+        {
+          "level": 3,
+          "text": "Manual Testing Checklist",
+          "id": "manual-testing-checklist"
+        },
+        {
+          "level": 2,
+          "text": "Continuous Integration",
+          "id": "continuous-integration"
+        },
+        {
+          "level": 3,
+          "text": "Pre-commit Hooks",
+          "id": "pre-commit-hooks"
+        },
+        {
+          "level": 3,
+          "text": "CI Pipeline",
+          "id": "ci-pipeline"
+        },
+        {
+          "level": 2,
+          "text": "Test Maintenance",
+          "id": "test-maintenance"
+        },
+        {
+          "level": 3,
+          "text": "Regular Tasks",
+          "id": "regular-tasks"
+        },
+        {
+          "level": 3,
+          "text": "Metrics & Monitoring",
+          "id": "metrics-monitoring"
+        }
+      ],
+      "links": [
+        {
+          "text": "Testing Coverage",
+          "url": "COVERAGE.md",
+          "type": "internal",
+          "target": "COVERAGE.md"
+        }
+      ],
+      "commands": [
+        "npm run ci",
+        "npm run --prefix",
+        "npm run test:ci",
+        "npm run test"
+      ],
+      "envVars": [
+        "E2E",
+        "API",
+        "WCAG",
+        "HTML",
+        "TESTKIT_TOKEN",
+        "CLI",
+        "TESTKIT_ON",
+        "CSS",
+        "LCP",
+        "FID",
+        "CLS",
+        "ARIA",
+        "COVERAGE"
+      ],
+      "filePaths": [
+        "*.test.ts",
+        "*.spec.ts"
+      ],
+      "frontmatter": {
+        "title": "Testing Strategy",
+        "owner": "Engineering",
+        "last_reviewed": "2025-01-27",
+        "status": "authoritative",
+        "related": [
+          "</docs/TESTING.md>",
+          "</docs/testing/COVERAGE.md>",
+          "</docs/testing/PLAYWRIGHT.md>"
+        ]
+      }
     },
     {
       "path": "ops/fixtures/offline/README.md",
@@ -12897,7 +17083,10 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": ["JSON", "API"],
+      "envVars": [
+        "JSON",
+        "API"
+      ],
       "filePaths": [
         "users.json",
         "enrollments.json",
@@ -13105,7 +17294,56 @@
         "npx tsx",
         "tsx ops/seed/normalize/cli.ts"
       ],
-      "envVars": ["JSON", "CLI", "README", "ONLINE", "MCQ", "NPM"],
+      "envVars": [
+        "JSON",
+        "CLI",
+        "README",
+        "ONLINE",
+        "MCQ",
+        "NPM"
+      ],
+      "filePaths": [],
+      "frontmatter": null
+    },
+    {
+      "path": "docs/sources/dmv/ATTRIBUTION.md",
+      "title": "DMV Handbook Attribution",
+      "lastModified": "2025-08-12T05:38:54.468Z",
+      "size": 571,
+      "headings": [
+        {
+          "level": 1,
+          "text": "DMV Handbook Attribution",
+          "id": "dmv-handbook-attribution"
+        }
+      ],
+      "links": [],
+      "commands": [],
+      "envVars": [
+        "DMV",
+        "PDF"
+      ],
+      "filePaths": [],
+      "frontmatter": null
+    },
+    {
+      "path": "docs/sources/dmv/NOTICE-LICENSE.md",
+      "title": "DMV Handbook License Notice",
+      "lastModified": "2025-08-16T13:46:49.011Z",
+      "size": 321,
+      "headings": [
+        {
+          "level": 1,
+          "text": "DMV Handbook License Notice",
+          "id": "dmv-handbook-license-notice"
+        }
+      ],
+      "links": [],
+      "commands": [],
+      "envVars": [
+        "DMV",
+        "SHA256"
+      ],
       "filePaths": [],
       "frontmatter": null
     },
@@ -13123,7 +17361,9 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": ["RPC"],
+      "envVars": [
+        "RPC"
+      ],
       "filePaths": [],
       "frontmatter": null
     },
@@ -13176,7 +17416,11 @@
       ],
       "links": [],
       "commands": [],
-      "envVars": ["E2E", "ARIA", "README"],
+      "envVars": [
+        "E2E",
+        "ARIA",
+        "README"
+      ],
       "filePaths": [
         "auth-ui.spec.ts",
         "learner-features.spec.ts",
@@ -13200,10 +17444,10 @@
   ],
   "errors": [],
   "summary": {
-    "totalFiles": 52,
-    "totalLinks": 109,
-    "internalLinks": 59,
-    "externalLinks": 50,
+    "totalFiles": 63,
+    "totalLinks": 168,
+    "internalLinks": 109,
+    "externalLinks": 59,
     "uniqueScripts": [
       "npm run --prefix",
       "tsx import",
@@ -13215,6 +17459,8 @@
       "npm run env:check:local",
       "npm run dev",
       "npm run env:seed:auto",
+      "npx axe",
+      "tsx //",
       "npm run ci:local",
       "npm run env:copy",
       "npm run format:check",
@@ -13230,24 +17476,151 @@
       "npm run env:check:prod",
       "npm run format:fix",
       "tsx --",
+      "npm run or",
       "npm run install",
-      "npm run start:ci",
       "npm run env:setup",
+      "npm run ci:check:full",
+      "npm run test",
+      "npm run test:e2e",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run version",
+      "npm run start:ci",
       "npm run env:setup:dry",
       "npm run seed:final",
       "npm run seed:final:verify",
       "npm run seed:verify",
       "npm run dev:offline",
-      "npm run test:e2e",
       "npm run test:e2e:ui",
+      "npm run ls",
+      "npx @next",
       "npm run dependencies",
       "npm run reports:open",
       "npm run reports:serve",
       "npm run reports:ci",
-      "npx axe",
-      "npm run version",
-      "npm run --version",
-      "npm run list",
+      "npm run logs:app",
+      "npm run logs:errors",
+      "npm run logs:performance",
+      "npm run db:status",
+      "npm run db:slow-queries",
+      "npm run db:connections",
+      "npm run lhci",
+      "npm run deploy:staging",
+      "npm run verify:staging",
+      "npm run deploy:production",
+      "npm run verify:production",
+      "npm run logs:deployment",
+      "npm run rollback:production",
+      "npm run db:migrations:status",
+      "npm run db:migrations:up",
+      "npm run db:migrations:verify",
+      "npm run db:migrations:down",
+      "npm run db:test",
+      "npm run db:restart",
+      "npm run logs:api",
+      "npm run logs:rate-limit",
+      "npm run auth:verify",
+      "npm run perf:check",
+      "npm run bundle:analyze",
+      "npm run perf:memory",
+      "npm run logs:sentry",
+      "npm run logs:db",
+      "npm run deps:update",
+      "npm run security:scan",
+      "npm run security:update",
+      "npm run perf:test",
+      "npm run db:health",
+      "npm run db:optimize",
+      "npm run db:storage",
+      "npm run backup:verify",
+      "npm run backup:test-restore",
+      "npm run compliance:check",
+      "npm run compliance:retention",
+      "npm run security:audit",
+      "npm run security:access-logs",
+      "npm run logs:cleanup",
+      "npm run temp:cleanup",
+      "npm run backup:cleanup",
+      "npm run data:export",
+      "npm run service:stop",
+      "npm run maintenance:enable",
+      "npm run notify:incident",
+      "npm run logs:collect",
+      "npm run system:status",
+      "npm run metrics:analyze",
+      "npm run fix:apply",
+      "npm run service:restart",
+      "npm run verify:recovery",
+      "npm run security:isolate",
+      "npm run security:preserve-evidence",
+      "npm run security:notify-authorities",
+      "npm run security:analyze-breach",
+      "npm run security:affected-users",
+      "npm run security:document-incident",
+      "npm run security:patch",
+      "npm run backup:restore",
+      "npm run security:notify-users",
+      "npm run system:verify",
+      "npm run db:restore",
+      "npm run db:verify",
+      "npm run db:reindex",
+      "npm run health:check",
+      "npm run db:performance",
+      "npm run monitoring:setup",
+      "npm run monitoring:thresholds",
+      "npm run monitoring:test",
+      "npm run alert:acknowledge",
+      "npm run alert:investigate",
+      "npm run alert:resolve",
+      "npm run backup:create",
+      "npm run backup:size",
+      "npm run component:verify",
+      "npm run perf:web-vitals",
+      "npm run perf:api",
+      "npm run perf:database",
+      "npm run bundle:optimize",
+      "npm run images:optimize",
+      "npm run db:optimize-queries",
+      "npm run load:test",
+      "npm run load:stress",
+      "npm run load:spike",
+      "npm run load:analyze",
+      "npm run load:report",
+      "npm run load:compare",
+      "npm run security:logs",
+      "npm run security:access",
+      "npm run security:block",
+      "npm run security:investigate",
+      "npm run security:update-rules",
+      "npm run ERR",
+      "npm run cache",
+      "npm run env:validate",
+      "npm run build",
+      "npm run db:reset",
+      "npm run supabase:status",
+      "npm run perf:leak-check",
+      "npm run perf:profile",
+      "npm run db:monitor",
+      "npm run db:analyze-queries",
+      "npm run db:schema",
+      "npm run db:tables",
+      "npm run stripe:verify",
+      "npm run stripe:test",
+      "npm run stripe:webhooks",
+      "npm run logs:webhooks",
+      "npm run stripe:webhook-endpoint",
+      "npm run stripe:webhook-test",
+      "npm run email:status",
+      "npm run email:test",
+      "npm run logs:email",
+      "npm run sentry:verify",
+      "npm run sentry:test",
+      "npm run env:check:sentry",
+      "npm run db:logs",
+      "npm run sentry:errors",
+      "npm run perf:metrics",
+      "npm run perf:audit",
+      "npx tsc",
       "npm run seed:all",
       "npm run seed:curriculum",
       "npm run seed:questions",
@@ -13255,6 +17628,13 @@
       "npm run seed:verify:unit3",
       "tsx ops/seed/seed-curriculum.ts",
       "tsx ops/seed/seed-questions.ts",
+      "tsx web/src/app/onboarding/page.tsx",
+      "tsx web/src/app/billing/page.tsx",
+      "tsx web/src/app/learn/useSeatTime.ts",
+      "tsx web/src/app/learn/",
+      "tsx web/src/app/exam/",
+      "tsx web/src/app/quiz/",
+      "npm run test:ci",
       "npm run seed:normalize",
       "npm run seed:normalize:write",
       "npm run seed:normalize:curr",
@@ -13391,6 +17771,15 @@
       "NEXT_PUBLIC_DEV_CONSOLE_TAP",
       "STRIPE_PUBLISHABLE_KEY",
       "RESEND_API_KEY",
+      "ARCHITECTURE",
+      "ROUTES",
+      "ENVIRONMENT_VARIABLES",
+      "STRATEGY",
+      "COVERAGE",
+      "PLAYWRIGHT",
+      "ACCESSIBILITY",
+      "PERFORMANCE",
+      "TROUBLESHOOTING",
       "LICENSE",
       "MFA",
       "JWT",
@@ -13425,11 +17814,20 @@
       "NEXT_PUBLIC_GOOGLE_CLIENT_ID",
       "GOOGLE_CLIENT_ID",
       "SEED_VALUES",
+      "CLI",
+      "NVDA",
+      "JAWS",
+      "WAI",
+      "WCAG22",
+      "WAVE",
       "INSERT",
       "INTO",
       "VALUES",
       "STRIPE_PRICE_ID",
       "DHSMV",
+      "SWR",
+      "CSP",
+      "CDN",
       "BILLING_SUCCESS_URL",
       "BILLING_CANCEL_URL",
       "STRIPE_PORTAL_RETURN_URL",
@@ -13466,6 +17864,12 @@
       "RATE_LIMIT_MAX",
       "OFFLINE_DEV",
       "BILLING_",
+      "CSS",
+      "AAA",
+      "MAJOR",
+      "MINOR",
+      "PATCH",
+      "ENVIRONMENT",
       "RPC",
       "CASCADE",
       "USER_ID_FROM_ABOVE",
@@ -13480,7 +17884,6 @@
       "FFFFFF",
       "E0E0E0",
       "F0F0F0",
-      "CSS",
       "DEV",
       "LOG",
       "XXXXXX",
@@ -13495,16 +17898,16 @@
       "CURRENT_DATE",
       "HAVING",
       "LEFT",
+      "NEXT_PUBLIC_",
+      "NEXT_PUBLIC_GOOGLE_ONE_TAP",
+      "NEXT_PUBLIC_COMMIT_SHA",
+      "NEXT_PUBLIC_BUILD_AT",
       "MD025",
       "MD031",
       "MD032",
-      "NEXT_PUBLIC_",
       "NEXT_PUBLIC",
       "SUPABASE_FUNCTIONS_URL",
       "OPENAI_API_KEY",
-      "NEXT_PUBLIC_COMMIT_SHA",
-      "NEXT_PUBLIC_BUILD_AT",
-      "NEXT_PUBLIC_GOOGLE_ONE_TAP",
       "REGULATORY_MONTHLY_ENABLED",
       "RATE_LIMIT_ON",
       "RATE_LIMIT_WINDOW_MS",
@@ -13559,23 +17962,51 @@
       "SUPABASE",
       "PID",
       "DEBUG",
-      "CLI",
       "CTE",
       "UID",
       "INDEX",
       "CA_DL_BASIC",
       "OFFLINE",
+      "LCP",
+      "FID",
+      "CLS",
+      "TTFB",
+      "FCP",
+      "LHCI_GITHUB_APP_TOKEN",
+      "RUM",
+      "MATERIALIZED",
+      "VIEW",
+      "DISTINCT",
+      "REFRESH",
+      "CACHE_NAME",
       "WITH",
       "DON",
       "SSL",
       "PIA",
       "CONTENT_MANAGEMENT",
       "I18N",
-      "CDN",
-      "LCP",
-      "FID",
-      "CLS",
-      "TTFB",
+      "CPU",
+      "SECURITY_PRIVACY",
+      "DENY",
+      "DPA",
+      "ERR",
+      "ENOENT",
+      "EADDRINUSE",
+      "FATAL",
+      "ERROR",
+      "NODE_OPTIONS",
+      "ERESOLVE",
+      "ECONNREFUSED",
+      "SUPABASE_DEBUG",
+      "ERROR_CODE",
+      "INV",
+      "UNAUTHENTICATED",
+      "FORBIDDEN",
+      "NOT_FOUND",
+      "VALIDATION_ERROR",
+      "RATE_LIMIT_EXCEEDED",
+      "INTERNAL_ERROR",
+      "FAQ",
       "MCQ",
       "NPM"
     ],
@@ -13652,7 +18083,16 @@
       "src/app/api/dev/log/route.ts",
       "src/app/global-error.tsx",
       "src/app/layout.tsx",
+      ".github/workflows/docs.yml",
+      "web/src/env.ts",
       "ops/seed/questions/CA/DE-ONLINE/final.blueprint.json",
+      "web/i18n/request.ts",
+      "web/middleware.ts",
+      "./${locale}.json",
+      "web/src/components/LanguageSwitcher.tsx",
+      "web/messages/fr.json",
+      "web/messages/index.ts",
+      "web/tests/e2e/i18n-switcher.spec.ts",
       "en.ts",
       "es.ts",
       "MIGRATION_SUMMARY.md",
@@ -13702,19 +18142,36 @@
       "web/.eslintrc.json",
       "ops/seed/lib/normalize.ts",
       "artifacts/seed/verify-report.json",
+      "auth-onboarding.spec.ts",
       "auth-ui.spec.ts",
+      "billing-lifecycle.spec.ts",
+      "exam-certificate.spec.ts",
+      "final-exam.spec.ts",
+      "guardian-esign.spec.ts",
+      "guardian-notifications.spec.ts",
+      "home-nav-and-faq.spec.ts",
+      "home.spec.ts",
+      "i18n-switcher.spec.ts",
+      "interactivity-fixes.spec.ts",
+      "learn-quiz.spec.ts",
       "learner-features.spec.ts",
+      "navigation-fixes.spec.ts",
+      "offline-review.spec.ts",
+      "regulatory-reporting.spec.ts",
+      "auth-*.spec.ts",
+      "learn-*.spec.ts",
+      "exam-*.spec.ts",
+      "billing-*.spec.ts",
+      "guardian-*.spec.ts",
+      "regulatory-*.spec.ts",
+      "*-ui.spec.ts",
+      "*-fixes.spec.ts",
+      "i18n-*.spec.ts",
+      "*.test.ts",
+      "*.spec.ts",
       "account-shell.spec.ts",
       "catalog-i18n.spec.ts",
       "accessibility.spec.ts",
-      "billing-lifecycle.spec.ts",
-      "regulatory-reporting.spec.ts",
-      "auth-onboarding.spec.ts",
-      "exam-certificate.spec.ts",
-      "guardian-esign.spec.ts",
-      "guardian-notifications.spec.ts",
-      "learn-quiz.spec.ts",
-      "offline-review.spec.ts",
       "sprint-22-ux-refresh.spec.ts",
       "learnerFeatures.spec.ts",
       "payment-subscription-invoice-management.spec.ts"

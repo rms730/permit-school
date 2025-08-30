@@ -31,7 +31,7 @@ npm --prefix web run dev
 npm --prefix web run lint && npm --prefix web test && npm --prefix web run test:e2e
 ```
 
-## Information Architecture
+## Documentation Table of Contents
 
 ### 🚀 Getting Started
 
@@ -41,6 +41,7 @@ npm --prefix web run lint && npm --prefix web test && npm --prefix web run test:
 
 ### 🏗️ Architecture
 
+- **[System Architecture](ARCHITECTURE.md)** - High-level system design and data flows
 - **[Web Application](WEB_ARCHITECTURE.md)** - Next.js App Router, MUI components, theme system
 - **[Backend Services](BACKEND_ARCHITECTURE.md)** - Supabase, RLS policies, Edge Functions
 - **[Data Flows](DATA_FLOWS.md)** - Enrollment → Learning → Exam → Certificate → Reporting
@@ -76,6 +77,17 @@ npm --prefix web run lint && npm --prefix web test && npm --prefix web run test:
 - **[Development Guide](CONTRIBUTING.md)** - Code standards, testing, and PR process
 - **[Configuration Strategy](CONFIGURATION_STRATEGY.md)** - Environment and feature flags
 - **[Migration Guide](MIGRATION_STRUCTURE.md)** - Database schema and migration patterns
+
+### 🔧 Technical Reference
+
+- **[API Reference](api/ROUTES.md)** - Complete API endpoint documentation
+- **[Environment Variables](ENVIRONMENT_VARIABLES.md)** - All environment variables and configuration
+- **[Testing Strategy](testing/STRATEGY.md)** - Testing approach and best practices
+- **[Testing Coverage](testing/COVERAGE.md)** - Current test coverage and metrics
+- **[Playwright E2E](testing/PLAYWRIGHT.md)** - End-to-end testing guide
+- **[Accessibility](ACCESSIBILITY.md)** - WCAG compliance and testing
+- **[Performance](PERFORMANCE.md)** - Performance monitoring and optimization
+- **[Troubleshooting](TROUBLESHOOTING.md)** - Common issues and solutions
 
 ## Documentation Standards
 

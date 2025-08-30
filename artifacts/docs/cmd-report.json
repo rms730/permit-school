@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2025-08-23T19:23:49.910Z",
+  "generatedAt": "2025-08-30T04:07:58.197Z",
   "summary": {
     "totalRootScripts": 78,
     "totalWebScripts": 25,
-    "totalReferencedCommands": 42,
-    "errors": 0,
+    "totalReferencedCommands": 178,
+    "errors": 164,
     "warnings": 0
   },
   "rootScripts": [
@@ -115,14 +115,62 @@
     "typecheck"
   ],
   "referencedCommands": [
+    "npm run alert:acknowledge",
+    "npm run alert:investigate",
+    "npm run alert:resolve",
+    "npm run auth:verify",
+    "npm run backup:cleanup",
+    "npm run backup:create",
+    "npm run backup:restore",
+    "npm run backup:size",
+    "npm run backup:test-restore",
+    "npm run backup:verify",
+    "npm run build",
+    "npm run bundle:analyze",
+    "npm run bundle:optimize",
+    "npm run cache",
     "npm run ci:all",
+    "npm run ci:check:full",
     "npm run ci:env",
     "npm run ci:local",
+    "npm run compliance:check",
+    "npm run compliance:retention",
+    "npm run component:verify",
+    "npm run data:export",
+    "npm run db:analyze-queries",
+    "npm run db:connections",
+    "npm run db:health",
+    "npm run db:logs",
+    "npm run db:migrations:down",
+    "npm run db:migrations:status",
+    "npm run db:migrations:up",
+    "npm run db:migrations:verify",
+    "npm run db:monitor",
+    "npm run db:optimize",
+    "npm run db:optimize-queries",
+    "npm run db:performance",
+    "npm run db:reindex",
+    "npm run db:reset",
+    "npm run db:restart",
+    "npm run db:restore",
+    "npm run db:schema",
+    "npm run db:slow-queries",
+    "npm run db:status",
+    "npm run db:storage",
+    "npm run db:tables",
+    "npm run db:test",
+    "npm run db:verify",
+    "npm run deploy:production",
+    "npm run deploy:staging",
+    "npm run deps:update",
     "npm run dev",
     "npm run dev:offline",
+    "npm run email:status",
+    "npm run email:test",
     "npm run env:check:dev",
     "npm run env:check:local",
     "npm run env:check:prod",
+    "npm run env:check:sentry",
     "npm run env:copy",
     "npm run env:seed",
     "npm run env:seed:all",
@@ -131,10 +179,70 @@
     "npm run env:seed:prod",
     "npm run env:setup",
     "npm run env:setup:dry",
+    "npm run env:validate",
+    "npm run fix:apply",
     "npm run format:check",
+    "npm run format:fix",
+    "npm run health:check",
+    "npm run images:optimize",
+    "npm run lhci",
+    "npm run lint",
+    "npm run load:analyze",
+    "npm run load:compare",
+    "npm run load:report",
+    "npm run load:spike",
+    "npm run load:stress",
+    "npm run load:test",
+    "npm run logs:api",
+    "npm run logs:app",
+    "npm run logs:cleanup",
+    "npm run logs:collect",
+    "npm run logs:db",
+    "npm run logs:deployment",
+    "npm run logs:email",
+    "npm run logs:errors",
+    "npm run logs:performance",
+    "npm run logs:rate-limit",
+    "npm run logs:sentry",
+    "npm run logs:webhooks",
+    "npm run maintenance:enable",
+    "npm run metrics:analyze",
+    "npm run monitoring:setup",
+    "npm run monitoring:test",
+    "npm run monitoring:thresholds",
+    "npm run notify:incident",
+    "npm run or",
+    "npm run perf:api",
+    "npm run perf:audit",
+    "npm run perf:check",
+    "npm run perf:database",
+    "npm run perf:leak-check",
+    "npm run perf:memory",
+    "npm run perf:metrics",
+    "npm run perf:profile",
+    "npm run perf:test",
+    "npm run perf:web-vitals",
     "npm run reports:ci",
     "npm run reports:open",
     "npm run reports:serve",
+    "npm run rollback:production",
+    "npm run security:access",
+    "npm run security:access-logs",
+    "npm run security:affected-users",
+    "npm run security:analyze-breach",
+    "npm run security:audit",
+    "npm run security:block",
+    "npm run security:document-incident",
+    "npm run security:investigate",
+    "npm run security:isolate",
+    "npm run security:logs",
+    "npm run security:notify-authorities",
+    "npm run security:notify-users",
+    "npm run security:patch",
+    "npm run security:preserve-evidence",
+    "npm run security:scan",
+    "npm run security:update",
+    "npm run security:update-rules",
     "npm run seed:all",
     "npm run seed:curriculum",
     "npm run seed:final",
@@ -147,17 +255,1030 @@
     "npm run seed:normalize:write",
     "npm run seed:questions",
     "npm run seed:verify",
+    "npm run sentry:errors",
+    "npm run sentry:test",
+    "npm run sentry:verify",
+    "npm run service:restart",
+    "npm run service:stop",
+    "npm run stripe:test",
+    "npm run stripe:verify",
+    "npm run stripe:webhook-endpoint",
+    "npm run stripe:webhook-test",
+    "npm run stripe:webhooks",
+    "npm run supabase:status",
+    "npm run system:status",
+    "npm run system:verify",
+    "npm run temp:cleanup",
+    "npm run test",
     "npm run test:e2e",
     "npm run test:e2e:ui",
+    "npm run typecheck",
+    "npm run verify:production",
+    "npm run verify:recovery",
+    "npm run verify:staging",
     "npx @lhci",
+    "npx @next",
     "npx axe",
     "npx kill-port",
     "npx playwright",
+    "npx tsc",
     "npx tsx",
+    "tsx //",
     "tsx ops/seed/normalize/cli.ts",
     "tsx ops/seed/seed-curriculum.ts",
-    "tsx ops/seed/seed-questions.ts"
+    "tsx ops/seed/seed-questions.ts",
+    "tsx web/src/app/billing/page.tsx",
+    "tsx web/src/app/exam/",
+    "tsx web/src/app/learn/",
+    "tsx web/src/app/learn/useSeatTime.ts",
+    "tsx web/src/app/onboarding/page.tsx",
+    "tsx web/src/app/quiz/"
   ],
-  "errors": [],
+  "errors": [
+    {
+      "file": "docs/CONTRIBUTING.md",
+      "type": "missing_script",
+      "command": "npm run or",
+      "message": "Script 'or' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run logs:app",
+      "message": "Script 'logs:app' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run logs:errors",
+      "message": "Script 'logs:errors' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run logs:performance",
+      "message": "Script 'logs:performance' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:status",
+      "message": "Script 'db:status' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:slow-queries",
+      "message": "Script 'db:slow-queries' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:connections",
+      "message": "Script 'db:connections' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run deploy:staging",
+      "message": "Script 'deploy:staging' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run verify:staging",
+      "message": "Script 'verify:staging' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run deploy:production",
+      "message": "Script 'deploy:production' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run verify:production",
+      "message": "Script 'verify:production' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run logs:deployment",
+      "message": "Script 'logs:deployment' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run rollback:production",
+      "message": "Script 'rollback:production' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run verify:production",
+      "message": "Script 'verify:production' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:migrations:status",
+      "message": "Script 'db:migrations:status' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:migrations:up",
+      "message": "Script 'db:migrations:up' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:migrations:verify",
+      "message": "Script 'db:migrations:verify' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:migrations:down",
+      "message": "Script 'db:migrations:down' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:migrations:down",
+      "message": "Script 'db:migrations:down' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:status",
+      "message": "Script 'db:status' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:test",
+      "message": "Script 'db:test' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:restart",
+      "message": "Script 'db:restart' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run logs:api",
+      "message": "Script 'logs:api' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run logs:rate-limit",
+      "message": "Script 'logs:rate-limit' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run auth:verify",
+      "message": "Script 'auth:verify' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run perf:check",
+      "message": "Script 'perf:check' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run bundle:analyze",
+      "message": "Script 'bundle:analyze' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:slow-queries",
+      "message": "Script 'db:slow-queries' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run perf:memory",
+      "message": "Script 'perf:memory' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run logs:sentry",
+      "message": "Script 'logs:sentry' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run logs:app",
+      "message": "Script 'logs:app' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run logs:db",
+      "message": "Script 'logs:db' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run deps:update",
+      "message": "Script 'deps:update' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:scan",
+      "message": "Script 'security:scan' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:update",
+      "message": "Script 'security:update' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run perf:test",
+      "message": "Script 'perf:test' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run bundle:analyze",
+      "message": "Script 'bundle:analyze' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:health",
+      "message": "Script 'db:health' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:optimize",
+      "message": "Script 'db:optimize' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:storage",
+      "message": "Script 'db:storage' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run backup:verify",
+      "message": "Script 'backup:verify' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run backup:test-restore",
+      "message": "Script 'backup:test-restore' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run compliance:check",
+      "message": "Script 'compliance:check' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run compliance:retention",
+      "message": "Script 'compliance:retention' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:audit",
+      "message": "Script 'security:audit' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:access-logs",
+      "message": "Script 'security:access-logs' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run logs:cleanup",
+      "message": "Script 'logs:cleanup' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run temp:cleanup",
+      "message": "Script 'temp:cleanup' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run backup:cleanup",
+      "message": "Script 'backup:cleanup' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run data:export",
+      "message": "Script 'data:export' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run data:export",
+      "message": "Script 'data:export' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run data:export",
+      "message": "Script 'data:export' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run service:stop",
+      "message": "Script 'service:stop' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run maintenance:enable",
+      "message": "Script 'maintenance:enable' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run notify:incident",
+      "message": "Script 'notify:incident' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run logs:collect",
+      "message": "Script 'logs:collect' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run system:status",
+      "message": "Script 'system:status' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run metrics:analyze",
+      "message": "Script 'metrics:analyze' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run fix:apply",
+      "message": "Script 'fix:apply' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run service:restart",
+      "message": "Script 'service:restart' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run verify:recovery",
+      "message": "Script 'verify:recovery' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:isolate",
+      "message": "Script 'security:isolate' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:preserve-evidence",
+      "message": "Script 'security:preserve-evidence' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:notify-authorities",
+      "message": "Script 'security:notify-authorities' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:analyze-breach",
+      "message": "Script 'security:analyze-breach' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:affected-users",
+      "message": "Script 'security:affected-users' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:document-incident",
+      "message": "Script 'security:document-incident' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:patch",
+      "message": "Script 'security:patch' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run backup:restore",
+      "message": "Script 'backup:restore' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:notify-users",
+      "message": "Script 'security:notify-users' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run system:status",
+      "message": "Script 'system:status' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run backup:restore",
+      "message": "Script 'backup:restore' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run system:verify",
+      "message": "Script 'system:verify' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run service:restart",
+      "message": "Script 'service:restart' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:status",
+      "message": "Script 'db:status' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:restore",
+      "message": "Script 'db:restore' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:verify",
+      "message": "Script 'db:verify' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:reindex",
+      "message": "Script 'db:reindex' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run health:check",
+      "message": "Script 'health:check' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run health:check",
+      "message": "Script 'health:check' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run health:check",
+      "message": "Script 'health:check' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:health",
+      "message": "Script 'db:health' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:connections",
+      "message": "Script 'db:connections' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:performance",
+      "message": "Script 'db:performance' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run monitoring:setup",
+      "message": "Script 'monitoring:setup' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run monitoring:thresholds",
+      "message": "Script 'monitoring:thresholds' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run monitoring:test",
+      "message": "Script 'monitoring:test' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run alert:acknowledge",
+      "message": "Script 'alert:acknowledge' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run alert:investigate",
+      "message": "Script 'alert:investigate' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run alert:resolve",
+      "message": "Script 'alert:resolve' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run backup:create",
+      "message": "Script 'backup:create' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run backup:create",
+      "message": "Script 'backup:create' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run backup:create",
+      "message": "Script 'backup:create' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run backup:verify",
+      "message": "Script 'backup:verify' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run backup:test-restore",
+      "message": "Script 'backup:test-restore' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run backup:size",
+      "message": "Script 'backup:size' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run service:stop",
+      "message": "Script 'service:stop' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run backup:restore",
+      "message": "Script 'backup:restore' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run system:verify",
+      "message": "Script 'system:verify' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run service:restart",
+      "message": "Script 'service:restart' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run backup:restore",
+      "message": "Script 'backup:restore' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run component:verify",
+      "message": "Script 'component:verify' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run service:restart",
+      "message": "Script 'service:restart' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run perf:web-vitals",
+      "message": "Script 'perf:web-vitals' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run perf:api",
+      "message": "Script 'perf:api' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run perf:database",
+      "message": "Script 'perf:database' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run bundle:optimize",
+      "message": "Script 'bundle:optimize' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run images:optimize",
+      "message": "Script 'images:optimize' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run db:optimize-queries",
+      "message": "Script 'db:optimize-queries' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run load:test",
+      "message": "Script 'load:test' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run load:stress",
+      "message": "Script 'load:stress' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run load:spike",
+      "message": "Script 'load:spike' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run load:analyze",
+      "message": "Script 'load:analyze' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run load:report",
+      "message": "Script 'load:report' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run load:compare",
+      "message": "Script 'load:compare' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:logs",
+      "message": "Script 'security:logs' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:access",
+      "message": "Script 'security:access' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:scan",
+      "message": "Script 'security:scan' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:block",
+      "message": "Script 'security:block' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:investigate",
+      "message": "Script 'security:investigate' not found in package.json files"
+    },
+    {
+      "file": "docs/RUNBOOKS.md",
+      "type": "missing_script",
+      "command": "npm run security:update-rules",
+      "message": "Script 'security:update-rules' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run cache",
+      "message": "Script 'cache' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run cache",
+      "message": "Script 'cache' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run env:validate",
+      "message": "Script 'env:validate' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run db:migrations:status",
+      "message": "Script 'db:migrations:status' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run db:reset",
+      "message": "Script 'db:reset' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run db:migrations:up",
+      "message": "Script 'db:migrations:up' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run logs:api",
+      "message": "Script 'logs:api' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run auth:verify",
+      "message": "Script 'auth:verify' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run supabase:status",
+      "message": "Script 'supabase:status' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run bundle:analyze",
+      "message": "Script 'bundle:analyze' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run perf:web-vitals",
+      "message": "Script 'perf:web-vitals' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run images:optimize",
+      "message": "Script 'images:optimize' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run perf:memory",
+      "message": "Script 'perf:memory' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run perf:leak-check",
+      "message": "Script 'perf:leak-check' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run perf:profile",
+      "message": "Script 'perf:profile' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run supabase:status",
+      "message": "Script 'supabase:status' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run db:test",
+      "message": "Script 'db:test' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run db:connections",
+      "message": "Script 'db:connections' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run db:monitor",
+      "message": "Script 'db:monitor' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run db:slow-queries",
+      "message": "Script 'db:slow-queries' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run db:analyze-queries",
+      "message": "Script 'db:analyze-queries' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run db:schema",
+      "message": "Script 'db:schema' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run db:tables",
+      "message": "Script 'db:tables' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run db:migrations:up",
+      "message": "Script 'db:migrations:up' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run stripe:verify",
+      "message": "Script 'stripe:verify' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run stripe:test",
+      "message": "Script 'stripe:test' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run stripe:webhooks",
+      "message": "Script 'stripe:webhooks' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run logs:webhooks",
+      "message": "Script 'logs:webhooks' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run stripe:webhook-endpoint",
+      "message": "Script 'stripe:webhook-endpoint' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run stripe:webhook-test",
+      "message": "Script 'stripe:webhook-test' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run email:status",
+      "message": "Script 'email:status' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run email:test",
+      "message": "Script 'email:test' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run logs:email",
+      "message": "Script 'logs:email' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run sentry:verify",
+      "message": "Script 'sentry:verify' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run sentry:test",
+      "message": "Script 'sentry:test' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run env:check:sentry",
+      "message": "Script 'env:check:sentry' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run db:logs",
+      "message": "Script 'db:logs' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run sentry:errors",
+      "message": "Script 'sentry:errors' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run logs:app",
+      "message": "Script 'logs:app' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run perf:metrics",
+      "message": "Script 'perf:metrics' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run perf:audit",
+      "message": "Script 'perf:audit' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run perf:web-vitals",
+      "message": "Script 'perf:web-vitals' not found in package.json files"
+    },
+    {
+      "file": "docs/TROUBLESHOOTING.md",
+      "type": "missing_script",
+      "command": "npm run bundle:analyze",
+      "message": "Script 'bundle:analyze' not found in package.json files"
+    }
+  ],
   "warnings": []
 }

@@ -44,6 +44,7 @@ permit-school/
 ## Technology Stack
 
 ### Frontend
+
 - **Next.js 15** - React framework with App Router
 - **Material-UI (MUI) 6** - Component library and design system
 - **TypeScript** - Type-safe JavaScript
@@ -52,18 +53,21 @@ permit-school/
 - **PWA** - Progressive Web App capabilities
 
 ### Backend
+
 - **Supabase** - PostgreSQL database with RLS
 - **Supabase Auth** - Authentication and authorization
 - **Edge Functions** - Serverless functions (tutor, etc.)
 - **PostgreSQL** - Primary database with advanced features
 
 ### External Services
+
 - **Stripe** - Payment processing and subscriptions
 - **Resend** - Email delivery service
 - **Sentry** - Error monitoring and performance
 - **Vercel** - Hosting and deployment
 
 ### Development & Testing
+
 - **Vitest** - Unit testing framework
 - **Playwright** - End-to-end testing
 - **ESLint** - Code linting with accessibility rules
@@ -77,30 +81,30 @@ graph TB
         Browser[Web Browser]
         Mobile[Mobile Browser]
     end
-    
+
     subgraph "Frontend Layer"
         NextJS[Next.js App]
         PWA[PWA Service Worker]
     end
-    
+
     subgraph "Backend Layer"
         Supabase[Supabase]
         EdgeFunctions[Edge Functions]
         Auth[Supabase Auth]
         RLS[Row Level Security]
     end
-    
+
     subgraph "External Services"
         Stripe[Stripe]
         Resend[Resend]
         Sentry[Sentry]
     end
-    
+
     subgraph "Data Layer"
         PostgreSQL[(PostgreSQL)]
         Storage[File Storage]
     end
-    
+
     Browser --> NextJS
     Mobile --> NextJS
     NextJS --> PWA
@@ -120,12 +124,14 @@ graph TB
 ### 1. Authentication & Authorization
 
 **Supabase Auth** handles user authentication with:
+
 - Email/password authentication
 - Google One Tap integration
 - Session management
 - Role-based access control (student, guardian, admin)
 
 **Row Level Security (RLS)** enforces data access policies:
+
 - Users can only access their own data
 - Guardians can access linked student data
 - Admins have elevated access for management
@@ -133,6 +139,7 @@ graph TB
 ### 2. Learning Management System
 
 **Core Learning Flow**:
+
 1. **Enrollment** - Course registration with guardian consent for minors
 2. **Seat Time Tracking** - Real-time progress monitoring
 3. **Unit Navigation** - Structured learning path through curriculum
@@ -140,6 +147,7 @@ graph TB
 5. **Final Exam** - Comprehensive assessment with configurable requirements
 
 **Key Features**:
+
 - Real-time seat time tracking with idle detection
 - Adaptive quiz system with immediate feedback
 - Progress persistence across sessions
@@ -148,12 +156,14 @@ graph TB
 ### 3. Assessment & Certification
 
 **Exam System**:
+
 - Blueprint-based exam generation
 - Configurable requirements per jurisdiction
 - Secure exam environment
 - Automated scoring and feedback
 
 **Certificate Management**:
+
 - Digital certificate generation
 - Public verification system
 - Physical fulfillment workflow
@@ -162,12 +172,14 @@ graph TB
 ### 4. Billing & Subscriptions
 
 **Stripe Integration**:
+
 - Subscription management
 - Usage-based billing
 - Automated dunning
 - Payment portal integration
 
 **Billing Lifecycle**:
+
 1. Trial period with reminders
 2. Subscription activation
 3. Usage tracking and billing
@@ -176,12 +188,14 @@ graph TB
 ### 5. Regulatory Compliance
 
 **DMV Reporting**:
+
 - Automated report generation
 - Tamper-evident submissions
 - Audit trail maintenance
 - Multi-jurisdiction support
 
 **Data Management**:
+
 - PII handling and retention
 - Data subject access requests (DSAR)
 - Automated data deletion
@@ -197,16 +211,16 @@ sequenceDiagram
     participant W as Web App
     participant DB as Database
     participant E as External Services
-    
+
     S->>W: Sign up / Sign in
     W->>DB: Create/verify user
     S->>W: Complete onboarding
     W->>DB: Store profile data
-    
+
     S->>W: Enroll in course
     W->>DB: Create enrollment
     W->>E: Process payment (Stripe)
-    
+
     loop Learning Session
         S->>W: Navigate to unit
         W->>DB: Start seat time tracking
@@ -215,13 +229,13 @@ sequenceDiagram
         S->>W: Take unit quiz
         W->>DB: Store quiz results
     end
-    
+
     S->>W: Request final exam
     W->>DB: Check eligibility
     W->>W: Generate exam (blueprint)
     S->>W: Complete exam
     W->>DB: Store results
-    
+
     alt Pass Exam
         W->>DB: Create certificate
         W->>E: Send certificate email
@@ -239,7 +253,7 @@ sequenceDiagram
     participant W as Web App
     participant G as Guardian
     participant E as Email Service
-    
+
     S->>W: Attempt enrollment (minor)
     W->>DB: Create guardian request
     W->>E: Send consent email
@@ -253,18 +267,21 @@ sequenceDiagram
 ## Security Architecture
 
 ### Authentication Security
+
 - **Multi-factor authentication** for admin accounts
 - **Session management** with secure tokens
 - **Rate limiting** on authentication endpoints
 - **Account lockout** for failed attempts
 
 ### Data Security
+
 - **Row Level Security (RLS)** on all tables
 - **Encryption at rest** for sensitive data
 - **Encryption in transit** (HTTPS/TLS)
 - **Audit logging** for all data access
 
 ### Application Security
+
 - **Input validation** and sanitization
 - **CSRF protection** on all forms
 - **Content Security Policy (CSP)** headers
@@ -273,18 +290,21 @@ sequenceDiagram
 ## Performance Architecture
 
 ### Frontend Performance
+
 - **Static generation** for public pages
 - **Dynamic imports** for code splitting
 - **Image optimization** with Next.js
 - **Service worker** for offline capability
 
 ### Backend Performance
+
 - **Database indexing** for query optimization
 - **Connection pooling** for database efficiency
 - **Caching strategies** for frequently accessed data
 - **CDN integration** for static assets
 
 ### Monitoring & Observability
+
 - **Sentry** for error tracking and performance monitoring
 - **Custom metrics** for business KPIs
 - **Health checks** for all services
@@ -293,12 +313,14 @@ sequenceDiagram
 ## Scalability Considerations
 
 ### Horizontal Scaling
+
 - **Stateless application** design
 - **Database read replicas** for read-heavy workloads
 - **Edge function** distribution for global performance
 - **CDN** for static content delivery
 
 ### Vertical Scaling
+
 - **Database optimization** with proper indexing
 - **Query optimization** and monitoring
 - **Resource monitoring** and alerting
@@ -307,12 +329,14 @@ sequenceDiagram
 ## Disaster Recovery
 
 ### Backup Strategy
+
 - **Automated database backups** (daily)
 - **Point-in-time recovery** capability
 - **Cross-region backup** storage
 - **Regular backup testing** and validation
 
 ### Recovery Procedures
+
 - **Documented recovery runbooks**
 - **Automated recovery scripts**
 - **Regular disaster recovery drills**
@@ -321,12 +345,14 @@ sequenceDiagram
 ## Compliance & Governance
 
 ### Regulatory Compliance
+
 - **DMV reporting** automation and validation
 - **Data retention** policies and enforcement
 - **Audit trail** maintenance
 - **Privacy policy** compliance
 
 ### Data Governance
+
 - **Data classification** and handling
 - **Access control** and monitoring
 - **Data lifecycle** management

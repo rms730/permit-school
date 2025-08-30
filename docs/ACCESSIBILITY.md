@@ -26,19 +26,19 @@ We strive to meet **WCAG 2.2 AA** standards across all user interfaces:
 
 ### Key Requirements
 
-| Principle | Requirement | Implementation |
-|-----------|-------------|----------------|
-| **Perceivable** | Text alternatives for non-text content | Alt text for images, captions for videos |
-| **Perceivable** | Adaptable content | Responsive design, semantic HTML |
-| **Perceivable** | Distinguishable content | Color contrast, text sizing |
-| **Operable** | Keyboard accessible | All functionality available via keyboard |
-| **Operable** | Enough time | No time limits, or adjustable time limits |
-| **Operable** | Seizure and physical reaction | No flashing content |
-| **Operable** | Navigable | Clear navigation, skip links |
-| **Understandable** | Readable | Clear language, pronunciation |
-| **Understandable** | Predictable | Consistent navigation, no unexpected changes |
-| **Understandable** | Input assistance | Error identification, labels |
-| **Robust** | Compatible | Valid HTML, ARIA support |
+| Principle          | Requirement                            | Implementation                               |
+| ------------------ | -------------------------------------- | -------------------------------------------- |
+| **Perceivable**    | Text alternatives for non-text content | Alt text for images, captions for videos     |
+| **Perceivable**    | Adaptable content                      | Responsive design, semantic HTML             |
+| **Perceivable**    | Distinguishable content                | Color contrast, text sizing                  |
+| **Operable**       | Keyboard accessible                    | All functionality available via keyboard     |
+| **Operable**       | Enough time                            | No time limits, or adjustable time limits    |
+| **Operable**       | Seizure and physical reaction          | No flashing content                          |
+| **Operable**       | Navigable                              | Clear navigation, skip links                 |
+| **Understandable** | Readable                               | Clear language, pronunciation                |
+| **Understandable** | Predictable                            | Consistent navigation, no unexpected changes |
+| **Understandable** | Input assistance                       | Error identification, labels                 |
+| **Robust**         | Compatible                             | Valid HTML, ARIA support                     |
 
 ## Testing Strategy
 
@@ -79,11 +79,11 @@ We strive to meet **WCAG 2.2 AA** standards across all user interfaces:
 
 ```typescript
 // tests/e2e/accessibility.spec.ts
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test('homepage accessibility', async ({ page }) => {
-  await page.goto('/');
-  
+test("homepage accessibility", async ({ page }) => {
+  await page.goto("/");
+
   // Run axe-core accessibility audit
   const results = await page.evaluate(() => {
     return new Promise((resolve) => {
@@ -92,13 +92,13 @@ test('homepage accessibility', async ({ page }) => {
       });
     });
   });
-  
+
   expect(results.violations).toHaveLength(0);
 });
 
-test('all pages meet accessibility standards', async ({ page }) => {
-  const pages = ['/', '/courses', '/signin', '/dashboard'];
-  
+test("all pages meet accessibility standards", async ({ page }) => {
+  const pages = ["/", "/courses", "/signin", "/dashboard"];
+
   for (const pagePath of pages) {
     await page.goto(pagePath);
     const results = await page.evaluate(() => axe.run());
@@ -179,15 +179,15 @@ npx axe http://localhost:3000 --verbose
 // ✅ Good - Proper form labels and associations
 <form>
   <label htmlFor="email">Email Address</label>
-  <input 
-    id="email" 
-    type="email" 
-    name="email" 
-    required 
+  <input
+    id="email"
+    type="email"
+    name="email"
+    required
     aria-describedby="email-help"
   />
   <div id="email-help">Enter your email address to receive updates</div>
-  
+
   <fieldset>
     <legend>Course Preferences</legend>
     <label>
@@ -222,7 +222,9 @@ const Modal = ({ isOpen, onClose, title, children }) => {
     >
       <h2 id="modal-title">{title}</h2>
       <div id="modal-description">{children}</div>
-      <button onClick={onClose} aria-label="Close modal">×</button>
+      <button onClick={onClose} aria-label="Close modal">
+        ×
+      </button>
     </div>
   );
 };
@@ -243,7 +245,7 @@ const Modal = ({ isOpen, onClose, title, children }) => {
 
 ```tsx
 // ✅ Good - Proper button implementation
-<button 
+<button
   onClick={handleClick}
   aria-expanded={isExpanded}
   aria-controls="dropdown-menu"
@@ -261,11 +263,11 @@ const Modal = ({ isOpen, onClose, title, children }) => {
 
 #### Color Contrast Requirements
 
-| Text Type | Contrast Ratio | Example |
-|-----------|----------------|---------|
-| **Normal Text** | 4.5:1 minimum | Body text, labels |
-| **Large Text** | 3:1 minimum | Headings, large buttons |
-| **UI Components** | 3:1 minimum | Icons, borders |
+| Text Type         | Contrast Ratio | Example                 |
+| ----------------- | -------------- | ----------------------- |
+| **Normal Text**   | 4.5:1 minimum  | Body text, labels       |
+| **Large Text**    | 3:1 minimum    | Headings, large buttons |
+| **UI Components** | 3:1 minimum    | Icons, borders          |
 
 #### Color Independence
 
@@ -286,8 +288,8 @@ const Modal = ({ isOpen, onClose, title, children }) => {
 
 ```tsx
 // Skip to main content link
-<a 
-  href="#main-content" 
+<a
+  href="#main-content"
   className="skip-link"
   style={{
     position: 'absolute',
@@ -317,20 +319,20 @@ const Modal = ({ isOpen, onClose, title, children }) => {
 // Modal focus trap
 const Modal = ({ isOpen, onClose, children }) => {
   const modalRef = useRef(null);
-  
+
   useEffect(() => {
     if (isOpen) {
       // Trap focus in modal
       const focusableElements = modalRef.current?.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
       );
-      
+
       if (focusableElements?.length) {
         focusableElements[0].focus();
       }
     }
   }, [isOpen]);
-  
+
   return (
     <div ref={modalRef} role="dialog" aria-modal="true">
       {children}
@@ -349,21 +351,21 @@ interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   disabled?: boolean;
-  variant?: 'primary' | 'secondary';
-  size?: 'small' | 'medium' | 'large';
-  'aria-label'?: string;
-  'aria-describedby'?: string;
+  variant?: "primary" | "secondary";
+  size?: "small" | "medium" | "large";
+  "aria-label"?: string;
+  "aria-describedby"?: string;
 }
 
-const Button = ({ 
-  children, 
-  onClick, 
-  disabled = false, 
-  variant = 'primary',
-  size = 'medium',
-  'aria-label': ariaLabel,
-  'aria-describedby': ariaDescribedBy,
-  ...props 
+const Button = ({
+  children,
+  onClick,
+  disabled = false,
+  variant = "primary",
+  size = "medium",
+  "aria-label": ariaLabel,
+  "aria-describedby": ariaDescribedBy,
+  ...props
 }: ButtonProps) => {
   return (
     <button
@@ -393,36 +395,36 @@ interface FormFieldProps {
   children: React.ReactNode;
 }
 
-const FormField = ({ 
-  label, 
-  id, 
-  error, 
-  helpText, 
+const FormField = ({
+  label,
+  id,
+  error,
+  helpText,
   required = false,
-  children 
+  children,
 }: FormFieldProps) => {
   return (
     <div className="form-field">
-      <label 
-        htmlFor={id} 
-        className={`form-label ${required ? 'required' : ''}`}
+      <label
+        htmlFor={id}
+        className={`form-label ${required ? "required" : ""}`}
       >
         {label}
         {required && <span aria-label="required">*</span>}
       </label>
-      
+
       {children}
-      
+
       {helpText && (
         <div id={`${id}-help`} className="help-text">
           {helpText}
         </div>
       )}
-      
+
       {error && (
-        <div 
-          id={`${id}-error`} 
-          className="error-text" 
+        <div
+          id={`${id}-error`}
+          className="error-text"
           role="alert"
           aria-live="polite"
         >
@@ -440,7 +442,7 @@ const FormField = ({
 // Accessible navigation component
 const Navigation = ({ items }: { items: NavItem[] }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  
+
   return (
     <nav aria-label="Main navigation">
       <button
@@ -453,18 +455,18 @@ const Navigation = ({ items }: { items: NavItem[] }) => {
         <span className="sr-only">Menu</span>
         <span aria-hidden="true">☰</span>
       </button>
-      
-      <ul 
-        id="nav-menu" 
-        className={`nav-menu ${isExpanded ? 'expanded' : ''}`}
+
+      <ul
+        id="nav-menu"
+        className={`nav-menu ${isExpanded ? "expanded" : ""}`}
         role="menubar"
       >
         {items.map((item) => (
           <li key={item.id} role="none">
-            <a 
+            <a
               href={item.href}
               role="menuitem"
-              aria-current={item.current ? 'page' : undefined}
+              aria-current={item.current ? "page" : undefined}
             >
               {item.label}
             </a>

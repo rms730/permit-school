@@ -15,36 +15,38 @@ The project uses `@t3-oss/env-nextjs` and `zod` for environment variable validat
 
 These variables are only available on the server and are never exposed to the client:
 
-| Variable | Type | Required | Description | Example |
-|----------|------|----------|-------------|---------|
-| `NODE_ENV` | string | Yes | Node.js environment | `development`, `production`, `test` |
+| Variable   | Type   | Required | Description         | Example                             |
+| ---------- | ------ | -------- | ------------------- | ----------------------------------- |
+| `NODE_ENV` | string | Yes      | Node.js environment | `development`, `production`, `test` |
 
 ### Client-Exposed Variables
 
 These variables are prefixed with `NEXT_PUBLIC_` and are available in the browser:
 
-| Variable | Type | Required | Description | Example |
-|----------|------|----------|-------------|---------|
-| `NEXT_PUBLIC_SUPABASE_URL` | string | Yes | Supabase project URL | `https://xyz.supabase.co` |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | string | Yes | Supabase anonymous key | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` |
-| `NEXT_PUBLIC_ENV` | string | Yes | Environment identifier | `development`, `staging`, `production` |
-| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | string | Yes | Stripe publishable key | `pk_test_...` |
-| `NEXT_PUBLIC_SENTRY_DSN` | string | No | Sentry DSN for error tracking | `https://...@.../...` |
-| `NEXT_PUBLIC_SITE_URL` | string | Yes | Site URL for canonical links | `https://permitschool.com` |
-| `NEXT_PUBLIC_GOOGLE_ONE_TAP` | string | No | Google One Tap client ID | `123456789.apps.googleusercontent.com` |
-| `NEXT_PUBLIC_COMMIT_SHA` | string | No | Git commit SHA for versioning | `abc123def456` |
-| `NEXT_PUBLIC_BUILD_AT` | string | No | Build timestamp | `2024-01-01T00:00:00Z` |
+| Variable                             | Type   | Required | Description                   | Example                                   |
+| ------------------------------------ | ------ | -------- | ----------------------------- | ----------------------------------------- |
+| `NEXT_PUBLIC_SUPABASE_URL`           | string | Yes      | Supabase project URL          | `https://xyz.supabase.co`                 |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY`      | string | Yes      | Supabase anonymous key        | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` |
+| `NEXT_PUBLIC_ENV`                    | string | Yes      | Environment identifier        | `development`, `staging`, `production`    |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | string | Yes      | Stripe publishable key        | `pk_test_...`                             |
+| `NEXT_PUBLIC_SENTRY_DSN`             | string | No       | Sentry DSN for error tracking | `https://...@.../...`                     |
+| `NEXT_PUBLIC_SITE_URL`               | string | Yes      | Site URL for canonical links  | `https://permitschool.com`                |
+| `NEXT_PUBLIC_GOOGLE_ONE_TAP`         | string | No       | Google One Tap client ID      | `123456789.apps.googleusercontent.com`    |
+| `NEXT_PUBLIC_COMMIT_SHA`             | string | No       | Git commit SHA for versioning | `abc123def456`                            |
+| `NEXT_PUBLIC_BUILD_AT`               | string | No       | Build timestamp               | `2024-01-01T00:00:00Z`                    |
 
 ## Environment Configuration
 
 ### Local Development
 
 1. **Copy environment templates**:
+
    ```bash
    npm run env:copy
    ```
 
 2. **Set up environment files**:
+
    - Root: `.env.local`, `.env.dev`, `.env.prod`
    - Web: `web/.env.local`, `web/.env.development`, `web/.env.production`
 
@@ -70,14 +72,14 @@ npm run env:check:prod
 
 ### Environment Matrix
 
-| Environment | Local | CI | Production |
-|-------------|-------|----|------------|
-| `NODE_ENV` | `development` | `test` | `production` |
-| `NEXT_PUBLIC_ENV` | `development` | `staging` | `production` |
+| Environment            | Local                   | CI                                 | Production                 |
+| ---------------------- | ----------------------- | ---------------------------------- | -------------------------- |
+| `NODE_ENV`             | `development`           | `test`                             | `production`               |
+| `NEXT_PUBLIC_ENV`      | `development`           | `staging`                          | `production`               |
 | `NEXT_PUBLIC_SITE_URL` | `http://localhost:3000` | `https://staging.permitschool.com` | `https://permitschool.com` |
-| Database | Local Supabase | Test Supabase | Production Supabase |
-| Stripe | Test mode | Test mode | Live mode |
-| Sentry | Disabled | Enabled | Enabled |
+| Database               | Local Supabase          | Test Supabase                      | Production Supabase        |
+| Stripe                 | Test mode               | Test mode                          | Live mode                  |
+| Sentry                 | Disabled                | Enabled                            | Enabled                    |
 
 ## Environment Setup Scripts
 
@@ -105,6 +107,7 @@ npm run ci:env
 ```
 
 This script:
+
 1. Validates required environment variables
 2. Sets up test database connections
 3. Configures test Stripe keys
@@ -185,6 +188,7 @@ export const env = createEnv({
 ### Common Issues
 
 1. **Missing environment variables**:
+
    ```bash
    npm run env:check:local
    ```

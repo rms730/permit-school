@@ -22,11 +22,13 @@ This troubleshooting guide covers:
 **Problem**: Incompatible Node.js version
 
 **Symptoms**:
+
 ```
 Error: Node.js version 18.x is required, but 16.x is installed
 ```
 
 **Solution**:
+
 ```bash
 # Check current version
 node --version
@@ -44,6 +46,7 @@ n 20
 **Problem**: Failed npm install
 
 **Symptoms**:
+
 ```
 npm ERR! code ENOENT
 npm ERR! syscall open
@@ -53,6 +56,7 @@ npm ERR! enoent Could not read package.json
 ```
 
 **Solution**:
+
 ```bash
 # Clear npm cache
 npm cache clean --force
@@ -72,11 +76,13 @@ npm install --workspaces
 **Problem**: Missing or incorrect environment variables
 
 **Symptoms**:
+
 ```
 Error: Missing required environment variable NEXT_PUBLIC_SUPABASE_URL
 ```
 
 **Solution**:
+
 ```bash
 # Copy environment templates
 npm run env:copy
@@ -95,11 +101,13 @@ npm run env:validate
 **Problem**: Development server can't start due to port conflict
 
 **Symptoms**:
+
 ```
 Error: listen EADDRINUSE: address already in use :::3000
 ```
 
 **Solution**:
+
 ```bash
 # Find process using port 3000
 lsof -i :3000
@@ -118,6 +126,7 @@ npm run dev -- -p 3001
 **Symptoms**: Code changes don't trigger browser refresh
 
 **Solution**:
+
 ```bash
 # Clear Next.js cache
 rm -rf .next
@@ -135,11 +144,13 @@ sudo sysctl -p
 **Problem**: TypeScript compilation errors
 
 **Symptoms**:
+
 ```
 Type error: Property 'x' does not exist on type 'y'
 ```
 
 **Solution**:
+
 ```bash
 # Check TypeScript configuration
 npm run typecheck
@@ -160,11 +171,13 @@ npx tsc --noEmit src/components/Component.tsx
 **Problem**: Build fails due to insufficient memory
 
 **Symptoms**:
+
 ```
 FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed
 ```
 
 **Solution**:
+
 ```bash
 # Increase Node.js memory limit
 export NODE_OPTIONS="--max-old-space-size=4096"
@@ -182,11 +195,13 @@ export NODE_OPTIONS="--max-old-space-size=4096"
 **Problem**: Conflicting package versions
 
 **Symptoms**:
+
 ```
 npm ERR! ERESOLVE overriding peer dependency
 ```
 
 **Solution**:
+
 ```bash
 # Check dependency tree
 npm ls
@@ -203,11 +218,13 @@ yarn install
 **Problem**: Build fails due to missing environment variables
 
 **Symptoms**:
+
 ```
 Error: Missing required environment variable
 ```
 
 **Solution**:
+
 ```bash
 # Check build-time environment variables
 npm run env:check:prod
@@ -227,11 +244,13 @@ npm run build
 **Problem**: Deployment fails on Vercel
 
 **Symptoms**:
+
 ```
 Build failed: Command "npm run build" exited with code 1
 ```
 
 **Solution**:
+
 ```bash
 # Check build logs
 vercel logs
@@ -251,11 +270,13 @@ vercel --prod
 **Problem**: Database migrations fail during deployment
 
 **Symptoms**:
+
 ```
 Error: migration failed: relation already exists
 ```
 
 **Solution**:
+
 ```bash
 # Check migration status
 npm run db:migrations:status
@@ -276,26 +297,28 @@ npm run db:migrations:up
 **Problem**: Server/client mismatch causing hydration errors
 
 **Symptoms**:
+
 ```
 Warning: Text content did not match. Server: "Hello" Client: "Hello World"
 ```
 
 **Solution**:
+
 ```typescript
 // Use useEffect for client-only code
 import { useEffect, useState } from 'react';
 
 function Component() {
   const [mounted, setMounted] = useState(false);
-  
+
   useEffect(() => {
     setMounted(true);
   }, []);
-  
+
   if (!mounted) {
     return <div>Loading...</div>;
   }
-  
+
   return <div>Client content</div>;
 }
 ```
@@ -305,11 +328,13 @@ function Component() {
 **Problem**: API routes returning errors
 
 **Symptoms**:
+
 ```
 500 Internal Server Error
 ```
 
 **Solution**:
+
 ```bash
 # Check API logs
 npm run logs:api
@@ -335,11 +360,13 @@ export async function GET(request: Request) {
 **Problem**: Authentication not working
 
 **Symptoms**:
+
 ```
 Error: Invalid JWT token
 ```
 
 **Solution**:
+
 ```bash
 # Check authentication configuration
 npm run auth:verify
@@ -360,6 +387,7 @@ npm run env:check:local
 **Symptoms**: Long loading times, poor user experience
 
 **Solution**:
+
 ```bash
 # Check bundle size
 npm run bundle:analyze
@@ -381,6 +409,7 @@ npm run images:optimize
 **Symptoms**: High memory usage, application crashes
 
 **Solution**:
+
 ```bash
 # Monitor memory usage
 npm run perf:memory
@@ -401,11 +430,13 @@ npm run perf:profile
 **Problem**: Can't connect to Supabase database
 
 **Symptoms**:
+
 ```
 Error: connect ECONNREFUSED
 ```
 
 **Solution**:
+
 ```bash
 # Check Supabase status
 npm run supabase:status
@@ -425,11 +456,13 @@ curl https://your-project.supabase.co/rest/v1/
 **Problem**: Too many database connections
 
 **Symptoms**:
+
 ```
 Error: connection pool exhausted
 ```
 
 **Solution**:
+
 ```bash
 # Check connection pool status
 npm run db:connections
@@ -450,6 +483,7 @@ npm run db:monitor
 **Symptoms**: Slow page loads, timeout errors
 
 **Solution**:
+
 ```bash
 # Check slow queries
 npm run db:slow-queries
@@ -467,11 +501,13 @@ npm run db:analyze-queries
 **Problem**: Database queries failing
 
 **Symptoms**:
+
 ```
 Error: relation "table_name" does not exist
 ```
 
 **Solution**:
+
 ```bash
 # Check database schema
 npm run db:schema
@@ -492,11 +528,13 @@ npm run db:migrations:up
 **Problem**: Stripe payments failing
 
 **Symptoms**:
+
 ```
 Error: No such payment_intent: pi_xxx
 ```
 
 **Solution**:
+
 ```bash
 # Check Stripe configuration
 npm run stripe:verify
@@ -515,6 +553,7 @@ npm run stripe:webhooks
 **Symptoms**: Payments not updating in database
 
 **Solution**:
+
 ```bash
 # Check webhook logs
 npm run logs:webhooks
@@ -535,6 +574,7 @@ npm run stripe:webhook-test
 **Symptoms**: Users not receiving emails
 
 **Solution**:
+
 ```bash
 # Check email service status
 npm run email:status
@@ -555,6 +595,7 @@ npm run logs:email
 **Symptoms**: No error reports in Sentry dashboard
 
 **Solution**:
+
 ```bash
 # Check Sentry configuration
 npm run sentry:verify
@@ -575,6 +616,7 @@ npm run env:check:sentry
 **Problem**: Using cookies() without await
 
 **Solution**:
+
 ```typescript
 // Incorrect
 const cookies = cookies();
@@ -588,10 +630,11 @@ const cookies = await cookies();
 **Problem**: Client component without "use client" directive
 
 **Solution**:
-```typescript
-'use client';
 
-import { useState } from 'react';
+```typescript
+"use client";
+
+import { useState } from "react";
 
 export default function ClientComponent() {
   const [state, setState] = useState();
@@ -606,9 +649,13 @@ export default function ClientComponent() {
 **Problem**: Authentication token expired
 
 **Solution**:
+
 ```typescript
 // Refresh token automatically
-const { data: { session }, error } = await supabase.auth.getSession();
+const {
+  data: { session },
+  error,
+} = await supabase.auth.getSession();
 
 if (error) {
   await supabase.auth.refreshSession();
@@ -620,6 +667,7 @@ if (error) {
 **Problem**: RLS policy blocking access
 
 **Solution**:
+
 ```sql
 -- Check RLS policies
 SELECT * FROM pg_policies WHERE tablename = 'your_table';
@@ -635,6 +683,7 @@ SELECT auth.uid() as current_user;
 **Problem**: Type definition missing property
 
 **Solution**:
+
 ```typescript
 // Add type definition
 interface User {

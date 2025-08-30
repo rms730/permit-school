@@ -20,11 +20,11 @@ The platform uses Supabase Auth for secure user authentication:
 
 ```typescript
 // web/src/lib/supabaseClient.ts
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
 export const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
 );
 ```
 
@@ -67,11 +67,13 @@ USING (auth.uid() = user_id);
 ### Data Encryption
 
 #### At Rest
+
 - **Database Encryption**: Supabase provides AES-256 encryption for data at rest
 - **File Storage**: Encrypted file storage for certificates and documents
 - **Backup Encryption**: All backups are encrypted
 
 #### In Transit
+
 - **HTTPS/TLS**: All communications use TLS 1.3
 - **API Security**: All API endpoints require HTTPS
 - **WebSocket Security**: Secure WebSocket connections for real-time features
@@ -80,12 +82,12 @@ USING (auth.uid() = user_id);
 
 Data is classified based on sensitivity:
 
-| Classification | Description | Examples | Protection Level |
-|----------------|-------------|----------|------------------|
-| **Public** | Non-sensitive information | Course descriptions, public FAQs | Basic |
-| **Internal** | Business information | Course content, progress data | Standard |
-| **Confidential** | Personal information | User profiles, payment data | High |
-| **Restricted** | Highly sensitive | Guardian consent, legal documents | Maximum |
+| Classification   | Description               | Examples                          | Protection Level |
+| ---------------- | ------------------------- | --------------------------------- | ---------------- |
+| **Public**       | Non-sensitive information | Course descriptions, public FAQs  | Basic            |
+| **Internal**     | Business information      | Course content, progress data     | Standard         |
+| **Confidential** | Personal information      | User profiles, payment data       | High             |
+| **Restricted**   | Highly sensitive          | Guardian consent, legal documents | Maximum          |
 
 ### Data Minimization
 
@@ -103,6 +105,7 @@ The platform follows data minimization principles:
 The platform implements GDPR requirements:
 
 #### Data Subject Rights
+
 - **Right to Access**: Users can request their data
 - **Right to Rectification**: Users can update their information
 - **Right to Erasure**: Users can request data deletion
@@ -110,16 +113,17 @@ The platform implements GDPR requirements:
 - **Right to Object**: Users can object to data processing
 
 #### Implementation
+
 ```typescript
 // Example data export API
 export async function GET(request: Request) {
   const user = await getCurrentUser();
   const userData = await exportUserData(user.id);
-  
+
   return Response.json({
     data: userData,
-    format: 'json',
-    timestamp: new Date().toISOString()
+    format: "json",
+    timestamp: new Date().toISOString(),
   });
 }
 ```
@@ -129,19 +133,21 @@ export async function GET(request: Request) {
 For users under 13, the platform implements COPPA requirements:
 
 #### Guardian Consent
+
 - **Verifiable Parental Consent**: Required for users under 13
 - **Guardian Verification**: Email verification for guardians
 - **Limited Data Collection**: Minimal data collection for minors
 - **Parental Controls**: Guardian oversight of minor accounts
 
 #### Implementation
+
 ```typescript
 // Guardian consent verification
 export async function POST(request: Request) {
   const { token, guardianEmail } = await request.json();
-  
+
   const isValid = await verifyGuardianConsent(token, guardianEmail);
-  
+
   if (isValid) {
     await activateMinorAccount(userId);
     await sendGuardianConfirmation(guardianEmail);
@@ -152,11 +158,13 @@ export async function POST(request: Request) {
 ### State-Specific Requirements
 
 #### California (CCPA/CPRA)
+
 - **Privacy Notice**: Clear privacy policy
 - **Opt-out Rights**: Right to opt-out of data sales
 - **Data Disclosure**: Annual data disclosure requirements
 
 #### Texas
+
 - **Data Breach Notification**: 60-day notification requirement
 - **Consumer Rights**: Right to access and delete personal data
 
@@ -170,33 +178,34 @@ The platform implements comprehensive security headers:
 // next.config.js
 const securityHeaders = [
   {
-    key: 'X-DNS-Prefetch-Control',
-    value: 'on'
+    key: "X-DNS-Prefetch-Control",
+    value: "on",
   },
   {
-    key: 'Strict-Transport-Security',
-    value: 'max-age=63072000; includeSubDomains; preload'
+    key: "Strict-Transport-Security",
+    value: "max-age=63072000; includeSubDomains; preload",
   },
   {
-    key: 'X-XSS-Protection',
-    value: '1; mode=block'
+    key: "X-XSS-Protection",
+    value: "1; mode=block",
   },
   {
-    key: 'X-Frame-Options',
-    value: 'DENY'
+    key: "X-Frame-Options",
+    value: "DENY",
   },
   {
-    key: 'X-Content-Type-Options',
-    value: 'nosniff'
+    key: "X-Content-Type-Options",
+    value: "nosniff",
   },
   {
-    key: 'Referrer-Policy',
-    value: 'origin-when-cross-origin'
+    key: "Referrer-Policy",
+    value: "origin-when-cross-origin",
   },
   {
-    key: 'Content-Security-Policy',
-    value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://js.stripe.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.stripe.com https://*.supabase.co;"
-  }
+    key: "Content-Security-Policy",
+    value:
+      "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://js.stripe.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.stripe.com https://*.supabase.co;",
+  },
 ];
 ```
 
@@ -219,11 +228,11 @@ All API endpoints require authentication:
 // Example protected API route
 export async function GET(request: Request) {
   const user = await getCurrentUser();
-  
+
   if (!user) {
-    return Response.json({ error: 'Unauthorized' }, { status: 401 });
+    return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
-  
+
   // Process request...
 }
 ```
@@ -234,17 +243,17 @@ API endpoints implement rate limiting:
 
 ```typescript
 // Rate limiting middleware
-import { rateLimit } from '@/lib/rateLimit';
+import { rateLimit } from "@/lib/rateLimit";
 
 export async function POST(request: Request) {
-  const identifier = request.headers.get('x-forwarded-for') || 'unknown';
-  
+  const identifier = request.headers.get("x-forwarded-for") || "unknown";
+
   const { success } = await rateLimit(identifier, 10, 60); // 10 requests per minute
-  
+
   if (!success) {
-    return Response.json({ error: 'Rate limit exceeded' }, { status: 429 });
+    return Response.json({ error: "Rate limit exceeded" }, { status: 429 });
   }
-  
+
   // Process request...
 }
 ```
@@ -254,18 +263,18 @@ export async function POST(request: Request) {
 All inputs are validated using Zod schemas:
 
 ```typescript
-import { z } from 'zod';
+import { z } from "zod";
 
 const userSchema = z.object({
   email: z.string().email(),
   name: z.string().min(1).max(100),
-  age: z.number().min(13).max(120)
+  age: z.number().min(13).max(120),
 });
 
 export async function POST(request: Request) {
   const body = await request.json();
   const validatedData = userSchema.parse(body);
-  
+
   // Process validated data...
 }
 ```
@@ -284,11 +293,13 @@ export async function POST(request: Request) {
 ### Notification Requirements
 
 #### Timeline
+
 - **72 Hours**: GDPR notification to authorities
 - **60 Days**: Texas notification to affected individuals
 - **Immediate**: Internal notification to security team
 
 #### Content
+
 - **Nature of Breach**: Description of the incident
 - **Affected Data**: Types of data compromised
 - **Impact Assessment**: Potential consequences
@@ -304,16 +315,14 @@ The platform implements comprehensive logging:
 ```typescript
 // Security event logging
 export async function logSecurityEvent(event: SecurityEvent) {
-  await supabase
-    .from('security_events')
-    .insert({
-      event_type: event.type,
-      user_id: event.userId,
-      ip_address: event.ipAddress,
-      user_agent: event.userAgent,
-      details: event.details,
-      timestamp: new Date().toISOString()
-    });
+  await supabase.from("security_events").insert({
+    event_type: event.type,
+    user_id: event.userId,
+    ip_address: event.ipAddress,
+    user_agent: event.userAgent,
+    details: event.details,
+    timestamp: new Date().toISOString(),
+  });
 }
 ```
 
@@ -329,12 +338,14 @@ Automated alerts for security events:
 ### Vulnerability Management
 
 #### Regular Assessments
+
 - **Automated Scans**: Weekly vulnerability scans
 - **Penetration Testing**: Quarterly security assessments
 - **Code Reviews**: Security-focused code reviews
 - **Dependency Updates**: Regular dependency updates
 
 #### Security Tools
+
 - **ESLint Security**: Security-focused linting rules
 - **Snyk**: Dependency vulnerability scanning
 - **Sentry**: Error monitoring and security alerts
@@ -357,7 +368,7 @@ Users have granular privacy controls:
 ```typescript
 // Privacy settings interface
 interface PrivacySettings {
-  profileVisibility: 'public' | 'private';
+  profileVisibility: "public" | "private";
   dataSharing: boolean;
   marketingEmails: boolean;
   analyticsTracking: boolean;

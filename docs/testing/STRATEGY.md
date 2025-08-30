@@ -41,28 +41,33 @@ This document outlines the comprehensive testing strategy for Permit School, ens
 ## Testing Tools & Stack
 
 ### Unit Testing
+
 - **Framework**: Vitest (Vite-based test runner)
 - **Assertions**: Built-in Vitest assertions
 - **Mocking**: Vitest mocking capabilities
 - **Coverage**: V8 coverage provider
 
 ### Integration Testing
+
 - **Framework**: Vitest with custom test utilities
 - **Database**: Supabase test instance
 - **API Testing**: Built-in Next.js API route testing
 
 ### End-to-End Testing
+
 - **Framework**: Playwright
 - **Browsers**: Chromium, Firefox, Safari
 - **Test Data**: Testkit API for data management
 - **Visual Testing**: Playwright screenshot comparison
 
 ### Accessibility Testing
+
 - **Tool**: axe-core
 - **Integration**: ESLint jsx-a11y rules
 - **Automated**: Playwright with axe-core
 
 ### Performance Testing
+
 - **Tool**: Lighthouse CI
 - **Metrics**: Core Web Vitals
 - **Thresholds**: Configurable performance budgets
@@ -74,21 +79,23 @@ This document outlines the comprehensive testing strategy for Permit School, ens
 **Purpose**: Test individual functions, components, and utilities in isolation
 
 **Coverage Areas**:
+
 - Utility functions (`src/lib/`)
 - React components (`src/components/`)
 - Business logic functions
 - Data transformation functions
 
 **Example**:
+
 ```typescript
 // src/lib/__tests__/confetti.test.ts
-import { triggerConfetti } from '../confetti';
+import { triggerConfetti } from "../confetti";
 
-describe('confetti', () => {
-  test('triggers confetti animation', () => {
-    const mockCanvas = document.createElement('canvas');
+describe("confetti", () => {
+  test("triggers confetti animation", () => {
+    const mockCanvas = document.createElement("canvas");
     document.body.appendChild(mockCanvas);
-    
+
     const result = triggerConfetti();
     expect(result).toBe(true);
   });
@@ -100,23 +107,25 @@ describe('confetti', () => {
 **Purpose**: Test interactions between components and API endpoints
 
 **Coverage Areas**:
+
 - API route handlers
 - Database operations
 - External service integrations
 - Component interactions
 
 **Example**:
+
 ```typescript
 // src/app/api/__tests__/health.test.ts
-import { GET } from '../health/route';
+import { GET } from "../health/route";
 
-describe('/api/health', () => {
-  test('returns system status', async () => {
+describe("/api/health", () => {
+  test("returns system status", async () => {
     const response = await GET();
     const data = await response.json();
-    
-    expect(data.status).toBe('ok');
-    expect(data.supabase).toBe('ok');
+
+    expect(data.status).toBe("ok");
+    expect(data.supabase).toBe("ok");
   });
 });
 ```
@@ -126,6 +135,7 @@ describe('/api/health', () => {
 **Purpose**: Test complete user workflows from start to finish
 
 **Coverage Areas**:
+
 - User registration and onboarding
 - Course enrollment and learning
 - Quiz and exam completion
@@ -133,22 +143,23 @@ describe('/api/health', () => {
 - Admin operations
 
 **Example**:
+
 ```typescript
 // tests/e2e/auth-onboarding.spec.ts
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test('complete user onboarding flow', async ({ page }) => {
-  await page.goto('/signup');
-  await page.fill('[data-testid="email"]', 'test@example.com');
-  await page.fill('[data-testid="password"]', 'password123');
+test("complete user onboarding flow", async ({ page }) => {
+  await page.goto("/signup");
+  await page.fill('[data-testid="email"]', "test@example.com");
+  await page.fill('[data-testid="password"]', "password123");
   await page.click('[data-testid="signup-button"]');
-  
-  await expect(page).toHaveURL('/onboarding');
-  await page.fill('[data-testid="first-name"]', 'John');
-  await page.fill('[data-testid="last-name"]', 'Doe');
+
+  await expect(page).toHaveURL("/onboarding");
+  await page.fill('[data-testid="first-name"]', "John");
+  await page.fill('[data-testid="last-name"]', "Doe");
   await page.click('[data-testid="complete-onboarding"]');
-  
-  await expect(page).toHaveURL('/dashboard');
+
+  await expect(page).toHaveURL("/dashboard");
 });
 ```
 
@@ -157,6 +168,7 @@ test('complete user onboarding flow', async ({ page }) => {
 **Purpose**: Ensure WCAG 2.2 AA compliance
 
 **Coverage Areas**:
+
 - Keyboard navigation
 - Screen reader compatibility
 - Color contrast
@@ -164,13 +176,14 @@ test('complete user onboarding flow', async ({ page }) => {
 - Semantic HTML
 
 **Example**:
+
 ```typescript
 // tests/e2e/accessibility.spec.ts
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test('homepage accessibility', async ({ page }) => {
-  await page.goto('/');
-  
+test("homepage accessibility", async ({ page }) => {
+  await page.goto("/");
+
   // Run axe-core accessibility audit
   const results = await page.evaluate(() => {
     return new Promise((resolve) => {
@@ -179,7 +192,7 @@ test('homepage accessibility', async ({ page }) => {
       });
     });
   });
-  
+
   expect(results.violations).toHaveLength(0);
 });
 ```
@@ -189,23 +202,25 @@ test('homepage accessibility', async ({ page }) => {
 **Purpose**: Monitor and maintain performance standards
 
 **Coverage Areas**:
+
 - Core Web Vitals
 - Page load times
 - API response times
 - Bundle sizes
 
 **Example**:
+
 ```javascript
 // .lighthouserc.js
 module.exports = {
   ci: {
     collect: {
-      url: ['http://localhost:3000', 'http://localhost:3000/courses'],
+      url: ["http://localhost:3000", "http://localhost:3000/courses"],
     },
     assert: {
       assertions: {
-        'categories:performance': ['warn', { minScore: 0.9 }],
-        'categories:accessibility': ['error', { minScore: 0.95 }],
+        "categories:performance": ["warn", { minScore: 0.9 }],
+        "categories:accessibility": ["error", { minScore: 0.95 }],
       },
     },
   },
@@ -219,18 +234,20 @@ module.exports = {
 **Purpose**: Manage test data for E2E tests
 
 **Available Endpoints**:
+
 - `POST /api/testkit/reset` - Clear all test data
 - `POST /api/testkit/user` - Create test user
 - `POST /api/testkit/enroll` - Enroll user in course
 - `POST /api/testkit/seat-time` - Add seat time
 
 **Usage**:
+
 ```typescript
 // tests/e2e/utils/testkit.ts
 export async function createTestUser(page: Page, userData: any) {
-  const response = await page.request.post('/api/testkit/user', {
+  const response = await page.request.post("/api/testkit/user", {
     data: userData,
-    headers: { 'Authorization': `Bearer ${process.env.TESTKIT_TOKEN}` }
+    headers: { Authorization: `Bearer ${process.env.TESTKIT_TOKEN}` },
   });
   return response.json();
 }
@@ -241,25 +258,33 @@ export async function createTestUser(page: Page, userData: any) {
 **Purpose**: Set up consistent test data
 
 **Tools**:
+
 - Supabase migrations for schema
 - Custom seeding scripts in `ops/seed/`
 - Test-specific data fixtures
 
 **Example**:
+
 ```typescript
 // ops/seed/seed-test-data.ts
 export async function seedTestData() {
   const supabase = getSupabaseAdmin();
-  
+
   // Create test courses
-  await supabase.from('courses').insert([
-    { id: 'test-course-1', title: 'Test Course 1', j_code: 'CA' }
-  ]);
-  
+  await supabase
+    .from("courses")
+    .insert([{ id: "test-course-1", title: "Test Course 1", j_code: "CA" }]);
+
   // Create test questions
-  await supabase.from('questions').insert([
-    { id: 'test-question-1', question: 'Test question?', correct_answer: 'A' }
-  ]);
+  await supabase
+    .from("questions")
+    .insert([
+      {
+        id: "test-question-1",
+        question: "Test question?",
+        correct_answer: "A",
+      },
+    ]);
 }
 ```
 
@@ -268,11 +293,13 @@ export async function seedTestData() {
 ### Local Development
 
 **Prerequisites**:
+
 - Node.js 20+
 - Supabase CLI
 - PostgreSQL (via Supabase)
 
 **Setup Commands**:
+
 ```bash
 # Install dependencies
 npm ci
@@ -290,6 +317,7 @@ npm --prefix web run axe:ci        # Accessibility tests
 ### CI Environment
 
 **GitHub Actions Configuration**:
+
 ```yaml
 # .github/workflows/ci.yml
 - name: Run unit tests
@@ -307,6 +335,7 @@ npm --prefix web run axe:ci        # Accessibility tests
 ### 1. Test Organization
 
 **File Structure**:
+
 ```
 src/
 ├── components/
@@ -326,6 +355,7 @@ src/
 ```
 
 **Naming Conventions**:
+
 - Test files: `*.test.ts` or `*.spec.ts`
 - Test suites: `describe('ComponentName', () => {})`
 - Test cases: `test('should do something', () => {})`
@@ -333,6 +363,7 @@ src/
 ### 2. Test Isolation
 
 **Database Isolation**:
+
 ```typescript
 beforeEach(async () => {
   await testkit.reset();
@@ -344,6 +375,7 @@ afterEach(async () => {
 ```
 
 **Component Isolation**:
+
 ```typescript
 const renderWithProviders = (ui: React.ReactElement) => {
   return render(
@@ -359,12 +391,14 @@ const renderWithProviders = (ui: React.ReactElement) => {
 ### 3. Selector Strategy
 
 **Preferred Selectors** (in order):
+
 1. **Role-based**: `getByRole('button', { name: 'Submit' })`
 2. **Label-based**: `getByLabel('Email address')`
 3. **Test ID**: `getByTestId('submit-button')`
 4. **Text content**: `getByText('Welcome')`
 
 **Avoid**:
+
 - CSS selectors: `.btn-primary`
 - XPath selectors
 - Implementation details
@@ -372,25 +406,27 @@ const renderWithProviders = (ui: React.ReactElement) => {
 ### 4. Assertion Strategy
 
 **User-focused assertions**:
+
 ```typescript
 // ✅ Good - Tests user behavior
-await expect(page.getByText('Welcome')).toBeVisible();
-await expect(page).toHaveURL('/dashboard');
+await expect(page.getByText("Welcome")).toBeVisible();
+await expect(page).toHaveURL("/dashboard");
 
 // ❌ Bad - Tests implementation
-await expect(page.locator('.welcome-message')).toBeVisible();
+await expect(page.locator(".welcome-message")).toBeVisible();
 ```
 
 ### 5. Error Handling
 
 **Test error scenarios**:
+
 ```typescript
-test('handles network errors gracefully', async ({ page }) => {
+test("handles network errors gracefully", async ({ page }) => {
   // Mock network failure
-  await page.route('**/api/profile', route => route.abort());
-  
-  await page.goto('/profile');
-  await expect(page.getByText('Unable to load profile')).toBeVisible();
+  await page.route("**/api/profile", (route) => route.abort());
+
+  await page.goto("/profile");
+  await expect(page.getByText("Unable to load profile")).toBeVisible();
 });
 ```
 
@@ -399,20 +435,22 @@ test('handles network errors gracefully', async ({ page }) => {
 ### Core Web Vitals Monitoring
 
 **Metrics**:
+
 - **LCP** (Largest Contentful Paint): < 2.5s
 - **FID** (First Input Delay): < 100ms
 - **CLS** (Cumulative Layout Shift): < 0.1
 
 **Implementation**:
+
 ```javascript
 // .lighthouserc.js
 module.exports = {
   ci: {
     assert: {
       assertions: {
-        'categories:performance': ['warn', { minScore: 0.9 }],
-        'first-contentful-paint': ['warn', { maxNumericValue: 2000 }],
-        'largest-contentful-paint': ['warn', { maxNumericValue: 2500 }],
+        "categories:performance": ["warn", { minScore: 0.9 }],
+        "first-contentful-paint": ["warn", { maxNumericValue: 2000 }],
+        "largest-contentful-paint": ["warn", { maxNumericValue: 2500 }],
       },
     },
   },
@@ -422,11 +460,13 @@ module.exports = {
 ### Bundle Size Monitoring
 
 **Tools**:
+
 - Next.js bundle analyzer
 - Webpack bundle analyzer
 - GitHub Actions size checks
 
 **Thresholds**:
+
 - Main bundle: < 500KB
 - Vendor bundle: < 1MB
 - Total bundle: < 2MB
@@ -436,16 +476,18 @@ module.exports = {
 ### Automated Testing
 
 **Tools**:
+
 - axe-core for automated audits
 - ESLint jsx-a11y for code-level checks
 - Playwright accessibility testing
 
 **Implementation**:
+
 ```typescript
 // tests/e2e/accessibility.spec.ts
-test('all pages meet accessibility standards', async ({ page }) => {
-  const pages = ['/', '/courses', '/signin', '/dashboard'];
-  
+test("all pages meet accessibility standards", async ({ page }) => {
+  const pages = ["/", "/courses", "/signin", "/dashboard"];
+
   for (const pagePath of pages) {
     await page.goto(pagePath);
     const results = await page.evaluate(() => axe.run());
@@ -457,18 +499,21 @@ test('all pages meet accessibility standards', async ({ page }) => {
 ### Manual Testing Checklist
 
 **Keyboard Navigation**:
+
 - [ ] All interactive elements reachable via Tab
 - [ ] Focus indicators visible
 - [ ] No keyboard traps
 - [ ] Skip links work
 
 **Screen Reader**:
+
 - [ ] Proper heading structure
 - [ ] Alt text for images
 - [ ] ARIA labels where needed
 - [ ] Form labels associated
 
 **Visual Design**:
+
 - [ ] Color contrast meets WCAG AA
 - [ ] Text resizable to 200%
 - [ ] No color-only information
@@ -479,10 +524,12 @@ test('all pages meet accessibility standards', async ({ page }) => {
 ### Pre-commit Hooks
 
 **Tools**:
+
 - Husky for Git hooks
 - lint-staged for staged files
 
 **Configuration**:
+
 ```json
 // package.json
 {
@@ -493,10 +540,7 @@ test('all pages meet accessibility standards', async ({ page }) => {
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "npm run test -- --findRelatedTests"
-    ]
+    "*.{ts,tsx}": ["eslint --fix", "npm run test -- --findRelatedTests"]
   }
 }
 ```
@@ -504,6 +548,7 @@ test('all pages meet accessibility standards', async ({ page }) => {
 ### CI Pipeline
 
 **Stages**:
+
 1. **Lint & Type Check** - Code quality
 2. **Unit Tests** - Fast feedback
 3. **Build** - Ensure build works
@@ -512,6 +557,7 @@ test('all pages meet accessibility standards', async ({ page }) => {
 6. **Performance** - Performance monitoring
 
 **Failure Handling**:
+
 - Fail fast on critical issues
 - Allow warnings for non-critical issues
 - Retry flaky tests automatically
@@ -522,16 +568,19 @@ test('all pages meet accessibility standards', async ({ page }) => {
 ### Regular Tasks
 
 **Weekly**:
+
 - Review test failures
 - Update test data if needed
 - Check test coverage reports
 
 **Monthly**:
+
 - Update test dependencies
 - Review and update test strategies
 - Performance benchmark review
 
 **Quarterly**:
+
 - Full test suite audit
 - Update testing documentation
 - Review CI/CD pipeline
@@ -539,12 +588,14 @@ test('all pages meet accessibility standards', async ({ page }) => {
 ### Metrics & Monitoring
 
 **Key Metrics**:
+
 - Test coverage percentage
 - Test execution time
 - Flaky test rate
 - Test failure rate
 
 **Tools**:
+
 - GitHub Actions test reports
 - Coverage reports
 - Performance monitoring

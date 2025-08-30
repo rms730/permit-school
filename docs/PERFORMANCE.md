@@ -19,23 +19,23 @@ This document outlines our performance strategy, monitoring approach, and optimi
 
 We target **Core Web Vitals** metrics for optimal user experience:
 
-| Metric | Target | Description |
-|--------|--------|-------------|
-| **LCP** (Largest Contentful Paint) | < 2.5s | Loading performance |
-| **FID** (First Input Delay) | < 100ms | Interactivity |
-| **CLS** (Cumulative Layout Shift) | < 0.1 | Visual stability |
-| **TTFB** (Time to First Byte) | < 600ms | Server response time |
-| **FCP** (First Contentful Paint) | < 1.8s | First content display |
+| Metric                             | Target  | Description           |
+| ---------------------------------- | ------- | --------------------- |
+| **LCP** (Largest Contentful Paint) | < 2.5s  | Loading performance   |
+| **FID** (First Input Delay)        | < 100ms | Interactivity         |
+| **CLS** (Cumulative Layout Shift)  | < 0.1   | Visual stability      |
+| **TTFB** (Time to First Byte)      | < 600ms | Server response time  |
+| **FCP** (First Contentful Paint)   | < 1.8s  | First content display |
 
 ### Performance Budgets
 
-| Resource Type | Budget | Rationale |
-|---------------|--------|-----------|
-| **Total Bundle Size** | < 2MB | Fast loading on slow connections |
-| **Main Bundle** | < 500KB | Critical path optimization |
-| **Vendor Bundle** | < 1MB | Third-party dependency management |
-| **Images** | < 200KB per image | Visual content optimization |
-| **API Response Time** | < 500ms | Backend performance |
+| Resource Type         | Budget            | Rationale                         |
+| --------------------- | ----------------- | --------------------------------- |
+| **Total Bundle Size** | < 2MB             | Fast loading on slow connections  |
+| **Main Bundle**       | < 500KB           | Critical path optimization        |
+| **Vendor Bundle**     | < 1MB             | Third-party dependency management |
+| **Images**            | < 200KB per image | Visual content optimization       |
+| **API Response Time** | < 500ms           | Backend performance               |
 
 ## Monitoring Strategy
 
@@ -49,35 +49,35 @@ module.exports = {
   ci: {
     collect: {
       url: [
-        'http://localhost:3000',
-        'http://localhost:3000/courses',
-        'http://localhost:3000/dashboard',
-        'http://localhost:3000/signin'
+        "http://localhost:3000",
+        "http://localhost:3000/courses",
+        "http://localhost:3000/dashboard",
+        "http://localhost:3000/signin",
       ],
       numberOfRuns: 3,
       settings: {
-        chromeFlags: '--no-sandbox --disable-dev-shm-usage',
-        preset: 'desktop'
-      }
+        chromeFlags: "--no-sandbox --disable-dev-shm-usage",
+        preset: "desktop",
+      },
     },
     assert: {
       assertions: {
-        'categories:performance': ['warn', { minScore: 0.9 }],
-        'categories:accessibility': ['error', { minScore: 0.95 }],
-        'categories:best-practices': ['warn', { minScore: 0.95 }],
-        'categories:seo': ['warn', { minScore: 0.9 }],
-        'first-contentful-paint': ['warn', { maxNumericValue: 1800 }],
-        'largest-contentful-paint': ['warn', { maxNumericValue: 2500 }],
-        'first-input-delay': ['warn', { maxNumericValue: 100 }],
-        'cumulative-layout-shift': ['warn', { maxNumericValue: 0.1 }],
-        'total-blocking-time': ['warn', { maxNumericValue: 300 }],
-        'speed-index': ['warn', { maxNumericValue: 3000 }]
-      }
+        "categories:performance": ["warn", { minScore: 0.9 }],
+        "categories:accessibility": ["error", { minScore: 0.95 }],
+        "categories:best-practices": ["warn", { minScore: 0.95 }],
+        "categories:seo": ["warn", { minScore: 0.9 }],
+        "first-contentful-paint": ["warn", { maxNumericValue: 1800 }],
+        "largest-contentful-paint": ["warn", { maxNumericValue: 2500 }],
+        "first-input-delay": ["warn", { maxNumericValue: 100 }],
+        "cumulative-layout-shift": ["warn", { maxNumericValue: 0.1 }],
+        "total-blocking-time": ["warn", { maxNumericValue: 300 }],
+        "speed-index": ["warn", { maxNumericValue: 3000 }],
+      },
     },
     upload: {
-      target: 'temporary-public-storage'
-    }
-  }
+      target: "temporary-public-storage",
+    },
+  },
 };
 ```
 
@@ -97,18 +97,18 @@ module.exports = {
 
 ```typescript
 // web/src/lib/sentry.ts
-import * as Sentry from '@sentry/nextjs';
+import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
   tracesSampleRate: 0.1,
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1.0,
-  
+
   // Performance monitoring
   integrations: [
     new Sentry.BrowserTracing({
-      tracePropagationTargets: ['localhost', 'your-domain.com'],
+      tracePropagationTargets: ["localhost", "your-domain.com"],
     }),
     new Sentry.Replay(),
   ],
@@ -122,32 +122,35 @@ Sentry.init({
 export const trackPerformance = {
   // Track page load performance
   trackPageLoad: (pageName: string) => {
-    if (typeof window !== 'undefined') {
-      const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
-      
+    if (typeof window !== "undefined") {
+      const navigation = performance.getEntriesByType(
+        "navigation",
+      )[0] as PerformanceNavigationTiming;
+
       const metrics = {
         page: pageName,
         dns: navigation.domainLookupEnd - navigation.domainLookupStart,
         tcp: navigation.connectEnd - navigation.connectStart,
         ttfb: navigation.responseStart - navigation.requestStart,
-        domContentLoaded: navigation.domContentLoadedEventEnd - navigation.navigationStart,
+        domContentLoaded:
+          navigation.domContentLoadedEventEnd - navigation.navigationStart,
         loadComplete: navigation.loadEventEnd - navigation.navigationStart,
       };
-      
+
       // Send to analytics
-      console.log('Performance metrics:', metrics);
+      console.log("Performance metrics:", metrics);
     }
   },
-  
+
   // Track API response times
   trackAPI: (endpoint: string, duration: number) => {
     console.log(`API ${endpoint}: ${duration}ms`);
   },
-  
+
   // Track user interactions
   trackInteraction: (action: string, duration: number) => {
     console.log(`Interaction ${action}: ${duration}ms`);
-  }
+  },
 };
 ```
 
@@ -179,7 +182,7 @@ const CoursePage = dynamic(() => import('../app/course/[id]/page'), {
 
 ```tsx
 // Next.js Image component with optimization
-import Image from 'next/image';
+import Image from "next/image";
 
 const OptimizedImage = ({ src, alt, width, height }) => (
   <Image
@@ -217,7 +220,7 @@ CREATE INDEX idx_attempts_user_created ON attempts(user_id, created_at);
 
 -- Use materialized views for complex aggregations
 CREATE MATERIALIZED VIEW user_progress_summary AS
-SELECT 
+SELECT
   user_id,
   course_id,
   SUM(minutes) as total_minutes,
@@ -235,7 +238,7 @@ REFRESH MATERIALIZED VIEW user_progress_summary;
 // API route with caching
 export async function GET() {
   const supabase = await getRouteClient();
-  
+
   // Cache public catalog for 5 minutes
   const { data: catalog, error } = await supabase
     .from("v_course_catalog")
@@ -243,14 +246,20 @@ export async function GET() {
     .order("j_code", { ascending: true });
 
   if (error) {
-    return NextResponse.json({ error: "Failed to load catalog" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to load catalog" },
+      { status: 500 },
+    );
   }
 
-  return NextResponse.json({ catalog }, {
-    headers: {
-      'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+  return NextResponse.json(
+    { catalog },
+    {
+      headers: {
+        "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600",
+      },
     },
-  });
+  );
 }
 ```
 
@@ -258,20 +267,20 @@ export async function GET() {
 
 ```typescript
 // Optimize database connections
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   {
     db: {
-      schema: 'public'
+      schema: "public",
     },
     auth: {
       persistSession: true,
-      autoRefreshToken: true
-    }
-  }
+      autoRefreshToken: true,
+    },
+  },
 );
 ```
 
@@ -283,7 +292,7 @@ const supabase = createClient(
 // Next.js static generation
 export async function generateStaticParams() {
   const courses = await getCourses();
-  
+
   return courses.map((course) => ({
     j_code: course.j_code,
     course_code: course.course_code,
@@ -298,28 +307,26 @@ export const revalidate = 3600; // Revalidate every hour
 
 ```typescript
 // web/public/sw.js
-const CACHE_NAME = 'permit-school-v1';
+const CACHE_NAME = "permit-school-v1";
 const urlsToCache = [
-  '/',
-  '/courses',
-  '/static/js/main.bundle.js',
-  '/static/css/main.css'
+  "/",
+  "/courses",
+  "/static/js/main.bundle.js",
+  "/static/css/main.css",
 ];
 
-self.addEventListener('install', (event) => {
+self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache)),
   );
 });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version or fetch from network
-        return response || fetch(event.request);
-      })
+    caches.match(event.request).then((response) => {
+      // Return cached version or fetch from network
+      return response || fetch(event.request);
+    }),
   );
 });
 ```
@@ -332,24 +339,22 @@ self.addEventListener('fetch', (event) => {
 
 ```typescript
 // tests/performance/api-load.test.ts
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test('API endpoints handle load', async ({ request }) => {
+test("API endpoints handle load", async ({ request }) => {
   const startTime = Date.now();
-  
+
   // Simulate concurrent requests
-  const promises = Array.from({ length: 10 }, () =>
-    request.get('/api/health')
-  );
-  
+  const promises = Array.from({ length: 10 }, () => request.get("/api/health"));
+
   const responses = await Promise.all(promises);
   const endTime = Date.now();
-  
+
   // All requests should succeed
-  responses.forEach(response => {
+  responses.forEach((response) => {
     expect(response.status()).toBe(200);
   });
-  
+
   // Total time should be reasonable
   expect(endTime - startTime).toBeLessThan(5000);
 });
@@ -359,22 +364,22 @@ test('API endpoints handle load', async ({ request }) => {
 
 ```typescript
 // tests/performance/frontend-performance.test.ts
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test('page load performance', async ({ page }) => {
+test("page load performance", async ({ page }) => {
   const startTime = Date.now();
-  
-  await page.goto('/');
-  
+
+  await page.goto("/");
+
   // Wait for page to be fully loaded
-  await page.waitForLoadState('networkidle');
-  
+  await page.waitForLoadState("networkidle");
+
   const endTime = Date.now();
   const loadTime = endTime - startTime;
-  
+
   // Page should load within 3 seconds
   expect(loadTime).toBeLessThan(3000);
-  
+
   // Check Core Web Vitals
   const lcp = await page.evaluate(() => {
     return new Promise((resolve) => {
@@ -382,10 +387,10 @@ test('page load performance', async ({ page }) => {
         const entries = list.getEntries();
         const lastEntry = entries[entries.length - 1];
         resolve(lastEntry.startTime);
-      }).observe({ entryTypes: ['largest-contentful-paint'] });
+      }).observe({ entryTypes: ["largest-contentful-paint"] });
     });
   });
-  
+
   expect(lcp).toBeLessThan(2500);
 });
 ```
@@ -407,27 +412,28 @@ npm ls --depth=0 | grep -E "([0-9]+\.){3}[0-9]+" | sort -k2 -nr
 
 ```javascript
 // webpack.config.js
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   plugins: [
     new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
+      analyzerMode: "static",
       openAnalyzer: false,
       generateStatsFile: true,
-      statsFilename: 'bundle-stats.json'
-    })
+      statsFilename: "bundle-stats.json",
+    }),
   ],
-  
+
   optimization: {
     splitChunks: {
-      chunks: 'all',
+      chunks: "all",
       maxSize: 500000, // 500KB
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
+          name: "vendors",
+          chunks: "all",
         },
       },
     },
@@ -451,7 +457,7 @@ const PerformanceDashboard = () => {
     ttfb: 0,
     errorRate: 0
   });
-  
+
   useEffect(() => {
     // Fetch real-time performance metrics
     const fetchMetrics = async () => {
@@ -459,13 +465,13 @@ const PerformanceDashboard = () => {
       const data = await response.json();
       setMetrics(data);
     };
-    
+
     fetchMetrics();
     const interval = setInterval(fetchMetrics, 60000); // Update every minute
-    
+
     return () => clearInterval(interval);
   }, []);
-  
+
   return (
     <div className="performance-dashboard">
       <h2>Performance Metrics</h2>
@@ -486,22 +492,22 @@ const PerformanceDashboard = () => {
 // Performance alerting
 const checkPerformance = async () => {
   const metrics = await getPerformanceMetrics();
-  
+
   // Alert if metrics exceed thresholds
   if (metrics.lcp > 2500) {
-    sendAlert('High LCP detected', {
-      metric: 'LCP',
+    sendAlert("High LCP detected", {
+      metric: "LCP",
       value: metrics.lcp,
       threshold: 2500,
-      page: metrics.page
+      page: metrics.page,
     });
   }
-  
+
   if (metrics.errorRate > 0.05) {
-    sendAlert('High error rate detected', {
-      metric: 'Error Rate',
+    sendAlert("High error rate detected", {
+      metric: "Error Rate",
       value: metrics.errorRate,
-      threshold: 0.05
+      threshold: 0.05,
     });
   }
 };
@@ -536,26 +542,26 @@ const checkPerformance = async () => {
 module.exports = {
   budgets: [
     {
-      resourceType: 'script',
-      budget: '500 KB'
+      resourceType: "script",
+      budget: "500 KB",
     },
     {
-      resourceType: 'total',
-      budget: '2 MB'
+      resourceType: "total",
+      budget: "2 MB",
     },
     {
-      resourceType: 'image',
-      budget: '200 KB'
-    }
+      resourceType: "image",
+      budget: "200 KB",
+    },
   ],
-  
+
   thresholds: {
     lcp: 2500,
     fid: 100,
     cls: 0.1,
     ttfb: 600,
-    fcp: 1800
-  }
+    fcp: 1800,
+  },
 };
 ```
 

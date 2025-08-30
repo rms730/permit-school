@@ -53,6 +53,7 @@ All API responses follow this standard format:
 **Authentication**: None
 
 **Response**:
+
 ```json
 {
   "status": "ok",
@@ -72,6 +73,7 @@ All API responses follow this standard format:
 ```
 
 **Example**:
+
 ```bash
 curl http://localhost:3000/api/health
 ```
@@ -85,6 +87,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Response**:
+
 ```json
 {
   "id": "uuid",
@@ -106,6 +109,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "first_name": "John",
@@ -128,6 +132,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Response**:
+
 ```json
 {
   "id": "uuid",
@@ -145,6 +150,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "email": "newemail@example.com",
@@ -161,6 +167,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "course_id": "uuid",
@@ -170,6 +177,7 @@ curl http://localhost:3000/api/health
 ```
 
 **Response**:
+
 ```json
 {
   "enrollment_id": "uuid",
@@ -189,6 +197,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Response**:
+
 ```json
 {
   "enrollments": [
@@ -213,6 +222,7 @@ curl http://localhost:3000/api/health
 **Authentication**: None
 
 **Response**:
+
 ```json
 {
   "catalog": [
@@ -237,6 +247,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "unit_id": "uuid",
@@ -253,6 +264,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "unit_id": "uuid",
@@ -269,6 +281,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "unit_id": "uuid",
@@ -277,6 +290,7 @@ curl http://localhost:3000/api/health
 ```
 
 **Response**:
+
 ```json
 {
   "attempt_id": "uuid",
@@ -299,6 +313,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "attempt_id": "uuid",
@@ -315,6 +330,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "attempt_id": "uuid"
@@ -322,6 +338,7 @@ curl http://localhost:3000/api/health
 ```
 
 **Response**:
+
 ```json
 {
   "score": 85,
@@ -341,6 +358,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Response**:
+
 ```json
 {
   "eligible": true,
@@ -361,6 +379,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "course_id": "uuid"
@@ -368,6 +387,7 @@ curl http://localhost:3000/api/health
 ```
 
 **Response**:
+
 ```json
 {
   "attempt_id": "uuid",
@@ -384,6 +404,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "attempt_id": "uuid",
@@ -400,6 +421,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "attempt_id": "uuid"
@@ -407,6 +429,7 @@ curl http://localhost:3000/api/health
 ```
 
 **Response**:
+
 ```json
 {
   "passed": true,
@@ -425,6 +448,7 @@ curl http://localhost:3000/api/health
 **Authentication**: None
 
 **Response**:
+
 ```json
 {
   "valid": true,
@@ -445,6 +469,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Response**:
+
 ```json
 {
   "certificate": {
@@ -467,6 +492,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "course_id": "uuid",
@@ -476,6 +502,7 @@ curl http://localhost:3000/api/health
 ```
 
 **Response**:
+
 ```json
 {
   "request_id": "uuid",
@@ -491,6 +518,7 @@ curl http://localhost:3000/api/health
 **Authentication**: None
 
 **Response**:
+
 ```json
 {
   "student_initials": "J D.",
@@ -508,6 +536,7 @@ curl http://localhost:3000/api/health
 **Authentication**: None (uses token)
 
 **Request Body**:
+
 ```json
 {
   "token": "consent_token",
@@ -524,6 +553,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required (guardian role)
 
 **Response**:
+
 ```json
 {
   "children": [
@@ -551,6 +581,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "course_id": "uuid",
@@ -559,6 +590,7 @@ curl http://localhost:3000/api/health
 ```
 
 **Response**:
+
 ```json
 {
   "checkout_url": "https://checkout.stripe.com/...",
@@ -573,6 +605,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Response**:
+
 ```json
 {
   "subscriptions": [
@@ -601,6 +634,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Response**:
+
 ```json
 {
   "invoices": [
@@ -623,6 +657,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Response**:
+
 ```json
 {
   "portal_url": "https://billing.stripe.com/..."
@@ -636,6 +671,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "subscription_id": "sub_..."
@@ -649,6 +685,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "subscription_id": "sub_..."
@@ -664,6 +701,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required (admin role)
 
 **Response**:
+
 ```json
 {
   "courses": [
@@ -689,9 +727,11 @@ curl http://localhost:3000/api/health
 **Authentication**: Required (admin role)
 
 **Query Parameters**:
+
 - `course_id` (required): Course UUID
 
 **Response**:
+
 ```json
 {
   "blueprints": [
@@ -721,6 +761,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required (admin role)
 
 **Request Body**:
+
 ```json
 {
   "jCode": "CA",
@@ -732,6 +773,7 @@ curl http://localhost:3000/api/health
 ```
 
 **Response**:
+
 ```json
 {
   "run_id": "uuid",
@@ -748,6 +790,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required (admin role)
 
 **Response**:
+
 ```json
 {
   "runs": [
@@ -773,6 +816,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "query": "What does a yellow traffic light mean?",
@@ -783,6 +827,7 @@ curl http://localhost:3000/api/health
 ```
 
 **Response**:
+
 ```json
 {
   "answer": "A yellow traffic light means you should stop if it is safe to do so...",
@@ -807,6 +852,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Response**:
+
 ```json
 {
   "notifications": [
@@ -829,6 +875,7 @@ curl http://localhost:3000/api/health
 **Authentication**: Required
 
 **Request Body**:
+
 ```json
 {
   "notification_id": "uuid"
@@ -852,6 +899,7 @@ These APIs are only available when `TESTKIT_ON=true`:
 **Authentication**: Required (testkit token)
 
 **Request Body**:
+
 ```json
 {
   "email": "test@example.com",
@@ -871,6 +919,7 @@ These APIs are only available when `TESTKIT_ON=true`:
 **Authentication**: Required (testkit token)
 
 **Request Body**:
+
 ```json
 {
   "email": "test@example.com",
@@ -885,6 +934,7 @@ These APIs are only available when `TESTKIT_ON=true`:
 **Authentication**: Required (testkit token)
 
 **Request Body**:
+
 ```json
 {
   "email": "test@example.com",
@@ -894,14 +944,14 @@ These APIs are only available when `TESTKIT_ON=true`:
 
 ## Error Codes
 
-| Code | Description | HTTP Status |
-|------|-------------|-------------|
-| `UNAUTHENTICATED` | User not authenticated | 401 |
-| `FORBIDDEN` | User lacks required permissions | 403 |
-| `NOT_FOUND` | Resource not found | 404 |
-| `VALIDATION_ERROR` | Invalid request data | 400 |
-| `RATE_LIMIT_EXCEEDED` | Too many requests | 429 |
-| `INTERNAL_ERROR` | Server error | 500 |
+| Code                  | Description                     | HTTP Status |
+| --------------------- | ------------------------------- | ----------- |
+| `UNAUTHENTICATED`     | User not authenticated          | 401         |
+| `FORBIDDEN`           | User lacks required permissions | 403         |
+| `NOT_FOUND`           | Resource not found              | 404         |
+| `VALIDATION_ERROR`    | Invalid request data            | 400         |
+| `RATE_LIMIT_EXCEEDED` | Too many requests               | 429         |
+| `INTERNAL_ERROR`      | Server error                    | 500         |
 
 ## Rate Limiting
 
@@ -913,6 +963,7 @@ Most API endpoints are rate limited to prevent abuse:
 - **Admin endpoints**: 100 requests per minute
 
 Rate limit headers are included in responses:
+
 ```
 X-RateLimit-Limit: 60
 X-RateLimit-Remaining: 45
@@ -924,10 +975,12 @@ X-RateLimit-Reset: 1643300000
 List endpoints support pagination:
 
 **Query Parameters**:
+
 - `page`: Page number (default: 1)
 - `limit`: Items per page (default: 20, max: 100)
 
 **Response Headers**:
+
 ```
 X-Total-Count: 150
 X-Page-Count: 8

@@ -93,27 +93,32 @@ npm run db:connections
 #### Deployment Steps
 
 1. **Create Release Branch**:
+
    ```bash
    git checkout -b release/v1.0.0
    git push origin release/v1.0.0
    ```
 
 2. **Run Pre-Deployment Tests**:
+
    ```bash
    npm run ci:all
    ```
 
 3. **Deploy to Staging**:
+
    ```bash
    npm run deploy:staging
    ```
 
 4. **Verify Staging**:
+
    ```bash
    npm run verify:staging
    ```
 
 5. **Deploy to Production**:
+
    ```bash
    npm run deploy:production
    ```
@@ -128,16 +133,19 @@ npm run db:connections
 If deployment fails:
 
 1. **Identify Issue**:
+
    ```bash
    npm run logs:deployment
    ```
 
 2. **Rollback to Previous Version**:
+
    ```bash
    npm run rollback:production
    ```
 
 3. **Verify Rollback**:
+
    ```bash
    npm run verify:production
    ```
@@ -181,6 +189,7 @@ npm run db:migrations:down --version=20240101000000
 **Symptoms**: Application fails to start, port already in use
 
 **Resolution**:
+
 ```bash
 # Check for running processes
 lsof -i :3000
@@ -197,6 +206,7 @@ npm run dev
 **Symptoms**: Database connection errors, timeout errors
 
 **Resolution**:
+
 ```bash
 # Check database status
 npm run db:status
@@ -216,6 +226,7 @@ npm run db:restart
 **Symptoms**: 500 errors, API timeouts
 
 **Resolution**:
+
 ```bash
 # Check API logs
 npm run logs:api
@@ -235,6 +246,7 @@ npm run auth:verify
 **Symptoms**: Slow response times, high CPU usage
 
 **Resolution**:
+
 ```bash
 # Check performance metrics
 npm run perf:check
@@ -281,37 +293,40 @@ DEBUG=app:*,db:* npm run dev
 #### Weekly Tasks
 
 1. **Security Updates**:
+
    ```bash
    # Update dependencies
    npm run deps:update
-   
+
    # Check for vulnerabilities
    npm run security:scan
-   
+
    # Update security patches
    npm run security:update
    ```
 
 2. **Performance Monitoring**:
+
    ```bash
    # Run performance tests
    npm run perf:test
-   
+
    # Check Core Web Vitals
    npm run lhci
-   
+
    # Analyze bundle size
    npm run bundle:analyze
    ```
 
 3. **Database Maintenance**:
+
    ```bash
    # Check database health
    npm run db:health
-   
+
    # Optimize queries
    npm run db:optimize
-   
+
    # Check storage usage
    npm run db:storage
    ```
@@ -319,28 +334,31 @@ DEBUG=app:*,db:* npm run dev
 #### Monthly Tasks
 
 1. **Backup Verification**:
+
    ```bash
    # Verify backups
    npm run backup:verify
-   
+
    # Test restore procedure
    npm run backup:test-restore
    ```
 
 2. **Compliance Check**:
+
    ```bash
    # Check privacy compliance
    npm run compliance:check
-   
+
    # Verify data retention
    npm run compliance:retention
    ```
 
 3. **Security Audit**:
+
    ```bash
    # Run security audit
    npm run security:audit
-   
+
    # Check access logs
    npm run security:access-logs
    ```
@@ -380,37 +398,40 @@ npm run data:export --type=analytics
 #### Critical Incident
 
 1. **Immediate Response**:
+
    ```bash
    # Stop affected services
    npm run service:stop --service=<service-name>
-   
+
    # Enable maintenance mode
    npm run maintenance:enable
-   
+
    # Notify team
    npm run notify:incident --severity=critical
    ```
 
 2. **Investigation**:
+
    ```bash
    # Collect logs
    npm run logs:collect
-   
+
    # Check system status
    npm run system:status
-   
+
    # Analyze metrics
    npm run metrics:analyze
    ```
 
 3. **Recovery**:
+
    ```bash
    # Apply fixes
    npm run fix:apply
-   
+
    # Restart services
    npm run service:restart
-   
+
    # Verify recovery
    npm run verify:recovery
    ```
@@ -418,37 +439,40 @@ npm run data:export --type=analytics
 #### Data Breach Response
 
 1. **Containment**:
+
    ```bash
    # Isolate affected systems
    npm run security:isolate
-   
+
    # Preserve evidence
    npm run security:preserve-evidence
-   
+
    # Notify authorities
    npm run security:notify-authorities
    ```
 
 2. **Investigation**:
+
    ```bash
    # Analyze breach scope
    npm run security:analyze-breach
-   
+
    # Identify affected users
    npm run security:affected-users
-   
+
    # Document incident
    npm run security:document-incident
    ```
 
 3. **Recovery**:
+
    ```bash
    # Patch vulnerabilities
    npm run security:patch
-   
+
    # Restore from backup
    npm run backup:restore
-   
+
    # Notify users
    npm run security:notify-users
    ```

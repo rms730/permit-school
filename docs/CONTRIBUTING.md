@@ -27,6 +27,7 @@ Before contributing, ensure you have:
 ### Initial Setup
 
 1. **Fork and Clone**:
+
    ```bash
    # Fork the repository on GitHub
    # Clone your fork
@@ -35,37 +36,41 @@ Before contributing, ensure you have:
    ```
 
 2. **Install Dependencies**:
+
    ```bash
    # Install root dependencies
    npm install
-   
+
    # Install web app dependencies
    npm run -w web install
    ```
 
 3. **Environment Setup**:
+
    ```bash
    # Copy environment templates
    npm run env:copy
-   
+
    # Set up environment variables
    npm run env:setup
    ```
 
 4. **Database Setup**:
+
    ```bash
    # Start Supabase locally
    supabase start
-   
+
    # Run migrations
    supabase db push
    ```
 
 5. **Verify Setup**:
+
    ```bash
    # Run all checks
    npm run ci:check:full
-   
+
    # Start development server
    npm run dev
    ```
@@ -144,10 +149,10 @@ interface UserCardProps {
   className?: string;
 }
 
-export default function UserCard({ 
-  user, 
-  onEdit, 
-  className = '' 
+export default function UserCard({
+  user,
+  onEdit,
+  className = ''
 }: UserCardProps) {
   const handleEdit = useCallback(() => {
     onEdit?.(user);
@@ -262,14 +267,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
 ```typescript
 // Component with Tailwind classes
-export default function Button({ 
-  children, 
+export default function Button({
+  children,
   variant = 'primary',
   size = 'md',
-  ...props 
+  ...props
 }: ButtonProps) {
   const baseClasses = 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background';
-  
+
   const variants = {
     primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
     secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
@@ -307,8 +312,8 @@ export default function Button({
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const page = parseInt(searchParams.get('page') || '1');
-    const limit = parseInt(searchParams.get('limit') || '10');
+    const page = parseInt(searchParams.get("page") || "1");
+    const limit = parseInt(searchParams.get("limit") || "10");
 
     const users = await getUsers({ page, limit });
 
@@ -317,15 +322,12 @@ export async function GET(request: Request) {
       pagination: {
         page,
         limit,
-        total: users.length
-      }
+        total: users.length,
+      },
     });
   } catch (error) {
-    console.error('API Error:', error);
-    return Response.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    );
+    console.error("API Error:", error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
   }
 }
 ```
@@ -343,10 +345,10 @@ export class AppError extends Error {
   constructor(
     message: string,
     public statusCode: number = 500,
-    public code?: string
+    public code?: string,
   ) {
     super(message);
-    this.name = 'AppError';
+    this.name = "AppError";
   }
 }
 
@@ -354,15 +356,12 @@ export function handleApiError(error: unknown) {
   if (error instanceof AppError) {
     return Response.json(
       { error: error.message, code: error.code },
-      { status: error.statusCode }
+      { status: error.statusCode },
     );
   }
 
-  console.error('Unexpected error:', error);
-  return Response.json(
-    { error: 'Internal server error' },
-    { status: 500 }
-  );
+  console.error("Unexpected error:", error);
+  return Response.json({ error: "Internal server error" }, { status: 500 });
 }
 ```
 
@@ -374,9 +373,9 @@ export function handleApiError(error: unknown) {
 
 - **main**: Production-ready code
 - **develop**: Integration branch for features
-- **feature/***: Feature development branches
-- **bugfix/***: Bug fix branches
-- **hotfix/***: Critical production fixes
+- **feature/\***: Feature development branches
+- **bugfix/\***: Bug fix branches
+- **hotfix/\***: Critical production fixes
 
 #### Commit Messages
 
@@ -391,6 +390,7 @@ type(scope): description
 ```
 
 Examples:
+
 ```
 feat(auth): add OAuth login support
 
@@ -404,28 +404,33 @@ test(e2e): add payment flow tests
 #### Pull Request Process
 
 1. **Create Feature Branch**:
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
 
 2. **Make Changes**:
+
    - Write code following standards
    - Add tests for new functionality
    - Update documentation
 
 3. **Commit Changes**:
+
    ```bash
    git add .
    git commit -m "feat(scope): description"
    ```
 
 4. **Push and Create PR**:
+
    ```bash
    git push origin feature/your-feature-name
    # Create PR on GitHub
    ```
 
 5. **Code Review**:
+
    - Address review comments
    - Ensure CI checks pass
    - Get approval from maintainers
@@ -477,7 +482,7 @@ describe('UserCard', () => {
 
   it('displays user information correctly', () => {
     render(<UserCard user={mockUser} />);
-    
+
     expect(screen.getByText('John Doe')).toBeInTheDocument();
     expect(screen.getByText('john@example.com')).toBeInTheDocument();
   });
@@ -485,9 +490,9 @@ describe('UserCard', () => {
   it('calls onEdit when edit button is clicked', () => {
     const onEdit = vi.fn();
     render(<UserCard user={mockUser} onEdit={onEdit} />);
-    
+
     screen.getByRole('button', { name: /edit/i }).click();
-    
+
     expect(onEdit).toHaveBeenCalledWith(mockUser);
   });
 });
@@ -510,10 +515,10 @@ describe('UserCard', () => {
 - Test error scenarios
 
 ```typescript
-import { describe, it, expect, beforeAll, afterAll } from 'vitest';
-import { setupTestDatabase, cleanupTestDatabase } from './test-utils';
+import { describe, it, expect, beforeAll, afterAll } from "vitest";
+import { setupTestDatabase, cleanupTestDatabase } from "./test-utils";
 
-describe('User API', () => {
+describe("User API", () => {
   beforeAll(async () => {
     await setupTestDatabase();
   });
@@ -522,19 +527,19 @@ describe('User API', () => {
     await cleanupTestDatabase();
   });
 
-  it('creates a new user', async () => {
-    const response = await fetch('/api/users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+  it("creates a new user", async () => {
+    const response = await fetch("/api/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        name: 'Test User',
-        email: 'test@example.com'
-      })
+        name: "Test User",
+        email: "test@example.com",
+      }),
     });
 
     expect(response.status).toBe(201);
     const user = await response.json();
-    expect(user.name).toBe('Test User');
+    expect(user.name).toBe("Test User");
   });
 });
 ```
@@ -549,21 +554,22 @@ describe('User API', () => {
 - Include accessibility testing
 
 ```typescript
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test.describe('User Registration', () => {
-  test('completes registration flow', async ({ page }) => {
-    await page.goto('/register');
-    
-    await page.fill('[data-testid="name-input"]', 'Test User');
-    await page.fill('[data-testid="email-input"]', 'test@example.com');
-    await page.fill('[data-testid="password-input"]', 'password123');
-    
+test.describe("User Registration", () => {
+  test("completes registration flow", async ({ page }) => {
+    await page.goto("/register");
+
+    await page.fill('[data-testid="name-input"]', "Test User");
+    await page.fill('[data-testid="email-input"]', "test@example.com");
+    await page.fill('[data-testid="password-input"]', "password123");
+
     await page.click('[data-testid="register-button"]');
-    
-    await expect(page).toHaveURL('/dashboard');
-    await expect(page.locator('[data-testid="welcome-message"]'))
-      .toContainText('Welcome, Test User');
+
+    await expect(page).toHaveURL("/dashboard");
+    await expect(page.locator('[data-testid="welcome-message"]')).toContainText(
+      "Welcome, Test User",
+    );
   });
 });
 ```
@@ -579,7 +585,7 @@ test.describe('User Registration', () => {
 - Provide usage examples
 - Keep documentation up to date
 
-```typescript
+````typescript
 /**
  * Fetches user data from the API
  * @param userId - The unique identifier of the user
@@ -596,11 +602,11 @@ test.describe('User Registration', () => {
  */
 export async function fetchUser(
   userId: string,
-  options?: RequestInit
+  options?: RequestInit,
 ): Promise<User | null> {
   // Implementation
 }
-```
+````
 
 #### README Files
 
@@ -629,21 +635,25 @@ export async function fetchUser(
 #### Release Branches
 
 1. **Create Release Branch**:
+
    ```bash
    git checkout -b release/v1.0.0
    ```
 
 2. **Update Version**:
+
    ```bash
    npm version patch  # or minor/major
    ```
 
 3. **Update Changelog**:
+
    - Document new features and fixes
    - Include breaking changes
    - Credit contributors
 
 4. **Final Testing**:
+
    ```bash
    npm run ci:all
    npm run test:e2e

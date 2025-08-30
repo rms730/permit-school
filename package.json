@@ -79,10 +79,15 @@
     "ci:e2e": "npm run -w web test:e2e",
     "ci:lh": "npx lhci autorun --config=web/lhci.config.js",
     "ci:all": "npm ci && npm --workspace web ci && npm run ci:env && (npm run ci:server &) && npm run ci:wait && npm run ci:lint && npm run ci:test && npm run ci:e2e && npm run ci:lh",
+    "dev:backend": "supabase start",
+    "dev:frontend": "npm run -w web dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:stop": "supabase stop",
     "prepare": "husky"
   },
   "devDependencies": {
     "@supabase/supabase-js": "^2.47.0",
+    "concurrently": "^8.2.2",
     "dotenv-flow": "^4.1.0",
     "get-port": "^7.1.0",
     "globby": "^14.0.1",

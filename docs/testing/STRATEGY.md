@@ -276,15 +276,13 @@ export async function seedTestData() {
     .insert([{ id: "test-course-1", title: "Test Course 1", j_code: "CA" }]);
 
   // Create test questions
-  await supabase
-    .from("questions")
-    .insert([
-      {
-        id: "test-question-1",
-        question: "Test question?",
-        correct_answer: "A",
-      },
-    ]);
+  await supabase.from("questions").insert([
+    {
+      id: "test-question-1",
+      question: "Test question?",
+      correct_answer: "A",
+    },
+  ]);
 }
 ```
 

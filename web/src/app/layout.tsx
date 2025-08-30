@@ -99,8 +99,8 @@ export default async function RootLayout({
   const dict = getDictionary(locale);
 
   return (
-    <html lang={locale} className={`${inter.variable} ${rubik.variable}`}>
-      <body>
+    <html lang={locale}>
+      <body className={`${inter.variable} ${rubik.variable}`}>
         <ClientProviders locale={locale} dict={dict}>
           <main id="main" role="main" tabIndex={-1}>
             {children}

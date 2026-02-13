@@ -24,88 +24,88 @@ import { scrollToAnchor } from '../lib/scrollToAnchor';
 import { Button } from './Button';
 import LanguageSwitcher from './LanguageSwitcher';
 
-const navigationItems = [
-  { label: 'How it works', href: '#how-it-works', type: 'anchor' },
-  { label: 'Practice tests', href: '/practice', type: 'external' },
-  { label: 'Pricing', href: '#pricing', type: 'anchor' },
-  { label: 'FAQ', href: '#faq', type: 'anchor' },
+type NavItem = {
+  id: 'how' | 'practice' | 'pricing' | 'faq';
+  href: string;
+  kind: 'anchor' | 'route';
+  labelKey: string;
+};
+
+const NAV_ITEMS: NavItem[] = [
+  { id: 'how', href: '#how-it-works', kind: 'anchor', labelKey: 'nav.how' },
+  { id: 'practice', href: '/practice', kind: 'route', labelKey: 'nav.practice' },
+  { id: 'pricing', href: '#pricing', kind: 'anchor', labelKey: 'nav.pricing' },
+  { id: 'faq', href: '#faq', kind: 'anchor', labelKey: 'nav.faq' },
 ];
 
 export function Header() {
   const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  
-  // Use hooks normally - they should work in client components
+  const [mobileOpen, setMobileOpen] = React.useState(false);
   const t = useTranslations('Header');
   const locale = useLocale();
   const router = useRouter();
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const handleNavClick = (href: string, type: string) => {
-    if (type === 'anchor') {
-      // Handle anchor links - add slight delay to ensure page is ready
-      setTimeout(() => {
-        scrollToAnchor(href);
-      }, 100);
-    } else {
-      // Handle external navigation - don't add locale prefix for external routes
-      router.push(href);
-    }
+  const closeDrawer = React.useCallback(() => {
     setMobileOpen(false);
-  };
+  }, []);
+
+  const handleDrawerToggle = React.useCallback(() => {
+    setMobileOpen(prev => !prev);
+  }, []);
+
+  const handleNavSelect = React.useCallback(
+    (item: NavItem) => {
+      if (item.kind === 'anchor') {
+        scrollToAnchor(item.href);
+      } else {
+        router.push(item.href);
+      }
+      closeDrawer();
+    },
+    [closeDrawer, router]
+  );
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2, fontWeight: 700 }}>
+    <Box sx={{ p: 2 }}>
+      <Typography variant="h6" sx={{ fontWeight: 700, mb: 2.5 }}>
         {t('brand')}
       </Typography>
-      <List>
-        {navigationItems.map((item) => (
-          <ListItem key={item.label} sx={{ px: 0 }}>
+      <List sx={{ p: 0 }}>
+        {NAV_ITEMS.map((item) => (
+          <ListItem key={item.id} sx={{ px: 0, py: 0.5 }}>
             <Button
               fullWidth
               variant="ghost"
-              component={item.type === 'anchor' ? 'button' : Link}
-              href={item.type === 'anchor' ? undefined : item.href}
-              onClick={item.type === 'anchor' ? () => handleNavClick(item.href, item.type) : undefined}
-              sx={{ 
-                justifyContent: 'center',
-                py: 1.5,
-                '&:hover': {
-                  backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                },
+              component={item.kind === 'anchor' ? 'button' : Link}
+              href={item.kind === 'route' ? item.href : undefined}
+              onClick={item.kind === 'anchor' ? () => handleNavSelect(item) : undefined}
+              sx={{
+                justifyContent: 'flex-start',
+                borderRadius: 2,
+                py: 1.25,
               }}
             >
-              {item.label}
+              {t(item.labelKey)}
             </Button>
           </ListItem>
         ))}
-        <ListItem sx={{ flexDirection: 'column', gap: 2, mt: 2 }}>
-          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 1 }}>
+        <ListItem sx={{ px: 0, pt: 2.5, pb: 0, flexDirection: 'column', gap: 1.5 }}>
+          <Box sx={{ alignSelf: 'flex-start' }}>
             <LanguageSwitcher />
           </Box>
-          <Button
-            variant="ghost"
-            fullWidth
-            component={Link}
-            href={`/${locale}/login`}
-            size="lg"
-          >
-            Sign in
+          <Button variant="ghost" fullWidth component={Link} href="/login" size="lg">
+            {t('nav.signIn')}
           </Button>
           <Button
             variant="primary"
             fullWidth
             component={Link}
-            href={`/${locale}/practice`}
+            href="/practice"
             size="lg"
             data-cta="header-start-free"
           >
-            Start free
+            {t('nav.start')}
           </Button>
         </ListItem>
       </List>
@@ -114,115 +114,76 @@ export function Header() {
 
   return (
     <>
-      {/* Skip to content link */}
-      <Box
-        component="a"
-        href="#content"
-        sx={{
-          position: 'absolute',
-          top: '-40px',
-          left: '6px',
-          zIndex: 9999,
-          padding: '8px',
-          backgroundColor: '#2563eb',
-          color: 'white',
-          textDecoration: 'none',
-          borderRadius: '4px',
-          fontSize: '14px',
-          '&:focus': {
-            top: '6px',
-          },
-        }}
-      >
-        Skip to content
-      </Box>
-
-      <AppBar 
+      <AppBar
         component="header"
-        position="sticky" 
+        position="sticky"
         elevation={0}
         sx={{
-          backgroundColor: 'rgba(255, 255, 255, 0.95)',
-          backdropFilter: 'blur(10px)',
-          borderBottom: '1px solid rgba(31, 41, 55, 0.1)',
+          backgroundColor: 'rgba(247, 250, 252, 0.88)',
+          borderBottom: '1px solid',
+          borderColor: 'divider',
         }}
       >
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
-                    <Typography
+        <Toolbar sx={{ minHeight: 74, justifyContent: 'space-between' }}>
+          <Typography
             variant="h6"
             component={Link}
             href={`/${locale}`}
-            sx={{ 
-              fontWeight: 700, 
+            sx={{
+              fontWeight: 700,
               color: 'text.primary',
               textDecoration: 'none',
-              '&:hover': {
-                color: 'primary.main',
-              },
+              fontFamily: 'var(--font-display, "Sora"), "Avenir Next", "Segoe UI", sans-serif',
+              letterSpacing: '-0.02em',
             }}
           >
             {t('brand')}
           </Typography>
-          
-          {!isMobile && (
-            <Stack direction="row" spacing={3} alignItems="center">
-              {navigationItems.map((item) => (
+
+          {!isMobile ? (
+            <Stack direction="row" spacing={1} alignItems="center" role="navigation" aria-label="Primary">
+              {NAV_ITEMS.map((item) => (
                 <Button
-                  key={item.label}
+                  key={item.id}
                   variant="ghost"
-                  component={item.type === 'anchor' ? 'button' : Link}
-                  href={item.type === 'anchor' ? undefined : item.href}
-                  onClick={item.type === 'anchor' ? () => handleNavClick(item.href, item.type) : undefined}
-                  sx={{ 
+                  component={item.kind === 'anchor' ? 'button' : Link}
+                  href={item.kind === 'route' ? item.href : undefined}
+                  onClick={item.kind === 'anchor' ? () => handleNavSelect(item) : undefined}
+                  sx={{
                     color: 'text.primary',
-                    fontWeight: 500,
-                    '&:hover': {
-                      backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                    },
+                    px: 1.75,
                   }}
                 >
-                  {t(item.label === 'How it works' ? 'nav.how' : item.label === 'Practice tests' ? 'nav.practice' : item.label === 'Pricing' ? 'nav.pricing' : 'nav.faq')}
+                  {t(item.labelKey)}
                 </Button>
               ))}
             </Stack>
-          )}
-          
-          <Stack direction="row" spacing={2} alignItems="center">
-            {!isMobile && (
+          ) : null}
+
+          <Stack direction="row" spacing={1} alignItems="center">
+            {!isMobile ? (
               <>
                 <LanguageSwitcher />
-                <Button
-                  variant="ghost"
-                  component={Link}
-                  href={`/${locale}/login`}
-                  size="md"
-                >
+                <Button variant="ghost" component={Link} href="/login" size="md">
                   {t('nav.signIn')}
                 </Button>
                 <Button
                   variant="primary"
                   component={Link}
-                  href={`/${locale}/practice`}
+                  href="/practice"
                   size="md"
                   data-cta="header-start-free"
                 >
                   {t('nav.start')}
                 </Button>
               </>
-            )}
-            {isMobile && (
+            ) : (
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ 
-                  color: 'text.primary',
-                  '&:focus-visible': {
-                    outline: '3px solid #2563eb',
-                    outlineOffset: '2px',
-                  },
-                }}
+                sx={{ color: 'text.primary' }}
               >
                 <MenuIcon />
               </IconButton>
@@ -234,15 +195,12 @@ export function Header() {
       <Drawer
         variant="temporary"
         open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
-        }}
+        onClose={closeDrawer}
+        ModalProps={{ keepMounted: true }}
         sx={{
           display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': { 
-            boxSizing: 'border-box', 
-            width: 280,
+          '& .MuiDrawer-paper': {
+            width: 300,
             backgroundColor: 'background.paper',
           },
         }}

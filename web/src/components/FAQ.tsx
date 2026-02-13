@@ -1,160 +1,128 @@
 "use client";
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import {
-  Container,
-  Box,
-  Typography,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  useTheme,
-} from '@mui/material';
+import { Box, Typography, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import * as React from 'react';
 
-const faqs = [
+import { Heading } from './ui/Heading';
+import { Section } from './ui/Section';
+
+const FAQS = [
   {
-    question: "Is this official DMV material?",
-    answer: "While we're not affiliated with the DMV, our questions are carefully crafted based on the official California Driver Handbook and real DMV test patterns. We regularly update our content to match the latest handbook changes.",
+    question: 'Is this official DMV material?',
+    answer:
+      'Permit School is not affiliated with the DMV. Our content is built from the official California handbook and updated to match common exam patterns.',
   },
   {
-    question: "How close are your questions to the actual DMV test?",
-    answer: "Our questions are modeled after real DMV test items, covering the same topics, difficulty levels, and question formats you'll encounter. Many learners report that our practice tests feel very similar to the real exam.",
+    question: 'How close are your questions to the actual test?',
+    answer:
+      'Question style, structure, and topic coverage are designed to mirror what learners typically face on permit day, including right-of-way and hazard scenarios.',
   },
   {
-    question: "Do you offer a money-back guarantee?",
-    answer: "Yes! If you're not satisfied with our service, we offer a 30-day money-back guarantee. No questions asked. We want you to feel confident about your investment in your driving education.",
+    question: 'Do you offer a money-back guarantee?',
+    answer:
+      'Yes. Paid plans include a 30-day money-back guarantee so you can evaluate the platform with low risk.',
   },
   {
-    question: "Will this work on my phone?",
-    answer: "Absolutely! Our platform is fully responsive and works great on phones, tablets, and computers. You can study anywhere, anytime, and your progress syncs automatically across all devices.",
+    question: 'Will this work on my phone?',
+    answer:
+      'Yes. The experience is optimized for phones, tablets, and desktops, and your progress carries across devices.',
   },
   {
-    question: "How long does it take to be ready for the test?",
-    answer: "Most learners are ready in 2-4 weeks with regular practice. Our adaptive system helps you focus on weak areas, so you can be confident you're truly prepared when you take the test.",
+    question: 'How long does preparation usually take?',
+    answer:
+      'Most learners feel ready in 2 to 4 weeks with regular short sessions. Adaptive review helps reduce wasted study time.',
   },
   {
-    question: "Do you support other states besides California?",
-    answer: "Currently, we focus on California permit tests to ensure the highest quality content. We're working on expanding to other states, so stay tuned for updates!",
+    question: 'Do you support states outside California?',
+    answer:
+      'California is the current primary focus. Additional jurisdictions are being rolled out as state content clears quality and compliance review.',
   },
 ];
 
 export function FAQ() {
-  const theme = useTheme();
   const [expanded, setExpanded] = React.useState<string | false>(false);
-  const [isMobile, setIsMobile] = React.useState(false);
 
-  // Handle responsive behavior on client side to avoid SSR hydration issues
-  React.useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < theme.breakpoints.values.md);
+  const handleAccordionChange =
+    (panel: string) =>
+    (_event: React.SyntheticEvent, isExpanded: boolean): void => {
+      setExpanded(isExpanded ? panel : false);
     };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, [theme.breakpoints.values.md]);
-
-  const handleAccordionChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-    setExpanded(isExpanded ? panel : false);
-  };
 
   return (
-    <Box
-      component="section"
-      id="section-faq"
-      sx={{
-        py: { xs: 8, md: 12 },
-        backgroundColor: 'background.default',
-      }}
-    >
-      <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography
-            variant="h2"
-            component="h3"
-            sx={{
-              mb: 2,
-              fontWeight: 700,
-            }}
-          >
-            Frequently asked questions
-          </Typography>
-          <Typography
-            variant="h5"
-            color="text.secondary"
-            sx={{ maxWidth: 600, mx: 'auto', lineHeight: 1.5 }}
-          >
-            Everything you need to know about getting your permit
-          </Typography>
-        </Box>
+    <Section id="section-faq" spacing="xl">
+      <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 7 } }}>
+        <Heading level={2} sx={{ mb: 1.5 }}>
+          Frequently asked questions
+        </Heading>
+        <Typography
+          variant="h5"
+          color="text.secondary"
+          sx={{ maxWidth: 720, mx: 'auto', textWrap: 'balance' }}
+        >
+          Answers about study quality, platform behavior, and permit-readiness.
+        </Typography>
+      </Box>
 
-        <Box sx={{ maxWidth: 800, mx: 'auto' }} id="faq">
-          {faqs.map((faq, index) => (
-            <Accordion
-              key={index}
-              expanded={expanded === `panel${index}`}
-              onChange={handleAccordionChange(`panel${index}`)}
-              sx={{
-                mb: 2,
-                '&:before': {
-                  display: 'none',
-                },
-                '&.Mui-expanded': {
-                  margin: '16px 0',
-                },
-              }}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls={`faq-content-${index}`}
-                id={`faq-header-${index}`}
-                aria-expanded={expanded === `panel${index}`}
-                sx={{
-                  '& .MuiAccordionSummary-content': {
-                    margin: '16px 0',
-                  },
-                }}
-              >
-                <Typography variant="h4" component="h4" fontWeight={600}>
-                  {faq.question}
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography
-                  variant="body1"
-                  color="text.secondary"
-                  sx={{ lineHeight: 1.6 }}
-                >
-                  {faq.answer}
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          ))}
-        </Box>
-
-        {/* DMV Disclaimer */}
-        <Box
+      <Box sx={{ maxWidth: 860, mx: 'auto' }} id="faq" role="region" aria-labelledby="faq-heading">
+        <Heading
+          level={3}
+          id="faq-heading"
           sx={{
-            mt: 8,
-            p: 4,
-            backgroundColor: 'grey.50',
-            borderRadius: 3,
-            border: '1px solid',
-            borderColor: 'divider',
+            position: 'absolute',
+            left: '-10000px',
+            width: 1,
+            height: 1,
+            overflow: 'hidden',
           }}
         >
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            sx={{ textAlign: 'center', lineHeight: 1.6 }}
+          FAQ content
+        </Heading>
+        {FAQS.map((faq, index) => (
+          <Accordion
+            key={faq.question}
+            expanded={expanded === `panel${index}`}
+            onChange={handleAccordionChange(`panel${index}`)}
+            sx={{
+              mb: 1.5,
+              '&.Mui-expanded': {
+                my: 1.5,
+              },
+            }}
           >
-            <strong>Important:</strong> Permit School is not affiliated with, endorsed by, or sponsored by the California Department of Motor Vehicles (DMV). 
-            Our practice tests are designed to help you prepare for the official DMV permit test, but the actual test content and format are determined solely by the DMV. 
-            Always refer to the official California Driver Handbook for the most current and accurate information.
-          </Typography>
-        </Box>
-      </Container>
-    </Box>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls={`faq-content-${index}`}
+              id={`faq-header-${index}`}
+              aria-expanded={expanded === `panel${index}`}
+            >
+              <Heading level={4}>{faq.question}</Heading>
+            </AccordionSummary>
+            <AccordionDetails id={`faq-content-${index}`}>
+              <Typography color="text.secondary" sx={{ lineHeight: 1.65 }}>
+                {faq.answer}
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        ))}
+      </Box>
+
+      <Box
+        sx={{
+          mt: { xs: 5, md: 7 },
+          p: { xs: 2.5, md: 3.5 },
+          backgroundColor: 'rgba(255,255,255,0.75)',
+          border: '1px solid',
+          borderColor: 'divider',
+          borderRadius: 3,
+        }}
+      >
+        <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+          <strong>Important:</strong> Permit School is not affiliated with, endorsed by, or sponsored by
+          the California Department of Motor Vehicles (DMV). Always verify legal requirements using the
+          official California Driver Handbook.
+        </Typography>
+      </Box>
+    </Section>
   );
 }

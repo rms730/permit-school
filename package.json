@@ -75,6 +75,8 @@
     "ci:server": "npm --prefix web run start:ci",
     "ci:wait": "npx wait-on -t 120000 http-get://localhost:4330/en",
     "ci:lint": "npm --prefix web run lint",
+    "test": "npm --prefix web run test",
+    "test:cov": "npm --prefix web run test:cov",
     "ci:test": "npm --prefix web run test -- --run",
     "ci:e2e": "npm --prefix web run test:e2e",
     "ci:lh": "npx lhci autorun --config=web/lhci.config.js",

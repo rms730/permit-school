@@ -3,6 +3,12 @@ import { test, expect } from '@playwright/test';
 test('FAQ accordion expands and collapses correctly', async ({ page }) => {
   await page.goto('/en');
   
+  // Wait for the page to load completely
+  await page.waitForLoadState('networkidle');
+  
+  // Scroll to FAQ section to ensure it's in view
+  await page.locator('#faq').scrollIntoViewIfNeeded();
+  
   // Find FAQ accordion summaries (MUI AccordionSummary components)
   const faqButtons = page.locator('[id^="faq-header-"]');
   const buttonCount = await faqButtons.count();
@@ -10,8 +16,14 @@ test('FAQ accordion expands and collapses correctly', async ({ page }) => {
   if (buttonCount > 0) {
     const firstFaqButton = faqButtons.first();
     
+    // Wait for the button to be ready
+    await firstFaqButton.waitFor({ state: 'visible' });
+    
     // Click to expand
     await firstFaqButton.click();
+    
+    // Wait a moment for the animation to complete
+    await page.waitForTimeout(500);
     
     // Check that aria-expanded is true
     await expect(firstFaqButton).toHaveAttribute('aria-expanded', 'true');
@@ -23,6 +35,9 @@ test('FAQ accordion expands and collapses correctly', async ({ page }) => {
     // Click to collapse
     await firstFaqButton.click();
     
+    // Wait a moment for the animation to complete
+    await page.waitForTimeout(500);
+    
     // Check that aria-expanded is false
     await expect(firstFaqButton).toHaveAttribute('aria-expanded', 'false');
   } else {
@@ -32,7 +47,7 @@ test('FAQ accordion expands and collapses correctly', async ({ page }) => {
 });
 
 test('header navigation buttons work correctly', async ({ page }) => {
-  await page.goto('http://localhost:3000/en');
+  await page.goto('/en');
 
   // Test that the header exists and has the brand name (use the link version)
   await expect(page.getByRole('link', { name: 'Permit School' })).toBeVisible();

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('header navigation works correctly after fixes', async ({ page }) => {
-  await page.goto('http://localhost:3000/en');
+  await page.goto('/en');
 
   // Check if we're on mobile (viewport width < 768px)
   const viewportSize = page.viewportSize();
@@ -22,11 +22,11 @@ test('header navigation works correctly after fixes', async ({ page }) => {
   
   // Click Practice tests and verify navigation
   await practiceButton.click();
-  await expect(page).toHaveURL('http://localhost:3000/practice');
+  await expect(page).toHaveURL('/practice');
   await expect(page.getByText('Start Your Practice Test')).toBeVisible();
   
   // Go back to home page
-  await page.goto('http://localhost:3000/en');
+  await page.goto('/en');
   
   // Test anchor scrolling for "How it works"
   let howItWorksButton;
@@ -78,7 +78,7 @@ test('header navigation works correctly after fixes', async ({ page }) => {
 test('mobile drawer closes after navigation', async ({ page }) => {
   // Set mobile viewport
   await page.setViewportSize({ width: 375, height: 667 });
-  await page.goto('http://localhost:3000/en');
+  await page.goto('/en');
 
   // Open mobile drawer
   await page.getByRole('button', { name: 'open drawer' }).click();

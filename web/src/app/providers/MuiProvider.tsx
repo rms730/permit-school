@@ -1,14 +1,29 @@
 "use client";
 
-import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { CssBaseline, GlobalStyles, ThemeProvider } from "@mui/material";
 import * as React from "react";
 
+import { modernTheme } from "@/theme/modernTheme";
+
 export default function MuiProvider({ children }: { children: React.ReactNode }) {
-  // Keep deterministic for now; you can extend palette/typography later.
-  const theme = React.useMemo(() => createTheme({ palette: { mode: "light" } }), []);
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={modernTheme}>
       <CssBaseline />
+      <GlobalStyles
+        styles={{
+          ":root": {
+            colorScheme: "light",
+          },
+          main: {
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+          },
+          "section[id]": {
+            scrollMarginTop: "96px",
+          },
+        }}
+      />
       {children}
     </ThemeProvider>
   );

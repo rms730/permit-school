@@ -1,71 +1,74 @@
 import {
   Container,
-  Paper,
   Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Button,
   Stack,
   Chip,
   Box,
+  Card,
+  CardContent,
+  Button,
+  Alert,
 } from "@mui/material";
+import Grid from '@mui/material/Grid';
 import Link from "next/link";
 import Script from "next/script";
-import * as React from "react";
 
 import AppShell from "@/components/layout/AppShell";
 import { getServerClient } from "@/lib/supabaseServer";
 
+type CatalogCourse = {
+  course_id: string;
+  j_code: string;
+  course_code: string;
+  course_title: string;
+  has_price: boolean;
+};
+
 export default async function CoursesPage() {
   const supabase = await getServerClient();
 
-  // Get course catalog
   const { data: catalog, error: catalogError } = await supabase
     .from("v_course_catalog")
     .select("*")
     .order("j_code", { ascending: true });
 
+  const courses = (catalog ?? []) as CatalogCourse[];
+
   if (catalogError) {
     return (
       <AppShell>
-        <Container maxWidth="lg" sx={{ mt: 4 }}>
-          <Paper variant="outlined" sx={{ p: 3 }}>
-            <Typography color="error">Failed to load courses.</Typography>
-          </Paper>
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Alert severity="error">Failed to load courses.</Alert>
         </Container>
       </AppShell>
     );
   }
 
-  // Create JSON-LD schema for courses
+  const availableCount = courses.filter(course => course.has_price).length;
+
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Driver Education Courses",
-    "description": "Comprehensive driver education courses for California permit test",
-    "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://permit-school.com'}/courses`,
-    "numberOfItems": catalog?.length || 0,
-    "itemListElement": catalog?.map((course, index) => ({
+    name: "Driver Education Courses",
+    description: "Comprehensive driver education courses for California permit preparation",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://permit-school.com'}/courses`,
+    numberOfItems: courses.length,
+    itemListElement: courses.map((course, index) => ({
       "@type": "Course",
-      "position": index + 1,
-      "name": course.course_title,
-      "description": `Driver education course for ${course.j_code} jurisdiction`,
-      "provider": {
+      position: index + 1,
+      name: course.course_title,
+      description: `Driver education course for ${course.j_code}`,
+      provider: {
         "@type": "Organization",
-        "name": "Permit School",
-        "url": process.env.NEXT_PUBLIC_SITE_URL || 'https://permit-school.com'
+        name: "Permit School",
+        url: process.env.NEXT_PUBLIC_SITE_URL || 'https://permit-school.com',
       },
-      "educationalLevel": "Beginner",
-      "inLanguage": "en-US",
-      "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://permit-school.com'}/course/${course.j_code}/${course.course_code}`,
-      "courseCode": course.course_code,
-      "coursePrerequisites": "Must be at least 15.5 years old",
-      "educationalCredentialAwarded": "Driver Education Certificate"
-    })) || []
+      educationalLevel: "Beginner",
+      inLanguage: "en-US",
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://permit-school.com'}/course/${course.j_code}/${course.course_code}`,
+      courseCode: course.course_code,
+      educationalCredentialAwarded: "Driver Education Certificate",
+    })),
   };
 
   return (
@@ -73,73 +76,80 @@ export default async function CoursesPage() {
       <Script
         id="course-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(courseSchema),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
-      <Container maxWidth="lg" sx={{ mt: 4 }}>
-        <Paper variant="outlined" sx={{ p: 3 }}>
-          <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 3 }}>
-            <Typography variant="h4">
-              Available Courses
-            </Typography>
-            <Button
-              variant="outlined"
-              component={Link}
-              href="/"
-            >
-              Back to Home
-            </Button>
-          </Stack>
 
-          <TableContainer>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Jurisdiction</TableCell>
-                  <TableCell>Course Code</TableCell>
-                  <TableCell>Course Title</TableCell>
-                  <TableCell>Status</TableCell>
-                  <TableCell>Actions</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {catalog?.map((course) => (
-                  <TableRow key={course.course_id}>
-                    <TableCell>
-                      <Chip 
-                        label={course.j_code} 
-                        color="primary" 
-                        size="small"
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <Typography variant="body2" fontFamily="monospace">
-                        {course.course_code}
-                      </Typography>
-                    </TableCell>
-                    <TableCell>
-                      <Typography variant="body1">
-                        {course.course_title}
-                      </Typography>
-                    </TableCell>
-                    <TableCell>
-                      {course.has_price ? (
-                        <Chip 
-                          label="Available" 
-                          color="success" 
+      <Container maxWidth="lg" sx={{ py: { xs: 3, md: 5 } }}>
+        <Card
+          sx={{
+            mb: 3,
+            background:
+              'linear-gradient(150deg, rgba(12,46,79,0.95) 0%, rgba(15,110,207,0.88) 58%, rgba(23,134,111,0.9) 100%)',
+            color: 'common.white',
+          }}
+        >
+          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+            <Stack spacing={1.6}>
+              <Typography variant="h3" sx={{ color: 'common.white' }}>
+                Available Courses
+              </Typography>
+              <Typography variant="h6" sx={{ color: 'rgba(255,255,255,0.9)', maxWidth: 760 }}>
+                Browse jurisdiction-ready courses, track eligibility requirements, and continue where you left off.
+              </Typography>
+              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.2}>
+                <Chip
+                  label={`${courses.length} total courses`}
+                  sx={{
+                    width: 'fit-content',
+                    backgroundColor: 'rgba(255,255,255,0.2)',
+                    color: 'common.white',
+                  }}
+                />
+                <Chip
+                  label={`${availableCount} available now`}
+                  sx={{
+                    width: 'fit-content',
+                    backgroundColor: 'rgba(197,245,228,0.28)',
+                    color: 'common.white',
+                  }}
+                />
+              </Stack>
+            </Stack>
+          </CardContent>
+        </Card>
+
+        {courses.length === 0 ? (
+          <Alert severity="info">No courses available at this time.</Alert>
+        ) : (
+          <Grid container spacing={2.5}>
+            {courses.map(course => (
+              <Grid key={course.course_id} xs={12} md={6} lg={4}>
+                <Card sx={{ height: '100%' }}>
+                  <CardContent sx={{ p: 3, height: '100%' }}>
+                    <Stack spacing={2.2} sx={{ height: '100%' }}>
+                      <Stack direction="row" spacing={1} alignItems="center" useFlexGap flexWrap="wrap">
+                        <Chip label={course.j_code} color="primary" size="small" />
+                        <Chip
+                          label={course.has_price ? 'Available' : 'Coming soon'}
+                          color={course.has_price ? 'success' : 'default'}
                           size="small"
                         />
-                      ) : (
-                        <Chip 
-                          label="Coming Soon" 
-                          color="default" 
-                          size="small"
-                        />
-                      )}
-                    </TableCell>
-                    <TableCell>
-                      <Stack direction="row" spacing={1}>
+                      </Stack>
+
+                      <Box>
+                        <Typography variant="h5" sx={{ mb: 0.6 }}>
+                          {course.course_title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          Code: <Box component="span" sx={{ fontFamily: 'monospace' }}>{course.course_code}</Box>
+                        </Typography>
+                      </Box>
+
+                      <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.65 }}>
+                        Structured curriculum with unit progression, seat-time tracking, and exam readiness checks.
+                      </Typography>
+
+                      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.2} sx={{ mt: 'auto' }}>
                         <Button
                           variant="outlined"
                           size="small"
@@ -148,7 +158,7 @@ export default async function CoursesPage() {
                         >
                           View Course
                         </Button>
-                        {course.has_price && (
+                        {course.has_price ? (
                           <Button
                             variant="contained"
                             size="small"
@@ -157,23 +167,15 @@ export default async function CoursesPage() {
                           >
                             Upgrade
                           </Button>
-                        )}
+                        ) : null}
                       </Stack>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-
-          {(!catalog || catalog.length === 0) && (
-            <Stack spacing={2} alignItems="center" sx={{ py: 4 }}>
-              <Typography color="text.secondary">
-                No courses available at this time.
-              </Typography>
-            </Stack>
-          )}
-        </Paper>
+                    </Stack>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        )}
       </Container>
     </AppShell>
   );

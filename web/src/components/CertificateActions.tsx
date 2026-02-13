@@ -1,8 +1,11 @@
 "use client";
 
-import { Button, Stack, Dialog, DialogTitle, DialogContent, DialogActions, TextField, Alert } from "@mui/material";
+import { Button, Stack, TextField, Alert, Box } from "@mui/material";
 import * as React from "react";
 import { useState } from "react";
+
+import { useDialog } from "@/app/providers/DialogProvider";
+import { useSnack } from "@/app/providers/SnackbarProvider";
 
 interface CertificateActionsProps {
   certificateId: string;
@@ -12,13 +15,21 @@ interface CertificateActionsProps {
 
 export default function CertificateActions({ certificateId, status, number }: CertificateActionsProps) {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [showVoidDialog, setShowVoidDialog] = useState(false);
   const [voidReason, setVoidReason] = useState("");
+  const { confirm } = useDialog();
+  const { success, error: showError } = useSnack();
 
   const handleIssue = async () => {
+    const confirmed = await confirm({
+      title: "Issue Certificate",
+      message: "Are you sure you want to issue this certificate? This action cannot be undone.",
+      confirmText: "Issue Certificate",
+      cancelText: "Cancel",
+    });
+
+    if (!confirmed) return;
+
     setLoading(true);
-    setError(null);
 
     try {
       const response = await fetch("/api/admin/certificates/issue", {
@@ -30,23 +41,37 @@ export default function CertificateActions({ certificateId, status, number }: Ce
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error || "Failed to issue certificate");
-        return;
+        throw new Error(data.error || "Failed to issue certificate");
       }
 
+      success("Certificate issued successfully");
       // Reload the page to show updated status
       window.location.reload();
     } catch (err) {
-      console.error("Issue certificate error:", err);
-      setError("Failed to issue certificate");
+      const errorMessage = err instanceof Error ? err.message : "Failed to issue certificate";
+      showError(errorMessage);
     } finally {
       setLoading(false);
     }
   };
 
   const handleVoid = async () => {
+    if (!voidReason.trim()) {
+      showError("Please provide a reason for voiding the certificate");
+      return;
+    }
+
+    const confirmed = await confirm({
+      title: "Void Certificate",
+      message: `Are you sure you want to void this certificate? This action cannot be undone.\n\nReason: ${voidReason}`,
+      confirmText: "Void Certificate",
+      cancelText: "Cancel",
+      destructive: true,
+    });
+
+    if (!confirmed) return;
+
     setLoading(true);
-    setError(null);
 
     try {
       const response = await fetch("/api/admin/certificates/void", {
@@ -61,88 +86,67 @@ export default function CertificateActions({ certificateId, status, number }: Ce
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error || "Failed to void certificate");
-        return;
+        throw new Error(data.error || "Failed to void certificate");
       }
 
-      setShowVoidDialog(false);
       setVoidReason("");
+      success("Certificate voided successfully");
       // Reload the page to show updated status
       window.location.reload();
     } catch (err) {
-      console.error("Void certificate error:", err);
-      setError("Failed to void certificate");
+      const errorMessage = err instanceof Error ? err.message : "Failed to void certificate";
+      showError(errorMessage);
     } finally {
       setLoading(false);
     }
   };
 
+  const handleVoidClick = async () => {
+    // For now, we'll use a simple prompt for the reason
+    // In a more sophisticated implementation, you might want a custom dialog
+    const reason = window.prompt("Please enter a reason for voiding the certificate:");
+    if (reason) {
+      setVoidReason(reason);
+      await handleVoid();
+    }
+  };
+
   return (
-    <>
-      <Stack direction="row" spacing={1}>
-        {status === "draft" && (
-          <Button
-            variant="contained"
-            size="small"
-            onClick={handleIssue}
-            disabled={loading}
-          >
-            Issue PDF
-          </Button>
-        )}
-        
-        {status === "issued" && (
-          <Button
-            variant="outlined"
-            size="small"
-            onClick={() => setShowVoidDialog(true)}
-            disabled={loading}
-            color="error"
-          >
-            Void
-          </Button>
-        )}
-
-        {status === "issued" && number && (
-          <Button
-            variant="outlined"
-            size="small"
-            component="a"
-            href={`/api/certificates/${number}`}
-            target="_blank"
-          >
-            PDF
-          </Button>
-        )}
-      </Stack>
-
-      {error && (
-        <Alert severity="error" sx={{ mt: 1 }}>
-          {error}
-        </Alert>
+    <Stack direction="row" spacing={1}>
+      {status === "draft" && (
+        <Button
+          variant="contained"
+          size="small"
+          onClick={handleIssue}
+          disabled={loading}
+        >
+          Issue PDF
+        </Button>
+      )}
+      
+      {status === "issued" && (
+        <Button
+          variant="outlined"
+          size="small"
+          onClick={handleVoidClick}
+          disabled={loading}
+          color="error"
+        >
+          Void Certificate
+        </Button>
       )}
 
-      <Dialog open={showVoidDialog} onClose={() => setShowVoidDialog(false)}>
-        <DialogTitle>Void Certificate</DialogTitle>
-        <DialogContent>
-          <TextField
-            margin="dense"
-            label="Reason for voiding"
-            fullWidth
-            variant="outlined"
-            value={voidReason}
-            onChange={(e) => setVoidReason(e.target.value)}
-            multiline
-            rows={3}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setShowVoidDialog(false)}>Cancel</Button>
-          <Button onClick={handleVoid} color="error" disabled={loading}>
-            Void Certificate
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </>
+      {status === "issued" && number && (
+        <Button
+          variant="outlined"
+          size="small"
+          component="a"
+          href={`/api/certificates/${number}`}
+          target="_blank"
+        >
+          PDF
+        </Button>
+      )}
+    </Stack>
   );
 }

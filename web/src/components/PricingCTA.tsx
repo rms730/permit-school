@@ -3,13 +3,15 @@
 import CheckIcon from '@mui/icons-material/Check';
 import {
   Box,
-  Container,
   Typography,
-  Button,
-  Card,
-  CardContent,
+  Stack,
   useTheme,
 } from '@mui/material';
+
+import { CheckoutButton } from './billing/CheckoutButton';
+import { CardX } from './ui/CardX';
+import { Heading } from './ui/Heading';
+import { Section } from './ui/Section';
 
 const features = [
   'Unlimited practice tests',
@@ -24,46 +26,37 @@ export function PricingCTA() {
   const theme = useTheme();
 
   return (
-    <Box
-      component="section"
+    <Section 
       id="section-pricing"
-      sx={{
-        py: { xs: 8, md: 12 },
-        backgroundColor: 'background.default',
-      }}
+      maxWidth="lg"
+      spacing="lg"
+      sx={{ backgroundColor: 'background.default' }}
     >
-      <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography
-            variant="h2"
-            component="h2"
-            sx={{
-              mb: 2,
-              fontWeight: 700,
-            }}
-          >
-            Start learning today
-          </Typography>
-          <Typography
-            variant="h5"
-            color="text.secondary"
-            sx={{ maxWidth: 600, mx: 'auto', lineHeight: 1.5 }}
-          >
-            Get unlimited access to all our practice tests and study materials
-          </Typography>
-        </Box>
+      <Box sx={{ textAlign: 'center', mb: 8 }}>
+        <Heading level={2} sx={{ mb: 2, fontWeight: 700 }}>
+          Start learning today
+        </Heading>
+        <Typography
+          variant="h5"
+          color="text.secondary"
+          sx={{ maxWidth: 600, mx: 'auto', lineHeight: 1.5 }}
+        >
+          Get unlimited access to all our practice tests and study materials
+        </Typography>
+      </Box>
 
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Card
-            sx={{
-              maxWidth: 400,
-              width: '100%',
-              textAlign: 'center',
-              position: 'relative',
-              overflow: 'visible',
-            }}
-          >
-            <CardContent sx={{ p: 4 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CardX
+          sx={{
+            maxWidth: 400,
+            width: '100%',
+            textAlign: 'center',
+            position: 'relative',
+            overflow: 'visible',
+          }}
+        >
+          <Stack spacing={4}>
+            <Box>
               <Typography
                 variant="h3"
                 component="h3"
@@ -77,58 +70,57 @@ export function PricingCTA() {
               <Typography
                 variant="h6"
                 color="text.secondary"
-                sx={{ mb: 3 }}
               >
                 One-time payment
               </Typography>
+            </Box>
 
-              <Box sx={{ mb: 4 }}>
-                {features.map((feature, index) => (
-                  <Box
-                    key={index}
+            <Box>
+              {features.map((feature, index) => (
+                <Box
+                  key={index}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    mb: 2,
+                    textAlign: 'left',
+                  }}
+                >
+                  <CheckIcon
                     sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      mb: 2,
-                      textAlign: 'left',
+                      color: 'success.main',
+                      mr: 2,
+                      fontSize: 20,
                     }}
-                  >
-                    <CheckIcon
-                      sx={{
-                        color: 'success.main',
-                        mr: 2,
-                        fontSize: 20,
-                      }}
-                    />
-                    <Typography variant="body1">{feature}</Typography>
-                  </Box>
-                ))}
-              </Box>
+                  />
+                  <Typography variant="body1">{feature}</Typography>
+                </Box>
+              ))}
+            </Box>
 
-              <Button
-                variant="contained"
-                size="large"
-                fullWidth
-                sx={{
-                  py: 2,
-                  fontSize: '1.1rem',
-                  fontWeight: 600,
-                }}
-              >
-                Get Started Now
-              </Button>
+            <CheckoutButton
+              priceId="price_one_time"
+              variant="contained"
+              size="large"
+              fullWidth
+              sx={{
+                py: 2,
+                fontSize: '1.1rem',
+                fontWeight: 600,
+              }}
+            >
+              Get Started Now
+            </CheckoutButton>
 
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                sx={{ mt: 2 }}
-              >
-                30-day money-back guarantee
-              </Typography>
-            </CardContent>
-          </Card>
-        </Box>
-      </Container>
-    </Box>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+            >
+              30-day money-back guarantee
+            </Typography>
+          </Stack>
+        </CardX>
+      </Box>
+    </Section>
   );
 }

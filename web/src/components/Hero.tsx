@@ -1,96 +1,75 @@
 "use client";
 
-import { CheckCircle } from '@mui/icons-material';
-import {
-  Container,
-  Box,
-  Stack,
-  Typography,
-  Chip,
-  useTheme,
-  useMediaQuery,
-} from '@mui/material';
+import { CheckCircle, TrendingUp } from '@mui/icons-material';
+import { Box, Stack, Typography, Chip } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Button } from './Button';
+import { Heading } from './ui/Heading';
+import { Section } from './ui/Section';
+
+const HERO_BADGES = ['DMV-style questions', 'Instant explanations', 'Mobile-friendly'];
 
 export function Hero() {
   const t = useTranslations('Home');
-  const theme = useTheme();
-  const _isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box
       component="section"
       id="section-hero"
       sx={{
-        background: 'linear-gradient(135deg, #0b1220 0%, #1e293b 50%, #334155 100%)',
-        color: 'white',
         position: 'relative',
         overflow: 'hidden',
+        background:
+          'linear-gradient(140deg, #0e365e 0%, #0f6ecf 52%, #17866f 100%)',
+        color: 'common.white',
         '&::before': {
           content: '""',
           position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: `
-            radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(14, 165, 233, 0.1) 0%, transparent 50%)
-          `,
+          inset: 0,
+          background:
+            'radial-gradient(circle at 15% 18%, rgba(255,255,255,0.2) 0, transparent 28%), radial-gradient(circle at 86% 72%, rgba(195,245,228,0.2) 0, transparent 36%)',
           pointerEvents: 'none',
-          zIndex: 0,
         },
       }}
     >
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+      <Section spacing="xl">
         <Box
           sx={{
-            py: { xs: 8, md: 12 },
+            position: 'relative',
+            zIndex: 1,
             display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
-            gap: { xs: 6, md: 8 },
+            gridTemplateColumns: { xs: '1fr', lg: '1.1fr 0.9fr' },
             alignItems: 'center',
-            minHeight: { xs: 'auto', md: '80vh' },
+            gap: { xs: 5, md: 7 },
           }}
         >
-          {/* Left Column - Content */}
-          <Stack spacing={4}>
-            <Stack spacing={3}>
-              <Typography
-                variant="h1"
-                component="h1"
-                sx={{
-                  fontWeight: 800,
-                  fontSize: { xs: '2.75rem', md: '3.5rem' },
-                  lineHeight: 1.1,
-                  letterSpacing: '-0.02em',
-                  background: 'linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%)',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                {t('hero.title')}
-              </Typography>
-              
-              <Typography
-                variant="h5"
-                sx={{
-                  fontWeight: 400,
-                  color: 'rgba(255, 255, 255, 0.9)',
-                  lineHeight: 1.5,
-                  maxWidth: 600,
-                }}
-              >
-                {t('hero.subtitle')}
-              </Typography>
-            </Stack>
+          <Stack spacing={3.5}>
+            <Heading
+              level={1}
+              sx={{
+                maxWidth: 720,
+                color: 'common.white',
+                textWrap: 'balance',
+              }}
+            >
+              {t('hero.title')}
+            </Heading>
 
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+            <Typography
+              variant="h5"
+              sx={{
+                color: 'rgba(255,255,255,0.9)',
+                maxWidth: 680,
+                lineHeight: 1.45,
+                textWrap: 'pretty',
+              }}
+            >
+              {t('hero.subtitle')}
+            </Typography>
+
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5}>
               <Button
                 variant="primary"
                 size="lg"
@@ -98,9 +77,10 @@ export function Hero() {
                 data-cta="hero-start-free"
                 data-testid="hero-start-free"
                 sx={{
-                  background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
+                  backgroundColor: '#ffffff',
+                  color: '#0f4b86',
                   '&:hover': {
-                    background: 'linear-gradient(135deg, #16a34a 0%, #15803d 100%)',
+                    backgroundColor: '#ecf4ff',
                   },
                 }}
               >
@@ -112,11 +92,11 @@ export function Hero() {
                 href="#how-it-works"
                 data-cta="hero-see-how"
                 sx={{
-                  borderColor: 'rgba(255, 255, 255, 0.3)',
-                  color: 'white',
+                  borderColor: 'rgba(255,255,255,0.6)',
+                  color: 'common.white',
                   '&:hover': {
-                    borderColor: 'white',
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    borderColor: '#ffffff',
+                    backgroundColor: 'rgba(255,255,255,0.12)',
                   },
                 }}
               >
@@ -124,132 +104,92 @@ export function Hero() {
               </Button>
             </Stack>
 
-            <Stack spacing={2}>
-              <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                <Chip
-                  icon={<CheckCircle />}
-                  label="DMV-style questions"
-                  sx={{
-                    backgroundColor: 'rgba(34, 197, 94, 0.2)',
-                    color: '#22c55e',
-                    border: '1px solid rgba(34, 197, 94, 0.3)',
-                  }}
-                />
-                <Chip
-                  icon={<CheckCircle />}
-                  label="Instant explanations"
-                  sx={{
-                    backgroundColor: 'rgba(34, 197, 94, 0.2)',
-                    color: '#22c55e',
-                    border: '1px solid rgba(34, 197, 94, 0.3)',
-                  }}
-                />
-                <Chip
-                  icon={<CheckCircle />}
-                  label="Mobile-friendly"
-                  sx={{
-                    backgroundColor: 'rgba(34, 197, 94, 0.2)',
-                    color: '#22c55e',
-                    border: '1px solid rgba(34, 197, 94, 0.3)',
-                  }}
-                />
+            <Stack spacing={1.5}>
+              <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
+                {HERO_BADGES.map(label => (
+                  <Chip
+                    key={label}
+                    icon={<CheckCircle />}
+                    label={label}
+                    sx={{
+                      color: 'common.white',
+                      backgroundColor: 'rgba(255,255,255,0.16)',
+                      border: '1px solid rgba(255,255,255,0.3)',
+                      '& .MuiChip-icon': {
+                        color: '#b9f2de',
+                      },
+                    }}
+                  />
+                ))}
               </Stack>
-              
-              <Typography
-                variant="body2"
-                sx={{
-                  color: 'rgba(255, 255, 255, 0.7)',
-                  fontSize: '0.875rem',
-                }}
-              >
+              <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.88)' }}>
                 {t('trust.badge')}
-              </Typography>
-              
-              <Typography
-                component="a"
-                href="/handbook"
-                variant="caption"
-                sx={{
-                  color: 'rgba(255, 255, 255, 0.6)',
-                  textDecoration: 'underline',
-                  '&:hover': {
-                    color: 'white',
-                  },
-                }}
-              >
-                Aligned with 2025 DMV handbook
               </Typography>
             </Stack>
           </Stack>
 
-          {/* Right Column - Product Visual */}
           <Box
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              position: 'relative',
+              display: 'grid',
+              gap: 2,
+              gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, minmax(0, 1fr))', lg: '1fr' },
             }}
           >
             <Box
               sx={{
-                width: '100%',
-                maxWidth: 500,
-                height: { xs: 300, md: 400 },
-                borderRadius: 3,
-                background: 'rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                position: 'relative',
-                overflow: 'hidden',
+                p: 3,
+                borderRadius: 4,
+                border: '1px solid rgba(255,255,255,0.28)',
+                background: 'rgba(255,255,255,0.16)',
+                boxShadow: '0 16px 48px rgba(7, 34, 65, 0.3)',
               }}
             >
-              <Stack spacing={2} alignItems="center" sx={{ position: 'relative', zIndex: 1 }}>
-                <Box
-                  sx={{
-                    width: 80,
-                    height: 80,
-                    borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    mb: 2,
-                  }}
-                >
-                  <Typography variant="h4" component="span" sx={{ color: 'white', fontWeight: 700 }}>
-                    ✓
-                  </Typography>
-                </Box>
-                <Typography
-                  variant="h6"
-                  component="p"
-                  sx={{
-                    color: 'rgba(255, 255, 255, 0.9)',
-                    textAlign: 'center',
-                    fontWeight: 600,
-                  }}
-                >
-                  Interactive Practice Platform
+              <Typography variant="overline" sx={{ color: 'rgba(255,255,255,0.78)' }}>
+                Smart Practice Loop
+              </Typography>
+              <Heading level={4} sx={{ mt: 0.7, color: 'common.white' }}>
+                Daily Readiness Score
+              </Heading>
+              <Stack direction="row" spacing={1.2} alignItems="center" sx={{ mt: 2 }}>
+                <Typography variant="h3" sx={{ color: 'common.white', fontWeight: 700 }}>
+                  92%
                 </Typography>
-                <Typography
-                  variant="body2"
+                <Chip
+                  icon={<TrendingUp />}
+                  label="+12 this week"
                   sx={{
-                    color: 'rgba(255, 255, 255, 0.7)',
-                    textAlign: 'center',
-                    maxWidth: 300,
+                    color: '#0f4b86',
+                    backgroundColor: '#d5f4e9',
+                    '& .MuiChip-icon': { color: '#17866f' },
                   }}
-                >
-                  Real DMV-style questions with instant feedback and progress tracking
-                </Typography>
+                />
               </Stack>
+              <Typography variant="body2" sx={{ mt: 1.5, color: 'rgba(255,255,255,0.85)' }}>
+                Tracks timing, topic confidence, and repeat misses so your next session starts where it matters.
+              </Typography>
+            </Box>
+
+            <Box
+              sx={{
+                p: 2.5,
+                borderRadius: 4,
+                border: '1px solid rgba(255,255,255,0.22)',
+                background: 'rgba(8, 34, 59, 0.36)',
+              }}
+            >
+              <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.88)', mb: 1 }}>
+                Next milestone
+              </Typography>
+              <Typography variant="h6" sx={{ color: 'common.white', mb: 0.8 }}>
+                Complete 15 mixed questions today
+              </Typography>
+              <Typography variant="body2" sx={{ color: '#b8dff7' }}>
+                Unlocks personalized review deck for right-of-way and parking law.
+              </Typography>
             </Box>
           </Box>
         </Box>
-      </Container>
+      </Section>
     </Box>
   );
 }

@@ -100,6 +100,7 @@ export default [
           caughtErrorsIgnorePattern: '^_',
         },
       ],
+      'no-undef': 'off', // TypeScript handles symbol resolution
       'no-unused-vars': 'off', // Use TypeScript version instead
 
       // Import rules
@@ -147,6 +148,32 @@ export default [
           alwaysTryTypes: true,
         },
       },
+    },
+  },
+  {
+    files: [
+      'src/**/*.{test,spec}.{ts,tsx}',
+      'src/**/__tests__/**/*.{ts,tsx}',
+      'src/test/**/*.{ts,tsx}',
+    ],
+    languageOptions: {
+      globals: {
+        describe: 'readonly',
+        it: 'readonly',
+        test: 'readonly',
+        expect: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+        beforeAll: 'readonly',
+        afterAll: 'readonly',
+        vi: 'readonly',
+        global: 'readonly',
+        Headers: 'readonly',
+      },
+    },
+    rules: {
+      'import/order': 'off',
+      'no-undef': 'off',
     },
   },
   {

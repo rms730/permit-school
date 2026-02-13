@@ -1,158 +1,105 @@
 "use client";
 
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import {
-  Container,
-  Box,
-  Typography,
-  Link,
-  IconButton,
-  useTheme,
-} from '@mui/material';
+import { Box, Typography, Link, Stack } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
-export function Footer() {
-  const theme = useTheme();
+import { Heading } from './ui/Heading';
+import { Section } from './ui/Section';
 
+const LEARN_LINKS = [
+  { label: 'Practice Tests', href: '/practice' },
+  { label: 'Courses', href: '/courses' },
+  { label: 'Final Exam', href: '/exam' },
+];
+
+const COMPANY_LINKS = [
+  { label: 'Privacy', href: '/privacy' },
+  { label: 'Terms', href: '/terms' },
+  { label: 'Accessibility', href: '/accessibility' },
+];
+
+export function Footer() {
   return (
     <Box
       component="footer"
       sx={{
-        backgroundColor: 'primary.main',
-        color: 'primary.contrastText',
-        py: 6,
-        mt: 'auto',
+        mt: 8,
+        background:
+          'linear-gradient(165deg, rgba(12,46,79,0.96) 0%, rgba(15,110,207,0.92) 56%, rgba(18,134,111,0.92) 100%)',
+        color: 'common.white',
       }}
     >
-      <Container maxWidth="lg">
-        <Grid container spacing={4}>
-          <Grid xs={12} md={4}>
-            <Typography variant="h6" gutterBottom>
+      <Section spacing="lg">
+        <Grid container spacing={{ xs: 4, md: 2 }}>
+          <Grid xs={12} md={6}>
+            <Heading level={3} sx={{ color: 'common.white', mb: 1.2 }}>
               Permit School
+            </Heading>
+            <Typography sx={{ color: 'rgba(255,255,255,0.88)', maxWidth: 480, lineHeight: 1.65 }}>
+              Focused California permit preparation with practical lessons, adaptive practice, and clear
+              progress tracking for students and families.
             </Typography>
-            <Typography variant="body2" sx={{ mb: 2 }}>
-              Your trusted partner in driver education. We help you prepare for your permit test with confidence.
-            </Typography>
-            <Box sx={{ display: 'flex', gap: 1 }}>
-              <IconButton color="inherit" size="small">
-                <FacebookIcon />
-              </IconButton>
-              <IconButton color="inherit" size="small">
-                <TwitterIcon />
-              </IconButton>
-              <IconButton color="inherit" size="small">
-                <InstagramIcon />
-              </IconButton>
-              <IconButton color="inherit" size="small">
-                <LinkedInIcon />
-              </IconButton>
-            </Box>
           </Grid>
-          
-          <Grid xs={12} md={2}>
-            <Typography variant="h6" gutterBottom>
+
+          <Grid xs={6} md={3}>
+            <Typography variant="overline" sx={{ color: 'rgba(255,255,255,0.75)' }}>
               Learn
             </Typography>
-            <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-              <Box component="li" sx={{ mb: 1 }}>
-                <Link href="/courses" color="inherit" underline="hover">
-                  Courses
+            <Stack spacing={0.8} sx={{ mt: 1 }}>
+              {LEARN_LINKS.map(item => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  color="inherit"
+                  underline="hover"
+                  sx={{ width: 'fit-content' }}
+                >
+                  {item.label}
                 </Link>
-              </Box>
-              <Box component="li" sx={{ mb: 1 }}>
-                <Link href="/practice" color="inherit" underline="hover">
-                  Practice Tests
-                </Link>
-              </Box>
-              <Box component="li" sx={{ mb: 1 }}>
-                <Link href="/exam" color="inherit" underline="hover">
-                  Final Exam
-                </Link>
-              </Box>
-            </Box>
+              ))}
+            </Stack>
           </Grid>
-          
-          <Grid xs={12} md={2}>
-            <Typography variant="h6" gutterBottom>
-              Support
-            </Typography>
-            <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-              <Box component="li" sx={{ mb: 1 }}>
-                <Link href="/help" color="inherit" underline="hover">
-                  Help Center
-                </Link>
-              </Box>
-              <Box component="li" sx={{ mb: 1 }}>
-                <Link href="/contact" color="inherit" underline="hover">
-                  Contact Us
-                </Link>
-              </Box>
-              <Box component="li" sx={{ mb: 1 }}>
-                <Link href="/faq" color="inherit" underline="hover">
-                  FAQ
-                </Link>
-              </Box>
-            </Box>
-          </Grid>
-          
-          <Grid xs={12} md={2}>
-            <Typography variant="h6" gutterBottom>
-              Company
-            </Typography>
-            <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-              <Box component="li" sx={{ mb: 1 }}>
-                <Link href="/about" color="inherit" underline="hover">
-                  About Us
-                </Link>
-              </Box>
-              <Box component="li" sx={{ mb: 1 }}>
-                <Link href="/careers" color="inherit" underline="hover">
-                  Careers
-                </Link>
-              </Box>
-              <Box component="li" sx={{ mb: 1 }}>
-                <Link href="/press" color="inherit" underline="hover">
-                  Press
-                </Link>
-              </Box>
-            </Box>
-          </Grid>
-          
-          <Grid
-            xs={12}
-            md={2}>
-            <Typography variant="h6" gutterBottom>
+
+          <Grid xs={6} md={3}>
+            <Typography variant="overline" sx={{ color: 'rgba(255,255,255,0.75)' }}>
               Legal
             </Typography>
-            <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-              <Box component="li" sx={{ mb: 1 }}>
-                <Link href="/privacy" color="inherit" underline="hover">
-                  Privacy Policy
+            <Stack spacing={0.8} sx={{ mt: 1 }}>
+              {COMPANY_LINKS.map(item => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  color="inherit"
+                  underline="hover"
+                  sx={{ width: 'fit-content' }}
+                >
+                  {item.label}
                 </Link>
-              </Box>
-              <Box component="li" sx={{ mb: 1 }}>
-                <Link href="/terms" color="inherit" underline="hover">
-                  Terms of Service
-                </Link>
-              </Box>
-              <Box component="li" sx={{ mb: 1 }}>
-                <Link href="/accessibility" color="inherit" underline="hover">
-                  Accessibility
-                </Link>
-              </Box>
-            </Box>
+              ))}
+            </Stack>
           </Grid>
         </Grid>
-        
-        <Box sx={{ borderTop: 1, borderColor: 'rgba(255,255,255,0.1)', pt: 3, mt: 4, textAlign: 'center' }}>
-          <Typography variant="body2">
+
+        <Box
+          sx={{
+            mt: 4,
+            pt: 3,
+            borderTop: '1px solid rgba(255,255,255,0.22)',
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
+            alignItems: { xs: 'flex-start', sm: 'center' },
+            justifyContent: 'space-between',
+            gap: 1,
+          }}
+        >
+          <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)' }}>
             © {new Date().getFullYear()} Permit School. All rights reserved.
           </Typography>
+          <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.72)' }}>
+            Not affiliated with the California DMV.
+          </Typography>
         </Box>
-      </Container>
+      </Section>
     </Box>
   );
 }

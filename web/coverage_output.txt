@@ -1,0 +1,136 @@
+
+ RUN  v3.2.4 /Users/rsternke/Developer/valleyApps/permit-school/web
+      Coverage enabled with v8
+
+ ✓ src/lib/__tests__/idleTracker.test.ts (11 tests) 8ms
+ ✓ src/lib/__tests__/confetti.test.ts (14 tests) 61ms
+ ✓ src/app/api/health/__tests__/route.test.ts (5 tests) 7ms
+ ✓ src/lib/__tests__/tokens.test.ts (8 tests) 6ms
+ ✓ src/components/ui/__tests__/EmptyState.test.tsx (5 tests) 163ms
+ ✓ src/components/ui/__tests__/StatusChip.test.tsx (5 tests) 212ms
+ ✓ src/components/ui/__tests__/SkeletonX.spec.tsx (26 tests) 664ms
+ ✓ src/test/routes.contract.spec.tsx (10 tests) 104ms
+ ✓ src/components/ui/__tests__/CardX.spec.tsx (13 tests) 686ms
+stderr | src/components/ui/__tests__/ResponsiveImage.spec.tsx > ResponsiveImage > renders with basic props
+Warning: Received `false` for a non-boolean attribute `fill`.
+
+If you want to write it to the DOM, pass a string instead: fill="false" or fill={value.toString()}.
+
+If you used to conditionally omit it with fill={condition && value}, pass fill={condition ? value : undefined} instead.
+    at img
+    at default (/Users/rsternke/Developer/valleyApps/permit-school/web/src/components/ui/__tests__/ResponsiveImage.spec.tsx:4:15)
+    at div
+    at /Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@emotion/react/dist/emotion-element-e8f4cc37.development.cjs.js:60:23
+    at Box (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/system/createBox/createBox.js:27:41)
+    at /Users/rsternke/Developer/valleyApps/permit-school/web/src/components/ui/ResponsiveImage.tsx:13:5
+    at DialogProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/src/app/providers/DialogProvider.tsx:9:27)
+    at SnackbarProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/notistack/notistack.cjs.development.js:1478:24)
+    at SnackbarProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/src/app/providers/SnackbarProvider.tsx:9:29)
+    at DefaultPropsProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/system/DefaultPropsProvider/DefaultPropsProvider.js:17:3)
+    at RtlProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/system/RtlProvider/index.js:15:3)
+    at ThemeProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/private-theming/node/ThemeProvider/ThemeProvider.js:40:5)
+    at ThemeProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/system/ThemeProvider/ThemeProvider.js:56:5)
+    at ThemeProviderNoVars (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/material/node/styles/ThemeProviderNoVars.js:15:10)
+    at ThemeProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/material/node/styles/ThemeProvider.js:16:3)
+    at MuiProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/src/app/providers/MuiProvider.tsx:7:24)
+    at QueryClientProvider (file:///Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at Router (file:///Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/react-router/dist/development/chunk-PVWAREVJ.mjs:5910:13)
+    at MemoryRouter (file:///Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/react-router/dist/development/chunk-PVWAREVJ.mjs:5832:3)
+    at Wrapper (/Users/rsternke/Developer/valleyApps/permit-school/web/src/test/test-utils.tsx:42:22)
+Warning: Received `false` for a non-boolean attribute `priority`.
+
+If you want to write it to the DOM, pass a string instead: priority="false" or priority={value.toString()}.
+
+If you used to conditionally omit it with priority={condition && value}, pass priority={condition ? value : undefined} instead.
+    at img
+    at default (/Users/rsternke/Developer/valleyApps/permit-school/web/src/components/ui/__tests__/ResponsiveImage.spec.tsx:4:15)
+    at div
+    at /Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@emotion/react/dist/emotion-element-e8f4cc37.development.cjs.js:60:23
+    at Box (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/system/createBox/createBox.js:27:41)
+    at /Users/rsternke/Developer/valleyApps/permit-school/web/src/components/ui/ResponsiveImage.tsx:13:5
+    at DialogProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/src/app/providers/DialogProvider.tsx:9:27)
+    at SnackbarProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/notistack/notistack.cjs.development.js:1478:24)
+    at SnackbarProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/src/app/providers/SnackbarProvider.tsx:9:29)
+    at DefaultPropsProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/system/DefaultPropsProvider/DefaultPropsProvider.js:17:3)
+    at RtlProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/system/RtlProvider/index.js:15:3)
+    at ThemeProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/private-theming/node/ThemeProvider/ThemeProvider.js:40:5)
+    at ThemeProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/system/ThemeProvider/ThemeProvider.js:56:5)
+    at ThemeProviderNoVars (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/material/node/styles/ThemeProviderNoVars.js:15:10)
+    at ThemeProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@mui/material/node/styles/ThemeProvider.js:16:3)
+    at MuiProvider (/Users/rsternke/Developer/valleyApps/permit-school/web/src/app/providers/MuiProvider.tsx:7:24)
+    at QueryClientProvider (file:///Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at Router (file:///Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/react-router/dist/development/chunk-PVWAREVJ.mjs:5910:13)
+    at MemoryRouter (file:///Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/react-router/dist/development/chunk-PVWAREVJ.mjs:5832:3)
+    at Wrapper (/Users/rsternke/Developer/valleyApps/permit-school/web/src/test/test-utils.tsx:42:22)
+
+ ✓ src/components/ui/__tests__/Heading.test.tsx (4 tests) 295ms
+ ✓ src/components/ui/__tests__/ResponsiveImage.spec.tsx (23 tests) 627ms
+ ✓ src/components/__tests__/Button.spec.tsx (13 tests) 976ms
+ ✓ src/components/ui/__tests__/PageHeader.spec.tsx (18 tests) 1023ms
+ ✓ src/lib/__tests__/switchLocale.test.ts (9 tests) 6ms
+ ↓ src/test/a11y.contract.spec.tsx (5 tests | 5 skipped)
+stderr | src/components/__tests__/Hero.spec.tsx > Hero > handles button clicks
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/Users/rsternke/Developer/valleyApps/permit-school/web/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:594:17)
+    at processTimers (node:internal/timers:529:7) [90mundefined[39m
+
+ ✓ src/components/__tests__/Hero.spec.tsx (8 tests) 284ms
+ ❯ src/components/ui/__tests__/ErrorState.spec.tsx (20 tests | 1 failed) 420ms
+   ✓ ErrorState > renders with basic props 106ms
+   ✓ ErrorState > renders with custom title 5ms
+   ✓ ErrorState > renders with retry button 24ms
+   ✓ ErrorState > calls retry function when retry button is clicked 55ms
+   ✓ ErrorState > renders with details button when details are provided 20ms
+   × ErrorState > toggles details visibility when details button is clicked 26ms
+     → [2mexpect([22m[31melement[39m[2m).toHaveStyle()[22m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- display: none;[39m
+[31m+ display: block;[39m
+   ✓ ErrorState > renders with different sizes 11ms
+   ✓ ErrorState > renders with different alignments 10ms
+   ✓ ErrorState > renders with both retry and details 27ms
+   ✓ ErrorState > forwards ref correctly 6ms
+   ✓ ErrorState > renders with custom component 7ms
+   ✓ ErrorState > applies custom sx styles 6ms
+   ✓ ErrorState > renders error icon 4ms
+   ✓ ErrorState > renders refresh icon in retry button 5ms
+   ✓ ErrorState > renders expand icons in details button 6ms
+   ✓ ErrorState > shows expand less icon when details are expanded 26ms
+   ✓ ErrorState > renders details in alert component 33ms
+   ✓ ErrorState > has proper accessibility attributes 6ms
+   ✓ ErrorState > handles long error messages 5ms
+   ✓ ErrorState > handles long error details 29ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/components/ui/__tests__/ErrorState.spec.tsx > ErrorState > toggles details visibility when details button is clicked
+Error: [2mexpect([22m[31melement[39m[2m).toHaveStyle()[22m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- display: none;[39m
+[31m+ display: block;[39m
+ ❯ src/components/ui/__tests__/ErrorState.spec.tsx:97:30
+     95|     if (initialDetails) {
+     96|       // If details are in DOM, they should be hidden by CSS
+     97|       expect(initialDetails).toHaveStyle({ display: 'none' });
+       |                              ^
+     98|     } else {
+     99|       // If not in DOM, that's also fine
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 15 passed | 1 skipped (17)
+      Tests  1 failed | 191 passed | 5 skipped (197)
+   Start at  07:55:15
+   Duration  26.03s (transform 9.47s, setup 8.62s, collect 70.56s, tests 5.54s, environment 14.08s, prepare 2.41s)
+

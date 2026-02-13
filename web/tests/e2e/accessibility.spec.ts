@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Accessibility smoke', () => {
   test('should pass accessibility tests on home page', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/en');
 
     // Run axe-core accessibility test
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
@@ -50,7 +50,7 @@ test.describe('Accessibility smoke', () => {
   });
 
   test('should have basic keyboard navigation', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/en');
 
     // Test that the page is keyboard accessible
     await page.keyboard.press('Tab');
@@ -60,7 +60,7 @@ test.describe('Accessibility smoke', () => {
   });
 
   test('should have basic accessibility structure', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/en');
 
     // Check for basic accessibility structure
     const mainContent = page.locator('main, [role="main"], #main');

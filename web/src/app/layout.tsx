@@ -2,26 +2,12 @@
 import '@/env';
 
 import type { Metadata } from "next";
-import { Inter, Rubik } from 'next/font/google';
 import * as React from "react";
 
 import { getDictionary } from "@/lib/i18n";
 import { getLocaleFromRequest } from "@/lib/i18n/server";
 
 import ClientProviders from "./ClientProviders";
-
-// Load Google Fonts
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-});
-
-const rubik = Rubik({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-rubik',
-});
 
 export const metadata: Metadata = {
   title: "Permit School — Learn to Drive in California",
@@ -100,19 +86,11 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${inter.variable} ${rubik.variable}`}>
+      <body>
         <ClientProviders locale={locale} dict={dict}>
           <main id="main" role="main" tabIndex={-1}>
             {children}
           </main>
-          <footer role="contentinfo" style={{ marginTop: 'auto', padding: '2rem 0', textAlign: 'center', borderTop: '1px solid #e0e0e0' }}>
-            <p>&copy; {new Date().getFullYear()} Permit School. All rights reserved.</p>
-            <nav aria-label="Footer navigation">
-              <a href="/privacy" style={{ margin: '0 1rem', color: '#666', textDecoration: 'none' }}>Privacy</a>
-              <a href="/terms" style={{ margin: '0 1rem', color: '#666', textDecoration: 'none' }}>Terms</a>
-              <a href="/accessibility" style={{ margin: '0 1rem', color: '#666', textDecoration: 'none' }}>Accessibility</a>
-            </nav>
-          </footer>
         </ClientProviders>
       </body>
     </html>

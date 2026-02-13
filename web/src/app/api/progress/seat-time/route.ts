@@ -3,6 +3,50 @@ import { NextResponse } from "next/server";
 import { checkSeatTimeMilestones } from "@/lib/notify";
 import { getRouteClient } from "@/lib/supabaseRoute";
 
+export async function GET() {
+  try {
+    const supabase = await getRouteClient();
+
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser();
+
+    if (authError || !user) {
+      return NextResponse.json(
+        { error: "Unauthorized", code: "UNAUTHENTICATED" },
+        { status: 401 },
+      );
+    }
+
+    const { data: seatTimeRows, error: seatTimeError } = await supabase
+      .from("v_course_seat_time")
+      .select("minutes_total")
+      .eq("user_id", user.id);
+
+    if (seatTimeError) {
+      console.error("Seat time GET error:", seatTimeError);
+      return NextResponse.json(
+        { error: "Failed to load seat time", code: "DATABASE_ERROR" },
+        { status: 500 },
+      );
+    }
+
+    const minutesTotal = (seatTimeRows ?? []).reduce(
+      (sum, row) => sum + Number(row.minutes_total || 0),
+      0,
+    );
+
+    return NextResponse.json({ minutes_total: minutesTotal });
+  } catch (err: any) {
+    console.error("Seat time GET API error:", err);
+    return NextResponse.json(
+      { error: "Internal server error", code: "INTERNAL_ERROR" },
+      { status: 500 },
+    );
+  }
+}
+
 export async function POST(req: Request) {
   try {
     const { unitId, msDelta } = await req.json();
@@ -74,7 +118,7 @@ export async function POST(req: Request) {
     }
 
     // Get current progress
-    const { data: progress, error: progressError } = await supabase
+    const { data: progress, error: _progressError } = await supabase
       .from("unit_progress")
       .select("time_ms")
       .eq("student_id", user.id)

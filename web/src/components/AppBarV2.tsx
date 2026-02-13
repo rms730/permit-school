@@ -6,7 +6,6 @@ import {
   School,
   Receipt,
   ExitToApp,
-  Notifications,
   Close,
 } from '@mui/icons-material';
 import {
@@ -38,6 +37,7 @@ import { getOfflineBadgeText, isFeatureDisabled } from '@/lib/offline';
 import { supabase } from '@/lib/supabaseClient';
 
 import LanguageSwitcher from './LanguageSwitcher';
+import NotificationBell from './NotificationBell';
 
 
 interface AppBarV2Props {
@@ -66,7 +66,6 @@ export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props)
   
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [_mobileOpen, _setMobileOpen] = useState(false);
-  const [_notificationsAnchor, _setNotificationsAnchor] = useState<null | HTMLElement>(null);
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -334,14 +333,7 @@ export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props)
                     />
                   )}
                   
-                  <IconButton
-                    size="large"
-                    aria-label="notifications"
-                    color="inherit"
-                    onClick={(e) => _setNotificationsAnchor(e.currentTarget)}
-                  >
-                    <Notifications />
-                  </IconButton>
+                  <NotificationBell />
 
                   <IconButton
                     size="large"

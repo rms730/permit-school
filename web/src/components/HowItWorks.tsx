@@ -1,275 +1,128 @@
 "use client";
 
-import {
-  PersonAdd,
-  Quiz,
-  CheckCircle,
-} from '@mui/icons-material';
-import {
-  Container,
-  Box,
-  Stack,
-  Typography,
-
-  useTheme,
-
-} from '@mui/material';
+import { PersonAdd, Quiz, CheckCircle } from '@mui/icons-material';
+import { Box, Stack, Typography, useMediaQuery } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import * as React from 'react';
 
-const steps = [
+import { Heading } from './ui/Heading';
+import { Section } from './ui/Section';
+
+const STEPS = [
   {
-    icon: <PersonAdd sx={{ fontSize: 48, color: 'primary.main' }} />,
+    icon: PersonAdd,
     title: 'Create your plan',
-    description: 'Tell us about your timeline and we\'ll create a personalized study schedule.',
-    visual: (
-      <Box
-        sx={{
-          width: 120,
-          height: 120,
-          borderRadius: '50%',
-          background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(14, 165, 233, 0.1) 100%)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          border: '2px solid',
-          borderColor: 'primary.main',
-          position: 'relative',
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            width: 20,
-            height: 20,
-            borderRadius: '50%',
-            backgroundColor: 'primary.main',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-          },
-        }}
-      />
-    ),
+    description:
+      'Answer a few onboarding questions and get a study path that fits your timeline.',
   },
   {
-    icon: <Quiz sx={{ fontSize: 48, color: 'primary.main' }} />,
+    icon: Quiz,
     title: 'Practice with adaptive tests',
-    description: 'Our AI adapts to your learning style, focusing on areas that need improvement.',
-    visual: (
-      <Box
-        sx={{
-          width: 120,
-          height: 120,
-          borderRadius: '50%',
-          background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.1) 100%)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          border: '2px solid',
-          borderColor: 'secondary.main',
-          position: 'relative',
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            width: 40,
-            height: 40,
-            borderRadius: '50%',
-            backgroundColor: 'secondary.main',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-          },
-        }}
-      />
-    ),
+    description:
+      'Questions adjust as you improve so each session targets your highest-impact gaps.',
   },
   {
-    icon: <CheckCircle sx={{ fontSize: 48, color: 'primary.main' }} />,
-    title: 'Pass with confidence',
-    description: 'Get reminders right before test day and walk in knowing you\'re ready.',
-    visual: (
-      <Box
-        sx={{
-          width: 120,
-          height: 120,
-          borderRadius: '50%',
-          background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(34, 197, 94, 0.1) 100%)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          border: '2px solid',
-          borderColor: 'primary.main',
-          position: 'relative',
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            width: 60,
-            height: 60,
-            borderRadius: '50%',
-            backgroundColor: 'primary.main',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-          },
-        }}
-      />
-    ),
+    icon: CheckCircle,
+    title: 'Walk in confident',
+    description:
+      'Use readiness tracking and final review drills to feel prepared on test day.',
   },
 ];
 
 export function HowItWorks() {
-  const theme = useTheme();
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  React.useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < theme.breakpoints.values.md);
-    };
-    
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-    
-    return () => window.removeEventListener('resize', checkIsMobile);
-  }, [theme.breakpoints.values.md]);
+  const showConnector = useMediaQuery('(min-width:900px)');
 
   return (
-    <Box
-      component="section"
+    <Section
       id="section-how-it-works"
+      spacing="xl"
       sx={{
-        py: { xs: 8, md: 12 },
-        backgroundColor: 'grey.50',
+        background:
+          'linear-gradient(180deg, rgba(15,110,207,0.04) 0%, rgba(23,134,111,0.03) 100%)',
       }}
     >
-      <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography
-            variant="h2"
-            component="h3"
+      <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 7 } }}>
+        <Heading level={2} sx={{ mb: 1.5 }}>
+          How it works
+        </Heading>
+        <Typography variant="h5" color="text.secondary" sx={{ maxWidth: 660, mx: 'auto' }}>
+          Three clear steps from first login to DMV-ready confidence.
+        </Typography>
+      </Box>
+
+      <Box sx={{ position: 'relative' }}>
+        {showConnector ? (
+          <Box
+            aria-hidden
             sx={{
-              mb: 2,
-              fontWeight: 700,
+              position: 'absolute',
+              left: '12%',
+              right: '12%',
+              top: 48,
+              height: 2,
+              background:
+                'linear-gradient(90deg, rgba(15,110,207,0.4) 0%, rgba(23,134,111,0.45) 100%)',
+              zIndex: 0,
             }}
-          >
-            How it works
-          </Typography>
-          <Typography
-            variant="h5"
-            color="text.secondary"
-            sx={{ maxWidth: 600, mx: 'auto', lineHeight: 1.5 }}
-          >
-            Three simple steps to get you permit-ready
-          </Typography>
-        </Box>
+          />
+        ) : null}
 
-        <Grid container spacing={4} id="how-it-works">
-          {steps.map((step, index) => (
-            <Grid
-              key={step.title}
-              xs={12}
-              md={4}>
-              <Stack
-                spacing={3}
-                alignItems="center"
-                textAlign="center"
-                sx={{ position: 'relative' }}
-              >
-                {/* Step number */}
-                <Box
+        <Grid container spacing={3.25} id="how-it-works" sx={{ position: 'relative', zIndex: 1 }}>
+          {STEPS.map((step, index) => {
+            const Icon = step.icon;
+
+            return (
+              <Grid key={step.title} xs={12} md={4}>
+                <Stack
+                  spacing={2.2}
+                  alignItems="center"
+                  textAlign="center"
                   sx={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: '50%',
-                    backgroundColor: 'primary.main',
-                    color: 'white',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontWeight: 700,
-                    fontSize: '1.125rem',
-                    mb: 2,
+                    p: { xs: 2.5, md: 3 },
+                    borderRadius: 4,
+                    border: '1px solid rgba(18,32,50,0.12)',
+                    backgroundColor: 'rgba(255,255,255,0.88)',
+                    minHeight: 320,
                   }}
                 >
-                  {index + 1}
-                </Box>
+                  <Box
+                    sx={{
+                      width: 42,
+                      height: 42,
+                      borderRadius: '50%',
+                      backgroundColor: 'primary.main',
+                      color: 'common.white',
+                      display: 'grid',
+                      placeItems: 'center',
+                      fontWeight: 700,
+                    }}
+                  >
+                    {index + 1}
+                  </Box>
 
-                {/* Icon */}
-                <Box
-                  sx={{
-                    width: 80,
-                    height: 80,
-                    borderRadius: '50%',
-                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    mb: 2,
-                  }}
-                >
-                  {step.icon}
-                </Box>
+                  <Box
+                    sx={{
+                      width: 76,
+                      height: 76,
+                      borderRadius: '50%',
+                      display: 'grid',
+                      placeItems: 'center',
+                      backgroundColor: 'rgba(15,110,207,0.12)',
+                    }}
+                  >
+                    <Icon sx={{ color: 'primary.main', fontSize: 38 }} />
+                  </Box>
 
-                {/* Visual element */}
-                <Box sx={{ mb: 2 }}>
-                  {step.visual}
-                </Box>
-
-                {/* Content */}
-                <Stack spacing={2}>
-                  <Typography variant="h4" component="h4" fontWeight={700}>
-                    {step.title}
-                  </Typography>
-                  <Typography color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                  <Heading level={4}>{step.title}</Heading>
+                  <Typography color="text.secondary" sx={{ lineHeight: 1.65 }}>
                     {step.description}
                   </Typography>
                 </Stack>
-              </Stack>
-            </Grid>
-          ))}
+              </Grid>
+            );
+          })}
         </Grid>
-
-        {/* Progress indicator */}
-        {!isMobile && (
-          <Box
-            sx={{
-              position: 'relative',
-              mt: 8,
-              '&::before': {
-                content: '""',
-                position: 'absolute',
-                top: '50%',
-                left: '16.67%',
-                right: '16.67%',
-                height: '2px',
-                backgroundColor: 'primary.main',
-                transform: 'translateY(-50%)',
-                zIndex: 0,
-                pointerEvents: 'none',
-              },
-            }}
-          >
-            <Grid container spacing={4}>
-              {steps.map((_, index) => (
-                <Grid
-                  key={index}
-                  xs={12}
-                  md={4}>
-                  <Box
-                    sx={{
-                      width: 20,
-                      height: 20,
-                      borderRadius: '50%',
-                      backgroundColor: 'primary.main',
-                      mx: 'auto',
-                      position: 'relative',
-                      zIndex: 1,
-                    }}
-                  />
-                </Grid>
-              ))}
-            </Grid>
-          </Box>
-        )}
-      </Container>
-    </Box>
+      </Box>
+    </Section>
   );
 }

@@ -2,23 +2,16 @@ import {
   Container,
   Paper,
   Typography,
-  List,
-  ListItem,
-  ListItemText,
   Button,
   Stack,
   Box,
   Chip,
-  LinearProgress,
-  Card,
-  CardContent,
   Alert,
+  Divider,
 } from "@mui/material";
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import * as React from "react";
 
-import AppBar from "@/components/AppBar";
+import AppShell from "@/components/layout/AppShell";
 import { getEntitlementForUser } from "@/lib/entitlements";
 import { getLocaleFromRequest } from "@/lib/i18n/server";
 import { getServerClient } from "@/lib/supabaseServer";
@@ -39,59 +32,112 @@ interface Unit {
   minutes_required: number;
 }
 
-interface PageProps {
-  params: Promise<{
-    unitId: string;
-  }>;
+interface ContentChunkJoin {
+  ord: number;
+  content_chunks:
+    | {
+        id: number;
+        chunk: string;
+        section_ref?: string;
+        source_url?: string;
+        lang?: string;
+      }
+    | {
+        id: number;
+        chunk: string;
+        section_ref?: string;
+        source_url?: string;
+        lang?: string;
+      }[]
+    | null;
 }
 
-export default async function LessonPlayerPage({ params }: PageProps) {
+interface PageProps {
+  params: Promise<{ unitId: string }>;
+  searchParams: Promise<{ section?: string }>;
+}
+
+function selectPreferredChunks(items: ContentChunkJoin[], locale: string): Chunk[] {
+  const bySection = new Map<number, Chunk>();
+
+  for (const item of items) {
+    const content = Array.isArray(item.content_chunks)
+      ? (item.content_chunks[0] ?? null)
+      : item.content_chunks;
+    if (!content) continue;
+
+    const lang = content.lang ?? 'en';
+    if (lang !== locale && lang !== 'en') continue;
+
+    const candidate: Chunk = {
+      id: content.id,
+      ord: item.ord,
+      chunk: content.chunk,
+      section_ref: content.section_ref,
+      source_url: content.source_url,
+      lang,
+    };
+
+    const current = bySection.get(item.ord);
+    if (!current) {
+      bySection.set(item.ord, candidate);
+      continue;
+    }
+
+    if (current.lang === 'en' && lang === locale) {
+      bySection.set(item.ord, candidate);
+    }
+  }
+
+  return Array.from(bySection.values()).sort((a, b) => a.ord - b.ord);
+}
+
+export default async function LessonPlayerPage({ params, searchParams }: PageProps) {
   const { unitId } = await params;
+  const { section } = await searchParams;
+
   const supabase = await getServerClient();
   const locale = await getLocaleFromRequest();
 
-  // Get unit details including unit_no
   const { data: unit, error: unitError } = await supabase
     .from("course_units")
     .select("id, title, unit_no, minutes_required")
     .eq("id", unitId)
-    .single();
+    .single<Unit>();
 
   if (unitError || !unit) {
     return (
-      <Container maxWidth="lg" sx={{ mt: 4 }}>
-        <Paper variant="outlined" sx={{ p: 3 }}>
-          <Typography color="error">Unit not found</Typography>
-        </Paper>
-      </Container>
+      <AppShell>
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Alert severity="error">Unit not found.</Alert>
+        </Container>
+      </AppShell>
     );
   }
 
-  // Check entitlement for units beyond Unit 1
   if (unit.unit_no !== 1) {
     const { active: isEntitled } = await getEntitlementForUser('CA');
-    
+
     if (!isEntitled) {
       return (
-        <Container maxWidth="lg" sx={{ mt: 4 }}>
-          <Paper variant="outlined" sx={{ p: 3 }}>
-            <Alert 
-              severity="info" 
+        <AppShell>
+          <Container maxWidth="lg" sx={{ py: 4 }}>
+            <Alert
+              severity="info"
               action={
                 <Button color="inherit" size="small" component={Link} href="/billing">
                   Upgrade
                 </Button>
               }
             >
-              This unit requires a subscription. Please upgrade to access all course content.
+              This unit requires an active subscription.
             </Alert>
-          </Paper>
-        </Container>
+          </Container>
+        </AppShell>
       );
     }
   }
 
-  // Get unit chunks with locale-aware content
   const { data: chunksData, error: chunksError } = await supabase
     .from("unit_chunks")
     .select(
@@ -104,158 +150,170 @@ export default async function LessonPlayerPage({ params }: PageProps) {
         source_url,
         lang
       )
-    `,
+    `
     )
     .eq("unit_id", unitId)
     .order("ord");
 
   if (chunksError || !chunksData) {
     return (
-      <Container maxWidth="lg" sx={{ mt: 4 }}>
-        <Paper variant="outlined" sx={{ p: 3 }}>
-          <Typography color="error">Failed to load unit content</Typography>
-        </Paper>
-      </Container>
+      <AppShell>
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Alert severity="error">Failed to load unit content.</Alert>
+        </Container>
+      </AppShell>
     );
   }
 
-  // Filter chunks by locale, fallback to English
-  const chunks: Chunk[] = chunksData
-    .map((item) => ({
-      id: (item.content_chunks as any).id,
-      ord: item.ord,
-      chunk: (item.content_chunks as any).chunk,
-      section_ref: (item.content_chunks as any).section_ref,
-      source_url: (item.content_chunks as any).source_url,
-      lang: (item.content_chunks as any).lang,
-    }))
-    .filter((item) => item.lang === locale || item.lang === 'en')
-    .reduce((acc, item) => {
-      // If we already have a chunk for this ord with the preferred locale, skip
-      const existing = acc.find(c => c.ord === item.ord);
-      if (existing && existing.lang === locale) {
-        return acc;
-      }
-      if (existing && item.lang === 'en') {
-        // Replace English with preferred locale if available
-        const filtered = acc.filter(c => c.ord !== item.ord);
-        return [...filtered, item];
-      }
-      if (!existing) {
-        return [...acc, item];
-      }
-      return acc;
-    }, [] as any[]);
+  const chunks = selectPreferredChunks(chunksData as ContentChunkJoin[], locale);
+
+  if (chunks.length === 0) {
+    return (
+      <AppShell>
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Alert severity="info">No content is available for this unit yet.</Alert>
+        </Container>
+      </AppShell>
+    );
+  }
+
+  const requestedSection = Number.parseInt(section ?? '', 10);
+  const selectedOrd = Number.isFinite(requestedSection)
+    ? requestedSection
+    : chunks[0].ord;
+
+  const selectedIndex = Math.max(
+    0,
+    chunks.findIndex(chunk => chunk.ord === selectedOrd)
+  );
+
+  const currentChunk = chunks[selectedIndex] ?? chunks[0];
+  const previousChunk = selectedIndex > 0 ? chunks[selectedIndex - 1] : null;
+  const nextChunk = selectedIndex < chunks.length - 1 ? chunks[selectedIndex + 1] : null;
+
+  const completionPercent = Math.round(((selectedIndex + 1) / chunks.length) * 100);
 
   return (
-    <>
-      <AppBar title={`${unit.title} - Learning`} />
-      <Container maxWidth="lg" sx={{ mt: 4, mb: 8 }}>
-      {/* Header with title */}
-      <Paper variant="outlined" sx={{ p: 2, mb: 2 }}>
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
+    <AppShell>
+      <Container maxWidth="lg" sx={{ py: { xs: 3, md: 4 }, mb: 8 }}>
+        <Paper
+          sx={{
+            p: { xs: 2.5, md: 3.5 },
+            mb: 2.5,
+            background:
+              'linear-gradient(145deg, rgba(12,46,79,0.95) 0%, rgba(15,110,207,0.88) 58%, rgba(23,134,111,0.9) 100%)',
+            color: 'common.white',
+          }}
         >
-          <Typography variant="h5">{unit.title}</Typography>
-          <Stack direction="row" spacing={2} alignItems="center">
-            <Chip label={`Unit ${unit.unit_no}`} size="small" />
-            <Typography variant="body2">
-              {unit.minutes_required} minutes required
+          <Stack spacing={1.5}>
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} alignItems={{ xs: 'flex-start', sm: 'center' }}>
+              <Chip label={`Unit ${unit.unit_no}`} sx={{ backgroundColor: 'rgba(255,255,255,0.2)', color: 'common.white' }} />
+              <Chip
+                label={`${completionPercent}% through this unit`}
+                sx={{ backgroundColor: 'rgba(255,255,255,0.2)', color: 'common.white' }}
+              />
+            </Stack>
+            <Typography variant="h3" sx={{ color: 'common.white' }}>
+              {unit.title}
+            </Typography>
+            <Typography sx={{ color: 'rgba(255,255,255,0.9)' }}>
+              {unit.minutes_required} required minutes • {chunks.length} sections
             </Typography>
           </Stack>
-        </Stack>
-      </Paper>
-
-      <Stack direction="row" spacing={2} sx={{ height: "70vh" }}>
-        {/* Left sidebar - chunk navigation */}
-        <Paper variant="outlined" sx={{ width: 300, p: 2, overflow: "auto" }}>
-          <Typography variant="h6" gutterBottom>
-            Content Sections
-          </Typography>
-          <List dense>
-            {chunks.map((chunk, index) => (
-              <Box
-                key={chunk.id}
-                sx={{
-                  p: 1,
-                  borderRadius: 1,
-                  mb: 0.5,
-                  bgcolor: "transparent",
-                }}
-              >
-                <Typography variant="body2">
-                  Section {chunk.ord}
-                </Typography>
-                <Typography variant="caption" color="text.secondary">
-                  {chunk.section_ref || "No section reference"}
-                </Typography>
-              </Box>
-            ))}
-          </List>
         </Paper>
 
-        {/* Main content area */}
-        <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
-          <Paper variant="outlined" sx={{ flex: 1, p: 3, overflow: "auto" }}>
-            {chunks.length > 0 ? (
-              <Box>
-                <Stack
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  sx={{ mb: 2 }}
-                >
-                  <Typography variant="h6">
-                    Section {chunks[0].ord}
-                  </Typography>
-                  {chunks[0].section_ref && (
-                    <Chip label={chunks[0].section_ref} size="small" />
-                  )}
-                </Stack>
-
-                <Card variant="outlined" sx={{ mb: 2 }}>
-                  <CardContent>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        whiteSpace: "pre-wrap",
-                        lineHeight: 1.6,
-                        fontSize: "1rem",
-                      }}
-                    >
-                      {chunks[0].chunk}
-                    </Typography>
-                  </CardContent>
-                </Card>
-
-                {chunks[0].source_url && (
-                  <Typography variant="caption" color="text.secondary">
-                    Source: {chunks[0].source_url}
-                  </Typography>
-                )}
-              </Box>
-            ) : (
-              <Typography>No content available</Typography>
-            )}
+        <Box
+          sx={{
+            display: 'grid',
+            gap: 2.5,
+            gridTemplateColumns: { xs: '1fr', md: '280px 1fr' },
+          }}
+        >
+          <Paper sx={{ p: 2, alignSelf: 'start', position: { md: 'sticky' }, top: { md: 88 } }}>
+            <Typography variant="h6" sx={{ mb: 1.4 }}>
+              Sections
+            </Typography>
+            <Stack spacing={0.9}>
+              {chunks.map((chunk, index) => {
+                const selected = chunk.ord === currentChunk.ord;
+                return (
+                  <Button
+                    key={chunk.id}
+                    component={Link}
+                    href={`/learn/${unit.id}?section=${chunk.ord}`}
+                    variant={selected ? 'contained' : 'text'}
+                    sx={{ justifyContent: 'flex-start', textAlign: 'left', py: 1.1, borderRadius: 2 }}
+                  >
+                    <Stack alignItems="flex-start" spacing={0.2}>
+                      <Typography fontWeight={selected ? 700 : 500}>Section {chunk.ord}</Typography>
+                      <Typography variant="caption" sx={{ opacity: selected ? 0.95 : 0.7 }}>
+                        {chunk.section_ref ?? `Content block ${index + 1}`}
+                      </Typography>
+                    </Stack>
+                  </Button>
+                );
+              })}
+            </Stack>
           </Paper>
 
-          {/* Navigation info */}
-          <Paper variant="outlined" sx={{ p: 2, mt: 2 }}>
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Typography variant="body2">
-                {chunks.length} sections available
+          <Paper sx={{ p: { xs: 2, md: 3 } }}>
+            <Stack spacing={2}>
+              <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" spacing={1}>
+                <Box>
+                  <Typography variant="h5">Section {currentChunk.ord}</Typography>
+                  <Typography color="text.secondary">
+                    {currentChunk.section_ref ?? 'Study this section and continue to the next one.'}
+                  </Typography>
+                </Box>
+                <Chip label={`Section ${selectedIndex + 1} of ${chunks.length}`} sx={{ width: 'fit-content' }} />
+              </Stack>
+
+              <Divider />
+
+              <Typography sx={{ whiteSpace: 'pre-wrap', lineHeight: 1.75 }}>
+                {currentChunk.chunk}
               </Typography>
+
+              {currentChunk.source_url ? (
+                <Typography variant="caption" color="text.secondary">
+                  Source: {currentChunk.source_url}
+                </Typography>
+              ) : null}
+
+              <Divider />
+
+              <Stack
+                direction={{ xs: 'column', sm: 'row' }}
+                spacing={1.2}
+                justifyContent="space-between"
+              >
+                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.2}>
+                  <Button
+                    component={Link}
+                    href={previousChunk ? `/learn/${unit.id}?section=${previousChunk.ord}` : '#'}
+                    variant="outlined"
+                    disabled={!previousChunk}
+                  >
+                    Previous section
+                  </Button>
+                  <Button
+                    component={Link}
+                    href={nextChunk ? `/learn/${unit.id}?section=${nextChunk.ord}` : '#'}
+                    variant="contained"
+                    disabled={!nextChunk}
+                  >
+                    Next section
+                  </Button>
+                </Stack>
+
+                <Button component={Link} href={`/quiz/start/${unit.id}`} variant="text">
+                  Take unit quiz
+                </Button>
+              </Stack>
             </Stack>
           </Paper>
         </Box>
-      </Stack>
-    </Container>
-    </>
+      </Container>
+    </AppShell>
   );
 }

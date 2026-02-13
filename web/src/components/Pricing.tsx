@@ -1,146 +1,156 @@
 "use client";
 
 import CheckIcon from '@mui/icons-material/Check';
-import { Box, Typography, Card, CardContent, Stack, Chip, Button, Container } from '@mui/material';
+import { Box, Typography, Stack, Chip, Button } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
-const plans = [
+import { CheckoutButton } from './billing/CheckoutButton';
+import { CardX } from './ui/CardX';
+import { Heading } from './ui/Heading';
+import { Section } from './ui/Section';
+
+type Plan = {
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  features: string[];
+  cta: string;
+  ctaHref: string;
+  popular?: boolean;
+  stripePriceId?: string;
+};
+
+const PLANS: Plan[] = [
   {
-    name: 'Free',
+    name: 'Starter',
     price: '$0',
     period: 'forever',
-    description: 'Perfect for getting started',
-    features: [
-      '1 practice test',
-      'Basic progress tracking',
-      'Mobile-friendly',
-    ],
+    description: 'Try the platform and get an initial readiness snapshot.',
+    features: ['1 full practice test', 'Topic performance overview', 'Works on mobile and desktop'],
     cta: 'Start Free',
     ctaHref: '/practice',
-    popular: false,
   },
   {
     name: 'Plus',
     price: '$9.99',
     period: 'month',
-    description: 'Everything you need to pass',
+    description: 'Best for students preparing to test in the next 30 days.',
     features: [
       'Unlimited practice tests',
-      'Detailed explanations',
-      'Progress analytics',
-      'Offline access',
-      'Certificate of completion',
+      'Adaptive question sequencing',
+      'Detailed rationale for every answer',
+      'Progress analytics and readiness score',
+      'Completion certificate tracking',
     ],
     cta: 'Start Plus Trial',
     ctaHref: '/signup',
     popular: true,
+    stripePriceId: 'price_plus_monthly',
   },
   {
-    name: 'Pro',
+    name: 'Family',
     price: '$19.99',
     period: 'month',
-    description: 'For schools and instructors',
+    description: 'For guardians supporting multiple learners at once.',
     features: [
       'Everything in Plus',
-      'Classroom management',
-      'Student progress reports',
-      'Custom content creation',
+      'Guardian progress visibility',
+      'Study reminders',
       'Priority support',
+      'Flexible subscription management',
     ],
-    cta: 'Contact Sales',
-    ctaHref: '/contact',
-    popular: false,
+    cta: 'Choose Family',
+    ctaHref: '/signup',
   },
 ];
 
 export function Pricing() {
   return (
-    <Box
-      component="section"
-      id="section-pricing"
-      sx={{
-        py: { xs: 8, md: 12 },
-        backgroundColor: 'background.default',
-      }}
-    >
-      <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography variant="h2" component="h3" sx={{ mb: 2, fontWeight: 700 }}>
-            Simple, Transparent Pricing
-          </Typography>
-          <Typography variant="h5" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-            Choose the plan that fits your needs
-          </Typography>
-        </Box>
+    <Section id="section-pricing" spacing="xl" sx={{ backgroundColor: 'transparent' }}>
+      <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 7 } }}>
+        <Heading level={2} sx={{ mb: 1.5 }}>
+          Pricing that fits your timeline
+        </Heading>
+        <Typography variant="h5" color="text.secondary" sx={{ maxWidth: 720, mx: 'auto' }}>
+          Start free, upgrade when you want deeper practice, and cancel anytime.
+        </Typography>
+      </Box>
 
-        <Grid container spacing={4} id="pricing">
-          {plans.map((plan) => (
-            <Grid
-              key={plan.name}
-              xs={12}
-              md={4}>
-              <Card
-                sx={{
-                  height: '100%',
-                  position: 'relative',
-                  ...(plan.popular && {
-                    border: 2,
-                    borderColor: 'primary.main',
-                    transform: 'scale(1.05)',
-                  }),
-                }}
-              >
-                {plan.popular && (
-                  <Chip
-                    label="Most Popular"
-                    color="primary"
-                    sx={{
-                      position: 'absolute',
-                      top: -12,
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                    }}
-                  />
-                )}
-                <CardContent sx={{ p: 4, height: '100%', display: 'flex', flexDirection: 'column' }}>
-                  <Stack spacing={3} sx={{ flexGrow: 1 }}>
-                    <Box>
-                      <Typography variant="h4" fontWeight={700} sx={{ mb: 1 }}>
-                        {plan.name}
-                      </Typography>
-                      <Typography variant="h3" fontWeight={700} color="primary.main" sx={{ mb: 1 }}>
-                        {plan.price}
-                        <Typography component="span" variant="h6" color="text.secondary">
-                          /{plan.period}
-                        </Typography>
-                      </Typography>
-                      <Typography color="text.secondary">{plan.description}</Typography>
-                    </Box>
+      <Grid container spacing={2.75} id="pricing">
+        {PLANS.map(plan => (
+          <Grid key={plan.name} xs={12} md={4}>
+            <CardX
+              spacing="relaxed"
+              sx={{
+                height: '100%',
+                position: 'relative',
+                borderColor: plan.popular ? 'primary.main' : 'rgba(18,32,50,0.12)',
+                transform: plan.popular ? { xs: 'none', md: 'translateY(-8px)' } : 'none',
+                backgroundColor: plan.popular ? 'rgba(15,110,207,0.04)' : 'background.paper',
+              }}
+            >
+              {plan.popular ? (
+                <Chip
+                  label="Most Popular"
+                  color="primary"
+                  sx={{
+                    position: 'absolute',
+                    top: 16,
+                    right: 16,
+                  }}
+                />
+              ) : null}
 
-                    <Stack spacing={2} sx={{ flexGrow: 1 }}>
-                      {plan.features.map((feature) => (
-                        <Stack key={feature} direction="row" spacing={2} alignItems="center">
-                          <CheckIcon color="primary" />
-                          <Typography>{feature}</Typography>
-                        </Stack>
-                      ))}
+              <Stack spacing={2.5} sx={{ flexGrow: 1 }}>
+                <Box>
+                  <Heading level={4} sx={{ mb: 1 }}>
+                    {plan.name}
+                  </Heading>
+                  <Typography variant="h2" sx={{ mb: 0.4 }}>
+                    {plan.price}
+                    <Typography component="span" variant="h6" color="text.secondary">
+                      /{plan.period}
+                    </Typography>
+                  </Typography>
+                  <Typography color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                    {plan.description}
+                  </Typography>
+                </Box>
+
+                <Stack spacing={1.2} sx={{ flexGrow: 1 }}>
+                  {plan.features.map(feature => (
+                    <Stack key={feature} direction="row" spacing={1.1} alignItems="flex-start">
+                      <CheckIcon sx={{ color: 'secondary.main', mt: '3px', fontSize: 18 }} />
+                      <Typography>{feature}</Typography>
                     </Stack>
+                  ))}
+                </Stack>
 
-                    <Button
-                      variant={plan.popular ? 'contained' : 'outlined'}
-                      href={plan.ctaHref}
-                      fullWidth
-                      size="large"
-                    >
-                      {plan.cta}
-                    </Button>
-                  </Stack>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </Box>
+                {plan.stripePriceId ? (
+                  <CheckoutButton
+                    priceId={plan.stripePriceId}
+                    variant="contained"
+                    fullWidth
+                    size="large"
+                  >
+                    {plan.cta}
+                  </CheckoutButton>
+                ) : (
+                  <Button
+                    variant={plan.popular ? 'contained' : 'outlined'}
+                    href={plan.ctaHref}
+                    fullWidth
+                    size="large"
+                  >
+                    {plan.cta}
+                  </Button>
+                )}
+              </Stack>
+            </CardX>
+          </Grid>
+        ))}
+      </Grid>
+    </Section>
   );
 }

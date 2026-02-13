@@ -1,29 +1,30 @@
 "use client";
 
 import {
-  School,
-  TrendingUp,
-  Receipt,
-  Person,
   ArrowForward,
-  WorkspacePremium,
-  AccessTime,
   AutoStories,
   CheckCircle,
+  FactCheck,
+  Person,
+  Receipt,
+  School,
+  TrendingUp,
   WarningAmber,
+  WorkspacePremium,
 } from '@mui/icons-material';
 import {
-  Container,
-  Typography,
+  Alert,
   Box,
   Button,
   Card,
   CardContent,
   Chip,
-  Alert,
   CircularProgress,
-  Stack,
+  Container,
   Divider,
+  LinearProgress,
+  Stack,
+  Typography,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { useRouter } from 'next/navigation';
@@ -67,6 +68,13 @@ interface DashboardState {
   enrollments: EnrollmentData[];
   seatTime: SeatTimeData | null;
   eligibility: EligibilityData | null;
+}
+
+interface ActionPlan {
+  cta: string;
+  description: string;
+  href: string;
+  title: string;
 }
 
 const INITIAL_STATE: DashboardState = {
@@ -132,72 +140,127 @@ export default function DashboardPage() {
     void loadDashboardData();
   }, [loadDashboardData]);
 
-  const activeEnrollments = data.enrollments.filter(e => e.status === 'active');
-  const completedEnrollments = data.enrollments.filter(e => e.status === 'completed');
-  const latestEnrollment = data.enrollments[0] ?? null;
+  const enrollmentFeed = React.useMemo(
+    () =>
+      [...data.enrollments].sort(
+        (a, b) => new Date(b.started_at).valueOf() - new Date(a.started_at).valueOf()
+      ),
+    [data.enrollments]
+  );
+
+  const activeEnrollments = enrollmentFeed.filter(enrollment => enrollment.status === 'active');
+  const completedEnrollments = enrollmentFeed.filter(enrollment => enrollment.status === 'completed');
+  const latestEnrollment = enrollmentFeed[0] ?? null;
   const totalMinutes = Math.round(data.seatTime?.minutes_total ?? 0);
+  const minutesTarget = Math.max(data.eligibility?.minutesRequired ?? 0, 1);
+  const minutesProgress = Math.min(100, Math.round((totalMinutes / minutesTarget) * 100));
 
   const eligibilityStatus = React.useMemo(() => {
     if (!data.eligibility) {
       return {
-        label: 'Loading status',
         color: 'default' as const,
-        icon: <AccessTime sx={{ fontSize: 18 }} />,
         helper: 'Checking your profile, seat-time, and subscription.',
+        icon: <TrendingUp sx={{ fontSize: 18 }} />,
+        label: 'Loading status',
       };
     }
 
     if (data.eligibility.eligible) {
       return {
-        label: 'Eligible for final exam',
         color: 'success' as const,
-        icon: <CheckCircle sx={{ fontSize: 18 }} />,
         helper: 'You can start the exam whenever you are ready.',
+        icon: <CheckCircle sx={{ fontSize: 18 }} />,
+        label: 'Eligible for final exam',
       };
     }
 
     switch (data.eligibility.reason) {
       case 'profile_incomplete':
         return {
-          label: 'Profile incomplete',
           color: 'warning' as const,
-          icon: <WarningAmber sx={{ fontSize: 18 }} />,
           helper: data.eligibility.missing_fields?.length
             ? `Missing fields: ${data.eligibility.missing_fields.join(', ')}`
             : 'Finish profile fields and policy acceptance.',
+          icon: <WarningAmber sx={{ fontSize: 18 }} />,
+          label: 'Profile incomplete',
         };
       case 'guardian_consent_required':
         return {
-          label: 'Guardian consent required',
           color: 'warning' as const,
-          icon: <WarningAmber sx={{ fontSize: 18 }} />,
           helper: 'Guardian verification is required before final exam access.',
+          icon: <WarningAmber sx={{ fontSize: 18 }} />,
+          label: 'Guardian consent required',
         };
       case 'seat-time':
         return {
-          label: 'Seat-time still required',
           color: 'info' as const,
-          icon: <AccessTime sx={{ fontSize: 18 }} />,
           helper: `${Math.round(data.eligibility.minutesTotal ?? 0)} / ${Math.round(
             data.eligibility.minutesRequired ?? 0
           )} minutes complete`,
+          icon: <TrendingUp sx={{ fontSize: 18 }} />,
+          label: 'Seat-time still required',
         };
       case 'entitlement':
         return {
-          label: 'Subscription required',
           color: 'error' as const,
-          icon: <WorkspacePremium sx={{ fontSize: 18 }} />,
           helper: 'Activate a subscription to unlock exam and premium flow.',
+          icon: <WorkspacePremium sx={{ fontSize: 18 }} />,
+          label: 'Subscription required',
         };
       default:
         return {
-          label: 'Not eligible yet',
           color: 'default' as const,
-          icon: <WarningAmber sx={{ fontSize: 18 }} />,
           helper: 'Complete required steps and check back.',
+          icon: <WarningAmber sx={{ fontSize: 18 }} />,
+          label: 'Not eligible yet',
         };
     }
   }, [data.eligibility]);
+
+  const actionPlan = React.useMemo<ActionPlan>(() => {
+    if (!data.profile?.is_profile_complete) {
+      return {
+        cta: 'Finish profile',
+        description: 'Complete required profile fields so your progress and exam eligibility update correctly.',
+        href: '/onboarding',
+        title: 'Complete onboarding',
+      };
+    }
+
+    if (data.eligibility?.reason === 'entitlement') {
+      return {
+        cta: 'Open billing',
+        description: 'Your learning tools are active, but exam and premium access need an active plan.',
+        href: '/billing',
+        title: 'Activate plan access',
+      };
+    }
+
+    if (data.eligibility?.reason === 'seat-time') {
+      return {
+        cta: 'Continue lessons',
+        description: 'You are close. Continue reading sections and quizzes to finish remaining seat-time.',
+        href: '/courses',
+        title: 'Finish seat-time requirement',
+      };
+    }
+
+    if (data.eligibility?.eligible) {
+      return {
+        cta: 'Start final exam',
+        description: 'You have unlocked the final exam. Take it now while your momentum is high.',
+        href: '/exam/start',
+        title: 'Ready for final exam',
+      };
+    }
+
+    return {
+      cta: 'Review eligibility',
+      description: 'Check the readiness checklist to see exactly what is still required.',
+      href: '/exam',
+      title: 'Review readiness checklist',
+    };
+  }, [data.eligibility, data.profile?.is_profile_complete]);
 
   if (loading) {
     return (
@@ -229,7 +292,8 @@ export default function DashboardPage() {
                 Welcome back{data.profile?.first_name ? `, ${data.profile.first_name}` : ''}
               </Typography>
               <Typography variant="h6" sx={{ color: 'rgba(255,255,255,0.92)' }}>
-                Keep momentum today with a quick lesson block or jump into your readiness checks.
+                Your learning hub is up to date. Pick the next best action and keep moving toward exam
+                readiness.
               </Typography>
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.2}>
                 <Button
@@ -256,7 +320,7 @@ export default function DashboardPage() {
                     },
                   }}
                 >
-                  Open exam eligibility
+                  Open eligibility checklist
                 </Button>
               </Stack>
             </Stack>
@@ -319,7 +383,7 @@ export default function DashboardPage() {
                   </Typography>
                   <Typography variant="h3">{totalMinutes} min</Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Tracked across all active units
+                    {minutesProgress}% of current requirement
                   </Typography>
                 </Stack>
               </CardContent>
@@ -330,7 +394,7 @@ export default function DashboardPage() {
             <Card sx={{ height: '100%' }}>
               <CardContent>
                 <Stack spacing={1.2}>
-                  <School color="primary" />
+                  <FactCheck color="primary" />
                   <Typography variant="body2" color="text.secondary">
                     Final exam status
                   </Typography>
@@ -372,112 +436,157 @@ export default function DashboardPage() {
 
         <Grid container spacing={2.5}>
           <Grid xs={12} lg={7}>
-            <Card sx={{ height: '100%' }}>
-              <CardContent>
-                <Stack spacing={2}>
-                  <Typography variant="h5">Current enrollment activity</Typography>
-                  <Divider />
+            <Stack spacing={2.5}>
+              <Card>
+                <CardContent>
+                  <Stack spacing={2}>
+                    <Typography variant="h5">Current enrollment activity</Typography>
+                    <Divider />
 
-                  {data.enrollments.length === 0 ? (
-                    <Alert severity="info">No enrollments found yet. Browse available courses to begin.</Alert>
-                  ) : (
-                    <Stack spacing={1.3}>
-                      {data.enrollments.slice(0, 4).map(enrollment => (
-                        <Box
-                          key={enrollment.id}
-                          sx={{
-                            p: 1.5,
-                            border: '1px solid',
-                            borderColor: 'divider',
-                            borderRadius: 2,
-                          }}
-                        >
-                          <Stack
-                            direction={{ xs: 'column', sm: 'row' }}
-                            spacing={1.2}
-                            alignItems={{ xs: 'flex-start', sm: 'center' }}
-                            justifyContent="space-between"
+                    {enrollmentFeed.length === 0 ? (
+                      <Alert severity="info">
+                        No enrollments found yet. Browse available courses to begin.
+                      </Alert>
+                    ) : (
+                      <Stack spacing={1.3}>
+                        {enrollmentFeed.slice(0, 4).map(enrollment => (
+                          <Box
+                            key={enrollment.id}
+                            sx={{
+                              p: 1.5,
+                              border: '1px solid',
+                              borderColor: 'divider',
+                              borderRadius: 2,
+                            }}
                           >
-                            <Box>
-                              <Typography fontWeight={600}>
-                                {enrollment.courses?.title ?? 'Driver Education Course'}
-                              </Typography>
-                              <Typography variant="body2" color="text.secondary">
-                                {enrollment.courses?.code ?? enrollment.course_id} • Started {formatDate(enrollment.started_at)}
-                              </Typography>
-                            </Box>
-                            <Chip
-                              label={enrollment.status}
-                              color={enrollment.status === 'active' ? 'primary' : 'default'}
-                              size="small"
-                            />
-                          </Stack>
-                        </Box>
-                      ))}
-                    </Stack>
-                  )}
+                            <Stack
+                              direction={{ xs: 'column', sm: 'row' }}
+                              spacing={1.2}
+                              alignItems={{ xs: 'flex-start', sm: 'center' }}
+                              justifyContent="space-between"
+                            >
+                              <Box>
+                                <Typography fontWeight={600}>
+                                  {enrollment.courses?.title ?? 'Driver Education Course'}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                  {enrollment.courses?.code ?? enrollment.course_id} • Started{' '}
+                                  {formatDate(enrollment.started_at)}
+                                </Typography>
+                              </Box>
+                              <Chip
+                                label={enrollment.status}
+                                color={enrollment.status === 'active' ? 'primary' : 'default'}
+                                size="small"
+                              />
+                            </Stack>
+                          </Box>
+                        ))}
+                      </Stack>
+                    )}
 
-                  <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.2}>
-                    <Button variant="contained" startIcon={<School />} onClick={() => router.push('/courses')}>
-                      Browse courses
-                    </Button>
-                    <Button variant="outlined" startIcon={<Receipt />} onClick={() => router.push('/billing')}>
-                      Manage billing
-                    </Button>
+                    <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.2}>
+                      <Button variant="contained" startIcon={<School />} onClick={() => router.push('/courses')}>
+                        Browse courses
+                      </Button>
+                      <Button variant="outlined" startIcon={<Receipt />} onClick={() => router.push('/billing')}>
+                        Manage billing
+                      </Button>
+                    </Stack>
                   </Stack>
-                </Stack>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent>
+                  <Stack spacing={1.2}>
+                    <Typography variant="h6">Seat-time momentum</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {totalMinutes} of {minutesTarget} minutes tracked toward eligibility.
+                    </Typography>
+                    <LinearProgress
+                      variant="determinate"
+                      value={minutesProgress}
+                      sx={{ height: 10, borderRadius: 999 }}
+                    />
+                    <Typography variant="caption" color="text.secondary">
+                      Keep reading lessons and completing section quizzes to close this gap quickly.
+                    </Typography>
+                  </Stack>
+                </CardContent>
+              </Card>
+            </Stack>
           </Grid>
 
           <Grid xs={12} lg={5}>
             <Card sx={{ height: '100%' }}>
               <CardContent>
                 <Stack spacing={2}>
-                  <Typography variant="h5">Quick actions</Typography>
+                  <Typography variant="h5">Recommended next step</Typography>
                   <Divider />
 
-                  <Button
-                    fullWidth
-                    variant="contained"
-                    size="large"
-                    onClick={() => router.push('/courses')}
-                    startIcon={<School />}
-                    sx={{ justifyContent: 'flex-start' }}
+                  <Box
+                    sx={{
+                      p: 1.6,
+                      borderRadius: 2,
+                      border: '1px dashed',
+                      borderColor: 'divider',
+                      backgroundColor: 'rgba(15,110,207,0.04)',
+                    }}
                   >
-                    Continue learning
-                  </Button>
+                    <Typography fontWeight={700} sx={{ mb: 0.4 }}>
+                      {actionPlan.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {actionPlan.description}
+                    </Typography>
+                    <Button
+                      variant="contained"
+                      onClick={() => router.push(actionPlan.href)}
+                      sx={{ mt: 1.5 }}
+                    >
+                      {actionPlan.cta}
+                    </Button>
+                  </Box>
 
-                  <Button
-                    fullWidth
-                    variant="outlined"
-                    size="large"
-                    onClick={() => router.push('/exam')}
-                    startIcon={<WorkspacePremium />}
-                    sx={{ justifyContent: 'flex-start' }}
-                  >
-                    Take exam
-                  </Button>
-
-                  <Button
-                    fullWidth
-                    variant="outlined"
-                    size="large"
-                    onClick={() => router.push('/profile')}
-                    startIcon={<Person />}
-                    sx={{ justifyContent: 'flex-start' }}
-                  >
-                    Edit profile
-                  </Button>
+                  <Typography variant="h6">Quick actions</Typography>
+                  <Stack spacing={1.1}>
+                    <Button
+                      fullWidth
+                      variant="outlined"
+                      onClick={() => router.push('/courses')}
+                      startIcon={<School />}
+                      sx={{ justifyContent: 'flex-start' }}
+                    >
+                      Continue learning
+                    </Button>
+                    <Button
+                      fullWidth
+                      variant="outlined"
+                      onClick={() => router.push('/exam')}
+                      startIcon={<WorkspacePremium />}
+                      sx={{ justifyContent: 'flex-start' }}
+                    >
+                      Review exam status
+                    </Button>
+                    <Button
+                      fullWidth
+                      variant="outlined"
+                      onClick={() => router.push('/profile')}
+                      startIcon={<Person />}
+                      sx={{ justifyContent: 'flex-start' }}
+                    >
+                      Edit profile
+                    </Button>
+                  </Stack>
 
                   {latestEnrollment ? (
                     <Box
                       sx={{
                         p: 1.4,
                         borderRadius: 2,
-                        border: '1px dashed',
+                        border: '1px solid',
                         borderColor: 'divider',
-                        backgroundColor: 'rgba(15,110,207,0.04)',
                       }}
                     >
                       <Typography variant="body2" color="text.secondary" sx={{ mb: 0.4 }}>

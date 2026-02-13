@@ -1,6 +1,15 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "incremental": false
+  },
+  "include": [
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
   "exclude": [
+    ".next/**",
     "**/*.test.ts",
     "**/*.test.tsx",
     "**/__tests__/**",

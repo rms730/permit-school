@@ -16,7 +16,6 @@ import {
 } from '@mui/material';
 import { useRouter, usePathname } from 'next/navigation';
 import * as React from 'react';
-import { useState } from 'react';
 
 import AppBarV2 from '@/components/AppBarV2';
 
@@ -30,7 +29,6 @@ interface AppShellProps {
 export default function AppShell({ children, user, onSignOut }: AppShellProps) {
   const theme = useTheme();
   const isMobile = useMediaQuery('(max-width:900px)');
-  const [mobileOpen, setMobileOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 

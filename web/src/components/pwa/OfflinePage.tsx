@@ -12,13 +12,11 @@ import {
   Button, 
   Stack, 
   Paper,
-  Container,
-  useTheme
+  Container
 } from '@mui/material';
 import Link from 'next/link';
 import { forwardRef } from 'react';
 
-import { EmptyState } from '@/components/ui/EmptyState';
 import { StatusChip } from '@/components/ui/StatusChip';
 
 interface OfflinePageProps {
@@ -37,8 +35,6 @@ export const OfflinePage = forwardRef<HTMLDivElement, OfflinePageProps>(
     showHomeButton = true,
     showOfflineContent = true,
   }, ref) => {
-    const theme = useTheme();
-
     const handleRetry = () => {
       window.location.reload();
     };

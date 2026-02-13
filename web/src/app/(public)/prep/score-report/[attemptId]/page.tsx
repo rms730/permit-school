@@ -10,7 +10,6 @@ import {
   Typography,
   Card,
   CardContent,
-
   LinearProgress,
   Chip,
   Divider,
@@ -156,6 +155,10 @@ export default async function ScoreReportPage({ params }: ScoreReportPageProps) 
               <Typography variant="h6" sx={{ opacity: 0.9, mb: 2 }}>
                 Composite Score
               </Typography>
+              <Chip
+                label={attempt.scaled_score >= 30 ? 'Excellent range' : attempt.scaled_score >= 25 ? 'Competitive range' : 'Improvement range'}
+                sx={{ mb: 1.25, backgroundColor: scoreColor, color: 'white', fontWeight: 600 }}
+              />
               <Chip
                 label={`${Math.round(overallAccuracy)}% Overall Accuracy`}
                 sx={{

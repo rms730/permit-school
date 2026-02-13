@@ -5,7 +5,6 @@ import {
   Box,
   Typography,
   Stack,
-  useTheme,
 } from '@mui/material';
 
 import { CheckoutButton } from './billing/CheckoutButton';
@@ -23,8 +22,6 @@ const features = [
 ];
 
 export function PricingCTA() {
-  const theme = useTheme();
-
   return (
     <Section 
       id="section-pricing"

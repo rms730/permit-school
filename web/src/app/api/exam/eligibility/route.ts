@@ -1,11 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 import { getJurisdictionConfig } from '@/lib/jurisdictionConfig';
 import { getRouteClient } from '@/lib/supabaseRoute';
 
 export const dynamic = 'force-dynamic';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const supabase = await getRouteClient();
     const { data: { user }, error: authError } = await supabase.auth.getUser();

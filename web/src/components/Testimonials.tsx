@@ -7,8 +7,6 @@ import {
   CardContent,
   Avatar,
   Rating,
-  useTheme,
-  useMediaQuery,
 } from '@mui/material';
 const testimonials = [
   {
@@ -38,9 +36,6 @@ const testimonials = [
 ];
 
 export function Testimonials() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
   return (
     <Box
       component="section"

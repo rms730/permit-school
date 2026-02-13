@@ -4,8 +4,6 @@ import {
   Box,
   Stack,
   Typography,
-  useTheme,
-  useMediaQuery,
 } from '@mui/material';
 const trustBadges = [
   {
@@ -23,9 +21,6 @@ const trustBadges = [
 ];
 
 export function SocialProof() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
   return (
     <Box
       component="section"

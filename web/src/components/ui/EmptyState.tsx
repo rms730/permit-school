@@ -5,8 +5,7 @@ import {
   Typography, 
   Button, 
   Stack, 
-  BoxProps,
-  useTheme
+  BoxProps
 } from '@mui/material';
 import React, { forwardRef } from 'react';
 
@@ -64,7 +63,6 @@ export const EmptyState = forwardRef<HTMLElement, EmptyStateProps>(
     sx,
     ...props 
   }, ref) => {
-    const theme = useTheme();
     const sizeConfig = sizeMap[size];
 
     return (

@@ -5,16 +5,11 @@ import {
   IconButton,
   Badge,
 } from "@mui/material";
-import * as React from "react";
 import { useState, useEffect } from "react";
 
 import { NotificationsDrawer } from "./notifications/NotificationsDrawer";
 
-interface NotificationBellProps {
-  onNotificationClick?: (notification: any) => void;
-}
-
-export default function NotificationBell({ onNotificationClick }: NotificationBellProps) {
+export default function NotificationBell() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
 

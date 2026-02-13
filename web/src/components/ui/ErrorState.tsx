@@ -13,8 +13,7 @@ import {
   Stack, 
   Alert,
   Collapse,
-  BoxProps,
-  useTheme
+  BoxProps
 } from '@mui/material';
 import { forwardRef, useState } from 'react';
 
@@ -61,7 +60,6 @@ export const ErrorState = forwardRef<HTMLElement, ErrorStateProps>(
     sx,
     ...props 
   }, ref) => {
-    const theme = useTheme();
     const sizeConfig = sizeMap[size];
     const [showDetails, setShowDetails] = useState(false);
 

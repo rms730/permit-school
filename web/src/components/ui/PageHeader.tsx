@@ -4,9 +4,7 @@ import {
   Box, 
   Typography, 
   Stack, 
-  BoxProps,
-  useTheme,
-  useMediaQuery
+  BoxProps
 } from '@mui/material';
 import { forwardRef } from 'react';
 
@@ -39,9 +37,6 @@ export const PageHeader = forwardRef<HTMLElement, PageHeaderProps>(
     sx,
     ...props 
   }, ref) => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
     return (
       <Box
         ref={ref}

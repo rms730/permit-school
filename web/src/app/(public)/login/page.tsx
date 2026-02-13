@@ -16,8 +16,6 @@ import {
   Divider,
   Alert,
   Stack,
-  useTheme,
-  useMediaQuery,
 } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
@@ -27,8 +25,6 @@ import { signInWithGoogle } from '@/lib/auth';
 import { supabase } from '@/lib/supabaseClient';
 
 export default function LoginPage() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery('(max-width:600px)');
   const router = useRouter();
   
   const [email, setEmail] = React.useState('');

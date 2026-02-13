@@ -24,7 +24,7 @@ This troubleshooting guide covers:
 **Symptoms**:
 
 ```
-Error: Node.js version 18.x is required, but 16.x is installed
+Error: Node.js version 22.x is required, but 20.x is installed
 ```
 
 **Solution**:
@@ -34,11 +34,11 @@ Error: Node.js version 18.x is required, but 16.x is installed
 node --version
 
 # Install correct version (use nvm)
-nvm install 20
-nvm use 20
+nvm install 22
+nvm use 22
 
 # Or use Node Version Manager
-n 20
+n 22
 ```
 
 #### Package Installation Issues

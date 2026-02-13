@@ -12,7 +12,7 @@ npm run ci:local
 
 This command will:
 
-1. ✅ Check Node version (must be v20.x)
+1. ✅ Check Node version (must be v22.x)
 2. ✅ Validate environment variables
 3. ✅ Run linting (root + web)
 4. ✅ Run accessibility linting
@@ -58,7 +58,7 @@ Placeholder values are used for external services (Supabase, Stripe, etc.) to ma
 
 ## Node Version
 
-The project requires Node.js version 20.x to match GitHub Actions. If you're using nvm:
+The project requires Node.js version 22.x to match GitHub Actions. If you're using nvm:
 
 ```bash
 nvm use
@@ -71,8 +71,8 @@ nvm use
 If you see "Node version mismatch" error:
 
 ```bash
-nvm install 20
-nvm use 20
+nvm install 22
+nvm use 22
 ```
 
 ### Port Conflicts

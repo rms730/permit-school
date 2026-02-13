@@ -47,8 +47,8 @@ trap cleanup EXIT
 # Check Node version
 print_step "Checking Node version..."
 NODE_VERSION=$(node -v)
-if [[ "$NODE_VERSION" != v20* ]]; then
-    print_error "Node version mismatch. Expected v20.x, got $NODE_VERSION"
+if [[ "$NODE_VERSION" != v22* ]]; then
+    print_error "Node version mismatch. Expected v22.x, got $NODE_VERSION"
     print_warning "Please run: nvm use"
     exit 1
 fi

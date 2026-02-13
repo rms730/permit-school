@@ -8,7 +8,7 @@ A complete offline development environment for testing Permit School without int
 
 - Docker installed and running
 - Supabase CLI installed (`npm install -g supabase`)
-- Node.js 18+ installed
+- Node.js 22+ installed
 
 ### 1. Start the Offline Environment
 

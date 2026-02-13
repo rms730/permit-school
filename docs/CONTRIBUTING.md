@@ -19,7 +19,7 @@ This contributing guide covers:
 
 Before contributing, ensure you have:
 
-- **Node.js 20+**: Required for development
+- **Node.js 22+**: Required for development
 - **Git**: Version control system
 - **npm or yarn**: Package manager
 - **Code Editor**: VS Code recommended with extensions

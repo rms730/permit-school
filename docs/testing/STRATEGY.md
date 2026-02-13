@@ -292,7 +292,7 @@ export async function seedTestData() {
 
 **Prerequisites**:
 
-- Node.js 20+
+- Node.js 22+
 - Supabase CLI
 - PostgreSQL (via Supabase)
 

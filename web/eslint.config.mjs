@@ -11,6 +11,7 @@ export default [
   {
     ignores: [
       '.next/**',
+      // Leftover from older dev builds. Keep ignored so `eslint .` stays green.
       '.next-dev/**',
       'public/sw.js',
       'public/workbox-*.js',

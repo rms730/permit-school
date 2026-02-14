@@ -41,8 +41,7 @@
     ".next/types/**/*.ts",
     "next-env.d.ts",
     "src/test/setup.ts",
-    "vitest.config.ts",
-    ".next-dev/types/**/*.ts"
+    "vitest.config.ts"
   ],
   "exclude": [
     "node_modules",

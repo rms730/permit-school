@@ -24,7 +24,11 @@ web/.env.production
 
 # Logs
 logs/
-*.log/web/.next/
+*.log
+
+# Next.js (monorepo)
+web/.next/
+web/.next-dev/
 .playwright-cli/
 
 # Seed backups

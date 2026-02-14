@@ -13,8 +13,20 @@ interface EnvKey {
 }
 
 function extractEnvKeys(): EnvKey[] {
-  const patterns = ["process.env.", "NEXT_PUBLIC_"];
-  const cmd = `find . -type f \\( -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.mjs" -o -name "*.json" \\) -not -path "./node_modules/*" -not -path "./web/node_modules/*" -not -path "./.next/*" -not -path "./dist/*" -exec grep -Hn "${patterns.join("|")}" {} \\;`;
+  // Use ripgrep for speed and more reliable exit codes than find+grep.
+  const cmd = [
+    'rg -n',
+    '--glob "!**/node_modules/**"',
+    '--glob "!**/.next/**"',
+    '--glob "!**/.next-dev/**"',
+    '--glob "!**/dist/**"',
+    '--glob "!**/coverage/**"',
+    '--glob "!**/playwright-report/**"',
+    '--glob "!**/test-results/**"',
+    '"process\\\\.env\\\\.|NEXT_PUBLIC_"',
+    '.',
+  ].join(' ');
+
   const out = spawnSync("bash", ["-lc", cmd], { encoding: "utf8" });
 
   if (out.status !== 0) {
@@ -49,8 +61,9 @@ function extractEnvKeys(): EnvKey[] {
     
     // Determine scope based on file paths
     let scope: 'root' | 'web' | 'both' = 'root';
-    const hasWebFiles = pathArray.some(p => p.startsWith('web/'));
-    const hasRootFiles = pathArray.some(p => !p.startsWith('web/') && !p.includes('node_modules'));
+    const isWebPath = (p: string) => p.startsWith('web/') || p.startsWith('./web/');
+    const hasWebFiles = pathArray.some(isWebPath);
+    const hasRootFiles = pathArray.some(p => !isWebPath(p) && !p.includes('node_modules'));
     
     if (hasWebFiles && hasRootFiles) {
       scope = 'both';

@@ -2,7 +2,7 @@
   {
     "key": "ADMIN_JOB_TOKEN",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "web",
     "paths": [
       "./web/src/app/api/admin/jobs/dunning-daily/route.ts",
       "./web/src/app/api/admin/jobs/regulatory-monthly/route.ts",
@@ -12,9 +12,37 @@
     "usageCount": 4
   },
   {
+    "key": "AI_EMBED_MODEL",
+    "nextPublic": false,
+    "scope": "web",
+    "paths": [
+      "./web/src/lib/ai/tutor.ts"
+    ],
+    "usageCount": 1
+  },
+  {
+    "key": "AI_MAX_EXCERPT_CHARS",
+    "nextPublic": false,
+    "scope": "web",
+    "paths": [
+      "./web/src/lib/ai/tutor.ts"
+    ],
+    "usageCount": 1
+  },
+  {
+    "key": "AI_TUTOR_MODEL",
+    "nextPublic": false,
+    "scope": "web",
+    "paths": [
+      "./web/src/lib/ai/openai.ts",
+      "./web/src/lib/ai/tutor.ts"
+    ],
+    "usageCount": 2
+  },
+  {
     "key": "APP_BASE_URL",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "web",
     "paths": [
       "./web/src/app/admin/system/page.tsx",
       "./web/src/app/api/admin/guardian/requests/resend/route.ts",
@@ -27,14 +55,16 @@
   {
     "key": "APP_ORIGIN",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/admin/certificates/issue/route.ts"],
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/admin/certificates/issue/route.ts"
+    ],
     "usageCount": 1
   },
   {
     "key": "BACKGROUND_WORKER_TOKEN",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "web",
     "paths": [
       "./web/src/app/api/admin/jobs/deletions/route.ts",
       "./web/src/app/api/admin/jobs/export/route.ts"
@@ -44,120 +74,196 @@
   {
     "key": "BASE_URL",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "both",
     "paths": [
+      "./tools/env/ci-setup.mjs",
       "./web/playwright.config.ts",
-      "./web/tests/e2e/final-exam.spec.ts",
+      "./web/tests/e2e/account-shell.spec.ts",
       "./web/tests/e2e/utils/testkit.ts"
     ],
-    "usageCount": 3
+    "usageCount": 4
   },
   {
     "key": "BILLING_CANCEL_URL",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/billing/checkout/route.ts"],
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/billing/checkout/route.ts"
+    ],
     "usageCount": 1
   },
   {
     "key": "BILLING_SUCCESS_URL",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/billing/checkout/route.ts"],
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/billing/checkout/route.ts"
+    ],
     "usageCount": 1
   },
   {
     "key": "CERT_ISSUER_LICENSE",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/admin/certificates/issue/route.ts"],
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/admin/certificates/issue/route.ts"
+    ],
     "usageCount": 1
   },
   {
     "key": "CERT_ISSUER_NAME",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/admin/certificates/issue/route.ts"],
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/admin/certificates/issue/route.ts"
+    ],
     "usageCount": 1
   },
   {
     "key": "CI",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/playwright.config.ts"],
-    "usageCount": 1
+    "scope": "both",
+    "paths": [
+      "./docs/testing/PLAYWRIGHT.md",
+      "./tools/report/serve-report.mjs",
+      "./web/playwright.config.ts"
+    ],
+    "usageCount": 3
   },
   {
     "key": "DUNNING_DAILY_ENABLED",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/admin/jobs/dunning-daily/route.ts"],
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/admin/jobs/dunning-daily/route.ts"
+    ],
     "usageCount": 1
+  },
+  {
+    "key": "DUNNING_EMAIL_DAY_2",
+    "nextPublic": false,
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/billing/webhook/route.ts"
+    ],
+    "usageCount": 1
+  },
+  {
+    "key": "DUNNING_EMAIL_DAY_3",
+    "nextPublic": false,
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/admin/jobs/dunning-daily/route.ts",
+      "./web/src/app/api/billing/webhook/route.ts"
+    ],
+    "usageCount": 2
   },
   {
     "key": "FINAL_EXAM_MINUTES_REQUIRED",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "web",
     "paths": [
       "./web/src/app/exam/page.tsx",
-      "./web/src/lib/jurisdictionConfig.ts"
-    ],
-    "usageCount": 2
-  },
-  {
-    "key": "FINAL_EXAM_NUM_QUESTIONS",
-    "nextPublic": false,
-    "scope": "root",
-    "paths": [
-      "./web/src/app/exam/page.tsx",
-      "./web/src/lib/jurisdictionConfig.ts"
-    ],
-    "usageCount": 2
-  },
-  {
-    "key": "FINAL_EXAM_PASS_PCT",
-    "nextPublic": false,
-    "scope": "root",
-    "paths": [
-      "./web/src/app/api/exam/complete/route.ts",
-      "./web/src/app/exam/page.tsx",
+      "./web/src/lib/__tests__/jurisdictionConfig.test.ts",
       "./web/src/lib/jurisdictionConfig.ts"
     ],
     "usageCount": 3
   },
   {
+    "key": "FINAL_EXAM_NUM_QUESTIONS",
+    "nextPublic": false,
+    "scope": "web",
+    "paths": [
+      "./web/src/app/exam/page.tsx",
+      "./web/src/lib/__tests__/jurisdictionConfig.test.ts",
+      "./web/src/lib/jurisdictionConfig.ts"
+    ],
+    "usageCount": 3
+  },
+  {
+    "key": "FINAL_EXAM_PASS_PCT",
+    "nextPublic": false,
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/exam/complete/route.ts",
+      "./web/src/app/exam/page.tsx",
+      "./web/src/lib/__tests__/jurisdictionConfig.test.ts",
+      "./web/src/lib/jurisdictionConfig.ts"
+    ],
+    "usageCount": 4
+  },
+  {
     "key": "FROM_EMAIL",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/lib/email.ts"],
-    "usageCount": 1
+    "scope": "web",
+    "paths": [
+      "./web/src/lib/__tests__/email.test.ts",
+      "./web/src/lib/email.ts"
+    ],
+    "usageCount": 2
   },
   {
     "key": "FULFILLMENT_HMAC_SECRET",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/admin/fulfillment/run/route.ts"],
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/admin/fulfillment/run/route.ts"
+    ],
     "usageCount": 1
   },
   {
     "key": "FULFILLMENT_ON",
     "nextPublic": false,
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/admin/fulfillment/run/route.ts"
+    ],
+    "usageCount": 1
+  },
+  {
+    "key": "GITHUB_RUN_STARTED_AT",
+    "nextPublic": false,
     "scope": "root",
-    "paths": ["./web/src/app/api/admin/fulfillment/run/route.ts"],
+    "paths": [
+      "./tools/env/ci-setup.mjs"
+    ],
+    "usageCount": 1
+  },
+  {
+    "key": "GITHUB_SHA",
+    "nextPublic": false,
+    "scope": "root",
+    "paths": [
+      "./tools/env/ci-setup.mjs"
+    ],
     "usageCount": 1
   },
   {
     "key": "MFA_SECRET",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/admin/security/mfa/verify/route.ts"],
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/admin/security/mfa/verify/route.ts"
+    ],
     "usageCount": 1
   },
   {
     "key": "NEXT_PUBLIC_APP_BASE_URL",
     "nextPublic": true,
-    "scope": "root",
+    "scope": "both",
     "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./env-examples/root.env.local.example",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
+      "./ops/offline/offline.sh",
+      "./scripts/README.md",
+      "./scripts/__tests__/mapping.test.ts",
+      "./scripts/seed-env.mjs",
       "./web/src/app/(public)/login/page.tsx",
       "./web/src/app/(public)/signup/page.tsx",
       "./web/src/app/account/auth/AuthSettings.tsx",
@@ -165,67 +271,261 @@
       "./web/src/components/AppBarV2.tsx",
       "./web/src/components/auth/GoogleOneTap.tsx"
     ],
-    "usageCount": 6
+    "usageCount": 18
   },
   {
     "key": "NEXT_PUBLIC_BUILD_AT",
     "nextPublic": true,
-    "scope": "root",
-    "paths": ["./web/src/env.ts", "./web/src/lib/version.ts"],
-    "usageCount": 2
+    "scope": "both",
+    "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/ENVIRONMENT.md",
+      "./docs/ENVIRONMENT_SETUP.md",
+      "./docs/ENVIRONMENT_VARIABLES.md",
+      "./env-examples/root.env.local.example",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
+      "./tools/env/ci-setup.mjs",
+      "./web/src/env.ts",
+      "./web/src/lib/__tests__/version.test.ts",
+      "./web/src/lib/version.ts"
+    ],
+    "usageCount": 15
   },
   {
     "key": "NEXT_PUBLIC_COMMIT_SHA",
     "nextPublic": true,
+    "scope": "both",
+    "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/ENVIRONMENT.md",
+      "./docs/ENVIRONMENT_SETUP.md",
+      "./docs/ENVIRONMENT_VARIABLES.md",
+      "./env-examples/root.env.local.example",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
+      "./tools/env/ci-setup.mjs",
+      "./web/src/env.ts",
+      "./web/src/lib/__tests__/version.test.ts",
+      "./web/src/lib/version.ts"
+    ],
+    "usageCount": 15
+  },
+  {
+    "key": "NEXT_PUBLIC_DEV_CONSOLE_TAP",
+    "nextPublic": true,
+    "scope": "both",
+    "paths": [
+      "./README.md",
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/DEV_CONSOLE_TAP.md",
+      "./env-examples/web.env.local.example",
+      "./web/playwright.config.ts",
+      "./web/src/app/ClientProviders.tsx",
+      "./web/src/components/dev/ConsoleTap.tsx"
+    ],
+    "usageCount": 10
+  },
+  {
+    "key": "NEXT_PUBLIC_ENABLE_CONFETTI",
+    "nextPublic": true,
     "scope": "root",
-    "paths": ["./web/src/env.ts", "./web/src/lib/version.ts"],
-    "usageCount": 2
+    "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/LEARNER_EXPERIENCE.md"
+    ],
+    "usageCount": 5
   },
   {
     "key": "NEXT_PUBLIC_ENV",
     "nextPublic": true,
-    "scope": "root",
-    "paths": ["./web/src/env.ts", "./web/src/lib/version.ts"],
-    "usageCount": 2
+    "scope": "both",
+    "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/CI-SETUP.md",
+      "./docs/ENVIRONMENT.md",
+      "./docs/ENVIRONMENT_SETUP.md",
+      "./docs/ENVIRONMENT_VARIABLES.md",
+      "./docs/testing/PLAYWRIGHT.md",
+      "./env-examples/root.env.local.example",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
+      "./tools/env/ci-setup.mjs",
+      "./web/src/env.ts",
+      "./web/src/lib/__tests__/version.test.ts",
+      "./web/src/lib/version.ts"
+    ],
+    "usageCount": 17
   },
   {
     "key": "NEXT_PUBLIC_FULFILLMENT_LOW_STOCK_THRESHOLD",
     "nextPublic": true,
-    "scope": "root",
-    "paths": ["./web/src/app/admin/fulfillment/page.tsx"],
-    "usageCount": 1
+    "scope": "both",
+    "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/ENVIRONMENT_SETUP.md",
+      "./web/src/app/admin/fulfillment/page.tsx"
+    ],
+    "usageCount": 6
   },
   {
     "key": "NEXT_PUBLIC_GOOGLE_CLIENT_ID",
     "nextPublic": true,
-    "scope": "root",
-    "paths": ["./web/src/components/auth/GoogleOneTap.tsx"],
-    "usageCount": 1
+    "scope": "both",
+    "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/ENVIRONMENT_SETUP.md",
+      "./env-examples/root.env.local.example",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
+      "./scripts/README.md",
+      "./web/src/components/auth/GoogleOneTap.tsx"
+    ],
+    "usageCount": 11
   },
   {
     "key": "NEXT_PUBLIC_GOOGLE_ONE_TAP",
     "nextPublic": true,
-    "scope": "root",
+    "scope": "both",
     "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/ENVIRONMENT.md",
+      "./docs/ENVIRONMENT_SETUP.md",
+      "./docs/ENVIRONMENT_VARIABLES.md",
+      "./env-examples/root.env.local.example",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
+      "./ops/offline/offline.sh",
       "./web/src/components/auth/GoogleOneTap.tsx",
       "./web/src/env.ts",
-      "./web/src/lib/offline.ts",
-      "./web/tests/e2e/account-shell.spec.ts"
+      "./web/src/lib/__tests__/offline.test.ts",
+      "./web/src/lib/offline.ts"
     ],
-    "usageCount": 4
+    "usageCount": 16
+  },
+  {
+    "key": "NEXT_PUBLIC_HEARTBEAT_INTERVAL_MS",
+    "nextPublic": true,
+    "scope": "root",
+    "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/LEARNER_EXPERIENCE.md"
+    ],
+    "usageCount": 5
+  },
+  {
+    "key": "NEXT_PUBLIC_IDLE_TIMEOUT_MS",
+    "nextPublic": true,
+    "scope": "root",
+    "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/LEARNER_EXPERIENCE.md"
+    ],
+    "usageCount": 5
+  },
+  {
+    "key": "NEXT_PUBLIC_REDUCED_MOTION",
+    "nextPublic": true,
+    "scope": "root",
+    "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/LEARNER_EXPERIENCE.md"
+    ],
+    "usageCount": 5
   },
   {
     "key": "NEXT_PUBLIC_SENTRY_DSN",
     "nextPublic": true,
-    "scope": "root",
-    "paths": ["./web/src/env.ts", "./web/src/lib/offline.ts"],
-    "usageCount": 2
+    "scope": "both",
+    "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/ENVIRONMENT.md",
+      "./docs/ENVIRONMENT_SETUP.md",
+      "./docs/ENVIRONMENT_VARIABLES.md",
+      "./docs/PERFORMANCE.md",
+      "./env-examples/root.env.local.example",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
+      "./ops/offline/offline.sh",
+      "./scripts/README.md",
+      "./scripts/__tests__/mapping.test.ts",
+      "./scripts/ci-local.sh",
+      "./scripts/seed-env.mjs",
+      "./tools/env/ci-setup.mjs",
+      "./tools/env/setup.mjs",
+      "./web/src/env.ts",
+      "./web/src/lib/__tests__/offline.test.ts",
+      "./web/src/lib/offline.ts"
+    ],
+    "usageCount": 22
   },
   {
     "key": "NEXT_PUBLIC_SITE_URL",
     "nextPublic": true,
-    "scope": "root",
+    "scope": "both",
     "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/CI-SETUP.md",
+      "./docs/CI.md",
+      "./docs/ENVIRONMENT.md",
+      "./docs/ENVIRONMENT_SETUP.md",
+      "./docs/ENVIRONMENT_VARIABLES.md",
+      "./env-examples/root.env.local.example",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
+      "./scripts/README.md",
+      "./scripts/__tests__/mapping.test.ts",
+      "./scripts/ci-local.sh",
+      "./scripts/seed-env.mjs",
+      "./tools/env/ci-setup.mjs",
+      "./tools/env/setup.mjs",
+      "./tools/env/validate.ts",
       "./web/src/app/api/account/delete/route.ts",
       "./web/src/app/api/billing/portal/route.ts",
       "./web/src/app/api/exam/start/route.ts",
@@ -237,40 +537,121 @@
       "./web/src/app/sitemap.xml/route.ts",
       "./web/src/env.ts"
     ],
-    "usageCount": 10
+    "usageCount": 30
   },
   {
     "key": "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY",
     "nextPublic": true,
-    "scope": "root",
-    "paths": ["./web/src/env.ts"],
-    "usageCount": 1
+    "scope": "both",
+    "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/BILLING_LIFECYCLE.md",
+      "./docs/CI.md",
+      "./docs/ENVIRONMENT.md",
+      "./docs/ENVIRONMENT_SETUP.md",
+      "./docs/ENVIRONMENT_VARIABLES.md",
+      "./env-examples/root.env.local.example",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
+      "./scripts/README.md",
+      "./scripts/__tests__/mapping.test.ts",
+      "./scripts/ci-local.sh",
+      "./scripts/seed-env.mjs",
+      "./tools/env/ci-setup.mjs",
+      "./tools/env/setup.mjs",
+      "./web/src/env.ts"
+    ],
+    "usageCount": 20
   },
   {
     "key": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
     "nextPublic": true,
-    "scope": "root",
+    "scope": "both",
     "paths": [
+      "./INCIDENT_RESPONSE.md",
+      "./README.md",
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/CI.md",
+      "./docs/CURRICULUM_AND_EXAMS_SEEDING.md",
+      "./docs/ENVIRONMENT.md",
+      "./docs/ENVIRONMENT_SETUP.md",
+      "./docs/ENVIRONMENT_VARIABLES.md",
+      "./docs/LOCAL_DEVELOPMENT.md",
+      "./docs/PERFORMANCE.md",
+      "./docs/README.md",
+      "./docs/SECURITY_PRIVACY.md",
+      "./docs/TROUBLESHOOTING.md",
+      "./env-examples/root.env.local.example",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
+      "./ops/offline/offline.sh",
+      "./scripts/README.md",
+      "./scripts/__tests__/mapping.test.ts",
+      "./scripts/ci-local.sh",
+      "./scripts/seed-env.mjs",
       "./tools/check-env.mjs",
+      "./tools/env/ci-setup.mjs",
+      "./tools/env/setup.mjs",
       "./web/src/env.ts",
+      "./web/src/lib/__tests__/auth.test.ts",
+      "./web/src/lib/__tests__/offline.test.ts",
       "./web/src/lib/auth.ts",
       "./web/src/lib/offline.ts",
-      "./web/src/lib/supabaseClient.ts"
+      "./web/src/lib/supabaseClient.ts",
+      "./web/src/lib/supabaseRoute.ts",
+      "./web/src/lib/supabaseServer.ts"
     ],
-    "usageCount": 5
+    "usageCount": 36
   },
   {
     "key": "NEXT_PUBLIC_SUPABASE_URL",
     "nextPublic": true,
-    "scope": "root",
+    "scope": "both",
     "paths": [
+      "./INCIDENT_RESPONSE.md",
+      "./README.md",
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/CI.md",
+      "./docs/CURRICULUM_AND_EXAMS_SEEDING.md",
+      "./docs/ENVIRONMENT.md",
+      "./docs/ENVIRONMENT_SETUP.md",
+      "./docs/ENVIRONMENT_VARIABLES.md",
+      "./docs/LOCAL_DEVELOPMENT.md",
+      "./docs/PERFORMANCE.md",
+      "./docs/README.md",
+      "./docs/SECURITY_PRIVACY.md",
+      "./docs/TROUBLESHOOTING.md",
+      "./env-examples/root.env.local.example",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
+      "./ops/offline/offline.sh",
+      "./scripts/README.md",
+      "./scripts/__tests__/mapping.test.ts",
+      "./scripts/ci-local.sh",
+      "./scripts/seed-env.mjs",
       "./tools/check-env.mjs",
+      "./tools/env/ci-setup.mjs",
+      "./tools/env/setup.mjs",
       "./web/src/app/api/account/avatar/upload/route.ts",
       "./web/src/app/api/admin/fulfillment/batches/route.ts",
       "./web/src/app/api/admin/fulfillment/inventory/route.ts",
       "./web/src/app/api/admin/fulfillment/run/route.ts",
       "./web/src/app/api/admin/fulfillment/stock/route.ts",
       "./web/src/env.ts",
+      "./web/src/lib/__tests__/auth.test.ts",
+      "./web/src/lib/__tests__/offline.test.ts",
       "./web/src/lib/auth.ts",
       "./web/src/lib/fulfillment/allocateSerial.ts",
       "./web/src/lib/fulfillment/fetchPending.ts",
@@ -278,79 +659,163 @@
       "./web/src/lib/fulfillment/zipAndStore.ts",
       "./web/src/lib/offline.ts",
       "./web/src/lib/storageSignedUrl.ts",
-      "./web/src/lib/supabaseClient.ts"
+      "./web/src/lib/supabaseAdmin.ts",
+      "./web/src/lib/supabaseClient.ts",
+      "./web/src/lib/supabaseRoute.ts",
+      "./web/src/lib/supabaseServer.ts"
     ],
-    "usageCount": 15
+    "usageCount": 47
   },
   {
     "key": "NEXT_PUBLIC_SUPPORT_EMAIL",
     "nextPublic": true,
-    "scope": "root",
-    "paths": ["./web/src/app/accessibility/page.tsx"],
-    "usageCount": 1
+    "scope": "both",
+    "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/ENVIRONMENT_SETUP.md",
+      "./env-examples/root.env.local.example",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
+      "./scripts/README.md",
+      "./scripts/__tests__/mapping.test.ts",
+      "./scripts/seed-env.mjs",
+      "./tools/env/setup.mjs",
+      "./web/src/app/accessibility/page.tsx"
+    ],
+    "usageCount": 14
   },
   {
     "key": "NEXT_PUBLIC_SUPPORT_PHONE",
     "nextPublic": true,
-    "scope": "root",
-    "paths": ["./web/src/app/accessibility/page.tsx"],
-    "usageCount": 1
+    "scope": "both",
+    "paths": [
+      "./artifacts/docs/inventory.json",
+      "./artifacts/docs/inventory.md",
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./docs/CONFIGURATION_STRATEGY.md",
+      "./docs/ENVIRONMENT_SETUP.md",
+      "./env-examples/root.env.local.example",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
+      "./web/src/app/accessibility/page.tsx"
+    ],
+    "usageCount": 11
   },
   {
     "key": "NEXT_PUBLIC_VAR",
     "nextPublic": true,
     "scope": "root",
     "paths": [
+      "./artifacts/env/keys-categorized.json",
+      "./artifacts/env/keys.json",
+      "./env-examples/web.env.development.example",
+      "./env-examples/web.env.local.example",
+      "./env-examples/web.env.production.example",
       "./tools/env/extract-keys-simple.mjs",
       "./tools/env/extract-keys.ts"
     ],
-    "usageCount": 2
+    "usageCount": 7
   },
   {
     "key": "NODE_ENV",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./tools/env/check.mjs", "./web/src/env.ts"],
-    "usageCount": 2
+    "scope": "both",
+    "paths": [
+      "./docs/ENVIRONMENT.md",
+      "./tools/env/check.mjs",
+      "./web/next.config.js",
+      "./web/src/app/ClientProviders.tsx",
+      "./web/src/app/api/dev/log/route.ts",
+      "./web/src/components/dev/ConsoleTap.tsx",
+      "./web/src/env.ts",
+      "./web/src/lib/i18n/I18nProvider.tsx"
+    ],
+    "usageCount": 8
   },
   {
     "key": "OFFLINE_DEV",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/lib/offline.ts"],
-    "usageCount": 1
-  },
-  {
-    "key": "OPENAI_API_KEY",
-    "nextPublic": false,
-    "scope": "root",
+    "scope": "web",
     "paths": [
-      "./tools/ingest/ingest_handbook.mjs",
-      "./tools/ingest/test_search.mjs",
-      "./tools/ingest/test_search_hybrid.mjs"
+      "./web/src/lib/__tests__/offline.test.ts",
+      "./web/src/lib/ai/tutor.ts",
+      "./web/src/lib/offline.ts"
     ],
     "usageCount": 3
   },
   {
+    "key": "OPENAI_API_KEY",
+    "nextPublic": false,
+    "scope": "both",
+    "paths": [
+      "./tools/env/ci-setup.mjs",
+      "./tools/ingest/ingest_handbook.mjs",
+      "./tools/ingest/test_search.mjs",
+      "./tools/ingest/test_search_hybrid.mjs",
+      "./web/src/lib/ai/openai.ts"
+    ],
+    "usageCount": 5
+  },
+  {
+    "key": "OPENAI_BASE_URL",
+    "nextPublic": false,
+    "scope": "web",
+    "paths": [
+      "./web/src/lib/ai/openai.ts"
+    ],
+    "usageCount": 1
+  },
+  {
+    "key": "PLAYWRIGHT_EXTERNAL_SERVER",
+    "nextPublic": false,
+    "scope": "web",
+    "paths": [
+      "./web/playwright.config.ts"
+    ],
+    "usageCount": 1
+  },
+  {
     "key": "RATE_LIMIT_MAX",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "web",
     "paths": [
       "./web/src/app/api/billing/webhook/route.ts",
+      "./web/src/app/api/companion/tutor/route.ts",
       "./web/src/app/api/exam/start/route.ts",
       "./web/src/app/api/prep/attempt/create/route.ts",
       "./web/src/app/api/tutor/route.ts",
+      "./web/src/lib/__tests__/ratelimit.test.ts",
       "./web/src/lib/ratelimit.ts"
     ],
-    "usageCount": 5
+    "usageCount": 7
   },
   {
     "key": "RATE_LIMIT_ON",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "web",
     "paths": [
       "./web/src/app/api/admin/regulatory/run/route.ts",
       "./web/src/app/api/billing/webhook/route.ts",
+      "./web/src/app/api/companion/tutor/route.ts",
+      "./web/src/app/api/exam/start/route.ts",
+      "./web/src/app/api/prep/attempt/create/route.ts",
+      "./web/src/app/api/tutor/route.ts"
+    ],
+    "usageCount": 6
+  },
+  {
+    "key": "RATE_LIMIT_WINDOW_MS",
+    "nextPublic": false,
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/billing/webhook/route.ts",
+      "./web/src/app/api/companion/tutor/route.ts",
       "./web/src/app/api/exam/start/route.ts",
       "./web/src/app/api/prep/attempt/create/route.ts",
       "./web/src/app/api/tutor/route.ts"
@@ -358,67 +823,73 @@
     "usageCount": 5
   },
   {
-    "key": "RATE_LIMIT_WINDOW_MS",
-    "nextPublic": false,
-    "scope": "root",
-    "paths": [
-      "./web/src/app/api/billing/webhook/route.ts",
-      "./web/src/app/api/exam/start/route.ts",
-      "./web/src/app/api/prep/attempt/create/route.ts",
-      "./web/src/app/api/tutor/route.ts"
-    ],
-    "usageCount": 4
-  },
-  {
     "key": "REGULATORY_MONTHLY_ENABLED",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/admin/jobs/regulatory-monthly/route.ts"],
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/admin/jobs/regulatory-monthly/route.ts"
+    ],
     "usageCount": 1
   },
   {
     "key": "REGULATORY_SIGNING_SECRET",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/lib/regulatory/generateReport.ts"],
+    "scope": "web",
+    "paths": [
+      "./web/src/lib/regulatory/generateReport.ts"
+    ],
     "usageCount": 1
   },
   {
     "key": "RESEND_API_KEY",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "both",
     "paths": [
+      "./tools/env/ci-setup.mjs",
       "./web/src/app/admin/system/page.tsx",
       "./web/src/app/api/health/route.ts",
+      "./web/src/lib/__tests__/email.test.ts",
+      "./web/src/lib/__tests__/offline.test.ts",
       "./web/src/lib/email.ts",
       "./web/src/lib/offline.ts"
     ],
-    "usageCount": 4
+    "usageCount": 7
   },
   {
     "key": "SENTRY_DSN",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "web",
     "paths": [
-      "./web/sentry.client.config.ts",
-      "./web/sentry.server.config.ts",
+      "./web/next.config.js",
       "./web/src/app/admin/system/page.tsx",
       "./web/src/app/api/health/route.ts"
     ],
-    "usageCount": 4
+    "usageCount": 3
+  },
+  {
+    "key": "SENTRY_ENABLED",
+    "nextPublic": false,
+    "scope": "web",
+    "paths": [
+      "./web/next.config.js"
+    ],
+    "usageCount": 1
   },
   {
     "key": "STRIPE_PRICE_ID",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/billing/checkout/route.ts"],
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/billing/checkout/route.ts"
+    ],
     "usageCount": 1
   },
   {
     "key": "STRIPE_SECRET_KEY",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "both",
     "paths": [
+      "./tools/env/ci-setup.mjs",
       "./web/src/app/api/admin/jobs/dunning-daily/route.ts",
       "./web/src/app/api/billing/cancel/route.ts",
       "./web/src/app/api/billing/checkout/route.ts",
@@ -426,16 +897,20 @@
       "./web/src/app/api/billing/portal/route.ts",
       "./web/src/app/api/billing/resume/route.ts",
       "./web/src/app/api/billing/webhook/route.ts",
+      "./web/src/lib/__tests__/offline.test.ts",
       "./web/src/lib/offline.ts"
     ],
-    "usageCount": 8
+    "usageCount": 10
   },
   {
     "key": "STRIPE_WEBHOOK_SECRET",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/billing/webhook/route.ts"],
-    "usageCount": 1
+    "scope": "both",
+    "paths": [
+      "./tools/env/ci-setup.mjs",
+      "./web/src/app/api/billing/webhook/route.ts"
+    ],
+    "usageCount": 2
   },
   {
     "key": "SUPABASE_ANON_KEY",
@@ -443,17 +918,11 @@
     "scope": "root",
     "paths": [
       "./ops/seed/lib/supabase.ts",
+      "./tools/env/ci-setup.mjs",
       "./tools/ingest/test_search.mjs",
       "./tools/ingest/test_search_hybrid.mjs"
     ],
-    "usageCount": 3
-  },
-  {
-    "key": "SUPABASE_FUNCTIONS_URL",
-    "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/tutor/route.ts"],
-    "usageCount": 1
+    "usageCount": 4
   },
   {
     "key": "SUPABASE_PUBLISHABLE_KEY",
@@ -469,10 +938,11 @@
   {
     "key": "SUPABASE_SERVICE_ROLE_KEY",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "both",
     "paths": [
       "./ops/seed/lib/supabase.ts",
       "./ops/seed/seed-handbooks.ts",
+      "./tools/env/ci-setup.mjs",
       "./tools/ingest/ingest_handbook.mjs",
       "./tools/ingest/test_search.mjs",
       "./tools/ingest/test_search_hybrid.mjs",
@@ -482,7 +952,6 @@
       "./web/src/app/api/admin/fulfillment/inventory/route.ts",
       "./web/src/app/api/admin/fulfillment/run/route.ts",
       "./web/src/app/api/admin/fulfillment/stock/route.ts",
-      "./web/src/app/api/tutor/route.ts",
       "./web/src/lib/fulfillment/allocateSerial.ts",
       "./web/src/lib/fulfillment/fetchPending.ts",
       "./web/src/lib/fulfillment/reconcile.ts",
@@ -495,15 +964,15 @@
   {
     "key": "SUPABASE_URL",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "both",
     "paths": [
       "./ops/seed/lib/supabase.ts",
       "./ops/seed/seed-handbooks.ts",
+      "./tools/env/ci-setup.mjs",
       "./tools/ingest/ingest_handbook.mjs",
       "./tools/ingest/test_search.mjs",
       "./tools/ingest/test_search_hybrid.mjs",
       "./web/scripts/make_admin.mjs",
-      "./web/src/app/api/tutor/route.ts",
       "./web/src/lib/supabaseAdmin.ts"
     ],
     "usageCount": 8
@@ -511,7 +980,7 @@
   {
     "key": "SUPPORT_EMAIL",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "web",
     "paths": [
       "./web/src/app/(public)/privacy/page.tsx",
       "./web/src/app/(public)/terms/page.tsx",
@@ -524,7 +993,7 @@
   {
     "key": "TEST_ADMIN_USER",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "web",
     "paths": [
       "./web/tests/e2e/exam-certificate.spec.ts",
       "./web/tests/e2e/global-setup.ts",
@@ -535,7 +1004,7 @@
   {
     "key": "TEST_MINOR_USER",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "web",
     "paths": [
       "./web/tests/e2e/global-setup.ts",
       "./web/tests/e2e/utils/testkit.ts"
@@ -545,7 +1014,7 @@
   {
     "key": "TEST_STUDENT_USER",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "web",
     "paths": [
       "./web/tests/e2e/global-setup.ts",
       "./web/tests/e2e/utils/testkit.ts"
@@ -555,7 +1024,7 @@
   {
     "key": "TESTKIT_ON",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "web",
     "paths": [
       "./web/src/app/api/testkit/cert/draft-to-issued/route.ts",
       "./web/src/app/api/testkit/enroll/route.ts",
@@ -573,8 +1042,11 @@
   {
     "key": "TESTKIT_TOKEN",
     "nextPublic": false,
-    "scope": "root",
+    "scope": "both",
     "paths": [
+      "./docs/testing/PLAYWRIGHT.md",
+      "./docs/testing/STRATEGY.md",
+      "./tools/env/ci-setup.mjs",
       "./web/src/app/api/testkit/cert/draft-to-issued/route.ts",
       "./web/src/app/api/testkit/enroll/route.ts",
       "./web/src/app/api/testkit/entitlement/route.ts",
@@ -584,18 +1056,21 @@
       "./web/src/app/api/testkit/seat-time/route.ts",
       "./web/src/app/api/testkit/user/route.ts",
       "./web/tests/e2e/account-shell.spec.ts",
-      "./web/tests/e2e/final-exam.spec.ts",
+      "./web/tests/e2e/dual-product.spec.ts",
       "./web/tests/e2e/global-setup.ts",
       "./web/tests/e2e/global-teardown.ts",
+      "./web/tests/e2e/guardian-notifications.spec.ts",
       "./web/tests/e2e/utils/testkit.ts"
     ],
-    "usageCount": 13
+    "usageCount": 17
   },
   {
     "key": "TRIAL_REMINDERS_ENABLED",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/admin/jobs/trial-reminders/route.ts"],
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/admin/jobs/trial-reminders/route.ts"
+    ],
     "usageCount": 1
   },
   {
@@ -611,8 +1086,10 @@
   {
     "key": "WEEKLY_DIGEST_ENABLED",
     "nextPublic": false,
-    "scope": "root",
-    "paths": ["./web/src/app/api/admin/jobs/weekly-digest/route.ts"],
+    "scope": "web",
+    "paths": [
+      "./web/src/app/api/admin/jobs/weekly-digest/route.ts"
+    ],
     "usageCount": 1
   }
 ]

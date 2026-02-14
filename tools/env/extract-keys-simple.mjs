@@ -52,8 +52,9 @@ function extractEnvKeys() {
     
     // Determine scope
     let scope = 'root';
-    const hasWebFiles = paths.some(p => p.startsWith('web/'));
-    const hasRootFiles = paths.some(p => !p.startsWith('web/') && !p.includes('node_modules'));
+    const isWebPath = (p) => p.startsWith('web/') || p.startsWith('./web/');
+    const hasWebFiles = paths.some(isWebPath);
+    const hasRootFiles = paths.some(p => !isWebPath(p) && !p.includes('node_modules'));
     
     if (hasWebFiles && hasRootFiles) {
       scope = 'both';

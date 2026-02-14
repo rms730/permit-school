@@ -117,17 +117,19 @@ class EnvironmentValidator {
 
     const webEnv = this.loadEnvFile(webFile);
     
-    // Check for server-only secrets in web environment without NEXT_PUBLIC_ prefix
+    // Check for root-only server variables accidentally placed in the web env file.
+    // Next.js supports server-only variables in `web/.env.*` as long as they are NOT prefixed
+    // with NEXT_PUBLIC_.
     const serverOnlyInWeb = Object.keys(webEnv).filter(key => {
       if (key.startsWith('NEXT_PUBLIC_')) return false;
       const inventoryKey = this.inventory.find(k => k.key === key);
-      return inventoryKey && !inventoryKey.nextPublic;
+      return inventoryKey && !inventoryKey.nextPublic && inventoryKey.scope === 'root';
     });
 
     if (serverOnlyInWeb.length > 0) {
       result.isValid = false;
-      result.errors.push(`❌ Web environment (${webFile}) contains server-only variables: ${serverOnlyInWeb.join(', ')}`);
-      result.errors.push(`   These should be moved to root environment files or prefixed with NEXT_PUBLIC_ if client-safe`);
+      result.errors.push(`❌ Web environment (${webFile}) contains root-scoped server variables: ${serverOnlyInWeb.join(', ')}`);
+      result.errors.push(`   Move these to root environment files (or prefix with NEXT_PUBLIC_ only if client-safe)`);
     }
 
     // Check for missing required web variables

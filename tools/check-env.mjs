@@ -84,7 +84,7 @@ for (const k of webEnv) {
 
 // Optional warnings
 if (!rootVars.OPENAI_API_KEY) {
-  warnings.push(`[root] OPENAI_API_KEY (optional - only needed for content generation scripts)`);
+  warnings.push(`[root] OPENAI_API_KEY (recommended - required for tutor + ingestion scripts)`);
 }
 
 if (missing.length) {

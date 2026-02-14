@@ -1,0 +1,139 @@
+openapi: 3.0.3
+info:
+  title: Permit School Companion API
+  version: 0.1.0
+  description: |
+    Companion API intended for external clients (for example, ChatGPT Actions).
+    Authenticate with a companion token generated from the Permit School web app.
+
+servers:
+  - url: https://your-domain.com
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: CompanionToken
+
+security:
+  - bearerAuth: []
+
+paths:
+  /api/companion/me:
+    get:
+      summary: Verify token and return basic identity/scopes
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user_id:
+                    type: string
+                    format: uuid
+                  scopes:
+                    type: array
+                    items:
+                      type: string
+        '401':
+          description: Unauthorized
+
+  /api/companion/tutor:
+    post:
+      summary: Ask the Permit School tutor (RAG-grounded)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [query]
+              properties:
+                query:
+                  type: string
+                  description: The student's question.
+                j_code:
+                  type: string
+                  description: Jurisdiction code (e.g., CA).
+                  default: CA
+                lang:
+                  type: string
+                  description: Response language (en or es).
+                  default: en
+                  enum: [en, es]
+                top_k:
+                  type: integer
+                  description: Max excerpts to retrieve (clamped server-side).
+                  default: 5
+                unit_id:
+                  type: string
+                  format: uuid
+                  description: Optional course unit id to scope retrieval.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  answer:
+                    type: string
+                  citations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        idx:
+                          type: integer
+                        id:
+                          type: integer
+                        section_ref:
+                          type: string
+                          nullable: true
+                        source_url:
+                          type: string
+                          nullable: true
+                        distance:
+                          type: number
+                          nullable: true
+                        rank:
+                          type: number
+                          nullable: true
+                        score:
+                          type: number
+                          nullable: true
+                  sources:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        idx:
+                          type: integer
+                        title:
+                          type: string
+                        excerpt:
+                          type: string
+                        source_url:
+                          type: string
+                          nullable: true
+                  model:
+                    type: string
+                  latency_ms:
+                    type: integer
+                  retrieved_k:
+                    type: integer
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '429':
+          description: Rate limited
+        '500':
+          description: Server error
+

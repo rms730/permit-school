@@ -46,7 +46,13 @@ const validators = {
   url(v) { try { new URL(v); return true; } catch { return false; } },
   email(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); },
   secret(v) { return typeof v === 'string' && v.length > 0; },
-  supabaseUrl(v) { return /^https:\/\/.*\.supabase\.co$/.test(v) || /^http:\/\/127\.0\.0\.1:54321$/.test(v); },
+  supabaseUrl(v) {
+    return (
+      /^https:\/\/.*\.supabase\.co$/.test(v) ||
+      /^http:\/\/127\.0\.0\.1:(54321|4000)$/.test(v) ||
+      /^http:\/\/localhost:(54321|4000)$/.test(v)
+    );
+  },
   supabaseJwtLike(v) { return /^eyJ[a-zA-Z0-9-_]+\.[a-zA-Z0-9-_]+\.[a-zA-Z0-9-_]+$/.test(v); },
   stripeSecret(v) { return /^sk_(test|live)_/.test(v); },
   stripePublishable(v) { return /^pk_(test|live)_/.test(v); },
@@ -55,7 +61,7 @@ const validators = {
 };
 
 function looksSensitive(v) {
-  return /^sk_/.test(v) || /^whsec_/.test(v) || /^eyJ/.test(v);
+  return /^sk[_-]/.test(v) || /^whsec_/.test(v) || /^eyJ/.test(v);
 }
 
 const manifest = [
@@ -65,6 +71,9 @@ const manifest = [
   { name: 'SUPABASE_ANON_KEY', desc: 'Supabase anon key', type: 'supabaseJwtLike', secret: true },
   { name: 'NEXT_PUBLIC_SUPABASE_URL', desc: 'Supabase URL for client', type: 'supabaseUrl', webOnly: true },
   { name: 'NEXT_PUBLIC_SUPABASE_ANON_KEY', desc: 'Supabase anon key for client', type: 'supabaseJwtLike', webOnly: true, secret: true },
+
+  // --- OpenAI (server-only) ---
+  { name: 'OPENAI_API_KEY', desc: 'OpenAI API key (server-only, used by tutor endpoints)', type: 'secret', secret: true },
 
   // --- Stripe ---
   { name: 'STRIPE_SECRET_KEY', desc: 'Stripe secret key', type: 'stripeSecret', secret: true },

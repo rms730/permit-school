@@ -1,37 +1,28 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
 
 import { runTutor } from '@/lib/ai/tutor';
+import { authenticateCompanionRequest } from '@/lib/companionAuth';
 import { getLocaleFromRequest } from '@/lib/i18n/server';
 import { rateLimit, getRateLimitHeaders, getRateLimitKey } from '@/lib/ratelimit';
-import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
-import { getRouteClient } from "@/lib/supabaseRoute";
+import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
 
 export async function POST(req: Request) {
   const started = Date.now();
-  let j_code = 'CA';
-  let query = '';
-  let top_k = 5;
-  let lang: 'en' | 'es' = 'en';
-  let unit_id: string | undefined;
 
-  // read user from cookies/session (if present)
-  const supaRoute = await getRouteClient();
-  const { data: userData, error: authError } = await supaRoute.auth.getUser();
-  const userId = userData?.user?.id ?? null;
-
-  if (authError || !userId) {
-    return NextResponse.json(
-      { error: 'Unauthorized', code: 'UNAUTHENTICATED' },
-      { status: 401 },
-    );
+  const auth = await authenticateCompanionRequest(req);
+  if (!auth.ok) {
+    return NextResponse.json({ error: 'Unauthorized', code: 'UNAUTHENTICATED' }, { status: 401 });
+  }
+  if (auth.scopes.length > 0 && !auth.scopes.includes('tutor')) {
+    return NextResponse.json({ error: 'Forbidden', code: 'INSUFFICIENT_SCOPE' }, { status: 403 });
   }
 
-  // Rate limiting (prefer per-user key when available)
+  // Rate limiting (token-scoped)
   const rateLimitEnabled = process.env.RATE_LIMIT_ON === 'true';
   let rateHeaders: Record<string, string> | undefined;
   if (rateLimitEnabled) {
     const ipKey = getRateLimitKey(req);
-    const key = `${ipKey}:user:${userId}`;
+    const key = `${ipKey}:companion:${auth.tokenId}`;
     const windowMs = Number.parseInt(process.env.RATE_LIMIT_WINDOW_MS || '60000', 10);
     const max = Number.parseInt(process.env.RATE_LIMIT_MAX || '60', 10);
 
@@ -39,20 +30,21 @@ export async function POST(req: Request) {
     rateHeaders = getRateLimitHeaders(result);
 
     if (!result.ok) {
-      return NextResponse.json(
-        { error: 'Rate limit exceeded' },
-        { status: 429, headers: rateHeaders },
-      );
+      return NextResponse.json({ error: 'Rate limit exceeded' }, { status: 429, headers: rateHeaders });
     }
   }
 
+  let j_code = 'CA';
+  let query = '';
+  let top_k = 5;
+  let lang: 'en' | 'es' = 'en';
+  let unit_id: string | undefined;
+
   try {
     const body = await req.json().catch(() => ({}));
-    query = typeof body?.query === "string" ? body.query : "";
-    j_code = typeof body?.j_code === "string" ? body.j_code : "CA";
-    top_k = Number.isFinite(body?.top_k)
-      ? Math.max(1, Math.min(50, body.top_k))
-      : 5;
+    query = typeof body?.query === 'string' ? body.query : '';
+    j_code = typeof body?.j_code === 'string' ? body.j_code : 'CA';
+    top_k = Number.isFinite(body?.top_k) ? Math.max(1, Math.min(50, body.top_k)) : 5;
     unit_id = typeof body?.unit_id === 'string' ? body.unit_id : undefined;
     lang =
       typeof body?.lang === 'string'
@@ -62,7 +54,7 @@ export async function POST(req: Request) {
           : 'en';
 
     if (!query) {
-      return NextResponse.json({ error: "Missing query" }, { status: 400, headers: rateHeaders });
+      return NextResponse.json({ error: 'Missing query' }, { status: 400, headers: rateHeaders });
     }
 
     const data = await runTutor({
@@ -72,21 +64,20 @@ export async function POST(req: Request) {
       lang,
       unitId: unit_id,
     });
-    const latency = Date.now() - started;
 
     // Best-effort log (non-blocking failure)
     try {
       const supabaseAdmin = getSupabaseAdmin();
-      await supabaseAdmin.from("ai_tutor_logs").insert([
+      await supabaseAdmin.from('ai_tutor_logs').insert([
         {
-          user_id: userId,
-          auth_kind: 'cookie',
+          user_id: auth.userId,
+          auth_kind: 'companion_token',
           j_code,
           query,
           top_k,
           lang,
-          latency_ms: latency,
-          model: data?.model ?? "unknown",
+          latency_ms: Date.now() - started,
+          model: data?.model ?? 'unknown',
           answer: data?.answer ?? null,
           citations: data?.citations ?? [],
           unit_id: unit_id ?? null,
@@ -94,34 +85,34 @@ export async function POST(req: Request) {
         },
       ]);
     } catch {
-      // swallow logging errors
+      // ignore
     }
 
     return NextResponse.json(data, { status: 200, headers: rateHeaders });
   } catch (err: any) {
-    const latency = Date.now() - started;
+    // Best-effort log error
     try {
       const supabaseAdmin = getSupabaseAdmin();
-      await supabaseAdmin.from("ai_tutor_logs").insert([
+      await supabaseAdmin.from('ai_tutor_logs').insert([
         {
-          user_id: userId,
-          auth_kind: 'cookie',
+          user_id: auth.userId,
+          auth_kind: 'companion_token',
           j_code,
           query,
           top_k,
           lang,
-          latency_ms: latency,
-          model: "unknown",
+          latency_ms: Date.now() - started,
+          model: 'unknown',
           unit_id: unit_id ?? null,
           error: String(err?.message ?? err),
         },
       ]);
     } catch {
-      // swallow logging errors
+      // ignore
     }
 
     return NextResponse.json(
-      { error: "Tutor failed", detail: String(err?.message ?? err) },
+      { error: 'Tutor failed', detail: String(err?.message ?? err) },
       { status: 500, headers: rateHeaders },
     );
   }

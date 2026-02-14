@@ -822,7 +822,8 @@ curl http://localhost:3000/api/health
   "query": "What does a yellow traffic light mean?",
   "j_code": "CA",
   "top_k": 5,
-  "lang": "en"
+  "lang": "en",
+  "unit_id": "uuid (optional)"
 }
 ```
 
@@ -830,18 +831,40 @@ curl http://localhost:3000/api/health
 
 ```json
 {
-  "answer": "A yellow traffic light means you should stop if it is safe to do so...",
-  "sources": [
+  "answer": "A yellow traffic light means you should stop if it is safe to do so... [1]",
+  "citations": [
     {
-      "title": "Traffic Signals",
-      "content": "...",
-      "page": 45
+      "idx": 1,
+      "id": 47,
+      "section_ref": "Traffic Signals",
+      "source_url": "https://...",
+      "distance": 0.12,
+      "rank": 0.71,
+      "score": 0.83
     }
   ],
-  "model": "gpt-4",
-  "latency_ms": 1250
+  "sources": [
+    {
+      "idx": 1,
+      "title": "Traffic Signals",
+      "excerpt": "A steady yellow signal warns that the signal is changing to red...",
+      "source_url": "https://..."
+    }
+  ],
+  "model": "gpt-4o-mini",
+  "latency_ms": 1250,
+  "retrieved_k": 5
 }
 ```
+
+## Companion API (External Clients)
+
+Companion endpoints are intended for external clients (for example, ChatGPT Actions) using a personal bearer token.
+
+- OpenAPI: `docs/api/COMPANION_OPENAPI.yaml`
+- Token management (in-app, authenticated): `GET/POST /api/companion/tokens`
+- Token verification: `GET /api/companion/me`
+- Tutor: `POST /api/companion/tutor`
 
 ## Notifications
 

@@ -14,13 +14,13 @@ The application uses environment variables at two levels:
 ### Supabase Configuration
 
 ```bash
-SUPABASE_URL=http://127.0.0.1:54321
+SUPABASE_URL=http://127.0.0.1:4000
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 SUPABASE_ANON_KEY=your_anon_key
 SUPABASE_PUBLISHABLE_KEY=your_publishable_key
 ```
 
-### OpenAI (Optional)
+### OpenAI (Tutor + Ingestion)
 
 ```bash
 OPENAI_API_KEY=sk-proj-your_openai_key
@@ -56,7 +56,7 @@ TESTKIT_TOKEN=dev-super-secret
 ### App Configuration
 
 ```bash
-BASE_URL=http://localhost:3000
+BASE_URL=http://localhost:3001
 CI=false
 ```
 
@@ -85,9 +85,9 @@ DUNNING_EMAIL_DAY_3=7
 ### Billing URLs
 
 ```bash
-BILLING_SUCCESS_URL=http://localhost:3000/billing?status=success
-BILLING_CANCEL_URL=http://localhost:3000/billing?status=cancel
-STRIPE_PORTAL_RETURN_URL=http://localhost:3000/billing
+BILLING_SUCCESS_URL=http://localhost:3001/billing?status=success
+BILLING_CANCEL_URL=http://localhost:3001/billing?status=cancel
+STRIPE_PORTAL_RETURN_URL=http://localhost:3001/billing
 ```
 
 ### Email Configuration
@@ -95,7 +95,7 @@ STRIPE_PORTAL_RETURN_URL=http://localhost:3000/billing
 ```bash
 FROM_EMAIL=no-reply@yourdomain.com
 SUPPORT_EMAIL=support@yourdomain.com
-APP_BASE_URL=http://localhost:3000
+APP_BASE_URL=http://localhost:3001
 ```
 
 ### Rate Limiting
@@ -126,16 +126,25 @@ OFFLINE_DEV=0
 ### Supabase (Client-safe)
 
 ```bash
-NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
+NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:4000
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
 ```
 
 ### Supabase (Server-only)
 
 ```bash
-SUPABASE_URL=http://127.0.0.1:54321
+SUPABASE_URL=http://127.0.0.1:4000
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-SUPABASE_FUNCTIONS_URL=http://127.0.0.1:54321/functions/v1
+SUPABASE_FUNCTIONS_URL=http://127.0.0.1:4000/functions/v1
+```
+
+### AI (Server-only)
+
+```bash
+OPENAI_API_KEY=sk-proj-your_openai_key
+AI_TUTOR_MODEL=gpt-4o-mini
+AI_EMBED_MODEL=text-embedding-3-small
+AI_MAX_EXCERPT_CHARS=800
 ```
 
 ### Stripe (Client-safe)
@@ -175,7 +184,7 @@ NEXT_PUBLIC_BUILD_AT=
 ### Site Configuration
 
 ```bash
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_SITE_URL=http://localhost:3001
 ```
 
 ### Google One Tap (Optional)
@@ -189,7 +198,7 @@ NEXT_PUBLIC_GOOGLE_ONE_TAP=0
 ```bash
 FROM_EMAIL=no-reply@yourdomain.com
 SUPPORT_EMAIL=support@yourdomain.com
-APP_BASE_URL=http://localhost:3000
+APP_BASE_URL=http://localhost:3001
 ```
 
 ### Rate Limiting
@@ -234,9 +243,9 @@ DUNNING_EMAIL_DAY_3=7
 ### Billing URLs
 
 ```bash
-BILLING_SUCCESS_URL=http://localhost:3000/billing?status=success
-BILLING_CANCEL_URL=http://localhost:3000/billing?status=cancel
-STRIPE_PORTAL_RETURN_URL=http://localhost:3000/billing
+BILLING_SUCCESS_URL=http://localhost:3001/billing?status=success
+BILLING_CANCEL_URL=http://localhost:3001/billing?status=cancel
+STRIPE_PORTAL_RETURN_URL=http://localhost:3001/billing
 ```
 
 ### Test Users (E2E Testing)

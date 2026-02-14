@@ -78,7 +78,7 @@ supabase db reset
 node web/scripts/make_admin.mjs user@example.com
 
 # Verify admin access
-# Visit http://localhost:3000/admin
+# Visit http://localhost:3001/admin
 ```
 
 ### Seeding Test Data
@@ -95,16 +95,16 @@ npm --prefix web run seed:handbooks
 
 ```bash
 # Health check
-curl http://localhost:3000/api/health
+curl http://localhost:3001/api/health
 
 # Test tutor endpoint
-curl -X POST http://localhost:3000/api/tutor \
+curl -X POST http://localhost:3001/api/tutor \
   -H 'Content-Type: application/json' \
   -d '{"query":"When can I turn right on red?","j_code":"CA"}'
 
 # Test with authentication
 curl -H "Authorization: Bearer YOUR_JWT" \
-  http://localhost:3000/api/profile
+  http://localhost:3001/api/profile
 ```
 
 ### Database Queries
@@ -153,7 +153,7 @@ supabase db push
 ```json
 {
   "method": "POST",
-  "url": "http://localhost:3000/api/tutor",
+  "url": "http://localhost:3001/api/tutor",
   "headers": {
     "Content-Type": "application/json"
   },
@@ -207,8 +207,8 @@ npm run env:check:local
 
 ```bash
 # Find process using port
-lsof -i :3000
-lsof -i :54321
+lsof -i :3001
+lsof -i :4000
 
 # Kill process
 kill -9 <PID>
@@ -262,7 +262,7 @@ npm --prefix web run lint && npm --prefix web test && npm --prefix web run test:
 
 ```bash
 # Via testkit (E2E only)
-curl -X POST http://localhost:3000/api/testkit/user \
+curl -X POST http://localhost:3001/api/testkit/user \
   -H "Authorization: Bearer $TESTKIT_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"email":"test@example.com","admin":true}'
@@ -272,7 +272,7 @@ curl -X POST http://localhost:3000/api/testkit/user \
 
 ```bash
 # Reset all test data
-curl -X POST http://localhost:3000/api/testkit/reset \
+curl -X POST http://localhost:3001/api/testkit/reset \
   -H "Authorization: Bearer $TESTKIT_TOKEN"
 ```
 
@@ -313,7 +313,7 @@ npm --prefix web run build
 npm --prefix web run start
 
 # Test production build
-curl http://localhost:3000/api/health
+curl http://localhost:3001/api/health
 ```
 
 ### Environment Variables
@@ -323,12 +323,12 @@ curl http://localhost:3000/api/health
 ```bash
 # Local Development (.env.local files)
 # Root: .env.local
-SUPABASE_URL=http://localhost:54321
+SUPABASE_URL=http://localhost:4000
 SUPABASE_SERVICE_ROLE_KEY=...
 OPENAI_API_KEY=...
 
 # Web: web/.env.local
-NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
+NEXT_PUBLIC_SUPABASE_URL=http://localhost:4000
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 SUPABASE_SERVICE_ROLE_KEY=...
 
@@ -420,7 +420,7 @@ supabase start
 
 ```bash
 # Find and kill process
-lsof -i :3000
+lsof -i :3001
 kill -9 <PID>
 ```
 

@@ -31,7 +31,7 @@ export default function PracticePage() {
                 mb: 2,
               }}
             >
-              Start Your Practice Test
+              Start Your Practice Journey
             </Typography>
             <Typography
               variant="h5"
@@ -42,58 +42,14 @@ export default function PracticePage() {
                 mb: 4,
               }}
             >
-              Choose your practice option and begin your journey to getting your permit
+              Create an account or sign in to continue with full course practice and exam prep.
             </Typography>
           </Box>
 
           <Grid container spacing={4} justifyContent="center">
             <Grid
               xs={12}
-              md={4}>
-              <Card
-                sx={{
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'all 0.3s ease-in-out',
-                  '&:hover': {
-                    transform: 'translateY(-4px)',
-                    boxShadow: 8,
-                  },
-                }}
-              >
-                <CardContent sx={{ p: 4, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                  <Box sx={{ textAlign: 'center', mb: 3 }}>
-                    <SchoolIcon sx={{ fontSize: 60, color: 'primary.main', mb: 2 }} />
-                    <Typography variant="h4" component="h2" sx={{ fontWeight: 600, mb: 1 }}>
-                      Free Practice Test
-                    </Typography>
-                    <Typography variant="body1" color="text.secondary">
-                      Try our practice test for free
-                    </Typography>
-                  </Box>
-                  
-                  <Typography variant="body1" sx={{ mb: 3, flexGrow: 1 }}>
-                    Get a feel for our platform with a free practice test. No registration required.
-                  </Typography>
-                  
-                  <Button
-                    component={Link}
-                    href="/exam"
-                    variant="contained"
-                    size="large"
-                    fullWidth
-                    startIcon={<AssignmentIcon />}
-                  >
-                    Start Free Test
-                  </Button>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid
-              xs={12}
-              md={4}>
+              md={5}>
               <Card
                 sx={{
                   height: '100%',
@@ -112,15 +68,15 @@ export default function PracticePage() {
                   <Box sx={{ textAlign: 'center', mb: 3 }}>
                     <TrendingUpIcon sx={{ fontSize: 60, color: 'primary.main', mb: 2 }} />
                     <Typography variant="h4" component="h2" sx={{ fontWeight: 600, mb: 1 }}>
-                      Full Course Access
+                      Create Your Account
                     </Typography>
                     <Typography variant="body1" color="text.secondary">
-                      Unlock unlimited practice tests
+                      Start with guided onboarding
                     </Typography>
                   </Box>
                   
                   <Typography variant="body1" sx={{ mb: 3, flexGrow: 1 }}>
-                    Access unlimited practice tests, detailed explanations, progress tracking, and more.
+                    Set up your profile and unlock your course, study progress, and exam preparation tools.
                   </Typography>
                   
                   <Button
@@ -139,7 +95,7 @@ export default function PracticePage() {
 
             <Grid
               xs={12}
-              md={4}>
+              md={5}>
               <Card
                 sx={{
                   height: '100%',
@@ -169,7 +125,7 @@ export default function PracticePage() {
                   
                   <Button
                     component={Link}
-                    href="/signin"
+                    href="/login"
                     variant="outlined"
                     size="large"
                     fullWidth
@@ -184,8 +140,7 @@ export default function PracticePage() {
           <Box sx={{ mt: 8, textAlign: 'center' }}>
             <Alert severity="info" sx={{ maxWidth: 600, mx: 'auto' }}>
               <Typography variant="body2">
-                <strong>New to Permit School?</strong> Start with our free practice test to see how our platform works. 
-                No registration required for the free test.
+                <strong>Need access?</strong> Create an account to start learning and billing-ready practice flows.
               </Typography>
             </Alert>
           </Box>

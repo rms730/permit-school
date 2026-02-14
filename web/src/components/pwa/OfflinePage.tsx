@@ -41,18 +41,18 @@ export const OfflinePage = forwardRef<HTMLDivElement, OfflinePageProps>(
 
     const offlineContent = [
       {
-        title: "Practice Tests",
-        description: "Continue with your saved practice tests",
+        title: "Course Progress",
+        description: "Open your enrolled course and continue where you left off",
         icon: <SchoolIcon />,
         action: "View Progress",
-        href: "/offline/practice"
+        href: "/courses"
       },
       {
         title: "Study Materials",
-        description: "Access downloaded course materials",
+        description: "Access your account dashboard and saved activity",
         icon: <SchoolIcon />,
-        action: "Study Offline",
-        href: "/offline/study"
+        action: "Open Dashboard",
+        href: "/dashboard"
       }
     ];
 

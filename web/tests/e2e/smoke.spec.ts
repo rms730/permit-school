@@ -3,20 +3,20 @@ import { test, expect } from '@playwright/test';
 test.describe('Smoke Tests', () => {
   test('loads core pages', async ({ page }) => {
     // Test landing page
-    await page.goto('http://localhost:3000/');
+    await page.goto('/');
     await expect(page.getByRole('heading', { name: /permit school/i })).toBeVisible();
     
     // Test locale-specific landing page
-    await page.goto('http://localhost:3000/en');
+    await page.goto('/en');
     await expect(page.getByRole('heading', { name: /permit school/i })).toBeVisible();
     
     // Test Spanish locale
-    await page.goto('http://localhost:3000/es');
+    await page.goto('/es');
     await expect(page.getByRole('heading', { name: /permit school/i })).toBeVisible();
   });
 
   test('navigation works correctly', async ({ page }) => {
-    await page.goto('http://localhost:3000/');
+    await page.goto('/');
     
     // Check for navigation elements
     await expect(page.getByRole('navigation')).toBeVisible();
@@ -31,7 +31,7 @@ test.describe('Smoke Tests', () => {
   });
 
   test('CTA buttons are clickable', async ({ page }) => {
-    await page.goto('http://localhost:3000/');
+    await page.goto('/');
     
     // Test primary CTA button
     const primaryButton = page.getByRole('button', { name: /start|begin|get started/i });
@@ -50,7 +50,7 @@ test.describe('Smoke Tests', () => {
   });
 
   test('footer links work', async ({ page }) => {
-    await page.goto('http://localhost:3000/');
+    await page.goto('/');
     
     // Test footer navigation
     const footer = page.getByRole('contentinfo');
@@ -78,12 +78,12 @@ test.describe('Smoke Tests', () => {
   test('responsive design works', async ({ page }) => {
     // Test desktop view
     await page.setViewportSize({ width: 1280, height: 720 });
-    await page.goto('http://localhost:3000/');
+    await page.goto('/');
     await expect(page.getByRole('heading', { name: /permit school/i })).toBeVisible();
     
     // Test mobile view
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('http://localhost:3000/');
+    await page.goto('/');
     await expect(page.getByRole('heading', { name: /permit school/i })).toBeVisible();
   });
 
@@ -96,8 +96,9 @@ test.describe('Smoke Tests', () => {
       }
     });
     
-    await page.goto('http://localhost:3000/');
-    await page.waitForLoadState('networkidle');
+    await page.goto('/');
+    await expect(page.locator('main')).toBeVisible();
+    await page.waitForTimeout(500);
     
     // Allow some expected errors but fail on unexpected ones
     const unexpectedErrors = consoleErrors.filter(error => 

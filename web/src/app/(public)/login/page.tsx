@@ -37,7 +37,7 @@ export default function LoginPage() {
     try {
       setLoading(true);
       setError(null);
-      const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL || 'http://localhost:3000';
+      const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL || 'http://localhost:3001';
       await signInWithGoogle(`${baseUrl}/auth/callback`);
     } catch (error) {
       console.error('Google sign-in error:', error);

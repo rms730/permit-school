@@ -14,45 +14,54 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { course_id, j_code, course_code } = body;
+    const { course_id, course_code, priceId: explicitPriceId } = body ?? {};
 
-    if (!course_id && (!j_code || !course_code)) {
-      return NextResponse.json({ error: 'Missing course_id or j_code/course_code' }, { status: 400 });
+    if (!explicitPriceId && !course_id && !course_code) {
+      return NextResponse.json(
+        { error: 'Missing priceId or course_id or course_code' },
+        { status: 400 }
+      );
     }
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-      apiVersion: '2025-07-30.basil',
+      apiVersion: '2025-08-27.basil',
     });
 
-    // Get course ID if not provided
-    let courseId = course_id;
-    if (!courseId) {
-      const { data: course, error: courseError } = await supabase
-        .from('courses')
-        .select('id')
-        .eq('code', course_code)
-        .eq('jurisdictions.code', j_code)
+    let priceId = explicitPriceId;
+
+    // Resolve price from course if not explicitly provided.
+    if (!priceId) {
+      // Get course ID if not provided
+      let courseId = course_id;
+      if (!courseId) {
+        const { data: course, error: courseError } = await supabase
+          .from('courses')
+          .select('id')
+          .eq('code', course_code)
+          .limit(1)
+          .single();
+
+        if (courseError || !course) {
+          return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+        }
+        courseId = course.id;
+      }
+
+      // Get price from billing_prices table
+      const { data: price } = await supabase
+        .from('billing_prices')
+        .select('stripe_price_id')
+        .eq('course_id', courseId)
+        .eq('active', true)
+        .order('created_at', { ascending: false })
+        .limit(1)
         .single();
 
-      if (courseError || !course) {
-        return NextResponse.json({ error: 'Course not found' }, { status: 404 });
-      }
-      courseId = course.id;
+      priceId = price?.stripe_price_id;
     }
 
-    // Get price from billing_prices table
-    const { data: price, error: priceError } = await supabase
-      .from('billing_prices')
-      .select('stripe_price_id')
-      .eq('course_id', courseId)
-      .eq('active', true)
-      .order('created_at', { ascending: false })
-      .limit(1)
-      .single();
-
-    let priceId = price?.stripe_price_id;
     if (!priceId) {
-      // Fallback to environment variable
+      // Final fallback to environment variable.
       priceId = process.env.STRIPE_PRICE_ID;
     }
 

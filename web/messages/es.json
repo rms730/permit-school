@@ -7,14 +7,18 @@
       "pricing": "Precios",
       "faq": "Preguntas frecuentes",
       "signIn": "Iniciar sesión",
-      "start": "Comenzar gratis"
+      "start": "Comenzar"
+    },
+    "theme": {
+      "switchToDark": "Cambiar a modo oscuro",
+      "switchToLight": "Cambiar a modo claro"
     }
   },
   "Home": {
     "hero": {
       "title": "Aprueba tu examen de permiso de California—en tu primer intento.",
       "subtitle": "Estudia exactamente lo que el DMV pregunta. Pruebas de práctica inteligentes, retroalimentación instantánea y lecciones pequeñas diseñadas para personas ocupadas.",
-      "primaryCta": "Comenzar práctica gratis",
+      "primaryCta": "Comenzar práctica",
       "secondaryCta": "Ver cómo funciona"
     },
     "trust": {

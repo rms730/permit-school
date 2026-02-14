@@ -5,7 +5,7 @@ import { ResponsiveImage } from '../ResponsiveImage';
 
 // Mock Next.js Image component
 vi.mock('next/image', () => ({
-  default: ({ src, alt, onLoad, onError, ...props }: any) => (
+  default: ({ src, alt, onLoad, onError, fill: _fill, priority: _priority, ...props }: any) => (
     <img 
       src={src} 
       alt={alt} 

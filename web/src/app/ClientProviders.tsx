@@ -20,6 +20,36 @@ interface ClientProvidersProps {
 }
 
 export default function ClientProviders({ children, locale, dict }: ClientProvidersProps) {
+  React.useEffect(() => {
+    if (process.env.NODE_ENV !== 'development' || typeof window === 'undefined') {
+      return;
+    }
+
+    if (!('serviceWorker' in navigator)) {
+      return;
+    }
+
+    navigator.serviceWorker
+      .getRegistrations()
+      .then((registrations) => {
+        registrations.forEach((registration) => {
+          void registration.unregister();
+        });
+      })
+      .catch(() => {
+        // no-op: best effort cleanup for stale local caches
+      });
+
+    if ('caches' in window) {
+      window.caches
+        .keys()
+        .then((keys) => Promise.all(keys.map((key) => window.caches.delete(key))))
+        .catch(() => {
+          // no-op: best effort cleanup for stale local caches
+        });
+    }
+  }, []);
+
   return (
     <AppRouterCacheProvider options={{ enableCssLayer: false }}>
       <MuiProvider>

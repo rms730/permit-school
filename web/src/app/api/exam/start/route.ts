@@ -40,7 +40,7 @@ export async function POST(req: Request) {
     }
 
     // Check eligibility
-    const eligibilityResponse = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/exam/eligibility`, {
+    const eligibilityResponse = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3001'}/api/exam/eligibility`, {
       headers: {
         'Cookie': req.headers.get('cookie') || '',
       },

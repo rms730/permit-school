@@ -13,7 +13,7 @@ interface ManageSubscriptionButtonProps extends Omit<ButtonProps, 'onClick' | 'o
 
 export const ManageSubscriptionButton = forwardRef<HTMLButtonElement, ManageSubscriptionButtonProps>(
   ({ 
-    returnUrl = '/account/billing',
+    returnUrl = '/billing',
     onSuccess,
     onError,
     children = 'Manage Subscription',

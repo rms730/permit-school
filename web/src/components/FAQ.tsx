@@ -2,6 +2,7 @@
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Box, Typography, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import { alpha } from '@mui/material/styles';
 import * as React from 'react';
 
 import { Heading } from './ui/Heading';
@@ -108,14 +109,20 @@ export function FAQ() {
       </Box>
 
       <Box
-        sx={{
+        sx={(theme) => ({
           mt: { xs: 5, md: 7 },
           p: { xs: 2.5, md: 3.5 },
-          backgroundColor: 'rgba(255,255,255,0.75)',
+          backgroundColor:
+            theme.palette.mode === 'dark'
+              ? alpha(theme.palette.background.paper, 0.88)
+              : 'rgba(255,255,255,0.75)',
           border: '1px solid',
-          borderColor: 'divider',
+          borderColor:
+            theme.palette.mode === 'dark'
+              ? alpha(theme.palette.text.primary, 0.24)
+              : 'divider',
           borderRadius: 3,
-        }}
+        })}
       >
         <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
           <strong>Important:</strong> Permit School is not affiliated with, endorsed by, or sponsored by

@@ -50,7 +50,7 @@ export const SuccessBanner = forwardRef<HTMLDivElement, SuccessBannerProps>(
             {showManageButton && (
               <Button
                 component={Link}
-                href="/account/billing"
+                href="/billing"
                 variant="contained"
                 color="primary"
                 size="small"

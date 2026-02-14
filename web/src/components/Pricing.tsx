@@ -3,6 +3,7 @@
 import CheckIcon from '@mui/icons-material/Check';
 import { Box, Typography, Stack, Chip, Button } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import { alpha } from '@mui/material/styles';
 
 import { CheckoutButton } from './billing/CheckoutButton';
 import { CardX } from './ui/CardX';
@@ -23,15 +24,6 @@ type Plan = {
 
 const PLANS: Plan[] = [
   {
-    name: 'Starter',
-    price: '$0',
-    period: 'forever',
-    description: 'Try the platform and get an initial readiness snapshot.',
-    features: ['1 full practice test', 'Topic performance overview', 'Works on mobile and desktop'],
-    cta: 'Start Free',
-    ctaHref: '/practice',
-  },
-  {
     name: 'Plus',
     price: '$9.99',
     period: 'month',
@@ -43,7 +35,7 @@ const PLANS: Plan[] = [
       'Progress analytics and readiness score',
       'Completion certificate tracking',
     ],
-    cta: 'Start Plus Trial',
+    cta: 'Choose Plus',
     ctaHref: '/signup',
     popular: true,
     stripePriceId: 'price_plus_monthly',
@@ -73,22 +65,26 @@ export function Pricing() {
           Pricing that fits your timeline
         </Heading>
         <Typography variant="h5" color="text.secondary" sx={{ maxWidth: 720, mx: 'auto' }}>
-          Start free, upgrade when you want deeper practice, and cancel anytime.
+          Choose the plan that matches your study pace and upgrade anytime.
         </Typography>
       </Box>
 
       <Grid container spacing={2.75} id="pricing">
         {PLANS.map(plan => (
-          <Grid key={plan.name} xs={12} md={4}>
+          <Grid key={plan.name} xs={12} md={6}>
             <CardX
               spacing="relaxed"
-              sx={{
+              sx={(theme) => ({
                 height: '100%',
                 position: 'relative',
-                borderColor: plan.popular ? 'primary.main' : 'rgba(18,32,50,0.12)',
+                borderColor: plan.popular
+                  ? 'primary.main'
+                  : alpha(theme.palette.text.primary, theme.palette.mode === 'dark' ? 0.24 : 0.12),
                 transform: plan.popular ? { xs: 'none', md: 'translateY(-8px)' } : 'none',
-                backgroundColor: plan.popular ? 'rgba(15,110,207,0.04)' : 'background.paper',
-              }}
+                backgroundColor: plan.popular
+                  ? alpha(theme.palette.primary.main, theme.palette.mode === 'dark' ? 0.16 : 0.04)
+                  : 'background.paper',
+              })}
             >
               {plan.popular ? (
                 <Chip

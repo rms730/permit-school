@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Build the signing URL
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3001';
     const signingUrl = `${baseUrl}/guardian/${token}`;
 
     return NextResponse.json({

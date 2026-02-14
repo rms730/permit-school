@@ -1,21 +1,23 @@
 "use client";
 
-import { 
+import {
   Error as ErrorIcon,
   Refresh as RefreshIcon,
   ExpandMore as ExpandMoreIcon,
-  ExpandLess as ExpandLessIcon
+  ExpandLess as ExpandLessIcon,
 } from '@mui/icons-material';
-import { 
-  Box, 
-  Typography, 
-  Button, 
-  Stack, 
+import {
+  Box,
+  Typography,
+  Button,
+  Stack,
   Alert,
   Collapse,
-  BoxProps
+  BoxProps,
 } from '@mui/material';
-import { forwardRef, useState } from 'react';
+import * as React from 'react';
+
+import { mergeSx } from '@/lib/mergeSx';
 
 interface ErrorStateProps extends Omit<BoxProps, 'component'> {
   title?: string;
@@ -48,34 +50,35 @@ const sizeMap = {
   },
 };
 
-export const ErrorState = forwardRef<HTMLElement, ErrorStateProps>(
-  ({ 
+export const ErrorState = React.forwardRef<HTMLElement, ErrorStateProps>(
+  ({
     title = 'Something went wrong',
-    message, 
+    message,
     details,
     retry,
     size = 'medium',
     align = 'center',
     component = 'div',
     sx,
-    ...props 
+    ...props
   }, ref) => {
     const sizeConfig = sizeMap[size];
-    const [showDetails, setShowDetails] = useState(false);
+    const [showDetails, setShowDetails] = React.useState(false);
+    const baseSx = {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: align === 'center' ? 'center' : align === 'right' ? 'flex-end' : 'flex-start',
+      textAlign: align,
+      py: sizeConfig.spacing * 2,
+      px: sizeConfig.spacing,
+    };
+    const mergedSx = mergeSx(baseSx, sx);
 
     return (
       <Box
         ref={ref}
         component={component}
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: align === 'center' ? 'center' : align === 'right' ? 'flex-end' : 'flex-start',
-          textAlign: align,
-          py: sizeConfig.spacing * 2,
-          px: sizeConfig.spacing,
-          ...sx,
-        }}
+        sx={mergedSx}
         {...props}
       >
         <Box
@@ -146,11 +149,11 @@ export const ErrorState = forwardRef<HTMLElement, ErrorStateProps>(
         {details && (
           <Collapse in={showDetails} sx={{ width: '100%', mt: 2 }}>
             <Alert severity="error" sx={{ textAlign: 'left' }}>
-              <Typography variant="body2" component="pre" sx={{ 
-                whiteSpace: 'pre-wrap', 
+              <Typography variant="body2" component="pre" sx={{
+                whiteSpace: 'pre-wrap',
                 fontFamily: 'monospace',
                 fontSize: '0.875rem',
-                m: 0 
+                m: 0,
               }}>
                 {details}
               </Typography>

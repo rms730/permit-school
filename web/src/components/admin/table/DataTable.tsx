@@ -42,6 +42,7 @@ import { forwardRef, useState, useCallback, useMemo } from 'react';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { ErrorState } from '@/components/ui/ErrorState';
 import { SkeletonX } from '@/components/ui/SkeletonX';
+import { mergeSx } from '@/lib/mergeSx';
 
 interface DataTableProps {
   rows: any[];
@@ -309,8 +310,10 @@ export const DataTable = forwardRef<HTMLDivElement, DataTableProps>(
       );
     }
 
+    const containerSx = mergeSx({ height: 600, width: '100%' }, sx);
+
     return (
-      <Paper ref={ref} sx={{ height: 600, width: '100%', ...sx }}>
+      <Paper ref={ref} sx={containerSx}>
         <DataGrid
           rows={rows}
           columns={columns}

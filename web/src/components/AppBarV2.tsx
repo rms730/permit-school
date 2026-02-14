@@ -26,8 +26,10 @@ import {
   ListItemIcon,
   ListItemText,
   Divider,
+  Stack,
   useMediaQuery,
 } from '@mui/material';
+import { alpha } from '@mui/material/styles';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import { useState } from 'react';
@@ -38,6 +40,7 @@ import { supabase } from '@/lib/supabaseClient';
 
 import LanguageSwitcher from './LanguageSwitcher';
 import NotificationBell from './NotificationBell';
+import ThemeToggleButton from './ThemeToggleButton';
 
 
 interface AppBarV2Props {
@@ -87,7 +90,7 @@ export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props)
     }
     
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL || 'http://localhost:3000';
+      const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL || 'http://localhost:3001';
       await signInWithGoogle(`${baseUrl}/auth/callback`);
     } catch (error) {
       console.error('Google sign-in error:', error);
@@ -173,9 +176,12 @@ export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props)
         <Typography variant="h6" fontWeight={600}>
           Menu
         </Typography>
-        <IconButton onClick={handleMobileDrawerToggle}>
-          <Close />
-        </IconButton>
+        <Stack direction="row" spacing={1} alignItems="center">
+          <ThemeToggleButton size="small" />
+          <IconButton onClick={handleMobileDrawerToggle}>
+            <Close />
+          </IconButton>
+        </Stack>
       </Box>
       <Divider />
       <List>
@@ -245,9 +251,11 @@ export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props)
     <>
       <AppBar 
         position="sticky" 
+        color="transparent"
         elevation={0}
         sx={{
-          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          backgroundColor: (theme) => alpha(theme.palette.background.paper, 0.92),
+          color: 'text.primary',
           backdropFilter: 'blur(10px)',
           borderBottom: '1px solid',
           borderColor: 'divider',
@@ -303,6 +311,7 @@ export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props)
           {!isMobile && (
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <LanguageSwitcher />
+              <ThemeToggleButton />
               {user ? (
                 <>
                   {resumeData?.lastUnit ? (
@@ -356,7 +365,7 @@ export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props)
                   <Button
                     variant="outlined"
                     color="primary"
-                    onClick={() => router.push('/signin')}
+                    onClick={() => router.push('/login')}
                     sx={{ fontWeight: 600 }}
                   >
                     Sign In
@@ -380,7 +389,7 @@ export default function AppBarV2({ user, onSignOut, resumeData }: AppBarV2Props)
             <Button
               variant="contained"
               size="small"
-              onClick={() => router.push('/signin')}
+              onClick={() => router.push('/login')}
               sx={{ fontWeight: 600 }}
             >
               Sign In

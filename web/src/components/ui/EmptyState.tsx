@@ -1,13 +1,15 @@
 "use client";
 
-import { 
-  Box, 
-  Typography, 
-  Button, 
-  Stack, 
-  BoxProps
+import {
+  Box,
+  Typography,
+  Button,
+  Stack,
+  BoxProps,
 } from '@mui/material';
-import React, { forwardRef } from 'react';
+import * as React from 'react';
+
+import { mergeSx } from '@/lib/mergeSx';
 
 interface EmptyStateProps extends Omit<BoxProps, 'component'> {
   icon?: React.ReactNode;
@@ -50,34 +52,35 @@ const sizeMap = {
   },
 };
 
-export const EmptyState = forwardRef<HTMLElement, EmptyStateProps>(
-  ({ 
-    icon, 
-    title, 
-    description, 
-    primaryAction, 
+export const EmptyState = React.forwardRef<HTMLElement, EmptyStateProps>(
+  ({
+    icon,
+    title,
+    description,
+    primaryAction,
     secondaryAction,
     size = 'medium',
     align = 'center',
     component = 'div',
     sx,
-    ...props 
+    ...props
   }, ref) => {
     const sizeConfig = sizeMap[size];
+    const baseSx = {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: align === 'center' ? 'center' : align === 'right' ? 'flex-end' : 'flex-start',
+      textAlign: align,
+      py: sizeConfig.spacing * 2,
+      px: sizeConfig.spacing,
+    };
+    const mergedSx = mergeSx(baseSx, sx);
 
     return (
       <Box
         ref={ref}
         component={component}
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: align === 'center' ? 'center' : align === 'right' ? 'flex-end' : 'flex-start',
-          textAlign: align,
-          py: sizeConfig.spacing * 2,
-          px: sizeConfig.spacing,
-          ...sx,
-        }}
+        sx={mergedSx}
         {...props}
       >
         {icon && (

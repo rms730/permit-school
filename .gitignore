@@ -25,6 +25,7 @@ web/.env.production
 # Logs
 logs/
 *.log/web/.next/
+.playwright-cli/
 
 # Seed backups
 ops/seed/.backups/

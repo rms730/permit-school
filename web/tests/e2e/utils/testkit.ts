@@ -233,7 +233,7 @@ export class TestkitAPI {
 }
 
 export async function getTestkitAPI(page: Page): Promise<TestkitAPI> {
-  const baseURL = process.env.BASE_URL || 'http://localhost:3000';
+  const baseURL = process.env.BASE_URL || 'http://localhost:3001';
   const token = process.env.TESTKIT_TOKEN;
   
   if (!token) {
@@ -270,7 +270,7 @@ export function getTestMinorUser(): TestUser {
 // Convenience functions for the new test structure
 export const testkit = {
   async reset() {
-    const baseURL = process.env.BASE_URL || 'http://localhost:3000';
+    const baseURL = process.env.BASE_URL || 'http://localhost:3001';
     const token = process.env.TESTKIT_TOKEN;
     
     if (!token) {
@@ -282,7 +282,7 @@ export const testkit = {
   },
 
   async seedPrograms() {
-    const baseURL = process.env.BASE_URL || 'http://localhost:3000';
+    const baseURL = process.env.BASE_URL || 'http://localhost:3001';
     const token = process.env.TESTKIT_TOKEN;
     
     if (!token) {
@@ -294,7 +294,7 @@ export const testkit = {
   },
 
   async seedPrepTests() {
-    const baseURL = process.env.BASE_URL || 'http://localhost:3000';
+    const baseURL = process.env.BASE_URL || 'http://localhost:3001';
     const token = process.env.TESTKIT_TOKEN;
     
     if (!token) {
@@ -306,7 +306,7 @@ export const testkit = {
   },
 
   async seedPrepBlueprints() {
-    const baseURL = process.env.BASE_URL || 'http://localhost:3000';
+    const baseURL = process.env.BASE_URL || 'http://localhost:3001';
     const token = process.env.TESTKIT_TOKEN;
     
     if (!token) {
@@ -318,7 +318,7 @@ export const testkit = {
   },
 
   async createUser(role: 'student' | 'admin' = 'student') {
-    const baseURL = process.env.BASE_URL || 'http://localhost:3000';
+    const baseURL = process.env.BASE_URL || 'http://localhost:3001';
     const token = process.env.TESTKIT_TOKEN;
     
     if (!token) {

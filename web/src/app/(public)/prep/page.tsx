@@ -105,7 +105,7 @@ export default function PrepPage() {
                   },
                 }}
               >
-                Start Free Trial
+                Get Started
               </Button>
               <Button
                 component={Link}
@@ -433,7 +433,7 @@ export default function PrepPage() {
                 },
               }}
             >
-              Start Your Free Trial
+              Create Your Account
             </Button>
           </Box>
         </Container>

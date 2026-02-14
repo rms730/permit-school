@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Call the existing admin issue endpoint
-    const issueResponse = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/admin/certificates/issue`, {
+    const issueResponse = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3001'}/api/admin/certificates/issue`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -121,7 +121,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Build verification URL
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3001';
     const verificationUrl = `${baseUrl}/verify/${issuedCert.number}`;
 
     return NextResponse.json({

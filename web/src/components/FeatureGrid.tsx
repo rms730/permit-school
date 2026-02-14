@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Quiz,
   Bolt,
@@ -8,6 +10,7 @@ import {
 } from '@mui/icons-material';
 import { Stack, Typography, Box } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import { alpha } from '@mui/material/styles';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
@@ -43,8 +46,8 @@ const FEATURES = [
   },
   {
     icon: SupportAgent,
-    title: 'Start free',
-    description: 'Practice before upgrading, then scale up only when you are ready.',
+    title: 'Get started fast',
+    description: 'Create an account and begin targeted preparation in minutes.',
   },
 ];
 
@@ -55,12 +58,15 @@ export function FeatureGrid() {
     <Section
       id="section-features"
       spacing="xl"
-      sx={{
-        backgroundColor: 'rgba(255,255,255,0.8)',
+      sx={(theme) => ({
+        backgroundColor:
+          theme.palette.mode === 'dark'
+            ? alpha(theme.palette.background.paper, 0.92)
+            : alpha(theme.palette.common.white, 0.8),
         borderTop: '1px solid',
         borderBottom: '1px solid',
         borderColor: 'divider',
-      }}
+      })}
     >
       <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 7 } }}>
         <Heading level={2} sx={{ mb: 1.5 }}>
@@ -82,26 +88,34 @@ export function FeatureGrid() {
             <Grid key={feature.title} role="listitem" xs={12} sm={6} md={4}>
               <CardX
                 spacing="relaxed"
-                sx={{
+                sx={(theme) => ({
                   height: '100%',
-                  border: '1px solid rgba(18, 32, 50, 0.12)',
+                  border: `1px solid ${alpha(
+                    theme.palette.text.primary,
+                    theme.palette.mode === 'dark' ? 0.24 : 0.12
+                  )}`,
                   background:
-                    'linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(249,252,255,0.96) 100%)',
+                    theme.palette.mode === 'dark'
+                      ? `linear-gradient(180deg, ${alpha(theme.palette.background.paper, 0.98)} 0%, ${alpha(theme.palette.background.default, 0.96)} 100%)`
+                      : 'linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(249,252,255,0.96) 100%)',
                   '&:hover': {
                     transform: 'translateY(-4px)',
                   },
-                }}
+                })}
               >
                 <Stack spacing={2.5} sx={{ flexGrow: 1 }}>
                   <Box
-                    sx={{
+                    sx={(theme) => ({
                       width: 58,
                       height: 58,
                       borderRadius: 3,
-                      backgroundColor: 'rgba(15,110,207,0.12)',
+                      backgroundColor: alpha(
+                        theme.palette.primary.main,
+                        theme.palette.mode === 'dark' ? 0.24 : 0.12
+                      ),
                       display: 'grid',
                       placeItems: 'center',
-                    }}
+                    })}
                   >
                     <Icon sx={{ fontSize: 30, color: 'primary.main' }} />
                   </Box>

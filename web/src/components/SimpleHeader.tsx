@@ -4,25 +4,25 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  useTheme,
   Stack,
 } from '@mui/material';
+import { alpha } from '@mui/material/styles';
 import Link from 'next/link';
 import * as React from 'react';
 
 import { Button } from './Button';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeToggleButton from './ThemeToggleButton';
 
 export function SimpleHeader() {
-  const _theme = useTheme();
-
   return (
     <AppBar 
       position="sticky" 
-      color="primary" 
+      color="transparent"
       elevation={0}
       sx={{
-        backgroundColor: 'white',
+        backgroundColor: (theme) => alpha(theme.palette.background.paper, 0.92),
+        color: 'text.primary',
         borderBottom: '1px solid',
         borderColor: 'divider',
       }}
@@ -52,10 +52,11 @@ export function SimpleHeader() {
         
         <Stack direction="row" spacing={2} alignItems="center">
           <LanguageSwitcher />
+          <ThemeToggleButton />
           <Button
             variant="ghost"
             component={Link}
-            href="/signin"
+            href="/login"
             sx={{ 
               color: 'text.primary',
               fontWeight: 500,

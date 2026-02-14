@@ -24,7 +24,7 @@ export function CTASection() {
           <Button
             variant="contained"
             size="large"
-            href="/practice"
+            href="/signup"
             sx={{
               backgroundColor: 'white',
               color: 'primary.main',
@@ -33,7 +33,7 @@ export function CTASection() {
               },
             }}
           >
-            Start free practice test
+            Create your account
           </Button>
         </Box>
       </Container>

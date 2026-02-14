@@ -1,7 +1,9 @@
 "use client";
 
 import { Box, BoxProps, Container } from '@mui/material';
-import { forwardRef } from 'react';
+import * as React from 'react';
+
+import { mergeSx } from '@/lib/mergeSx';
 
 interface SectionProps extends Omit<BoxProps, 'component'> {
   children: React.ReactNode;
@@ -18,23 +20,22 @@ const spacingMap = {
   xl: { py: 12 },
 };
 
-export const Section = forwardRef<HTMLElement, SectionProps>(
-  ({ 
-    children, 
-    maxWidth = 'lg', 
-    spacing = 'md', 
+export const Section = React.forwardRef<HTMLElement, SectionProps>(
+  ({
+    children,
+    maxWidth = 'lg',
+    spacing = 'md',
     component = 'section',
     sx,
-    ...props 
+    ...props
   }, ref) => {
+    const mergedSx = mergeSx(spacingMap[spacing], sx);
+
     return (
       <Box
         ref={ref}
         component={component}
-        sx={{
-          ...spacingMap[spacing],
-          ...sx,
-        }}
+        sx={mergedSx}
         {...props}
       >
         <Container maxWidth={maxWidth} sx={{ px: { xs: 2, sm: 3, md: 4 } }}>

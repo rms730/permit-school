@@ -23,7 +23,7 @@ import React from 'react';
 
 export const metadata = {
   title: 'Diagnostic Test | College Test Prep | Permit School',
-  description: 'Take a free diagnostic test to assess your current skill level and get personalized study recommendations.',
+  description: 'Take a diagnostic test to assess your current skill level and get personalized study recommendations.',
   keywords: 'diagnostic test,ACT diagnostic,SAT diagnostic,skill assessment,college test prep',
 };
 
@@ -44,7 +44,7 @@ export default function DiagnosticPage() {
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center' }}>
             <Chip
-              label="Free Diagnostic"
+              label="Diagnostic Assessment"
               color="primary"
               sx={{
                 mb: 2,
@@ -80,7 +80,7 @@ export default function DiagnosticPage() {
                 mb: 4,
               }}
             >
-              Take a free diagnostic test to identify your strengths and areas for improvement.
+              Take a diagnostic test to identify your strengths and areas for improvement.
             </Typography>
             <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
               <Button
@@ -99,7 +99,7 @@ export default function DiagnosticPage() {
                   },
                 }}
               >
-                Start Free Diagnostic
+                Start Diagnostic Assessment
               </Button>
               <Button
                 component={Link}
@@ -389,7 +389,7 @@ export default function DiagnosticPage() {
                 },
               }}
             >
-              Start Free Diagnostic
+              Start Diagnostic Assessment
             </Button>
           </Box>
         </Container>

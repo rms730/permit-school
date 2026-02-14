@@ -4,11 +4,11 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Pass Your California Permit Test | Permit School',
   description:
-    'DMV‑style practice tests, smart explanations, and bite‑size lessons. Start free and pass with confidence.',
+    'DMV‑style practice tests, smart explanations, and bite‑size lessons. Build confidence and pass with clarity.',
   openGraph: {
     title: 'Pass Your California Permit Test | Permit School',
     description:
-      'DMV‑style practice tests, smart explanations, and bite‑size lessons. Start free and pass with confidence.',
+      'DMV‑style practice tests, smart explanations, and bite‑size lessons. Build confidence and pass with clarity.',
     images: ['/og-hero.png'],
     type: 'website',
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Pass Your California Permit Test | Permit School',
     description:
-      'DMV‑style practice tests, smart explanations, and bite‑size lessons. Start free and pass with confidence.',
+      'DMV‑style practice tests, smart explanations, and bite‑size lessons. Build confidence and pass with clarity.',
   },
   keywords: [
     'California permit test',

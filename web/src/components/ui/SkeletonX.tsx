@@ -7,7 +7,7 @@ import {
   Card, 
   CardContent
 } from '@mui/material';
-import { forwardRef } from 'react';
+import * as React from 'react';
 
 interface SkeletonXProps {
   variant?: 'text' | 'card' | 'list' | 'hero' | 'table';
@@ -18,7 +18,7 @@ interface SkeletonXProps {
   sx?: any;
 }
 
-export const SkeletonX = forwardRef<HTMLDivElement, SkeletonXProps>(
+export const SkeletonX = React.forwardRef<HTMLDivElement, SkeletonXProps>(
   ({ 
     variant = 'text', 
     lines = 3, 

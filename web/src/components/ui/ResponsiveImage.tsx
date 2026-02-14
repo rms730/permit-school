@@ -1,8 +1,11 @@
 "use client";
 
 import { Box, Skeleton } from '@mui/material';
+import { type SxProps, type Theme } from '@mui/material/styles';
 import Image from 'next/image';
-import { forwardRef, useState } from 'react';
+import * as React from 'react';
+
+import { mergeSx } from '@/lib/mergeSx';
 
 interface ResponsiveImageProps {
   src: string;
@@ -14,18 +17,18 @@ interface ResponsiveImageProps {
   priority?: boolean;
   sizes?: string;
   className?: string;
-  sx?: any;
+  sx?: SxProps<Theme>;
   onLoad?: () => void;
   onError?: () => void;
 }
 
-export const ResponsiveImage = forwardRef<HTMLDivElement, ResponsiveImageProps>(
-  ({ 
-    src, 
-    alt, 
-    width, 
-    height, 
-    ratio = 16/9,
+export const ResponsiveImage = React.forwardRef<HTMLDivElement, ResponsiveImageProps>(
+  ({
+    src,
+    alt,
+    width,
+    height,
+    ratio = 16 / 9,
     fill = false,
     priority = false,
     sizes = '100vw',
@@ -33,10 +36,51 @@ export const ResponsiveImage = forwardRef<HTMLDivElement, ResponsiveImageProps>(
     sx,
     onLoad,
     onError,
-    ...props 
+    ...props
   }, ref) => {
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+    const [loading, setLoading] = React.useState(true);
+    const [error, setError] = React.useState(false);
+    const resolvedWidth =
+      typeof width === 'number'
+        ? width
+        : typeof height === 'number'
+          ? Math.round(height * ratio)
+          : undefined;
+    const resolvedHeight =
+      typeof height === 'number'
+        ? height
+        : typeof width === 'number'
+          ? Math.round(width / ratio)
+          : undefined;
+    const useFill = fill || (!resolvedWidth && !resolvedHeight);
+    const containerSizingSx = useFill
+      ? {
+          width: '100%',
+          aspectRatio: `${ratio}`,
+        }
+      : {
+          width: resolvedWidth ?? '100%',
+          height: resolvedHeight ?? 'auto',
+        };
+    const errorSx = mergeSx(
+      {
+        ...containerSizingSx,
+        backgroundColor: 'grey.200',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'text.secondary',
+      },
+      sx
+    );
+    const frameSx = mergeSx(
+      {
+        ...containerSizingSx,
+        position: 'relative',
+        overflow: 'hidden',
+      },
+      sx
+    );
 
     const handleLoad = () => {
       setLoading(false);
@@ -53,16 +97,7 @@ export const ResponsiveImage = forwardRef<HTMLDivElement, ResponsiveImageProps>(
       return (
         <Box
           ref={ref}
-          sx={{
-            width: width || '100%',
-            height: height || (width ? width / ratio : 'auto'),
-            backgroundColor: 'grey.200',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'text.secondary',
-            ...sx,
-          }}
+          sx={errorSx}
           {...props}
         >
           <Box component="span" sx={{ fontSize: '0.875rem' }}>
@@ -75,13 +110,7 @@ export const ResponsiveImage = forwardRef<HTMLDivElement, ResponsiveImageProps>(
     return (
       <Box
         ref={ref}
-        sx={{
-          position: 'relative',
-          width: width || '100%',
-          height: height || (width ? width / ratio : 'auto'),
-          overflow: 'hidden',
-          ...sx,
-        }}
+        sx={frameSx}
         className={className}
         {...props}
       >
@@ -97,10 +126,10 @@ export const ResponsiveImage = forwardRef<HTMLDivElement, ResponsiveImageProps>(
         <Image
           src={src}
           alt={alt}
-          width={width}
-          height={height}
-          fill={fill}
-          priority={priority}
+          {...(useFill
+            ? { fill: true as const }
+            : { width: resolvedWidth, height: resolvedHeight })}
+          priority={priority || undefined}
           sizes={sizes}
           onLoad={handleLoad}
           onError={handleError}

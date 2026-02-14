@@ -1,15 +1,18 @@
 "use client";
 
-import { 
-  Card, 
-  CardContent, 
-  CardActions, 
+import {
+  Card,
+  CardContent,
+  CardActions,
   CardHeader,
   Typography,
   CardProps,
-  TypographyProps
+  TypographyProps,
 } from '@mui/material';
-import { forwardRef } from 'react';
+import { type Theme } from '@mui/material/styles';
+import * as React from 'react';
+
+import { mergeSx } from '@/lib/mergeSx';
 
 interface CardXProps extends Omit<CardProps, 'title'> {
   title?: string;
@@ -30,40 +33,43 @@ const spacingMap = {
   relaxed: { p: 4 },
 };
 
-const variantMap = {
-  elevation: { elevation: 3 },
-  outlined: { variant: 'outlined' as const, elevation: 0 },
+const elevationMap = {
+  elevation: 3,
+  outlined: 0,
 };
 
-export const CardX = forwardRef<HTMLDivElement, CardXProps>(
-  ({ 
-    title, 
-    subtitle, 
-    children, 
-    actions, 
+export const CardX = React.forwardRef<HTMLDivElement, CardXProps>(
+  ({
+    title,
+    subtitle,
+    children,
+    actions,
     headerActions,
     variant = 'elevation',
     titleVariant = 'h6',
     subtitleVariant = 'body2',
     spacing = 'normal',
     sx,
-    ...props 
+    ...props
   }, ref) => {
+    const baseSx = {
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      transition: 'all 0.2s ease-in-out',
+      '&:hover': {
+        transform: 'translateY(-2px)',
+        boxShadow: (theme: Theme) => theme.shadows[8],
+      },
+    };
+    const mergedSx = mergeSx(baseSx, sx);
+
     return (
       <Card
         ref={ref}
-        sx={{
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          transition: 'all 0.2s ease-in-out',
-          '&:hover': {
-            transform: 'translateY(-2px)',
-            boxShadow: theme => theme.shadows[8],
-          },
-          ...variantMap[variant],
-          ...sx,
-        }}
+        variant={variant === 'outlined' ? 'outlined' : undefined}
+        elevation={elevationMap[variant]}
+        sx={mergedSx}
         {...props}
       >
         {(title || headerActions) && (
@@ -85,9 +91,9 @@ export const CardX = forwardRef<HTMLDivElement, CardXProps>(
             }}
           />
         )}
-        
-        <CardContent 
-          sx={{ 
+
+        <CardContent
+          sx={{
             ...spacingMap[spacing],
             pt: title ? 0 : undefined,
             flexGrow: 1,
@@ -97,10 +103,10 @@ export const CardX = forwardRef<HTMLDivElement, CardXProps>(
         >
           {children}
         </CardContent>
-        
+
         {actions && (
-          <CardActions 
-            sx={{ 
+          <CardActions
+            sx={{
               ...spacingMap[spacing],
               pt: 0,
               justifyContent: 'flex-end',

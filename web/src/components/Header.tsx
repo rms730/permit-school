@@ -14,6 +14,7 @@ import {
   IconButton,
   Stack,
 } from '@mui/material';
+import { alpha } from '@mui/material/styles';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
@@ -23,6 +24,7 @@ import { scrollToAnchor } from '../lib/scrollToAnchor';
 
 import { Button } from './Button';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeToggleButton from './ThemeToggleButton';
 
 type NavItem = {
   id: 'how' | 'practice' | 'pricing' | 'faq';
@@ -43,6 +45,7 @@ export function Header() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const t = useTranslations('Header');
+  const tTheme = useTranslations('Header.theme');
   const locale = useLocale();
   const router = useRouter();
 
@@ -91,9 +94,13 @@ export function Header() {
           </ListItem>
         ))}
         <ListItem sx={{ px: 0, pt: 2.5, pb: 0, flexDirection: 'column', gap: 1.5 }}>
-          <Box sx={{ alignSelf: 'flex-start' }}>
+          <Stack direction="row" spacing={1} sx={{ alignSelf: 'flex-start' }}>
             <LanguageSwitcher />
-          </Box>
+            <ThemeToggleButton
+              switchToDarkLabel={tTheme('switchToDark')}
+              switchToLightLabel={tTheme('switchToLight')}
+            />
+          </Stack>
           <Button variant="ghost" fullWidth component={Link} href="/login" size="lg">
             {t('nav.signIn')}
           </Button>
@@ -101,9 +108,9 @@ export function Header() {
             variant="primary"
             fullWidth
             component={Link}
-            href="/practice"
+            href="/signup"
             size="lg"
-            data-cta="header-start-free"
+            data-cta="header-get-started"
           >
             {t('nav.start')}
           </Button>
@@ -117,9 +124,11 @@ export function Header() {
       <AppBar
         component="header"
         position="sticky"
+        color="transparent"
         elevation={0}
         sx={{
-          backgroundColor: 'rgba(247, 250, 252, 0.88)',
+          backgroundColor: (theme) => alpha(theme.palette.background.paper, 0.88),
+          color: 'text.primary',
           borderBottom: '1px solid',
           borderColor: 'divider',
         }}
@@ -131,10 +140,12 @@ export function Header() {
             href={`/${locale}`}
             sx={{
               fontWeight: 700,
-              color: 'text.primary',
+              color: (theme) => (theme.palette.mode === 'light' ? '#0f2238' : '#e7eef8'),
               textDecoration: 'none',
               fontFamily: 'var(--font-display, "Sora"), "Avenir Next", "Segoe UI", sans-serif',
               letterSpacing: '-0.02em',
+              textShadow: (theme) =>
+                theme.palette.mode === 'light' ? '0 1px 0 rgba(255,255,255,0.4)' : 'none',
             }}
           >
             {t('brand')}
@@ -164,15 +175,19 @@ export function Header() {
             {!isMobile ? (
               <>
                 <LanguageSwitcher />
+                <ThemeToggleButton
+                  switchToDarkLabel={tTheme('switchToDark')}
+                  switchToLightLabel={tTheme('switchToLight')}
+                />
                 <Button variant="ghost" component={Link} href="/login" size="md">
                   {t('nav.signIn')}
                 </Button>
                 <Button
                   variant="primary"
                   component={Link}
-                  href="/practice"
+                  href="/signup"
                   size="md"
-                  data-cta="header-start-free"
+                  data-cta="header-get-started"
                 >
                   {t('nav.start')}
                 </Button>

@@ -4,9 +4,12 @@ import { Button, ButtonProps } from '@mui/material';
 import { forwardRef, useState } from 'react';
 
 import { useSnack } from '@/app/providers/SnackbarProvider';
+import { createAuthClient } from '@/lib/auth';
 
 interface CheckoutButtonProps extends Omit<ButtonProps, 'onClick' | 'onError'> {
   priceId: string;
+  jCode?: string;
+  courseCode?: string;
   successUrl?: string;
   cancelUrl?: string;
   onSuccess?: () => void;
@@ -16,6 +19,8 @@ interface CheckoutButtonProps extends Omit<ButtonProps, 'onClick' | 'onError'> {
 export const CheckoutButton = forwardRef<HTMLButtonElement, CheckoutButtonProps>(
   ({ 
     priceId, 
+    jCode = 'CA',
+    courseCode = 'DE-ONLINE',
     successUrl = '/billing/success',
     cancelUrl = '/billing/cancel',
     onSuccess,
@@ -30,6 +35,13 @@ export const CheckoutButton = forwardRef<HTMLButtonElement, CheckoutButtonProps>
     const handleCheckout = async () => {
       try {
         setLoading(true);
+
+        const supabase = createAuthClient();
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) {
+          window.location.href = '/login';
+          return;
+        }
         
         const response = await fetch('/api/billing/checkout', {
           method: 'POST',
@@ -38,10 +50,17 @@ export const CheckoutButton = forwardRef<HTMLButtonElement, CheckoutButtonProps>
           },
           body: JSON.stringify({
             priceId,
+            j_code: jCode,
+            course_code: courseCode,
             successUrl,
             cancelUrl,
           }),
         });
+
+        if (response.status === 401) {
+          window.location.href = '/login';
+          return;
+        }
 
         const data = await response.json();
 

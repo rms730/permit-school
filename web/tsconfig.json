@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
@@ -14,11 +18,17 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
-    "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
+    "types": [
+      "node",
+      "vitest/globals",
+      "@testing-library/jest-dom"
+    ],
     "plugins": [
       {
         "name": "next"
@@ -26,12 +36,16 @@
     ]
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "vitest.config.ts",
+    ".next/types/**/*.ts",
+    "next-env.d.ts",
     "src/test/setup.ts",
-    ".next/types/**/*.ts"
+    "vitest.config.ts",
+    ".next-dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "tests/e2e/**/*"]
+  "exclude": [
+    "node_modules",
+    "tests/e2e/**/*"
+  ]
 }

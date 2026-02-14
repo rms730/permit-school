@@ -61,7 +61,7 @@ export default function AuthSettings({ user, profile }: AuthSettingsProps) {
     setMessage(null);
 
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL || 'http://localhost:3000';
+      const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL || 'http://localhost:3001';
       await signInWithGoogle(`${baseUrl}/auth/callback`);
     } catch (error) {
       console.error('Google link error:', error);

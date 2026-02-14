@@ -50,7 +50,7 @@ export const CancelBanner = forwardRef<HTMLDivElement, CancelBannerProps>(
             {showRetryButton && (
               <Button
                 component={Link}
-                href="/pricing"
+                href="/billing"
                 variant="contained"
                 color="primary"
                 size="small"

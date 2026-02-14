@@ -1,12 +1,14 @@
 "use client";
 
-import { 
-  Box, 
-  Typography, 
-  Stack, 
-  BoxProps
+import {
+  Box,
+  Typography,
+  Stack,
+  BoxProps,
 } from '@mui/material';
-import { forwardRef } from 'react';
+import * as React from 'react';
+
+import { mergeSx } from '@/lib/mergeSx';
 
 interface PageHeaderProps extends Omit<BoxProps, 'component'> {
   title: string;
@@ -19,33 +21,35 @@ interface PageHeaderProps extends Omit<BoxProps, 'component'> {
 
 const headingVariants = {
   1: 'h1',
-  2: 'h2', 
+  2: 'h2',
   3: 'h3',
   4: 'h4',
   5: 'h5',
   6: 'h6',
 } as const;
 
-export const PageHeader = forwardRef<HTMLElement, PageHeaderProps>(
-  ({ 
-    title, 
-    subtitle, 
-    actions, 
+export const PageHeader = React.forwardRef<HTMLElement, PageHeaderProps>(
+  ({
+    title,
+    subtitle,
+    actions,
     level = 1,
     component = 'header',
     align = 'left',
     sx,
-    ...props 
+    ...props
   }, ref) => {
+    const baseSx = {
+      mb: { xs: 3, md: 4 },
+      textAlign: align,
+    };
+    const mergedSx = mergeSx(baseSx, sx);
+
     return (
       <Box
         ref={ref}
         component={component}
-        sx={{
-          mb: { xs: 3, md: 4 },
-          textAlign: align,
-          ...sx,
-        }}
+        sx={mergedSx}
         {...props}
       >
         <Stack
@@ -83,11 +87,11 @@ export const PageHeader = forwardRef<HTMLElement, PageHeaderProps>(
             )}
           </Box>
           {actions && (
-            <Box sx={{ 
-              display: 'flex', 
+            <Box sx={{
+              display: 'flex',
               flexDirection: { xs: 'column', sm: 'row' },
               gap: 1,
-              flexShrink: 0 
+              flexShrink: 0,
             }}>
               {actions}
             </Box>

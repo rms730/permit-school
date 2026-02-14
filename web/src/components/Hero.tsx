@@ -73,9 +73,9 @@ export function Hero() {
               <Button
                 variant="primary"
                 size="lg"
-                href="/practice"
-                data-cta="hero-start-free"
-                data-testid="hero-start-free"
+                href="/signup"
+                data-cta="hero-start"
+                data-testid="hero-start"
                 sx={{
                   backgroundColor: '#ffffff',
                   color: '#0f4b86',

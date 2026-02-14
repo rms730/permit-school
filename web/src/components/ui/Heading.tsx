@@ -1,7 +1,9 @@
 "use client";
 
 import { Typography, TypographyProps } from '@mui/material';
-import React, { forwardRef } from 'react';
+import * as React from 'react';
+
+import { mergeSx } from '@/lib/mergeSx';
 
 interface HeadingProps extends Omit<TypographyProps, 'component'> {
   level: 1 | 2 | 3 | 4 | 5 | 6;
@@ -18,20 +20,21 @@ const headingMap = {
   6: { variant: 'h6' as const, component: 'h6' as const },
 };
 
-export const Heading = forwardRef<HTMLElement, HeadingProps>(
+export const Heading = React.forwardRef<HTMLElement, HeadingProps>(
   ({ level, children, component, sx, ...props }, ref) => {
     const headingConfig = headingMap[level];
-    
+    const baseSx = {
+      fontWeight: 700,
+      lineHeight: 1.2,
+    };
+    const mergedSx = mergeSx(baseSx, sx);
+
     return (
       <Typography
         ref={ref}
         variant={headingConfig.variant}
         component={component || headingConfig.component}
-        sx={{
-          fontWeight: 700,
-          lineHeight: 1.2,
-          ...sx,
-        }}
+        sx={mergedSx}
         {...props}
       >
         {children}

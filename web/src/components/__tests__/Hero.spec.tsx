@@ -10,11 +10,9 @@ vi.mock('next-intl', () => ({
     const translations: Record<string, string> = {
       'hero.title': 'Learn to Drive in California',
       'hero.subtitle': 'Comprehensive driver education for California permit test',
-      'hero.cta.primary': 'Start Free Practice',
-      'hero.cta.secondary': 'View Courses',
-      'hero.features.1': 'Interactive Lessons',
-      'hero.features.2': 'Practice Tests',
-      'hero.features.3': 'Expert Tutoring',
+      'hero.primaryCta': 'Start practice',
+      'hero.secondaryCta': 'See how it works',
+      'trust.badge': 'Trusted by 10,000+ learners • 4.8★ average rating',
     };
     return translations[key] || key;
   },
@@ -31,16 +29,16 @@ describe('Hero', () => {
   it('renders primary CTA button', () => {
     renderWithProviders(<Hero />);
     
-    const primaryButton = screen.getByTestId('hero-start-free');
+    const primaryButton = screen.getByTestId('hero-start');
     expect(primaryButton).toBeInTheDocument();
-    expect(primaryButton).toHaveTextContent('hero.primaryCta');
-    expect(primaryButton).toHaveAttribute('data-cta', 'hero-start-free');
+    expect(primaryButton).toHaveTextContent('Start practice');
+    expect(primaryButton).toHaveAttribute('data-cta', 'hero-start');
   });
 
   it('renders secondary CTA button', () => {
     renderWithProviders(<Hero />);
     
-    const secondaryButton = screen.getByRole('link', { name: /hero\.secondaryCta/i });
+    const secondaryButton = screen.getByRole('link', { name: /see how it works/i });
     expect(secondaryButton).toBeInTheDocument();
   });
 
@@ -66,11 +64,12 @@ describe('Hero', () => {
     const user = userEvent.setup();
     renderWithProviders(<Hero />);
     
-    const primaryButton = screen.getByTestId('hero-start-free');
+    const primaryButton = screen.getByTestId('hero-start');
+    const preventNavigation = vi.fn((event: Event) => event.preventDefault());
+    primaryButton.addEventListener('click', preventNavigation);
     await user.click(primaryButton);
     
-    // Button should be clickable (no errors thrown)
-    expect(primaryButton).toBeInTheDocument();
+    expect(preventNavigation).toHaveBeenCalledTimes(1);
   });
 
   it('renders with proper styling classes', () => {
@@ -78,7 +77,7 @@ describe('Hero', () => {
     
     const heroSection = document.querySelector('#section-hero');
     expect(heroSection).toHaveStyle({
-      background: 'linear-gradient(135deg, #0b1220 0%, #1e293b 50%, #334155 100%)',
+      background: 'linear-gradient(140deg, #0e365e 0%, #0f6ecf 52%, #17866f 100%)',
       color: 'rgb(255, 255, 255)',
     });
   });

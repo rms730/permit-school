@@ -7,14 +7,14 @@ export const en = {
       pricing: "Pricing",
       faq: "FAQ",
       signIn: "Sign in",
-      start: "Start free"
+      start: "Get started"
     }
   },
   Home: {
     hero: {
       title: "Pass your California permit test—on your first try.",
       subtitle: "Study exactly what the DMV asks. Smart practice tests, instant feedback, and bite‑size lessons designed for busy people.",
-      primaryCta: "Start free practice",
+      primaryCta: "Start practice",
       secondaryCta: "See how it works"
     },
     trust: {

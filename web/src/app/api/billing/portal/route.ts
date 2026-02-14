@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     }
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-      apiVersion: '2025-07-30.basil',
+      apiVersion: '2025-08-27.basil',
     });
 
     // Get customer's stripe_customer_id
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
     // Create billing portal session
     const session = await stripe.billingPortal.sessions.create({
       customer: customer.stripe_customer_id,
-      return_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/billing`,
+      return_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3001'}/billing`,
     });
 
     return NextResponse.json({ url: session.url });

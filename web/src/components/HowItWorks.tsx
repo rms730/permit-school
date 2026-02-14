@@ -3,6 +3,7 @@
 import { PersonAdd, Quiz, CheckCircle } from '@mui/icons-material';
 import { Box, Stack, Typography, useMediaQuery } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import { alpha } from '@mui/material/styles';
 import * as React from 'react';
 
 import { Heading } from './ui/Heading';
@@ -36,10 +37,15 @@ export function HowItWorks() {
     <Section
       id="section-how-it-works"
       spacing="xl"
-      sx={{
+      sx={(theme) => ({
         background:
-          'linear-gradient(180deg, rgba(15,110,207,0.04) 0%, rgba(23,134,111,0.03) 100%)',
-      }}
+          theme.palette.mode === 'dark'
+            ? `linear-gradient(180deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(
+                theme.palette.secondary.main,
+                0.08
+              )} 100%)`
+            : 'linear-gradient(180deg, rgba(15,110,207,0.04) 0%, rgba(23,134,111,0.03) 100%)',
+      })}
     >
       <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 7 } }}>
         <Heading level={2} sx={{ mb: 1.5 }}>
@@ -54,16 +60,21 @@ export function HowItWorks() {
         {showConnector ? (
           <Box
             aria-hidden
-            sx={{
+            sx={(theme) => ({
               position: 'absolute',
               left: '12%',
               right: '12%',
               top: 48,
               height: 2,
               background:
-                'linear-gradient(90deg, rgba(15,110,207,0.4) 0%, rgba(23,134,111,0.45) 100%)',
+                theme.palette.mode === 'dark'
+                  ? `linear-gradient(90deg, ${alpha(theme.palette.primary.main, 0.55)} 0%, ${alpha(
+                      theme.palette.secondary.main,
+                      0.6
+                    )} 100%)`
+                  : 'linear-gradient(90deg, rgba(15,110,207,0.4) 0%, rgba(23,134,111,0.45) 100%)',
               zIndex: 0,
-            }}
+            })}
           />
         ) : null}
 
@@ -77,13 +88,19 @@ export function HowItWorks() {
                   spacing={2.2}
                   alignItems="center"
                   textAlign="center"
-                  sx={{
+                  sx={(theme) => ({
                     p: { xs: 2.5, md: 3 },
                     borderRadius: 4,
-                    border: '1px solid rgba(18,32,50,0.12)',
-                    backgroundColor: 'rgba(255,255,255,0.88)',
+                    border: `1px solid ${alpha(
+                      theme.palette.text.primary,
+                      theme.palette.mode === 'dark' ? 0.24 : 0.12
+                    )}`,
+                    backgroundColor:
+                      theme.palette.mode === 'dark'
+                        ? alpha(theme.palette.background.paper, 0.9)
+                        : 'rgba(255,255,255,0.88)',
                     minHeight: 320,
-                  }}
+                  })}
                 >
                   <Box
                     sx={{
@@ -101,14 +118,17 @@ export function HowItWorks() {
                   </Box>
 
                   <Box
-                    sx={{
+                    sx={(theme) => ({
                       width: 76,
                       height: 76,
                       borderRadius: '50%',
                       display: 'grid',
                       placeItems: 'center',
-                      backgroundColor: 'rgba(15,110,207,0.12)',
-                    }}
+                      backgroundColor: alpha(
+                        theme.palette.primary.main,
+                        theme.palette.mode === 'dark' ? 0.24 : 0.12
+                      ),
+                    })}
                   >
                     <Icon sx={{ color: 'primary.main', fontSize: 38 }} />
                   </Box>

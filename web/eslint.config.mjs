@@ -11,6 +11,7 @@ export default [
   {
     ignores: [
       '.next/**',
+      '.next-dev/**',
       'public/sw.js',
       'public/workbox-*.js',
       'node_modules/**',

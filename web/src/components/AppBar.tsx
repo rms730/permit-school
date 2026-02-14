@@ -8,6 +8,8 @@ import {
   Link,
   Button,
 } from "@mui/material";
+import { alpha } from "@mui/material/styles";
+import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import * as React from "react";
 import { useState, useEffect } from "react";
 
@@ -16,6 +18,7 @@ import { useI18n } from "@/lib/i18n/I18nProvider";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import NotificationBell from "./NotificationBell";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 
 interface AppBarProps {
@@ -27,22 +30,38 @@ export default function AppBar({ title = "Permit School — Tutor" }: AppBarProp
   const [isEntitled, setIsEntitled] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(true);
   const [userRole, setUserRole] = useState<string | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     async function checkEntitlement() {
       try {
+        const supabase = createPagesBrowserClient();
+        const { data: { user } } = await supabase.auth.getUser();
+
+        if (!user) {
+          setIsEntitled(false);
+          setUserRole(null);
+          setIsAuthenticated(false);
+          return;
+        }
+
+        setIsAuthenticated(true);
+
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('role')
+          .eq('id', user.id)
+          .single();
+
+        setUserRole(profile?.role ?? null);
+
         const { active } = await getEntitlementForUserClient('CA');
         setIsEntitled(active);
-        
-        // Get user role
-        const response = await fetch('/api/profile');
-        if (response.ok) {
-          const data = await response.json();
-          setUserRole(data.role);
-        }
       } catch (err) {
         console.error('Error checking entitlement:', err);
         setIsEntitled(false);
+        setUserRole(null);
+        setIsAuthenticated(false);
       } finally {
         setLoading(false);
       }
@@ -52,25 +71,37 @@ export default function AppBar({ title = "Permit School — Tutor" }: AppBarProp
   }, []);
 
   return (
-    <MuiAppBar position="static" elevation={0}>
+    <MuiAppBar
+      position="static"
+      elevation={0}
+      color="transparent"
+      sx={{
+        backgroundColor: (theme) => alpha(theme.palette.background.paper, 0.92),
+        borderBottom: "1px solid",
+        borderColor: "divider",
+        color: "text.primary",
+      }}
+    >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Typography variant="h6">{title}</Typography>
         <Stack direction="row" spacing={2} alignItems="center">
           <Link href="/" underline="hover" color="inherit">
             {dict.nav.home}
           </Link>
-          <Link href="/course/CA/DE-ONLINE" underline="hover" color="inherit">
+          <Link href="/courses" underline="hover" color="inherit">
             {dict.nav.courses}
           </Link>
-          <Link href="/admin/logs" underline="hover" color="inherit">
-            {dict.nav.admin}
-          </Link>
+          {userRole === 'admin' && (
+            <Link href="/admin/logs" underline="hover" color="inherit">
+              {dict.nav.admin}
+            </Link>
+          )}
           {userRole === 'guardian' && (
             <Link href="/guardian" underline="hover" color="inherit">
               {dict.nav.guardian}
             </Link>
           )}
-          {!loading && (
+          {!loading && isAuthenticated && (
             <>
               {!isEntitled ? (
                 <Button
@@ -89,10 +120,17 @@ export default function AppBar({ title = "Permit School — Tutor" }: AppBarProp
               )}
             </>
           )}
-          <NotificationBell />
-          <Link href="/signin" underline="hover" color="inherit">
-            {dict.nav.signIn}
-          </Link>
+          {isAuthenticated && <NotificationBell />}
+          <ThemeToggleButton />
+          {isAuthenticated ? (
+            <Link href="/signout" underline="hover" color="inherit">
+              {dict.nav.signOut}
+            </Link>
+          ) : (
+            <Link href="/login" underline="hover" color="inherit">
+              {dict.nav.signIn}
+            </Link>
+          )}
           <Link href="/privacy" underline="hover" color="inherit">
             {dict.nav.privacy}
           </Link>

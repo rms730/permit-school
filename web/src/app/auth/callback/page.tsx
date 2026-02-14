@@ -70,7 +70,7 @@ export default function AuthCallbackPage() {
   // Handle error redirect
   React.useEffect(() => {
     if (error) {
-      const timer = setTimeout(() => router.push('/en/signin'), 3000);
+      const timer = setTimeout(() => router.push('/en/login'), 3000);
       return () => clearTimeout(timer);
     }
   }, [error, router]);

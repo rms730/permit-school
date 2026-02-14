@@ -7,11 +7,11 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Driver Permits | Pass Your DMV Test | Permit School',
   description:
-    'DMV‑style practice tests, smart explanations, and bite‑size lessons. Start free and pass your permit test with confidence.',
+    'DMV‑style practice tests, smart explanations, and bite‑size lessons. Build confidence and pass your permit test with clarity.',
   openGraph: {
     title: 'Driver Permits | Pass Your DMV Test | Permit School',
     description:
-      'DMV‑style practice tests, smart explanations, and bite‑size lessons. Start free and pass your permit test with confidence.',
+      'DMV‑style practice tests, smart explanations, and bite‑size lessons. Build confidence and pass your permit test with clarity.',
     images: ['/og-hero.png'],
     type: 'website',
   },
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Driver Permits | Pass Your DMV Test | Permit School',
     description:
-      'DMV‑style practice tests, smart explanations, and bite‑size lessons. Start free and pass your permit test with confidence.',
+      'DMV‑style practice tests, smart explanations, and bite‑size lessons. Build confidence and pass your permit test with clarity.',
   },
   keywords: [
     'driver permit test',
@@ -105,7 +105,7 @@ export default function PermitsPage() {
                   },
                 }}
               >
-                Start Free Trial
+                Get Started
               </Button>
               <Button
                 component={Link}
@@ -318,7 +318,7 @@ export default function PermitsPage() {
                 },
               }}
             >
-              Start Your Free Trial
+              Create Your Account
             </Button>
           </Box>
         </Container>

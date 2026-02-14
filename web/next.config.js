@@ -61,9 +61,12 @@ const withPWA = require("next-pwa")({
   ],
 });
 
+const isDev = process.env.NODE_ENV === "development";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  distDir: isDev ? ".next-dev" : ".next",
   // experimental: { forceSwcTransforms: true }, // Temporarily disabled to fix MUI vendor chunk issue
   output: "standalone",
   // Disable static generation for pages that use React context

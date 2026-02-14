@@ -174,7 +174,7 @@ export async function POST(request: NextRequest) {
       issuedAt: new Date(),
       issuerName: process.env.CERT_ISSUER_NAME || 'Driving Academy',
       issuerLicense: process.env.CERT_ISSUER_LICENSE || 'LICENSE-123',
-      verifyUrl: `${process.env.APP_ORIGIN || 'http://localhost:3000'}/verify/${numberResult}`
+      verifyUrl: `${process.env.APP_ORIGIN || 'http://localhost:3001'}/verify/${numberResult}`
     };
 
     const pdfBuffer = await renderCertificatePDF(pdfData);
@@ -219,7 +219,7 @@ export async function POST(request: NextRequest) {
           to: user.user.email,
           name: (certificate.profiles as any)?.full_name,
           certNumber: numberResult,
-          verifyUrl: `${process.env.APP_ORIGIN || 'http://localhost:3000'}/verify/${numberResult}`,
+          verifyUrl: `${process.env.APP_ORIGIN || 'http://localhost:3001'}/verify/${numberResult}`,
           pdfUrl: publicUrl,
         });
       }

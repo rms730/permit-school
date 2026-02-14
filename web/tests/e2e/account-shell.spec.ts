@@ -5,6 +5,7 @@ let browser: Browser;
 let context: BrowserContext;
 let page: Page;
 let testkit: TestkitAPI;
+const baseURL = process.env.BASE_URL || 'http://localhost:3001';
 
 test.describe('Account & Shell Functionality', () => {
   test.beforeAll(async ({ browser: testBrowser }) => {
@@ -13,13 +14,13 @@ test.describe('Account & Shell Functionality', () => {
     const page = await context.newPage();
     
     try {
-      testkit = new TestkitAPI('http://localhost:3000', process.env.TESTKIT_TOKEN || '');
+      testkit = new TestkitAPI(baseURL, process.env.TESTKIT_TOKEN || '');
       
       // Create a test user
       const testUser = await testkit.createUser({ admin: false, locale: 'en' });
       
       // Sign in the test user
-      await page.goto('http://localhost:3000/signin');
+      await page.goto('/signin');
       await page.fill('input[name="email"]', testUser.email);
       await page.fill('input[name="password"]', testUser.password);
       await page.click('button[type="submit"]');
@@ -47,7 +48,7 @@ test.describe('Account & Shell Functionality', () => {
 
       // Set mobile viewport
       await page.setViewportSize({ width: 375, height: 667 });
-      await page.goto('http://localhost:3000/dashboard');
+      await page.goto('/dashboard');
       
       // Verify page loads
       await expect(page.locator('main')).toBeVisible();
@@ -62,7 +63,7 @@ test.describe('Account & Shell Functionality', () => {
         return;
       }
 
-      await page.goto('http://localhost:3000/account');
+      await page.goto('/account');
       
       // Verify page loads
       await expect(page.locator('main')).toBeVisible();
@@ -75,7 +76,7 @@ test.describe('Account & Shell Functionality', () => {
         return;
       }
 
-      await page.goto('http://localhost:3000/account');
+      await page.goto('/account');
       
       // Verify page loads
       await expect(page.locator('main')).toBeVisible();
@@ -90,7 +91,7 @@ test.describe('Account & Shell Functionality', () => {
         return;
       }
 
-      await page.goto('http://localhost:3000');
+      await page.goto('/');
       
       // Verify page loads
       await expect(page.locator('main')).toBeVisible();
@@ -105,7 +106,7 @@ test.describe('Account & Shell Functionality', () => {
         return;
       }
 
-      await page.goto('http://localhost:3000/dashboard');
+      await page.goto('/dashboard');
       
       // Verify page loads
       await expect(page.locator('main')).toBeVisible();
